@@ -68,7 +68,7 @@ footer{max-width:1740px;padding:20px 24px}
 /* Keep the main menu; catalogue headings live in the side panels. */
 .masthead{max-width:1740px;margin:12px auto 0;width:calc(100% - 48px);padding:14px 24px;min-height:98px}
 .side-left{padding-top:8px;padding-bottom:8px}.side-menu nav .all-armies{margin-bottom:5px}
-.model-open{display:block}.card-author a,.byline a,.credit-intro a{color:#d6bb79;text-decoration:underline;text-decoration-color:#8c764b70;text-underline-offset:3px}.card-author a:hover,.byline a:hover,.credit-intro a:hover{color:#ffe2a0;text-decoration-color:currentColor}
+.model-open{display:block}.card-author a,.byline a,.credit-intro a,.credit-row a{color:#d6bb79;text-decoration:underline;text-decoration-color:#8c764b70;text-underline-offset:3px}.card-author a:hover,.byline a:hover,.credit-intro a:hover,.credit-row a:hover{color:#ffe2a0;text-decoration-color:currentColor}
 .card-text .card-author{line-height:1.55;font-size:.76rem;margin-top:6px}
 @media(max-width:1100px){.masthead{width:calc(100% - 32px)}}
 @media(max-width:560px){.masthead{width:calc(100% - 24px);padding:10px 12px;min-height:80px}.masthead .brand{font-size:1rem}.masthead .brand-seal{width:28px;height:34px;font-size:1.3rem}.masthead nav{font-size:.78rem;gap:10px}.masthead nav a{padding:6px}.card-text .card-author{font-size:.72rem}}

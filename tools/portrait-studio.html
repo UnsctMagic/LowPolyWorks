@@ -1,7 +1,8 @@
 <!doctype html><html><head><script type="importmap">{"imports":{"three":"/vendor/three.module.js","three/addons/controls/OrbitControls.js":"/vendor/OrbitControls.js"}}</script></head><body style="background:#000;color:#cbb37d"><h1>Rendering portrait cards</h1><div id="results"></div><canvas id="canvas" style="width:512px;height:512px"></canvas><script type="module">
 import {createViewer} from '/viewer.js';
 const rows=await fetch('/catalogue.json').then(r=>r.json());
-for(const row of rows){try{
+const selected=new URLSearchParams(location.search).get('models')?.split(',');
+for(const row of rows.filter(row=>!selected||selected.includes(row.id))){try{
  const canvas=document.querySelector('canvas'),viewer=await createViewer(canvas,row,{thumbnail:true,portrait:true,cutout:true});viewer.render(row.id==='aspiring'?600:0);
  const image=document.createElement('canvas');image.width=image.height=1024;
  const context=image.getContext('2d');context.imageSmoothingEnabled=true;context.imageSmoothingQuality='high';context.drawImage(canvas,0,0,1024,1024);

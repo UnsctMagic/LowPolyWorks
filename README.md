@@ -1,6 +1,6 @@
 # LowPolyWorks
 
-WarhammerCraft army and Warcraft III model catalogue. The current collection contains 38 models across Warriors of Chaos, Vampire Counts, The Empire, Bretonnia, and Orcs & Goblins.
+WarhammerCraft army and Warcraft III model catalogue. The current collection contains 40 models across Warriors of Chaos, Vampire Counts, The Empire, Bretonnia, and Orcs & Goblins.
 
 ## Run locally
 
