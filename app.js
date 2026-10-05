@@ -1,6 +1,6 @@
 import {createViewer} from './viewer.js?v=20261006-classic-portrait-controls';
 import {TEAM_COLORS} from './vendor/mdlxl/src/team-colors.js';
-import {recordUsage} from './usage.js';
+import {recordUsage} from './usage.js?v=20261006-unique-visitors';
 const app=document.querySelector('#app'),catalogue=await fetch('catalogue.json').then(r=>r.json());
 const armies=await fetch('armies.json?v=20261006-native-stone').then(r=>r.json());
 const descriptionParagraphs=text=>text.trim().split(/\r?\n\s*\r?\n/).map(paragraph=>`<p>${escape(paragraph.trim()).replace(/\r?\n/g,'<br>')}</p>`).join('');
