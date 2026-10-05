@@ -43,5 +43,6 @@ for (const army of armies) {
 exists('ui/human-portrait-frame.png');
 exists('ui/human-portrait-stone.png');
 exists('ui/portrait-stone-seamless-v2.png');
+exists('ui/portrait-stone-classic-v3.png');
 exists('whiteout/whiteout-paint-blp.wasm');
 console.log(`${rows.length} models, ${armies.length} armies, textures, downloads, unit cards, formation assets, and application syntax verified.`);
