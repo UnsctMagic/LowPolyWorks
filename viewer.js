@@ -12,11 +12,14 @@ import {decodePaintBlp} from './vendor/mdlxl/src/paint-blp.js';
 import {improveNativeTexture,nativeTeamColor} from './vendor/mdlxl/app/viewport-quality.js';
 import {TEAM_COLORS} from './vendor/mdlxl/src/team-colors.js';
 import {evaluateModelCamera,applyEvaluatedModelCamera,firstPortraitSequenceIndex} from './vendor/mdlxl/app/portrait-view.js';
+import {SHOWCASE_QUALITY} from './vendor/mdlxl/app/showcase-director.js';
+const graphics=SHOWCASE_QUALITY.high;
+const preferences={graphics:{...graphics,textures:true,lighting:true,particles:true,maxFps:60,pauseWhenHidden:false},lighting:{preset:'legacy'}};
 const textureIndex=fetch('textures.json').then(r=>r.json()),textureCache=new Map();
 async function textureData(name,row){const index=await textureIndex,key=name.toLowerCase(),file=row.textureFiles?.[key]||index[key];if(!file)throw Error('Missing texture: '+name);if(!textureCache.has(file))textureCache.set(file,(async()=>{const b=await fetch(file).then(r=>r.arrayBuffer());const pixels=await decodePaintBlp(b);return new ImageData(pixels.data,pixels.width,pixels.height);})());return textureCache.get(file);}
 export async function createViewer(canvas,row,{thumbnail=false,portrait=false,formation=false,formationYaw=0,cutout=false,onPortraitModeChange}={}){
  const transparent=formation||cutout;
- const bytes=await fetch('models/'+row.file).then(r=>{if(!r.ok)throw Error('Model unavailable');return r.arrayBuffer();});const model=parseMDX(bytes),gl=canvas.getContext('webgl2',{alpha:transparent,premultipliedAlpha:false,antialias:true,preserveDrawingBuffer:true});if(!gl)throw Error('This browser could not start WebGL2.');
+ const bytes=await fetch('models/'+row.file).then(r=>{if(!r.ok)throw Error('Model unavailable');return r.arrayBuffer();});const model=parseMDX(bytes),gl=canvas.getContext('webgl2',{alpha:transparent,premultipliedAlpha:false,antialias:graphics.antialias,preserveDrawingBuffer:true});if(!gl)throw Error('This browser could not start WebGL2.');
  let sequence=model.Sequences.findIndex(s=>s.Name==='Stand'||s.Name==='Stand - 1'),clock=0,playing=!thumbnail,speed=1,rotate=false,revision=0,previous=null,disposed=false;
  if(sequence<0)sequence=0;
  if(portrait&&firstPortraitSequenceIndex(model)>=0)sequence=firstPortraitSequenceIndex(model);
@@ -29,8 +32,9 @@ export async function createViewer(canvas,row,{thumbnail=false,portrait=false,fo
  if(transparent){const blendFunc=gl.blendFunc;gl.blendFunc=function(source,destination){if(destination===gl.ONE&&(source===gl.ONE||source===gl.SRC_ALPHA||source===gl.SRC_COLOR))return gl.blendFuncSeparate(source,destination,gl.ZERO,gl.ONE);return blendFunc.call(gl,source,destination);};}
  // Match MDLxL's MDX load boundary: animated KGAC is BGR; static GEOA is already RGB.
  model.GeosetAnims=convertMdxGeosetColorTracks(model.GeosetAnims);
- const native=new ModelRenderer(model),adapter=installWarcraftPreviewAdapter(gl,model,()=>({frame:native.getFrame(),sequenceIndex:sequence,globalTime:clock,lighting:true,portrait:portraitActive,hiddenGeosets:portraitActive||formation?scenery:undefined,preferences:{},lightDirection:portraitActive?[.3,-.3,.25]:[-.65,.55,1],viewDirection:camera.getWorldDirection(new THREE.Vector3()).negate().toArray()}));installParticleNativeCompatibility(native);native.initGL(gl);adapter.ready(native);gl.depthFunc(gl.LEQUAL);
- await Promise.all(model.Textures.filter(t=>t.Image).map(async t=>{native.setTextureImageData(t.Image,[await textureData(t.Image,row)]);improveNativeTexture(gl,native,t.Image,{anisotropy:16});}));
+ const displayLight=()=>new THREE.Vector3(-.65,.55,1);
+ const native=new ModelRenderer(model),adapter=installWarcraftPreviewAdapter(gl,model,()=>({frame:native.getFrame(),sequenceIndex:sequence,globalTime:clock,lighting:preferences.graphics.lighting,portrait:portraitActive,hiddenGeosets:portraitActive||formation?scenery:undefined,preferences,lightDirection:portraitActive?[.3,-.3,.25]:displayLight().toArray(),viewDirection:camera.getWorldDirection(new THREE.Vector3()).negate().toArray()}));installParticleNativeCompatibility(native);native.initGL(gl);adapter.ready(native);gl.depthFunc(gl.LEQUAL);
+ await Promise.all(model.Textures.filter(t=>t.Image&&t.ReplaceableId!==1&&t.ReplaceableId!==2).map(async t=>{native.setTextureImageData(t.Image,[await textureData(t.Image,row)]);improveNativeTexture(gl,native,t.Image,graphics);}));
  const camera=new THREE.PerspectiveCamera(32,1,.1,3000);camera.up.set(0,0,1);
  native.setSequence(sequence);native.setTeamColor(nativeTeamColor(TEAM_COLORS[0].rgbHex));native.setLightColor([1,1,1]);
  previous=advanceShowcaseModel(native,model,{frame:model.Sequences[sequence].Interval[0],sequenceIndex:sequence,globalTime:0,revision,segment:sequence},previous);
@@ -53,7 +57,7 @@ export async function createViewer(canvas,row,{thumbnail=false,portrait=false,fo
   portraitActive=active;portraitDetached=false;onPortraitModeChange?.(active);
  }
  const maxSize=Math.min(gl.getParameter(gl.MAX_RENDERBUFFER_SIZE),...gl.getParameter(gl.MAX_VIEWPORT_DIMS)),msaaSamples=gl.getParameter(gl.SAMPLES);
- function render(delta=0){if(disposed)return;const w=Math.max(1,canvas.clientWidth||480),h=Math.max(1,canvas.clientHeight||480),scale=Math.min(Math.max(4,window.devicePixelRatio||1),maxSize/Math.max(w,h));const width=Math.round(w*scale),height=Math.round(h*scale);if(canvas.width!==width||canvas.height!==height){canvas.width=width;canvas.height=height;canvas.dataset.renderScale=String(scale);canvas.dataset.msaaSamples=String(msaaSamples);}camera.aspect=w/h;camera.updateProjectionMatrix();camera.updateMatrixWorld();native.setLightPosition([center.x+radius*3,center.y-radius*5,center.z+radius*7]);
+ function render(delta=0){if(disposed)return;const w=Math.max(1,canvas.clientWidth||480),h=Math.max(1,canvas.clientHeight||480),scale=Math.min(graphics.pixelRatio,maxSize/Math.max(w,h));const width=Math.round(w*scale),height=Math.round(h*scale);if(canvas.width!==width||canvas.height!==height){canvas.width=width;canvas.height=height;canvas.dataset.renderScale=String(scale);canvas.dataset.msaaSamples=String(msaaSamples);}camera.aspect=w/h;camera.updateProjectionMatrix();camera.updateMatrixWorld();native.setLightPosition(displayLight().normalize().multiplyScalar(radius*10).add(center).toArray());
  clock+=delta*speed;const sample=viewerPlaybackSample(model,sequence,clock,revision),frame=sample.frame;
  if(portraitActive&&!portraitDetached){const evaluated=evaluateModelCamera(model,model.Cameras[0],frame,sequence,clock);if(!applyEvaluatedModelCamera(camera,controls||portraitControls,evaluated,w/h))throw Error('Portrait camera unavailable.');}
  // Warcraft particle planes and billboard nodes use +X as forward and +Z as up.
