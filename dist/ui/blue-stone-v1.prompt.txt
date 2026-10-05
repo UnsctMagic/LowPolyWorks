@@ -1,0 +1,4 @@
+Tool: built-in image_gen
+Reference image: codex-clipboard-5bb33393-3330-4808-9d44-80b554a8f64f.png (style reference only)
+
+Create a seamless repeatable UI surface texture only, a square bitmap of weathered blue-black slate stone for an old late-1990s fantasy RPG inventory menu. Use the supplied screenshot strictly as a reference for the stone material and palette. Closely match its mottled dark desaturated navy-grey stone, coarse low-resolution hand-painted 2D game texture, small subtle chips and angular scratches. Flat uniformly lit material suitable for tiling across narrow panel borders, no lighting hotspot, no vignette, no perspective. Dark grey-blue overall, small mid-grey blue patches, slight pixelated retro painted appearance. No gold edging baked in, no frames, no menus, no text, no icons, no objects, no characters, no army art. Not photorealistic; old hand-painted low-poly game texture. Edges must tile seamlessly.

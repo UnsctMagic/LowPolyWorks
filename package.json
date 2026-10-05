@@ -1,0 +1,13 @@
+{
+  "name": "lowpolyworks",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "LowPolyWorks — WarhammerCraft army and model catalogue",
+  "scripts": {
+    "start": "node server.mjs",
+    "check": "node tools/check-project.mjs"
+  },
+  "engines": { "node": ">=20" },
+  "repository": { "type": "git", "url": "https://github.com/UnsctMagic/LowPolyWorks.git" }
+}

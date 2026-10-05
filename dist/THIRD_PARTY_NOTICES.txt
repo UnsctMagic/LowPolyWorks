@@ -1,0 +1,8 @@
+ModelRenderer: war3-model 4.0.1 by 4eb0da, MIT. License included in vendor/war3-model-LICENSE.txt.
+Three.js 0.183.2, MIT. License included in vendor/three-LICENSE.txt.
+Warcraft III models: recovered WarhammerCraft kitbashes by Unsanctioned Magic and their credited contributors. Original part credits are retained per model in catalogue.json and shown in the interface.
+Native Warcraft III textures: Blizzard Entertainment. Extracted from the user's local Warcraft III classic archives for this private design preview.
+MDLxL Showcase playback, orbit, animation and rendering adapter source is reused unchanged from the user's local MDLxL project. This is a catalogue-focused viewer, not the complete MDLxL editor.
+Fonts: Cinzel and IM Fell English, served by Google Fonts, licensed under the SIL Open Font License.
+WhiteoutLib texture decoder, pinned commit 38d279c2a6d8d439377959c56fe4f1eb9ab12fa6, BSD-3-Clause. License and build provenance included in whiteout/.
+MDLxL particle compatibility runtime: bundled unchanged from app/particle-preview-adapter.js, retaining the particle-atlas and compatibility exports. Billboard camera convention is reused from app/preview-pose.js.

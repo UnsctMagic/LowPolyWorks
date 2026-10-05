@@ -1,0 +1,31 @@
+<!doctype html><html><head><meta charset="utf-8"><script type="importmap">{"imports":{"three":"/vendor/three.module.js","three/addons/controls/OrbitControls.js":"/vendor/OrbitControls.js"}}</script></head><body style="background:#26332c;color:#d7bd7e"><h1>Rendering army units</h1><div id="results" style="display:flex;flex-wrap:wrap"></div><canvas style="width:512px;height:512px"></canvas><script type="module">
+import {createViewer} from '/viewer.js';
+const rows=await fetch('/catalogue.json').then(r=>r.json());
+const armies=await fetch('/armies.json').then(r=>r.json());
+const captures=armies.flatMap(army=>army.models.map((id,index)=>({id,suffix:['front','left','right'][index],yaw:[0,.23,-.23][index]})));
+for(const {id,suffix,yaw} of captures){try{
+ const row=rows.find(r=>r.id===id),canvas=document.querySelector('body>canvas'),viewer=await createViewer(canvas,row,{thumbnail:true,formation:true,formationYaw:yaw});viewer.render(row.id==='aspiring'?600:0);
+ const capture=document.createElement('canvas');capture.width=canvas.width;capture.height=canvas.height;
+ const ctx=capture.getContext('2d');ctx.drawImage(canvas,0,0);const pixels=ctx.getImageData(0,0,capture.width,capture.height).data;
+ let left=capture.width,top=capture.height,right=0,bottom=0;
+ for(let y=0;y<capture.height;y++)for(let x=0;x<capture.width;x++)if(pixels[(y*capture.width+x)*4+3]>8){left=Math.min(left,x);right=Math.max(right,x);top=Math.min(top,y);bottom=Math.max(bottom,y);}
+ if(right<=left||bottom<=top)throw Error('Empty render');
+ // Keep the unit's centre line centred, even when its weapon extends to one side.
+ const anchor=viewer.formationAnchor()*capture.width,halfWidth=Math.max(anchor-left,right-anchor);left=anchor-halfWidth;right=anchor+halfWidth;
+ const output=document.createElement('canvas'),height=bottom-top+1,width=right-left+1;output.height=1024;output.width=Math.round(width/height*1024);const out=output.getContext('2d');out.imageSmoothingEnabled=true;out.imageSmoothingQuality='high';out.drawImage(capture,left,top,width,height,0,0,output.width,output.height);
+ const png=await new Promise(resolve=>output.toBlob(resolve,'image/png'));const saved=await fetch('/__portrait?id=formation-'+id+'-'+suffix,{method:'POST',body:png});if(!saved.ok)throw Error('Save failed');
+ const card=document.createElement('div');card.style='width:260px;text-align:center';const p=document.createElement('p');p.textContent=row.name;card.append(p);const img=document.createElement('img');img.src=output.toDataURL();img.style='width:250px;height:320px;object-fit:contain';card.append(img);document.querySelector('#results').append(card);
+ viewer.dispose();canvas.replaceWith(Object.assign(document.createElement('canvas'),{style:'width:512px;height:512px'}));
+ }catch(e){document.querySelector('#results').append(Object.assign(document.createElement('p'),{textContent:id+': '+e.message}));console.error(e);}}
+document.querySelector('h1').textContent='Army poses ready';
+if(!new URL(location.href).searchParams.has('formationsOnly'))for(const row of rows){try{
+ const canvas=document.querySelector('body>canvas'),viewer=await createViewer(canvas,row,{thumbnail:true,portrait:true,cutout:true});viewer.render(row.id==='aspiring'?600:0);
+ const output=document.createElement('canvas');output.width=output.height=1024;const ctx=output.getContext('2d');ctx.imageSmoothingEnabled=true;ctx.imageSmoothingQuality='high';ctx.drawImage(canvas,0,0,1024,1024);
+ const png=await new Promise(resolve=>output.toBlob(resolve,'image/png'));const saved=await fetch('/__portrait?id=portrait-'+row.id,{method:'POST',body:png});if(!saved.ok)throw Error('Portrait save failed');
+ document.querySelector('#results').append(Object.assign(document.createElement('p'),{textContent:'Portrait ready: '+row.id}));
+ viewer.dispose();canvas.replaceWith(Object.assign(document.createElement('canvas'),{style:'width:512px;height:512px'}));
+ }catch(e){document.querySelector('#results').append(Object.assign(document.createElement('p'),{textContent:'ERROR '+row.id+': '+e.message}));console.error(e);}}
+document.querySelector('h1').textContent='Army poses and portraits ready';
+</script></body></html>
+
+
