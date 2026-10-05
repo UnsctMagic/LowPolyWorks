@@ -1,6 +1,6 @@
 # Internal usage tracker
 
-The website remains on GitHub Pages. This separate Vercel project stores page loads and download-button clicks in a private Blob store. Reports require the owner's secret; no statistics are shown on the website.
+The website remains on GitHub Pages. This separate Vercel project stores page loads and download-button clicks with anonymous browser IDs in a private Blob store. Reports require the owner's secret; no statistics are shown on the website.
 
 - Project: `lowpolyworks-internal-tracker` (`prj_VghEtCQusaIHeAtsUn7X1uzGHJdF`).
 - Collector: `https://lowpolyworks-internal-tracker.vercel.app/api/events`.
@@ -15,7 +15,9 @@ node tools/report-usage.mjs
 node tools/report-usage.mjs --from=2026-10-05 --to=2026-10-31
 ```
 
-Reports include totals, UTC daily counts, and MDX/package clicks per model. They measure page loads and download starts, not unique people or completed file transfers. Tracking cannot recover earlier usage. Browser blocking or a storage outage can leave gaps. The app records no visitor identity, cookies, IP addresses, or fingerprints.
+Reports include totals, UTC daily unique-browser counts, and MDX/package clicks per model. A random UUID saved as `lowpolyworks.visitorId` in localStorage identifies the same browser on refreshes and return visits. Different browsers, devices, private sessions, or cleared storage count separately. Reports return counts rather than IDs. The app records no names, cookies, IP addresses, or fingerprints.
+
+Unique counts cover events recorded after this feature was deployed. Older events remain in the page-load and download totals but cannot identify unique browsers. The report's `coverage` shows page loads with and without an ID. If browser storage is unavailable, the page load can still be recorded without adding to unique counts. Download counts measure button clicks, not completed file transfers. Browser blocking or a storage outage can leave gaps.
 
 Localhost does not send events. Live verification uses `?tracking-test=1` before the hash route; those events are stored separately and excluded from owner reports. Repeated submissions with the same event UUID on the same day occupy one record.
 

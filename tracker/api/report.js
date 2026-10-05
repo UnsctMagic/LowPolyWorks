@@ -9,7 +9,7 @@ export default async function handler(req,res){
  if([from,to].some(value=>value&&!/^\d{4}-\d{2}-\d{2}$/.test(value))||from&&to&&from>to){res.status(400).end();return;}
  try{
   const blobs=[];let cursor;
-  do{const page=await list({prefix:'live/v1/',limit:1000,cursor});blobs.push(...page.blobs);cursor=page.hasMore?page.cursor:undefined;}while(cursor);
+  do{const page=await list({prefix:'live/',limit:1000,cursor});blobs.push(...page.blobs);cursor=page.hasMore?page.cursor:undefined;}while(cursor);
   res.status(200).json({asOf:new Date().toISOString(),trackingSince:process.env.TRACKING_STARTED_AT,...summarize(blobs,{from,to})});
  }catch(error){console.error('Usage report unavailable',error.name);res.status(503).end();}
 }
