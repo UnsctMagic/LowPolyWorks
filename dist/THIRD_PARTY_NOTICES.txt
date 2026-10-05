@@ -6,3 +6,5 @@ MDLxL Showcase playback, orbit, animation and rendering adapter source is reused
 Fonts: Cinzel and IM Fell English, served by Google Fonts, licensed under the SIL Open Font License.
 WhiteoutLib texture decoder, pinned commit 38d279c2a6d8d439377959c56fe4f1eb9ab12fa6, BSD-3-Clause. License and build provenance included in whiteout/.
 MDLxL particle compatibility runtime: bundled unchanged from app/particle-preview-adapter.js, retaining the particle-atlas and compatibility exports. Billboard camera convention is reused from app/preview-pose.js.
+
+MDLxL Showcase Highest graphics preset, Classic lighting adapter, animation and effects modules are reused from MDLxL 0.18.7, commit 349f262ba7a36cba4baed56ea1dc2ab4711982aa. Source: https://github.com/UnsctMagic/MDLxL/tree/349f262ba7a36cba4baed56ea1dc2ab4711982aa
