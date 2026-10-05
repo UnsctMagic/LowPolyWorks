@@ -32,7 +32,7 @@ This checks the application JavaScript, catalogue references, model hashes, text
 - `tracker/`: private usage backend and instructions for retrieving download counts. Reader credentials stay in the ignored `.internal/` folder.
 - `.openai/`: existing website preview configuration.
 
-The local capture pages are available at `/__thumbnails.html` for army formations and `/__portraits.html` for unit portraits. Opening these pages regenerates the corresponding PNG files in `dist/thumbs/`.
+The local capture pages are available at `/__thumbnails.html` for army formations and `/__portraits.html` for full-unit cards. Unit cards use a slight front-side angle and the army's canonical Warcraft III team colour. Opening these pages regenerates the corresponding PNG files in `dist/thumbs/`.
 
 ## Credits
 

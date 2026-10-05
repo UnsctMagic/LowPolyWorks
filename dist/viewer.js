@@ -17,7 +17,7 @@ const graphics=SHOWCASE_QUALITY.high;
 const preferences={graphics:{...graphics,textures:true,lighting:true,particles:true,maxFps:60,pauseWhenHidden:false},lighting:{preset:'legacy'}};
 const textureIndex=fetch('textures.json').then(r=>r.json()),textureCache=new Map();
 async function textureData(name,row){const index=await textureIndex,key=name.toLowerCase(),file=row.textureFiles?.[key]||index[key];if(!file)throw Error('Missing texture: '+name);if(!textureCache.has(file))textureCache.set(file,(async()=>{const b=await fetch(file).then(r=>r.arrayBuffer());const pixels=await decodePaintBlp(b);return new ImageData(pixels.data,pixels.width,pixels.height);})());return textureCache.get(file);}
-export async function createViewer(canvas,row,{thumbnail=false,portrait=false,formation=false,formationYaw=0,cutout=false,onPortraitModeChange}={}){
+export async function createViewer(canvas,row,{thumbnail=false,portrait=false,formation=false,formationYaw=0,cutout=false,teamColor=TEAM_COLORS[0].rgbHex,onPortraitModeChange}={}){
  const transparent=formation||cutout;
  const bytes=await fetch('models/'+row.file).then(r=>{if(!r.ok)throw Error('Model unavailable');return r.arrayBuffer();});const model=parseMDX(bytes),gl=canvas.getContext('webgl2',{alpha:transparent,premultipliedAlpha:false,antialias:graphics.antialias,preserveDrawingBuffer:true});if(!gl)throw Error('This browser could not start WebGL2.');
  let sequence=model.Sequences.findIndex(s=>s.Name==='Stand'||s.Name==='Stand - 1'),clock=0,playing=!thumbnail,speed=1,rotate=false,revision=0,previous=null,disposed=false;
@@ -36,7 +36,7 @@ export async function createViewer(canvas,row,{thumbnail=false,portrait=false,fo
  const native=new ModelRenderer(model),adapter=installWarcraftPreviewAdapter(gl,model,()=>({frame:native.getFrame(),sequenceIndex:sequence,globalTime:clock,lighting:preferences.graphics.lighting,portrait:portraitActive,hiddenGeosets:formation?scenery:undefined,preferences,lightDirection:portraitActive?[.3,-.3,.25]:displayLight().toArray(),viewDirection:camera.getWorldDirection(new THREE.Vector3()).negate().toArray()}));installParticleNativeCompatibility(native);native.initGL(gl);adapter.ready(native);gl.depthFunc(gl.LEQUAL);
  await Promise.all(model.Textures.filter(t=>t.Image&&t.ReplaceableId!==1&&t.ReplaceableId!==2).map(async t=>{native.setTextureImageData(t.Image,[await textureData(t.Image,row)]);improveNativeTexture(gl,native,t.Image,graphics);}));
  const camera=new THREE.PerspectiveCamera(32,1,.1,3000);camera.up.set(0,0,1);
- native.setSequence(sequence);native.setTeamColor(nativeTeamColor(TEAM_COLORS[0].rgbHex));native.setLightColor([1,1,1]);
+ native.setSequence(sequence);native.setTeamColor(nativeTeamColor(teamColor));native.setLightColor([1,1,1]);
  previous=advanceShowcaseModel(native,model,{frame:model.Sequences[sequence].Interval[0],sequenceIndex:sequence,globalTime:0,revision,segment:sequence},previous);
  // Frame the drawn pose, excluding portrait scenery and invisible variants.
  const matrices=new Map((native.rendererData?.nodes||[]).flatMap((node,index)=>node?.matrix?[[index,new THREE.Matrix4().fromArray(node.matrix)]]:[]));

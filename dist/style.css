@@ -77,7 +77,9 @@ footer{max-width:1740px;padding:20px 24px}
 
 /* Native Human portrait frame and its exact MDLxL model opening. */
 .model-stage{position:absolute;inset:0}.portrait-frame{display:none;pointer-events:none}
-.portrait-mode .model-stage{position:absolute;inset:0;width:100%;height:100%;background:#000}
+.viewport.portrait-mode{display:grid;place-items:center;container-type:size;background-image:var(--stone);background-size:330px 330px}
+.portrait-mode .model-stage{position:relative;inset:auto;width:min(100cqw,100cqh);height:auto;aspect-ratio:1;background:#000}
 .portrait-mode .model-stage canvas{position:absolute;left:calc(100% * 8 / 184);top:calc(100% * 9 / 184);width:calc(100% * 167 / 184);height:calc(100% * 170 / 184)}
 .portrait-mode .portrait-frame{display:block;position:absolute;inset:0;width:100%;height:100%;image-rendering:auto;z-index:1}
 .control-row select.team-input{background-image:none;text-shadow:0 1px 1px #0004;font-weight:bold}
+.model-card .card-portrait img{object-fit:contain;padding:4px;filter:drop-shadow(0 8px 7px #0008)}

@@ -1,16 +1,28 @@
-<!doctype html><html><head><script type="importmap">{"imports":{"three":"/vendor/three.module.js","three/addons/controls/OrbitControls.js":"/vendor/OrbitControls.js"}}</script></head><body style="background:#000;color:#cbb37d"><h1>Rendering portrait cards</h1><div id="results"></div><canvas id="canvas" style="width:512px;height:512px"></canvas><script type="module">
+<!doctype html><html><head><meta charset="utf-8"><script type="importmap">{"imports":{"three":"/vendor/three.module.js","three/addons/controls/OrbitControls.js":"/vendor/OrbitControls.js"}}</script></head><body style="background:#080d17;color:#cbb37d"><h1>Rendering unit cards</h1><div id="results" style="display:flex;flex-wrap:wrap;gap:12px"></div><canvas id="canvas" style="width:512px;height:512px"></canvas><script type="module">
 import {createViewer} from '/viewer.js';
-const rows=await fetch('/catalogue.json').then(r=>r.json());
+const rows=await fetch('/catalogue.json').then(r=>r.json()),armies=await fetch('/armies.json').then(r=>r.json());
 const selected=new URLSearchParams(location.search).get('models')?.split(',');
-for(const row of rows.filter(row=>!selected||selected.includes(row.id))){try{
- const canvas=document.querySelector('canvas'),viewer=await createViewer(canvas,row,{thumbnail:true,portrait:true,cutout:true});viewer.render(row.id==='aspiring'?600:0);
+let successes=0,failures=0;
+for(const row of rows.filter(row=>!selected||selected.includes(row.id))){let viewer;try{
+ const canvas=document.querySelector('#canvas'),army=armies.find(army=>army.id===row.army);
+ viewer=await createViewer(canvas,row,{thumbnail:true,formation:true,formationYaw:.32,teamColor:army.colour});viewer.render(row.id==='aspiring'?600:0);
+ const capture=document.createElement('canvas');capture.width=canvas.width;capture.height=canvas.height;
+ const context=capture.getContext('2d');context.drawImage(canvas,0,0);const pixels=context.getImageData(0,0,capture.width,capture.height).data;
+ let left=capture.width,top=capture.height,right=0,bottom=0;
+ for(let y=0;y<capture.height;y++)for(let x=0;x<capture.width;x++)if(pixels[(y*capture.width+x)*4+3]>8){left=Math.min(left,x);right=Math.max(right,x);top=Math.min(top,y);bottom=Math.max(bottom,y);}
+ if(right<=left||bottom<=top)throw Error('Empty unit render');
+ // Centre the body while retaining its full weapon and silhouette in a square card.
+ const anchor=viewer.formationAnchor()*capture.width,side=Math.max(2*Math.max(anchor-left,right-anchor),bottom-top+1)*1.08;
+ left=anchor-side/2;top=(top+bottom+1)/2-side/2;
  const image=document.createElement('canvas');image.width=image.height=1024;
- const context=image.getContext('2d');context.imageSmoothingEnabled=true;context.imageSmoothingQuality='high';context.drawImage(canvas,0,0,1024,1024);
+ const out=image.getContext('2d');out.imageSmoothingEnabled=true;out.imageSmoothingQuality='high';out.drawImage(capture,left,top,side,side,0,0,1024,1024);
  const png=await new Promise(resolve=>image.toBlob(resolve,'image/png'));
- await fetch('/__portrait?id=portrait-'+row.id,{method:'POST',body:png});
- const p=document.createElement('p');p.textContent='Portrait '+row.id+' · '+canvas.width+'px render · '+canvas.dataset.msaaSamples+' MSAA samples';document.querySelector('#results').append(p);
- viewer.dispose();canvas.replaceWith(Object.assign(document.createElement('canvas'),{id:'canvas',style:'width:512px;height:512px'}));
-}catch(e){const p=document.createElement('p');p.textContent=row.id+': '+e.message;document.querySelector('#results').append(p);console.error(e);}}
-document.querySelector('h1').textContent='Portrait cards ready';
+ const saved=await fetch('/__portrait?id=unit-'+row.id,{method:'POST',body:png});if(!saved.ok)throw Error('Card save failed');
+ const card=document.createElement('div');card.style=`width:220px;text-align:center;background:radial-gradient(ellipse at 50% 62%,${army.colour},#080d17 83%)`;
+ const preview=document.createElement('img');preview.src=image.toDataURL();preview.style='width:220px;height:220px;object-fit:contain';
+ const caption=document.createElement('p');caption.textContent=row.name;card.append(preview,caption);document.querySelector('#results').append(card);successes++;
+}catch(error){failures++;document.querySelector('#results').append(Object.assign(document.createElement('p'),{textContent:'ERROR '+row.id+': '+error.message}));console.error(error);
+}finally{viewer?.dispose();document.querySelector('#canvas').replaceWith(Object.assign(document.createElement('canvas'),{id:'canvas',style:'width:512px;height:512px'}));}}
+document.querySelector('h1').textContent=`${successes} unit cards rendered${failures?' · '+failures+' failed':''}`;
 </script></body></html>
 
