@@ -29,6 +29,7 @@ This checks the application JavaScript, catalogue references, model hashes, text
 - `dist/herrdave-import.json`: provenance for the imported HerrDave collection.
 - `source-archives/`: the seven recovered original WarhammerCraft model packages. HerrDave's ten original packages are in `dist/downloads/herrdave/`.
 - `tools/`: local thumbnail capture pages and project verification.
+- `tracker/`: private usage backend and instructions for retrieving download counts. Reader credentials stay in the ignored `.internal/` folder.
 - `.openai/`: existing website preview configuration.
 
 The local capture pages are available at `/__thumbnails.html` for army formations and `/__portraits.html` for unit portraits. Opening these pages regenerates the corresponding PNG files in `dist/thumbs/`.
