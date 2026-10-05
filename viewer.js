@@ -5,7 +5,7 @@ import {perspectiveFitDistance} from './vendor/mdlxl/app/viewport-math.js';
 import {parseMDX,ModelRenderer} from './vendor/war3-model.mjs';
 import {installWarcraftPreviewAdapter,previewGeosetTint} from './vendor/mdlxl/app/warcraft-preview-adapter.js';
 import {advanceShowcaseModel} from './vendor/mdlxl/app/showcase-playback.js';
-import {viewerPlaybackSample,setWarcraftCamera} from './viewer-effects.js';
+import {viewerPlaybackSample,setWarcraftCamera} from './viewer-effects.js?v=20261006-classic-portrait-controls';
 import {installParticleNativeCompatibility} from './vendor/mdlxl/particle-native.mjs';
 import {convertMdxGeosetColorTracks} from './vendor/mdlxl/src/geoset-color-codec.js';
 import {decodePaintBlp} from './vendor/mdlxl/src/paint-blp.js';
@@ -23,6 +23,7 @@ export async function createViewer(canvas,row,{thumbnail=false,portrait=false,fo
  let sequence=model.Sequences.findIndex(s=>s.Name==='Stand'||s.Name==='Stand - 1'),clock=0,playing=!thumbnail,speed=1,rotate=false,revision=0,previous=null,disposed=false;
  if(sequence<0)sequence=0;
  if(portrait&&firstPortraitSequenceIndex(model)>=0)sequence=firstPortraitSequenceIndex(model);
+ let looping=!model.Sequences[sequence].NonLooping;
  let portraitActive=portrait,portraitDetached=false,worldView=null;
  // Exclude scenery from formation cutouts and fit bounds; portrait playback uses authored visibility.
  const scenery=new Set(row.portraitBackdropGeosets||[]);
@@ -45,7 +46,7 @@ export async function createViewer(canvas,row,{thumbnail=false,portrait=false,fo
  const center=box.getCenter(new THREE.Vector3()),radius=Math.max(1,box.getSize(new THREE.Vector3()).length()/2);
  camera.far=Math.max(3000,radius*30);
  const navigation=!thumbnail&&!portrait?bindVertexCamera(camera,canvas):null,controls=navigation?.controls;
- if(controls)controls.autoRotateSpeed=.3;
+ if(controls)controls.autoRotateSpeed=1.2;
  function fit(){const aspect=Math.max(1,canvas.clientWidth)/Math.max(1,canvas.clientHeight),distance=perspectiveFitDistance(radius,camera.fov,aspect);camera.zoom=1;camera.position.copy(center).addScaledVector(formation?new THREE.Vector3(Math.cos(formationYaw),Math.sin(formationYaw),.12).normalize():new THREE.Vector3(Math.cos(.75),Math.sin(.75),.18).normalize(),distance);camera.lookAt(center);if(controls){controls.target.copy(center);controls.minDistance=radius*.4;controls.maxDistance=distance*3;controls.update();}}
  fit();
  const portraitControls={target:new THREE.Vector3(),object:camera,update(){}};
@@ -58,12 +59,12 @@ export async function createViewer(canvas,row,{thumbnail=false,portrait=false,fo
  }
  const maxSize=Math.min(gl.getParameter(gl.MAX_RENDERBUFFER_SIZE),...gl.getParameter(gl.MAX_VIEWPORT_DIMS)),msaaSamples=gl.getParameter(gl.SAMPLES);
  function render(delta=0){if(disposed)return;const w=Math.max(1,canvas.clientWidth||480),h=Math.max(1,canvas.clientHeight||480),scale=Math.min(graphics.pixelRatio,maxSize/Math.max(w,h));const width=Math.round(w*scale),height=Math.round(h*scale);if(canvas.width!==width||canvas.height!==height){canvas.width=width;canvas.height=height;canvas.dataset.renderScale=String(scale);canvas.dataset.msaaSamples=String(msaaSamples);}camera.aspect=w/h;camera.updateProjectionMatrix();camera.updateMatrixWorld();native.setLightPosition(displayLight().normalize().multiplyScalar(radius*10).add(center).toArray());
- clock+=delta*speed;const sample=viewerPlaybackSample(model,sequence,clock,revision),frame=sample.frame;
+ clock+=delta*speed;const sample=viewerPlaybackSample(model,sequence,clock,revision,looping),frame=sample.frame;
  if(portraitActive&&!portraitDetached){const evaluated=evaluateModelCamera(model,model.Cameras[0],frame,sequence,clock);if(!applyEvaluatedModelCamera(camera,controls||portraitControls,evaluated,w/h))throw Error('Portrait camera unavailable.');}
  // Warcraft particle planes and billboard nodes use +X as forward and +Z as up.
  setWarcraftCamera(native,camera);previous=advanceShowcaseModel(native,model,sample,previous);
  gl.viewport(0,0,canvas.width,canvas.height);gl.clearColor(...(portraitActive||transparent?[0,0,0]:[16/255,24/255,39/255]),transparent?0:1);gl.clearDepth(1);gl.depthMask(true);gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT);native.render(camera.matrixWorldInverse.elements,camera.projectionMatrix.elements,{wireframe:false,useEnvironmentMap:true});}
  let last=performance.now(),raf;function tick(now){if(disposed)return;const delta=Math.min(70,now-last);last=now;controls?.update(delta/1000);render(playing?delta:0);raf=requestAnimationFrame(tick);}render();
  if(!thumbnail)raf=requestAnimationFrame(tick);
- return {model,render,formationAnchor:()=>new THREE.Vector3(0,0,center.z).project(camera).x/2+.5,snapshot:()=>canvas.toDataURL('image/png'),sequence(i){sequence=i;clock=0;revision++;previous=null;native.setSequence(i);if(!thumbnail)setLivePortrait(/portrait/i.test(model.Sequences[i].Name));render();},pause(){playing=!playing;return playing;},speed(v){speed=v;},orbitSpeed(v){if(controls)controls.autoRotateSpeed=.3*v;},colour(hex){native.setTeamColor(nativeTeamColor(hex));},rotate(){rotate=!rotate;if(controls){controls.autoRotate=rotate;if(rotate)detachPortrait();}return rotate;},reset(){if(portraitActive)portraitDetached=false;else fit();render();},dispose(){disposed=true;cancelAnimationFrame(raf);controls?.removeEventListener('start',detachPortrait);navigation?.dispose();adapter.dispose();gl.getExtension('WEBGL_lose_context')?.loseContext();}};
+ return {model,render,formationAnchor:()=>new THREE.Vector3(0,0,center.z).project(camera).x/2+.5,snapshot:()=>canvas.toDataURL('image/png'),sequence(i){sequence=i;looping=!model.Sequences[i].NonLooping;clock=0;revision++;previous=null;native.setSequence(i);if(!thumbnail)setLivePortrait(/portrait/i.test(model.Sequences[i].Name));render();return looping;},loop(v){looping=v;clock=0;revision++;previous=null;render();},looping:()=>looping,pause(){playing=!playing;return playing;},speed(v){speed=v;},orbitSpeed(v){if(controls)controls.autoRotateSpeed=1.2*v;},colour(hex){native.setTeamColor(nativeTeamColor(hex));},rotate(){rotate=!rotate;if(controls){controls.autoRotate=rotate;if(rotate)detachPortrait();}return rotate;},reset(){if(portraitActive)portraitDetached=false;else fit();render();},dispose(){disposed=true;cancelAnimationFrame(raf);controls?.removeEventListener('start',detachPortrait);navigation?.dispose();adapter.dispose();gl.getExtension('WEBGL_lose_context')?.loseContext();}};
 }
