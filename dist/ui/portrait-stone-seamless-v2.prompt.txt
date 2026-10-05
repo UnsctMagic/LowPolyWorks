@@ -1,0 +1,3 @@
+Generated with the built-in image_gen tool using human-portrait-frame.png as a stone style reference.
+
+Prompt: Seamless repeating stone masonry texture for a retro fantasy game portrait UI. Dark charcoal grey warm-neutral stone matching the original WC3 Human portrait surround. Flat wall only, no arch, opening, gold, border, characters or text. Hand-painted Warcraft II / Warcraft III classic-era 2D fantasy game art, slightly pixelated crisp pixel clusters, squat irregular staggered masonry blocks, dark narrow mortar, softly painted chips and wear. No realistic photography, glossy 3D, dramatic lighting, vignette or blue tint. Uniform scale and luminance, varied stones without repeated stripes. Tile seamlessly on all four edges. Opaque square tile.

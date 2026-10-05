@@ -77,8 +77,8 @@ footer{max-width:1740px;padding:20px 24px}
 
 /* Native Human portrait frame and its exact MDLxL model opening. */
 .model-stage{position:absolute;inset:0}.portrait-frame{display:none;pointer-events:none}
-.viewport.portrait-mode{display:grid;place-items:center;container-type:size;background-color:#171918;background-image:url('ui/human-portrait-stone.png');background-size:auto calc(min(100cqw,100cqh) * 24 / 184)}
-.portrait-mode .model-stage{position:relative;inset:auto;width:min(100cqw,100cqh);height:auto;aspect-ratio:1;background:#000}
+.viewport.portrait-mode{display:grid;place-items:center;container-type:size;background-color:#171918;background-image:url('ui/portrait-stone-seamless-v2.png');background-size:cover;background-position:center}
+.portrait-mode .model-stage{position:relative;inset:auto;width:min(100cqw,100cqh);height:auto;aspect-ratio:1;background:#000;mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 184 184'%3E%3Cpath fill='white' d='M7 180V61C7 29 44 5 92 5S177 29 177 61V180Z'/%3E%3C/svg%3E");mask-size:100% 100%;mask-repeat:no-repeat}
 .portrait-mode .model-stage canvas{position:absolute;left:calc(100% * 8 / 184);top:calc(100% * 9 / 184);width:calc(100% * 167 / 184);height:calc(100% * 170 / 184)}
 .portrait-mode .portrait-frame{display:block;position:absolute;inset:0;width:100%;height:100%;image-rendering:auto;z-index:1}
 .control-row select.team-input{background-image:none;text-shadow:0 1px 1px #0004;font-weight:bold}
