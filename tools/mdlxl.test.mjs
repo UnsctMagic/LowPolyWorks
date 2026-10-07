@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {markdown,notesSource,downloadUrl} from '../dist/mdlxl.js';
+import {markdown,notesSource,downloadUrl,creditLine} from '../dist/mdlxl.js';
 
 test('release Markdown keeps prose, links and formatting without executing HTML',()=>{
  const html=markdown('# Update\n\n- **Saved** `Geosets[0]`\n- [Details](https://github.com/UnsctMagic/MDLxL/pull/109)\n\n<img src=x onerror=alert(1)>\n[jump](javascript:alert(1))');
@@ -19,4 +19,9 @@ test('download selects the application ZIP, not source or checksums, for a futur
  const assets=[{name:'MDLxL-FFmpeg-corresponding-source.zip',browser_download_url:'source'},{name:'MDLxL-0.99.1-win32-x64.zip.sha256',browser_download_url:'checksum'},{name:'MDLxL-0.99.1-win32-x64.zip',browser_download_url:'application'}];
  assert.equal(downloadUrl({assets}),'application');
  assert.equal(downloadUrl({assets:[]}),'https://github.com/UnsctMagic/MDLxL/releases/latest');
+});
+test('credits link makers to their primary resources',()=>{
+ const html=creditLine('HerrDave, war3-model, Particle Emitters 2, Scratch / Damaged Paint Brush and Cinzel Decorative.');
+ for(const url of ['https://www.hiveworkshop.com/media/albums/users/herrdave.234820/','https://github.com/4eb0da/war3-model','https://www.hiveworkshop.com/threads/particle-emitters-2.329335/','https://opengameart.org/content/scratch-damaged-paint-brush','https://fonts.google.com/specimen/Cinzel+Decorative'])assert(html.includes(`href="${url}"`));
+ assert(!html.includes('<script>'));
 });
