@@ -13,7 +13,7 @@ import {improveNativeTexture} from './vendor/mdlxl/app/viewport-quality.js';
 import {TEAM_COLORS} from './vendor/mdlxl/src/team-colors.js';
 import {evaluateModelCamera,applyEvaluatedModelCamera,firstPortraitSequenceIndex} from './vendor/mdlxl/app/portrait-view.js';
 import {SHOWCASE_QUALITY} from './vendor/mdlxl/app/showcase-director.js';
-import {installWarcraftTeamTextures} from './warcraft-team-textures.js?v=20261007-native-team-textures';
+import {installWarcraftTeamTextures} from './warcraft-team-textures.js?v=20261008-unified-army-cards';
 const graphics=SHOWCASE_QUALITY.high;
 const preferences={graphics:{...graphics,textures:true,lighting:true,particles:true,maxFps:60,pauseWhenHidden:false},lighting:{preset:'legacy'}};
 const textureIndex=fetch('textures.json?v=20261007-dread-knight').then(r=>r.json()),textureCache=new Map();

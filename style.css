@@ -18,10 +18,10 @@ nav{gap:26px;font-size:1.08rem}nav a{padding:9px 20px;border:3px ridge #454e60;b
 :root{--bone:#e5ca85;--body:#cfb982;--muted:#a89365;--gold:#c2a568}
 body{color:var(--body)}h1,h2,h3,.tab-content h2,.brand,.brand .craft,.army-caption h2,.card-name{color:#e5ca85}.brand small,.breadcrumb,.breadcrumb span,.byline,.page-intro p,.nav-future,.nav-future small,.owner-mark{color:#b9a373}nav a,.iron-button,.iron-button.primary,.tabs button[aria-selected=true]{color:#e3c77f}.tabs button,.viewer-label,.viewer-label small,.control-row label,.control-row select,.viewport-hint,.tab-footer{color:#c9b17a}.lore,.credit-row p,.credit-intro,.fact strong{color:#d5be86}.fact small,.card-text small,.card-type,.featured small,.credit-policy,.provenance-note,.archive-count small,footer{color:#b6a070}.credit-row strong,.geosets summary,.archive-count strong{color:#e1c681}.caption-meta,.kicker,.section-heading,.archive-count,footer>span:first-child{color:#cbb37d}.lore{white-space:normal;font-size:1.1rem;line-height:1.55}.lore p{margin:0}.lore p+p{margin-top:1rem}.tab-content h2{margin-bottom:18px}.credit-intro{line-height:1.5;margin-bottom:16px}.credit-row{padding:12px 0;line-height:1.45}.credit-row p{margin-top:4px;line-height:1.5}.credit-policy,.provenance-note{line-height:1.55}.model-card .card-portrait{background:#000}.model-card .card-portrait img{image-rendering:auto;filter:none;object-fit:cover}.model-card .card-type{background:#0009;padding:2px 5px}.viewport{background:#101827;box-shadow:none}
 /* Army collection: two units behind a central front unit. */
-.army-picture img.formation-unit{position:absolute;object-fit:contain;image-rendering:auto;width:38%;height:68%;top:9%;transform:none;filter:drop-shadow(0 10px 8px #0009);transition:none}
-.army-picture img.rear-left{left:7%;z-index:1}
-.army-picture img.rear-right{right:7%;z-index:1}
-.army-picture img.front{width:56%;height:90%;top:6%;left:22%;z-index:2}
+.army-picture img.formation-unit{position:absolute;object-fit:contain;image-rendering:auto;width:auto;height:calc(58% / var(--body-height,1));top:auto;bottom:12%;transform:translateX(-50%);max-width:none;filter:drop-shadow(0 10px 8px #0009);transition:none}
+.army-picture img.rear-left{left:26%;z-index:1}
+.army-picture img.rear-right{left:74%;right:auto;z-index:1}
+.army-picture img.front{width:auto;height:calc(64% / var(--body-height,1));top:auto;bottom:8%;left:50%;z-index:2}
 .model-card .card-portrait{background:radial-gradient(ellipse at 50% 62%,var(--aura),#080d17 83%)}
 /* Painted stone nine-slice borders and iron hanger sprites. */
 .slab{border:20px solid transparent;border-image:url('ui/slate-frame-v2.png') 180 stretch;border-radius:0;outline:0;padding:3px;box-shadow:0 6px 0 #020409,0 14px 22px #0009}

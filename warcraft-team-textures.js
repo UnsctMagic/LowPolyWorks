@@ -25,6 +25,11 @@ export function installWarcraftTeamTextures(gl,model,{transparent,graphics}){
    source=source.replace('uniform float uWireframe;','uniform float uWireframe;\nuniform float uWarcraftAdditive;')
     .replace(/}\s*$/,`if(uWarcraftAdditive>2.5){\n if(uWarcraftAdditive>3.5)${output}.rgb*=${output}.a;\n ${output}.a=clamp(max(${output}.r,max(${output}.g,${output}.b)),0.,1.);\n}\n}\n`);
   }
+  if(source.includes('varying vec4 vColor;')&&source.includes('uniform float uDiscardAlphaLevel;')){
+   const output=source.includes('out vec4 FragColor;')?'FragColor':'gl_FragColor';
+   source=source.replace('uniform float uDiscardAlphaLevel;','uniform float uDiscardAlphaLevel;\nuniform float uWarcraftParticleAdditive;')
+    .replace(/}\s*$/,`if(uWarcraftParticleAdditive>.5){\n ${output}.rgb*=${output}.a;\n ${output}.a=clamp(max(${output}.r,max(${output}.g,${output}.b)),0.,1.);\n}\n}\n`);
+  }
   return shaderSource.call(this,shader,source);
  };
  let colourRevision=0;
@@ -38,6 +43,14 @@ export function installWarcraftTeamTextures(gl,model,{transparent,graphics}){
     const result=setLayerProps.call(this,layer,textureID),additive=layer.FilterMode===3||layer.FilterMode===4;
     gl.uniform1f(location,additive?layer.FilterMode:0);
     // Native glow RGB is additive; its brightness supplies transparent PNG coverage.
+    if(additive)gl.blendFuncSeparate(gl.ONE,gl.ONE,gl.ONE,gl.ONE_MINUS_SRC_ALPHA);
+    return result;
+   };
+   const particles=native.particlesController,particleLocation=gl.getUniformLocation(particles.shaderProgram,'uWarcraftParticleAdditive'),setParticleProps=particles.setLayerProps;
+   particles.setLayerProps=function(emitter){
+    const result=setParticleProps.call(this,emitter),additive=emitter.props.FilterMode===1||emitter.props.FilterMode===2;
+    gl.uniform1f(particleLocation,additive?1:0);
+    // Additive particle textures often have opaque black texels; light supplies PNG coverage.
     if(additive)gl.blendFuncSeparate(gl.ONE,gl.ONE,gl.ONE,gl.ONE_MINUS_SRC_ALPHA);
     return result;
    };
