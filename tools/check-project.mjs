@@ -5,6 +5,7 @@ import assert from 'node:assert/strict';
 import {execFileSync} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
 import {TEAM_COLORS} from '../dist/vendor/mdlxl/src/team-colors.js';
+import {modelPage} from './model-pages.mjs';
 
 const project = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const root = path.join(project, 'dist');
@@ -28,6 +29,9 @@ for (const row of rows) {
   assert(armies.some(army => army.id === row.army), `Unknown army for ${row.id}`);
   exists('models/' + row.file);
   exists('thumbs/unit-' + row.id + '.png');
+  const page = `model/${row.id}/index.html`;
+  exists(page);
+  assert.equal(fs.readFileSync(path.join(root, page), 'utf8'), modelPage(fs.readFileSync(path.join(root, 'index.html'), 'utf8'), row, fs.readFileSync(path.join(root, 'thumbs', `unit-${row.id}.png`))), `Stale model preview page: ${row.id}. Run npm run build:model-pages.`);
   for (const file of Object.values(row.textureFiles || {})) exists(file);
   if (row.downloadPack) exists(row.downloadPack);
   const expected = row.sha256 || row.sourceModelSha256;

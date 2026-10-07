@@ -6,6 +6,7 @@
   "description": "LowPolyWorks — posts, model notifications and projects",
   "scripts": {
     "start": "node server.mjs",
+    "build:model-pages": "node tools/model-pages.mjs",
     "check": "node tools/check-project.mjs"
   },
   "engines": { "node": ">=20" },

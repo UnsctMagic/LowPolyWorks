@@ -31,13 +31,14 @@ http.createServer(async (req, res) => {
       res.end('Saved');
       return;
     }
-    const file = studios[url.pathname] || path.resolve(root, '.' + (url.pathname === '/' ? '/index.html' : decodeURIComponent(url.pathname)));
+    let file = studios[url.pathname] || path.resolve(root, '.' + (url.pathname === '/' ? '/index.html' : decodeURIComponent(url.pathname)));
     const relative = path.relative(root, file);
     if (!studios[url.pathname] && (relative.startsWith('..') || path.isAbsolute(relative))) {
       res.writeHead(403);
       res.end();
       return;
     }
+    if ((await fs.stat(file)).isDirectory()) file = path.join(file, 'index.html');
     const bytes = await fs.readFile(file);
     res.writeHead(200, {'Content-Type': mime[path.extname(file)] || 'application/octet-stream', 'Cache-Control': 'no-store'});
     res.end(bytes);

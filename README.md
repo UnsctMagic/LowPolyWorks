@@ -22,6 +22,8 @@ Without npm, run `node tools/check-project.mjs`.
 
 This checks the application JavaScript, catalogue references, model hashes, textures, portraits, and army formation assets.
 
+Model links use `/model/<id>/` so Discord can read each model's title, description, and thumbnail directly from the HTML. Old `#model/<id>` links still open the same viewer and update to the shareable URL. After changing the catalogue, unit thumbnails, or `dist/index.html`, run `npm run build:model-pages` before checking and publishing `dist/`.
+
 ## Files
 
 - `dist/`: complete runnable website, including editable JavaScript and CSS, catalogue data, models, textures, renderer modules, WhiteoutLib, UI art, portraits, and downloads.
