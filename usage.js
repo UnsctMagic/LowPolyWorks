@@ -1,11 +1,10 @@
+import {browserVisitorId as savedVisitorId} from './visitor-id.js';
 import {USAGE_ENDPOINT} from './usage-config.js';
 const enabled=location.hostname==='www.lowpolyworks.com'||location.hostname==='lowpolyworks.com';
 const testing=new URLSearchParams(location.search).has('tracking-test');
 function browserVisitorId(){
  try{
-  const key='lowpolyworks.visitorId';let id=localStorage.getItem(key);
-  if(!/^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89ab][a-f0-9]{3}-[a-f0-9]{12}$/i.test(id||'')){id=crypto.randomUUID();localStorage.setItem(key,id);}
-  return id;
+  return savedVisitorId();
  }catch(error){console.warn('Unique visitor tracking is unavailable',error.name);}
 }
 export async function recordUsage(kind,model,format){
