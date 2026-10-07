@@ -1,4 +1,4 @@
-import {authorIdentity,postMedia,postPoll} from './post-content.js?v=20261007-media-polls';
+import {authorIdentity,postMedia,postPoll} from './post-content.js?v=20261007-purple-outline';
 import {browserVisitorId} from './visitor-id.js';
 const API='https://lowpolyworks-internal-tracker.vercel.app/api/publishing';
 const escape=value=>String(value??'').replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
