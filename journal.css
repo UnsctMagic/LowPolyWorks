@@ -2,6 +2,7 @@
 /* Project marks share the existing menu frames and route links. */
 .masthead nav{flex-wrap:wrap}
 .lowpolyworks-brand img{display:block;width:auto;height:74px;object-fit:contain}
+@media(min-width:561px){.lowpolyworks-brand img{transform:scale(1.38);transform-origin:center}}
 .masthead .project-brand{display:flex;align-items:center;justify-content:center;gap:9px;padding:3px 12px;min-height:74px}
 .mdlxl-brand-icon{display:block;width:48px;height:48px;object-fit:contain;flex:none}
 .mdlxl-wordmark{font-family:Cinzel,Georgia,serif;font-size:32px;font-weight:800;line-height:1.1;letter-spacing:-1.5px;white-space:nowrap;text-shadow:none;color:#e1bd71;background:linear-gradient(#fff0bc 4%,#d7a950 38%,#a47430 49%,#f2d899 53%,#bc8536 83%,#ffe5a1);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(1px 2px 0 #090a0d)}
