@@ -15,7 +15,7 @@ import {evaluateModelCamera,applyEvaluatedModelCamera,firstPortraitSequenceIndex
 import {SHOWCASE_QUALITY} from './vendor/mdlxl/app/showcase-director.js';
 const graphics=SHOWCASE_QUALITY.high;
 const preferences={graphics:{...graphics,textures:true,lighting:true,particles:true,maxFps:60,pauseWhenHidden:false},lighting:{preset:'legacy'}};
-const textureIndex=fetch('textures.json').then(r=>r.json()),textureCache=new Map();
+const textureIndex=fetch('textures.json?v=20261007-dread-knight').then(r=>r.json()),textureCache=new Map();
 async function textureData(name,row){const index=await textureIndex,key=name.toLowerCase(),file=row.textureFiles?.[key]||index[key];if(!file)throw Error('Missing texture: '+name);if(!textureCache.has(file))textureCache.set(file,(async()=>{const b=await fetch(file).then(r=>r.arrayBuffer());const pixels=await decodePaintBlp(b);return new ImageData(pixels.data,pixels.width,pixels.height);})());return textureCache.get(file);}
 export async function createViewer(canvas,row,{thumbnail=false,portrait=false,formation=false,formationYaw=0,cutout=false,teamColor=TEAM_COLORS[0].rgbHex,onPortraitModeChange}={}){
  const transparent=formation||cutout;
