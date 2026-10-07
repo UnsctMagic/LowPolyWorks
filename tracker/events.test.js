@@ -39,7 +39,8 @@ test('refreshes, return visits and downloads count one browser across dates',()=
 });
 
 test('the website reuses its browser ID after a refresh and on downloads',async()=>{
- const code=fs.readFileSync(new URL('../dist/usage.js',import.meta.url),'utf8').replace(/import.*?;\r?\n/,'const USAGE_ENDPOINT="https://tracker.invalid/api/events";\n').replace('export async function','async function');
+ const visitor=fs.readFileSync(new URL('../dist/visitor-id.js',import.meta.url),'utf8').replace('export function browserVisitorId','function savedVisitorId');
+ const code=visitor+'\nconst USAGE_ENDPOINT="https://tracker.invalid/api/events";\n'+fs.readFileSync(new URL('../dist/usage.js',import.meta.url),'utf8').replace(/^import.*?;\r?\n/gm,'').replace('export async function','async function');
  const saved=new Map(),events=[],warnings=[];
  const storage={getItem:key=>saved.get(key)||null,setItem:(key,value)=>saved.set(key,value)};
  async function page(localStorage=storage){const ctx=vm.createContext({location:{hostname:'www.lowpolyworks.com',search:''},URLSearchParams,crypto:{randomUUID},localStorage,console:{warn:(...args)=>warnings.push(args)},fetch:async(_url,opts)=>{events.push(JSON.parse(opts.body));return{ok:true};}});vm.runInContext(code,ctx);await vm.runInContext('recordUsage("visit")',ctx);return ctx;}

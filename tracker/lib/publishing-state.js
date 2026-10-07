@@ -3,7 +3,7 @@ import {initialState,fail} from './publishing.js';
 
 const pathname='publishing/v1/state.json';
 export function createBlobState({getBlob=get,putBlob=put}={}){return {
- async read(){const blob=await getBlob(pathname,{access:'private',useCache:false});if(!blob)return {state:initialState(),etag:null};return {state:JSON.parse(await new Response(blob.stream).text()),etag:blob.blob.etag};},
+ async read(){const blob=await getBlob(pathname,{access:'private',useCache:false});if(!blob)return {state:initialState(),etag:null};return {state:JSON.parse(await new Response(blob.stream).text()),etag:blob.blob.etag?.replace(/^W\//,'')};},
  async mutate(change){
   for(let attempt=0;attempt<5;attempt++){
    const {state,etag}=await this.read();const result=await change(state);

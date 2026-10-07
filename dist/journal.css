@@ -9,8 +9,23 @@
 .post-author{color:var(--bone)}
 .post-meta time{font-size:.8rem}
 .post-meta>a{margin-left:auto}
-.author-icon{display:grid;place-items:center;width:36px;height:36px;flex:none;border:1px solid var(--gold);border-radius:50%;background-image:var(--recess);color:var(--bone);overflow:hidden}
+.author-icon{display:grid;place-items:center;box-sizing:border-box;width:40px;height:40px;flex:none;border:3px ridge #c8a452;border-radius:50%;background:linear-gradient(145deg,#b0914f,#60451e);color:var(--bone);overflow:hidden;box-shadow:0 0 0 1px #382a13,inset 0 0 0 1px #f4dc8d,0 2px 4px #000}
 .author-icon img{width:100%;height:100%;object-fit:cover}
+.author-name-graphic{display:block;width:156px;height:26px;object-fit:cover;object-position:center}
+.post-media{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr));gap:10px;margin-top:18px;max-width:720px}
+.post-media img{display:block;width:100%;max-height:520px;object-fit:contain;border:1px solid #6d5930;background:#070b12}
+.post-video{max-width:720px;margin-top:18px}
+.post-video iframe{display:block;width:100%;aspect-ratio:16/9;border:1px solid #6d5930;background:#070b12}
+.post-video>a{display:inline-block;margin-top:5px;font-size:.8rem}
+.post-video-file{display:block;width:100%;max-width:720px;max-height:520px;margin-top:18px}
+.post-poll{max-width:540px;margin-top:22px}
+.post-poll h3{font-size:1.1rem;margin:0 0 12px}
+.journal button.poll-option{display:grid;grid-template-columns:1fr auto;width:100%;text-align:left;white-space:normal;margin:8px 0;padding:9px 12px;gap:6px 12px}
+.poll-option small{color:var(--muted);font-family:Georgia,serif;font-size:.75rem}
+.poll-option progress{grid-column:1/-1;width:100%;height:4px;accent-color:#c2a568}
+.journal button.poll-option:disabled{opacity:1}
+.poll-option[aria-pressed=true]{border-color:#d9ba6d}
+.poll-status{color:var(--muted);font-size:.8rem;margin-top:10px}
 .post h2{font-size:1.5rem;margin-bottom:14px}
 .post-body{line-height:1.65;overflow-wrap:anywhere}
 .post-body p+p{margin-top:14px}
@@ -40,4 +55,4 @@ footer>div{display:flex;gap:22px}
 .journal button:disabled{opacity:.5;cursor:default}
 .journal button.text-button{background:none;border:0;box-shadow:none;color:var(--gold);padding:0 0 0 6px}
 .journal #signup-result{font-size:.85rem;margin-top:14px;color:var(--gold)}
-@media(max-width:600px){.post h2,.project-row h2{font-size:1.35rem}.signup-row{flex-wrap:wrap}.signup-row button{width:100%}.post-meta{gap:8px}.post-author{max-width:48%;overflow-wrap:anywhere}}
+@media(max-width:600px){.post h2,.project-row h2{font-size:1.35rem}.signup-row{flex-wrap:wrap}.signup-row button{width:100%}.post-meta{gap:8px;flex-wrap:wrap}.post-author{max-width:calc(100% - 48px);overflow-wrap:anywhere}.post-meta time{white-space:nowrap}.author-name-graphic{max-width:100%}}

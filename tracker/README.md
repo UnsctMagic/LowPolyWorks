@@ -8,6 +8,12 @@ Author login uses a username and password; no email inbox is needed. The initial
 
 The owner can create invitation links for new usernames, and add projects. Invitations expire after seven days and activate once. Authors can choose their display name and upload an icon, then publish text posts with an optional project attachment. Model uploads and updates require a full HTTPS link to the model. News cannot enqueue notifications. A stable post ID prevents duplicate publication if the request is retried.
 
+Post headers show a 40px circular avatar with a gold game-style frame. UnsanctionedMagic uses the supplied name graphic. The composer accepts up to ten PNG/JPG/WebP/GIF attachments (20 MB each), five HTTPS video links, and a poll with 2–10 choices. YouTube and Vimeo links embed; direct MP4/WebM/Ogg links use a video player; other services remain clickable video links. Avatar uploads are cropped centrally to 128px and displayed at 40px.
+
+Only authenticated authors with valid CSRF tokens can request upload permissions. Short-lived Blob client tokens allow one upload to one generated private pathname, with the selected MIME type and size. Completion verifies Blob metadata. `/api/media` exposes only images attached to published posts; private publishing state and unpublished uploads stay inaccessible. GIFs are stored and served unchanged. The bundled client SDK comes from the existing pinned `@vercel/blob` dependency; rebuild it with `pnpm dlx esbuild@0.25.0 tracker/node_modules/@vercel/blob/dist/client.js --bundle --minify --format=esm --platform=browser --outfile=tracker/vendor/blob-client.js` from the repository root.
+
+Polls reuse the saved `lowpolyworks.visitorId` UUID used by site statistics. Each poll accepts one vote per ID, stored as a hash with the server secret; conditional state writes reject concurrent duplicates. Public feeds expose totals and the requesting browser's choice, without voter IDs or hashes. Clearing browser storage, changing browsers, or using another device creates another ID; this is a browser-ID restriction, not verified person identity. Polls and media do not change the model-only email rules.
+
 Publishing records are stored in the existing private Blob store at `publishing/v1/state.json`. Conditional writes with ETags preserve concurrent changes; uncached reads see the latest data. Public responses include post text, display names, icons, and projects, and exclude password hashes, invitations, subscriber addresses, and throttling records. Passwords use salted scrypt hashes. Author sessions use signed, eight-hour HttpOnly Secure cookies, CSRF tokens, and the canonical author origin. Logout revokes that author's existing sessions. Login and signup throttling persists across function instances.
 
 ## Model notifications
@@ -19,7 +25,7 @@ Model publication captures only the current confirmed subscribers and queues one
 Verification:
 
 ```sh
-node --test tracker/events.test.js tracker/publishing.test.js tools/journal.test.mjs
+node --test tracker/events.test.js tracker/publishing.test.js tracker/media.test.js tools/journal.test.mjs tools/author-content.test.mjs
 node tools/check-project.mjs
 ```
 
