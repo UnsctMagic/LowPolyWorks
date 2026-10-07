@@ -20,8 +20,16 @@ test('download selects the application ZIP, not source or checksums, for a futur
  assert.equal(downloadUrl({assets}),'application');
  assert.equal(downloadUrl({assets:[]}),'https://github.com/UnsctMagic/MDLxL/releases/latest');
 });
-test('credits link makers to their primary resources',()=>{
- const html=creditLine('HerrDave, war3-model, Particle Emitters 2, Scratch / Damaged Paint Brush and Cinzel Decorative.');
- for(const url of ['https://www.hiveworkshop.com/media/albums/users/herrdave.234820/','https://github.com/4eb0da/war3-model','https://www.hiveworkshop.com/threads/particle-emitters-2.329335/','https://opengameart.org/content/scratch-damaged-paint-brush','https://fonts.google.com/specimen/Cinzel+Decorative'])assert(html.includes(`href="${url}"`));
- assert(!html.includes('<script>'));
+test('credits distinguish creator profiles from the resources they made',()=>{
+ const links=[...creditLine('HerrDave, POMEXI, rubberduck — 60 Free GIMP / Krita Brushes. Rodrigo Fuenzalida and Nicolas Massi — Pirata One.').matchAll(/href="([^"]+)"[^>]*>([^<]+)<\/a>/g)].map(m=>[m[2],m[1]]);
+ assert.deepEqual(links,[
+  ['HerrDave','https://www.hiveworkshop.com/members/herrdave.234820/'],
+  ['POMEXI','https://www.hiveworkshop.com/members/pomexi.326199/'],
+  ['rubberduck','https://opengameart.org/users/rubberduck'],
+  ['60 Free GIMP / Krita Brushes','https://opengameart.org/content/60-free-gimp-krita-brushes'],
+  ['Rodrigo Fuenzalida','https://www.behance.net/erreefe'],
+  ['Nicolas Massi','https://github.com/nmassi'],
+  ['Pirata One','https://fonts.google.com/specimen/Pirata+One']
+ ]);
+ assert(!creditLine('<script>alert("HerrDave")</script>').includes('<script>'));
 });
