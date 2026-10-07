@@ -1,4 +1,4 @@
-import {createViewer} from './viewer.js?v=20261008-stand-strigoi-r2';
+import {createViewer} from './viewer.js?v=20261008-champion-bracer';
 import {TEAM_COLORS} from './vendor/mdlxl/src/team-colors.js';
 import {recordUsage} from './usage.js?v=20261007-media-polls';
 import {renderJournal} from './journal.js?v=20261007-purple-outline';

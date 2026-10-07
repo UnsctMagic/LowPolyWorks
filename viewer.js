@@ -33,6 +33,13 @@ export async function createViewer(canvas,row,{thumbnail=false,portrait=false,fo
  model.GeosetAnims=convertMdxGeosetColorTracks(model.GeosetAnims);
  const displayLight=()=>new THREE.Vector3(-.65,.55,1);
  const native=new ModelRenderer(model),adapter=installWarcraftPreviewAdapter(gl,model,()=>({frame:native.getFrame(),sequenceIndex:sequence,globalTime:clock,lighting:preferences.graphics.lighting,portrait:portraitActive,hiddenGeosets:formation?scenery:undefined,preferences,lightDirection:portraitActive?[.3,-.3,.25]:displayLight().toArray(),viewDirection:camera.getWorldDirection(new THREE.Vector3()).negate().toArray()}));installParticleNativeCompatibility(native);native.initGL(gl);adapter.ready(native);gl.depthFunc(gl.LEQUAL);
+ // The Champion's skin and bracer overlap at their differently weighted elbow seam.
+ // Bias only the bracer's opaque layer so depth rounding cannot stripe that edge.
+ if(row.id==='aspiring'){
+  const bracerLayer=model.Materials[model.Geosets[15].MaterialID].Layers[0],setLayerProps=native.setLayerProps;
+  native.setLayerProps=function(layer,textureID){const result=setLayerProps.call(this,layer,textureID);if(layer===bracerLayer){gl.enable(gl.POLYGON_OFFSET_FILL);gl.polygonOffset(-1,-8);}else gl.disable(gl.POLYGON_OFFSET_FILL);return result;};
+ }
+
  teamTextures.ready(native);
  await Promise.all([teamTextures.colour(native,teamColor),...model.Textures.filter(t=>t.Image&&!teamTextures.textures.has(t)).map(async t=>{native.setTextureImageData(t.Image,[await textureData(t.Image,row)]);improveNativeTexture(gl,native,t.Image,graphics);})]);
  const camera=new THREE.PerspectiveCamera(32,1,.1,3000);camera.up.set(0,0,1);
