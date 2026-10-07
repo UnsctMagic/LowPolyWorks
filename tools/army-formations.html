@@ -2,7 +2,7 @@
 import {createViewer} from '/viewer.js';
 const rows=await fetch('/catalogue.json').then(r=>r.json());
 const armies=await fetch('/armies.json').then(r=>r.json());
-const captures=armies.flatMap(army=>army.models.map((id,index)=>({id,suffix:['front','left','right'][index],yaw:[0,.23,-.23][index],teamColor:army.colour})));
+const captures=armies.flatMap(army=>army.models.map((id,index)=>({id,suffix:['front','left','right'][index],yaw:[0,.23,-.23][index],teamColor:army.teamColour||army.colour})));
 for(const {id,suffix,yaw,teamColor} of captures){try{
  const row=rows.find(r=>r.id===id),canvas=document.querySelector('body>canvas'),viewer=await createViewer(canvas,row,{thumbnail:true,formation:true,formationYaw:yaw,teamColor});viewer.render(row.id==='aspiring'?600:0);
  const capture=document.createElement('canvas');capture.width=canvas.width;capture.height=canvas.height;
