@@ -1,11 +1,43 @@
-/* Quiet publishing surfaces; the WarhammerCraft catalogue keeps its own styling. */
-body.journal{background:#111416;color:#d4d7d6;background-image:none;font-family:system-ui,-apple-system,Segoe UI,sans-serif;font-size:15px;line-height:1.65}
-.journal .masthead{max-width:980px;min-height:76px;margin:0 auto;padding:20px 32px;border:0;border-bottom:1px solid #ffffff16;border-radius:0;background:none;box-shadow:none;gap:28px}
-.journal .brand,.journal h1,.journal h2,.journal nav{font-family:inherit;text-shadow:none;letter-spacing:0}
-.journal .brand{font-size:19px;font-weight:600;color:#edece5;display:flex;align-items:center;gap:10px}
-.journal .brand-seal{width:28px;height:30px;border:1px solid #b7a06a66;border-radius:3px;outline:none;background:none;box-shadow:none;font-family:Georgia,serif;font-size:22px;color:#b7a06a}
-.journal .masthead nav{margin-left:auto;gap:24px;font-size:14px}.journal .masthead nav a{padding:0;border:0;border-radius:0;background:none;box-shadow:none;color:#919997}.journal .masthead nav a[aria-current=page],.journal .masthead nav a:hover{color:#eceae3}
-.journal .site-shell{display:block;max-width:760px;margin:0 auto}.journal .side-menu{display:none}.journal #app{padding:54px 32px 80px;min-height:55vh;width:auto}.journal h1{font-size:25px;line-height:1.25;font-weight:550;margin:0 0 36px;color:#eceae3}.journal h2{font-size:22px;line-height:1.35;font-weight:550;color:#eceae3}
-.post{padding:0 0 32px;margin:0 0 32px;border-bottom:1px solid #ffffff16}.post:last-child{margin-bottom:0}.post-meta{display:flex;align-items:center;gap:11px;font-size:13px;margin-bottom:17px;color:#929b98}.post-author{color:#d6d8d2;font-weight:500}.post-meta time{font-size:12px}.post-meta>a{margin-left:auto}.author-icon{display:grid;place-items:center;width:36px;height:36px;flex:none;border-radius:50%;background:#b7a06a18;color:#d0ba87;font-size:16px;overflow:hidden}.author-icon img{width:100%;height:100%;object-fit:cover}.post h2{margin-bottom:14px}.post-body{line-height:1.8;overflow-wrap:anywhere;color:#bfc5c2}.post-body p+p{margin-top:14px}.post-link{display:inline-block;color:#cbb98e;margin-top:18px;font-size:14px}.post-tags{display:flex;gap:12px;font-size:11px;margin-top:20px;color:#909a96}.post-tags>*{background:#ffffff05;border:1px solid #ffffff12;padding:2px 9px;border-radius:4px}.journal a:hover{color:#e8d8ae}.project-heading{margin-bottom:40px}.quiet-link{color:#929b98;font-size:13px;display:inline-block;margin-bottom:24px}.project-heading h1{margin-bottom:13px}.project-heading p{color:#a4aeaa}.project-list{border-top:1px solid #ffffff16}.project-row{padding:28px 0;border-bottom:1px solid #ffffff16;display:flex;justify-content:space-between;align-items:center;gap:22px}.project-row h2{font-size:20px;margin-bottom:6px}.project-row p{font-size:14px;color:#a4aeaa}.project-row>span{color:#b7a06a}.journal .feed-empty,.journal-loading{color:#939e99;padding:16px 0 45px}.journal footer{max-width:980px;padding:22px 32px;border-color:#ffffff16;color:#838d89;font-family:inherit}.journal footer>span:first-child{font-family:inherit;font-size:10px;letter-spacing:2px;color:#9aab9f}footer>div{display:flex;gap:22px}.journal footer a{font-size:12px}.signup{max-width:570px}.signup h1{margin-bottom:22px}.signup>p{margin-bottom:16px;color:#c6cdc8}.signup>p.muted{font-size:13px;color:#929e96}.signup form{margin-top:30px}.signup label{display:block;font-size:13px;margin-bottom:8px}.signup-row{display:flex;gap:9px}
-.journal input,.journal select,.journal textarea{background:#1b2022;border:1px solid #3c4541;border-radius:5px;color:#e2e7e3;font:inherit;padding:10px 12px;width:100%;min-width:0}.journal button{background:#baa477;border:1px solid #baa477;color:#171b18;border-radius:5px;font:inherit;font-size:13px;font-weight:550;padding:10px 16px;cursor:pointer;white-space:nowrap}.journal button:disabled{opacity:.5;cursor:wait}.journal button.text-button{background:none;border:0;color:#cbb98e;padding:0 0 0 6px}.journal :focus-visible{outline:2px solid #cbb98e;outline-offset:4px}.journal #signup-result{font-size:13px;margin-top:14px;color:#cbb98e}.journal .route-enter{animation:none}
-@media(max-width:600px){.journal .masthead{padding:20px;gap:15px;min-height:70px;flex-wrap:nowrap}.journal .brand{font-size:16px}.journal .masthead nav{gap:16px;font-size:13px}.journal #app{padding:35px 22px 60px}.journal footer{padding:20px 22px}.post h2{font-size:20px}.signup-row{flex-wrap:wrap}.signup-row button{width:100%}.post-meta{gap:8px}.post-author{max-width:48%;overflow-wrap:anywhere}}
+/* Compact feed layout using the existing LowPolyWorks theme from style.css. */
+.journal .site-shell{grid-template-columns:minmax(0,1fr)}
+.journal .side-menu{display:none}
+.journal #app{max-width:1000px;width:100%;margin:0 auto}
+.journal h1{font-size:2rem;margin-bottom:28px}
+.post{padding:0 0 26px;margin:0 0 26px;border-bottom:1px solid #5c523c}
+.post:last-child{margin-bottom:0}
+.post-meta{display:flex;align-items:center;gap:11px;font-size:.85rem;margin-bottom:15px;color:var(--muted)}
+.post-author{color:var(--bone)}
+.post-meta time{font-size:.8rem}
+.post-meta>a{margin-left:auto}
+.author-icon{display:grid;place-items:center;width:36px;height:36px;flex:none;border:1px solid var(--gold);border-radius:50%;background-image:var(--recess);color:var(--bone);overflow:hidden}
+.author-icon img{width:100%;height:100%;object-fit:cover}
+.post h2{font-size:1.5rem;margin-bottom:14px}
+.post-body{line-height:1.65;overflow-wrap:anywhere}
+.post-body p+p{margin-top:14px}
+.post-link{display:inline-block;color:var(--bone);margin-top:16px;font-size:.9rem}
+.post-tags{display:flex;gap:16px;font-size:.8rem;margin-top:17px;color:var(--muted)}
+.post-tags a{color:var(--gold)}
+.project-heading{margin-bottom:32px}
+.quiet-link{color:var(--muted);font-size:.85rem;display:inline-block;margin-bottom:20px}
+.project-heading h1{margin-bottom:12px}
+.project-heading p{color:var(--body)}
+.project-list{border-top:1px solid #5c523c}
+.project-row{padding:24px 0;border-bottom:1px solid #5c523c;display:flex;justify-content:space-between;align-items:center;gap:22px}
+.project-row h2{font-size:1.5rem;margin-bottom:6px}
+.project-row p{font-size:.95rem;color:var(--body)}
+.project-row>span{color:var(--gold)}
+.feed-empty,.journal-loading{color:var(--muted);padding:16px 0 36px}
+footer>div{display:flex;gap:22px}
+.signup{max-width:620px}
+.signup h1{margin-bottom:22px}
+.signup>p{margin-bottom:16px}
+.signup>p.muted{font-size:.85rem;color:var(--muted)}
+.signup form{margin-top:26px}
+.signup label{display:block;font-size:.9rem;margin-bottom:8px}
+.signup-row{display:flex;gap:10px}
+.journal input,.journal select,.journal textarea{background:#060b14;border:3px ridge #4d5970;border-radius:2px;color:var(--body);font:inherit;padding:8px 10px;width:100%;min-width:0;box-shadow:inset 0 0 8px #000}
+.journal button{background-image:var(--recess);background-size:auto,300px 300px;border:3px ridge #4b5870;border-radius:4px;color:var(--bone);font-family:'IM Fell English',Georgia,serif;font-size:.95rem;padding:6px 14px;box-shadow:inset 0 0 7px #000;text-shadow:1px 2px #000;cursor:pointer;white-space:nowrap}
+.journal button:disabled{opacity:.5;cursor:default}
+.journal button.text-button{background:none;border:0;box-shadow:none;color:var(--gold);padding:0 0 0 6px}
+.journal #signup-result{font-size:.85rem;margin-top:14px;color:var(--gold)}
+@media(max-width:600px){.post h2,.project-row h2{font-size:1.35rem}.signup-row{flex-wrap:wrap}.signup-row button{width:100%}.post-meta{gap:8px}.post-author{max-width:48%;overflow-wrap:anywhere}}
