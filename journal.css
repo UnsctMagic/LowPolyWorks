@@ -1,4 +1,19 @@
 /* Compact feed layout using the existing LowPolyWorks theme from style.css. */
+/* Project marks share the existing menu frames and route links. */
+.masthead nav{flex-wrap:wrap}
+.masthead .project-brand{display:flex;align-items:center;justify-content:center;gap:9px;padding:3px 12px;min-height:74px}
+.mdlxl-brand-icon{display:block;width:48px;height:48px;object-fit:contain;flex:none}
+.mdlxl-wordmark{font-family:Cinzel,Georgia,serif;font-size:32px;font-weight:800;line-height:1.1;letter-spacing:-1.5px;white-space:nowrap;text-shadow:none;color:#e1bd71;background:linear-gradient(#fff0bc 4%,#d7a950 38%,#a47430 49%,#f2d899 53%,#bc8536 83%,#ffe5a1);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(1px 2px 0 #090a0d)}
+.mdlxl-wordmark>span{font-size:.78em;background:linear-gradient(#f5f5ef,#b8c0ce 45%,#737d91 50%,#e7ebee);background-clip:text;-webkit-background-clip:text}
+/* Window onto the supplied 1400 x 300 artwork: x=355..1290, y=0..174.
+   Keep its original pixels; the characters to the left remain outside the window. */
+.warhammercraft-wordmark{display:block;position:relative;width:258px;aspect-ratio:935/174;overflow:hidden;flex:none}
+.warhammercraft-wordmark img{display:block;position:absolute;width:149.73262%;max-width:none;height:auto;left:-37.96792%;top:0}
+.mdlxl-brand-icon,.warhammercraft-wordmark img{filter:drop-shadow(.65px 0 0 var(--mark-outline,#e5ca85)) drop-shadow(-.65px 0 0 var(--mark-outline,#e5ca85)) drop-shadow(0 .65px 0 var(--mark-outline,#e5ca85)) drop-shadow(0 -.65px 0 var(--mark-outline,#e5ca85))}
+.warhammercraft-wordmark{--mark-outline:#edc35b}
+.mdlxl-wordmark{-webkit-text-stroke:.45px #e5ca85}
+@media(max-width:1100px){.masthead{flex-wrap:wrap;gap:14px 30px}.masthead nav{gap:14px}}
+@media(max-width:560px){.masthead nav{width:100%;gap:8px}.masthead .project-brand{padding:3px 8px;min-height:64px}.mdlxl-brand-icon{width:40px;height:40px}.mdlxl-wordmark{font-size:28px}.warhammercraft-wordmark{width:230px}}
 .journal .site-shell{grid-template-columns:minmax(0,1fr)}
 .journal .side-menu{display:none}
 .journal #app{max-width:1000px;width:100%;margin:0 auto}
