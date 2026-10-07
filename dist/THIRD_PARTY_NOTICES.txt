@@ -1,10 +1,58 @@
-ModelRenderer: war3-model 4.0.1 by 4eb0da, MIT. License included in vendor/war3-model-LICENSE.txt.
-Three.js 0.183.2, MIT. License included in vendor/three-LICENSE.txt.
-Warcraft III models: recovered WarhammerCraft kitbashes by Unsanctioned Magic and their credited contributors. Original part credits are retained per model in catalogue.json and shown in the interface.
-Native Warcraft III textures: Blizzard Entertainment. Extracted from the user's local Warcraft III classic archives for this private design preview.
-MDLxL Showcase playback, orbit, animation and rendering adapter source is reused unchanged from the user's local MDLxL project. This is a catalogue-focused viewer, not the complete MDLxL editor.
-Fonts: Cinzel and IM Fell English, served by Google Fonts, licensed under the SIL Open Font License.
-WhiteoutLib texture decoder, pinned commit 38d279c2a6d8d439377959c56fe4f1eb9ab12fa6, BSD-3-Clause. License and build provenance included in whiteout/.
-MDLxL particle compatibility runtime: bundled unchanged from app/particle-preview-adapter.js, retaining the particle-atlas and compatibility exports. Billboard camera convention is reused from app/preview-pose.js.
+LowPolyWorks viewer credits and third-party notices
 
-MDLxL Showcase Highest graphics preset, Classic lighting adapter, animation and effects modules are reused from MDLxL 0.18.7, commit 349f262ba7a36cba4baed56ea1dc2ab4711982aa. Source: https://github.com/UnsctMagic/MDLxL/tree/349f262ba7a36cba4baed56ea1dc2ab4711982aa
+The Warcraft III model viewer combines LowPolyWorks website integration,
+MDLxL rendering components and third-party libraries. The war3-model license
+covers that library; it is not the complete viewer's credits or a license for
+the website, MDLxL code, models or Warcraft III assets.
+
+Components used by the viewer
+
+- LowPolyWorks / Unsanctioned Magic: website integration, catalogue model and
+  texture loading, viewer controls, portraits and formation captures.
+  Source: https://github.com/UnsctMagic/LowPolyWorks
+- MDLxL / Unsanctioned Magic and contributors: Showcase animation playback,
+  global-sequence and effect timing, graphics presets, lighting and geoset
+  shader adapters, particle compatibility, billboard and portrait-camera
+  handling, and editor camera controls. This website reuses these components;
+  it is a catalogue viewer rather than the complete MDLxL editor.
+  Bundled source provenance: MDLxL 0.18.7, commit
+  349f262ba7a36cba4baed56ea1dc2ab4711982aa.
+  Source: https://github.com/UnsctMagic/MDLxL/tree/349f262ba7a36cba4baed56ea1dc2ab4711982aa
+- war3-model 4.0.1 / 4eb0da and contributors: MDX parsing and the underlying
+  Warcraft III WebGL ModelRenderer, including model geometry, animation,
+  particles and ribbons. MDLxL adapters extend its rendering behavior.
+  MIT license: vendor/war3-model-LICENSE.txt
+  Source: https://github.com/4eb0da/war3-model
+- Three.js 0.183.2 / three.js authors and contributors: cameras, vectors,
+  matrices, bounds and OrbitControls used by the viewer's camera controls.
+  MIT license: vendor/three-LICENSE.txt
+  Source: https://github.com/mrdoob/three.js
+- WhiteoutLib / Fernando Sahmkow (BlinkBoy): BLP1/BLP2 texture decoding through
+  MDLxL's WebAssembly adapter. WhiteoutLib is a texture codec in this viewer.
+  Pinned commit: 38d279c2a6d8d439377959c56fe4f1eb9ab12fa6.
+  BSD-3-Clause license: whiteout/LICENSE
+  Build provenance: whiteout/build.json
+  Source: https://github.com/FernandoS27/WhiteoutLib
+
+Technical references and upstream acknowledgements
+
+- GhostWolf / flowtsohg, mdx-m3-viewer: event-object table and naming references
+  in MDLxL's bundled event-preview-data.js. The website does not import the
+  mdx-m3-viewer renderer as its runtime model renderer.
+  Source: https://github.com/flowtsohg/mdx-m3-viewer
+- Retera, Warsmash Mod Engine and Retera Model Studio: portrait-camera FOV
+  reference in portrait-view.js and MDX geoset-color layout reference in
+  geoset-color-codec.js, respectively.
+  Sources: https://github.com/Retera/WarsmashModEngine
+           https://github.com/Retera/ReterasModelStudio
+- war3-model's own acknowledgements credit Magos (MDX specification and War3
+  Model Editor), GhostWolf (MDX specification and BLP decoder code), Alexey /
+  Алексей (MDLVis), and Dr Super Good (BLP specification).
+  Upstream acknowledgements: https://github.com/4eb0da/war3-model/blob/v4.0.1/README.md#thanks
+
+Game assets and fonts
+
+Native Warcraft III textures and interface assets: Blizzard Entertainment.
+Textures were extracted from the user's local Warcraft III classic archives.
+Fonts: Cinzel and IM Fell English, served by Google Fonts, licensed under the
+SIL Open Font License.
