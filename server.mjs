@@ -45,4 +45,4 @@ http.createServer(async (req, res) => {
     res.writeHead(404);
     res.end('Not found');
   }
-}).listen(port, '127.0.0.1', () => console.log(`LowPolyWorks: http://127.0.0.1:${port}/#armies`));
+}).listen(port, '127.0.0.1', () => console.log(`LowPolyWorks: http://127.0.0.1:${port}/`));

@@ -1,6 +1,6 @@
 # LowPolyWorks
 
-WarhammerCraft army and Warcraft III model catalogue. The current collection contains 40 models across Warriors of Chaos, Vampire Counts, The Empire, Bretonnia, and Orcs & Goblins.
+LowPolyWorks post feed and projects, with a separate author workspace. MDLxL and WarhammerCraft are projects. The WarhammerCraft catalogue contains 40 models across Warriors of Chaos, Vampire Counts, The Empire, Bretonnia, and Orcs & Goblins.
 
 ## Run locally
 
@@ -12,7 +12,7 @@ npm start
 
 You can also run `node server.mjs` directly.
 
-Open <http://127.0.0.1:4178/#armies>. No dependency installation or build step is required. If that port is already occupied, set the `PORT` environment variable to another port.
+Open <http://127.0.0.1:4178/>. No dependency installation or build step is required for the website. Posts and subscriptions use the deployed publishing backend; until it is deployed, the local feed reports that posts are unavailable. The catalogue remains available at `#armies`. If that port is already occupied, set the `PORT` environment variable to another port.
 
 ```sh
 npm run check
@@ -29,7 +29,7 @@ This checks the application JavaScript, catalogue references, model hashes, text
 - `dist/herrdave-import.json`: provenance for the imported HerrDave collection.
 - `source-archives/`: the seven recovered original WarhammerCraft model packages. HerrDave's ten original packages are in `dist/downloads/herrdave/`.
 - `tools/`: local thumbnail capture pages and project verification.
-- `tracker/`: private usage backend and instructions for retrieving download counts. Reader credentials stay in the ignored `.internal/` folder.
+- `tracker/`: usage and publishing backend, author login, and model notification delivery. Reader and provisioning credentials stay in the ignored `.internal/` folder.
 - `.openai/`: existing website preview configuration.
 
 The local capture pages are available at `/__thumbnails.html` for army formations and `/__portraits.html` for full-unit cards. Unit cards use a slight front-side angle and the army's canonical Warcraft III team colour. Opening these pages regenerates the corresponding PNG files in `dist/thumbs/`.

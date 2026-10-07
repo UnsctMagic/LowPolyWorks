@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "LowPolyWorks — WarhammerCraft army and model catalogue",
+  "description": "LowPolyWorks — posts, model notifications and projects",
   "scripts": {
     "start": "node server.mjs",
     "check": "node tools/check-project.mjs"

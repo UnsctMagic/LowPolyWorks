@@ -20,7 +20,7 @@ for (const entry of modelHashes) {
   assert.equal(crypto.createHash('sha256').update(fs.readFileSync(path.join(root, 'models', entry.file))).digest('hex'), entry.sha256, `Model changed: ${entry.file}`);
 }
 assert.equal(ids.size, rows.length, 'Duplicate catalogue IDs');
-for (const file of ['server.mjs', 'tools/check-project.mjs', 'dist/app.js', 'dist/viewer.js', 'dist/viewer-effects.js', 'dist/website-camera-controls.js']) {
+for (const file of ['server.mjs', 'tools/check-project.mjs', 'dist/app.js', 'dist/journal.js', 'dist/viewer.js', 'dist/viewer-effects.js', 'dist/website-camera-controls.js', 'tracker/author.js', 'tracker/api/publishing.js', 'tracker/lib/publishing.js', 'tracker/lib/publishing-state.js', 'tracker/lib/publishing-mail.js']) {
   execFileSync(process.execPath, ['--check', path.join(project, file)], {stdio: 'pipe'});
 }
 for (const file of Object.values(textures)) exists(file);
