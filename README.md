@@ -1,6 +1,6 @@
 # LowPolyWorks
 
-LowPolyWorks post feed and projects, with a separate author workspace. MDLxL and WarhammerCraft are projects. The WarhammerCraft catalogue contains 40 models across Warriors of Chaos, Vampire Counts, The Empire, Bretonnia, and Orcs & Goblins.
+LowPolyWorks post feed and projects, with a separate author workspace. MDLxL and WarhammerCraft are projects. The WarhammerCraft catalogue contains 41 models across Warriors of Chaos, Vampire Counts, The Empire, Bretonnia, and Orcs & Goblins.
 
 ## Run locally
 
