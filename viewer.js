@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import {bindVertexCamera} from './website-camera-controls.js';
 import {skinGeoset} from './vendor/mdlxl/src/animation.js';
-import {perspectiveFitDistance} from './vendor/mdlxl/app/viewport-math.js';
+import {perspectiveFitDistance,modelClipRadius,updateDepthClipping} from './vendor/mdlxl/app/viewport-math.js';
 import {parseMDX,ModelRenderer} from './vendor/war3-model.mjs';
 import {installWarcraftPreviewAdapter,previewGeosetTint} from './vendor/mdlxl/app/warcraft-preview-adapter.js';
 import {advanceShowcaseModel} from './vendor/mdlxl/app/showcase-playback.js';
@@ -43,7 +43,7 @@ export async function createViewer(canvas,row,{thumbnail=false,portrait=false,fo
  const box=new THREE.Box3(),point=new THREE.Vector3();
  for(const [index,g] of model.Geosets.entries()){const layers=model.Materials[g.MaterialID]?.Layers||[];if(scenery.has(index)||!layers.some(layer=>previewGeosetTint(model,index,layer,native.getFrame(),sequence,0)[3]>.001))continue;const vertices=skinGeoset(g,matrices);for(const id of new Set(g.Faces))box.expandByPoint(point.fromArray(vertices,id*3));}
  const center=box.getCenter(new THREE.Vector3()),radius=Math.max(1,box.getSize(new THREE.Vector3()).length()/2);
- camera.far=Math.max(3000,radius*30);
+ const clipRadius=modelClipRadius(model,center,radius);
  const navigation=!thumbnail&&!portrait?bindVertexCamera(camera,canvas):null,controls=navigation?.controls;
  if(controls)controls.autoRotateSpeed=1.2;
  function fit(){const aspect=Math.max(1,canvas.clientWidth)/Math.max(1,canvas.clientHeight),distance=perspectiveFitDistance(radius,camera.fov,aspect);camera.zoom=1;camera.position.copy(center).addScaledVector(formation?new THREE.Vector3(Math.cos(formationYaw),Math.sin(formationYaw),.12).normalize():new THREE.Vector3(Math.cos(.75),Math.sin(.75),.18).normalize(),distance);camera.lookAt(center);if(controls){controls.target.copy(center);controls.minDistance=radius*.4;controls.maxDistance=distance*3;controls.update();}}
@@ -60,6 +60,8 @@ export async function createViewer(canvas,row,{thumbnail=false,portrait=false,fo
  function render(delta=0){if(disposed)return;const w=Math.max(1,canvas.clientWidth||480),h=Math.max(1,canvas.clientHeight||480),scale=Math.min(graphics.pixelRatio,maxSize/Math.max(w,h));const width=Math.round(w*scale),height=Math.round(h*scale);if(canvas.width!==width||canvas.height!==height){canvas.width=width;canvas.height=height;canvas.dataset.renderScale=String(scale);canvas.dataset.msaaSamples=String(msaaSamples);}camera.aspect=w/h;camera.updateProjectionMatrix();camera.updateMatrixWorld();native.setLightPosition(displayLight().normalize().multiplyScalar(radius*10).add(center).toArray());
  clock+=delta*speed;const sample=viewerPlaybackSample(model,sequence,clock,revision,looping),frame=sample.frame;
  if(portraitActive&&!portraitDetached){const evaluated=evaluateModelCamera(model,model.Cameras[0],frame,sequence,clock);if(!applyEvaluatedModelCamera(camera,controls||portraitControls,evaluated,w/h))throw Error('Portrait camera unavailable.');}
+ // Keep depth precision around the model as playback and mouse navigation change the view.
+ if(!portraitActive||portraitDetached)updateDepthClipping(camera,center,radius,clipRadius);
  // Warcraft particle planes and billboard nodes use +X as forward and +Z as up.
  setWarcraftCamera(native,camera);previous=advanceShowcaseModel(native,model,sample,previous);
  gl.viewport(0,0,canvas.width,canvas.height);gl.clearColor(...(portraitActive||transparent?[0,0,0]:[16/255,24/255,39/255]),transparent?0:1);gl.clearDepth(1);gl.depthMask(true);gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT);native.render(camera.matrixWorldInverse.elements,camera.projectionMatrix.elements,{wireframe:false,useEnvironmentMap:true});}
