@@ -1,4 +1,4 @@
-import {createViewer} from './viewer.js?v=20261008-unified-army-cards';
+import {createViewer} from './viewer.js?v=20261008-champion-depth';
 import {TEAM_COLORS} from './vendor/mdlxl/src/team-colors.js';
 import {recordUsage} from './usage.js?v=20261007-media-polls';
 import {renderJournal} from './journal.js?v=20261007-purple-outline';
