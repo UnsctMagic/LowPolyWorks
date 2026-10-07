@@ -4,7 +4,7 @@ import {recordUsage} from './usage.js?v=20261007-media-polls';
 import {renderJournal} from './journal.js?v=20261007-purple-outline';
 import {renderMdlxl} from './mdlxl.js?v=20261007-download-tracking';
 if (/^\/mdlxl\/?$/.test(location.pathname) && !location.hash) history.replaceState(null,'',location.pathname+location.search+'#project/mdlxl');
-const app=document.querySelector('#app'),catalogue=await fetch('catalogue.json?v=20261008-stand-strigoi-r2').then(r=>r.json());
+const app=document.querySelector('#app'),catalogue=await fetch('catalogue.json?v=20261008-dreadknight-02').then(r=>r.json());
 const armies=await fetch('armies.json?v=20261008-strigoi-vampire-slug').then(r=>r.json());
 const descriptionParagraphs=text=>text.trim().split(/\r?\n\s*\r?\n/).map(paragraph=>`<p>${escape(paragraph.trim()).replace(/\r?\n/g,'<br>')}</p>`).join('');
 const escape=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
