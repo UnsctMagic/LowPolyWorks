@@ -20,7 +20,7 @@ const textureIndex=fetch('textures.json?v=20261007-dread-knight').then(r=>r.json
 async function textureData(name,row){const index=await textureIndex,key=name.toLowerCase(),file=row.textureFiles?.[key]||index[key];if(!file)throw Error('Missing texture: '+name);if(!textureCache.has(file))textureCache.set(file,(async()=>{const b=await fetch(file).then(r=>r.arrayBuffer());const pixels=await decodePaintBlp(b);return new ImageData(pixels.data,pixels.width,pixels.height);})());return textureCache.get(file);}
 export async function createViewer(canvas,row,{thumbnail=false,portrait=false,formation=false,formationYaw=0,cutout=false,teamColor=TEAM_COLORS[0].rgbHex,onPortraitModeChange}={}){
  const transparent=formation||cutout;
- const bytes=await fetch('models/'+row.file).then(r=>{if(!r.ok)throw Error('Model unavailable');return r.arrayBuffer();});const model=parseMDX(bytes),gl=canvas.getContext('webgl2',{alpha:transparent,premultipliedAlpha:transparent,antialias:graphics.antialias,preserveDrawingBuffer:true});if(!gl)throw Error('This browser could not start WebGL2.');
+ const bytes=await fetch('models/'+row.file+(row.sha256?'?v='+row.sha256:'')).then(r=>{if(!r.ok)throw Error('Model unavailable');return r.arrayBuffer();});const model=parseMDX(bytes),gl=canvas.getContext('webgl2',{alpha:transparent,premultipliedAlpha:transparent,antialias:graphics.antialias,preserveDrawingBuffer:true});if(!gl)throw Error('This browser could not start WebGL2.');
  let sequence=model.Sequences.findIndex(s=>s.Name==='Stand'||s.Name==='Stand - 1'),clock=0,playing=!thumbnail,speed=1,rotate=false,revision=0,previous=null,disposed=false;
  if(sequence<0)sequence=0;
  if(portrait&&firstPortraitSequenceIndex(model)>=0)sequence=firstPortraitSequenceIndex(model);
