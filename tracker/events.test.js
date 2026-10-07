@@ -2,6 +2,19 @@ import test from 'node:test';import assert from 'node:assert/strict';
 import fs from 'node:fs';import vm from 'node:vm';import {randomUUID} from 'node:crypto';
 import {authorized,eventPath,summarize,validateEvent} from './lib/events.js';
 const id='f5de7cba-f71f-4b51-9af4-5468d5877f11',now=new Date('2026-10-05T21:00:00Z');
+test('MDLxL ZIP clicks are accepted and reported separately from model files',()=>{
+ const input={id,kind:'download',model:'mdlxl',format:'zip',visitorId:id};
+ assert.deepEqual(validateEvent(input),{...input,testing:false});
+ for(const format of ['mdx','pack','exe'])assert.equal(validateEvent({...input,format}),null);
+ assert.equal(validateEvent({...input,model:'not-an-app'}),null);
+ const blob=event=>({pathname:eventPath(event,now),uploadedAt:now});
+ const report=summarize([blob(input),blob({...input,testing:true}),blob({...input,format:'mdx'}),blob({...input,model:'tzeentch-sword',format:'pack'})]);
+ assert.deepEqual(report.totals,{pageLoads:0,downloadClicks:2,uniqueVisitors:1});
+ assert.deepEqual(report.applications,[{id:'mdlxl',name:'MDLxL',zipClicks:1,total:1}]);
+ assert.equal(report.models.length,1);assert.equal(report.models[0].packClicks,1);
+ assert.equal(report.daily[0].downloadClicks,2);
+ assert.equal(summarize([blob(input)],{from:'2026-10-06'}).applications[0].total,0);
+});
 test('statistics require the exact private token',()=>{
  assert.equal(authorized(undefined,'secret'),false);assert.equal(authorized('Bearer bad','secret'),false);assert.equal(authorized('Bearer secret',''),false);assert.equal(authorized('Bearer secret','secret'),true);
 });
