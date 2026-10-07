@@ -13,13 +13,12 @@ export async function renderJournal(app,isCurrent){
  app.innerHTML='<p class="journal-loading">Loading posts…</p>';
  let data,error;try{const response=await fetch(API+'?action=feed',{cache:'no-store'});if(!response.ok)throw Error('Posts are temporarily unavailable.');data=await response.json();}catch(e){error=e;data={posts:[],projects};}if(!isCurrent())return;
  const allProjects=data.projects;
- if(hash==='#projects'){document.title='Projects — LowPolyWorks';app.innerHTML=`<h1>Projects</h1><div class="project-list">${allProjects.map(project=>`<a class="project-row" href="#project/${escape(project.id)}"><div><h2>${escape(project.name)}</h2><p>${escape(project.description)}</p></div><span aria-hidden="true">↗</span></a>`).join('')}</div>`;return;}
  const projectId=hash.startsWith('#project/')?hash.slice(9):null,postId=hash.startsWith('#post/')?hash.slice(6):null;
  const project=projectId&&allProjects.find(p=>p.id===projectId);
- if(projectId&&!project){app.innerHTML='<h1>Project not found</h1><a href="#projects">All projects</a>';return;}
+ if(projectId&&!project){app.innerHTML='<h1>Project not found</h1><a href="#feed">Posts</a>';return;}
  const posts=data.posts.filter(p=>(!projectId||p.projectId===projectId)&&(!postId||p.id===postId));
  if(project)document.title=project.name+' — LowPolyWorks';
  if(postId&&posts[0])document.title=posts[0].title+' — LowPolyWorks';
- app.innerHTML=`${project?`<section class="project-heading"><a class="quiet-link" href="#projects">← Projects</a><h1>${escape(project.name)}</h1><p>${escape(project.description)}</p><a class="post-link" href="${escape(project.url)}" ${project.url.startsWith('#')?'':'target="_blank" rel="noopener noreferrer"'}>${project.id==='warhammercraft'?'Explore armies & models':'Open project'} ↗</a></section>`:postId?'<a class="quiet-link" href="#feed">← Posts</a>':'<h1>Posts</h1>'}<div class="post-feed">${error?`<p class="feed-empty" role="status">${escape(error.message)} <button id="reload-posts" class="text-button">Try again</button></p>`:posts.length?posts.map(p=>postCard(p,allProjects)).join(''):`<p class="feed-empty">${postId?'Post not found.':'No posts yet.'}</p>`}</div>`;
+ app.innerHTML=`${project?`<section class="project-heading"><a class="quiet-link" href="#feed">← Posts</a><h1>${escape(project.name)}</h1><p>${escape(project.description)}</p><a class="post-link" href="${escape(project.url)}" ${project.url.startsWith('#')?'':'target="_blank" rel="noopener noreferrer"'}>${project.id==='warhammercraft'?'Explore armies & models':'Open project'} ↗</a></section>`:postId?'<a class="quiet-link" href="#feed">← Posts</a>':'<h1>Posts</h1>'}<div class="post-feed">${error?`<p class="feed-empty" role="status">${escape(error.message)} <button id="reload-posts" class="text-button">Try again</button></p>`:posts.length?posts.map(p=>postCard(p,allProjects)).join(''):`<p class="feed-empty">${postId?'Post not found.':'No posts yet.'}</p>`}</div>`;
  if(error)document.querySelector('#reload-posts').onclick=()=>renderJournal(app,isCurrent);
 }
