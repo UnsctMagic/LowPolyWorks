@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {markdown,notesSource,downloadUrl,creditLine} from '../dist/mdlxl.js';
+import {markdown,notesSource,downloadUrl,creditLine,officialNotes} from '../dist/mdlxl.js';
 
 test('release Markdown keeps prose, links and formatting without executing HTML',()=>{
  const html=markdown('# Update\n\n- **Saved** `Geosets[0]`\n- [Details](https://github.com/UnsctMagic/MDLxL/pull/109)\n\n<img src=x onerror=alert(1)>\n[jump](javascript:alert(1))');
@@ -17,8 +17,14 @@ test('English patch notes follow the published tag instead of a fixed version',(
 });
 test('download selects the application ZIP, not source or checksums, for a future release',()=>{
  const assets=[{name:'MDLxL-FFmpeg-corresponding-source.zip',browser_download_url:'source'},{name:'MDLxL-0.99.1-win32-x64.zip.sha256',browser_download_url:'checksum'},{name:'MDLxL-0.99.1-win32-x64.zip',browser_download_url:'application'}];
- assert.equal(downloadUrl({assets}),'application');
- assert.equal(downloadUrl({assets:[]}),'https://github.com/UnsctMagic/MDLxL/releases/latest');
+ assert.equal(downloadUrl({tag_name:'v0.99.1',assets}),'application');
+ assert.equal(downloadUrl({tag_name:'v0.99.1',assets:[]}),null);
+ assert.equal(downloadUrl({tag_name:'v0.99.2',assets}),null);
+});
+test('official multilingual posts and legacy translated notes use their owning source',()=>{
+ assert.equal(officialNotes({body:'[English](https://www.lowpolyworks.com/mdlxl/?version=0.20.0&lang=en)'}),true);
+ assert.equal(officialNotes({body:'[English](https://www.lowpolyworks.com.evil.test/mdlxl/)'}),false);
+ assert.equal(notesSource({body:'[Русский](https://github.com/UnsctMagic/MDLxL/blob/v0.19.0/docs/RELEASE-0.19.0-RU.md)'},'ru'),'https://raw.githubusercontent.com/UnsctMagic/MDLxL/v0.19.0/docs/RELEASE-0.19.0-RU.md');
 });
 test('credits distinguish creator profiles from the resources they made',()=>{
  const links=[...creditLine('HerrDave, POMEXI, rubberduck — 60 Free GIMP / Krita Brushes. Rodrigo Fuenzalida and Nicolas Massi — Pirata One.').matchAll(/href="([^"]+)"[^>]*>([^<]+)<\/a>/g)].map(m=>[m[2],m[1]]);
