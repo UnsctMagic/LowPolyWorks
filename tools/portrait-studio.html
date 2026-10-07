@@ -5,7 +5,7 @@ const selected=new URLSearchParams(location.search).get('models')?.split(',');
 let successes=0,failures=0;
 for(const row of rows.filter(row=>!selected||selected.includes(row.id))){let viewer;try{
  const canvas=document.querySelector('#canvas'),army=armies.find(army=>army.id===row.army);
- viewer=await createViewer(canvas,row,{thumbnail:true,formation:true,formationYaw:.32,teamColor:army.colour});viewer.render(row.id==='aspiring'?600:0);
+ viewer=await createViewer(canvas,row,{thumbnail:true,formation:true,formationYaw:.32,teamColor:army.teamColour||army.colour});viewer.render(row.id==='aspiring'?600:0);
  const capture=document.createElement('canvas');capture.width=canvas.width;capture.height=canvas.height;
  const context=capture.getContext('2d');context.drawImage(canvas,0,0);const pixels=context.getImageData(0,0,capture.width,capture.height).data;
  let left=capture.width,top=capture.height,right=0,bottom=0;
