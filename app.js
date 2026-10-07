@@ -1,7 +1,7 @@
 import {createViewer} from './viewer.js?v=20261006-classic-portrait-controls';
 import {TEAM_COLORS} from './vendor/mdlxl/src/team-colors.js';
 import {recordUsage} from './usage.js?v=20261007-media-polls';
-import {renderJournal} from './journal.js?v=20261007-media-polls';
+import {renderJournal} from './journal.js?v=20261007-purple-outline';
 import {renderMdlxl} from './mdlxl.js?v=20261007-credits';
 const app=document.querySelector('#app'),catalogue=await fetch('catalogue.json').then(r=>r.json());
 const armies=await fetch('armies.json?v=20261006-native-stone').then(r=>r.json());
