@@ -1,9 +1,9 @@
-import {authorIdentity,postMedia,postPoll} from './post-content.js?v=20261007-purple-outline';
+import {authorIdentity,postMedia,postPoll,postBody} from './post-content.js?v=20261008-post-editor';
 import {browserVisitorId} from './visitor-id.js';
 const API='https://lowpolyworks-internal-tracker.vercel.app/api/publishing';
 const escape=value=>String(value??'').replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
 const labels={news:'News','model-upload':'New model','model-update':'Model update'};
-const paragraphs=text=>String(text).split(/\n\s*\n/).map(p=>`<p>${escape(p).replace(/\n/g,'<br>')}</p>`).join('');
+const paragraphs=postBody;
 function postCard(post,projects){const project=projects.find(p=>p.id===post.projectId),date=new Date(post.publishedAt);return `<article class="post" id="post-${escape(post.id)}"><div class="post-meta">${authorIdentity(post.author)}<a href="#post/${escape(post.id)}"><time datetime="${escape(post.publishedAt)}">${escape(date.toLocaleDateString(undefined,{year:'numeric',month:'short',day:'numeric'}))}</time></a></div><h2><a href="#post/${escape(post.id)}">${escape(post.title)}</a></h2><div class="post-body">${paragraphs(post.body)}</div>${post.link?`<a class="post-link" href="${escape(post.link)}" target="_blank" rel="noopener noreferrer">${post.kind==='news'?'Read more':'View model'} ↗</a>`:''}${postMedia(post.media,post.videos)}${postPoll(post.id,post.poll)}<div class="post-tags"><span>${labels[post.kind]}</span>${project?`<a href="#project/${escape(project.id)}">${escape(project.name)}</a>`:''}</div></article>`;}
 export async function renderJournal(app,isCurrent){
  app.onclick=null;let visitorId;try{visitorId=browserVisitorId();}catch{}
