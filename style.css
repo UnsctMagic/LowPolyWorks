@@ -101,3 +101,8 @@ footer{max-width:1740px;padding:20px 24px}
 .controls .loop-option{display:flex;align-items:center;gap:7px;cursor:pointer}
 .controls .loop-option input{margin:0;accent-color:var(--gold);width:15px;height:15px}
 @media(max-width:560px){.controls{padding:8px}.controls .animation-controls{grid-template-columns:auto minmax(0,1fr) 76px}.controls .appearance-controls{grid-template-columns:auto 100px minmax(0,1fr) 76px}.controls .orbit-controls{grid-template-columns:76px auto minmax(45px,1fr) 30px}.controls .playback-controls{grid-template-columns:minmax(0,1fr) auto minmax(45px,1fr) 30px}.controls .control-row{gap:6px}.controls .control-row label{font-size:.74rem}}
+
+/* Vampire Counts: looming Strigoi behind two outward-facing guards. */
+.army-picture[data-army="vampire-counts"] img.front{height:calc(84% / var(--body-height,1));bottom:5%;left:50%;z-index:1}
+.army-picture[data-army="vampire-counts"] img.rear-left{height:calc(71% / .9);bottom:3%;left:30%;z-index:2}
+.army-picture[data-army="vampire-counts"] img.rear-right{height:calc(71% / var(--body-height,1));bottom:3%;left:70%;z-index:2}
