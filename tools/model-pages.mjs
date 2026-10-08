@@ -6,7 +6,7 @@ const site = 'https://www.lowpolyworks.com';
 const escape = value => String(value).replace(/[&<>"']/g, char => ({'&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;'}[char]));
 
 export function modelPage(template, row, thumbnail) {
-  const url = `${site}/model/${row.id}/`;
+  const url = `${site}/model/${row.slug || row.id}/`;
   const image = `${site}/thumbs/unit-${row.id}.png`;
   const description = row.description.replace(/\s+/g, ' ').trim();
   const width = thumbnail.readUInt32BE(16), height = thumbnail.readUInt32BE(20);
@@ -34,7 +34,7 @@ export function modelPage(template, row, thumbnail) {
 
 export function previewTemplate(html) {
   return html.replace('<head>', '<head><base href="/">')
-    .replace(/src="app\.js\?v=[^"]+"/, 'src="app.js?v=20261007-model-previews"');
+    .replace(/src="app\.js\?v=[^"]+"/, 'src="app.js?v=20261007-model-changelog"');
 }
 
 export function previewApp(app) {
@@ -46,14 +46,44 @@ export function previewApp(app) {
     .replace("const army=armies.find(a=>a.id===row.army);document.title=", "history.replaceState(null,'','/model/'+row.id+'/'+location.search);const army=armies.find(a=>a.id===row.army);document.title=");
 }
 
+export function generateSearchFiles(root, rows) {
+  const urls = [`${site}/`, `${site}/mdlxl/`, ...rows.map(row => `${site}/model/${row.slug || row.id}/`)];
+  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map(url => `  <url><loc>${escape(url)}</loc></url>`).join('\n')}\n</urlset>\n`;
+  fs.writeFileSync(path.join(root, 'sitemap.xml'), sitemap);
+  fs.writeFileSync(path.join(root, 'robots.txt'), `User-agent: *\nAllow: /\n\nSitemap: ${site}/sitemap.xml\n`);
+  return urls.length;
+}
+
+export function mdlxlPage(template) {
+  const title = 'MDLxL — Warcraft III Model Editor — LowPolyWorks';
+  const description = 'A model editor for Warcraft III SD models, inspired by MDLVis. Download MDLxL and read its latest patch notes.';
+  const url = `${site}/mdlxl/`;
+  const metadata = [
+    `<link rel="canonical" href="${url}">`,
+    `<meta property="og:type" content="website">`,
+    `<meta property="og:site_name" content="LowPolyWorks">`,
+    `<meta property="og:title" content="${escape(title)}">`,
+    `<meta property="og:description" content="${escape(description)}">`,
+    `<meta property="og:url" content="${url}">`,
+    `<meta property="og:image" content="${site}/ui/mdlxl-icon.png">`,
+    `<meta name="twitter:card" content="summary">`,
+  ].join('\n');
+  return template.replace(/<title>.*?<\/title>/, `<title>${escape(title)}</title>`)
+    .replace(/<meta name="description" content="[^"]*">/, `<meta name="description" content="${escape(description)}">`)
+    .replace('</head>', `${metadata}\n</head>`);
+}
+
 export function generateModelPages(root) {
   const template = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
   const rows = JSON.parse(fs.readFileSync(path.join(root, 'catalogue.json'), 'utf8'));
   for (const row of rows) {
-    const directory = path.join(root, 'model', row.id);
+    const directory = path.join(root, 'model', row.slug || row.id);
     fs.mkdirSync(directory, {recursive:true});
     fs.writeFileSync(path.join(directory, 'index.html'), modelPage(template, row, fs.readFileSync(path.join(root, 'thumbs', `unit-${row.id}.png`))));
   }
+  fs.mkdirSync(path.join(root, 'mdlxl'), {recursive:true});
+  fs.writeFileSync(path.join(root, 'mdlxl', 'index.html'), mdlxlPage(template));
+  generateSearchFiles(root, rows);
   return rows.length;
 }
 
