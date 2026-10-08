@@ -1,7 +1,7 @@
 import {createViewer} from './viewer.js?v=20261008-champion-bracer';
 import {TEAM_COLORS} from './vendor/mdlxl/src/team-colors.js';
 import {recordUsage} from './usage.js?v=20261007-media-polls';
-import {renderJournal} from './journal.js?v=20261008-post-editor';
+import {renderJournal} from './journal.js?v=20261008-post-manager';
 import {renderMdlxl} from './mdlxl.js?v=20261007-download-tracking';
 if (/^\/mdlxl\/?$/.test(location.pathname) && !location.hash) history.replaceState(null,'',location.pathname+location.search+'#project/mdlxl');
 const app=document.querySelector('#app'),catalogue=await fetch('catalogue.json?v=20261008-dreadknight-02').then(r=>r.json());
