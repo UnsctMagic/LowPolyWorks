@@ -1,0 +1,9 @@
+{
+  "version": "0.21.0",
+  "notes": {
+    "en": "# MDLxL 0.21.0 — Forge and editor improvements\n\n- Extended Forge shape controls and added Glow Up.\n- Added animation speed controls and optional timing recovery.\n- Improved OptimizeXL repairs and previews.\n- Restored UV team colors and material preset settings.\n- Improved Showcase cancellation, undo, and recording duration.\n- Improved camera rotation and effect controls.\n- Added editor-data save options.\n",
+    "ru": "# MDLxL 0.21.0 — Forge и улучшения редактора\n\n- Расширены инструменты форм Forge и добавлен Glow Up.\n- Добавлены управление скоростью анимации и восстановление исходного времени.\n- Улучшены исправления и предпросмотр OptimizeXL.\n- Восстановлены командные цвета в UV и настройки пресетов материалов.\n- Улучшены отмена записи, история изменений и длительность записи Showcase.\n- Улучшены вращение камеры и управление эффектами.\n- Добавлены варианты сохранения данных редактора.\n",
+    "es": "# MDLxL 0.21.0 — Forge y mejoras del editor\n\n- Ampliados los controles de formas de Forge y añadido Glow Up.\n- Añadidos controles de velocidad de animación y recuperación opcional de tiempos.\n- Mejoradas las reparaciones y vistas previas de OptimizeXL.\n- Restaurados los colores de equipo en UV y los ajustes de materiales.\n- Mejoradas la cancelación, la función de deshacer y la duración de grabación en Showcase.\n- Mejorados el giro de cámara y los controles de efectos.\n- Añadidas opciones para guardar los datos del editor.\n",
+    "zh": "# MDLxL 0.21.0 — Forge 与编辑器改进\n\n- 扩展 Forge 形状控制，并新增 Glow Up。\n- 新增动画速度控制和可选的原始时间恢复。\n- 改进 OptimizeXL 修复与预览。\n- 恢复 UV 队伍颜色和材质预设设置。\n- 改进 Showcase 取消、撤销与录制时长。\n- 改进相机旋转与特效控制。\n- 新增编辑器数据保存选项。\n"
+  }
+}
