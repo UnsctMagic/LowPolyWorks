@@ -1,3 +1,4 @@
+import {startMenuVisitor} from './menu-visitor.js?v=20261008-shredder-final';
 import {createViewer} from './viewer.js?v=20261008-champion-bracer';
 import {TEAM_COLORS} from './vendor/mdlxl/src/team-colors.js';
 import {recordUsage} from './usage.js?v=20261007-media-polls';
@@ -46,3 +47,4 @@ async function route(){const version=++routeVersion;viewer?.dispose();viewer=nul
 document.querySelector('#catalogue-summary').addEventListener('click',event=>{const link=event.target.closest('a[data-download]');if(link)recordUsage('download',link.dataset.model,link.dataset.download);});
 recordUsage('visit');
 window.addEventListener('hashchange',route);route();
+startMenuVisitor();
