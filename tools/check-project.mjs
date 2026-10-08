@@ -6,6 +6,7 @@ import {execFileSync} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
 import {TEAM_COLORS} from '../dist/vendor/mdlxl/src/team-colors.js';
 import {modelPage,mdlxlPage} from './model-pages.mjs';
+import {parseMDX} from '../dist/vendor/war3-model.mjs';
 
 const project = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const root = path.join(project, 'dist');
@@ -31,6 +32,13 @@ for (const file of Object.values(textures)) exists(file);
 for (const row of rows) {
   assert(armies.some(army => army.id === row.army), `Unknown army for ${row.id}`);
   exists('models/' + row.file);
+  const modelBytes = fs.readFileSync(path.join(root, 'models', row.file));
+  const model = parseMDX(modelBytes.buffer.slice(modelBytes.byteOffset, modelBytes.byteOffset + modelBytes.byteLength));
+  for (const texture of model.Textures.filter(texture => texture.Image && ![1, 2].includes(texture.ReplaceableId))) {
+    const file = row.textureFiles?.[texture.Image.toLowerCase()] || textures[texture.Image.toLowerCase()];
+    assert(file, `Missing rendering texture for ${row.id}: ${texture.Image}. Run node tools/model-textures.mjs ${row.id}.`);
+    exists(file);
+  }
   exists('thumbs/unit-' + row.id + '.png');
   const page = `model/${row.slug || row.id}/index.html`;
   exists(page);
