@@ -1,7 +1,9 @@
 import {timingSafeEqual} from 'node:crypto';
-import models from './models.json' with {type:'json'};
-
-const modelById=new Map(models.map(model=>[model.id,model]));
+export async function trackedModels(){
+ const response=await fetch('https://www.lowpolyworks.com/catalogue.json',{cache:'no-store'});
+ if(!response.ok)throw Error('Tracking catalogue unavailable (HTTP '+response.status+')');
+ return (await response.json()).map(model=>({id:model.id,name:model.name,hasPack:Boolean(model.downloadPack)}));
+}
 const uuid=/^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89ab][a-f0-9]{3}-[a-f0-9]{12}$/i;
 export const allowedOrigins=new Set(['https://www.lowpolyworks.com','https://lowpolyworks.com']);
 export function authorized(header,secret){
@@ -9,19 +11,20 @@ export function authorized(header,secret){
  const actual=Buffer.from(header),expected=Buffer.from('Bearer '+secret);
  return actual.length===expected.length&&timingSafeEqual(actual,expected);
 }
-export function validateEvent(input){
+export function validateEvent(input,models=[]){
  if(!input||typeof input!=='object'||!['visit','download'].includes(input.kind)||!uuid.test(input.id||'')||input.visitorId!==undefined&&!uuid.test(input.visitorId))return null;
  const visitor=input.visitorId?{visitorId:input.visitorId.toLowerCase()}:{};
  if(input.kind==='visit')return {id:input.id,kind:'visit',model:'site',format:'none',testing:input.testing===true,...visitor};
  if(input.model==='mdlxl')return input.format==='zip'?{id:input.id,kind:'download',model:'mdlxl',format:'zip',testing:input.testing===true,...visitor}:null;
- const model=modelById.get(input.model);
+ const model=models.find(model=>model.id===input.model);
  if(!model||!['mdx','pack'].includes(input.format)||input.format==='pack'&&!model.hasPack)return null;
  return {id:input.id,kind:'download',model:input.model,format:input.format,testing:input.testing===true,...visitor};
 }
 export function eventPath(event,now=new Date()){
  return `${event.testing?'testing':'live'}/${event.visitorId?'v2':'v1'}/${now.toISOString().slice(0,10)}/${event.kind}/${event.model}/${event.format}/${event.visitorId?event.visitorId+'/':''}${event.id}.json`;
 }
-export function summarize(blobs,{from='',to=''}={}){
+export function summarize(blobs,{from='',to='',models=[]}={}){
+ const modelById=new Map(models.map(model=>[model.id,model]));
  const totals={pageLoads:0,downloadClicks:0,uniqueVisitors:0},applications=[{id:'mdlxl',name:'MDLxL',zipClicks:0,total:0}],daily=new Map(),byModel=new Map(),visitors=new Set(),dailyVisitors=new Map(),coverage={identifiedPageLoads:0,unidentifiedPageLoads:0};let lastRecordedAt=null;
  for(const blob of blobs){
   const [namespace,version,date,kind,model,format,visitorId]=blob.pathname.split('/');

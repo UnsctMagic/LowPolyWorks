@@ -1,7 +1,77 @@
 import test from 'node:test';import assert from 'node:assert/strict';
 import fs from 'node:fs';import vm from 'node:vm';import {randomUUID} from 'node:crypto';
-import {authorized,eventPath,summarize,validateEvent} from './lib/events.js';
+import {authorized,eventPath,summarize as summarizeEvents,trackedModels,validateEvent as validateModelEvent} from './lib/events.js';
+import {createEventsHandler} from './api/events.js';
+import {createReportHandler} from './api/report.js';
+const catalogue=JSON.parse(fs.readFileSync(new URL('../dist/catalogue.json',import.meta.url),'utf8'));
+const models=catalogue.map(model=>({id:model.id,name:model.name,hasPack:Boolean(model.downloadPack)}));
+const validateEvent=input=>validateModelEvent(input,models);
+const summarize=(blobs,options={})=>summarizeEvents(blobs,{models,...options});
 const id='f5de7cba-f71f-4b51-9af4-5468d5877f11',now=new Date('2026-10-05T21:00:00Z');
+function response(){return {setHeader(){},status(code){this.statusCode=code;return this;},end(){},json(body){this.body=body;}};}
+test('newly published models are accepted and reported without restarting the tracker',async t=>{
+ let published=[{id:'existing-model',name:'Existing Model'}];
+ t.mock.method(globalThis,'fetch',async(url,options)=>{
+  assert.equal(url,'https://www.lowpolyworks.com/catalogue.json');
+  assert.equal(options.cache,'no-store');
+  return {ok:true,json:async()=>structuredClone(published)};
+ });
+ const blobs=[];
+ const collect=createEventsHandler({writeBlob:async(pathname,data)=>{
+  const event=JSON.parse(data);blobs.push({pathname,uploadedAt:event.recordedAt});
+ }});
+ const read=createReportHandler({listBlobs:async()=>({blobs,hasMore:false}),env:{USAGE_READ_TOKEN:'secret'}});
+ async function download(model,format){
+  const res=response();
+  await collect({method:'POST',headers:{origin:'https://www.lowpolyworks.com'},body:JSON.stringify({id:randomUUID(),kind:'download',model,format})},res);
+  return res.statusCode;
+ }
+ assert.equal(await download('future-model','mdx'),400);
+ assert.equal(await download('existing-model','mdx'),204);
+ published.push({id:'future-model',name:'Future Model',downloadPack:'downloads/future-model.zip'});
+ assert.equal(await download('future-model','mdx'),204);
+ assert.equal(await download('future-model','pack'),204);
+ assert.equal(await download('existing-model','pack'),400);
+ assert.equal(await download('not-in-catalogue','mdx'),400);
+ const res=response();
+ await read({method:'GET',url:'/api/report',headers:{authorization:'Bearer secret'}},res);
+ assert.equal(res.statusCode,200);
+ assert.deepEqual(res.body.models,[
+  {id:'future-model',name:'Future Model',mdxClicks:1,packClicks:1,total:2},
+  {id:'existing-model',name:'Existing Model',mdxClicks:1,packClicks:0,total:1},
+ ]);
+ assert.equal(res.body.totals.downloadClicks,3);
+});
+test('catalogue outages are explicit and do not prevent visits or application tracking',async t=>{
+ t.mock.method(globalThis,'fetch',async()=>({ok:false,status:503}));
+ t.mock.method(console,'error',()=>{});
+ await assert.rejects(trackedModels(),/Tracking catalogue unavailable/);
+ const written=[],collect=createEventsHandler({writeBlob:async(_path,data)=>written.push(JSON.parse(data))});
+ for(const [kind,model,format,status] of [['visit',undefined,undefined,204],['download','mdlxl','zip',204],['download','future-model','mdx',503]]){
+  const res=response();await collect({method:'POST',headers:{origin:'https://www.lowpolyworks.com'},body:{id:randomUUID(),kind,model,format}},res);
+  assert.equal(res.statusCode,status);
+ }
+ assert.equal(written.length,2);
+ const read=createReportHandler({listBlobs:async()=>({blobs:[],hasMore:false}),env:{USAGE_READ_TOKEN:'secret'}}),res=response();
+ await read({method:'GET',url:'/api/report',headers:{authorization:'Bearer secret'}},res);
+ assert.equal(res.statusCode,503);
+});
+test('every catalogue download is accepted and reports its own item and format',()=>{
+ const blobs=[];
+ for(const model of catalogue){
+  for(const format of model.downloadPack?['mdx','pack']:['mdx']){
+   const event=validateEvent({id:randomUUID(),kind:'download',model:model.id,format});
+   assert(event,`${model.id} ${format} download must be accepted`);
+   blobs.push({pathname:eventPath(event,now),uploadedAt:now});
+  }
+ }
+ const report=summarize(blobs);
+ assert.equal(report.models.length,catalogue.length);
+ assert.equal(report.totals.downloadClicks,blobs.length);
+ for(const model of catalogue){
+  assert.deepEqual(report.models.find(row=>row.id===model.id),{id:model.id,name:model.name,mdxClicks:1,packClicks:model.downloadPack?1:0,total:model.downloadPack?2:1});
+ }
+});
 test('MDLxL ZIP clicks are accepted and reported separately from model files',()=>{
  const input={id,kind:'download',model:'mdlxl',format:'zip',visitorId:id};
  assert.deepEqual(validateEvent(input),{...input,testing:false});

@@ -56,7 +56,7 @@ Localhost does not send events. Live verification uses `?tracking-test=1` before
 
 The current Vercel Hobby Blob allowance is 2,000 advanced operations per month, shared across the account. Each event write and report-list request consumes an operation. If that allowance is exhausted, tracking stops until the allowance resets; site viewing and downloads still work. No paid plan was enabled. See [Vercel Blob usage and pricing](https://vercel.com/docs/vercel-blob/usage-and-pricing).
 
-The backend uses Node.js 24 and the pinned `@vercel/blob` SDK. Deploy the files inside this folder as the project root. When adding catalogue models, regenerate `lib/models.json` from the catalogue's `id`, `name`, and `hasPack` fields and redeploy the backend alongside the website.
+The backend uses Node.js 24 and the pinned `@vercel/blob` SDK. Deploy the files inside this folder as the project root. Model download events and reports read the published `https://www.lowpolyworks.com/catalogue.json` directly, using each model's `id`, `name`, and `downloadPack`. Publishing a new catalogue model automatically enables its MDX and available package tracking; no separate tracker list update or redeployment is needed. If the catalogue cannot be read, model events and reports return HTTP 503 rather than using a stale list. Visits and MDLxL ZIP events do not need the catalogue.
 
 ```sh
 node --test tracker/events.test.js
