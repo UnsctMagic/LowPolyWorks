@@ -2,7 +2,7 @@ import {createViewer} from './viewer.js?v=20261007-native-team-textures';
 import {TEAM_COLORS} from './vendor/mdlxl/src/team-colors.js';
 import {recordUsage} from './usage.js?v=20261007-media-polls';
 import {renderJournal} from './journal.js?v=20261008-post-manager';
-import {renderMdlxl} from './mdlxl.js?v=20261007-download-tracking';
+import {renderMdlxl} from './mdlxl.js?v=20261008-author-gif';
 if (/^\/mdlxl\/?$/.test(location.pathname) && !location.hash) history.replaceState(null,'',location.pathname+location.search+'#project/mdlxl');
 const app=document.querySelector('#app'),catalogue=await fetch('catalogue.json?v=20261007-dread-knight').then(r=>r.json());
 const armies=await fetch('armies.json?v=20261007-dread-knight').then(r=>r.json());
