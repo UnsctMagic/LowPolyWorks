@@ -97,8 +97,8 @@ async function notes(release,language){
 const prose=lines=>lines.map(line=>`<p>${escape(line.replace(/^- /,''))}</p>`).join('');
 const creditProse=lines=>lines.map(line=>`<p>${creditLine(line.replace(/^- /,''))}</p>`).join('');
 function contentSection(section,data){
- if(section==='preview')return '<h2>Preview</h2><div class="mdlxl-placeholder"><span aria-hidden="true">◇</span><h3>A look inside MDLxL</h3><p>Screenshots are coming soon.</p></div>';
- if(section==='tutorials')return '<h2>Tutorials</h2><div class="mdlxl-placeholder"><span aria-hidden="true">✧</span><h3>From the first vertex onwards</h3><p>Tutorials are coming soon.</p></div>';
+ if(section==='preview')return '<h2>Preview</h2><div class="mdlxl-placeholder"><span aria-hidden="true">◇</span><p>Screenshots are coming soon.</p></div>';
+ if(section==='tutorials')return '<h2>Tutorials</h2><div class="mdlxl-placeholder"><span aria-hidden="true">✧</span><p>Tutorials are coming soon.</p></div>';
  if(section==='credits')return `<h2>Credits & acknowledgements</h2>${creditProse(data.creditIntro)}${data.credits.map(group=>`<section class="mdlxl-text-group"><h3>${escape(group.title)}</h3>${creditProse(group.lines)}</section>`).join('')}`;
  if(section==='about')return `<h2>A dream for more CTRL+Z.</h2>${prose(data.intro)}<img class="mdlxl-author-image" src="ui/author-space-dog.gif" alt="A dog in a space station with the caption: I have no idea what I'm doing.">${prose(data.story)}<h2 class="mdlxl-features-heading">Inside the workshop</h2>${data.features.map(group=>`<section class="mdlxl-text-group"><h3>${escape(group.title)}</h3>${prose(group.lines)}</section>`).join('')}${prose(data.closing)}`;
  return '<div class="mdlxl-section-heading"><h2>Patch updates</h2></div><p class="mdlxl-muted">Update posts and official downloads from Low Polyworks.</p><div id="mdlxl-releases" aria-live="polite"><p>Loading patch notes…</p></div>';
