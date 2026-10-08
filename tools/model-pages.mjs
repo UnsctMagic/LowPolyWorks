@@ -8,7 +8,7 @@ const escape = value => String(value).replace(/[&<>"']/g, char => ({'&':'&amp;',
 export function modelPage(template, row, thumbnail) {
   const url = `${site}/model/${row.slug || row.id}/`;
   const image = `${site}/thumbs/unit-${row.id}.png`;
-  const description = row.description.replace(/\s+/g, ' ').trim();
+  const description = (row.searchDescription ?? row.description).replace(/\s+/g, ' ').trim();
   const width = thumbnail.readUInt32BE(16), height = thumbnail.readUInt32BE(20);
   const metadata = [
     `<link rel="canonical" href="${url}">`,
@@ -56,7 +56,7 @@ export function generateSearchFiles(root, rows) {
 
 export function mdlxlPage(template) {
   const title = 'MDLxL — Warcraft III Model Editor — LowPolyWorks';
-  const description = 'A model editor for Warcraft III SD models, inspired by MDLVis. Download MDLxL and read its latest patch notes.';
+  const description = "Download MDLxL, a Warcraft 3 SD model editor inspired by MDLVis. Edit meshes, UV maps and animations, and read the latest patch notes.";
   const url = `${site}/mdlxl/`;
   const metadata = [
     `<link rel="canonical" href="${url}">`,
