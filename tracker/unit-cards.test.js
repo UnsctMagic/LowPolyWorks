@@ -26,7 +26,7 @@ test('ZIP discovery preserves both model bytes, texture paths, original pack, an
  const {card}=await f.execute('publish-unit',input,owner);assert.equal(card.models.length,2);assert.equal(card.downloads[0].sha256,hash(zip));assert(card.models[0].textureFiles['custom/skin.blp'].includes('/api/assets?id='));assert.equal(card.credits,input.credits);assert.equal(card.byline,input.byline);assert.equal(card.description,input.description);assert.equal(hash(original),sourceHash);
  const stored=f.state.uploads.find(x=>x.id===u.id);assert.deepEqual(f.files.get(stored.pathname).bytes,zip);
  const exposed=JSON.stringify(await f.execute('catalogue'));for(const privateKey of ['pathname','password','sessionVersion','clientToken'])assert(!exposed.includes('"'+privateKey+'"'));
- await Promise.all([f.execute('publish-unit',input,owner),f.execute('publish-unit',input,owner)]);assert.equal(f.state.unitCards.length,1);assert.equal(f.state.posts.length,1);assert.equal(f.state.notifications.length,1);
+ await Promise.all([f.execute('publish-unit',input,owner),f.execute('publish-unit',input,owner)]);assert.equal(f.state.unitCards.length,1);assert.equal(f.state.posts.length,1);assert.equal(f.state.notifications.length,0);
  assert.equal((await f.execute('feed')).posts[0].unitCard.coverUrl,card.coverUrl);
 });
 test('invited authors can upload and edit their own cards; deletion and account management stay admin-only',async()=>{

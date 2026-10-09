@@ -80,7 +80,7 @@ export function createUnitCards({store,authenticate,createUploadToken,inspectUpl
    content.teamColour=teamColour;let card=existing;
    if(card)Object.assign(card,content,{updatedAt:timestamp,revision:(card.revision||0)+1});else{card={id:input.id,authorId:current.id,...content,publishedAt:timestamp,revision:0};s.unitCards.push(card);}
    let post=s.posts.find(p=>p.unitCardId===card.id);const postContent={title:card.name,body:card.description,kind:'model-upload',projectId:card.projectId,link:PUBLIC_ORIGIN+'/#model/'+card.id,media:[],videos:[],poll:null};
-   if(post)Object.assign(post,postContent,{updatedAt:timestamp,revision:(post.revision||0)+1});else{post={id:randomUUID(),authorId:current.id,...postContent,unitCardId:card.id,publishedAt:timestamp};s.posts.push(post);s.notifications.push({id:post.id,post:{...post},recipients:s.subscribers.filter(sub=>sub.confirmed).map(sub=>sub.id),sent:[]});}
+   if(post)Object.assign(post,postContent,{updatedAt:timestamp,revision:(post.revision||0)+1});else{post={id:randomUUID(),authorId:current.id,...postContent,unitCardId:card.id,publishedAt:timestamp};s.posts.push(post);}
    return {card:unitView(card)};
   });
  };

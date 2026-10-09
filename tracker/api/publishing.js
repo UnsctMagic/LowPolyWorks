@@ -5,7 +5,7 @@ import {generateClientTokenFromReadWriteToken} from '@vercel/blob/client';
 import {head,list,get,put} from '@vercel/blob';
 import {summarize,trackedModels} from '../lib/events.js';
 const service=createPublishing({store:blobState,sendEmail,mailConfigured,createUploadToken:({pathname,type,size})=>generateClientTokenFromReadWriteToken({pathname,allowedContentTypes:[type],maximumSizeInBytes:size,validUntil:Date.now()+15*60*1000,addRandomSuffix:false,allowOverwrite:false}),inspectUpload:pathname=>head(pathname),readUpload:async pathname=>{const blob=await get(pathname,{access:'private'});if(!blob||blob.statusCode!==200)throw Error('Upload unavailable');return new Uint8Array(await new Response(blob.stream).arrayBuffer());},saveAsset:(pathname,bytes,type)=>put(pathname,bytes,{access:'private',addRandomSuffix:false,contentType:type})});
-const publicWrites=new Set(['subscribe','vote']);
+const publicWrites=new Set(['subscribe','vote','follow','follow-confirm','follow-status','unfollow']);
 async function analytics(publishing,session,{listBlobs,loadModels,env}){
  const account=await publishing.execute('me',{}, {session});
  if(account.author.role!=='owner')throw Object.assign(Error('Owner access required.'),{status:403});

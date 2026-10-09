@@ -18,14 +18,20 @@ Publishing records are stored in the existing private Blob store at `publishing/
 
 ## Model notifications
 
-Delivery is intentionally pending until an email service is connected. Set `RESEND_API_KEY` and `MODEL_MAIL_FROM` only after verifying the sender domain in Resend. Never put either value in the public website. Signup remains visibly closed until both variables exist. Once enabled, readers confirm by email before joining. Confirmation emails and model notifications state: new model uploads and model updates only; no news or general announcements. Every notification has an unsubscribe link.
+Readers check **Update me** directly below a model's downloads and confirm their email. This follows that model and opts into all new model uploads. Updates to other existing models do not go to them. Unchecking the final model stops all model mail. A signed browser credential manages follows without exposing subscriber email addresses.
 
-Model publication captures only the current confirmed subscribers and queues one notification job. The author workspace sends these automatically after publishing, in batches of five. Unsent batches remain visible under Model notifications and can be resumed. Closing the workspace during delivery may leave pending batches; it does not turn them into a scheduled background job. Per-recipient Resend idempotency keys, saved receipts, and a lease prevent duplicate concurrent sends. Ambiguous failed deliveries older than 23 hours stop for review rather than sending beyond Resend's deduplication window. Later subscribers do not receive historical notifications.
+Configure `RESEND_API_KEY` and `MODEL_MAIL_FROM` (`LowPolyWorks <updates@lowpolyworks.com>`) in Production Secrets/Config. Replies to updates@lowpolyworks.com are forwarded by Cloudflare to lowpolyworksnews@gmail.com. The Resend key is Sending-only and limited to lowpolyworks.com.
+
+The protected `POST /api/model-notifications` worker reads the public catalogue, hashes published MDX/package downloads with conditional ETag reads, and includes the Vault's published unit download hashes. Titles, credits, artwork and journal posts never trigger model mail. The first scan records the current catalogue without historical announcements. Subsequent new models notify every active, verified subscriber; changed downloads notify only that model's followers. Hidden/deleted models do not generate announcements. Restoring identical files does not generate an email.
+
+Automatic model announcement delivery is disabled at the owner's request. Leave `MODEL_NOTIFICATIONS_ENABLED` unset and do not create a worker token or activate a schedule. Confirmation emails remain enabled independently. The protected worker and recipient rules are prepared, but no model announcements are sent.
+
+For a separately approved activation, store the same random `MODEL_NOTIFICATIONS_TOKEN` as a Vercel Production Secret and a GitHub Actions repository secret, publish the prepared delivery workflow, and run the initial baseline before setting `MODEL_NOTIFICATIONS_ENABLED=true`. Delivery can then run without an open author workspace. Private queued recipients, saved receipts, leases and Resend idempotency keys prevent duplicate sends. Unsubscribe and uncheck are checked again before sending. Known quota failures remain queued for later runs; ambiguous results older than 23 hours stop for review. Every model email includes an unsubscribe link.
 
 Verification:
 
 ```sh
-node --test tracker/events.test.js tracker/publishing.test.js tracker/media.test.js tools/journal.test.mjs tools/author-content.test.mjs
+node --test tracker/events.test.js tracker/publishing.test.js tracker/media.test.js tracker/unit-cards.test.js tracker/model-follows.test.js tracker/model-releases.test.js
 node tools/check-project.mjs
 ```
 
