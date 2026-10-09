@@ -6,14 +6,14 @@ import {recordUsage} from './usage.js?v=20261007-media-polls';
 import {renderJournal} from './journal.js?v=20261009-unit-upload';
 import {renderMdlxl} from './mdlxl.js?v=20261008-hotfix-under-0211';
 if (/^\/mdlxl\/?$/.test(location.pathname) && !location.hash) history.replaceState(null,'',location.pathname+location.search+'#project/mdlxl');
-const app=document.querySelector('#app'),baseCatalogue=await fetch('catalogue.json?v=20261009-dreadknight-05').then(r=>r.json());
+const app=document.querySelector('#app'),baseCatalogue=await fetch('catalogue.json?v=20261009-von-carstein-05').then(r=>r.json());
 const armies=await fetch('armies.json?v=20261009-chaos-ogre').then(r=>r.json());
 const descriptionParagraphs=text=>text.trim().split(/\r?\n\s*\r?\n/).map(paragraph=>`<p>${escape(paragraph.trim()).replace(/\r?\n/g,'<br>')}</p>`).join('');
 const escape=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const neutralTextColor=hex=>{const rgb=[1,3,5].map(offset=>Number.parseInt(hex.slice(offset,offset+2),16)/255),luminance=rgb.map(value=>value<=.04045?value/12.92:((value+.055)/1.055)**2.4).reduce((sum,value,index)=>sum+value*[.2126,.7152,.0722][index],0);return luminance>.36?'#111111':'#ffffff';};
 let catalogue=[...baseCatalogue],uploadedCards=[],hiddenModels=[];
 let viewer,routeVersion=0;const thumbs=new Map();
-const thumbnail=id=>`thumbs/unit-${id}.png?v=20261009-dreadknight-05`;
+const thumbnail=id=>`thumbs/unit-${id}.png?v=20261009-von-carstein-05`;
 const authorLinks=row=>row.authors.map(author=>`<a href="${escape(author.url)}" target="_blank" rel="noopener noreferrer">${escape(author.name)}</a>`).join(', ');
 function creditText(row,text){
  const links=(row.creditLinks||[]).filter(link=>/^https?:\/\//.test(link.url)).sort((a,b)=>b.text.length-a.text.length);
