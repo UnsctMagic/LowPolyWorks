@@ -18,10 +18,10 @@ nav{gap:26px;font-size:1.08rem}nav a{padding:9px 20px;border:3px ridge #454e60;b
 :root{--bone:#e5ca85;--body:#cfb982;--muted:#a89365;--gold:#c2a568}
 body{color:var(--body)}h1,h2,h3,.tab-content h2,.brand,.brand .craft,.army-caption h2,.card-name{color:#e5ca85}.brand small,.breadcrumb,.breadcrumb span,.byline,.page-intro p,.nav-future,.nav-future small,.owner-mark{color:#b9a373}nav a,.iron-button,.iron-button.primary,.tabs button[aria-selected=true]{color:#e3c77f}.tabs button,.viewer-label,.viewer-label small,.control-row label,.control-row select,.viewport-hint,.tab-footer{color:#c9b17a}.lore,.credit-row p,.credit-intro,.fact strong{color:#d5be86}.fact small,.card-text small,.card-type,.featured small,.credit-policy,.provenance-note,.archive-count small,footer{color:#b6a070}.credit-row strong,.geosets summary,.archive-count strong{color:#e1c681}.caption-meta,.kicker,.section-heading,.archive-count,footer>span:first-child{color:#cbb37d}.lore{white-space:normal;font-size:1.1rem;line-height:1.55}.lore p{margin:0}.lore p+p{margin-top:1rem}.tab-content h2{margin-bottom:18px}.credit-intro{line-height:1.5;margin-bottom:16px}.credit-row{padding:12px 0;line-height:1.45}.credit-row p{margin-top:4px;line-height:1.5}.credit-policy,.provenance-note{line-height:1.55}.model-card .card-portrait{background:#000}.model-card .card-portrait img{image-rendering:auto;filter:none;object-fit:cover}.model-card .card-type{background:#0009;padding:2px 5px}.viewport{background:#101827;box-shadow:none}
 /* Army collection: two units behind a central front unit. */
-.army-picture img.formation-unit{position:absolute;object-fit:contain;image-rendering:auto;width:38%;height:68%;top:9%;transform:none;filter:drop-shadow(0 10px 8px #0009);transition:none}
-.army-picture img.rear-left{left:7%;z-index:1}
-.army-picture img.rear-right{right:7%;z-index:1}
-.army-picture img.front{width:56%;height:90%;top:6%;left:22%;z-index:2}
+.army-picture img.formation-unit{position:absolute;object-fit:contain;image-rendering:auto;width:auto;height:calc(70% / var(--body-height,1));top:auto;bottom:9%;transform:translateX(-50%);max-width:none;filter:drop-shadow(0 10px 8px #0009);transition:none}
+.army-picture img.rear-left{left:26%;z-index:1}
+.army-picture img.rear-right{left:74%;right:auto;z-index:1}
+.army-picture img.front{width:auto;height:calc(80% / var(--body-height,1));top:auto;bottom:5%;left:50%;z-index:2}
 .model-card .card-portrait{background:radial-gradient(ellipse at 50% 62%,var(--aura),#080d17 83%)}
 /* Painted stone nine-slice borders and iron hanger sprites. */
 .slab{border:20px solid transparent;border-image:url('ui/slate-frame-v2.png') 180 stretch;border-radius:0;outline:0;padding:3px;box-shadow:0 6px 0 #020409,0 14px 22px #0009}
@@ -59,7 +59,7 @@ nav a,.iron-button,.tabs button{border:10px solid transparent;border-image:url('
 .card-text{padding:10px 12px;text-align:center}
 .card-name{min-height:0;font-size:1.07rem;line-height:1.3}
 .card-text .card-author{font-size:.75rem;color:#bca574;margin-top:6px;line-height:1.2}
-.model-title{margin-bottom:20px}.model-title h1{font-size:2rem}
+.model-title{margin-bottom:8px;justify-content:flex-start;align-items:baseline;flex-wrap:wrap;gap:4px 20px}.model-title h1{font-size:2rem}.model-title .byline{margin:0}
 footer{max-width:1740px;padding:20px 24px}
 @media(max-width:1100px){.site-shell{grid-template-columns:150px minmax(0,1fr) 120px;gap:16px;width:calc(100% - 32px)}.side-menu{padding:11px 5px}.side-menu .brand{font-size:1rem;gap:5px}.side-menu .brand-seal{width:22px;height:28px}.side-menu nav{font-size:.9rem}.model-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.card-name{font-size:1rem}.card-text{padding:9px 6px}.army-grid{gap:50px 20px}}
 @media(max-width:800px){.site-shell{grid-template-columns:140px minmax(0,1fr);gap:16px}.side-right{grid-column:1;grid-row:2;position:static}.site-shell main{grid-column:2;grid-row:1 / span 2}.model-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.army-grid{grid-template-columns:1fr}.model-layout{grid-template-columns:1fr}.side-menu .brand{font-size:.9rem}}
@@ -101,4 +101,9 @@ footer{max-width:1740px;padding:20px 24px}
 .controls .loop-option{display:flex;align-items:center;gap:7px;cursor:pointer}
 .controls .loop-option input{margin:0;accent-color:var(--gold);width:15px;height:15px}
 @media(max-width:560px){.controls{padding:8px}.controls .animation-controls{grid-template-columns:auto minmax(0,1fr) 76px}.controls .appearance-controls{grid-template-columns:auto 100px minmax(0,1fr) 76px}.controls .orbit-controls{grid-template-columns:76px auto minmax(45px,1fr) 30px}.controls .playback-controls{grid-template-columns:minmax(0,1fr) auto minmax(45px,1fr) 30px}.controls .control-row{gap:6px}.controls .control-row label{font-size:.74rem}}
+
+/* Vampire Counts: looming Strigoi behind two outward-facing guards. */
+.army-picture[data-army="vampire-counts"] img.front{height:calc(84% / var(--body-height,1));bottom:5%;left:50%;z-index:1}
+.army-picture[data-army="vampire-counts"] img.rear-left{height:calc(71% / .9);bottom:3%;left:30%;z-index:2}
+.army-picture[data-army="vampire-counts"] img.rear-right{height:calc(71% / var(--body-height,1));bottom:3%;left:70%;z-index:2}
 .viewer-error[hidden]{display:none!important}
