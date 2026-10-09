@@ -1,6 +1,6 @@
 export function createModelFollows({store,env,sendEmail,mailConfigured,now,loadModels,sign,safeEqual,limit,emailOf,token,digest,fail,publicOrigin}){
  const managementToken=sub=>sub.id+'.'+(sub.followVersion||0)+'.'+sign('model-follows:'+sub.id+':'+(sub.followVersion||0));
- const view=sub=>({modelIds:[...(sub.modelIds||[])]});
+ const view=sub=>({email:sub.email,modelIds:[...(sub.modelIds||[])]});
  function follow(sub,modelId){
   sub.modelIds??=[];sub.modelFollowSince??={};
   if(!sub.modelIds.length)sub.newModelsSince=now();
@@ -30,6 +30,10 @@ export function createModelFollows({store,env,sendEmail,mailConfigured,now,loadM
    return store.mutate(state=>{
     const sub=state.subscribers.find(row=>row.id===id),pending=sub?.pendingFollows?.find(row=>row.modelId===modelId&&safeEqual(row.hash,digest(credential||''))&&row.expiresAt>now());
     if(!pending)fail(400,'This confirmation has expired or was already used. Request Update me again.');
+    if(pending.replaces){
+     const previous=state.subscribers.find(row=>row.id===pending.replaces.id&&(row.followVersion||0)===pending.replaces.version);
+     if(previous){previous.modelIds=(previous.modelIds||[]).filter(id=>id!==modelId);delete previous.modelFollowSince?.[modelId];previous.confirmed=previous.modelIds.length>0;}
+    }
     follow(sub,modelId);sub.pendingFollows=sub.pendingFollows.filter(row=>row!==pending);
     return {...view(sub),token:managementToken(sub),message:'Email confirmed. Update me is on for this model and new model uploads.'};
    });
@@ -42,10 +46,13 @@ export function createModelFollows({store,env,sendEmail,mailConfigured,now,loadM
   });
   await limit(request,'follow',5);const email=emailOf(input.email),id=digest(email),confirmation=token(),time=now();
   await store.mutate(state=>{
+   const previous=input.previousToken?subscriber(state,input.previousToken):null;
    let sub=state.subscribers.find(row=>row.id===id);
    if(!sub){sub={id,email,confirmed:false,createdAt:new Date(time).toISOString(),modelIds:[]};state.subscribers.push(sub);}
    sub.pendingFollows=(sub.pendingFollows||[]).filter(row=>row.modelId!==model.id&&row.expiresAt>time);
-   sub.pendingFollows.push({modelId:model.id,hash:digest(confirmation),expiresAt:time+86400000});
+   const pending={modelId:model.id,hash:digest(confirmation),expiresAt:time+86400000};
+   if(previous&&previous.id!==id)pending.replaces={id:previous.id,version:previous.followVersion||0};
+   sub.pendingFollows.push(pending);
   });
   const credential=encodeURIComponent(id+'.'+model.id+'.'+confirmation);
   const url=model.url?publicOrigin+'/?follow-confirm='+credential+'#model/'+model.id:publicOrigin+'/model/'+(model.slug||model.id)+'/#follow-confirm='+credential;

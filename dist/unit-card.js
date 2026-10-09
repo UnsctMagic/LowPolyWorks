@@ -1,4 +1,4 @@
-import {modelFollowMarkup,mountModelFollow} from './model-follows.js?v=20261009-newsletter';
+import {modelFollowMarkup,mountModelFollow} from './model-follows.js?v=20261009-follow-email';
 import {postBody} from './post-format.js';
 import {TEAM_COLORS} from './vendor/mdlxl/src/team-colors.js';
 const escape=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
