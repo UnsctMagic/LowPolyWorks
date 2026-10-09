@@ -2,7 +2,8 @@ import * as THREE from 'three';
 import {bindVertexCamera} from './website-camera-controls.js';
 import {skinGeoset} from './vendor/mdlxl/src/animation.js';
 import {perspectiveFitDistance,modelClipRadius,updateDepthClipping} from './vendor/mdlxl/app/viewport-math.js';
-import {parseMDX,ModelRenderer} from './vendor/war3-model.mjs';
+import {parseMDX,parseMDL,ModelRenderer} from './vendor/war3-model.mjs';
+import {decodeTga} from './texture-raster.js';
 import {installWarcraftPreviewAdapter,previewGeosetTint} from './vendor/mdlxl/app/warcraft-preview-adapter.js';
 import {advanceShowcaseModel} from './vendor/mdlxl/app/showcase-playback.js';
 import {viewerPlaybackSample,setWarcraftCamera} from './viewer-effects.js?v=20261006-classic-portrait-controls';
@@ -16,11 +17,12 @@ import {SHOWCASE_QUALITY} from './vendor/mdlxl/app/showcase-director.js';
 import {installWarcraftTeamTextures} from './warcraft-team-textures.js?v=20261008-unified-army-cards';
 const graphics=SHOWCASE_QUALITY.high;
 const preferences={graphics:{...graphics,textures:true,lighting:true,particles:true,maxFps:60,pauseWhenHidden:false},lighting:{preset:'legacy'}};
-const textureIndex=fetch('textures.json?v=20261009-chaos-ogre').then(r=>r.json()),textureCache=new Map();
-async function textureData(name,row){const index=await textureIndex,key=name.toLowerCase(),file=row.textureFiles?.[key]||index[key];if(!file)throw Error('Missing texture: '+name);if(!textureCache.has(file))textureCache.set(file,(async()=>{const b=await fetch(file).then(r=>r.arrayBuffer());const pixels=await decodePaintBlp(b);return new ImageData(pixels.data,pixels.width,pixels.height);})());return textureCache.get(file);}
+const textureIndex=fetch('textures.json?v=20261009-unit-upload').then(r=>r.json()),textureCache=new Map();
+async function textureData(name,row){const index=await textureIndex,key=name.toLowerCase(),file=row.textureFiles?.[key]||row.textureFiles?.[key.replaceAll('\\','/')]||index[key];if(!file)throw Error('Missing texture: '+name);if(!textureCache.has(file))textureCache.set(file,(async()=>{const response=await fetch(file);if(!response.ok)throw Error('Texture unavailable: '+name);const b=await response.arrayBuffer(),signature=new TextDecoder().decode(b.slice(0,4));if(/^BLP[12]$/.test(signature)){const pixels=await decodePaintBlp(b);return new ImageData(pixels.data,pixels.width,pixels.height);}if(/\.tga$/i.test(name))return decodeTga(new Uint8Array(b));const bitmap=await createImageBitmap(new Blob([b])),canvas=document.createElement('canvas');canvas.width=bitmap.width;canvas.height=bitmap.height;const context=canvas.getContext('2d');context.drawImage(bitmap,0,0);bitmap.close();return context.getImageData(0,0,canvas.width,canvas.height);})().catch(error=>{textureCache.delete(file);throw error;}));return textureCache.get(file);}
 export async function createViewer(canvas,row,{thumbnail=false,portrait=false,formation=false,formationYaw=0,cutout=false,teamColor=TEAM_COLORS[0].rgbHex,onPortraitModeChange}={}){
  const transparent=formation||cutout;
- const bytes=await fetch('models/'+row.file+(row.sha256?'?v='+row.sha256:'')).then(r=>{if(!r.ok)throw Error('Model unavailable');return r.arrayBuffer();});const model=parseMDX(bytes),gl=canvas.getContext('webgl2',{alpha:transparent,premultipliedAlpha:transparent,antialias:graphics.antialias,preserveDrawingBuffer:true});if(!gl)throw Error('This browser could not start WebGL2.');
+ const bytes=row.modelBytes||await fetch(row.fileUrl||'models/'+row.file+(row.sha256?'?v='+row.sha256:'')).then(r=>{if(!r.ok)throw Error('Model unavailable');return r.arrayBuffer();});const model=/\.mdl$/i.test(row.file||row.name||'')?parseMDL(new TextDecoder().decode(bytes)):parseMDX(bytes),gl=canvas.getContext('webgl2',{alpha:transparent,premultipliedAlpha:transparent,antialias:graphics.antialias,preserveDrawingBuffer:true});if(!gl)throw Error('This browser could not start WebGL2.');
+ if(!model.Sequences.length)model.Sequences.push({Name:'Stand',Interval:[0,1000],NonLooping:false,MinimumExtent:[0,0,0],MaximumExtent:[0,0,0],BoundsRadius:0});
  let sequence=model.Sequences.findIndex(s=>s.Name==='Stand'||s.Name==='Stand - 1'),clock=0,playing=!thumbnail,speed=1,rotate=false,revision=0,previous=null,disposed=false;
  if(sequence<0)sequence=0;
  if(portrait&&firstPortraitSequenceIndex(model)>=0)sequence=firstPortraitSequenceIndex(model);
@@ -30,7 +32,7 @@ export async function createViewer(canvas,row,{thumbnail=false,portrait=false,fo
  const scenery=new Set(row.portraitBackdropGeosets||[]);
  const teamTextures=installWarcraftTeamTextures(gl,model,{transparent,graphics});
  // Match MDLxL's MDX load boundary: animated KGAC is BGR; static GEOA is already RGB.
- model.GeosetAnims=convertMdxGeosetColorTracks(model.GeosetAnims);
+ if(!/\.mdl$/i.test(row.file||row.name||''))model.GeosetAnims=convertMdxGeosetColorTracks(model.GeosetAnims);
  const displayLight=()=>new THREE.Vector3(-.65,.55,1);
  const native=new ModelRenderer(model),adapter=installWarcraftPreviewAdapter(gl,model,()=>({frame:native.getFrame(),sequenceIndex:sequence,globalTime:clock,lighting:preferences.graphics.lighting,portrait:portraitActive,hiddenGeosets:formation?scenery:undefined,preferences,lightDirection:portraitActive?[.3,-.3,.25]:displayLight().toArray(),viewDirection:camera.getWorldDirection(new THREE.Vector3()).negate().toArray()}));installParticleNativeCompatibility(native);native.initGL(gl);adapter.ready(native);gl.depthFunc(gl.LEQUAL);
  // The Champion's skin and bracer overlap at their differently weighted elbow seam.
@@ -51,7 +53,7 @@ export async function createViewer(canvas,row,{thumbnail=false,portrait=false,fo
  for(const [index,g] of model.Geosets.entries()){const layers=model.Materials[g.MaterialID]?.Layers||[];if(scenery.has(index)||!layers.some(layer=>previewGeosetTint(model,index,layer,native.getFrame(),sequence,0)[3]>.001))continue;const vertices=skinGeoset(g,matrices);for(const id of new Set(g.Faces))box.expandByPoint(point.fromArray(vertices,id*3));}
  const center=box.getCenter(new THREE.Vector3()),radius=Math.max(1,box.getSize(new THREE.Vector3()).length()/2);
  const clipRadius=modelClipRadius(model,center,radius);
- const navigation=!thumbnail&&!portrait?bindVertexCamera(camera,canvas):null,controls=navigation?.controls;
+ const navigation=!thumbnail?bindVertexCamera(camera,canvas):null,controls=navigation?.controls;
  if(controls)controls.autoRotateSpeed=1.2;
  function fit(){const aspect=Math.max(1,canvas.clientWidth)/Math.max(1,canvas.clientHeight),distance=perspectiveFitDistance(radius,camera.fov,aspect);camera.zoom=1;camera.position.copy(center).addScaledVector(formation?new THREE.Vector3(Math.cos(formationYaw),Math.sin(formationYaw),.12).normalize():new THREE.Vector3(Math.cos(.75),Math.sin(.75),.18).normalize(),distance);camera.lookAt(center);if(controls){controls.target.copy(center);controls.minDistance=radius*.4;controls.maxDistance=distance*3;controls.update();}}
  fit();

@@ -106,3 +106,4 @@ footer{max-width:1740px;padding:20px 24px}
 .army-picture[data-army="vampire-counts"] img.front{height:calc(84% / var(--body-height,1));bottom:5%;left:50%;z-index:1}
 .army-picture[data-army="vampire-counts"] img.rear-left{height:calc(71% / .9);bottom:3%;left:30%;z-index:2}
 .army-picture[data-army="vampire-counts"] img.rear-right{height:calc(71% / var(--body-height,1));bottom:3%;left:70%;z-index:2}
+.viewer-error[hidden]{display:none!important}
