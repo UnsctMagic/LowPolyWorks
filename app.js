@@ -1,10 +1,10 @@
-import {modelFollowMarkup,mountModelFollow} from './model-follows.js?v=20261009-newsletter';
-import {uploadedModelCard,renderUnitCard} from './unit-card.js?v=20261009-newsletter';
+import {modelFollowMarkup,mountModelFollow} from './model-follows.js?v=20261009-follow-email';
+import {uploadedModelCard,renderUnitCard} from './unit-card.js?v=20261009-follow-email';
 import {startMenuVisitor} from './menu-visitor.js?v=20261008-shredder-final';
 import {createViewer} from './viewer.js?v=20261009-unit-upload';
 import {TEAM_COLORS} from './vendor/mdlxl/src/team-colors.js';
 import {recordUsage} from './usage.js?v=20261007-media-polls';
-import {renderJournal} from './journal.js?v=20261009-newsletter';
+import {renderJournal} from './journal.js?v=20261009-follow-email';
 import {renderMdlxl} from './mdlxl.js?v=20261008-hotfix-under-0211';
 if (/^\/mdlxl\/?$/.test(location.pathname) && !location.hash) history.replaceState(null,'',location.pathname+location.search+'#project/mdlxl');
 const app=document.querySelector('#app'),baseCatalogue=await fetch('catalogue.json?v=20261009-von-carstein-05').then(r=>r.json());
