@@ -50,6 +50,7 @@
 .post-body{line-height:1.65;overflow-wrap:anywhere}
 .post-body> *{margin:0}.post-body>:not(:first-child){margin-top:10px}
 .post-link{display:inline-block;color:var(--bone);margin-top:16px;font-size:.9rem}
+.post-body a,.post-link,.post-video>a{color:#acc6a2}.post-body a:hover,.post-link:hover,.post-video>a:hover{color:#d1e3c8}
 .post-tags{display:flex;gap:16px;font-size:.8rem;margin-top:17px;color:var(--muted)}
 .post-tags a{color:var(--gold)}
 .project-heading{margin-bottom:32px}
