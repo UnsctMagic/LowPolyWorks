@@ -2,6 +2,7 @@ import {createHash,createHmac,randomBytes,randomUUID,scrypt as scryptCallback,ti
 import {promisify} from 'node:util';
 import {contentOf,pollView,imageTypes,uploadLimit,uuidPattern} from './post-content.js';
 import ownerAvatar from './owner-avatar.js';
+import {createUnitCards,unitCatalogue,unitView,unitArmies} from './unit-cards.js';
 const scrypt=promisify(scryptCallback);
 export const PUBLIC_ORIGIN='https://www.lowpolyworks.com';
 export const AUTHOR_ORIGIN='https://lowpolyworks-internal-tracker.vercel.app';
@@ -19,9 +20,9 @@ export async function hashPassword(password){if(typeof password!=='string'||pass
 export async function checkPassword(password,stored){if(typeof password!=='string'||password.length>256||!stored)return false;const [salt,hash]=stored.split(':');return safeEqual((await scrypt(password,salt,64)).toString('hex'),hash);}
 export function validatePost(input,state){const kind=input.kind;if(!['news','model-upload','model-update'].includes(kind))fail(400,'Choose news, a new model, or a model update.');const projectId=input.projectId||null;if(projectId&&!state.projects.some(p=>p.id===projectId))fail(400,'Choose an existing project.');const link=urlOf(input.link);if(kind!=='news'&&!link)fail(400,'Model posts need a link to the upload or update.');return {title:text(input.title,160,'a title'),body:text(input.body||'',20000,'post text',Boolean(input.poll||input.media?.length||input.videos?.length)),kind,projectId,link};}
 const authorView=a=>({id:a.id,name:a.name,icon:a.icon||(a.username==='unsanctionedmagic'?ownerAvatar:''),role:a.role,nameGraphic:a.username==='unsanctionedmagic'?'https://www.lowpolyworks.com/ui/unsanctionedmagic-name.png?v=20261007-amethyst':null});
-export function publicFeed(state,voterKey,includeDeleted=false){return {projects:state.projects,posts:state.posts.filter(post=>includeDeleted||!post.deletedAt).sort((a,b)=>b.publishedAt.localeCompare(a.publishedAt)).map(post=>({...post,poll:pollView(post.poll,voterKey?.(post.id)),author:authorView(state.authors.find(a=>a.id===post.authorId)||{id:post.authorId,name:'Author'})}))};}
+export function publicFeed(state,voterKey,includeDeleted=false){return {projects:state.projects,posts:state.posts.filter(post=>includeDeleted||!post.deletedAt).sort((a,b)=>b.publishedAt.localeCompare(a.publishedAt)).map(post=>({...post,...(post.unitCardId?{unitCard:unitView(state.unitCards.find(c=>c.id===post.unitCardId))}:{}),poll:pollView(post.poll,voterKey?.(post.id)),author:authorView(state.authors.find(a=>a.id===post.authorId)||{id:post.authorId,name:'Author'})}))};}
 const pendingNotifications=state=>state.notifications.reduce((n,job)=>n+(job.cancelledAt?0:job.recipients.filter(id=>!job.sent.includes(id)).length),0);
-export function createPublishing({store,env=process.env,sendEmail,mailConfigured,now=()=>Date.now(),createUploadToken,inspectUpload}){
+export function createPublishing({store,env=process.env,sendEmail,mailConfigured,now=()=>Date.now(),createUploadToken,inspectUpload,readUpload,saveAsset}){
  const secret=()=>{if(!env.PUBLISHING_SESSION_SECRET||env.PUBLISHING_SESSION_SECRET.length<32)fail(503,'Author login is not configured yet.');return env.PUBLISHING_SESSION_SECRET;};
  const sign=value=>createHmac('sha256',secret()).update(value).digest('base64url');
  const cookie=(value,maxAge=28800)=>`lpw_session=${value}; Path=/api/publishing; HttpOnly; Secure; SameSite=Strict; Max-Age=${maxAge}`;
@@ -32,6 +33,7 @@ export function createPublishing({store,env=process.env,sendEmail,mailConfigured
  const unsubscribeToken=email=>sign('unsubscribe:'+email);
  const unsubscribeUrl=email=>AUTHOR_ORIGIN+'/author.html#unsubscribe='+encodeURIComponent(Buffer.from(email).toString('base64url')+'.'+unsubscribeToken(email));
  const setSession=author=>{const payload=Buffer.from(JSON.stringify({id:author.id,version:author.sessionVersion,exp:now()+28800000,nonce:token()})).toString('base64url');return cookie(payload+'.'+sign(payload));};
+ const units=createUnitCards({store,authenticate,createUploadToken,inspectUpload,readUpload,saveAsset,now});
  async function deliver(request){
   if(!mailConfigured(env))fail(503,'Model notification delivery is not connected yet.');
   const {state}=await store.read();authenticate(state,request,true);const lease=token(),time=now();
@@ -41,6 +43,8 @@ export function createPublishing({store,env=process.env,sendEmail,mailConfigured
   return store.mutate(s=>{const job=s.notifications.find(j=>j.id===work.id);if(!job||job.lease?.token!==lease)fail(409,'Email delivery is already being handled.');job.sent.push(...results.filter(r=>!r.error).map(r=>r.id));delete job.lease;job.uncertain=results.some(r=>r.error);return {sent:results.filter(r=>!r.error&&!r.skipped).length,remaining:pendingNotifications(s),error:results.find(r=>r.error)?.error};});
  }
  async function execute(action,input={},request={}){
+  if(action==='catalogue'){const {state}=await store.read();return unitCatalogue(state);}
+  const unitResult=await units(action,input,request);if(unitResult)return unitResult;
   if(action==='feed'){if(input.visitorId&&!uuidPattern.test(input.visitorId))fail(400,'Invalid voter ID.');const {state}=await store.read();return {...publicFeed(state,input.visitorId?id=>digest(id+':'+input.visitorId.toLowerCase()+secret()):undefined),modelNotificationsEnabled:mailConfigured(env)};}
   if(action==='vote'){if(!uuidPattern.test(input.visitorId||'')||!uuidPattern.test(input.postId||'')||!Number.isInteger(input.option))fail(400,'Choose a poll option with a valid voter ID.');return store.mutate(s=>{const post=s.posts.find(p=>p.id===input.postId);if(!post?.poll||post.deletedAt)fail(404,'Poll not found.');if(input.option<0||input.option>=post.poll.options.length)fail(400,'Choose an available option.');const key=digest(post.id+':'+input.visitorId.toLowerCase()+secret());post.poll.votes??={};if(Object.hasOwn(post.poll.votes,key))fail(409,'You have already voted in this poll.');post.poll.votes[key]=input.option;return {poll:pollView(post.poll,key)};});}
   if(action==='delivery')return deliver(request);
@@ -61,7 +65,7 @@ export function createPublishing({store,env=process.env,sendEmail,mailConfigured
   if(action==='confirm'){const [id,credential]=String(input.token||'').split('.');await store.mutate(state=>{const sub=state.subscribers.find(s=>s.id===id&&safeEqual(s.confirmationHash||'',digest(credential||''))&&s.confirmationExpires>now());if(!sub)fail(400,'This confirmation has expired. Please sign up again.');sub.confirmed=true;delete sub.confirmationHash;delete sub.confirmationExpires;});return {message:'Confirmed. You will receive new model uploads and model updates only. No news.'};}
   if(action==='unsubscribe'){const [encoded,signature]=String(input.token||'').split('.');const email=Buffer.from(encoded||'','base64url').toString();if(!signature||!safeEqual(signature,unsubscribeToken(email)))fail(400,'This unsubscribe link is invalid.');await store.mutate(s=>{const sub=s.subscribers.find(row=>row.id===digest(email));if(sub){sub.confirmed=false;delete sub.confirmationHash;delete sub.confirmationExpires;}});return {message:'Unsubscribed. You will receive no more model notifications.'};}
   const {state}=await store.read(),author=authenticate(state,request,action!=='me');
-  if(action==='me')return {author:authorView(author),csrf:csrf(request.session),projects:state.projects,posts:publicFeed(state).posts.filter(p=>author.role==='owner'||p.authorId===author.id),deletedPosts:publicFeed(state,undefined,true).posts.filter(p=>p.deletedAt&&(author.role==='owner'||p.authorId===author.id)),mailEnabled:mailConfigured(env),subscribers:author.role==='owner'?state.subscribers.filter(s=>s.confirmed).length:undefined,pendingNotifications:pendingNotifications(state)};
+  if(action==='me')return {author:authorView(author),csrf:csrf(request.session),projects:state.projects,unitArmies,unitCards:(state.unitCards||[]).filter(c=>author.role==='owner'||c.authorId===author.id).map(unitView),hiddenModels:author.role==='owner'?state.hiddenModels||[]:undefined,posts:publicFeed(state).posts.filter(p=>author.role==='owner'||p.authorId===author.id),deletedPosts:publicFeed(state,undefined,true).posts.filter(p=>p.deletedAt&&(author.role==='owner'||p.authorId===author.id)),mailEnabled:mailConfigured(env),subscribers:author.role==='owner'?state.subscribers.filter(s=>s.confirmed).length:undefined,pendingNotifications:pendingNotifications(state)};
   if(action==='upload-token'){
    if(!imageTypes.includes(input.type))fail(400,'Upload a PNG, JPG, WebP or GIF.');if(!Number.isInteger(input.size)||input.size<1||input.size>uploadLimit)fail(400,'Each image or GIF must be at most 20 MB.');
    const name=text(input.name,180,'a file name'),id=randomUUID(),extension={'image/png':'png','image/jpeg':'jpg','image/webp':'webp','image/gif':'gif'}[input.type],pathname='publishing/media/'+author.id+'/'+id+'.'+extension;
@@ -78,6 +82,8 @@ export function createPublishing({store,env=process.env,sendEmail,mailConfigured
   if(['update-post','delete-post','restore-post'].includes(action))return store.mutate(s=>{
    const current=authenticate(s,request,true),post=s.posts.find(p=>p.id===input.id);
    if(!post)fail(404,'Post not found.');
+   if(action!=='update-post'&&current.role!=='owner')fail(403,'Only the admin can delete or restore posts.');
+   if(post.unitCardId)fail(400,'Manage this post from its unit card in the Vault.');
    if(current.role!=='owner'&&post.authorId!==current.id)fail(403,'You can manage only your own posts.');
    if(!Number.isInteger(input.revision)||input.revision!==(post.revision||0))fail(409,'This post changed elsewhere. Reload the manager and reopen it before saving.');
    const timestamp=new Date(now()).toISOString(),job=s.notifications.find(j=>j.id===post.id);
@@ -95,7 +101,7 @@ export function createPublishing({store,env=process.env,sendEmail,mailConfigured
    return {post:{...post,poll:pollView(post.poll)}};
   });
   if(author.role!=='owner')fail(403,'Only the owner can manage authors and projects.');
-  if(action==='invite'){const username=usernameOf(input.username),invitation=token();await store.mutate(s=>{const owner=authenticate(s,request,true);if(owner.role!=='owner')fail(403,'Owner access required.');if(s.authors.some(a=>a.username===username))fail(409,'That author already has an account.');s.invites=s.invites.filter(i=>i.username!==username&&i.expiresAt>now()&&!i.used);s.invites.push({username,tokenHash:digest(invitation),expiresAt:now()+7*86400000,used:false});});return {url:AUTHOR_ORIGIN+'/author.html#invite='+invitation+'&username='+encodeURIComponent(username),expires:'7 days'};}
+  if(action==='invite'){const username=usernameOf(input.username),invitation=token();await store.mutate(s=>{const owner=authenticate(s,request,true);if(owner.role!=='owner')fail(403,'Owner access required.');if(s.authors.some(a=>a.username===username))fail(409,'That author already has an account.');s.invites=s.invites.filter(i=>i.username!==username&&i.expiresAt>now()&&!i.used);s.invites.push({username,tokenHash:digest(invitation),expiresAt:now()+7*86400000,used:false});});return {url:AUTHOR_ORIGIN+'/vaultofsecrets.html#invite='+invitation+'&username='+encodeURIComponent(username),expires:'7 days'};}
   if(action==='project'){const id=text(input.id,60,'a project ID');if(!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(id))fail(400,'Use lowercase letters, numbers and hyphens for the project ID.');const project={id,name:text(input.name,60,'a project name'),description:text(input.description,300,'a short description'),url:urlOf(input.url,false)};return store.mutate(s=>{const owner=authenticate(s,request,true);if(owner.role!=='owner')fail(403,'Owner access required.');if(s.projects.some(p=>p.id===id))fail(409,'That project ID already exists.');s.projects.push(project);return {project};});}
   fail(404,'Unknown action.');
  }

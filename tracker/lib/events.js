@@ -1,8 +1,9 @@
 import {timingSafeEqual} from 'node:crypto';
-export async function trackedModels(){
+export async function trackedModels({loadUnits=async()=>{const {blobState}=await import('./publishing-state.js');return (await blobState.read()).state.unitCards||[];}}={}){
  const response=await fetch('https://www.lowpolyworks.com/catalogue.json',{cache:'no-store'});
  if(!response.ok)throw Error('Tracking catalogue unavailable (HTTP '+response.status+')');
- return (await response.json()).map(model=>({id:model.id,name:model.name,hasPack:Boolean(model.downloadPack)}));
+ const base=(await response.json()).map(model=>({id:model.id,name:model.name,hasPack:Boolean(model.downloadPack)}));
+ const units=await loadUnits();return [...base,...units.filter(card=>!card.deletedAt).map(card=>({id:card.id,name:card.name,hasPack:card.downloads.some(file=>/\.zip$/i.test(file.name))}))];
 }
 const uuid=/^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89ab][a-f0-9]{3}-[a-f0-9]{12}$/i;
 export const allowedOrigins=new Set(['https://www.lowpolyworks.com','https://lowpolyworks.com']);

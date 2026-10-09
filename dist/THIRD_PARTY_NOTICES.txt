@@ -11,3 +11,9 @@ https://www.lowpolyworks.com/whiteout/LICENSE
 
 Warcraft III team-colour and team-glow textures (Blizzard Entertainment)
 Native game assets decoded to lossless PNG. See textures/team/README.txt.
+
+fflate (MIT)
+https://www.lowpolyworks.com/vendor/fflate-LICENSE.txt
+
+Warcraft III native preview textures (Blizzard Entertainment)
+Classic archive BLPs used only for previews. Uploaded model downloads retain their original bytes.

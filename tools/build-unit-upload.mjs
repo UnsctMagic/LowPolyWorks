@@ -1,0 +1,12 @@
+import fs from 'node:fs/promises';
+import {fileURLToPath} from 'node:url';
+import {build} from '../tracker/node_modules/esbuild/lib/main.js';
+import {TEAM_COLORS} from '../dist/vendor/mdlxl/src/team-colors.js';
+const root=new URL('../',import.meta.url);
+const file=path=>new URL(path,root);
+await build({entryPoints:[fileURLToPath(file('tracker/node_modules/fflate/esm/browser.js'))],outfile:fileURLToPath(file('dist/vendor/fflate.js')),bundle:true,minify:true,format:'esm',platform:'browser'});
+await build({entryPoints:[fileURLToPath(file('dist/model-files.js'))],outfile:fileURLToPath(file('tracker/vendor/model-files.js')),bundle:true,minify:true,format:'esm',platform:'node'});
+await fs.copyFile(file('dist/textures.json'),file('tracker/lib/native-textures.json'));
+await fs.copyFile(file('dist/armies.json'),file('tracker/lib/unit-armies.json'));
+await fs.writeFile(file('tracker/lib/unit-colours.json'),JSON.stringify(TEAM_COLORS.map(c=>c.rgbHex)));
+console.log('Shared ZIP/model parser and native texture index built.');

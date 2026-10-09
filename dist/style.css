@@ -101,3 +101,4 @@ footer{max-width:1740px;padding:20px 24px}
 .controls .loop-option{display:flex;align-items:center;gap:7px;cursor:pointer}
 .controls .loop-option input{margin:0;accent-color:var(--gold);width:15px;height:15px}
 @media(max-width:560px){.controls{padding:8px}.controls .animation-controls{grid-template-columns:auto minmax(0,1fr) 76px}.controls .appearance-controls{grid-template-columns:auto 100px minmax(0,1fr) 76px}.controls .orbit-controls{grid-template-columns:76px auto minmax(45px,1fr) 30px}.controls .playback-controls{grid-template-columns:minmax(0,1fr) auto minmax(45px,1fr) 30px}.controls .control-row{gap:6px}.controls .control-row label{font-size:.74rem}}
+.viewer-error[hidden]{display:none!important}

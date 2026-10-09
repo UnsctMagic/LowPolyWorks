@@ -17,10 +17,10 @@ test('newly published models are accepted and reported without restarting the tr
   return {ok:true,json:async()=>structuredClone(published)};
  });
  const blobs=[];
- const collect=createEventsHandler({writeBlob:async(pathname,data)=>{
+ const collect=createEventsHandler({loadModels:()=>trackedModels({loadUnits:async()=>[]}),writeBlob:async(pathname,data)=>{
   const event=JSON.parse(data);blobs.push({pathname,uploadedAt:event.recordedAt});
  }});
- const read=createReportHandler({listBlobs:async()=>({blobs,hasMore:false}),env:{USAGE_READ_TOKEN:'secret'}});
+ const read=createReportHandler({loadModels:()=>trackedModels({loadUnits:async()=>[]}),listBlobs:async()=>({blobs,hasMore:false}),env:{USAGE_READ_TOKEN:'secret'}});
  async function download(model,format){
   const res=response();
   await collect({method:'POST',headers:{origin:'https://www.lowpolyworks.com'},body:JSON.stringify({id:randomUUID(),kind:'download',model,format})},res);

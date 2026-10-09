@@ -7,8 +7,14 @@
   "scripts": {
     "start": "node server.mjs",
     "build:model-pages": "node tools/model-pages.mjs",
-    "check": "node tools/check-project.mjs"
+    "check": "node tools/check-project.mjs",
+    "build:unit-upload": "node tools/build-unit-upload.mjs"
   },
-  "engines": { "node": ">=20" },
-  "repository": { "type": "git", "url": "https://github.com/UnsctMagic/LowPolyWorks.git" }
+  "engines": {
+    "node": ">=20"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/UnsctMagic/LowPolyWorks.git"
+  }
 }
