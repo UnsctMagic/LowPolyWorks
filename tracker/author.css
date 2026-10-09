@@ -8,3 +8,5 @@
 
 
 #post-manager{padding:12px 0;margin-bottom:18px}#post-manager>summary{margin-bottom:8px}.post-list{margin:0}.post-list li{align-items:center;gap:12px}.post-list li>div:first-child{min-width:0;overflow-wrap:anywhere}.post-list time{display:block}.post-actions{display:flex;gap:6px;flex:none}.post-actions button{padding:4px 9px;font-size:12px}#deleted-panel{padding:12px 0 0;margin-top:12px}#manager-status:empty{display:none}@media(max-width:560px){.post-list li{display:flex}.post-actions{flex-wrap:wrap;justify-content:flex-end}}
+
+.post-body a{color:#acc6a2}.post-body a:hover{color:#d1e3c8}

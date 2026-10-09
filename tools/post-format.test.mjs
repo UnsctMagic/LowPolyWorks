@@ -1,8 +1,23 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
+import vm from 'node:vm';
 import {postBody,contentUrl} from '../tracker/post-format.js';
 import {uploadImage} from '../tracker/upload-workflow.js';
+
+test('embedded post formatting binds its own toolbar and preserves the unit editor handler',()=>{
+ const unitClick=()=>{},unitTools={onclick:unitClick},postTools={},row={},url={focus(){}},status={};
+ const body={value:'Selected text',selectionStart:0,selectionEnd:13,focus(){},setRangeText(text,start,end){this.value=this.value.slice(0,start)+text+this.value.slice(end);},setSelectionRange(start,end){this.selectionStart=start;this.selectionEnd=end;},dispatchEvent(){}};
+ const nodes={'#post-body':body,'#editor-link-row':row,'#editor-url':url,'#editor-cancel':{},'#editor-insert':{},'#post-status':status,'.editor-tools':unitTools};
+ const source=fs.readFileSync('tracker/author.js','utf8');
+ const context=vm.createContext({app:{querySelector:selector=>selector==='.editor-tools'?postTools:nodes[selector]},document:{querySelector:selector=>nodes[selector]},Event,contentUrl});
+ vm.runInContext(source.slice(source.indexOf('function bindEditor(){'))+'\nbindEditor();',context);
+ assert.equal(unitTools.onclick,unitClick,'Unit toolbar handler must remain attached');
+ assert.equal(typeof postTools.onclick,'function','Post toolbar must receive the click handler');
+ postTools.onclick({target:{closest:()=>({dataset:{format:'bold'}})}});assert.equal(body.value,'**Selected text**');
+ postTools.onclick({target:{closest:()=>({dataset:{format:'link'}})}});assert.equal(row.hidden,false);assert.equal(url.disabled,false);
+ url.value='https://example.com/';nodes['#editor-insert'].onclick();assert.equal(body.value,'**[Selected text](https://example.com/)**');assert.equal(row.hidden,true);
+});
 
 test('author preview and feed ship exactly the same formatter',()=>{
  assert.equal(fs.readFileSync('tracker/post-format.js','utf8'),fs.readFileSync('dist/post-format.js','utf8'));

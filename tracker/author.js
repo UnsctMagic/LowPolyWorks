@@ -110,7 +110,7 @@ function bindEditor(){
   const lineStart=body.value.lastIndexOf('\n',start-1)+1,lineEnd=body.value.indexOf('\n',end),last=lineEnd<0?body.value.length:lineEnd,prefix=kind==='quote'?'> ':'- ',value=body.value.slice(lineStart,last)||'text',replacement=value.split('\n').map(line=>prefix+line).join('\n');
   insert(replacement,lineStart,last,0,replacement.length);
  }
- document.querySelector('.editor-tools').onclick=event=>{const button=event.target.closest('[data-format]');if(button)format(button.dataset.format);};
+ app.querySelector('.editor-tools').onclick=event=>{const button=event.target.closest('[data-format]');if(button)format(button.dataset.format);};
  body.onkeydown=event=>{if((event.ctrlKey||event.metaKey)&&!event.altKey){const kind={b:'bold',i:'italic',k:'link'}[event.key.toLowerCase()];if(kind){event.preventDefault();format(kind);}}};
  document.querySelector('#editor-cancel').onclick=()=>{row.hidden=true;url.value='';url.disabled=true;body.focus();};
  document.querySelector('#editor-insert').onclick=()=>{try{const link=contentUrl(url.value),{start,end,text}=selected,replacement=mode==='image'?'[img]'+link+'[/img]':'['+(text||'link text')+']('+link+')';insert(replacement,start,end,0,replacement.length);row.hidden=true;url.disabled=true;document.querySelector('#post-status').textContent='';}catch(error){document.querySelector('#post-status').textContent=error.message;url.focus();}};
