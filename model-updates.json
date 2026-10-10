@@ -5,10 +5,12 @@
       "sha256": "811d8519bb9ac795fecde0ce1ba68b5f793bb55101b84acb6635d20478ab4a16"
     },
     "von-carstein": {
-      "sha256": "0c481885d66c03ea344bf4e11f3592dd9573d8195238a5221586ee6dd7877fa9"
+      "sha256": "b3ebf64fa6db5eba7d0a8c2afeb1ca652024f36fd850be20efc3a802ff3783cd",
+      "updatedAt": "2026-10-10T08:12:24.945Z"
     },
     "von-carstein-dread-knight": {
-      "sha256": "6e3dc9b05a74a438e8eba9ed29ad565df10f2dc865af71995baba5a8b33b64b6"
+      "sha256": "dffdf504d024ff8f6266cf1ca979ca11e16d2f4f83f7ae86395bd7610d806166",
+      "updatedAt": "2026-10-10T08:12:24.945Z"
     },
     "strigoi-vampire": {
       "sha256": "1f9ebd73855b2656b79e3129bb328b36ee606f1701da054c8298c8293ae2bcb5"
