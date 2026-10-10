@@ -8,6 +8,8 @@ on:
       - 'dist/catalogue.json'
       - 'models/**'
       - 'catalogue.json'
+      - '.github/workflows/model-update-tags.yml'
+      - 'tools/model-updates.mjs'
 
 permissions:
   contents: write
