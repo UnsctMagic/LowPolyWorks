@@ -117,3 +117,5 @@ footer{max-width:1740px;padding:20px 24px}
 .model-follow .follow-status,.model-follow .follow-recipient{overflow-wrap:anywhere;color:var(--muted)}
 .model-follow [hidden]{display:none!important}
 @media(max-width:560px){.side-right:has(.model-follow){flex-wrap:wrap}.model-follow{flex-basis:100%;margin-top:0}.model-follow form{max-width:320px}}
+
+.model-update-tag{position:absolute;top:9px;right:10px;z-index:3;font-size:.82rem;font-weight:700;line-height:1.25;white-space:nowrap;pointer-events:none;-webkit-text-stroke:1px #17432a;paint-order:stroke fill;text-shadow:0 1px 2px #071a10}
