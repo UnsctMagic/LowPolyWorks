@@ -1,0 +1,27 @@
+{
+  "version": "0.22.1",
+  "summary": {
+    "en": [
+      "Swap the red and green Move-plane square colors, including their neon press highlights.",
+      "Settings > Mouse > Search for updates > Update and restart. If needed, use the complete ZIP from Low Polyworks."
+    ],
+    "es": [
+      "Intercambiados los colores rojo y verde de los cuadrados de plano de Move, incluido su resaltado neón al pulsarlos.",
+      "Configuración > Ratón > Buscar actualizaciones > Actualizar y reiniciar. Si hace falta, usa el ZIP completo de Low Polyworks."
+    ],
+    "ru": [
+      "Красный и зелёный цвета квадратов плоскостей Move поменяны местами, включая неоновую подсветку при нажатии.",
+      "Настройки > Мышь > Поиск обновлений > Обновить и перезапустить. При необходимости скачайте полный ZIP с Low Polyworks."
+    ],
+    "zh": [
+      "交换 Move 平面方块的红色和绿色，包括按下时的霓虹高亮。",
+      "设置 > 鼠标 > 搜索更新 > 更新并重启。如有需要，请从 Low Polyworks 下载完整 ZIP。"
+    ]
+  },
+  "notes": {
+    "en": "# MDLxL 0.22.1 - Move square color hotfix\n\n- Swap the red and green Move-plane square colors, including their neon press highlights.\n- Settings > Mouse > Search for updates > Update and restart. If needed, use the complete ZIP from Low Polyworks.\n\nThe blue square, arrows, square positions and movement behavior are unchanged.\n",
+    "es": "# MDLxL 0.22.1 - Corrección de los colores de los cuadrados de Move\n\n- Intercambiados los colores rojo y verde de los cuadrados de plano de Move, incluido su resaltado neón al pulsarlos.\n- Configuración > Ratón > Buscar actualizaciones > Actualizar y reiniciar. Si hace falta, usa el ZIP completo de Low Polyworks.\n\nEl cuadrado azul, las flechas, las posiciones de los cuadrados y el movimiento siguen igual.\n",
+    "ru": "# MDLxL 0.22.1 - Исправление цветов квадратов Move\n\n- Красный и зелёный цвета квадратов плоскостей Move поменяны местами, включая неоновую подсветку при нажатии.\n- Настройки > Мышь > Поиск обновлений > Обновить и перезапустить. При необходимости скачайте полный ZIP с Low Polyworks.\n\nСиний квадрат, стрелки, положение квадратов и поведение движения не изменены.\n",
+    "zh": "# MDLxL 0.22.1 - Move 方块颜色修复\n\n- 交换 Move 平面方块的红色和绿色，包括按下时的霓虹高亮。\n- 设置 > 鼠标 > 搜索更新 > 更新并重启。如有需要，请从 Low Polyworks 下载完整 ZIP。\n\n蓝色方块、箭头、方块位置和移动行为保持不变。\n"
+  }
+}
