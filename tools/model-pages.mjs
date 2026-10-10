@@ -1,3 +1,4 @@
+import {syncModelUpdates} from './model-updates.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
@@ -74,6 +75,7 @@ export function mdlxlPage(template) {
 }
 
 export function generateModelPages(root) {
+  syncModelUpdates(root);
   const template = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
   const rows = JSON.parse(fs.readFileSync(path.join(root, 'catalogue.json'), 'utf8'));
   for (const row of rows) {

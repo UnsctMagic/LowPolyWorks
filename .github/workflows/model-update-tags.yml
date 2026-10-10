@@ -1,0 +1,51 @@
+name: Refresh model update tags
+
+on:
+  push:
+    branches: [main, gh-pages]
+    paths:
+      - 'dist/models/**'
+      - 'dist/catalogue.json'
+      - 'models/**'
+      - 'catalogue.json'
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: model-update-tags-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Record model replacements
+        env:
+          SITE: ${{ github.ref_name == 'gh-pages' && '.' || 'dist' }}
+        run: node tools/model-updates.mjs --site "$SITE"
+      - name: Save refreshed tags
+        id: tags
+        env:
+          SITE: ${{ github.ref_name == 'gh-pages' && '.' || 'dist' }}
+        run: |
+          git add "$SITE/model-updates.json"
+          if git diff --cached --quiet; then exit 0; fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Refresh model update tags'
+          git pull --rebase origin "$GITHUB_REF_NAME"
+          git push origin "HEAD:$GITHUB_REF_NAME"
+          echo 'changed=true' >> "$GITHUB_OUTPUT"
+      - name: Publish refreshed tags
+        if: steps.tags.outputs.changed == 'true' && github.ref_name == 'gh-pages'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api --method POST "repos/$GITHUB_REPOSITORY/pages/builds"

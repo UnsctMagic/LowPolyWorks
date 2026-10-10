@@ -1,0 +1,136 @@
+{
+  "version": 1,
+  "models": {
+    "graveguard": {
+      "sha256": "811d8519bb9ac795fecde0ce1ba68b5f793bb55101b84acb6635d20478ab4a16"
+    },
+    "von-carstein": {
+      "sha256": "b3ebf64fa6db5eba7d0a8c2afeb1ca652024f36fd850be20efc3a802ff3783cd",
+      "updatedAt": "2026-10-10T08:02:37.273Z"
+    },
+    "von-carstein-dread-knight": {
+      "sha256": "dffdf504d024ff8f6266cf1ca979ca11e16d2f4f83f7ae86395bd7610d806166",
+      "updatedAt": "2026-10-10T08:02:37.273Z"
+    },
+    "necrarch-vampire": {
+      "sha256": "6baa4e1d87d274c237759f8d3ba28dff7f108360e8b67c7387be4de4aab72645"
+    },
+    "khorne-axe": {
+      "sha256": "9165decc355343b4ee3613498861246c735a5d261df3bb09153def94da78fe40"
+    },
+    "khorne-flail": {
+      "sha256": "022aaf7696a0dab24803d91b404495e34cb833e3aa73c8b5e565756b0107789b"
+    },
+    "nurgle": {
+      "sha256": "81ab2399c34fceb244e9219da5f639069c11742f0640563213dec20c2c901849"
+    },
+    "slaanesh-axe": {
+      "sha256": "ebeb866932a26af1703d22f949eef71293cb398007b03df6019b67daed66c39b"
+    },
+    "slaanesh-lance": {
+      "sha256": "8978cc2c2ba37051fb3f78579d400e2e0c03d3c6859f7e41f8b2beb3bc79ba1b"
+    },
+    "undivided-sword": {
+      "sha256": "fed22df279ec3d6a56870c2df3063499bdf9c5fec15496e355ac016335fc5018"
+    },
+    "undivided-lance": {
+      "sha256": "25f7603c12aed7472bd9a1dd91754287c1a943784a771b9f821a50d7b07113f4"
+    },
+    "aspiring": {
+      "sha256": "7d3d9b3911a061c5bf9c7d7af5a3beaa0cd93eea2c28d963973b767bc5034acf"
+    },
+    "herrdave-124832": {
+      "sha256": "39884eb960f3c52af6a7c2b8f1ca50b92d7f675d0cc55c0a8f7e03d666618a35"
+    },
+    "herrdave-124833": {
+      "sha256": "6adaf835bed574ea9280a172f18ce6347a5ceb25bf72059edc24062ebfad1e65"
+    },
+    "herrdave-124831": {
+      "sha256": "936bce4adb0472856d11b81b30be3c6878673a165b6d56ae314302846a7c59d8"
+    },
+    "herrdave-87376": {
+      "sha256": "f1a2d1adbb94f609cd4853ca8a60c42e2220904d5c1ee240aa769c2d5528ddcc"
+    },
+    "herrdave-87377": {
+      "sha256": "2bf9104525fdec6d127bdc6fbd715ba79fccd70e00964d950dffbff0f01f6a56"
+    },
+    "herrdave-104264": {
+      "sha256": "e8cf0747ddeac76efc1b2302ba21e0e12792c59b585d613a529248904c38c522"
+    },
+    "herrdave-87375": {
+      "sha256": "26d27701f77b8ca02e32476df29432bc698ffba6cb36caab869a24e7e945a808"
+    },
+    "herrdave-103868": {
+      "sha256": "55db32dfd2c3d803f2a29a21fa3869c2e6ff7b9cf3646a28cb8a6929fa0bd308"
+    },
+    "herrdave-87374": {
+      "sha256": "49f7d59d00f7be1540bf39c3782d8e5d4694307a8db1fefb5f579041fda1c027"
+    },
+    "herrdave-86791": {
+      "sha256": "10bf7795d8df6d32fa915216391a91ef9ee9c9af4f87088441c1f9356f7c39d4"
+    },
+    "herrdave-88507": {
+      "sha256": "781ec36404b2a3bb9034a434dbce10b08472c728270a8cf31b89a7626c04680f"
+    },
+    "herrdave-86747": {
+      "sha256": "cf15694401736ebefea4b5305e6c067176aeb85279bcdeb170e255fc3f380b1f"
+    },
+    "herrdave-88510": {
+      "sha256": "20be08be9ce8662c8c949e06109a902262d54c5cb6859ac1a5c491b421aeb9df"
+    },
+    "herrdave-88509": {
+      "sha256": "ecfbb668d8275c2786069753a9e60f41dadb75974c0a673c038f4563fab2cc55"
+    },
+    "herrdave-88508": {
+      "sha256": "0fc1f17efdb354ad16f048ad529281633d89e802555e571c0666567f8b62aa6b"
+    },
+    "herrdave-86862": {
+      "sha256": "3f548543bca99df28b08423a0f65f218a0d827645d68ffc74c357c45d683c827"
+    },
+    "herrdave-87246": {
+      "sha256": "96851af63ae9c4cd1744666e8526c37e1d1a94d9ab21677a25b00a58b9ec11ba"
+    },
+    "herrdave-87245": {
+      "sha256": "9d733a0d10e37bcd1b02dc36a6bdd6d05661d51e85fc2dac8eac278960ff2bbc"
+    },
+    "herrdave-86780": {
+      "sha256": "7c9af138fb5a6e73cf0af8cedd7b5c2b79caf9918074e1e164322f9acb872932"
+    },
+    "herrdave-75836": {
+      "sha256": "86c8fb6f1f1e723c39481589ba92c9fe2177394c2113565fb36b4af7d9e7b2aa"
+    },
+    "herrdave-86759": {
+      "sha256": "354c6928a1d26d1a89dac55c4ff180b5b5e46b50635ff46afe109cc5dbf64589"
+    },
+    "herrdave-86753": {
+      "sha256": "9edbf19ec4fab5fde839426564dd855c773e58d62b2a5c48057ed6a9bafa6ad1"
+    },
+    "herrdave-79344": {
+      "sha256": "d5c5d41a69236417f7b14129327ad6acb9498f21b281f6c2d650e3d56e5a0c98"
+    },
+    "herrdave-86735": {
+      "sha256": "be20d31775c47fddf28ceb0f713eb37f9a7d23ef0d98cb81a3fccb1a7a6a745d"
+    },
+    "herrdave-81065": {
+      "sha256": "c881be028a0bd9d9262abe6fe45bfc1b5d14325b28c8739dd99f59f3ce28d94f"
+    },
+    "herrdave-76825": {
+      "sha256": "bdbd9311ae6f1b290b229a291e94fbf1c5727280b8041fd6a9f7782ec1d327af"
+    },
+    "herrdave-75804": {
+      "sha256": "d1b26f1adda75f6051474171f0a868202c7ac8b9004b1aabc7dae36180c160eb"
+    },
+    "herrdave-75064": {
+      "sha256": "61ba70c236d86ec58c1be9a5b5bc5da4a5e331b78da0e7717f0a588f0e8e6ff1"
+    },
+    "tzeentch-sword": {
+      "sha256": "a8bb8990c67604112ba4f6a5fe66bf36fee02b0ece0d8df05d36c09634e6b827"
+    },
+    "tzeentch-lance": {
+      "sha256": "9b68d101acb77fe554f683ecae783255efdee107a72229c47c751ca83de60932"
+    },
+    "chaos-ogre": {
+      "sha256": "b75c09c1c7c3bb353599d321bc5d6aa9700f393cdbd1a10fc387812cb45ebaef"
+    }
+  }
+}

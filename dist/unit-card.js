@@ -1,9 +1,10 @@
+import {modelUpdateTagMarkup} from './model-update-tags.js?v=20261010-model-update-tags-07';
 import {modelFollowMarkup,mountModelFollow} from './model-follows.js?v=20261009-follow-email';
 import {postBody} from './post-format.js';
 import {TEAM_COLORS} from './vendor/mdlxl/src/team-colors.js';
 const escape=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 export const bylineHtml=card=>postBody(card.byline).replace(/^<p>|<\/p>$/g,'');
-export function uploadedModelCard(card,colour='#9c0000'){return `<article class="model-card slab"><a class="model-open" href="#model/${escape(card.id)}" aria-label="Open ${escape(card.name)}"><div class="card-portrait" style="--aura:${colour}"><img src="${escape(card.coverUrl)}" alt="${escape(card.name)}"></div></a><div class="card-text"><a class="card-name" href="#model/${escape(card.id)}">${escape(card.name)}</a><div class="card-author">By: ${bylineHtml(card)}</div></div></article>`;}
+export function uploadedModelCard(card,colour='#9c0000'){return `<article class="model-card slab"><a class="model-open" href="#model/${escape(card.id)}" aria-label="Open ${escape(card.name)}"><div class="card-portrait" style="--aura:${colour}"><img src="${escape(card.coverUrl)}" alt="${escape(card.name)}">${modelUpdateTagMarkup(card.id)}</div></a><div class="card-text"><a class="card-name" href="#model/${escape(card.id)}">${escape(card.name)}</a><div class="card-author">By: ${bylineHtml(card)}</div></div></article>`;}
 export async function renderUnitCard(app,card,{isCurrent,recordUsage,confirmation='',colour='#ff0303'}){
  const {createViewer}=await import('./viewer.js?v=20261009-unit-upload');
  let viewer,disposed=false,version=0;

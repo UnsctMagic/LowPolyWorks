@@ -41,3 +41,5 @@ The local capture pages are available at `/__thumbnails.html` for army formation
 Models are by Unsanctioned Magic, HerrDave, and the collaborators listed on each model page. HerrDave's models were included with the owner's permission. Credits and links are preserved in the catalogue.
 
 The live viewer uses MDLxL's Showcase rendering components, war3-model, Three.js, and WhiteoutLib. Third-party licenses and provenance are included under `dist/vendor/`, `dist/whiteout/`, and `dist/THIRD_PARTY_NOTICES.txt`. Native Warcraft III assets remain owned by Blizzard Entertainment. This repository does not grant ownership or a new license to those assets or the contributed models.
+
+Model update tags are recorded automatically from the downloadable MDX bytes by `tools/model-updates.mjs`, during model-page generation and on catalogue/model pushes to either publishing branch. Existing model replacements refresh `model-updates.json`; unrelated page edits keep the previous time. Army-card tags show the Amsterdam update date, darken after 24 and 48 hours, and disappear after 72 hours. Uploaded cards use their existing update timestamp.
