@@ -18,20 +18,21 @@ Publishing records are stored in the existing private Blob store at `publishing/
 
 ## Model notifications
 
-Readers check **Update me** directly below a model's downloads and confirm their email. This follows that model and opts into all new model uploads. Updates to other existing models do not go to them. Unchecking the final model stops all model mail. A signed browser credential manages follows without exposing subscriber email addresses.
+Readers check **Update me** directly below a model's downloads and confirm their email. Opening the email link confirms automatically and displays **Email confirmed. Update me is on.** beside the confirmed address. This follows that model and opts into all new model uploads. Updates to other existing models do not go to them. Unchecking the final model stops all model mail. A signed browser credential manages follows without exposing subscriber email addresses.
 
 Configure `RESEND_API_KEY` and `MODEL_MAIL_FROM` (`LowPolyWorks <updates@lowpolyworks.com>`) in Production Secrets/Config. Replies to updates@lowpolyworks.com are forwarded by Cloudflare to lowpolyworksnews@gmail.com. The Resend key is Sending-only and limited to lowpolyworks.com.
 
 The protected `POST /api/model-notifications` worker reads the public catalogue, hashes published MDX/package downloads with conditional ETag reads, and includes the Vault's published unit download hashes. Titles, credits, artwork and journal posts never trigger model mail. The first scan records the current catalogue without historical announcements. Subsequent new models notify every active, verified subscriber; changed downloads notify only that model's followers. Hidden/deleted models do not generate announcements. Restoring identical files does not generate an email.
 
-Automatic model announcement delivery is disabled at the owner's request. Leave `MODEL_NOTIFICATIONS_ENABLED` unset and do not create a worker token or activate a schedule. Confirmation emails remain enabled independently. The protected worker and recipient rules are prepared, but no model announcements are sent.
+Automatic model announcements use `MODEL_NOTIFICATIONS_ENABLED=true` and the same random `MODEL_NOTIFICATIONS_TOKEN` in a Vercel Production Secret and a GitHub Actions repository secret. Run an initial baseline with delivery disabled before enabling announcements. The **Deliver model notifications** workflow runs after successful Pages deployments, every 30 minutes, and on manual dispatch. It calls the protected worker without requiring an open author workspace. The public feed's `modelNotificationsEnabled` reports the production delivery setting; signup remains per-model.
 
-For a separately approved activation, store the same random `MODEL_NOTIFICATIONS_TOKEN` as a Vercel Production Secret and a GitHub Actions repository secret, publish the prepared delivery workflow, and run the initial baseline before setting `MODEL_NOTIFICATIONS_ENABLED=true`. Delivery can then run without an open author workspace. Private queued recipients, saved receipts, leases and Resend idempotency keys prevent duplicate sends. Unsubscribe and uncheck are checked again before sending. Known quota failures remain queued for later runs; ambiguous results older than 23 hours stop for review. Every model email includes an unsubscribe link.
+Private queued recipients, saved receipts, leases and Resend idempotency keys prevent duplicate sends. Unsubscribe and uncheck are checked again before sending. Known quota failures remain queued for later runs; ambiguous results older than 23 hours stop for review. Every model email includes an unsubscribe link.
 
 Verification:
 
 ```sh
 node --test tracker/events.test.js tracker/publishing.test.js tracker/media.test.js tracker/unit-cards.test.js tracker/model-follows.test.js tracker/model-releases.test.js
+node --test tools/model-follow-ui.test.mjs
 node tools/check-project.mjs
 ```
 
