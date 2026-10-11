@@ -7,7 +7,7 @@ function fixture({saved='',failure}={}){
  const form={querySelector:selector=>selector==='button'?submit:emailInput};
  const nodes={'[name="updateMe"]':checkbox,form,'.follow-recipient':recipient,'.follow-confirm':confirmButton,'.follow-status':status};
  let credential=saved,scrolls=0,scrolledStatus='';const calls=[];
- const element={querySelector:selector=>nodes[selector]};
+ const element={querySelector:selector=>nodes[selector],dataset:{},closest:()=>({offsetHeight:500}),ownerDocument:{defaultView:{innerHeight:365}}};
  const storage={getItem:()=>credential,setItem:(_key,value)=>{credential=value;},removeItem:()=>{credential='';}};
  const reader={token:'saved-reader',email:'reader@example.test',modelIds:['graveguard']};
  const fetchApi=async(url,options)=>{
