@@ -8,7 +8,7 @@ import {recordUsage} from './usage.js?v=20261007-media-polls';
 import {renderJournal} from './journal.js?v=20261009-follow-email';
 import {renderMdlxl} from './mdlxl.js?v=20261011-discord-workshop';
 if (/^\/mdlxl\/?$/.test(location.pathname) && !location.hash) history.replaceState(null,'',location.pathname+location.search+'#project/mdlxl');
-const app=document.querySelector('#app'),baseCatalogue=await fetch('catalogue.json?v=20261012-blood-dragon-model-01d8fb98').then(r=>r.json());
+const app=document.querySelector('#app'),baseCatalogue=await fetch('catalogue.json?v=20261012-blood-dragon-model-1b0d8587').then(r=>r.json());
 const armies=await fetch('armies.json?v=20261012-blood-dragon-corrected').then(r=>r.json());
 const descriptionParagraphs=(text,links=[])=>text.trim().split(/\r?\n\s*\r?\n/).map(paragraph=>`<p>${creditText({creditLinks:links},paragraph.trim()).replace(/\r?\n/g,'<br>')}</p>`).join('');
 const escape=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
