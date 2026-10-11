@@ -3,11 +3,11 @@ import assert from 'node:assert/strict';
 import {mountModelFollow} from '../dist/model-follows.js';
 
 function fixture({saved='',failure}={}){
- const checkbox={checked:false},emailInput={value:''},submit={},recipient={},confirmButton={},status={};
+ const checkbox={checked:false},emailInput={value:''},submit={},recipient={},confirmButton={},status={scrollIntoView:()=>{scrolls++;scrolledStatus=status.textContent;}};
  const form={querySelector:selector=>selector==='button'?submit:emailInput};
  const nodes={'[name="updateMe"]':checkbox,form,'.follow-recipient':recipient,'.follow-confirm':confirmButton,'.follow-status':status};
- let credential=saved,scrolls=0;const calls=[];
- const element={querySelector:selector=>nodes[selector],scrollIntoView:()=>scrolls++};
+ let credential=saved,scrolls=0,scrolledStatus='';const calls=[];
+ const element={querySelector:selector=>nodes[selector]};
  const storage={getItem:()=>credential,setItem:(_key,value)=>{credential=value;},removeItem:()=>{credential='';}};
  const reader={token:'saved-reader',email:'reader@example.test',modelIds:['graveguard']};
  const fetchApi=async(url,options)=>{
@@ -16,7 +16,7 @@ function fixture({saved='',failure}={}){
   if(action==='follow-confirm'&&failure)return {ok:false,status:400,json:async()=>({error:failure})};
   return {ok:true,json:async()=>reader};
  };
- return {element,storage,fetchApi,checkbox,emailInput,submit,recipient,confirmButton,status,calls,get credential(){return credential;},get scrolls(){return scrolls;}};
+ return {element,storage,fetchApi,checkbox,emailInput,submit,recipient,confirmButton,status,calls,get credential(){return credential;},get scrolls(){return scrolls;},get scrolledStatus(){return scrolledStatus;}};
 }
 test('an email link confirms automatically, shows success and the recipient, and persists the follow on reload',async()=>{
  const previous={location:globalThis.location,history:globalThis.history};let cleanUrl;
@@ -29,6 +29,7 @@ test('an email link confirms automatically, shows success and the recipient, and
   assert.equal(f.checkbox.checked,true);assert.equal(f.checkbox.disabled,false);assert.equal(f.confirmButton.hidden,true);
   assert.equal(f.emailInput.value,'reader@example.test');assert.equal(f.recipient.textContent,'Notifications to: reader@example.test');
   assert.equal(f.credential,'saved-reader');assert.equal(f.scrolls,1);
+  assert.equal(f.scrolledStatus,'Email confirmed. Update me is on.');
   assert.equal(cleanUrl,'https://www.lowpolyworks.com/model/graveguard/');
   const reload=fixture({saved:f.credential});await mountModelFollow(reload.element,{id:'graveguard'},reload);
   assert.equal(reload.checkbox.checked,true);assert.equal(reload.status.textContent,'Update me is on.');
@@ -40,4 +41,5 @@ test('a rejected email link shows the actual failure and never marks the model a
  await mountModelFollow(f.element,{id:'graveguard'},{...f,confirmation:'expired'});
  assert.equal(f.status.textContent,'This confirmation has expired. Request Update me again.');
  assert.equal(f.checkbox.checked,false);assert.equal(f.credential,'');assert.equal(f.confirmButton.hidden,false);
+ assert.equal(f.scrolledStatus,f.status.textContent);
 });
