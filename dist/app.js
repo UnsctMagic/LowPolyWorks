@@ -6,7 +6,7 @@ import {createViewer} from './viewer.js?v=20261011-animation-replay';
 import {TEAM_COLORS} from './vendor/mdlxl/src/team-colors.js';
 import {recordUsage} from './usage.js?v=20261007-media-polls';
 import {renderJournal} from './journal.js?v=20261009-follow-email';
-import {renderMdlxl} from './mdlxl.js?v=20261008-hotfix-under-0211';
+import {renderMdlxl} from './mdlxl.js?v=20261011-discord-workshop';
 if (/^\/mdlxl\/?$/.test(location.pathname) && !location.hash) history.replaceState(null,'',location.pathname+location.search+'#project/mdlxl');
 const app=document.querySelector('#app'),baseCatalogue=await fetch('catalogue.json?v=20261011-khorne-flail-fire').then(r=>r.json());
 const armies=await fetch('armies.json?v=20261009-chaos-ogre').then(r=>r.json());
