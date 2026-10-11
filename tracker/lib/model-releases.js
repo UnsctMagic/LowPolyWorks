@@ -76,11 +76,12 @@ export function createModelReleases({store,env,sendEmail,mailConfigured,loadPubl
   if(!enabled())fail(503,'Model notification delivery is not enabled yet.');
   const time=now(),lease=randomUUID();
   const work=await store.mutate(s=>{
+   if(s.modelDeliveryLease?.until>time)return null;
    const job=s.notifications.find(job=>job.source==='catalogue'&&!job.cancelledAt&&job.recipients.some(id=>!job.sent.includes(id))&&(!job.lease||job.lease.until<time));
    if(!job)return null;
    const recipients=job.recipients.filter(id=>!job.sent.includes(id)).slice(0,2);
    for(const id of recipients)if(job.attempts[id]&&time-job.attempts[id]>=23*3600000)fail(409,'An earlier email result needs review before retrying.');
-   job.lease={token:lease,until:time+60000};
+   job.lease={token:lease,until:time+60000};s.modelDeliveryLease={...job.lease};
    return {...job,recipients};
   });
   if(!work)return {sent:0,remaining:pendingModelEmails((await store.read()).state)};
@@ -98,7 +99,7 @@ export function createModelReleases({store,env,sendEmail,mailConfigured,loadPubl
    results.push({error,skipped});if(error)break;
    if(work.recipients.length>results.length)await new Promise(resolve=>setTimeout(resolve,600));
   }
-  return store.mutate(s=>{const job=s.notifications.find(job=>job.id===work.id);if(job?.lease?.token===lease)delete job.lease;return {sent:results.filter(result=>!result.error&&!result.skipped).length,remaining:pendingModelEmails(s),error:results.find(result=>result.error)?.error};});
+  return store.mutate(s=>{const job=s.notifications.find(job=>job.id===work.id);if(job?.lease?.token===lease)delete job.lease;if(s.modelDeliveryLease?.token===lease)delete s.modelDeliveryLease;return {sent:results.filter(result=>!result.error&&!result.skipped).length,remaining:pendingModelEmails(s),error:results.find(result=>result.error)?.error};});
  }
  return {sync,deliver,enabled,record};
 }

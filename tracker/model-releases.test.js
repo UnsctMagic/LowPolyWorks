@@ -57,3 +57,10 @@ test('publication cache keys fetch fresh catalogue/download bytes while retainin
  const urls=[],publication='a'.repeat(40),bytes=Buffer.from('MDLXfresh');const fetchApi=async url=>{urls.push(url);return url.includes('/catalogue.json')?{ok:true,json:async()=>[{id:'a',name:'A',file:'a.mdx'}]}:{ok:true,headers:new Headers(),arrayBuffer:async()=>bytes};};
  const rows=await publishedModels({}, {fetchApi,publication});assert(urls.every(url=>new URL(url).searchParams.get('publication')===publication));assert.equal(rows[0].files[0].url,'https://www.lowpolyworks.com/models/a.mdx');
 });
+
+test('overlapping upload events share delivery leases so different releases cannot exceed the serial sender rate',async()=>{
+ const f=fixture();await f.store.mutate(s=>s.subscribers.push(f.sub('reader')));await f.sync();
+ f.models.push({id:'b',name:'B',fingerprint:'b'},{id:'c',name:'C',fingerprint:'c'});await f.sync();
+ const results=await Promise.all([f.deliver(),f.deliver()]);assert.equal(results.reduce((count,row)=>count+row.sent,0),1);assert.equal(f.mail.length,1);assert(!f.state.modelDeliveryLease);
+ assert.equal((await f.deliver()).sent,1);assert.equal(f.mail.length,2);assert.equal(new Set(f.mail.map(row=>row.key)).size,2);
+});

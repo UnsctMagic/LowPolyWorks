@@ -3,7 +3,7 @@ name: Deliver model notifications
 on:
   workflow_dispatch:
   workflow_run:
-    workflows: ['pages build and deployment']
+    workflows: [pages-build-deployment]
     types: [completed]
 
 permissions:
