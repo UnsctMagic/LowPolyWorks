@@ -35,6 +35,6 @@ export async function mountModelFollow(element,row,{confirmation='',fetchApi=fet
   else if(modelIds.includes(row.id))status.textContent='Update me is on.';
   else status.textContent=credential?'Check Update me to follow this model.':'Check Update me, enter your email, then confirm.';
   render();
-  if(confirmation){element.scrollIntoView({block:'center'});await confirmButton.onclick();}
+  if(confirmation){await confirmButton.onclick();status.scrollIntoView({block:'center'});}
  }catch(error){status.textContent=error.message;enabled=false;render();}
 }
