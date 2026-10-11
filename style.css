@@ -120,3 +120,6 @@ footer{max-width:1740px;padding:20px 24px}
 @media(max-width:560px){.side-right:has(.model-follow){flex-wrap:wrap}.model-follow{flex-basis:100%;margin-top:0}.model-follow form{max-width:320px}}
 
 .model-update-tag{position:absolute;top:9px;right:10px;z-index:3;font-size:.82rem;font-weight:700;line-height:1.25;white-space:nowrap;pointer-events:none;-webkit-text-stroke:1px #17432a;paint-order:stroke fill;text-shadow:0 1px 2px #071a10}
+
+/* Blood Dragon in the Vampire Counts army picture. */
+.army-picture[data-army="vampire-counts"] img.rear-left[src*="formation-blood-dragon-left.png"]{height:calc(81.65% / .9);left:26%}

@@ -10163,6 +10163,10 @@
       {
         "name": "Unsanctioned Magic",
         "url": "https://xgm.guru/user/UnsanctMagic"
+      },
+      {
+        "name": "Greedy Martyrdom",
+        "url": "https://www.hiveworkshop.com/members/greedy-martyrdom.265154/"
       }
     ],
     "creditLinks": [
@@ -10629,7 +10633,7 @@
     "formationTime": 1018,
     "searchDescription": "Preview and download a Warhammer Fantasy Blood Dragon model for Warcraft 3. A Vampire Counts warrior with a double axe and 16 animations.",
     "formationBodyHeight": 0.76,
-    "formationYaw": 0.65,
+    "formationYaw": 0.15,
     "captureRibbons": false
   }
 ]
