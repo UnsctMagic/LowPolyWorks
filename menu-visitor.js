@@ -319,6 +319,7 @@ export function startMenuVisitor() {
   }
 
   function paint(x, y, row, column, turn = 0, flying = false) {
+    const mirroredWalk = !flying && row === 2;
     bird.style.visibility = phase === 'rest' || phase === 'peek-hidden' ? 'hidden' : 'visible';
     bird.style.transform = `translate(${x - bodyWidth / 2}px, ${y - bodyHeight / 2}px) rotate(${turn}deg)`;
     picture.style.backgroundImage = `url("${flying ? wings : sheet}")`;
@@ -327,8 +328,8 @@ export function startMenuVisitor() {
     // Flight cells include the extended wings; the body retains its standing size and centre.
     picture.style.left = flying ? `${bodyWidth / 2 - 120 * flightScale}px` : '0';
     picture.style.top = flying ? `${bodyHeight / 2 - 101 * flightScale}px` : '0';
-    picture.style.transform = flying ? `scaleX(${direction})` : 'none';
-    picture.style.backgroundPosition = `${-column * (flying ? flightSize : bodyWidth)}px ${-row * (flying ? flightSize : bodyHeight)}px`;
+    picture.style.transform = flying ? `scaleX(${direction})` : mirroredWalk ? 'scaleX(-1)' : 'none';
+    picture.style.backgroundPosition = `${-column * (flying ? flightSize : bodyWidth)}px ${-(mirroredWalk ? 1 : row) * (flying ? flightSize : bodyHeight)}px`;
   }
 
   function takeOff(point, now, urgent = false) {
