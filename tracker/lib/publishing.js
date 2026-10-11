@@ -3,7 +3,7 @@ import {promisify} from 'node:util';
 import {contentOf,pollView,imageTypes,uploadLimit,uuidPattern} from './post-content.js';
 import ownerAvatar from './owner-avatar.js';
 import {createModelFollows} from './model-follows.js';
-import {createModelReleases,pendingModelEmails,publishedModels} from './model-releases.js';
+import {createModelReleases,pendingModelEmails,publishedModels,unitRelease} from './model-releases.js';
 import {trackedModels} from './events.js';
 import {createUnitCards,unitCatalogue,unitView,unitArmies} from './unit-cards.js';
 const scrypt=promisify(scryptCallback);
@@ -36,9 +36,9 @@ export function createPublishing({store,env=process.env,sendEmail,mailConfigured
  const unsubscribeToken=email=>sign('unsubscribe:'+email);
  const unsubscribeUrl=email=>AUTHOR_ORIGIN+'/author.html#unsubscribe='+encodeURIComponent(Buffer.from(email).toString('base64url')+'.'+unsubscribeToken(email));
  const modelFollows=createModelFollows({store,env,sendEmail,mailConfigured,now,loadModels,sign,safeEqual,limit,emailOf,token,digest,fail,publicOrigin:PUBLIC_ORIGIN});
- const releases=createModelReleases({store,env,sendEmail,mailConfigured,now,unsubscribeUrl,fail,loadPublished:loadPublished||((previous)=>publishedModels(previous,{loadUnits:async()=>(await store.read()).state}))});
+ const releases=createModelReleases({store,env,sendEmail,mailConfigured,now,unsubscribeUrl,fail,loadPublished:loadPublished||((previous,options)=>publishedModels(previous,{...options,loadUnits:async()=>(await store.read()).state}))});
  const setSession=author=>{const payload=Buffer.from(JSON.stringify({id:author.id,version:author.sessionVersion,exp:now()+28800000,nonce:token()})).toString('base64url');return cookie(payload+'.'+sign(payload));};
- const units=createUnitCards({store,authenticate,createUploadToken,inspectUpload,readUpload,saveAsset,now});
+ const units=createUnitCards({store,authenticate,createUploadToken,inspectUpload,readUpload,saveAsset,now,recordRelease:(state,card)=>releases.record(state,unitRelease(card))});
  async function deliver(request){
   if(!releases.enabled())fail(503,'Model notification delivery is not enabled yet.');
   authenticate((await store.read()).state,request,true);return releases.deliver();

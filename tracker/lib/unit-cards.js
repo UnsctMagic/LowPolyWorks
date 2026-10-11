@@ -9,7 +9,7 @@ const assetUrl=id=>AUTHOR_ORIGIN+'/api/assets?id='+id;
 const text=(value,max,label)=>{if(typeof value!=='string'||!value.trim()||value.length>max)fail(400,'Enter '+label+'.');return value.trim();};
 export function unitView(card){return {...card,coverUrl:assetUrl(card.coverId),url:PUBLIC_ORIGIN+'/#model/'+card.id,models:card.models.map(model=>({...model,fileUrl:assetUrl(model.assetId),textureFiles:Object.fromEntries(Object.entries(model.textureAssets).map(([key,id])=>[key,assetUrl(id)]))})),downloads:card.downloads.map(file=>({...file,url:assetUrl(file.id)}))};}
 export function unitCatalogue(state){return {cards:(state.unitCards||[]).filter(card=>!card.deletedAt).map(unitView),hiddenModels:state.hiddenModels||[]};}
-export function createUnitCards({store,authenticate,createUploadToken,inspectUpload,readUpload,saveAsset,now}){
+export function createUnitCards({store,authenticate,createUploadToken,inspectUpload,readUpload,saveAsset,now,recordRelease}){
  return async function execute(action,input,request){
   if(!['unit-upload-token','unit-upload-complete','publish-unit','update-unit','delete-unit','restore-unit','hide-model','restore-model'].includes(action))return null;
   const {state}=await store.read(),author=authenticate(state,request,true);
@@ -77,11 +77,13 @@ export function createUnitCards({store,authenticate,createUploadToken,inspectUpl
    const selected=input.defaultModelId||existing?.defaultModelId||rendered[0].assetId;if(!rendered.some(m=>m.assetId===selected))fail(400,'Choose one of this card’s models.');
    const teamColour=input.teamColour||existing?.teamColour||army?.teamColour||army?.colour||unitColours[0];if(!unitColours.includes(teamColour))fail(400,'Choose a Warcraft player colour.');
    const timestamp=new Date(now()).toISOString(),content={name:text(input.name,160,'a unit name'),description:text(input.description,20000,'a description'),credits:text(input.credits,20000,'the credits'),byline:text(input.byline,2000,'the finished model authors'),projectId:project.id,projectName:project.name,army:army?.id||null,coverId,defaultModelId:selected,uploadIds:ids,models:rendered,downloads:uploads.map(u=>({id:u.id,name:u.name,sha256:u.sha256,bytes:u.size})),assetIds:[...new Set([coverId,...ids,...entries.map(e=>e.id)])]};
+   const modelChanged=!existing||JSON.stringify(existing.downloads.map(file=>file.sha256).sort())!==JSON.stringify(content.downloads.map(file=>file.sha256).sort());
    content.teamColour=teamColour;let card=existing;
    if(card)Object.assign(card,content,{updatedAt:timestamp,revision:(card.revision||0)+1});else{card={id:input.id,authorId:current.id,...content,publishedAt:timestamp,revision:0};s.unitCards.push(card);}
    let post=s.posts.find(p=>p.unitCardId===card.id);const postContent={title:card.name,body:card.description,kind:'model-upload',projectId:card.projectId,link:PUBLIC_ORIGIN+'/#model/'+card.id,media:[],videos:[],poll:null};
    if(post)Object.assign(post,postContent,{updatedAt:timestamp,revision:(post.revision||0)+1});else{post={id:randomUUID(),authorId:current.id,...postContent,unitCardId:card.id,publishedAt:timestamp};s.posts.push(post);}
-   return {card:unitView(card)};
+   if(modelChanged)recordRelease(s,card);
+   return {card:unitView(card),modelChanged};
   });
  };
 }

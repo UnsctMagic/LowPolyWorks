@@ -2,12 +2,15 @@ import {createHash,randomUUID} from 'node:crypto';
 const origin='https://www.lowpolyworks.com';
 const hash=value=>createHash('sha256').update(value).digest('hex');
 const active=sub=>sub.confirmed&&sub.emailVerified&&sub.modelIds?.length>0;
+const updateWindow=86400000;
+export const unitRelease=card=>({id:card.id,source:'vault',name:card.name,url:origin+'/#model/'+card.id,files:[],fingerprint:hash(JSON.stringify(card.downloads.map(file=>file.sha256).sort()))});
 const eligible=(sub,job)=>active(sub)&&(job.kind==='model-upload'?(!job.createdAt||sub.newModelsSince<=Date.parse(job.createdAt)):(sub.modelIds.includes(job.modelId)&&(!job.createdAt||sub.modelFollowSince?.[job.modelId]<=Date.parse(job.createdAt))));
 export const pendingModelEmails=state=>(state.notifications||[]).filter(job=>job.source==='catalogue'&&!job.cancelledAt).reduce((count,job)=>count+job.recipients.filter(id=>!job.sent.includes(id)).length,0);
 
 // Compare the downloadable bytes, rather than titles, artwork, credits, or posts.
-export async function publishedModels(previous={}, {fetchApi=fetch,loadUnits=async()=>({unitCards:[],hiddenModels:[]})}={}){
- const response=await fetchApi(origin+'/catalogue.json',{cache:'no-store',signal:AbortSignal.timeout(12000)});
+export async function publishedModels(previous={}, {fetchApi=fetch,loadUnits=async()=>({unitCards:[],hiddenModels:[]}),publication}={}){
+ const fresh=url=>{if(!publication)return url;const result=new URL(url);result.searchParams.set('publication',publication);return result.href;};
+ const response=await fetchApi(fresh(origin+'/catalogue.json'),{cache:'no-store',signal:AbortSignal.timeout(12000)});
  if(!response.ok)throw Error('Published catalogue unavailable (HTTP '+response.status+')');
  const catalogue=await response.json(),state=await loadUnits(),hidden=new Set(state.hiddenModels||[]);
  const rows=catalogue.filter(model=>!hidden.has(model.id));
@@ -15,7 +18,7 @@ export async function publishedModels(previous={}, {fetchApi=fetch,loadUnits=asy
  async function fileHash(path,old){
   const url=new URL(path,origin+'/');if(url.origin!==origin)throw Error('Model download must belong to LowPolyWorks.');
   const cached=old?.files?.find(file=>file.url===url.href);
-  const file=await fetchApi(url.href,{cache:'no-store',headers:cached?.etag?{'If-None-Match':cached.etag}:{},signal:AbortSignal.timeout(12000)});
+  const file=await fetchApi(fresh(url.href),{cache:'no-store',headers:cached?.etag?{'If-None-Match':cached.etag}:{},signal:AbortSignal.timeout(12000)});
   if(file.status===304&&cached)return cached;
   if(!file.ok)throw Error('Published model download unavailable (HTTP '+file.status+')');
   const bytes=Buffer.from(await file.arrayBuffer());
@@ -23,17 +26,34 @@ export async function publishedModels(previous={}, {fetchApi=fetch,loadUnits=asy
   return {url:url.href,hash:hash(bytes),etag:file.headers.get('etag')||null};
  }
  await Promise.all(Array.from({length:4},async()=>{while(next<rows.length){const model=rows[next++],files=[];files.push(await fileHash('models/'+model.file,previous[model.id]));if(model.downloadPack)files.push(await fileHash(model.downloadPack,previous[model.id]));result.push({id:model.id,name:model.name,url:origin+'/model/'+(model.slug||model.id)+'/',files,fingerprint:hash(JSON.stringify(files.map(file=>file.hash).sort()))});}}));
- for(const card of (state.unitCards||[]).filter(card=>!card.deletedAt))result.push({id:card.id,name:card.name,url:origin+'/#model/'+card.id,files:[],fingerprint:hash(JSON.stringify(card.downloads.map(file=>file.sha256).sort()))});
+ for(const card of (state.unitCards||[]).filter(card=>!card.deletedAt))result.push(unitRelease(card));
  return result;
 }
 
 export function createModelReleases({store,env,sendEmail,mailConfigured,loadPublished=publishedModels,now=()=>Date.now(),unsubscribeUrl,fail}){
  const enabled=()=>mailConfigured(env)&&env.MODEL_NOTIFICATIONS_ENABLED==='true';
- async function sync(){
+ // Called inside the publishing transaction too, so every Vault file change
+ // refreshes the rolling timer even when uploads happen faster than delivery.
+ function record(s,model,{baseline=false}={}){
+  const time=now(),timestamp=new Date(time).toISOString();
+  s.modelReleases??={baselineAt:timestamp,models:{}};
+  const old=s.modelReleases.models[model.id],changed=old?.fingerprint!==model.fingerprint;
+  const revision=old?(old.revision||0)+(changed?1:0):0;
+  const kind=old?'model-update':'model-upload';
+  const cooling=kind==='model-update'&&(old.lastUpdateAt>time-updateWindow||old.lastUpdateEmailAt>time-updateWindow||(s.notifications||[]).some(job=>job.source==='catalogue'&&job.modelId===model.id&&job.kind==='model-update'&&!job.cancelledAt&&job.recipients.some(id=>!job.sent.includes(id))));
+  let queued=0;
+  if(!baseline&&changed&&!cooling&&enabled()){
+   const job={id:hash(model.id+':'+revision+':'+model.fingerprint),source:'catalogue',modelId:model.id,kind,model:{name:model.name,url:model.url},createdAt:timestamp,recipients:s.subscribers.filter(sub=>eligible(sub,{kind,modelId:model.id,createdAt:timestamp})).map(sub=>sub.id),sent:[],attempts:{},receipts:{}};
+   s.notifications.push(job);queued=job.recipients.length;
+  }
+  s.modelReleases.models[model.id]={...old,...model,revision,...(old&&changed?{lastUpdateAt:time}:{})};
+  return {changed,queued};
+ }
+ async function sync({publication}={}){
   const lease=randomUUID(),time=now();
   const previous=await store.mutate(s=>{if(s.modelScanLease?.until>time)fail(409,'Published models are already being checked.');s.modelScanLease={token:lease,until:time+300000};return s.modelReleases?.models||{};});
   try{
-  const models=await loadPublished(previous);
+  const models=await loadPublished(previous,{publication});
   return await store.mutate(s=>{
    if(s.modelScanLease?.token!==lease)fail(409,'Another model check is already running.');
    const timestamp=new Date(now()).toISOString();let queued=0;
@@ -41,13 +61,10 @@ export function createModelReleases({store,env,sendEmail,mailConfigured,loadPubl
    for(const job of s.notifications||[])if(job.source!=='catalogue')job.cancelledAt??=timestamp;
    const baseline=!s.modelReleases;s.modelReleases??={baselineAt:timestamp,models:{}};
    for(const model of models){
-    const old=s.modelReleases.models[model.id],changed=old?.fingerprint!==model.fingerprint;
-    const revision=old?(old.revision||0)+(changed?1:0):0;
-    if(!baseline&&changed&&enabled()){
-     const kind=old?'model-update':'model-upload',job={id:hash(model.id+':'+revision+':'+model.fingerprint),source:'catalogue',modelId:model.id,kind,model:{name:model.name,url:model.url},createdAt:timestamp,recipients:s.subscribers.filter(sub=>eligible(sub,{kind,modelId:model.id,createdAt:timestamp})).map(sub=>sub.id),sent:[],attempts:{},receipts:{}};
-     s.notifications.push(job);queued+=job.recipients.length;
-    }
-    s.modelReleases.models[model.id]={...model,revision};
+    // A Vault upload may finish while the static downloads are being hashed.
+    // Its atomic publication record owns the timer, so never replay a stale card.
+    if(model.source==='vault'){const card=s.unitCards?.find(card=>card.id===model.id&&!card.deletedAt);if(card)queued+=record(s,unitRelease(card),{baseline}).queued;}
+    else queued+=record(s,model,{baseline}).queued;
    }
    s.modelReleases.checkedAt=timestamp;
    delete s.modelScanLease;
@@ -77,11 +94,11 @@ export function createModelReleases({store,env,sendEmail,mailConfigured,loadPubl
     const reason=work.kind==='model-upload'?'A new model is available.':'A model you follow has been updated.';
     receipt=await sendEmail({to:sub.email,subject:(work.kind==='model-upload'?'New model: ':'Model update: ')+work.model.name,text:work.model.name+'\n\n'+reason+'\n\n'+work.model.url+'\n\nYou checked Update me for model updates and new uploads.\nUnsubscribe from all model emails: '+unsubscribeUrl(sub.email),headers:{'List-Unsubscribe':`<${unsubscribeUrl(sub.email)}>`}},'lpw-release/'+work.id+'/'+id,env);
    }catch(cause){error=cause.message;if(cause.status&&cause.status<500)await store.mutate(s=>{const job=s.notifications.find(job=>job.id===work.id);if(job?.lease?.token===lease)delete job.attempts[id];});}
-   await store.mutate(s=>{const job=s.notifications.find(job=>job.id===work.id);if(job?.lease?.token!==lease)fail(409,'Email delivery is already being handled.');if(!error){if(!job.sent.includes(id))job.sent.push(id);if(receipt)job.receipts[id]=receipt;delete job.attempts[id];}});
+   await store.mutate(s=>{const job=s.notifications.find(job=>job.id===work.id);if(job?.lease?.token!==lease)fail(409,'Email delivery is already being handled.');if(!error){if(!job.sent.includes(id))job.sent.push(id);if(receipt){job.receipts[id]=receipt;if(work.kind==='model-update')s.modelReleases.models[work.modelId].lastUpdateEmailAt=now();}delete job.attempts[id];}});
    results.push({error,skipped});if(error)break;
    if(work.recipients.length>results.length)await new Promise(resolve=>setTimeout(resolve,600));
   }
   return store.mutate(s=>{const job=s.notifications.find(job=>job.id===work.id);if(job?.lease?.token===lease)delete job.lease;return {sent:results.filter(result=>!result.error&&!result.skipped).length,remaining:pendingModelEmails(s),error:results.find(result=>result.error)?.error};});
  }
- return {sync,deliver,enabled};
+ return {sync,deliver,enabled,record};
 }
