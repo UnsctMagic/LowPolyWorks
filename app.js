@@ -1,5 +1,5 @@
 import {modelUpdateTagMarkup,mountModelUpdateTags} from './model-update-tags.js?v=20261010-model-update-tags-07';
-import {modelFollowMarkup,mountModelFollow} from './model-follows.js?v=20261009-follow-email';
+import {modelFollowMarkup,mountModelFollow} from './model-follows.js?v=20261011-confirm-auto';
 import {uploadedModelCard,renderUnitCard} from './unit-card.js?v=20261010-model-update-tags-07';
 import {startMenuVisitor} from './menu-visitor.js?v=20261008-shredder-final';
 import {createViewer} from './viewer.js?v=20261009-unit-upload';

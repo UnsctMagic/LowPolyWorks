@@ -25,7 +25,7 @@ export async function mountModelFollow(element,row,{confirmation='',fetchApi=fet
   catch(error){status.textContent=error.message;}
   finally{busy=false;render();}
  };
- confirmButton.onclick=async()=>{busy=true;render();status.textContent='Confirming…';try{save(await api('follow-confirm',{token:confirmation}));confirmation='';status.textContent='Email confirmed. Update me is on.';}catch(error){status.textContent=error.message;}finally{busy=false;render();}};
+ confirmButton.onclick=async()=>{if(busy||!confirmation)return;busy=true;render();status.textContent='Confirming…';try{save(await api('follow-confirm',{token:confirmation}));confirmation='';const url=new URL(location.href);url.searchParams.delete('follow-confirm');if(url.hash.startsWith('#follow-confirm='))url.hash='';history.replaceState(null,'',url.href);status.textContent='Email confirmed. Update me is on.';}catch(error){status.textContent=error.message;}finally{busy=false;render();}};
  try{
   const response=await fetchApi(API+'?action=feed');if(!response.ok)throw Error('Could not check Update me availability.');enabled=(await response.json()).modelFollowsEnabled===true;
   credential=storage.getItem(storageKey)||'';
@@ -35,5 +35,6 @@ export async function mountModelFollow(element,row,{confirmation='',fetchApi=fet
   else if(modelIds.includes(row.id))status.textContent='Update me is on.';
   else status.textContent=credential?'Check Update me to follow this model.':'Check Update me, enter your email, then confirm.';
   render();
+  if(confirmation){element.scrollIntoView({block:'center'});await confirmButton.onclick();}
  }catch(error){status.textContent=error.message;enabled=false;render();}
 }
