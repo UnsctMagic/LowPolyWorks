@@ -12,6 +12,16 @@ async function owner(f){const result=await f.execute('activate',{username:'Unsan
 async function contributor(f,request,username='other'){const invitation=await f.execute('invite',{username},request);const token=new URLSearchParams(new URL(invitation.url).hash.slice(1)).get('invite');const created=await f.execute('activate',{username,name:'Another author',password,token},{ip:username});const session=created.cookie.match(/^lpw_session=([^;]+)/)[1],me=await f.execute('me',{}, {session});return {session,csrf:me.csrf,ip:username};}
 const news=()=>({id:randomUUID(),title:'Project news',body:'An announcement.',kind:'news',projectId:'mdlxl',link:''});
 const model=()=>({...news(),title:'Updated model',kind:'model-update',projectId:'warhammercraft',link:'https://www.lowpolyworks.com/#model/graveguard'});
+test('Vault country analytics remains owner-only and returns no browser identifiers',async()=>{
+ const f=fixture(),request=await owner(f),other=await contributor(f,request),visitor=randomUUID(),blobs=[
+  {pathname:`live/v3/2026-10-11/visit/site/none/${visitor}/NL/${randomUUID()}.json`,uploadedAt:'2026-10-11T10:00:00.000Z'},
+  {pathname:`live/v2/2026-10-08/download/graveguard/mdx/${visitor}/${randomUUID()}.json`,uploadedAt:'2026-10-08T10:00:00.000Z'},
+ ];
+ const handler=createHandler(f,{listBlobs:async()=>({blobs,hasMore:false}),loadModels:async()=>[{id:'graveguard',name:'Graveguard'}],env:{}});
+ async function call(session){const res={setHeader(){},status(code){this.statusCode=code;return this;},json(value){this.body=value;},end(){}};await handler({url:'/api/publishing?action=analytics',method:'GET',headers:session?{cookie:'lpw_session='+session}:{}},res);return res;}
+ assert.equal((await call()).statusCode,401);assert.equal((await call(other.session)).statusCode,403);
+ const result=await call(request.session);assert.equal(result.statusCode,200);assert.deepEqual(result.body.totals,{pageLoads:1,downloadClicks:1,uniqueVisitors:1});assert.deepEqual(result.body.countries,[{code:'NL',name:'Netherlands',uniqueVisitors:1,share:1}]);assert(!JSON.stringify(result.body).includes(visitor));
+});
 async function subscriber(f,email='reader@example.test'){await f.execute('subscribe',{email},{ip:email});const url=f.emails.at(-1).message.text.match(/https:\/\/[^\s]+/)[0],token=new URLSearchParams(new URL(url).hash.slice(1)).get('confirm');await f.execute('confirm',{token});return f.state.subscribers.find(s=>s.email===email);}
 
 test('owner setup is closed without the exact username and one-time setup token',async()=>{const f=fixture();await assert.rejects(f.execute('activate',{username:'attacker',name:'No',password,token:'test-setup-token'},{ip:'other'}),{status:403});await assert.rejects(f.execute('activate',{username:'UnsanctionedMagic',name:'No',password,token:'wrong'},{ip:'other'}),{status:403});const request=await owner(f);assert.equal((await f.execute('me',{},request)).author.role,'owner');await assert.rejects(f.execute('activate',{username:'UnsanctionedMagic',name:'No',password,token:'test-setup-token'},{ip:'other'}),{status:409});assert(!JSON.stringify(f.state).includes(password));});

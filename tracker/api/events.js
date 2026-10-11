@@ -1,5 +1,5 @@
 import {put} from '@vercel/blob';
-import {allowedOrigins,eventPath,trackedModels,validateEvent} from '../lib/events.js';
+import {allowedOrigins,countryCode,eventPath,trackedModels,validateEvent} from '../lib/events.js';
 
 export function createEventsHandler({writeBlob=put,loadModels=trackedModels}={}){return async function handler(req,res){
  res.setHeader('Cache-Control','no-store');
@@ -12,6 +12,7 @@ export function createEventsHandler({writeBlob=put,loadModels=trackedModels}={})
  try{
   const models=input?.kind==='download'&&input.model!=='mdlxl'?await loadModels():[];
   const event=validateEvent(input,models);if(!event){res.status(400).end();return;}
+  event.country=countryCode(req.headers['x-vercel-ip-country']);
   const at=new Date();
   await writeBlob(eventPath(event,at),JSON.stringify({...event,recordedAt:at.toISOString()}),{access:'private',addRandomSuffix:false,allowOverwrite:true,contentType:'application/json'});
   res.status(204).end();

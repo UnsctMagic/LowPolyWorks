@@ -9,6 +9,42 @@ const validateEvent=input=>validateModelEvent(input,models);
 const summarize=(blobs,options={})=>summarizeEvents(blobs,{models,...options});
 const id='f5de7cba-f71f-4b51-9af4-5468d5877f11',now=new Date('2026-10-05T21:00:00Z');
 function response(){return {setHeader(){},status(code){this.statusCode=code;return this;},end(){},json(body){this.body=body;}};}
+test('country collection uses Vercel location, discards client geography and stores no IP',async()=>{
+ const blobs=[],events=[],collect=createEventsHandler({writeBlob:async(pathname,data)=>{const event=JSON.parse(data);events.push(event);blobs.push({pathname,uploadedAt:event.recordedAt});}});
+ for(const country of [' nl ',undefined,'invalid', ['US']]){
+  const res=response();await collect({method:'POST',headers:{origin:'https://www.lowpolyworks.com','x-vercel-ip-country':country,'x-forwarded-for':'192.0.2.1','x-vercel-ip-city':'Amsterdam'},body:{id:randomUUID(),visitorId:id,kind:'visit',country:'US',ip:'192.0.2.2'}},res);
+  assert.equal(res.statusCode,204);
+ }
+ assert.deepEqual(events.map(event=>event.country),['NL','ZZ','ZZ','ZZ']);
+ assert(blobs[0].pathname.includes('/v3/'));assert(blobs[0].pathname.includes('/'+id+'/NL/'));
+ assert(!JSON.stringify(events).includes('192.0.2'));assert(!JSON.stringify(events).includes('Amsterdam'));
+ const report=summarize(blobs);assert.equal(report.totals.pageLoads,4);assert.equal(report.totals.uniqueVisitors,1);
+ assert.deepEqual(report.countries,[{code:'NL',name:'Netherlands',uniqueVisitors:1,share:1}]);
+});
+test('country shares preserve old totals, deduplicate browsers and use the first known country',()=>{
+ const other=randomUUID(),unknown=randomUUID(),day2=new Date('2026-10-06T21:00:00Z');
+ const visit={id:randomUUID(),kind:'visit',model:'site',format:'none',visitorId:id};
+ const blob=(event,at=now)=>({pathname:eventPath(event,at),uploadedAt:at});
+ const blobs=[blob(visit),blob({...visit,country:'US',id:randomUUID()}),blob({...visit,country:'US',id:randomUUID()}),blob({...visit,country:'NL'},day2),blob({...visit,visitorId:other,country:'NL'}),blob({...visit,visitorId:unknown}),blob({...visit,visitorId:undefined,country:'US'}),blob({...visit,visitorId:undefined}),blob({...visit,visitorId:randomUUID(),country:'DE',testing:true}),blob({...visit,kind:'download',model:'mdlxl',format:'zip',country:'US'})];
+ const report=summarize(blobs.reverse());
+ assert.deepEqual(report.totals,{pageLoads:8,downloadClicks:1,uniqueVisitors:3});
+ assert.deepEqual(report.coverage,{identifiedPageLoads:6,unidentifiedPageLoads:2});
+ assert.deepEqual(report.countries,[{code:'NL',name:'Netherlands',uniqueVisitors:1,share:1/3},{code:'US',name:'United States',uniqueVisitors:1,share:1/3},{code:'ZZ',name:'Unknown',uniqueVisitors:1,share:1/3}]);
+ assert.equal(report.countries.reduce((sum,row)=>sum+row.uniqueVisitors,0),report.totals.uniqueVisitors);
+ assert.equal(report.countries.reduce((sum,row)=>sum+row.share,0),1);
+ assert.deepEqual(summarize(blobs,{from:'2026-10-06'}).countries,[{code:'NL',name:'Netherlands',uniqueVisitors:1,share:1}]);
+ assert.deepEqual(summarize(blobs,{from:'2026-10-07'}).countries,[]);
+ const returned=summarize([...blobs,blob({...visit,visitorId:unknown,country:'US'},day2)]);
+ assert.equal(returned.countries.find(row=>row.code==='US').uniqueVisitors,2);assert(!returned.countries.some(row=>row.code==='ZZ'));
+ assert(!JSON.stringify(report).includes(id));assert(!JSON.stringify(report).includes(other));
+});
+test('private country reports keep authentication and aggregate across listing pages',async()=>{
+ const blob=(visitorId,country)=>({pathname:eventPath({id:randomUUID(),kind:'visit',model:'site',format:'none',visitorId,country},now),uploadedAt:now});
+ const pages=[[blob(id,'US')],[blob(randomUUID(),'NL')]],handler=createReportHandler({loadModels:async()=>models,listBlobs:async({cursor})=>({blobs:pages[cursor?1:0],hasMore:!cursor,cursor:'next'}),env:{USAGE_READ_TOKEN:'secret'}});
+ const denied=response();await handler({method:'GET',url:'/api/report',headers:{}},denied);assert.equal(denied.statusCode,401);
+ const res=response();await handler({method:'GET',url:'/api/report',headers:{authorization:'Bearer secret'}},res);
+ assert.equal(res.statusCode,200);assert.equal(res.body.totals.uniqueVisitors,2);assert.equal(res.body.countries.length,2);assert(res.body.countries.every(row=>row.share===0.5));assert(!JSON.stringify(res.body).includes(id));
+});
 test('newly published models are accepted and reported without restarting the tracker',async t=>{
  let published=[{id:'existing-model',name:'Existing Model'}];
  t.mock.method(globalThis,'fetch',async(url,options)=>{
