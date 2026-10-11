@@ -8,7 +8,7 @@ import {recordUsage} from './usage.js?v=20261007-media-polls';
 import {renderJournal} from './journal.js?v=20261009-follow-email';
 import {renderMdlxl} from './mdlxl.js?v=20261011-discord-workshop';
 if (/^\/mdlxl\/?$/.test(location.pathname) && !location.hash) history.replaceState(null,'',location.pathname+location.search+'#project/mdlxl');
-const app=document.querySelector('#app'),baseCatalogue=await fetch('catalogue.json?v=20261012-blood-dragon-position').then(r=>r.json());
+const app=document.querySelector('#app'),baseCatalogue=await fetch('catalogue.json?v=20261012-blood-dragon-model-01d8fb98').then(r=>r.json());
 const armies=await fetch('armies.json?v=20261012-blood-dragon-corrected').then(r=>r.json());
 const descriptionParagraphs=(text,links=[])=>text.trim().split(/\r?\n\s*\r?\n/).map(paragraph=>`<p>${creditText({creditLinks:links},paragraph.trim()).replace(/\r?\n/g,'<br>')}</p>`).join('');
 const escape=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -29,7 +29,7 @@ function modelCard(row){if(row.models)return uploadedModelCard(row,armies.find(a
 function sideMenus(army,row,confirmation=''){
  document.querySelector('#army-navigation').innerHTML='<a class="all-armies" href="#armies"'+(!army?' aria-current="page"':'')+'>Armies</a>'+armies.map(a=>`<a href="#army/${a.id}" ${army?.id===a.id?'aria-current="page"':''}>${escape(a.name)}</a>`).join('');
  const count=army?catalogue.filter(r=>r.army===army.id).length:catalogue.length;
- document.querySelector('#catalogue-summary').innerHTML=`<h2>Catalogue</h2>${!army?`<div class="side-stat"><strong>${armies.length}</strong><span>Armies</span></div>`:''}<div class="side-stat"><strong>${count}</strong><span>Models</span></div>${row?`<div class="side-downloads"><a class="iron-button" href="models/${row.file}" data-model="${escape(row.id)}" data-download="mdx" download>Download MDX</a>${row.downloadPack?`<a class="iron-button" href="${escape(row.downloadPack)}" data-model="${escape(row.id)}" data-download="pack" download>Download pack</a>`:''}</div>${modelFollowMarkup()}`:''}`;
+ document.querySelector('#catalogue-summary').innerHTML=`<h2>Catalogue</h2>${!army?`<div class="side-stat"><strong>${armies.length}</strong><span>Armies</span></div>`:''}<div class="side-stat"><strong>${count}</strong><span>Models</span></div>${row?`<div class="side-downloads"><a class="iron-button" href="models/${row.file}${row.id==='blood-dragon'?'?v='+row.sha256:''}" data-model="${escape(row.id)}" data-download="mdx" download>Download MDX</a>${row.downloadPack?`<a class="iron-button" href="${escape(row.downloadPack)}" data-model="${escape(row.id)}" data-download="pack" download>Download pack</a>`:''}</div>${modelFollowMarkup()}`:''}`;
  if(row)mountModelFollow(document.querySelector('#catalogue-summary .model-follow'),row,{confirmation});
 }
 async function route(){const version=++routeVersion;viewer?.dispose();viewer=null;stopUpdateTags?.();stopUpdateTags=null;const modelPath=location.pathname.match(/^\/model\/([a-z0-9-]+)\/?$/);const confirmation=location.hash.startsWith('#follow-confirm=')?new URLSearchParams(location.hash.slice(1)).get('follow-confirm')||'':new URLSearchParams(location.search).get('follow-confirm')||'';const [,kind,id]=((location.hash.startsWith('#follow-confirm=')?'':location.hash)||(modelPath?'#model/'+modelPath[1]:'')).match(/^#(army|model)\/(.+)$/)||[];app.classList.remove('route-enter');void app.offsetWidth;app.classList.add('route-enter');window.scrollTo(0,0);
