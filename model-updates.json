@@ -135,6 +135,9 @@
     },
     "chaos-ogre": {
       "sha256": "b75c09c1c7c3bb353599d321bc5d6aa9700f393cdbd1a10fc387812cb45ebaef"
+    },
+    "blood-dragon": {
+      "sha256": "b2ef1aad8c2ffc25f45b6c70a5021521c78a62a048ac99fd95389c9f301ffcfd"
     }
   }
 }
