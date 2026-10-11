@@ -64,3 +64,10 @@ test('overlapping upload events share delivery leases so different releases cann
  const results=await Promise.all([f.deliver(),f.deliver()]);assert.equal(results.reduce((count,row)=>count+row.sent,0),1);assert.equal(f.mail.length,1);assert(!f.state.modelDeliveryLease);
  assert.equal((await f.deliver()).sent,1);assert.equal(f.mail.length,2);assert.equal(new Set(f.mail.map(row=>row.key)).size,2);
 });
+
+test('a requested test update uses the real picture email and preserves model bytes, follows and cooldowns',async()=>{
+ const f=fixture();await f.store.mutate(s=>s.subscribers.push(f.sub('reader')));await f.sync();const snapshot=structuredClone(f.state.modelReleases.models.a),subscribers=structuredClone(f.state.subscribers);
+ await f.store.mutate(s=>s.notifications.push({id:'explicit-test-update',source:'catalogue',test:true,modelId:'a',kind:'model-update',model:{name:'Model A',url:'https://www.lowpolyworks.com/model/a/'},createdAt:new Date(100000).toISOString(),recipients:['reader'],sent:[],attempts:{},receipts:{}}));
+ assert.equal((await f.deliver()).sent,1);assert.match(f.mail[0].message.html,/<img src=/);assert.match(f.mail[0].message.text,/This is a test email/);assert.deepEqual(f.state.modelReleases.models.a,snapshot);assert.deepEqual(f.state.subscribers,subscribers);
+ f.models[0].fingerprint='real-update';assert.equal((await f.sync()).queued,1);
+});

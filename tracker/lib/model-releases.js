@@ -1,9 +1,10 @@
 import {createHash,randomUUID} from 'node:crypto';
+import {modelEmail} from './model-email.js';
 const origin='https://www.lowpolyworks.com';
 const hash=value=>createHash('sha256').update(value).digest('hex');
 const active=sub=>sub.confirmed&&sub.emailVerified&&sub.modelIds?.length>0;
 const updateWindow=86400000;
-export const unitRelease=card=>({id:card.id,source:'vault',name:card.name,url:origin+'/#model/'+card.id,files:[],fingerprint:hash(JSON.stringify(card.downloads.map(file=>file.sha256).sort()))});
+export const unitRelease=card=>({id:card.id,source:'vault',name:card.name,url:origin+'/#model/'+card.id,imageUrl:'https://lowpolyworks-internal-tracker.vercel.app/api/assets?id='+card.coverId,files:[],fingerprint:hash(JSON.stringify(card.downloads.map(file=>file.sha256).sort()))});
 const eligible=(sub,job)=>active(sub)&&(job.kind==='model-upload'?(!job.createdAt||sub.newModelsSince<=Date.parse(job.createdAt)):(sub.modelIds.includes(job.modelId)&&(!job.createdAt||sub.modelFollowSince?.[job.modelId]<=Date.parse(job.createdAt))));
 export const pendingModelEmails=state=>(state.notifications||[]).filter(job=>job.source==='catalogue'&&!job.cancelledAt).reduce((count,job)=>count+job.recipients.filter(id=>!job.sent.includes(id)).length,0);
 
@@ -40,10 +41,10 @@ export function createModelReleases({store,env,sendEmail,mailConfigured,loadPubl
   const old=s.modelReleases.models[model.id],changed=old?.fingerprint!==model.fingerprint;
   const revision=old?(old.revision||0)+(changed?1:0):0;
   const kind=old?'model-update':'model-upload';
-  const cooling=kind==='model-update'&&(old.lastUpdateAt>time-updateWindow||old.lastUpdateEmailAt>time-updateWindow||(s.notifications||[]).some(job=>job.source==='catalogue'&&job.modelId===model.id&&job.kind==='model-update'&&!job.cancelledAt&&job.recipients.some(id=>!job.sent.includes(id))));
+  const cooling=kind==='model-update'&&(old.lastUpdateAt>time-updateWindow||old.lastUpdateEmailAt>time-updateWindow||(s.notifications||[]).some(job=>job.source==='catalogue'&&job.modelId===model.id&&job.kind==='model-update'&&!job.test&&!job.cancelledAt&&job.recipients.some(id=>!job.sent.includes(id))));
   let queued=0;
   if(!baseline&&changed&&!cooling&&enabled()){
-   const job={id:hash(model.id+':'+revision+':'+model.fingerprint),source:'catalogue',modelId:model.id,kind,model:{name:model.name,url:model.url},createdAt:timestamp,recipients:s.subscribers.filter(sub=>eligible(sub,{kind,modelId:model.id,createdAt:timestamp})).map(sub=>sub.id),sent:[],attempts:{},receipts:{}};
+   const job={id:hash(model.id+':'+revision+':'+model.fingerprint),source:'catalogue',modelId:model.id,kind,model:{name:model.name,url:model.url,...(model.imageUrl?{imageUrl:model.imageUrl}:{})},createdAt:timestamp,recipients:s.subscribers.filter(sub=>eligible(sub,{kind,modelId:model.id,createdAt:timestamp})).map(sub=>sub.id),sent:[],attempts:{},receipts:{}};
    s.notifications.push(job);queued=job.recipients.length;
   }
   s.modelReleases.models[model.id]={...old,...model,revision,...(old&&changed?{lastUpdateAt:time}:{})};
@@ -92,10 +93,9 @@ export function createModelReleases({store,env,sendEmail,mailConfigured,loadPubl
    const sub=(await store.read()).state.subscribers.find(sub=>sub.id===id);let receipt,error,skipped=!sub||!eligible(sub,work);
    if(!skipped)try{
     await store.mutate(s=>{const job=s.notifications.find(job=>job.id===work.id);if(job?.lease?.token!==lease)fail(409,'Email delivery is already being handled.');job.attempts[id]??=now();});
-    const reason=work.kind==='model-upload'?'A new model is available.':'A model you follow has been updated.';
-    receipt=await sendEmail({to:sub.email,subject:(work.kind==='model-upload'?'New model: ':'Model update: ')+work.model.name,text:work.model.name+'\n\n'+reason+'\n\n'+work.model.url+'\n\nYou checked Update me for model updates and new uploads.\nUnsubscribe from all model emails: '+unsubscribeUrl(sub.email),headers:{'List-Unsubscribe':`<${unsubscribeUrl(sub.email)}>`}},'lpw-release/'+work.id+'/'+id,env);
+    receipt=await sendEmail({to:sub.email,...modelEmail(work,unsubscribeUrl(sub.email))},'lpw-release/'+work.id+'/'+id,env);
    }catch(cause){error=cause.message;if(cause.status&&cause.status<500)await store.mutate(s=>{const job=s.notifications.find(job=>job.id===work.id);if(job?.lease?.token===lease)delete job.attempts[id];});}
-   await store.mutate(s=>{const job=s.notifications.find(job=>job.id===work.id);if(job?.lease?.token!==lease)fail(409,'Email delivery is already being handled.');if(!error){if(!job.sent.includes(id))job.sent.push(id);if(receipt){job.receipts[id]=receipt;if(work.kind==='model-update')s.modelReleases.models[work.modelId].lastUpdateEmailAt=now();}delete job.attempts[id];}});
+   await store.mutate(s=>{const job=s.notifications.find(job=>job.id===work.id);if(job?.lease?.token!==lease)fail(409,'Email delivery is already being handled.');if(!error){if(!job.sent.includes(id))job.sent.push(id);if(receipt){job.receipts[id]=receipt;if(work.kind==='model-update'&&!work.test)s.modelReleases.models[work.modelId].lastUpdateEmailAt=now();}delete job.attempts[id];}});
    results.push({error,skipped});if(error)break;
    if(work.recipients.length>results.length)await new Promise(resolve=>setTimeout(resolve,600));
   }

@@ -28,7 +28,7 @@ Automatic model announcements use `MODEL_NOTIFICATIONS_ENABLED=true` and the sam
 
 Each existing model has a rolling 24-hour update cooldown. The first changed update can send an email. Every further file change within that window restarts its timer without another email; expiration alone sends nothing. A later file change after 24 hours of quiet can notify again. Each model has its own timer, and new model releases are exempt. Pending deliveries and actual send times also prevent delayed updates from creating a burst.
 
-Private queued recipients, saved receipts, leases and Resend idempotency keys prevent duplicate sends. Unsubscribe and uncheck are checked again before sending. Known quota failures remain queued for a later model event or administrative dispatch; ambiguous results older than 23 hours stop for review. Every model email includes an unsubscribe link.
+Private queued recipients, saved receipts, leases and Resend idempotency keys prevent duplicate sends. Unsubscribe and uncheck are checked again before sending. Known quota failures remain queued for a later model event or administrative dispatch; ambiguous results older than 23 hours stop for review. Every model email includes its published model picture, a link to the model page, readable plain text, and an unsubscribe link. Explicit private test jobs are labeled in the email and do not advance the model update cooldown.
 
 Verification:
 
