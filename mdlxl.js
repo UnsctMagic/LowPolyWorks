@@ -101,7 +101,7 @@ function contentSection(section,data){
  if(section==='tutorials')return '<h2>Tutorials</h2><div class="mdlxl-placeholder"><span aria-hidden="true">✧</span><p>Tutorials are coming soon.</p></div>';
  if(section==='credits')return `<h2>Credits & acknowledgements</h2>${creditProse(data.creditIntro)}${data.credits.map(group=>`<section class="mdlxl-text-group"><h3>${escape(group.title)}</h3>${creditProse(group.lines)}</section>`).join('')}`;
  if(section==='about')return `<h2>A dream for more CTRL+Z.</h2>${prose(data.intro)}<img class="mdlxl-author-image" src="ui/author-space-dog.gif" alt="A dog in a space station with the caption: I have no idea what I'm doing.">${prose(data.story)}<h2 class="mdlxl-features-heading">Inside the workshop</h2>${data.features.map(group=>`<section class="mdlxl-text-group"><h3>${escape(group.title)}</h3>${prose(group.lines)}</section>`).join('')}${prose(data.closing)}`;
- return '<div class="mdlxl-section-heading"><h2>Patch updates</h2></div><p class="mdlxl-muted">Update posts and official downloads from Low Polyworks.</p><div id="mdlxl-releases" aria-live="polite"><p>Loading patch notes…</p></div>';
+ return '<div class="mdlxl-section-heading"><h2><a href="https://discord.gg/CDXrQHsj2" target="_blank" rel="noopener noreferrer">Find us on Discord at HerrDave&#39;s Workshop</a></h2></div><div id="mdlxl-releases" aria-live="polite"><p>Loading patch notes…</p></div>';
 }
 export async function renderMdlxl(app,isCurrent,recordUsage){
  const requested=location.hash.split('/')[2]||'updates',section=Object.hasOwn(sections,requested)?requested:'updates';
