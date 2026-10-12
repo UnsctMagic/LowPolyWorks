@@ -1,4 +1,4 @@
-const sheet = new URL('./ui/visitor/0.png', import.meta.url).href;
+const sheet = new URL('./ui/visitor/0.png' + new URL(import.meta.url).search, import.meta.url).href; // Shares the script's cache key.
 const wings = new URL('./ui/visitor/1.png', import.meta.url).href;
 const between = (low, high) => low + Math.random() * (high - low);
 const ease = value => { const t = Math.max(0, Math.min(1, value)); return t * t * (3 - 2 * t); };
@@ -6,6 +6,17 @@ const mix = (a, b, t) => a + (b - a) * ease(t);
 // Match the head/body across the two authored sprite sheets, excluding wings.
 const bodyScale = 1.1, bodyWidth = 120 * bodyScale, bodyHeight = 130 * bodyScale;
 const flightScale = .9, flightSize = 240 * flightScale, footOffset = 59.375 * bodyScale;
+// Some walking stops are a head lean, one way and then the other, played once or twice (row 9 of the sheet).
+// Steps are [column, beats]; the last two columns hold the original lean heads mirrored onto the body.
+const LEAN = [[0, 2], [5, 1], [4, 3], [5, 1], [0, 2], [6, 1], [7, 3], [6, 1]], LEAN_BEAT = 220;
+const LEAN_TIME = LEAN.reduce((total, [, beats]) => total + beats, 0) * LEAN_BEAT;
+// His state survives a full page load in the same tab when the next page starts within this time.
+const CARRY_OVER = 'lowpolyworks.shredderVisit', CARRY_OVER_MS = 15000;
+function leanColumn(time) {
+  let beat = Math.floor(time % LEAN_TIME / LEAN_BEAT);
+  for (const [column, beats] of LEAN) { if (beat < beats) return column; beat -= beats; }
+  return 0;
+}
 const scale = bodyWidth / 144;
 const edges = [
   {side:'top', nx:0, ny:-1, turn:0},
@@ -30,8 +41,10 @@ const ROLL_RADIUS = 10;             // rolling on the floor turns the shell by d
 const SPIN_PER_SPEED = .45, MAX_SPIN = 720;
 const HAND = {x:12, y:14};          // held food sits below-right of the cursor
 const THROW_BOOST = 2;
-// Throw sampling: motion over the last 80ms, forgotten after a 180ms pause.
-const THROW_WINDOW = 80, THROW_PAUSE = 180, MIN_THROW_MOTION = 12, MAX_THROW_SPEED = 1300;
+// Throw sampling: motion over the last 50ms, forgotten after a 180ms pause.
+// Slow hand movement (under 100 px/s) drops gently; strength is full from 250 px/s.
+const THROW_WINDOW = 50, THROW_PAUSE = 180, MIN_THROW_MOTION = 12, MAX_THROW_SPEED = 1300;
+const GENTLE_SPEED = 100, FULL_THROW_SPEED = 250;
 const GRAB_REACH = 36, SCARE_REACH = 58, CONTEST_CLEAR = 160;
 
 // Exact solution of v' = acceleration - drag * v over one step.
@@ -63,7 +76,8 @@ function moveFood(nut, seconds, width, height) {
   return cracked;
 }
 
-export function startMenuVisitor() {
+// onInteraction(kind) hears how a visitor plays with him: 'peek', 'grab', 'feed', 'crack' or 'follow'.
+export function startMenuVisitor({onInteraction} = {}) {
   const css = document.createElement('link');
   css.rel = 'stylesheet'; css.href = new URL('./menu-visitor.css' + new URL(import.meta.url).search, import.meta.url).href; // Shares the script's cache key.
   document.head.append(css);
@@ -80,6 +94,8 @@ export function startMenuVisitor() {
   const food = document.createElement('div'); food.className = 'menu-peanut';
   foodLayer.append(food); document.body.append(foodLayer);
   const peanutTest = new URLSearchParams(location.search).has('peanut-test');
+  // The test view is the owner's own playground, so it never counts.
+  const played = kind => { if (!peanutTest) onInteraction?.(kind); };
   const art = new Image(), flightArt = new Image(); art.src = sheet; flightArt.src = wings;
   const trimArt = new Image();
   let trimEdges, peekMask;
@@ -110,11 +126,13 @@ export function startMenuVisitor() {
   let perchSize, lastWalkPoint;
   let next = last + between(8000, 12000), deadline = 0, exposure = -72 * bodyScale, fromExposure = -72 * bodyScale;
   let actionAge = 0, peck = false, offset = 0, direction = 1, speed = 0, steps = 0;
-  let pauseAt = 0, pauseUntil = 0, pauseStarted = 0, hurryUntil = 0;
+  let pauseAt = 0, pauseUntil = 0, pauseStarted = 0, hurryUntil = 0, leanCycles = 0;
   let flight, escapeSpeed = 420;
   // peanut.state: 'falling' (fresh drop), 'dropped' (released by the hand), 'held', or 'carried'.
   // contested: a hand reached for free food, so he keeps away until it moves off.
   let peanut = null, peanutRollAt = Infinity, chasePoint, paintedPoint, backOffUntil = 0, backOffTarget = 0;
+  // Where he was on the previous page, when he flies over to this one.
+  let resumeFrom = null;
   // A press that grabs or drops food also owns its click, but only briefly:
   // a press that never produces a click must not swallow a later one.
   let swallowClickUntil = 0;
@@ -385,7 +403,7 @@ export function startMenuVisitor() {
       const first = throwSamples[0], dx = x - first.x, dy = y - first.y, motion = Math.hypot(dx, dy);
       // Tiny adjustments and closely spaced events should not become full-power throws.
       const measured = motion >= MIN_THROW_MOTION ? Math.min(MAX_THROW_SPEED, motion * 1000 / Math.max(24, now - first.time)) : 0;
-      const strength = measured * clamp((measured - 200) / 400, 0, 1);
+      const strength = measured * clamp((measured - GENTLE_SPEED) / (FULL_THROW_SPEED - GENTLE_SPEED), 0, 1);
       pointer.vx = motion ? dx / motion * strength : 0;
       pointer.vy = motion ? dy / motion * strength : 0;
       pointer.velocityAt = now;
@@ -426,18 +444,21 @@ export function startMenuVisitor() {
   }
 
   function grab() {
+    played('grab');
     peanut.state = 'held'; peanut.contested = false;
     peanut.x = pointer.x + HAND.x; peanut.y = pointer.y + HAND.y;
   }
 
+  // A click at the same position must retain the preceding mouse movement.
+  const throwing = now => now - pointer.velocityAt < 250 && Math.hypot(pointer.vx, pointer.vy) > 10;
+
   function releasePeanut(now) {
     peanut.state = 'dropped'; peanut.x = pointer.x + HAND.x; peanut.y = pointer.y + HAND.y;
-    // A click at the same position must retain the preceding mouse movement.
-    const moving = now - pointer.velocityAt < 250 && Math.hypot(pointer.vx, pointer.vy) > 10;
+    const moving = throwing(now);
     peanut.vx = moving ? pointer.vx * THROW_BOOST : 0; peanut.vy = moving ? pointer.vy * THROW_BOOST : 85;
     peanut.spin = clamp(peanut.vx * SPIN_PER_SPEED, -MAX_SPIN, MAX_SPIN);
     peanut.ready = true; peanut.contested = false;
-    if (phase === 'rest') { next = now; choose(now, 'peek'); }
+    if (phase === 'rest') chaseFromOffscreen(now);
     if (paintedPoint && ['peek', 'peek-hidden', 'duck', 'walk', 'arrive', 'fly'].includes(phase)) startChase(now);
   }
 
@@ -447,8 +468,9 @@ export function startMenuVisitor() {
     if (event.button !== 0 || event.pointerType === 'touch' || !peanut) return;
     const now = performance.now();
     if (holding()) {
-      // Menu links keep the food in hand; the click handler follows them.
-      if (navigationTarget(event) !== null) return;
+      // A still click on a menu link keeps the food in hand; the click handler follows it.
+      // A flick throws wherever it is released, links included.
+      if (!throwing(now) && navigationTarget(event) !== null) return;
       releasePeanut(now);
     } else if (isFree(peanut)) {
       const distance = Math.hypot(pointer.x - peanut.x, pointer.y - peanut.y);
@@ -490,6 +512,7 @@ export function startMenuVisitor() {
 
   function followMenu() {
     if (!holding()) return;
+    played('follow');
     follow = {from:bird.style.visibility === 'visible' && paintedPoint ? {...paintedPoint} : null};
     next = performance.now();
   }
@@ -531,7 +554,10 @@ export function startMenuVisitor() {
     if (holding()) {
       if (pointer.x >= 0 && pointer.y >= 0) { peanut.x = pointer.x + HAND.x; peanut.y = pointer.y + HAND.y; }
     } else if (isFree(peanut)) {
-      if (moveFood(peanut, dt / 1000, foodLayer.clientWidth, foodLayer.clientHeight)) breakShell();
+      if (moveFood(peanut, dt / 1000, foodLayer.clientWidth, foodLayer.clientHeight)) {
+        if (peanut.state === 'dropped') played('crack');
+        breakShell();
+      }
       if (peanut.y >= foodLayer.clientHeight / 2) peanut.ready = true;
       // Once the hand has moved away from contested food, he may try for it again.
       if (peanut.contested && Math.hypot(pointer.x - peanut.x, pointer.y - peanut.y) > CONTEST_CLEAR) peanut.contested = false;
@@ -548,6 +574,14 @@ export function startMenuVisitor() {
     layer.style.clipPath = 'none';
   }
 
+  // While he is away he has no position on screen, so he flies in from the side nearer the food.
+  function chaseFromOffscreen(now) {
+    const fromLeft = peanut.x < layer.clientWidth / 2;
+    paintedPoint = {x:fromLeft ? -bodyWidth : layer.clientWidth + bodyWidth, y:Math.max(bodyHeight, peanut.y - 220)};
+    direction = fromLeft ? 1 : -1;
+    startChase(now);
+  }
+
   function paintChase(now, dt) {
     const carrying = phase === 'carry-land';
     if (!carrying && Math.abs(peanut.x - chasePoint.x) > 46) direction = peanut.x > chasePoint.x ? 1 : -1;
@@ -561,7 +595,10 @@ export function startMenuVisitor() {
     paint(chasePoint.x, chasePoint.y, Math.floor(age / 100) % 8 >= 4 ? 1 : 0, Math.floor(age / 100) % 4, 0, true);
     if (distance - movement <= 12) {
       if (carrying) { phase = 'carry'; started = now; steps = 0; direction = chasePoint.x < layer.clientWidth / 2 ? -1 : 1; }
-      else { peanut.state = 'carried'; phase = 'carry-land'; started = now; }
+      else {
+        if (peanut.state === 'dropped') played('feed');
+        peanut.state = 'carried'; phase = 'carry-land'; started = now;
+      }
     }
   }
 
@@ -651,10 +688,10 @@ export function startMenuVisitor() {
     const facing = flying ? `scaleX(${direction})` : mirroredWalk || mirroredLook ? 'scaleX(-1)' : 'scaleX(1)';
     if (groundedLook) {
       // These authored rows are smaller and their feet end at 169/170 instead
-      // of the walking row's 197. Enlarge around the feet and keep that same rail.
+      // of the walking row's 197. Enlarge around the feet until the head matches the walking head, on that same rail.
       const feet = row === 9 ? 169 : 170;
       picture.style.transformOrigin = `50% ${feet / 208 * bodyHeight}px`;
-      picture.style.transform = `translateY(${(197 - feet) / 208 * bodyHeight}px) scale(1.2) ${facing}`;
+      picture.style.transform = `translateY(${(197 - feet) / 208 * bodyHeight}px) scale(1.1) ${facing}`;
     } else {
       picture.style.transformOrigin = '50% 50%';
       picture.style.transform = facing === 'scaleX(1)' ? 'none' : facing;
@@ -713,7 +750,14 @@ export function startMenuVisitor() {
       choose(now, 'walk', follow);
       if (phase === 'arrive') follow = null;
     }
-    if (phase === 'rest' && canAppear) choose(now, peanut && !holding() ? 'peek' : undefined);
+    if (phase === 'rest' && canAppear) {
+      if (isFree(peanut) && peanut.ready && !peanut.contested) chaseFromOffscreen(now);
+      else {
+        // After a page change he flies over from where he was on the previous page.
+        choose(now, peanut && !holding() ? 'peek' : undefined, resumeFrom && {from:resumeFrom});
+        resumeFrom = null;
+      }
+    }
     if (phase === 'peek' && now >= peanutRollAt) {
       peanutRollAt = Infinity;
       if (!peanut && Math.random() < .28) spawnPeanut(now);
@@ -782,7 +826,9 @@ export function startMenuVisitor() {
               hurryUntil = deadline + 3000;
             }
             if (now >= pauseAt && now >= hurryUntil && !pauseUntil) {
-              pauseStarted = now; pauseUntil = now + between(1300, 1900);
+              // Half the stops are his usual look around; the rest lean once or twice.
+              leanCycles = Math.random() < .5 ? (Math.random() < .5 ? 1 : 2) : 0;
+              pauseStarted = now; pauseUntil = now + (leanCycles ? leanCycles * LEAN_TIME : between(1300, 1900));
             }
             if (pauseUntil && now >= pauseUntil) { pauseUntil = 0; pauseAt = now + between(3500, 5500); }
             const target = pauseUntil ? 0 : direction * (now < hurryUntil ? escapeSpeed : 30);
@@ -790,12 +836,15 @@ export function startMenuVisitor() {
             const movement = speed * dt / 1000;
             offset += movement; steps += Math.abs(movement);
             point = pointFor(perch, rect, offset);
-            if (pauseUntil && Math.abs(speed) < 4) { row = 5; column = Math.floor((now - pauseStarted) / 150) % 8; }
+            if (pauseUntil && Math.abs(speed) < 4) {
+              if (leanCycles) { row = 8; column = leanColumn(now - pauseStarted); }
+              else { row = 5; column = Math.floor((now - pauseStarted) / 150) % 8; }
+            }
             else { row = speed < 0 ? 2 : 1; column = Math.floor(steps / 6) % 8; }
             if ((!freePeanut && walkingDistance < 62) || offset <= perch.min || offset >= perch.max) takeOff(point, now, walkingDistance < 62);
           }
         } else {
-          if (phase === 'peek' && near && !heldPeanut) change('duck', now);
+          if (phase === 'peek' && near && !heldPeanut) { change('duck', now); played('peek'); }
           if (now >= deadline && phase !== 'duck' && !freePeanut) change('duck', now);
           const age = now - started;
           if (phase === 'peek') {
@@ -853,9 +902,39 @@ export function startMenuVisitor() {
     bird.dataset.mode = perch?.mode || '';
     frame = requestAnimationFrame(tick);
   }
+  // Carry on across full page loads in this tab: save him on the way out and pick him up on the next page.
+  function saveVisit() {
+    const point = bird.style.visibility === 'visible' && paintedPoint ? {...paintedPoint} : null;
+    const saved = {savedAt:Date.now(), phase, direction, point, peanut:peanut && {...peanut},
+      restIn:phase === 'rest' ? Math.max(0, next - performance.now()) : null};
+    try { sessionStorage.setItem(CARRY_OVER, JSON.stringify(saved)); } catch {}
+  }
+  function forgetVisit(event) { if (event.persisted) try { sessionStorage.removeItem(CARRY_OVER); } catch {} }
+  function restoreVisit(now) {
+    let saved;
+    try { saved = JSON.parse(sessionStorage.getItem(CARRY_OVER) || 'null'); sessionStorage.removeItem(CARRY_OVER); } catch { return; }
+    if (!saved || !(Date.now() - saved.savedAt < CARRY_OVER_MS)) return;
+    const point = saved.point;
+    if (['held', 'falling', 'dropped', 'carried'].includes(saved.peanut?.state)) peanut = {...saved.peanut, contested:false};
+    if (peanut?.state === 'carried') {
+      // Still carrying it away: finish the walk off with it.
+      if (point) { chasePoint = {...point}; direction = saved.direction; phase = 'carry-land'; started = now; return; }
+      peanut = null;
+    }
+    if (holding()) { follow = {from:point}; next = now; return; }
+    if (point && isFree(peanut) && peanut.ready) { paintedPoint = {...point}; startChase(now); return; }
+    if (point && ['peek', 'walk', 'arrive', 'chase'].includes(saved.phase)) { resumeFrom = point; next = now; return; }
+    // Away, hiding, or leaving: keep his remaining wait.
+    next = now + (saved.phase === 'rest' && saved.restIn !== null ? saved.restIn : between(3000, 6000));
+  }
+  window.addEventListener('pagehide', saveVisit);
+  window.addEventListener('pageshow', forgetVisit);
+  restoreVisit(performance.now());
+
   frame = requestAnimationFrame(tick);
   return () => {
     cancelAnimationFrame(frame);
+    window.removeEventListener('pagehide', saveVisit); window.removeEventListener('pageshow', forgetVisit);
     window.removeEventListener('pointermove', track); window.removeEventListener('pointerdown', grabOrDrop, true);
     window.removeEventListener('click', consumeFoodClick, true);
     window.removeEventListener('hashchange', followMenu);

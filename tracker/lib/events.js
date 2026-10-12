@@ -17,10 +17,27 @@ export function authorized(header,secret){
  const actual=Buffer.from(header),expected=Buffer.from('Bearer '+secret);
  return actual.length===expected.length&&timingSafeEqual(actual,expected);
 }
+// Shredder interactions arrive as one batched count per page session; the counts live in the event path
+// (for example peek2.grab1.feed1.crack0.follow0) so reports can still be built from Blob listings alone.
+export const shredderKinds=['peek','grab','feed','crack','follow'];
+export function shredderCounts(counts){
+ if(!counts||typeof counts!=='object'||Array.isArray(counts)||Object.keys(counts).some(key=>!shredderKinds.includes(key)))return null;
+ const values=shredderKinds.map(kind=>counts[kind]??0);
+ if(values.some(value=>!Number.isInteger(value)||value<0||value>999)||!values.some(Boolean))return null;
+ return shredderKinds.map((kind,index)=>kind+values[index]).join('.');
+}
+function parseShredderCounts(segment){
+ const parts=String(segment).split('.');
+ if(parts.length!==shredderKinds.length)return null;
+ const counts={};
+ for(const [index,kind] of shredderKinds.entries()){const match=new RegExp('^'+kind+'(\\d{1,3})$').exec(parts[index]);if(!match)return null;counts[kind]=Number(match[1]);}
+ return counts;
+}
 export function validateEvent(input,models=[]){
- if(!input||typeof input!=='object'||!['visit','download'].includes(input.kind)||!uuid.test(input.id||'')||input.visitorId!==undefined&&!uuid.test(input.visitorId))return null;
+ if(!input||typeof input!=='object'||!['visit','download','shredder'].includes(input.kind)||!uuid.test(input.id||'')||input.visitorId!==undefined&&!uuid.test(input.visitorId))return null;
  const visitor=input.visitorId?{visitorId:input.visitorId.toLowerCase()}:{};
  if(input.kind==='visit')return {id:input.id,kind:'visit',model:'site',format:'none',testing:input.testing===true,...visitor};
+ if(input.kind==='shredder'){const counts=shredderCounts(input.counts);return counts?{id:input.id,kind:'shredder',model:counts,format:'session',testing:input.testing===true,...visitor}:null;}
  if(input.model==='mdlxl')return input.format==='zip'?{id:input.id,kind:'download',model:'mdlxl',format:'zip',testing:input.testing===true,...visitor}:null;
  const model=models.find(model=>model.id===input.model);
  if(!model||!['mdx','pack'].includes(input.format)||input.format==='pack'&&!model.hasPack)return null;
@@ -33,8 +50,19 @@ export function eventPath(event,now=new Date()){
 export function summarize(blobs,{from='',to='',models=[]}={}){
  const modelById=new Map(models.map(model=>[model.id,model]));
  const totals={pageLoads:0,downloadClicks:0,uniqueVisitors:0},applications=[{id:'mdlxl',name:'MDLxL',zipClicks:0,total:0}],daily=new Map(),byModel=new Map(),visitors=new Set(),dailyVisitors=new Map(),visitorCountries=new Map(),coverage={identifiedPageLoads:0,unidentifiedPageLoads:0};let lastRecordedAt=null;
+ // Shredder's Stash is kept apart from the site totals: interaction counts, and the browsers behind each kind.
+ const shredderTotals=Object.fromEntries(shredderKinds.map(kind=>[kind,0])),shredderPeople=Object.fromEntries(shredderKinds.map(kind=>[kind,new Set()])),shredderPlayers=new Set();let shredderLastAt=null;
  for(const blob of blobs){
   const [namespace,version,date,kind,model,format,visitorId,country]=blob.pathname.split('/');
+  if(kind==='shredder'){
+   const counts=namespace==='live'&&version==='v3'&&format==='session'&&!(from&&date<from||to&&date>to)?parseShredderCounts(model):null;
+   if(!counts||visitorId!=='anonymous'&&!uuid.test(visitorId))continue;
+   const id=uuid.test(visitorId)?visitorId.toLowerCase():null,at=new Date(blob.uploadedAt).toISOString();
+   for(const type of shredderKinds)if(counts[type]){shredderTotals[type]+=counts[type];if(id)shredderPeople[type].add(id);}
+   if(id)shredderPlayers.add(id);
+   if(!shredderLastAt||at>shredderLastAt)shredderLastAt=at;
+   continue;
+  }
   if(namespace!=='live'||!['v1','v2','v3'].includes(version)||from&&date<from||to&&date>to||!['visit','download'].includes(kind))continue;
   if(version==='v2'&&!uuid.test(visitorId)||version==='v3'&&visitorId!=='anonymous'&&!uuid.test(visitorId))continue;
   const identified=version!=='v1'&&uuid.test(visitorId),at=new Date(blob.uploadedAt).toISOString();
@@ -61,5 +89,6 @@ export function summarize(blobs,{from='',to='',models=[]}={}){
  totals.uniqueVisitors=visitors.size;for(const [date,ids] of dailyVisitors)daily.get(date).uniqueVisitors=ids.size;
  const byCountry=new Map();for(const id of visitors){const code=visitorCountries.get(id)?.code||'ZZ';byCountry.set(code,(byCountry.get(code)||0)+1);}
  const countries=[...byCountry].map(([code,uniqueVisitors])=>({code,name:code==='ZZ'?'Unknown':regionNames.of(code),uniqueVisitors,share:uniqueVisitors/totals.uniqueVisitors})).sort((a,b)=>(a.code==='ZZ')-(b.code==='ZZ')||b.uniqueVisitors-a.uniqueVisitors||a.name.localeCompare(b.name));
- return {totals,coverage,lastRecordedAt,countries,daily:[...daily.values()].sort((a,b)=>a.date.localeCompare(b.date)),models:[...byModel.values()].sort((a,b)=>b.total-a.total||a.name.localeCompare(b.name)),applications,measurement:'Unique visitors are anonymous browser IDs, not unique people. Earlier page loads without an ID are excluded from unique counts. Countries are estimated from network location; each browser uses its first known country in the reporting period. Earlier or unavailable locations are Unknown. Downloads are button clicks, not completed transfers. MDLxL counts cover the enabled LowPolyWorks application download button.'};
+ const shredder={people:shredderPlayers.size,lastPlayedAt:shredderLastAt,interactions:Object.fromEntries(shredderKinds.map(kind=>[kind,{count:shredderTotals[kind],people:shredderPeople[kind].size}]))};
+ return {totals,coverage,lastRecordedAt,countries,shredder,daily:[...daily.values()].sort((a,b)=>a.date.localeCompare(b.date)),models:[...byModel.values()].sort((a,b)=>b.total-a.total||a.name.localeCompare(b.name)),applications,measurement:'Unique visitors are anonymous browser IDs, not unique people. Earlier page loads without an ID are excluded from unique counts. Countries are estimated from network location; each browser uses its first known country in the reporting period. Earlier or unavailable locations are Unknown. Downloads are button clicks, not completed transfers. MDLxL counts cover the enabled LowPolyWorks application download button.'};
 }

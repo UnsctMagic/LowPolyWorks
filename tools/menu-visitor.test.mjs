@@ -6,15 +6,16 @@ import {test} from 'node:test';
 const source = fs.readFileSync(new URL('../dist/menu-visitor.js', import.meta.url), 'utf8');
 // Inspect state in a test-only copy. The shipped visitor has no testing API.
 const instrumented = source.replaceAll('import.meta.url', "'http://localhost/menu-visitor.js'")
-  .replace('export function startMenuVisitor()', 'function startMenuVisitor()')
+  .replace('export function startMenuVisitor(', 'function startMenuVisitor(')
   .replace('  return () => {', `  globalThis.visitor = {
     state: () => ({phase, peanut:peanut && {...peanut}, point:paintedPoint && {...paintedPoint}, offset, deadline, speed, next}),
     choose: mode => choose(performance.now(), mode),
     tick, tickPeanut, paint, peanutLook, rest,
   };
-  return () => {`) + '\nglobalThis.stopVisitor = startMenuVisitor();';
+  return () => {`) + '\nglobalThis.played = [];\nglobalThis.stopVisitor = startMenuVisitor({onInteraction:kind => globalThis.played.push(kind)});';
 
-function fixture(testMode = true, random = .6) {
+// extras adds globals such as sessionStorage, for pages that carry him over from a previous page.
+function fixture(testMode = true, random = .6, extras = {}) {
   let now = 0, raf;
   let hash = '#project/warhammercraft';
   const nodes = [], listeners = new Map();
@@ -39,7 +40,7 @@ function fixture(testMode = true, random = .6) {
     URL, URLSearchParams, Math:math, performance:{now:()=>now}, innerHeight:800,
     Image:class {complete=true; naturalWidth=1536;},
     getComputedStyle:()=>({visibility:'visible',borderLeftWidth:'18',borderRightWidth:'18',borderTopWidth:'18',borderBottomWidth:'18'}),
-    requestAnimationFrame:callback=>{raf=callback; return 1;}, cancelAnimationFrame:()=>{raf=null;}});
+    requestAnimationFrame:callback=>{raf=callback; return 1;}, cancelAnimationFrame:()=>{raf=null;}, ...extras});
   vm.runInContext(instrumented, context);
   const step = (ms=16) => {now += ms; raf(now);};
   const advance = ms => {for (let elapsed=0; elapsed<ms; elapsed+=16) step();};
@@ -183,6 +184,49 @@ test('side-peek tilts face the food; horizontal peeks retain their mild tilts', 
   }
 });
 
+// The frames shown at each walking stop, as row-9 column sequences (repeats collapsed), or 'look' for his usual stop.
+function walkingStops(f, ms) {
+  const picture=f.nodes.find(n=>n.className==='menu-visitor-frame'), stops=[];
+  let current=null;
+  for(let t=0;t<ms;t+=16) {
+    f.step();
+    const [x,y]=(picture.style.backgroundPosition||'0px 0px').split(' ').map(v=>-parseFloat(v));
+    const row=Math.round(y/143)||0, column=Math.round(x/132)||0;
+    const stopped=f.state().phase==='walk' && (row===8 || row===5);
+    if(!stopped) { current=null; continue; }
+    if(!current) stops.push(current=[]);
+    const frame=row===8 ? column : 'look';
+    if(current.at(-1)!==frame) current.push(frame);
+  }
+  return stops;
+}
+const LEAN_ONCE=[0,5,4,5,0,6,7,6];
+
+test('a walking stop can be the head lean, one way and then the other', () => {
+  const f=fixture(true,.3); f.context.visitor.choose('walk');
+  const stops=walkingStops(f,12000);
+  assert(stops.length>=1);
+  assert.deepEqual(stops[0],LEAN_ONCE);
+});
+
+test('walking stops mix his usual look around with leans played twice through', () => {
+  const f=fixture(true,.6); let flip=false;
+  f.context.Math.random=()=>(flip=!flip) ? .3 : .7;
+  const seen=new Set();
+  for(let visit=0;visit<6;visit++) {
+    f.context.visitor.choose('walk');
+    for(const stop of walkingStops(f,15000)) {
+      if(stop.every(frame=>frame==='look')) { seen.add('look'); continue; }
+      // A lean always plays whole cycles: once, or twice in a row.
+      const twice=[...LEAN_ONCE,...LEAN_ONCE];
+      assert(JSON.stringify(stop)===JSON.stringify(LEAN_ONCE) || JSON.stringify(stop)===JSON.stringify(twice), JSON.stringify(stop));
+      seen.add(stop.length===LEAN_ONCE.length ? 'once' : 'twice');
+    }
+  }
+  // Single leans are covered above; alternating draws here give usual stops and double leans.
+  assert(seen.has('look') && seen.has('twice'), [...seen].join());
+});
+
 test('walking gaze frames use the walking foot rail and reset their scale on the next walk frame', () => {
   const f=fixture(); f.context.visitor.choose('walk'); f.advance(3000); assert.equal(f.state().phase,'walk');
   const picture=f.nodes.find(n=>n.className==='menu-visitor-frame');
@@ -193,7 +237,7 @@ test('walking gaze frames use the walking foot rail and reset their scale on the
     const shift=Number(/translateY\(([^p]+)px\)/.exec(picture.style.transform)[1]);
     assert.equal(origin,sourceFoot/208*143);
     assert(Math.abs(origin+shift-197/208*143)<1e-9);
-    assert(picture.style.transform.includes('scale(1.2)'));
+    assert(picture.style.transform.includes('scale(1.1)'));
   }
   f.context.visitor.paint(500,400,1,0);
   assert.equal(picture.style.transform,'none'); assert.equal(picture.style.transformOrigin,'50% 50%');
@@ -252,6 +296,24 @@ test('moving and clicking throws in the measured direction, retaining motion thr
 test('pausing the hand releases a downward drop without stale throwing momentum', () => {
   const f=heldFixture(); f.move(530,390); f.step(); f.move(560,365); f.advance(300); f.click(560,365);
   assert.equal(f.state().peanut.vx,0); assert(f.state().peanut.vy>0);
+});
+
+test('a medium-speed flick keeps its swing instead of being damped', () => {
+  for(const [dx,dy] of [[1,0],[-1,0],[0,-1]]) {
+    const f=heldFixture(); let x=500,y=400; f.move(x,y);
+    for(let i=0;i<6;i++) {f.step(); x+=dx*6; y+=dy*6; f.move(x,y);} // about 375 px/s
+    f.click(x,y);
+    const thrown=f.state().peanut, speed=Math.hypot(thrown.vx,thrown.vy);
+    assert.equal(thrown.state,'dropped'); assert(speed>600, 'speed '+speed.toFixed(0));
+  }
+});
+
+test('a medium-speed downward flick still cracks the shell', () => {
+  const f=heldFixture(); let y=560; f.move(500,y);
+  for(let i=0;i<6;i++) {f.step(); y+=6; f.move(500,y);}
+  f.click(500,y);
+  for(let i=0;i<60 && !f.state().peanut.broken;i++) f.context.visitor.tickPeanut(16);
+  assert.equal(f.state().peanut.broken,true);
 });
 
 test('a small flick throws farther and survives the time needed to click', () => {
@@ -386,6 +448,15 @@ test('menu flight can be redirected by another menu click while food stays held'
   assert.equal(f.context.location.hash,'#army/the-empire');
 });
 
+test('a flick over a menu link throws the peanut instead of following the link', () => {
+  const f=heldFixture();
+  f.move(525,385); f.step();
+  f.move(560,365); f.click(560,365,{target:navigationAnchor('http://localhost/#army/vampire-counts')});
+  const thrown=f.state().peanut;
+  assert.equal(thrown.state,'dropped'); assert(thrown.vx>500);
+  assert.notEqual(f.context.location.hash,'#army/vampire-counts');
+});
+
 test('a normal click still releases food after switching menus', () => {
   const f=heldFixture(); f.click(160,300,{target:navigationAnchor('http://localhost/#army/vampire-counts')});
   f.advance(400); f.click(700,400);
@@ -432,6 +503,20 @@ test('food left lying around brings him back sooner than an ordinary visit', () 
   assert(wait>=2500 && wait<=4000, `expected a short return, got ${wait}`);
 });
 
+test('after fleeing a grab and leaving, a throw brings him flying in from the edge, not popping up beside it', () => {
+  const f=fixture(); f.key();
+  let frames=0; while(f.state().phase!=='chase') {f.step(); assert(++frames<700);}
+  const nut=f.state().peanut; f.click(nut.x,nut.y);
+  assert.equal(f.state().peanut.state,'held'); assert.equal(f.state().phase,'fly');
+  frames=0; while(f.state().phase!=='rest') {f.step(); assert(++frames<400);}
+  f.move(520,400); f.advance(300); f.click(520,400); // a gentle release
+  assert.equal(f.state().peanut.state,'dropped'); assert.equal(f.state().phase,'chase');
+  const start=f.state().point;
+  assert(start.x<0 || start.x>1100, `he enters from off screen, not at ${Math.round(start.x)}`);
+  const gap=()=>Math.abs(f.state().point.x-f.state().peanut.x), before=gap(); f.advance(300);
+  assert(gap()<before, 'and flies toward the peanut');
+});
+
 test('grabbing food while he flies in makes him flee instead of vanishing', () => {
   const f=fixture(); f.key(); f.advance(1300);
   f.context.visitor.choose('walk'); f.step();
@@ -450,4 +535,87 @@ test('thrown food tumbles in the air and rolls on the floor', () => {
   if(resting && resting.vy===0 && Math.abs(resting.vx)>0)
     assert(Math.abs(resting.spin-resting.vx/10*180/Math.PI)<1e-6, 'Rolling spin follows floor travel');
   assert(f.nodes.find(n=>n.className==='menu-peanut').style.transform.includes('rotate('));
+});
+
+// Shredder's Stash: what counts as play, outside the owner's test view.
+function heldOutsideTestView() {
+  const f=fixture(false,.2); f.context.visitor.choose('peek');
+  let frames=0; while(!f.state().peanut) {f.step(); assert(++frames<300);}
+  f.advance(800);
+  const nut=f.state().peanut; f.click(nut.x,nut.y); f.move(500,400); f.advance(200);
+  assert.equal(f.state().peanut.state,'held');
+  return f;
+}
+const playedIn=f=>[...f.context.played];
+
+test('a peanut the visitor catches and gives to him counts as a grab and a peanut fed', () => {
+  const f=heldOutsideTestView();
+  f.move(500,400); f.advance(300); f.click(500,400);
+  let frames=0; while(f.state().peanut?.state!=='carried') {f.step(); assert(++frames<400);}
+  assert.deepEqual(playedIn(f),['grab','feed']);
+});
+
+test('hard throws count a cracked shell, and menu changes with food in hand count a follow', () => {
+  const thrown=heldOutsideTestView(); throwDown(thrown);
+  for(let i=0;i<40 && !thrown.state().peanut?.broken;i++) thrown.step();
+  assert(playedIn(thrown).includes('crack'));
+  const led=heldOutsideTestView(); led.click(160,300,{target:navigationAnchor('http://localhost/#army/vampire-counts')});
+  assert.deepEqual(playedIn(led),['grab','follow']);
+});
+
+test('making him duck while he peeks counts as playing with his peeking', () => {
+  const f=fixture(false,.6); f.context.visitor.choose('peek'); f.advance(1500);
+  assert.equal(f.state().phase,'peek');
+  const point=f.state().point; f.move(point.x,point.y); f.step();
+  assert(['duck','peek-hidden'].includes(f.state().phase));
+  assert.deepEqual(playedIn(f),['peek']);
+});
+
+test('his own finds and the owner test view never count', () => {
+  const own=fixture(false,.2); own.context.visitor.choose('peek');
+  let frames=0; while(own.state().peanut?.state!=='carried') {own.step(); assert(++frames<900);}
+  assert.deepEqual(playedIn(own),[],'a peanut he found himself is not a peanut fed');
+  const test=heldFixture(); test.move(500,400); test.advance(300); test.click(500,400);
+  frames=0; while(test.state().peanut?.state!=='carried') {test.step(); assert(++frames<400);}
+  assert.deepEqual(playedIn(test),[],'the peanut test view is the owner playing');
+});
+
+// Carrying him over a full page load in the same tab.
+function tabStorage() {
+  const saved=new Map();
+  return {saved, getItem:key=>saved.has(key)?saved.get(key):null, setItem:(key,value)=>saved.set(key,String(value)), removeItem:key=>saved.delete(key)};
+}
+const nextPage=sessionStorage=>fixture(true,.6,{sessionStorage});
+
+test('after a page change he flies over from where he was on the previous page', () => {
+  const sessionStorage=tabStorage(), first=fixture(true,.6,{sessionStorage});
+  first.context.visitor.choose('walk'); first.advance(3000); assert.equal(first.state().phase,'walk');
+  const was=first.state().point; first.emit('pagehide');
+  const second=nextPage(sessionStorage); second.step();
+  assert.equal(second.state().phase,'arrive');
+  const start=second.state().point;
+  assert(Math.hypot(start.x-was.x,start.y-was.y)<40, 'his flight starts where the last page left him');
+  assert.equal(sessionStorage.saved.size,0, 'the hand-over is used once');
+});
+
+test('a peanut in hand stays in hand across the page change, and a chase carries on', () => {
+  const sessionStorage=tabStorage(), holding=fixture(true,.6,{sessionStorage});
+  holding.key(); holding.advance(800); const nut=holding.state().peanut; holding.click(nut.x,nut.y);
+  holding.emit('pagehide');
+  const held=nextPage(sessionStorage);
+  assert.equal(held.state().peanut.state,'held'); held.step(); assert.equal(held.state().phase,'arrive');
+
+  const chasing=fixture(true,.6,{sessionStorage}); chasing.key();
+  let frames=0; while(chasing.state().phase!=='chase') {chasing.step(); assert(++frames<700);}
+  chasing.step(); const was=chasing.state().point; chasing.emit('pagehide');
+  const resumed=nextPage(sessionStorage);
+  assert.equal(resumed.state().phase,'chase');
+  assert.equal(resumed.state().point.x,was.x); assert.equal(resumed.state().point.y,was.y);
+});
+
+test('an old hand-over is ignored', () => {
+  const sessionStorage=tabStorage();
+  sessionStorage.setItem('lowpolyworks.shredderVisit',JSON.stringify({savedAt:Date.now()-60000,phase:'walk',point:{x:400,y:300},peanut:null}));
+  const f=nextPage(sessionStorage); f.step();
+  assert.equal(f.state().phase,'rest');
 });

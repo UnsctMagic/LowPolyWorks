@@ -159,7 +159,7 @@ test('refreshes, return visits and downloads count one browser across dates',()=
 
 test('the website reuses its browser ID after a refresh and on downloads',async()=>{
  const visitor=fs.readFileSync(new URL('../dist/visitor-id.js',import.meta.url),'utf8').replace('export function browserVisitorId','function savedVisitorId');
- const code=visitor+'\nconst USAGE_ENDPOINT="https://tracker.invalid/api/events";\n'+fs.readFileSync(new URL('../dist/usage.js',import.meta.url),'utf8').replace(/^import.*?;\r?\n/gm,'').replace('export async function','async function');
+ const code=visitor+'\nconst USAGE_ENDPOINT="https://tracker.invalid/api/events";\n'+fs.readFileSync(new URL('../dist/usage.js',import.meta.url),'utf8').replace(/^import.*?;\r?\n/gm,'').replace(/^export /gm,'');
  const saved=new Map(),events=[],warnings=[];
  const storage={getItem:key=>saved.get(key)||null,setItem:(key,value)=>saved.set(key,value)};
  async function page(localStorage=storage){const ctx=vm.createContext({location:{hostname:'www.lowpolyworks.com',search:''},URLSearchParams,crypto:{randomUUID},localStorage,console:{warn:(...args)=>warnings.push(args)},fetch:async(_url,opts)=>{events.push(JSON.parse(opts.body));return{ok:true};}});vm.runInContext(code,ctx);await vm.runInContext('recordUsage("visit")',ctx);return ctx;}
@@ -167,4 +167,30 @@ test('the website reuses its browser ID after a refresh and on downloads',async(
  assert.equal(new Set(events.map(event=>event.visitorId)).size,1);assert.equal(new Set(events.map(event=>event.id)).size,3);
  saved.clear();await page();assert.notEqual(events[0].visitorId,events[3].visitorId);
  await page({getItem(){throw Error('Storage disabled');}});assert.equal(events.length,5);assert.equal(events[4].visitorId,undefined);assert.equal(warnings.length,1);
+});
+test("Shredder's play arrives as one batched count per session and its counts live in the event path",async()=>{
+ const blobs=[],collect=createEventsHandler({writeBlob:async(pathname,data)=>blobs.push({pathname,uploadedAt:JSON.parse(data).recordedAt})});
+ const send=async body=>{const res=response();await collect({method:'POST',headers:{origin:'https://www.lowpolyworks.com','x-vercel-ip-country':'NL'},body},res);return res.statusCode;};
+ assert.equal(await send({id:randomUUID(),visitorId:id,kind:'shredder',counts:{peek:2,feed:1}}),204);
+ assert.match(blobs[0].pathname,/^live\/v3\/\d{4}-\d{2}-\d{2}\/shredder\/peek2\.grab0\.feed1\.crack0\.follow0\/session\//);
+ assert(blobs[0].pathname.includes('/session/'+id+'/NL/'));
+ for(const counts of [{},{peek:0},{peek:-1},{peek:1.5},{peek:1000},{peek:'1'},{scratch:1},[1],null])
+  assert.equal(await send({id:randomUUID(),visitorId:id,kind:'shredder',counts}),400,JSON.stringify(counts));
+ assert.equal(blobs.length,1);
+});
+test("Shredder's Stash counts people and interactions apart from the site totals",()=>{
+ const other='0b9c6a41-6a55-4f0e-9d0e-1f2a3b4c5d6e',at='2026-10-05T21:00:00.000Z';
+ const play=(counts,visitorId,date='2026-10-05',namespace='live')=>({pathname:`${namespace}/v3/${date}/shredder/${counts}/session/${visitorId}/NL/${randomUUID()}.json`,uploadedAt:at});
+ const blobs=[
+  {pathname:eventPath({...validateEvent({id:randomUUID(),visitorId:id,kind:'visit'}),country:'NL'},now),uploadedAt:at},
+  play('peek2.grab1.feed1.crack0.follow0',id),play('peek1.grab0.feed2.crack1.follow0',id,'2026-10-06'),
+  play('peek0.grab0.feed1.crack0.follow1',other),play('peek3.grab0.feed0.crack0.follow0','anonymous'),
+  play('peek9.grab9.feed9.crack9.follow9',other,'2026-10-05','testing'),play('nonsense',other),
+ ];
+ const report=summarize(blobs);
+ assert.deepEqual(report.totals,{pageLoads:1,downloadClicks:0,uniqueVisitors:1},'site totals are unchanged by play');
+ assert.equal(report.shredder.people,2);
+ assert.deepEqual(report.shredder.interactions,{peek:{count:6,people:1},grab:{count:1,people:1},feed:{count:4,people:2},crack:{count:1,people:1},follow:{count:1,people:1}});
+ assert.equal(summarize(blobs,{from:'2026-10-06'}).shredder.interactions.feed.count,2);
+ assert(!JSON.stringify(report.shredder).includes(id),'no browser IDs leave the report');
 });

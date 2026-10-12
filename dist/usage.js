@@ -14,11 +14,21 @@ function browserVisitorId(){
   return savedVisitorId();
  }catch(error){console.warn('Unique visitor tracking is unavailable',error.name);}
 }
-export async function recordUsage(kind,model,format){
- if(!enabled||ownerOptedOut())return;
+// Whether this browser may send statistics at all: the live site only, and never the owner's opted-out browsers.
+export function usageAllowed(){return enabled&&!ownerOptedOut();}
+async function send(event){
  try{
-  const event={id:crypto.randomUUID(),kind,model,format,testing,visitorId:browserVisitorId()};
-  const response=await fetch(USAGE_ENDPOINT,{method:'POST',headers:{'Content-Type':'text/plain'},body:JSON.stringify(event),keepalive:true,credentials:'omit'});
+  const response=await fetch(USAGE_ENDPOINT,{method:'POST',headers:{'Content-Type':'text/plain'},body:JSON.stringify({id:crypto.randomUUID(),...event,testing,visitorId:browserVisitorId()}),keepalive:true,credentials:'omit'});
   if(!response.ok)console.warn('LowPolyWorks usage tracking returned HTTP '+response.status);
- }catch(error){console.warn('LowPolyWorks usage event was not recorded',error.name);}
+  return response.ok;
+ }catch(error){console.warn('LowPolyWorks usage event was not recorded',error.name);return false;}
+}
+export async function recordUsage(kind,model,format){
+ if(!usageAllowed())return;
+ await send({kind,model,format});
+}
+// One batched set of Shredder interaction counts, e.g. {peek:2, feed:1}.
+export async function recordShredder(counts){
+ if(!usageAllowed())return false;
+ return send({kind:'shredder',counts});
 }
