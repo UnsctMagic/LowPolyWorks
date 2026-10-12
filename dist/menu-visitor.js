@@ -353,7 +353,8 @@ export function startMenuVisitor({onInteraction} = {}) {
     lastWalkPoint = null;
     paintedPoint = null;
     phase = perch.mode; started = now;
-    peanutRollAt = perch.mode === 'peek' ? now + 1400 : Infinity;
+    // Every visit, peek or walk, rolls once for a falling peanut shortly after he settles.
+    peanutRollAt = now + 1400;
     backOffUntil = 0;
     deadline = now + between(16000, 22000);
     // Walking visits fly to the platform before showing the standing body.
@@ -422,6 +423,12 @@ export function startMenuVisitor({onInteraction} = {}) {
   window.addEventListener('hashchange', followMenu);
   if (peanutTest) window.addEventListener('keydown', testPeanut);
   document.addEventListener('pointerleave', leave);
+
+  // One roll per visit: a 25% chance that a peanut falls, unless one is already out.
+  function rollForPeanut(now) {
+    peanutRollAt = Infinity;
+    if (!peanut && Math.random() < .25) spawnPeanut(now);
+  }
 
   function spawnPeanut(now) {
     const width = foodLayer.clientWidth;
@@ -758,10 +765,7 @@ export function startMenuVisitor({onInteraction} = {}) {
         resumeFrom = null;
       }
     }
-    if (phase === 'peek' && now >= peanutRollAt) {
-      peanutRollAt = Infinity;
-      if (!peanut && Math.random() < .28) spawnPeanut(now);
-    }
+    if ((phase === 'peek' || phase === 'walk') && now >= peanutRollAt) rollForPeanut(now);
     if (isFree(peanut) && peanut.ready && !peanut.contested &&
       ['peek', 'walk', 'peek-hidden', 'duck', 'arrive'].includes(phase)) startChase(now);
     if (phase === 'peek' || phase === 'peek-hidden' || phase === 'walk' || phase === 'arrive') {
