@@ -10120,7 +10120,7 @@
   },
   {
     "id": "blood-dragon",
-    "file": "WH_VC_BloodDragonAxe.mdx",
+    "file": "WH_VC_BloodDragonAxe02.mdx",
     "name": "Blood Dragon",
     "army": "vampire-counts",
     "description": "The Blood Dragons are a Bloodline of Vampires devoted to the pursuit of absolute martial perfection. The bloodline originated with Abhorash, who came to believe in no cause or ideal beyond himself. Abhorash urged his disciples to follow his example and hone their martial skills until they became the ultimate warriors, transcending Vampirism and the limitations of the mortal world. His followers swore to this path and took the name Blood Dragons.\n\nUnlike other bloodlines, they regard pursuits such as conquest, political power, or mastery of magic as trivial distractions. They swear loyalty to neither nations nor rulers, believing instead in the purity of their personal quest. Through constant warfare and unrelenting trial by battle, they seek to rise beyond the pre-eminent nature of the Vampire and attain a state approaching godhood, accepting any slaughter required as the necessary price of mastery.\n\nSource: Night's Dark Masters — The Bloodlines, pp. 43–44.",
@@ -10628,7 +10628,7 @@
       "Attack Walk Stand Spin"
     ],
     "bytes": 254283,
-    "sha256": "1b0d8587332572f23e0d067164f75c0e12c5f084f1abee928f4a066903467e16",
+    "sha256": "e6695082ade24b722e13a34867f2d826027592afa7ac5568611d3bdfa135dc09",
     "formationSequence": "Attack Slam",
     "formationTime": 1018,
     "searchDescription": "Preview and download a Warhammer Fantasy Blood Dragon model for Warcraft 3. A Vampire Counts warrior with a double axe and 16 animations.",
