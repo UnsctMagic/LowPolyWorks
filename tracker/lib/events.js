@@ -1,9 +1,12 @@
 import {timingSafeEqual} from 'node:crypto';
-export async function trackedModels({loadUnits=async()=>{const {blobState}=await import('./publishing-state.js');return (await blobState.read()).state.unitCards||[];}}={}){
- const response=await fetch('https://www.lowpolyworks.com/catalogue.json',{cache:'no-store'});
+// Removed Vault cards stay as named tombstones so their earlier downloads remain readable.
+const savedUnits=async()=>{const {blobState}=await import('./publishing-state.js'),{state}=await blobState.read();return [...state.unitCards||[],...Object.entries(state.removedCards||{}).map(([id,row])=>({id,name:row.name,deletedAt:row.removedAt,downloads:[]}))];};
+export async function trackedModels({loadUnits=savedUnits,includeRemoved=false}={}){
+ // A fresh query bypasses the Pages CDN copy, so a just-published model is accepted at once.
+ const response=await fetch('https://www.lowpolyworks.com/catalogue.json?tracking='+Date.now(),{cache:'no-store'});
  if(!response.ok)throw Error('Tracking catalogue unavailable (HTTP '+response.status+')');
  const base=(await response.json()).map(model=>({id:model.id,name:model.name,slug:model.slug||model.id,hasPack:Boolean(model.downloadPack)}));
- const units=await loadUnits();return [...base,...units.filter(card=>!card.deletedAt).map(card=>({id:card.id,name:card.name,slug:card.id,url:'https://www.lowpolyworks.com/#model/'+card.id,hasPack:card.downloads.some(file=>/\.zip$/i.test(file.name))}))];
+ const units=await loadUnits();return [...base,...units.filter(card=>includeRemoved||!card.deletedAt).map(card=>({id:card.id,name:card.name,slug:card.id,url:'https://www.lowpolyworks.com/#model/'+card.id,hasPack:card.downloads.some(file=>/\.zip$/i.test(file.name))}))];
 }
 const uuid=/^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89ab][a-f0-9]{3}-[a-f0-9]{12}$/i;
 const regionNames=new Intl.DisplayNames(['en'],{type:'region',fallback:'none'});
@@ -31,14 +34,16 @@ export function eventPath(event,now=new Date()){
  return `${event.testing?'testing':'live'}/${event.visitorId?'v2':'v1'}/${now.toISOString().slice(0,10)}/${event.kind}/${event.model}/${event.format}/${event.visitorId?event.visitorId+'/':''}${event.id}.json`;
 }
 export function summarize(blobs,{from='',to='',models=[]}={}){
- const modelById=new Map(models.map(model=>[model.id,model]));
  const totals={pageLoads:0,downloadClicks:0,uniqueVisitors:0},applications=[{id:'mdlxl',name:'MDLxL',zipClicks:0,total:0}],daily=new Map(),byModel=new Map(),visitors=new Set(),dailyVisitors=new Map(),visitorCountries=new Map(),coverage={identifiedPageLoads:0,unidentifiedPageLoads:0};let lastRecordedAt=null;
+ // Every tracked model is listed, including new ones that have no downloads yet.
+ for(const row of models)byModel.set(row.id,{id:row.id,name:row.name,mdxClicks:0,packClicks:0,total:0});
  for(const blob of blobs){
   const [namespace,version,date,kind,model,format,visitorId,country]=blob.pathname.split('/');
   if(namespace!=='live'||!['v1','v2','v3'].includes(version)||from&&date<from||to&&date>to||!['visit','download'].includes(kind))continue;
   if(version==='v2'&&!uuid.test(visitorId)||version==='v3'&&visitorId!=='anonymous'&&!uuid.test(visitorId))continue;
   const identified=version!=='v1'&&uuid.test(visitorId),at=new Date(blob.uploadedAt).toISOString();
-  if(kind==='download'&&(model==='mdlxl'?format!=='zip':!modelById.has(model)))continue;
+  // Stored downloads were validated when recorded, so a model later renamed or removed keeps its clicks.
+  if(kind==='download'&&(model==='mdlxl'?format!=='zip':!/^[a-z0-9-]{1,100}$/.test(model)||!['mdx','pack'].includes(format)))continue;
   if(!daily.has(date)){daily.set(date,{date,pageLoads:0,downloadClicks:0,uniqueVisitors:0});dailyVisitors.set(date,new Set());}
   const day=daily.get(date);
   if(identified){
@@ -51,8 +56,7 @@ export function summarize(blobs,{from='',to='',models=[]}={}){
    totals.downloadClicks++;day.downloadClicks++;
    if(model==='mdlxl'){applications[0].total++;applications[0].zipClicks++;}
    else{
-    const row=modelById.get(model);
-    if(!byModel.has(model))byModel.set(model,{id:model,name:row.name,mdxClicks:0,packClicks:0,total:0});
+    if(!byModel.has(model))byModel.set(model,{id:model,name:model,mdxClicks:0,packClicks:0,total:0,unlisted:true});
     const entry=byModel.get(model);entry.total++;entry[format==='pack'?'packClicks':'mdxClicks']++;
    }
   }

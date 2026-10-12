@@ -48,7 +48,7 @@ test('private country reports keep authentication and aggregate across listing p
 test('newly published models are accepted and reported without restarting the tracker',async t=>{
  let published=[{id:'existing-model',name:'Existing Model'}];
  t.mock.method(globalThis,'fetch',async(url,options)=>{
-  assert.equal(url,'https://www.lowpolyworks.com/catalogue.json');
+  assert.match(url,/^https:\/\/www\.lowpolyworks\.com\/catalogue\.json\?tracking=\d+$/);
   assert.equal(options.cache,'no-store');
   return {ok:true,json:async()=>structuredClone(published)};
  });
@@ -117,7 +117,7 @@ test('MDLxL ZIP clicks are accepted and reported separately from model files',()
  const report=summarize([blob(input),blob({...input,testing:true}),blob({...input,format:'mdx'}),blob({...input,model:'tzeentch-sword',format:'pack'})]);
  assert.deepEqual(report.totals,{pageLoads:0,downloadClicks:2,uniqueVisitors:1});
  assert.deepEqual(report.applications,[{id:'mdlxl',name:'MDLxL',zipClicks:1,total:1}]);
- assert.equal(report.models.length,1);assert.equal(report.models[0].packClicks,1);
+ assert.equal(report.models.length,catalogue.length);assert.deepEqual(report.models[0],{id:'tzeentch-sword',name:catalogue.find(model=>model.id==='tzeentch-sword').name,mdxClicks:0,packClicks:1,total:1});
  assert.equal(report.daily[0].downloadClicks,2);
  assert.equal(summarize([blob(input)],{from:'2026-10-06'}).applications[0].total,0);
 });
@@ -167,4 +167,20 @@ test('the website reuses its browser ID after a refresh and on downloads',async(
  assert.equal(new Set(events.map(event=>event.visitorId)).size,1);assert.equal(new Set(events.map(event=>event.id)).size,3);
  saved.clear();await page();assert.notEqual(events[0].visitorId,events[3].visitorId);
  await page({getItem(){throw Error('Storage disabled');}});assert.equal(events.length,5);assert.equal(events[4].visitorId,undefined);assert.equal(warnings.length,1);
+});
+test('every unit is listed with its own count, including new units without downloads and removed units with history',async t=>{
+ t.mock.method(globalThis,'fetch',async()=>({ok:true,json:async()=>[{id:'old-model',name:'Old Model'},{id:'new-model',name:'New Model'}]}));
+ const units=[{id:'unit-live',name:'Live Unit',downloads:[{name:'live.mdx'}]},{id:'unit-hidden',name:'Hidden Unit',deletedAt:'2026-10-06T00:00:00Z',downloads:[{name:'pack.zip'}]}];
+ assert.deepEqual((await trackedModels({loadUnits:async()=>units})).map(model=>model.id),['old-model','new-model','unit-live']);
+ const all=await trackedModels({loadUnits:async()=>units,includeRemoved:true});assert.deepEqual(all.map(model=>model.id),['old-model','new-model','unit-live','unit-hidden']);
+ const blob=(model,format)=>({pathname:eventPath({id:randomUUID(),kind:'download',model,format},now),uploadedAt:now});
+ const report=summarizeEvents([blob('old-model','mdx'),blob('unit-hidden','pack'),blob('unit-hidden','mdx'),blob('retired-model','mdx')],{models:all});
+ assert.deepEqual(report.models,[
+  {id:'unit-hidden',name:'Hidden Unit',mdxClicks:1,packClicks:1,total:2},
+  {id:'old-model',name:'Old Model',mdxClicks:1,packClicks:0,total:1},
+  {id:'retired-model',name:'retired-model',mdxClicks:1,packClicks:0,total:1,unlisted:true},
+  {id:'unit-live',name:'Live Unit',mdxClicks:0,packClicks:0,total:0},
+  {id:'new-model',name:'New Model',mdxClicks:0,packClicks:0,total:0},
+ ]);
+ assert.equal(report.totals.downloadClicks,4);
 });

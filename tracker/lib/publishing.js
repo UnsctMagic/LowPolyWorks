@@ -5,7 +5,7 @@ import ownerAvatar from './owner-avatar.js';
 import {createModelFollows} from './model-follows.js';
 import {createModelReleases,pendingModelEmails,publishedModels,unitRelease} from './model-releases.js';
 import {trackedModels} from './events.js';
-import {createUnitCards,unitCatalogue,unitView,unitArmies} from './unit-cards.js';
+import {createUnitCards,unitCatalogue,unitView,unitArmies,expiredRemovals} from './unit-cards.js';
 const scrypt=promisify(scryptCallback);
 export const PUBLIC_ORIGIN='https://www.lowpolyworks.com';
 export const AUTHOR_ORIGIN='https://lowpolyworks-internal-tracker.vercel.app';
@@ -25,7 +25,7 @@ export function validatePost(input,state){const kind=input.kind;if(!['news','mod
 const authorView=a=>({id:a.id,name:a.name,icon:a.icon||(a.username==='unsanctionedmagic'?ownerAvatar:''),role:a.role,nameGraphic:a.username==='unsanctionedmagic'?'https://www.lowpolyworks.com/ui/unsanctionedmagic-name.png?v=20261007-amethyst':null});
 export function publicFeed(state,voterKey,includeDeleted=false){return {projects:state.projects,posts:state.posts.filter(post=>includeDeleted||!post.deletedAt).sort((a,b)=>b.publishedAt.localeCompare(a.publishedAt)).map(post=>({...post,...(post.unitCardId?{unitCard:unitView(state.unitCards.find(c=>c.id===post.unitCardId))}:{}),poll:pollView(post.poll,voterKey?.(post.id)),author:authorView(state.authors.find(a=>a.id===post.authorId)||{id:post.authorId,name:'Author'})}))};}
 const pendingNotifications=pendingModelEmails;
-export function createPublishing({store,env=process.env,sendEmail,mailConfigured,now=()=>Date.now(),createUploadToken,inspectUpload,readUpload,saveAsset,loadModels=trackedModels,loadPublished}){
+export function createPublishing({store,env=process.env,sendEmail,mailConfigured,now=()=>Date.now(),createUploadToken,inspectUpload,readUpload,saveAsset,deleteFiles,loadModels=trackedModels,loadPublished}){
  const secret=()=>{if(!env.PUBLISHING_SESSION_SECRET||env.PUBLISHING_SESSION_SECRET.length<32)fail(503,'Author login is not configured yet.');return env.PUBLISHING_SESSION_SECRET;};
  const sign=value=>createHmac('sha256',secret()).update(value).digest('base64url');
  const cookie=(value,maxAge=28800)=>`lpw_session=${value}; Path=/api/publishing; HttpOnly; Secure; SameSite=Strict; Max-Age=${maxAge}`;
@@ -38,7 +38,7 @@ export function createPublishing({store,env=process.env,sendEmail,mailConfigured
  const modelFollows=createModelFollows({store,env,sendEmail,mailConfigured,now,loadModels,sign,safeEqual,limit,emailOf,token,digest,fail,publicOrigin:PUBLIC_ORIGIN});
  const releases=createModelReleases({store,env,sendEmail,mailConfigured,now,unsubscribeUrl,fail,loadPublished:loadPublished||((previous,options)=>publishedModels(previous,{...options,loadUnits:async()=>(await store.read()).state}))});
  const setSession=author=>{const payload=Buffer.from(JSON.stringify({id:author.id,version:author.sessionVersion,exp:now()+28800000,nonce:token()})).toString('base64url');return cookie(payload+'.'+sign(payload));};
- const units=createUnitCards({store,authenticate,createUploadToken,inspectUpload,readUpload,saveAsset,now,recordRelease:(state,card)=>releases.record(state,unitRelease(card))});
+ const units=createUnitCards({store,authenticate,createUploadToken,inspectUpload,readUpload,saveAsset,deleteFiles,now,recordRelease:(state,card)=>releases.record(state,unitRelease(card))});
  async function deliver(request){
   if(!releases.enabled())fail(503,'Model notification delivery is not enabled yet.');
   authenticate((await store.read()).state,request,true);return releases.deliver();
@@ -60,8 +60,9 @@ export function createPublishing({store,env=process.env,sendEmail,mailConfigured
   }
   if(action==='subscribe'||action==='confirm')fail(400,'Choose a model and check Update me below its downloads.');
   if(action==='unsubscribe'){const [encoded,signature]=String(input.token||'').split('.');const email=Buffer.from(encoded||'','base64url').toString();if(!signature||!safeEqual(signature,unsubscribeToken(email)))fail(400,'This unsubscribe link is invalid.');await store.mutate(s=>{const sub=s.subscribers.find(row=>row.id===digest(email));if(sub){sub.confirmed=false;sub.emailVerified=false;sub.modelIds=[];sub.modelFollowSince={};sub.pendingFollows=[];sub.followVersion=(sub.followVersion||0)+1;delete sub.confirmationHash;delete sub.confirmationExpires;}});return {message:'Unsubscribed. You will receive no more model notifications.'};}
-  const {state}=await store.read(),author=authenticate(state,request,action!=='me');
-  if(action==='me')return {author:authorView(author),csrf:csrf(request.session),projects:state.projects,unitArmies,unitCards:(state.unitCards||[]).filter(c=>author.role==='owner'||c.authorId===author.id).map(unitView),hiddenModels:author.role==='owner'?state.hiddenModels||[]:undefined,posts:publicFeed(state).posts.filter(p=>author.role==='owner'||p.authorId===author.id),deletedPosts:publicFeed(state,undefined,true).posts.filter(p=>p.deletedAt&&(author.role==='owner'||p.authorId===author.id)),mailEnabled:releases.enabled(),subscribers:author.role==='owner'?state.subscribers.filter(s=>s.confirmed).length:undefined,pendingNotifications:pendingNotifications(state)};
+  let {state}=await store.read(),author=authenticate(state,request,action!=='me');
+  if(action==='me'&&author.role==='owner'&&expiredRemovals(state,now())){await units.purge();state=(await store.read()).state;}
+  if(action==='me')return {author:authorView(author),csrf:csrf(request.session),projects:state.projects,unitArmies,unitCards:(state.unitCards||[]).filter(c=>author.role==='owner'||c.authorId===author.id).map(unitView),...(author.role==='owner'?{hiddenModels:state.hiddenModels||[],modelEdits:state.modelEdits||{},modelRemovals:state.modelRemovals||{},removedModels:state.removedModels||[]}:{}),posts:publicFeed(state).posts.filter(p=>author.role==='owner'||p.authorId===author.id),deletedPosts:publicFeed(state,undefined,true).posts.filter(p=>p.deletedAt&&(author.role==='owner'||p.authorId===author.id)),mailEnabled:releases.enabled(),subscribers:author.role==='owner'?state.subscribers.filter(s=>s.confirmed).length:undefined,pendingNotifications:pendingNotifications(state)};
   if(action==='upload-token'){
    if(!imageTypes.includes(input.type))fail(400,'Upload a PNG, JPG, WebP or GIF.');if(!Number.isInteger(input.size)||input.size<1||input.size>uploadLimit)fail(400,'Each image or GIF must be at most 20 MB.');
    const name=text(input.name,180,'a file name'),id=randomUUID(),extension={'image/png':'png','image/jpeg':'jpg','image/webp':'webp','image/gif':'gif'}[input.type],pathname='publishing/media/'+author.id+'/'+id+'.'+extension;
