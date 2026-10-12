@@ -8,9 +8,9 @@ const source = fs.readFileSync(new URL('../dist/menu-visitor.js', import.meta.ur
 const instrumented = source.replaceAll('import.meta.url', "'http://localhost/menu-visitor.js'")
   .replace('export function startMenuVisitor()', 'function startMenuVisitor()')
   .replace('  return () => {', `  globalThis.visitor = {
-    state: () => ({phase, peanut:peanut && {...peanut}, point:paintedPoint && {...paintedPoint}, offset, deadline, speed}),
+    state: () => ({phase, peanut:peanut && {...peanut}, point:paintedPoint && {...paintedPoint}, offset, deadline, speed, next}),
     choose: mode => choose(performance.now(), mode),
-    tick, tickPeanut, paint, peanutLook,
+    tick, tickPeanut, paint, peanutLook, rest,
   };
   return () => {`) + '\nglobalThis.stopVisitor = startMenuVisitor();';
 
@@ -398,4 +398,56 @@ test('following resumes if the new menu replaces its landing surface while conte
   assert.equal(f.state().peanut.state,'held'); assert.equal(f.state().phase,'rest');
   slab.isConnected=true; f.step();
   assert.equal(f.state().phase,'arrive'); assert.equal(f.state().peanut.state,'held');
+});
+
+test('a grab press without a click does not swallow a later, unrelated click', () => {
+  const f=fixture(); f.key(); f.advance(1300);
+  const nut=f.state().peanut;
+  f.emit('pointerdown',{clientX:nut.x,clientY:nut.y}); // No click follows (e.g. the press became a drag).
+  assert.equal(f.state().peanut.state,'held');
+  f.advance(1500);
+  const later=f.emit('click',{});
+  assert(!later.prevented && !later.stopped, 'A stale grab must not eat the next click');
+});
+
+test('a near miss scares him only until the hand moves away from the food', () => {
+  const f=fixture(); f.key(); f.advance(2600);
+  const nut=f.state().peanut; f.click(nut.x+48,nut.y);
+  assert.equal(f.state().peanut.contested,true);
+  f.move(nut.x+400,nut.y-300); f.step();
+  assert.equal(f.state().peanut.contested,false);
+  let chased=false;
+  for(let i=0;i<300 && !chased;i++) {f.step(); chased=f.state().phase==='chase';}
+  assert(chased, 'He should come back for the food within the same visit');
+});
+
+test('food left lying around brings him back sooner than an ordinary visit', () => {
+  const f=fixture(); f.key(); f.advance(1300);
+  const nut=f.state().peanut; f.click(nut.x,nut.y); // Grab: he ducks out of sight.
+  f.context.visitor.choose('peek');
+  f.move(700,300); f.click(700,300); f.move(-10000,-10000); f.emit('pointerleave');
+  // Force a rest while the dropped food lies on the floor.
+  f.context.visitor.rest(f.context.performance.now());
+  const wait=f.context.visitor.state().next-f.context.performance.now();
+  assert(wait>=2500 && wait<=4000, `expected a short return, got ${wait}`);
+});
+
+test('grabbing food while he flies in makes him flee instead of vanishing', () => {
+  const f=fixture(); f.key(); f.advance(1300);
+  f.context.visitor.choose('walk'); f.step();
+  assert.equal(f.state().phase,'arrive');
+  const nut=f.state().peanut; f.click(nut.x,nut.y);
+  assert.equal(f.state().peanut.state,'held'); assert.equal(f.state().phase,'fly');
+});
+
+test('thrown food tumbles in the air and rolls on the floor', () => {
+  const f=heldFixture(); f.move(530,390); f.step(); f.move(580,375); f.click(580,375);
+  const start=f.state().peanut; assert(start.spin>0, 'A rightward throw spins clockwise');
+  f.context.visitor.tickPeanut(100);
+  assert.notEqual(f.state().peanut.angle,start.angle);
+  for(let i=0;i<200;i++) f.context.visitor.tickPeanut(16);
+  const resting=f.state().peanut;
+  if(resting && resting.vy===0 && Math.abs(resting.vx)>0)
+    assert(Math.abs(resting.spin-resting.vx/10*180/Math.PI)<1e-6, 'Rolling spin follows floor travel');
+  assert(f.nodes.find(n=>n.className==='menu-peanut').style.transform.includes('rotate('));
 });

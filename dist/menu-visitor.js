@@ -15,10 +15,57 @@ const edges = [
 ];
 const overlaps = (a, b, pad = 0) => a.left < b.right + pad && a.right > b.left - pad &&
   a.top < b.bottom + pad && a.bottom > b.top - pad;
+const clamp = (value, low, high) => Math.max(low, Math.min(high, value));
+
+// Peanut physics, in CSS pixels and seconds. Drag is linear, so steps are exact.
+const GRAVITY = 351;
+const AIR_DRAG = .65;               // thrown and dropped food: 540 px/s terminal fall
+const FLUTTER_DRAG = 2.6;           // fresh food drifts at 135 px/s, slow enough to catch
+const WALL_BOUNCE = .55, CEILING_BOUNCE = .45, FLOOR_BOUNCE = .35;
+const SETTLE_SPEED = 55;            // gentler floor impacts stop instead of bouncing
+const BREAK_SPEED = 650;            // harder floor impacts crack the shell
+const FLOOR_FRICTION = 6;
+const SIDE_MARGIN = 16, CEILING = 10, FLOOR_MARGIN = 18;
+const ROLL_RADIUS = 10;             // rolling on the floor turns the shell by distance / radius
+const SPIN_PER_SPEED = .45, MAX_SPIN = 720;
+const HAND = {x:12, y:14};          // held food sits below-right of the cursor
+const THROW_BOOST = 2;
+// Throw sampling: motion over the last 80ms, forgotten after a 180ms pause.
+const THROW_WINDOW = 80, THROW_PAUSE = 180, MIN_THROW_MOTION = 12, MAX_THROW_SPEED = 1300;
+const GRAB_REACH = 36, SCARE_REACH = 58, CONTEST_CLEAR = 160;
+
+// Exact solution of v' = acceleration - drag * v over one step.
+function integrate(position, velocity, drag, acceleration, seconds) {
+  const damping = Math.exp(-drag * seconds), terminal = acceleration / drag;
+  return [position + terminal * seconds + (velocity - terminal) * (1 - damping) / drag,
+    terminal + (velocity - terminal) * damping];
+}
+
+// Moves free food inside the view. Returns true when a floor impact cracks the shell.
+function moveFood(nut, seconds, width, height) {
+  [nut.x, nut.vx] = integrate(nut.x, nut.vx, AIR_DRAG, 0, seconds);
+  [nut.y, nut.vy] = integrate(nut.y, nut.vy, nut.state === 'falling' ? FLUTTER_DRAG : AIR_DRAG, GRAVITY, seconds);
+  const right = Math.max(SIDE_MARGIN, width - SIDE_MARGIN), floor = height - FLOOR_MARGIN;
+  if (nut.x < SIDE_MARGIN) { nut.x = SIDE_MARGIN; if (nut.vx < 0) nut.vx *= -WALL_BOUNCE; }
+  if (nut.x > right) { nut.x = right; if (nut.vx > 0) nut.vx *= -WALL_BOUNCE; }
+  if (nut.y < CEILING && nut.vy < 0) { nut.y = CEILING; nut.vy *= -CEILING_BOUNCE; }
+  let cracked = false;
+  if (nut.y >= floor) {
+    nut.y = floor;
+    if (!nut.broken && nut.vy > BREAK_SPEED) cracked = true;
+    else if (nut.vy > 0) nut.vy = nut.vy > SETTLE_SPEED ? -nut.vy * FLOOR_BOUNCE : 0;
+    nut.vx *= Math.exp(-FLOOR_FRICTION * seconds);
+  }
+  // Airborne food keeps tumbling; food on the floor rolls with its travel.
+  if (nut.y >= floor && nut.vy === 0) nut.spin = nut.vx / ROLL_RADIUS * 180 / Math.PI;
+  else nut.spin *= Math.exp(-AIR_DRAG * seconds);
+  nut.angle = (nut.angle + nut.spin * seconds) % 360;
+  return cracked;
+}
 
 export function startMenuVisitor() {
   const css = document.createElement('link');
-  css.rel = 'stylesheet'; css.href = new URL('./menu-visitor.css', import.meta.url).href;
+  css.rel = 'stylesheet'; css.href = new URL('./menu-visitor.css' + new URL(import.meta.url).search, import.meta.url).href; // Shares the script's cache key.
   document.head.append(css);
   const layer = document.createElement('div');
   layer.className = 'menu-visitor-layer'; layer.setAttribute('aria-hidden', 'true');
@@ -65,9 +112,16 @@ export function startMenuVisitor() {
   let actionAge = 0, peck = false, offset = 0, direction = 1, speed = 0, steps = 0;
   let pauseAt = 0, pauseUntil = 0, pauseStarted = 0, hurryUntil = 0;
   let flight, escapeSpeed = 420;
+  // peanut.state: 'falling' (fresh drop), 'dropped' (released by the hand), 'held', or 'carried'.
+  // contested: a hand reached for free food, so he keeps away until it moves off.
   let peanut = null, peanutRollAt = Infinity, chasePoint, paintedPoint, backOffUntil = 0, backOffTarget = 0;
-  let swallowClick = false;
-  let pendingMenuFlight = false, menuFlightFrom = null;
+  // A press that grabs or drops food also owns its click, but only briefly:
+  // a press that never produces a click must not swallow a later one.
+  let swallowClickUntil = 0;
+  // While food is held across a menu change: {from} is where his flight to the new view starts.
+  let follow = null;
+  const isFree = nut => nut?.state === 'falling' || nut?.state === 'dropped';
+  const holding = () => peanut?.state === 'held';
   const shellFragments = [];
   const visitModes = [], regionVisits = new Map();
   const pictureSurfaces = () => [...new Set([...document.querySelectorAll('#app img, #app canvas, #app video, #app iframe')]
@@ -301,14 +355,14 @@ export function startMenuVisitor() {
   }
 
   function rest(now) {
-    const retryMenu = phase === 'arrive' && flight?.following && peanut?.state === 'held';
-    if (retryMenu) { pendingMenuFlight = true; menuFlightFrom = paintedPoint ? {...paintedPoint} : null; }
+    // A follow flight whose landing surface vanished (the new view is still rendering) tries again.
+    if (phase === 'arrive' && flight?.following && holding()) follow = {from:paintedPoint && {...paintedPoint}};
     phase = 'rest'; bird.style.visibility = 'hidden';
     if (peanut?.state === 'carried') peanut = null;
-    if (peanut && peanut.state !== 'held') peanut.contested = false;
+    if (isFree(peanut)) peanut.contested = false;
     beakPeanut.style.display = 'none';
-    // Draw a fresh cooldown only after this visit has disappeared.
-    next = retryMenu ? now : now + between(8000, 12000);
+    // Draw a fresh cooldown only after this visit has disappeared. Food left lying around brings him back sooner.
+    next = follow ? now : now + (isFree(peanut) ? between(2500, 4000) : between(8000, 12000));
   }
 
   function change(nextPhase, now) {
@@ -317,27 +371,27 @@ export function startMenuVisitor() {
 
   function track(event) {
     if (event.pointerType === 'touch') return;
-    const now = performance.now(), elapsed = now - pointer.sampled;
-    const dx = event.clientX - pointer.x, dy = event.clientY - pointer.y, distance = Math.hypot(dx, dy);
-    pointer.speed = pointer.sampled && elapsed > 0 && elapsed < 180 ? Math.min(3000, distance * 1000 / elapsed) : 0;
+    const now = performance.now(), x = event.clientX, y = event.clientY;
+    const elapsed = now - pointer.sampled, recent = pointer.sampled && elapsed < THROW_PAUSE;
+    const distance = Math.hypot(x - pointer.x, y - pointer.y);
+    pointer.speed = recent && elapsed > 0 ? Math.min(3000, distance * 1000 / elapsed) : 0;
     if (distance > 2) pointer.moved = now;
     if (distance > 0) {
-      if (!pointer.sampled || elapsed >= 180) throwSamples.length = 0;
-      if (!throwSamples.length && pointer.sampled && elapsed < 180)
-        throwSamples.push({x:pointer.x, y:pointer.y, time:pointer.sampled});
-      throwSamples.push({x:event.clientX, y:event.clientY, time:now});
-      while (throwSamples.length > 1 && throwSamples[1].time <= now - 80) throwSamples.shift();
-      const first = throwSamples[0], motionX = event.clientX - first.x, motionY = event.clientY - first.y;
-      const motion = Math.hypot(motionX, motionY);
+      // A pause starts a new gesture; otherwise the previous sample anchors this one.
+      if (!recent) throwSamples.length = 0;
+      else if (!throwSamples.length) throwSamples.push({x:pointer.x, y:pointer.y, time:pointer.sampled});
+      throwSamples.push({x, y, time:now});
+      while (throwSamples.length > 1 && throwSamples[1].time <= now - THROW_WINDOW) throwSamples.shift();
+      const first = throwSamples[0], dx = x - first.x, dy = y - first.y, motion = Math.hypot(dx, dy);
       // Tiny adjustments and closely spaced events should not become full-power throws.
-      const measured = motion >= 12 ? Math.min(1300, motion * 1000 / Math.max(24, now - first.time)) : 0;
-      const momentum = measured * Math.max(0, Math.min(1, (measured - 200) / 400));
-      pointer.vx = motion ? motionX / motion * momentum : 0;
-      pointer.vy = motion ? motionY / motion * momentum : 0;
+      const measured = motion >= MIN_THROW_MOTION ? Math.min(MAX_THROW_SPEED, motion * 1000 / Math.max(24, now - first.time)) : 0;
+      const strength = measured * clamp((measured - 200) / 400, 0, 1);
+      pointer.vx = motion ? dx / motion * strength : 0;
+      pointer.vy = motion ? dy / motion * strength : 0;
       pointer.velocityAt = now;
     }
     pointer.sampled = now;
-    pointer.x = event.clientX; pointer.y = event.clientY;
+    pointer.x = x; pointer.y = y;
   }
   function leave() {
     pointer.x = pointer.y = -10000;
@@ -354,27 +408,34 @@ export function startMenuVisitor() {
   function spawnPeanut(now) {
     const width = foodLayer.clientWidth;
     const x = peanutTest && pointer.x >= 60 && pointer.x <= width - 60 ? pointer.x : between(60, Math.max(60, width - 60));
-    peanut = {state:'falling', x, y:-24, vx:0, vy:85, ready:false, contested:false, broken:false};
+    peanut = {state:'falling', x, y:-24, vx:0, vy:85, angle:between(-30, 30), spin:between(-40, 40),
+      ready:false, contested:false, broken:false};
     peanutRollAt = Infinity;
     if (phase === 'rest') { next = now; choose(now, 'peek'); }
   }
 
+  // A hand reaching for his food sends him away from it.
   function fleeFromGrab(now) {
-    if (phase === 'chase') {
-      direction = pointer.x < chasePoint.x ? 1 : -1;
-      takeOff({x:chasePoint.x, y:chasePoint.y + footOffset}, now, true);
-    } else if (phase === 'walk') {
-      direction = pointer.x < paintedPoint.x ? 1 : -1;
-      takeOff({x:paintedPoint.x, y:paintedPoint.y + footOffset}, now, true);
-    } else if (phase === 'peek') change('duck', now);
-    else if (phase === 'arrive') rest(now);
+    const flyFrom = point => {
+      direction = pointer.x < point.x ? 1 : -1;
+      takeOff({x:point.x, y:point.y + footOffset}, now, true);
+    };
+    if (phase === 'chase') flyFrom(chasePoint);
+    else if ((phase === 'walk' || phase === 'arrive') && paintedPoint) flyFrom(paintedPoint);
+    else if (phase === 'peek') change('duck', now);
+  }
+
+  function grab() {
+    peanut.state = 'held'; peanut.contested = false;
+    peanut.x = pointer.x + HAND.x; peanut.y = pointer.y + HAND.y;
   }
 
   function releasePeanut(now) {
-    peanut.state = 'dropped'; peanut.x = pointer.x + 12; peanut.y = pointer.y + 14;
+    peanut.state = 'dropped'; peanut.x = pointer.x + HAND.x; peanut.y = pointer.y + HAND.y;
     // A click at the same position must retain the preceding mouse movement.
     const moving = now - pointer.velocityAt < 250 && Math.hypot(pointer.vx, pointer.vy) > 10;
-    peanut.vx = moving ? pointer.vx * 2 : 0; peanut.vy = moving ? pointer.vy * 2 : 85;
+    peanut.vx = moving ? pointer.vx * THROW_BOOST : 0; peanut.vy = moving ? pointer.vy * THROW_BOOST : 85;
+    peanut.spin = clamp(peanut.vx * SPIN_PER_SPEED, -MAX_SPIN, MAX_SPIN);
     peanut.ready = true; peanut.contested = false;
     if (phase === 'rest') { next = now; choose(now, 'peek'); }
     if (paintedPoint && ['peek', 'peek-hidden', 'duck', 'walk', 'arrive', 'fly'].includes(phase)) startChase(now);
@@ -382,26 +443,31 @@ export function startMenuVisitor() {
 
   function grabOrDrop(event) {
     track(event);
+    swallowClickUntil = 0;
     if (event.button !== 0 || event.pointerType === 'touch' || !peanut) return;
     const now = performance.now();
-    if (peanut.state === 'held' && navigationTarget(event) !== null) return;
-    if (peanut.state === 'held') releasePeanut(now);
-    else if (peanut.state === 'falling' || peanut.state === 'dropped') {
+    if (holding()) {
+      // Menu links keep the food in hand; the click handler follows them.
+      if (navigationTarget(event) !== null) return;
+      releasePeanut(now);
+    } else if (isFree(peanut)) {
       const distance = Math.hypot(pointer.x - peanut.x, pointer.y - peanut.y);
-      if (distance > 58) return;
+      if (distance > SCARE_REACH) return;
+      // A near miss is still a grab attempt: it scares him off this food.
       peanut.contested = true;
       fleeFromGrab(now);
-      if (distance <= 36) { peanut.state = 'held'; peanut.x = pointer.x + 12; peanut.y = pointer.y + 14; }
+      if (distance <= GRAB_REACH) grab();
     } else return;
-    swallowClick = true; event.preventDefault(); event.stopImmediatePropagation();
+    swallowClickUntil = now + 1000;
+    event.preventDefault(); event.stopImmediatePropagation();
   }
 
   function consumeFoodClick(event) {
-    if (swallowClick) {
-      swallowClick = false; event.preventDefault(); event.stopImmediatePropagation();
+    if (performance.now() < swallowClickUntil) {
+      swallowClickUntil = 0; event.preventDefault(); event.stopImmediatePropagation();
       return;
     }
-    if (peanut?.state !== 'held' || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+    if (!holding() || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
     const destination = navigationTarget(event);
     if (destination !== null) {
       // Use the site's existing hash routes so the held food and visitor survive.
@@ -409,6 +475,7 @@ export function startMenuVisitor() {
     }
   }
 
+  // The hash route for a same-site link, or null for anything that would leave this page.
   function navigationTarget(event) {
     const link = event.target.closest('a[href]');
     if (!link || link.hasAttribute('download') || link.target && link.target !== '_self' ||
@@ -422,9 +489,8 @@ export function startMenuVisitor() {
   }
 
   function followMenu() {
-    if (peanut?.state !== 'held') return;
-    pendingMenuFlight = true;
-    menuFlightFrom = bird.style.visibility === 'visible' && paintedPoint ? {...paintedPoint} : null;
+    if (!holding()) return;
+    follow = {from:bird.style.visibility === 'visible' && paintedPoint ? {...paintedPoint} : null};
     next = performance.now();
   }
 
@@ -455,40 +521,25 @@ export function startMenuVisitor() {
       event.target.closest('input, textarea, select, [contenteditable="true"]')) return;
     event.preventDefault();
     const now = performance.now();
-    if (peanut?.state === 'held') releasePeanut(now);
+    if (holding()) releasePeanut(now);
     else if (!['chase', 'carry-land', 'carry'].includes(phase)) spawnPeanut(now);
   }
 
   function tickPeanut(dt) {
     tickShells(dt);
-    if (!peanut) { food.style.display = 'none'; return; }
-    if (peanut.state === 'held') {
-      if (pointer.x >= 0 && pointer.y >= 0) { peanut.x = pointer.x + 12; peanut.y = pointer.y + 14; }
-    } else if (peanut.state !== 'carried') {
-      // Released throws retain vertical force as well as horizontal momentum.
-      // Fresh falling food keeps its accepted, easy-to-grab fall speed.
-      const seconds = dt / 1000, drag = peanut.state === 'falling' ? 2.6 : .65;
-      const damping = Math.exp(-drag * seconds), travel = (1 - damping) / drag, terminal = 351 / drag;
-      const horizontalDrag = .65, horizontalDamping = Math.exp(-horizontalDrag * seconds);
-      peanut.x += peanut.vx * (1 - horizontalDamping) / horizontalDrag;
-      peanut.y += terminal * seconds + (peanut.vy - terminal) * travel;
-      peanut.vx *= horizontalDamping; peanut.vy = terminal + (peanut.vy - terminal) * damping;
-      const right = Math.max(16, foodLayer.clientWidth - 16), floor = foodLayer.clientHeight - 18;
-      if (peanut.x < 16) { peanut.x = 16; if (peanut.vx < 0) peanut.vx *= -.55; }
-      if (peanut.x > right) { peanut.x = right; if (peanut.vx > 0) peanut.vx *= -.55; }
-      if (peanut.y < 10 && peanut.vy < 0) { peanut.y = 10; peanut.vy *= -.45; }
-      if (peanut.y >= floor) {
-        peanut.y = floor;
-        if (!peanut.broken && peanut.vy > 650) breakShell();
-        else if (peanut.vy > 0) peanut.vy = peanut.vy > 55 ? -peanut.vy * .35 : 0;
-        peanut.vx *= Math.exp(-6 * seconds);
-      }
+    if (!peanut) { food.style.display = 'none'; food.dataset.state = ''; return; }
+    if (holding()) {
+      if (pointer.x >= 0 && pointer.y >= 0) { peanut.x = pointer.x + HAND.x; peanut.y = pointer.y + HAND.y; }
+    } else if (isFree(peanut)) {
+      if (moveFood(peanut, dt / 1000, foodLayer.clientWidth, foodLayer.clientHeight)) breakShell();
       if (peanut.y >= foodLayer.clientHeight / 2) peanut.ready = true;
+      // Once the hand has moved away from contested food, he may try for it again.
+      if (peanut.contested && Math.hypot(pointer.x - peanut.x, pointer.y - peanut.y) > CONTEST_CLEAR) peanut.contested = false;
     }
     food.dataset.state = peanut.state;
     food.dataset.broken = String(peanut.broken);
     food.style.display = peanut.state === 'carried' ? 'none' : 'block';
-    food.style.transform = `translate(${peanut.x - 36}px, ${peanut.y - 36}px)`;
+    food.style.transform = `translate(${peanut.x - 36}px, ${peanut.y - 36}px) rotate(${peanut.angle.toFixed(1)}deg)`;
   }
 
   function startChase(now) {
@@ -655,17 +706,19 @@ export function startMenuVisitor() {
   function tick(now) {
     const dt = Math.min(40, now - last); last = now;
     tickPeanut(document.hidden ? 0 : dt);
-    if (pendingMenuFlight && peanut?.state !== 'held') pendingMenuFlight = false;
-    if (!document.hidden && pendingMenuFlight && now >= next && art.complete && art.naturalWidth && flightArt.complete && flightArt.naturalWidth) {
-      choose(now, 'walk', {from:menuFlightFrom});
-      if (phase === 'arrive') pendingMenuFlight = false;
+    const canAppear = !document.hidden && now >= next && art.complete && art.naturalWidth && flightArt.complete && flightArt.naturalWidth;
+    if (follow && !holding()) follow = null;
+    // Following food into a new view: fly there from wherever he is, retrying until it has a perch.
+    if (follow && canAppear) {
+      choose(now, 'walk', follow);
+      if (phase === 'arrive') follow = null;
     }
-    if (!document.hidden && phase === 'rest' && now >= next && art.complete && art.naturalWidth && flightArt.complete && flightArt.naturalWidth) choose(now, peanut && peanut.state !== 'held' ? 'peek' : undefined);
+    if (phase === 'rest' && canAppear) choose(now, peanut && !holding() ? 'peek' : undefined);
     if (phase === 'peek' && now >= peanutRollAt) {
       peanutRollAt = Infinity;
       if (!peanut && Math.random() < .28) spawnPeanut(now);
     }
-    if (peanut?.ready && !peanut.contested && ['falling', 'dropped'].includes(peanut.state) &&
+    if (isFree(peanut) && peanut.ready && !peanut.contested &&
       ['peek', 'walk', 'peek-hidden', 'duck', 'arrive'].includes(phase)) startChase(now);
     if (phase === 'peek' || phase === 'peek-hidden' || phase === 'walk' || phase === 'arrive') {
       const rect = rectFor(perch.element);
@@ -700,8 +753,8 @@ export function startMenuVisitor() {
         const head = {x:point.x + perch.nx * 28 * bodyScale, y:point.y + perch.ny * 28 * bodyScale};
         const distance = Math.hypot(pointer.x - head.x, pointer.y - head.y);
         const inView = head.x >= 0 && head.x <= layer.clientWidth && head.y >= 0 && head.y <= layer.clientHeight;
-        const freePeanut = peanut && ['falling', 'dropped'].includes(peanut.state) && !peanut.contested;
-        const heldPeanut = peanut?.state === 'held';
+        const freePeanut = isFree(peanut) && !peanut.contested;
+        const heldPeanut = holding();
         const near = inView && distance < 88 && !freePeanut;
         if (phase === 'walk') {
           exposure = footOffset;
@@ -750,7 +803,7 @@ export function startMenuVisitor() {
             actionAge += dt;
             if (actionAge > 11500) { actionAge = 0; peck = Math.random() < .55; }
             if (heldPeanut) { hungryMovement(point, rect, now, dt, false); point = pointFor(perch, rect, offset); }
-            const action = peanut && ['held', 'falling', 'dropped'].includes(peanut.state) ?
+            const action = holding() || isFree(peanut) ?
               {...peanutLook({x:point.x + perch.nx * exposure, y:point.y + perch.ny * exposure}, turn, perch.side), dip:0} : pose(actionAge);
             row = action.row; column = action.column;
             mirroredLook = action.mirrored || false;
