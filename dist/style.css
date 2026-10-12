@@ -89,22 +89,25 @@ footer{max-width:1740px;padding:20px 24px}
 .model-card .card-portrait img{object-fit:contain;padding:4px;filter:drop-shadow(0 8px 7px #0008)}
 .portrait-mode .viewport-hint{display:none}
 .controls{padding:10px 12px}
-.controls .control-row{display:grid;gap:8px;align-items:center;min-width:0}
-.controls .control-row+.control-row{margin-top:8px}
-.controls .animation-controls{grid-template-columns:auto minmax(0,1fr) 88px}
-.controls .playback-controls{grid-template-columns:minmax(0,1fr) auto minmax(60px,1fr) 34px}
-.controls .appearance-controls{grid-template-columns:auto minmax(100px,130px) auto minmax(96px,150px) minmax(0,1fr) 88px}
-.controls .appearance-controls #reset{grid-column:6}
-.controls .orbit-controls{grid-template-columns:88px auto minmax(60px,1fr) 34px}
+.controls .control-row{display:grid;gap:8px 10px;align-items:center;min-width:0}
+.controls .control-row+.control-row{margin-top:10px}
+.controls .control-sequence{grid-template-columns:92px minmax(0,1fr) 104px}
+.controls .control-fields{grid-template-columns:92px minmax(0,1fr) 92px minmax(0,1fr);padding:10px 0;border-top:1px solid #c9b17a1f;border-bottom:1px solid #c9b17a1f}
+.controls .control-actions{grid-template-columns:minmax(0,1fr) 104px 104px}
+.controls .control-range{display:grid;grid-template-columns:minmax(0,1fr) 30px;gap:8px;align-items:center;min-width:0}
 .controls .control-row select{width:100%;height:36px;padding:4px 8px}
 .controls .control-row select.team-input{width:100%}
-.controls .control-row .iron-button{padding:2px 4px;border-width:7px;height:36px;font-size:.82rem}
+.controls .control-row .iron-button{width:100%;padding:2px 4px;border-width:7px;height:36px;font-size:.82rem}
 .controls .control-row label{font-size:.8rem;white-space:nowrap}
 .controls .range{width:100%;min-width:0}
 .controls output{text-align:right;font-size:.8rem;font-variant-numeric:tabular-nums}
 .controls .loop-option{display:flex;align-items:center;gap:7px;cursor:pointer}
 .controls .loop-option input{margin:0;accent-color:var(--gold);width:15px;height:15px}
-@media(max-width:560px){.controls{padding:8px}.controls .animation-controls{grid-template-columns:auto minmax(0,1fr) 76px}.controls .appearance-controls{grid-template-columns:auto 100px minmax(0,1fr) 76px}.controls .appearance-controls #reset{grid-column:4;grid-row:1}.controls .appearance-controls label[for=lighting]{grid-row:2;grid-column:1}.controls .appearance-controls #lighting{grid-row:2;grid-column:2}.controls .orbit-controls{grid-template-columns:76px auto minmax(45px,1fr) 30px}.controls .playback-controls{grid-template-columns:minmax(0,1fr) auto minmax(45px,1fr) 30px}.controls .control-row{gap:6px}.controls .control-row label{font-size:.74rem}}
+/* The controls follow the viewer panel width, which narrows before the window does. */
+.controls{container-type:inline-size}
+@container (max-width:519px){.controls .control-row{gap:7px 8px}.controls .control-sequence{grid-template-columns:84px minmax(0,1fr) 88px}.controls .control-fields{grid-template-columns:84px minmax(0,1fr)}.controls .control-actions{grid-template-columns:minmax(0,1fr) 88px 88px}.controls .control-row label{font-size:.76rem}}
+@container (max-width:299px){.controls .control-sequence{grid-template-columns:minmax(0,1fr) 84px}.controls .control-sequence label{grid-column:1/-1}.controls .control-fields{grid-template-columns:minmax(0,1fr)}.controls .control-actions{grid-template-columns:1fr 1fr}.controls .control-actions .loop-option{grid-column:1/-1}}
+@media(max-width:560px){.controls{padding:8px}}
 
 /* Vampire Counts: looming Strigoi behind two outward-facing guards. */
 .army-picture[data-army="vampire-counts"] img.front{height:calc(84% / var(--body-height,1));bottom:5%;left:50%;z-index:1}
