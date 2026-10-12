@@ -1,0 +1,36 @@
+// Cloudflare Worker for the LowPolyWorks backend (Workers Free). Secrets are set with `wrangler secret put`.
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "lowpolyworks-vault",
+  "main": "worker.js",
+  "workers_dev": true,
+  "preview_urls": false,
+  "compatibility_date": "2026-09-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "alias": {
+    "@vercel/blob": "./cloudflare/vercel-stub.js",
+    "@vercel/blob/client": "./cloudflare/vercel-stub.js",
+    "@vercel/functions": "./cloudflare/vercel-stub.js"
+  },
+  "assets": {
+    "directory": ".",
+    "binding": "ASSETS",
+    "html_handling": "none",
+    "not_found_handling": "none",
+    "run_worker_first": ["/api/*"]
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "lowpolyworks-vault",
+      "database_id": "b58042f5-bfcb-4297-b7f2-5a98cd217735",
+      "migrations_dir": "migrations"
+    }
+  ],
+  "vars": {
+    "AUTHOR_ORIGIN": "https://lowpolyworks-vault.lowpolyworks-internal-tracker.workers.dev",
+    "TRACKING_STARTED_AT": "2026-10-05T21:28:48.774Z",
+    "MODEL_NOTIFICATIONS_ENABLED": "false"
+  },
+  "observability": { "enabled": true }
+}

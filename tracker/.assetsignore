@@ -1,0 +1,16 @@
+# Only the author and Vault pages are public; everything else in tracker/ stays private.
+*
+!index.html
+!author.html
+!author.css
+!author.js
+!vaultofsecrets.html
+!vaultofsecrets.css
+!vaultofsecrets.js
+!post-content.js
+!post-format.js
+!upload-workflow.js
+!vendor/
+!vendor/blob-client.js
+!vendor/model-files.js
+!vendor/blob-LICENSE.md

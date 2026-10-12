@@ -1,6 +1,7 @@
 import {timingSafeEqual} from 'node:crypto';
 // Removed Vault cards stay as named tombstones so their earlier downloads remain readable.
-const savedUnits=async()=>{const {blobState}=await import('./publishing-state.js'),{state}=await blobState.read();return [...state.unitCards||[],...Object.entries(state.removedCards||{}).map(([id,row])=>({id,name:row.name,deletedAt:row.removedAt,downloads:[]}))];};
+export const unitsOf=state=>[...state.unitCards||[],...Object.entries(state.removedCards||{}).map(([id,row])=>({id,name:row.name,deletedAt:row.removedAt,downloads:[]}))];
+const savedUnits=async()=>{const {blobState}=await import('./publishing-state.js');return unitsOf((await blobState.read()).state);};
 export async function trackedModels({loadUnits=savedUnits,includeRemoved=false}={}){
  // A fresh query bypasses the Pages CDN copy, so a just-published model is accepted at once.
  const response=await fetch('https://www.lowpolyworks.com/catalogue.json?tracking='+Date.now(),{cache:'no-store'});
@@ -35,6 +36,9 @@ export function eventPath(event,now=new Date()){
  if(event.country!==undefined)return `${event.testing?'testing':'live'}/v3/${now.toISOString().slice(0,10)}/${event.kind}/${event.model}/${event.format}/${event.visitorId||'anonymous'}/${countryCode(event.country)}/${event.id}.json`;
  return `${event.testing?'testing':'live'}/${event.visitorId?'v2':'v1'}/${now.toISOString().slice(0,10)}/${event.kind}/${event.model}/${event.format}/${event.visitorId?event.visitorId+'/':''}${event.id}.json`;
 }
+// Lists every live event blob page by page, then summarizes the listing.
+export const listSummary=listBlobs=>async options=>{const blobs=[];let cursor;do{const page=await listBlobs({prefix:'live/',limit:1000,cursor});blobs.push(...page.blobs);cursor=page.hasMore?page.cursor:undefined;}while(cursor);return summarize(blobs,options);};
+export const measurement='Unique visitors are anonymous browser IDs, not unique people. Earlier page loads without an ID are excluded from unique counts. Countries are estimated from network location; each browser uses its first known country in the reporting period. Earlier or unavailable locations are Unknown. Downloads are button clicks, not completed transfers. MDLxL counts cover the enabled LowPolyWorks application download button. Model views count a browser opening a model page, at most once per model per day.';
 export function summarize(blobs,{from='',to='',models=[]}={}){
  const totals={pageLoads:0,downloadClicks:0,modelViews:0,uniqueVisitors:0},timeline=new Map(),applications=[{id:'mdlxl',name:'MDLxL',zipClicks:0,total:0}],daily=new Map(),byModel=new Map(),visitors=new Set(),dailyVisitors=new Map(),visitorCountries=new Map(),coverage={identifiedPageLoads:0,unidentifiedPageLoads:0};let lastRecordedAt=null;
  // Every tracked model is listed, including new ones that have no downloads yet.
@@ -76,5 +80,5 @@ export function summarize(blobs,{from='',to='',models=[]}={}){
  const countries=[...byCountry].map(([code,uniqueVisitors])=>({code,name:code==='ZZ'?'Unknown':regionNames.of(code),uniqueVisitors,share:uniqueVisitors/totals.uniqueVisitors})).sort((a,b)=>(a.code==='ZZ')-(b.code==='ZZ')||b.uniqueVisitors-a.uniqueVisitors||a.name.localeCompare(b.name));
  return {totals,coverage,lastRecordedAt,countries,daily:[...daily.values()].sort((a,b)=>a.date.localeCompare(b.date)),models:[...byModel.values()].sort((a,b)=>b.total-a.total||b.views-a.views||a.name.localeCompare(b.name)),applications,
   // Compact per-day counts, [date, kind, model, format, count], for charts at any granularity.
-  timeline:[...timeline].map(([key,count])=>[...key.split('|'),count]).sort((a,b)=>a[0].localeCompare(b[0])),measurement:'Unique visitors are anonymous browser IDs, not unique people. Earlier page loads without an ID are excluded from unique counts. Countries are estimated from network location; each browser uses its first known country in the reporting period. Earlier or unavailable locations are Unknown. Downloads are button clicks, not completed transfers. MDLxL counts cover the enabled LowPolyWorks application download button. Model views count a browser opening a model page, at most once per model per day.'};
+  timeline:[...timeline].map(([key,count])=>[...key.split('|'),count]).sort((a,b)=>a[0].localeCompare(b[0])),measurement};
 }

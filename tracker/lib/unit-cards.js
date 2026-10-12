@@ -1,10 +1,11 @@
 import {randomUUID} from 'node:crypto';
-import {readFileSync} from 'node:fs';
 import {unpackFile,inspectModel,findTexture,fileType,fileLimit,sha256,pathKey,modelPattern} from '../vendor/model-files.js';
 import {fail,AUTHOR_ORIGIN,PUBLIC_ORIGIN} from './publishing.js';
-const nativeTextures=JSON.parse(readFileSync(new URL('./native-textures.json',import.meta.url)));
-export const unitArmies=JSON.parse(readFileSync(new URL('./unit-armies.json',import.meta.url)));
-const unitColours=JSON.parse(readFileSync(new URL('./unit-colours.json',import.meta.url)));
+// JSON imports bundle into the Cloudflare Worker, which has no file system to read from.
+import nativeTextures from './native-textures.json' with {type:'json'};
+import unitArmies from './unit-armies.json' with {type:'json'};
+import unitColours from './unit-colours.json' with {type:'json'};
+export {unitArmies};
 const assetUrl=id=>AUTHOR_ORIGIN+'/api/assets?id='+id;
 const text=(value,max,label)=>{if(typeof value!=='string'||!value.trim()||value.length>max)fail(400,'Enter '+label+'.');return value.trim();};
 export function unitView(card){return {...card,coverUrl:assetUrl(card.coverId),url:PUBLIC_ORIGIN+'/#model/'+card.id,models:card.models.map(model=>({...model,fileUrl:assetUrl(model.assetId),textureFiles:Object.fromEntries(Object.entries(model.textureAssets).map(([key,id])=>[key,assetUrl(id)]))})),downloads:card.downloads.map(file=>({...file,url:assetUrl(file.id)}))};}

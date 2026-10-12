@@ -4,3 +4,5 @@ node_modules/
 *.log
 .internal/
 tracker/.vercel/
+tracker/.wrangler/
+tracker/.dev.vars*

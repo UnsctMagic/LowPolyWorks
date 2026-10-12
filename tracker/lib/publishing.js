@@ -6,9 +6,10 @@ import {createModelFollows} from './model-follows.js';
 import {createModelReleases,pendingModelEmails,publishedModels,unitRelease} from './model-releases.js';
 import {trackedModels} from './events.js';
 import {createUnitCards,unitCatalogue,unitView,unitArmies,expiredRemovals} from './unit-cards.js';
+import {AUTHOR_ORIGIN} from './author-origin.js';
 const scrypt=promisify(scryptCallback);
 export const PUBLIC_ORIGIN='https://www.lowpolyworks.com';
-export const AUTHOR_ORIGIN='https://lowpolyworks-internal-tracker.vercel.app';
+export {AUTHOR_ORIGIN};
 export const fail=(status,message)=>{throw Object.assign(Error(message),{status});};
 export const digest=value=>createHash('sha256').update(value).digest('hex');
 const usernameOf=value=>{const username=text(value,40,'a username').toLowerCase();if(!/^[a-z0-9][a-z0-9._-]{1,39}$/.test(username))fail(400,'Use 2-40 letters, numbers, dots, underscores or hyphens for the username.');return username;};
@@ -19,8 +20,11 @@ const text=(value,max,label,optional=false)=>{if(typeof value!=='string'||value.
 const urlOf=(value,optional=true)=>{if(!value&&optional)return '';let url;try{url=new URL(value);}catch{fail(400,'Enter a full https:// link.');}if(url.protocol!=='https:'||url.username||url.password||url.href.length>2000)fail(400,'Enter a full https:// link.');return url.href;};
 export function iconOf(value){if(!value)return '';if(typeof value!=='string'||value.length>180000||!/^data:image\/(png|jpeg|webp);base64,[A-Za-z0-9+/]+={0,2}$/.test(value))fail(400,'Choose a PNG, JPG or WebP icon smaller than 130 KB.');return value;}
 export function initialState(){return {version:1,authors:[],posts:[],subscribers:[],invites:[],notifications:[],limits:{},uploads:[],projects:[{id:'mdlxl',name:'MDLxL',description:'A Warcraft III model editor.',url:'https://github.com/UnsctMagic/MDLxL'},{id:'warhammercraft',name:'WarhammerCraft',description:'Warhammer armies and models for Warcraft III.',url:'#armies'}]};}
-export async function hashPassword(password){if(typeof password!=='string'||password.length<12||password.length>256)fail(400,'Use a password between 12 and 256 characters.');const salt=token();return salt+':'+(await scrypt(password,salt,64)).toString('hex');}
-export async function checkPassword(password,stored){if(typeof password!=='string'||password.length>256||!stored)return false;const [salt,hash]=stored.split(':');return safeEqual((await scrypt(password,salt,64)).toString('hex'),hash);}
+// With a server-side pepper, a lighter scrypt (v2) fits the 10 ms CPU budget of Cloudflare Workers Free.
+// Older unpeppered hashes still verify and are upgraded at the next successful login.
+const peppered=(password,pepper)=>createHmac('sha256',pepper).update(password).digest();
+export async function hashPassword(password,pepper){if(typeof password!=='string'||password.length<12||password.length>256)fail(400,'Use a password between 12 and 256 characters.');const salt=token();if(pepper)return 'v2:'+salt+':'+(await scrypt(peppered(password,pepper),salt,64,{N:512})).toString('hex');return salt+':'+(await scrypt(password,salt,64)).toString('hex');}
+export async function checkPassword(password,stored,pepper){if(typeof password!=='string'||password.length>256||!stored)return false;const parts=stored.split(':');if(parts[0]==='v2')return Boolean(pepper)&&safeEqual((await scrypt(peppered(password,pepper),parts[1],64,{N:512})).toString('hex'),parts[2]);const [salt,hash]=parts;return safeEqual((await scrypt(password,salt,64)).toString('hex'),hash);}
 export function validatePost(input,state){const kind=input.kind;if(!['news','model-upload','model-update'].includes(kind))fail(400,'Choose news, a new model, or a model update.');const projectId=input.projectId||null;if(projectId&&!state.projects.some(p=>p.id===projectId))fail(400,'Choose an existing project.');const link=urlOf(input.link);if(kind!=='news'&&!link)fail(400,'Model posts need a link to the upload or update.');return {title:text(input.title,160,'a title'),body:text(input.body||'',20000,'post text',Boolean(input.poll||input.media?.length||input.videos?.length)),kind,projectId,link};}
 const authorView=a=>({id:a.id,name:a.name,icon:a.icon||(a.username==='unsanctionedmagic'?ownerAvatar:''),role:a.role,nameGraphic:a.username==='unsanctionedmagic'?'https://www.lowpolyworks.com/ui/unsanctionedmagic-name.png?v=20261007-amethyst':null});
 export function publicFeed(state,voterKey,includeDeleted=false){return {projects:state.projects,posts:state.posts.filter(post=>includeDeleted||!post.deletedAt).sort((a,b)=>b.publishedAt.localeCompare(a.publishedAt)).map(post=>({...post,...(post.unitCardId?{unitCard:unitView(state.unitCards.find(c=>c.id===post.unitCardId))}:{}),poll:pollView(post.poll,voterKey?.(post.id)),author:authorView(state.authors.find(a=>a.id===post.authorId)||{id:post.authorId,name:'Author'})}))};}
@@ -52,10 +56,12 @@ export function createPublishing({store,env=process.env,sendEmail,mailConfigured
   if(action==='delivery')return deliver(request);
   if(action==='login'){
    await limit(request,'login',12);const username=usernameOf(input.username),{state}=await store.read(),author=state.authors.find(a=>a.username===username);
-   const valid=await checkPassword(input.password,author?.password||'unknown-account:'+ '0'.repeat(128));if(!author||!valid)fail(401,'Username or password is incorrect.');return {author:authorView(author),cookie:setSession(author)};
+   const pepper=env.PUBLISHING_PASSWORD_PEPPER,valid=await checkPassword(input.password,author?.password||(pepper?'v2:':'')+'unknown-account:'+'0'.repeat(128),pepper);if(!author||!valid)fail(401,'Username or password is incorrect.');
+   if(pepper&&!author.password.startsWith('v2:')){const upgraded=await hashPassword(input.password,pepper);await store.mutate(s=>{const row=s.authors.find(a=>a.id===author.id);if(row?.password===author.password)row.password=upgraded;});}
+   return {author:authorView(author),cookie:setSession(author)};
   }
   if(action==='activate'){
-   await limit(request,'activate',12);const username=usernameOf(input.username),password=await hashPassword(input.password),name=text(input.name,60,'your display name'),credential=digest(String(input.token||''));
+   await limit(request,'activate',12);const username=usernameOf(input.username),password=await hashPassword(input.password,env.PUBLISHING_PASSWORD_PEPPER),name=text(input.name,60,'your display name'),credential=digest(String(input.token||''));
    const author=await store.mutate(state=>{if(state.authors.some(a=>a.username===username))fail(409,'That account already exists. Log in instead.');let role='author';if(!state.authors.some(a=>a.role==='owner')&&username===env.PUBLISHING_OWNER_USERNAME?.trim().toLowerCase()&&env.PUBLISHING_SETUP_TOKEN_HASH&&safeEqual(credential,env.PUBLISHING_SETUP_TOKEN_HASH))role='owner';else{const invite=state.invites.find(i=>i.username===username&&safeEqual(i.tokenHash,credential)&&i.expiresAt>now()&&!i.used);if(!invite)fail(403,'This invitation is invalid or has expired.');invite.used=true;}const row={id:randomUUID(),username,name,icon:'',password,role,sessionVersion:1};state.authors.push(row);return row;});return {author:authorView(author),cookie:setSession(author)};
   }
   if(action==='subscribe'||action==='confirm')fail(400,'Choose a model and check Update me below its downloads.');
