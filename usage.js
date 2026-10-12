@@ -1,5 +1,5 @@
 import {browserVisitorId as savedVisitorId} from './visitor-id.js';
-import {USAGE_ENDPOINT} from './usage-config.js';
+import {USAGE_ENDPOINT} from './usage-config.js?v=20261012-cloudflare';
 const enabled=location.hostname==='www.lowpolyworks.com'||location.hostname==='lowpolyworks.com';
 const parameters=new URLSearchParams(location.search),testing=parameters.has('tracking-test'),ownerOptOutKey='lowpolyworks.usageOptOut';
 function ownerOptedOut(){
@@ -14,8 +14,18 @@ function browserVisitorId(){
   return savedVisitorId();
  }catch(error){console.warn('Unique visitor tracking is unavailable',error.name);}
 }
+// A browser counts one view per model per UTC day, so revisits and refreshes do not add storage writes.
+function viewedToday(model){
+ try{
+  const today=new Date().toISOString().slice(0,10),saved=JSON.parse(localStorage.getItem('lowpolyworks.modelViews')||'{}'),seen=saved.date===today?saved.models:[];
+  if(seen.includes(model))return true;
+  localStorage.setItem('lowpolyworks.modelViews',JSON.stringify({date:today,models:[...seen,model]}));
+ }catch{}
+ return false;
+}
 export async function recordUsage(kind,model,format){
  if(!enabled||ownerOptedOut())return;
+ if(kind==='view'&&viewedToday(model))return;
  try{
   const event={id:crypto.randomUUID(),kind,model,format,testing,visitorId:browserVisitorId()};
   const response=await fetch(USAGE_ENDPOINT,{method:'POST',headers:{'Content-Type':'text/plain'},body:JSON.stringify(event),keepalive:true,credentials:'omit'});
