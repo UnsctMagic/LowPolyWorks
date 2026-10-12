@@ -174,5 +174,9 @@
   {
     "file": "WH_VC_BloodDragonAxe02.mdx",
     "sha256": "e6695082ade24b722e13a34867f2d826027592afa7ac5568611d3bdfa135dc09"
+  },
+  {
+    "file": "WH_WOC_KnightNurgle17_Attack_Slam_SanityFixed.mdx",
+    "sha256": "51a1a4375f50b5cc9793dab6bf141b7a1937da90c4d8441ed309ce2e660365b1"
   }
 ]
