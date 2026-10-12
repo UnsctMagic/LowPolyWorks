@@ -183,7 +183,7 @@ export function startMenuVisitor() {
         if (menu && point.y < menu.rect.bottom + 60) return false;
       }
     }
-    if (!walking && surroundings.frames.some(item => item.element !== candidate.element && overlaps(area, item.rect, candidate.ny ? 0 : 8))) return false;
+    if (surroundings.frames.some(item => item.element !== candidate.element && overlaps(area, item.rect, candidate.ny ? 0 : 8))) return false;
     if (area.left < 8 || area.right > layer.clientWidth - 8 || area.top < 8 || area.bottom > layer.clientHeight - 8) return false;
     if (Math.hypot(pointer.x - x, pointer.y - y) < (walking ? 200 : 135)) return false;
     if (surroundings.obstacles.some(rect => {
