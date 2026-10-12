@@ -127,3 +127,7 @@ footer{max-width:1740px;padding:20px 24px}
 
 /* Blood Dragon in the Vampire Counts army picture. */
 .army-picture[data-army="vampire-counts"] img.rear-left[src*="formation-blood-dragon-left.png"]{height:calc(81.65% / .9);left:26%}
+/* Use the post-feed link colours throughout the public site. */
+:root{--link:#acc6a2;--link-hover:#d1e3c8}
+body a[href]:any-link,body #mdlxl-ffmpeg-source[href]:any-link{color:var(--link);text-decoration-color:currentColor}
+body a[href]:any-link:hover,body #mdlxl-ffmpeg-source[href]:any-link:hover{color:var(--link-hover)}
