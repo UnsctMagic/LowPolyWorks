@@ -3238,7 +3238,7 @@
     "name": "Knight of Nurgle · Champion",
     "army": "warriors-of-chaos",
     "description": "There are many strange places to end up in the Old World...\r\n\r\nSome would claim the strangest is tucked within the comforting embrace of the Urfather.\r\n\r\nBut why? What could drive mortal men to seek out something so wrong?\r\n\r\nTell me, what would a knight who has lost his family to war continue fighting for? What is left to endure for those whose martial strength proved meaningless against the plights of life?\r\n\r\nThe strongest men are not broken with swords... I can tell you that much.\r\n\r\nIt is there, in those dark corners of the mind you will hear him whisper to you.\r\n\r\nHis embrace, his promises...\r\n\r\nNo more restless nights. No more seeing faces long buried. No more graves to dig... no more watching those you once loved fade and turn to dust... no more fearing the years that seem to pass faster and faster.\r\n\r\nHe would take all the pain away.\r\n\r\nHe would tuck those memories gently to sleep, still the passing of time, and silence every wound that steel could never mend...\r\n\r\nSuch a watchful father.\r\n\r\nA good father.\r\n\r\nHe does keep his promises.\r\n\r\nThe pain fades...\r\n\r\nThen the feelings.\r\n\r\nThen the memories.\r\n\r\nThen flesh swells, old wounds open and blossom yet ache no more, flies gather beneath a rusted visor and the body slowly rots... but somehow refuses to die.\r\n\r\nBut from that warm, rotten embrace do those knights rise once again...\r\n\r\nPerhaps to you they are disgusting abominations, bringers of death and decay, swollen, corpse-like and clad in rusted steel.\r\n\r\nBut in truth?\r\n\r\nThey have purpose.\r\n\r\nThey are at peace.\r\n\r\nThey are happy.\r\n\r\nAre you?...",
-    "credits": "Model Base - Vile Knight by HerrDave /  Nurgle Knight by Stein123\r\n\r\nHelm - Gladiator's Helmet by Deolrin / Bandit Enforcer by Johnwar\r\n\r\nHorns - Dire Maul Stone Deer Statue - WoW model\r\n\r\nFace/Shield Face/Tongue - Ghoul Re-Classic and Abomination Re-Classic by johnwar\r\n\r\nHorse head and tail - Headless Horseman by Johnwar\r\n\r\nFur Cloak - Chaos Warrior by Azazeron\r\n\r\nAxe Blade - Igneous Cleaver by Solu9 / Further edited by Epimetheus\r\n\r\nWeapon Shaft - Orcish Staff by Sunchips",
+    "credits": "Model Base - Vile Knight by HerrDave /  Nurgle Knight by Stein123\r\n\r\nHelm - Gladiator's Helmet by Deolrin / Bandit Enforcer by Johnwar\r\n\r\nHelm Horns - Goats by bakr\r\n\r\nHorns - Dire Maul Stone Deer Statue - WoW model\r\n\r\nFace/Shield Face/Tongue - Ghoul Re-Classic and Abomination Re-Classic by johnwar\r\n\r\nHorse head and tail - Headless Horseman by Johnwar\r\n\r\nFur Cloak - Chaos Warrior by Azazeron\r\n\r\nAxe Blade - Igneous Cleaver by Solu9 / Further edited by Epimetheus\r\n\r\nWeapon Shaft - Orcish Staff by Sunchips",
     "geosets": [
       {
         "index": 0,
@@ -3766,6 +3766,14 @@
       {
         "text": "Sunchips",
         "url": "https://www.hiveworkshop.com/members/sunchips.176515/"
+      },
+      {
+        "text": "Goats",
+        "url": "https://www.hiveworkshop.com/threads/goats.371456/"
+      },
+      {
+        "text": "bakr",
+        "url": "https://www.hiveworkshop.com/members/bakr.284239/"
       }
     ],
     "formationSequence": "Attack Slam",
