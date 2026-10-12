@@ -89,22 +89,41 @@ footer{max-width:1740px;padding:20px 24px}
 .model-card .card-portrait img{object-fit:contain;padding:4px;filter:drop-shadow(0 8px 7px #0008)}
 .portrait-mode .viewport-hint{display:none}
 .controls{padding:10px 12px}
-.controls .control-row{display:grid;gap:8px;align-items:center;min-width:0}
-.controls .control-row+.control-row{margin-top:8px}
-.controls .animation-controls{grid-template-columns:auto minmax(0,1fr) 88px}
-.controls .playback-controls{grid-template-columns:minmax(0,1fr) auto minmax(60px,1fr) 34px}
-.controls .appearance-controls{grid-template-columns:auto minmax(100px,130px) minmax(0,1fr) 88px}
-.controls .appearance-controls #reset{grid-column:4}
-.controls .orbit-controls{grid-template-columns:88px auto minmax(60px,1fr) 34px}
+.controls .control-row{display:grid;gap:8px 10px;align-items:center;min-width:0}
+.controls .control-row+.control-row{margin-top:10px}
+.controls .control-sequence{grid-template-columns:92px minmax(0,1fr) 104px}
+.controls .control-fields{grid-template-columns:92px minmax(0,1fr) 92px minmax(0,1fr);padding:10px 0;border-top:1px solid #c9b17a1f;border-bottom:1px solid #c9b17a1f}
+.controls .control-actions{grid-template-columns:minmax(0,1fr) 104px 104px}
+.controls .control-range{display:grid;grid-template-columns:minmax(0,1fr) 30px;gap:8px;align-items:center;min-width:0}
 .controls .control-row select{width:100%;height:36px;padding:4px 8px}
 .controls .control-row select.team-input{width:100%}
-.controls .control-row .iron-button{padding:2px 4px;border-width:7px;height:36px;font-size:.82rem}
+.controls .control-row .iron-button{width:100%;padding:2px 4px;border-width:7px;height:36px;font-size:.82rem}
 .controls .control-row label{font-size:.8rem;white-space:nowrap}
 .controls .range{width:100%;min-width:0}
 .controls output{text-align:right;font-size:.8rem;font-variant-numeric:tabular-nums}
 .controls .loop-option{display:flex;align-items:center;gap:7px;cursor:pointer}
-.controls .loop-option input{margin:0;accent-color:var(--gold);width:15px;height:15px}
-@media(max-width:560px){.controls{padding:8px}.controls .animation-controls{grid-template-columns:auto minmax(0,1fr) 76px}.controls .appearance-controls{grid-template-columns:auto 100px minmax(0,1fr) 76px}.controls .orbit-controls{grid-template-columns:76px auto minmax(45px,1fr) 30px}.controls .playback-controls{grid-template-columns:minmax(0,1fr) auto minmax(45px,1fr) 30px}.controls .control-row{gap:6px}.controls .control-row label{font-size:.74rem}}
+/* Baldur's Gate style fields: stone-framed recessed boxes, carved slider grooves with brass knobs. */
+.controls .control-row select{appearance:none;-webkit-appearance:none;height:36px;padding:0 30px 0 10px;border:7px solid transparent;border-image:url('ui/slate-frame-v2.png') 180 stretch;border-radius:0;background-color:#05080f;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%23000' stroke-width='3.6'/%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%23e3c77f' stroke-width='2'/%3E%3C/svg%3E"),linear-gradient(#020409f2,#0a1122ee),var(--stone);background-repeat:no-repeat,no-repeat,repeat;background-position:right 8px center,0 0,0 0;background-size:12px 8px,auto,250px 250px;box-shadow:inset 0 2px 7px #000,0 2px 0 #020409;color:#e3c77f;font-family:'IM Fell English',Georgia,serif;font-size:.95rem;text-shadow:1px 1px 0 #000;cursor:pointer}
+/* Keep fills, including the team colour, inside the stone frame. */
+.controls .control-row select{background-clip:padding-box}
+.controls .control-row select:hover{filter:brightness(1.15)}
+.controls .control-row select option{background:#0a0f1a;color:#dbd8c6;font-family:Georgia,serif}
+.controls .control-row select.team-input{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%23000' stroke-width='3.6'/%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%23f3ead2' stroke-width='2'/%3E%3C/svg%3E"),linear-gradient(#ffffff1c,#0000004d);background-repeat:no-repeat;background-position:right 8px center,0 0;background-size:12px 8px,auto;font-weight:bold;text-shadow:0 1px 1px #0008}
+.controls .range{-webkit-appearance:none;appearance:none;height:24px;background:transparent;cursor:pointer}
+.controls .range::-webkit-slider-runnable-track{height:10px;border:2px solid;border-color:#000 #6f7d99 #8d9ab3 #000;border-radius:2px;background:linear-gradient(90deg,#d8bf8366 1px,transparent 1px) 0 0/12.5% 100% repeat-x,linear-gradient(#000,#1d2639);box-shadow:inset 0 2px 4px #000,0 1px 0 #00000080}
+.controls .range::-moz-range-track{height:10px;border:2px solid;border-color:#000 #6f7d99 #8d9ab3 #000;border-radius:2px;background:linear-gradient(90deg,#d8bf8366 1px,transparent 1px) 0 0/12.5% 100% repeat-x,linear-gradient(#000,#1d2639);box-shadow:inset 0 2px 4px #000,0 1px 0 #00000080}
+.controls .range::-webkit-slider-thumb{-webkit-appearance:none;margin-top:-8px;width:12px;height:22px;border:1px solid #1a140a;border-radius:2px;background:linear-gradient(90deg,#f1dfa6,#bfa66c 35%,#6f5f3c 72%,#3a3020);box-shadow:inset 0 1px 0 #fff7,inset 0 -2px 0 #0007,0 2px 3px #000b}
+.controls .range::-moz-range-thumb{width:12px;height:22px;border:1px solid #1a140a;border-radius:2px;background:linear-gradient(90deg,#f1dfa6,#bfa66c 35%,#6f5f3c 72%,#3a3020);box-shadow:inset 0 1px 0 #fff7,inset 0 -2px 0 #0007,0 2px 3px #000b;width:10px;height:20px}
+.controls .range:hover::-webkit-slider-thumb{filter:brightness(1.15)}.controls .range:hover::-moz-range-thumb{filter:brightness(1.15)}
+.controls .range:disabled{cursor:default;opacity:.6}
+.controls output{font-size:.88rem;color:#e3c77f;font-family:'IM Fell English',Georgia,serif;text-shadow:1px 1px 0 #000}
+.controls .loop-option input{appearance:none;-webkit-appearance:none;flex:none;margin:0;width:18px;height:18px;border:2px solid;border-color:#000 #5c6b88 #5c6b88 #000;border-radius:1px;background:linear-gradient(#020409,#0e1526);box-shadow:inset 0 2px 3px #000;cursor:pointer}
+.controls .loop-option input:checked{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6.5l3 3 5-7' fill='none' stroke='%23e3c77f' stroke-width='2.2'/%3E%3C/svg%3E") center/13px no-repeat,linear-gradient(#020409,#0e1526)}
+/* The controls follow the viewer panel width, which narrows before the window does. */
+.controls{container-type:inline-size}
+@container (max-width:519px){.controls .control-row{gap:7px 8px}.controls .control-sequence{grid-template-columns:84px minmax(0,1fr) 88px}.controls .control-fields{grid-template-columns:84px minmax(0,1fr)}.controls .control-actions{grid-template-columns:minmax(0,1fr) 88px 88px}.controls .control-row label{font-size:.76rem}}
+@container (max-width:299px){.controls .control-sequence{grid-template-columns:minmax(0,1fr) 84px}.controls .control-sequence label{grid-column:1/-1}.controls .control-fields{grid-template-columns:minmax(0,1fr)}.controls .control-actions{grid-template-columns:1fr 1fr}.controls .control-actions .loop-option{grid-column:1/-1}}
+@media(max-width:560px){.controls{padding:8px}}
 
 /* Vampire Counts: looming Strigoi behind two outward-facing guards. */
 .army-picture[data-army="vampire-counts"] img.front{height:calc(84% / var(--body-height,1));bottom:5%;left:50%;z-index:1}
