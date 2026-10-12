@@ -65,6 +65,9 @@
 .feed-empty,.journal-loading{color:var(--muted);padding:16px 0 36px}
 footer>div{display:flex;gap:22px}
 .signup{max-width:620px}
+.acknowledgements{max-width:720px}.acknowledgements h1{margin-bottom:18px}.acknowledgements h2{margin:30px 0 12px;font-size:1.3rem}.acknowledgements p{margin:0 0 12px;line-height:1.6}
+.acknowledgement-list{list-style:none;margin:0;padding:0;display:grid;gap:10px}.acknowledgement-list li{display:grid;gap:3px;padding:12px 14px;border:1px solid #ffffff14;border-radius:4px;background:#0000002e}
+.acknowledgement-list .acknowledgement-name{font-family:'IM Fell English',Georgia,serif;font-size:1.12rem;color:#e5ca85}.acknowledgement-list small{color:var(--muted);font-size:.82rem}.acknowledgement-list small a,.acknowledgements p a{color:#acc6a2}
 .signup h1{margin-bottom:22px}
 .signup>p{margin-bottom:16px}
 .signup>p.muted{font-size:.85rem;color:var(--muted)}
