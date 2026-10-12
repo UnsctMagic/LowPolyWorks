@@ -3443,6 +3443,15 @@
         "textures": [
           "Textures\\TimberWolf.blp"
         ]
+      },
+      {
+        "index": 46,
+        "vertices": 22,
+        "triangles": 36,
+        "material": 43,
+        "textures": [
+          "UI\\Glues\\SinglePlayer\\HumanCampaign3D\\HumanCampaignFootman.blp"
+        ]
       }
     ],
     "sequences": [
