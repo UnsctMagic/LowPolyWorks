@@ -5,6 +5,7 @@ import {fileURLToPath} from 'node:url';
 
 // The stored byte fingerprint makes a model replacement refresh its tag while
 // page, artwork, credit and changelog edits keep the existing update time.
+// A New! badge is tied to first publication, independently of later replacements.
 export function syncModelUpdates(root,now=Date.now()){
  const file=path.join(root,'model-updates.json');
  const previous=fs.existsSync(file)?fs.readFileSync(file,'utf8'):null;
@@ -13,7 +14,7 @@ export function syncModelUpdates(root,now=Date.now()){
  for(const row of rows){
   const sha256=createHash('sha256').update(fs.readFileSync(path.join(root,'models',row.file))).digest('hex');
   const old=updates.models[row.id];
-  updates.models[row.id]={sha256,...(old?.updatedAt?{updatedAt:old.updatedAt}:{}),...(old&&old.sha256!==sha256?{updatedAt:new Date(now).toISOString()}:{} )};
+  updates.models[row.id]={sha256,...(old?.publishedAt?{publishedAt:old.publishedAt}:!old?{publishedAt:new Date(now).toISOString()}:{}),...(old?.updatedAt?{updatedAt:old.updatedAt}:{}),...(old&&old.sha256!==sha256?{updatedAt:new Date(now).toISOString()}:{} )};
  }
  const output=JSON.stringify(updates,null,2)+'\n';
  if(output!==previous)fs.writeFileSync(file,output);

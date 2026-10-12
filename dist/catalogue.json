@@ -3019,7 +3019,7 @@
   },
   {
     "id": "nurgle-champion",
-    "file": "WH_WOC_KnightNurgle17_Attack_Slam_SanityFixed.mdx",
+    "file": "WH_WOC_KnightNurgleChampion01.mdx",
     "name": "Knight of Nurgle · Champion",
     "army": "warriors-of-chaos",
     "description": "There are many strange places to end up in the Old World...\r\n\r\nSome would claim the strangest is tucked within the comforting embrace of the Urfather.\r\n\r\nBut why? What could drive mortal men to seek out something so wrong?\r\n\r\nTell me, what would a knight who has lost his family to war continue fighting for? What is left to endure for those whose martial strength proved meaningless against the plights of life?\r\n\r\nThe strongest men are not broken with swords... I can tell you that much.\r\n\r\nIt is there, in those dark corners of the mind you will hear him whisper to you.\r\n\r\nHis embrace, his promises...\r\n\r\nNo more restless nights. No more seeing faces long buried. No more graves to dig... no more watching those you once loved fade and turn to dust... no more fearing the years that seem to pass faster and faster.\r\n\r\nHe would take all the pain away.\r\n\r\nHe would tuck those memories gently to sleep, still the passing of time, and silence every wound that steel could never mend...\r\n\r\nSuch a watchful father.\r\n\r\nA good father.\r\n\r\nHe does keep his promises.\r\n\r\nThe pain fades...\r\n\r\nThen the feelings.\r\n\r\nThen the memories.\r\n\r\nThen flesh swells, old wounds open and blossom yet ache no more, flies gather beneath a rusted visor and the body slowly rots... but somehow refuses to die.\r\n\r\nBut from that warm, rotten embrace do those knights rise once again...\r\n\r\nPerhaps to you they are disgusting abominations, bringers of death and decay, swollen, corpse-like and clad in rusted steel.\r\n\r\nBut in truth?\r\n\r\nThey have purpose.\r\n\r\nThey are at peace.\r\n\r\nThey are happy.\r\n\r\nAre you?...",
@@ -3091,7 +3091,7 @@
       },
       {
         "index": 7,
-        "vertices": 41,
+        "vertices": 40,
         "triangles": 44,
         "material": 7,
         "textures": [
@@ -3365,8 +3365,8 @@
       },
       {
         "index": 37,
-        "vertices": 79,
-        "triangles": 119,
+        "vertices": 70,
+        "triangles": 108,
         "material": 34,
         "textures": [
           "Textures\\DarkPortal03.blp"
@@ -3401,7 +3401,7 @@
       },
       {
         "index": 41,
-        "vertices": 89,
+        "vertices": 87,
         "triangles": 162,
         "material": 38,
         "textures": [
@@ -3461,7 +3461,7 @@
       "Attack - 2",
       "Attack Slam"
     ],
-    "bytes": 240724,
+    "bytes": 232498,
     "portraitBackdropGeosets": [
       2
     ],
@@ -3547,7 +3547,7 @@
     ],
     "formationSequence": "Attack Slam",
     "searchDescription": "Preview and download the Knight of Nurgle · Champion model for Warcraft 3. Add a plague-themed Warhammer Fantasy champion to your Warriors of Chaos army.",
-    "sha256": "51a1a4375f50b5cc9793dab6bf141b7a1937da90c4d8441ed309ce2e660365b1",
+    "sha256": "3d565c3c28f13b61653e4bcbe0f310894b9e833b6d658c393b4bf60c17b5b51b",
     "formationTime": 815,
     "formationBodyHeight": 1
   },

@@ -134,11 +134,13 @@
       "sha256": "b75c09c1c7c3bb353599d321bc5d6aa9700f393cdbd1a10fc387812cb45ebaef"
     },
     "blood-dragon": {
-      "sha256": "e6695082ade24b722e13a34867f2d826027592afa7ac5568611d3bdfa135dc09"
+      "sha256": "e6695082ade24b722e13a34867f2d826027592afa7ac5568611d3bdfa135dc09",
+      "publishedAt": "2026-10-12T09:03:56.313Z"
     },
     "nurgle-champion": {
-      "sha256": "51a1a4375f50b5cc9793dab6bf141b7a1937da90c4d8441ed309ce2e660365b1",
-      "updatedAt": "2026-10-12T08:00:36.311Z"
+      "sha256": "3d565c3c28f13b61653e4bcbe0f310894b9e833b6d658c393b4bf60c17b5b51b",
+      "publishedAt": "2026-10-12T09:03:56.313Z",
+      "updatedAt": "2026-10-12T09:07:58.772Z"
     }
   }
 }

@@ -45,7 +45,7 @@ export async function createViewer(canvas,row,{thumbnail=false,portrait=false,fo
 
  // The Nurgle Champion axe stacks a skull overlay on its steel face.
  // Composite that overlay in the draw call; leave the parsed model and MDX intact.
- if(row.file==='WH_WOC_KnightNurgleChampion.mdx'){
+ if(row.id==='nurgle-champion'||row.file==='WH_WOC_KnightNurgleChampion.mdx'){
   const axeLayer=model.Materials[model.Geosets[36].MaterialID].Layers[0],axeRenderLayer={...axeLayer,FilterMode:6},setLayerProps=native.setLayerProps;
   native.setLayerProps=function(layer,textureID){return setLayerProps.call(this,layer===axeLayer?axeRenderLayer:layer,textureID);};
  }

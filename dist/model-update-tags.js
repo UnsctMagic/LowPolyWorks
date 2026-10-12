@@ -1,12 +1,11 @@
 const dayMs=24*60*60*1000;
 const greens=['#83e69a','#63c37b','#48985f'];
-const dateFormat=new Intl.DateTimeFormat('en-GB',{day:'2-digit',month:'2-digit',timeZone:'Europe/Amsterdam'});
 
-export function modelUpdateTag(updatedAt,now=Date.now()){
- const time=Date.parse(updatedAt),age=now-time;
+export function modelUpdateTag(publishedAt,now=Date.now()){
+ const time=Date.parse(publishedAt),age=now-time;
  if(!Number.isFinite(time)||age<0||age>=3*dayMs)return null;
  const day=Math.floor(age/dayMs);
- return {label:'Updated '+dateFormat.format(time),colour:greens[day],day,nextAt:time+(day+1)*dayMs};
+ return {label:'New!',colour:greens[day],day,nextAt:time+(day+1)*dayMs};
 }
 
 export function modelUpdateTagMarkup(id){
@@ -20,7 +19,7 @@ export function mountModelUpdateTags(root,updates,{now=()=>Date.now(),setTimer=s
   clearTimer(timer);
   const time=now();let next=Infinity;
   for(const element of root.querySelectorAll('[data-model-updated]')){
-   const info=modelUpdateTag(updates[element.dataset.modelUpdated]?.updatedAt,time);
+   const info=modelUpdateTag(updates[element.dataset.modelUpdated]?.publishedAt,time);
    element.hidden=!info;
    if(info){element.textContent=info.label;element.style.color=info.colour;element.dataset.day=String(info.day);next=Math.min(next,info.nextAt);}
   }
