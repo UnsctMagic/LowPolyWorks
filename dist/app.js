@@ -8,7 +8,7 @@ import {recordUsage} from './usage.js?v=20261012-owner-optout';
 import {renderJournal} from './journal.js?v=20261012-champion-depth';
 import {renderMdlxl} from './mdlxl.js?v=20261011-discord-workshop';
 if (/^\/mdlxl\/?$/.test(location.pathname) && !location.hash) history.replaceState(null,'',location.pathname+location.search+'#project/mdlxl');
-const app=document.querySelector('#app'),baseCatalogue=await fetch('catalogue.json?v=20261012-nurgle-horns').then(r=>r.json());
+const app=document.querySelector('#app'),baseCatalogue=await fetch('catalogue.json?v=20261012-champion-depth').then(r=>r.json());
 const armies=await fetch('armies.json?v=20261012-chaos-before-champion').then(r=>r.json());
 const descriptionParagraphs=(text,links=[])=>text.trim().split(/\r?\n\s*\r?\n/).map(paragraph=>`<p>${creditText({creditLinks:links},paragraph.trim()).replace(/\r?\n/g,'<br>')}</p>`).join('');
 const escape=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
