@@ -1,0 +1,54 @@
+{
+  "scope": "Champion clipping radius only",
+  "modelSha256": "7d3d9b3911a061c5bf9c7d7af5a3beaa0cd93eea2c28d963973b767bc5034acf",
+  "syntax": "passed",
+  "userFeedback": {
+    "effectsDisabled": "smooth",
+    "candidateWithEffects": "smooth",
+    "normalPage": "still flickers",
+    "depthCandidate": "user confirms MDLxL clipping smooth and published clipping flickers in the same view",
+    "normalDepthPage": "user reports still flickers; candidate rejected for publication"
+  },
+  "exercised": [
+    "Stand animation",
+    "Attack - 1 animation",
+    "normal mouse rotation",
+    "native eye particles",
+    "native team glow"
+  ],
+  "rendererErrors": [],
+  "publication": "not authorized; awaiting successful visible test",
+  "previousCandidate": {
+    "type": "separate effect vertex bindings",
+    "normalPageResult": "still flickers",
+    "status": "rejected"
+  },
+  "activeCandidate": "normal-page clipping comparison only",
+  "testCamera": {
+    "distance": 988.4549732473355,
+    "zoom": 6.67,
+    "publishedNear": 0.47383498290444914,
+    "matchedNear": 1.784952429134778,
+    "animation": "running",
+    "effects": "enabled"
+  },
+  "normalDepthChecks": [
+    "normal page Stand playback",
+    "mouse wheel close zoom",
+    "mouse drag rotation",
+    "native particles and team glow visible",
+    "no browser renderer errors"
+  ],
+  "depthCandidateStatus": "rejected after normal-page failure; source clipping restored",
+  "normalComparison": {
+    "effects": "enabled",
+    "zoom": 13.15137470816489,
+    "userResult": "pending",
+    "mode": "matched",
+    "sameCanvas": true,
+    "matchedNear": 1.784952429134778,
+    "publishedNear": 0.47383498290444914,
+    "animation": "running",
+    "distance": 988.4549732473182
+  }
+}

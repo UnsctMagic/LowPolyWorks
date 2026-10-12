@@ -1,0 +1,14 @@
+<!doctype html><meta charset="utf-8"><base href="/">
+<style>body{background:#111;color:white;font:17px sans-serif}canvas{width:670px;height:500px}button{margin:5px;padding:10px}button[aria-pressed=true]{background:#f1d484}#status{font-size:19px;margin:10px 0}</style>
+<script type="importmap">{"imports":{"three":"./vendor/three.module.js","three/addons/controls/OrbitControls.js":"./vendor/OrbitControls.js"}}</script>
+<h1>Aspiring Champion — actual website zoom</h1>
+<p>Animation and all effects stay enabled. Both modes use the same camera position and zoom. Drag to rotate.</p>
+<button id="published" aria-pressed="true">Published clipping</button><button id="matched" aria-pressed="false">MDLxL clipping</button>
+<div id="status">Loading…</div><canvas></canvas>
+<script type="module">
+import {createViewer} from './depth-probe.js';
+const rows=await fetch('catalogue.json').then(r=>r.json());
+const v=await createViewer(document.querySelector('canvas'),rows.find(r=>r.id==='aspiring'));v.probeView();
+for(const id of ['published','matched'])document.querySelector('#'+id).onclick=()=>{v.probeDepth(id==='matched');for(const button of document.querySelectorAll('button'))button.setAttribute('aria-pressed',String(button.id===id));};
+function report(){const s=v.probeState();document.querySelector('#status').textContent='Animation: '+(s.playing?'RUNNING':'PAUSED')+' | Effects: ENABLED | Frame: '+Math.round(s.frame)+' | Camera distance: '+s.distance.toFixed(1)+' | Zoom: '+s.zoom.toFixed(2)+' | Near: '+s.near.toFixed(3);requestAnimationFrame(report);}report();
+</script>
