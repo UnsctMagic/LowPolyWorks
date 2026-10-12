@@ -1,11 +1,11 @@
 import {modelUpdateTagMarkup,mountModelUpdateTags} from './model-update-tags.js?v=20261012-new-and-updated-tags';
 import {modelFollowMarkup,mountModelFollow} from './model-follows.js?v=20261011-confirm-result';
-import {uploadedModelCard,renderUnitCard} from './unit-card.js?v=20261012-new-and-updated-tags';
+import {uploadedModelCard,renderUnitCard} from './unit-card.js?v=20261012-champion-depth';
 import {startMenuVisitor} from './menu-visitor.js?v=20261012-connected-chains';
-import {createViewer} from './viewer.js?v=20261012-new-model-tags';
+import {createViewer} from './viewer.js?v=20261012-champion-depth';
 import {TEAM_COLORS} from './vendor/mdlxl/src/team-colors.js';
 import {recordUsage} from './usage.js?v=20261012-owner-optout';
-import {renderJournal} from './journal.js?v=20261009-follow-email';
+import {renderJournal} from './journal.js?v=20261012-champion-depth';
 import {renderMdlxl} from './mdlxl.js?v=20261011-discord-workshop';
 if (/^\/mdlxl\/?$/.test(location.pathname) && !location.hash) history.replaceState(null,'',location.pathname+location.search+'#project/mdlxl');
 const app=document.querySelector('#app'),baseCatalogue=await fetch('catalogue.json?v=20261012-nurgle-horns').then(r=>r.json());
