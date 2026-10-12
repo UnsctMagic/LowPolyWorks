@@ -30,7 +30,7 @@
   "vars": {
     "AUTHOR_ORIGIN": "https://lowpolyworks-vault.lowpolyworks-internal-tracker.workers.dev",
     "TRACKING_STARTED_AT": "2026-10-05T21:28:48.774Z",
-    "MODEL_NOTIFICATIONS_ENABLED": "false"
+    "MODEL_NOTIFICATIONS_ENABLED": "true"
   },
   "observability": { "enabled": true }
 }

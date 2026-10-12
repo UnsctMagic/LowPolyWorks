@@ -1,5 +1,5 @@
 import {browserVisitorId as savedVisitorId} from './visitor-id.js';
-import {USAGE_ENDPOINT} from './usage-config.js';
+import {USAGE_ENDPOINT} from './usage-config.js?v=20261012-cloudflare';
 const enabled=location.hostname==='www.lowpolyworks.com'||location.hostname==='lowpolyworks.com';
 const parameters=new URLSearchParams(location.search),testing=parameters.has('tracking-test'),ownerOptOutKey='lowpolyworks.usageOptOut';
 function ownerOptedOut(){
