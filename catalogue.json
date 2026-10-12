@@ -3571,8 +3571,8 @@
       },
       {
         "index": 36,
-        "vertices": 128,
-        "triangles": 144,
+        "vertices": 64,
+        "triangles": 72,
         "material": 33,
         "textures": [
           "Textures\\SlaughterHouse.blp"
@@ -3589,81 +3589,72 @@
       },
       {
         "index": 38,
-        "vertices": 128,
-        "triangles": 144,
-        "material": 35,
-        "textures": [
-          "UI\\Glues\\SinglePlayer\\HumanCampaign3D\\AxeBladeRedishSteel.blp"
-        ]
-      },
-      {
-        "index": 39,
         "vertices": 64,
         "triangles": 60,
-        "material": 36,
+        "material": 35,
         "textures": [
           "Textures\\UndeadTransportShip.blp"
         ]
       },
       {
-        "index": 40,
+        "index": 39,
         "vertices": 184,
         "triangles": 136,
-        "material": 37,
+        "material": 36,
         "textures": [
           "TerrainArt\\Felwood\\Felwood_Poison.blp"
         ]
       },
       {
-        "index": 41,
+        "index": 40,
         "vertices": 99,
         "triangles": 156,
-        "material": 38,
+        "material": 37,
         "textures": [
           "Units\\Undead\\Skeleton\\Skeleton.blp"
         ]
       },
       {
-        "index": 42,
+        "index": 41,
         "vertices": 38,
         "triangles": 48,
-        "material": 39,
+        "material": 38,
         "textures": [
           "UI\\Glues\\SinglePlayer\\UndeadCampaign3D\\GhoulSkinWhitehands.blp"
         ]
       },
       {
-        "index": 43,
+        "index": 42,
         "vertices": 242,
         "triangles": 252,
-        "material": 40,
+        "material": 39,
         "textures": [
           "Buildings\\Human\\HumanTower\\Tower.blp"
         ]
       },
       {
-        "index": 44,
+        "index": 43,
         "vertices": 8,
         "triangles": 4,
-        "material": 41,
+        "material": 40,
         "textures": [
           "Doodads\\Cinematic\\GlowingRunes\\GLowColors.blp"
         ]
       },
       {
-        "index": 45,
+        "index": 44,
         "vertices": 75,
         "triangles": 76,
-        "material": 42,
+        "material": 41,
         "textures": [
           "Textures\\TimberWolf.blp"
         ]
       },
       {
-        "index": 46,
+        "index": 45,
         "vertices": 22,
         "triangles": 36,
-        "material": 43,
+        "material": 42,
         "textures": [
           "UI\\Glues\\SinglePlayer\\HumanCampaign3D\\HumanCampaignFootman.blp"
         ]
@@ -3685,7 +3676,7 @@
       "Attack - 2",
       "Attack Slam"
     ],
-    "bytes": 252287,
+    "bytes": 241755,
     "portraitBackdropGeosets": [
       2
     ],
@@ -3787,7 +3778,7 @@
     ],
     "formationSequence": "Attack Slam",
     "searchDescription": "Preview and download the Knight of Nurgle · Champion model for Warcraft 3. Add a plague-themed Warhammer Fantasy champion to your Warriors of Chaos army.",
-    "sha256": "436a67756383b38bd693e8e475ecc886a6ce9876d56e022dabb656e14d977620",
+    "sha256": "372c98ba87220cf0e3e39c53c1ada4a6a13a084856f15da83fcbb1a54c758221",
     "formationTime": 815,
     "formationBodyHeight": 1,
     "changelog": [
