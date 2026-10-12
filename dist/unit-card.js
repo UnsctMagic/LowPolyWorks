@@ -1,5 +1,5 @@
 import {modelUpdateTagMarkup} from './model-update-tags.js?v=20261012-new-and-updated-tags';
-import {modelFollowMarkup,mountModelFollow} from './model-follows.js?v=20261009-follow-email';
+import {modelFollowMarkup,mountModelFollow} from './model-follows.js?v=20261012-cloudflare';
 import {postBody} from './post-format.js';
 import {TEAM_COLORS} from './vendor/mdlxl/src/team-colors.js';
 const escape=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));

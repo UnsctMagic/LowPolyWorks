@@ -1,10 +1,11 @@
 import {createHash,randomUUID} from 'node:crypto';
 import {modelEmail} from './model-email.js';
+import {AUTHOR_ORIGIN} from './author-origin.js';
 const origin='https://www.lowpolyworks.com';
 const hash=value=>createHash('sha256').update(value).digest('hex');
 const active=sub=>sub.confirmed&&sub.emailVerified&&sub.modelIds?.length>0;
 const updateWindow=86400000;
-export const unitRelease=card=>({id:card.id,source:'vault',name:card.name,url:origin+'/#model/'+card.id,imageUrl:'https://lowpolyworks-internal-tracker.vercel.app/api/assets?id='+card.coverId,files:[],fingerprint:hash(JSON.stringify(card.downloads.map(file=>file.sha256).sort()))});
+export const unitRelease=card=>({id:card.id,source:'vault',name:card.name,url:origin+'/#model/'+card.id,imageUrl:AUTHOR_ORIGIN+'/api/assets?id='+card.coverId,files:[],fingerprint:hash(JSON.stringify(card.downloads.map(file=>file.sha256).sort()))});
 const eligible=(sub,job)=>active(sub)&&(job.kind==='model-upload'?(!job.createdAt||sub.newModelsSince<=Date.parse(job.createdAt)):(sub.modelIds.includes(job.modelId)&&(!job.createdAt||sub.modelFollowSince?.[job.modelId]<=Date.parse(job.createdAt))));
 export const pendingModelEmails=state=>(state.notifications||[]).filter(job=>job.source==='catalogue'&&!job.cancelledAt).reduce((count,job)=>count+job.recipients.filter(id=>!job.sent.includes(id)).length,0);
 

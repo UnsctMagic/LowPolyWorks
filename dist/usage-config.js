@@ -1,1 +1,1 @@
-export const USAGE_ENDPOINT='https://lowpolyworks-internal-tracker.vercel.app/api/events';
+export const USAGE_ENDPOINT='https://lowpolyworks-vault.lowpolyworks-internal-tracker.workers.dev/api/events';

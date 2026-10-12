@@ -5,7 +5,7 @@ import vm from 'node:vm';
 import {randomUUID} from 'node:crypto';
 
 const visitor=fs.readFileSync(new URL('../dist/visitor-id.js',import.meta.url),'utf8').replace('export function browserVisitorId','function savedVisitorId');
-const usage=fs.readFileSync(new URL('../dist/usage.js',import.meta.url),'utf8').replace(/^import.*?;\r?\n/gm,'').replace('export async function','async function');
+const usage=fs.readFileSync(new URL('../dist/usage.js',import.meta.url),'utf8').replace(/^import.*?;\r?\n/gm,'').replace(/^export /gm,'');
 const code=visitor+'\nconst USAGE_ENDPOINT="https://tracker.invalid/api/events";\n'+usage;
 function browser(){
  const saved=new Map(),events=[];
@@ -33,4 +33,23 @@ test('other visitors still count and the opt-out URL works when storage is block
  assert.equal(b.events.length,2);assert.equal(b.events[0].visitorId,b.events[1].visitorId);
  const blocked=b.page('?tracking-opt-out=1',{getItem(){throw Error('Blocked');},setItem(){throw Error('Blocked');}});
  await blocked('visit');await blocked('download','khorne-axe','mdx');assert.equal(b.events.length,2);
+});
+test('a browser records one view per model per day, while downloads and visits are never deduplicated',async()=>{
+ const b=browser(),open=b.page();
+ await open('view','graveguard');await open('view','graveguard');await open('view','strigoi-vampire');await b.page()('view','graveguard');
+ await open('download','graveguard','mdx');await open('download','graveguard','mdx');await open('visit');await open('visit');
+ assert.deepEqual(b.events.map(event=>event.kind+':'+(event.model||'')),['view:graveguard','view:strigoi-vampire','download:graveguard','download:graveguard','visit:','visit:']);
+ b.saved.set('lowpolyworks.modelViews',JSON.stringify({date:'2000-01-01',models:['graveguard']}));await open('view','graveguard');assert.equal(b.events.at(-1).kind,'view');
+ const blocked=b.page('',{getItem(){throw Error('Blocked');},setItem(){throw Error('Blocked');}});await blocked('view','graveguard');assert.equal(b.events.at(-1).model,'graveguard');
+});
+test("Shredder's play is sent as one shredder event, and never from an opted-out browser",async()=>{
+ const b=browser(),open=b.page();
+ const shredder=page=>counts=>vm.runInContext(`recordShredder(${JSON.stringify(counts)})`,page);
+ const ctx=vm.createContext({location:{hostname:'www.lowpolyworks.com',search:''},URLSearchParams,crypto:{randomUUID},localStorage:{getItem:key=>b.saved.get(key)||null,setItem:(key,value)=>b.saved.set(key,value)},console:{warn(){}},fetch:async(_url,options)=>{b.events.push(JSON.parse(options.body));return {ok:true};}});
+ vm.runInContext(code,ctx);
+ assert.equal(await shredder(ctx)({peek:2,feed:1}),true);
+ assert.equal(b.events.length,1);assert.equal(b.events[0].kind,'shredder');assert.deepEqual(b.events[0].counts,{peek:2,feed:1});assert(b.events[0].visitorId);
+ await b.page('?tracking-opt-out=1')('visit');
+ assert.equal(await shredder(ctx)({feed:1}),false);assert.equal(b.events.length,1);
+ await open('visit');assert.equal(b.events.length,1);
 });

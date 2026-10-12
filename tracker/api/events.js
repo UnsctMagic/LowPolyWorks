@@ -10,7 +10,7 @@ export function createEventsHandler({writeBlob=put,loadModels=trackedModels}={})
  if(Number(req.headers['content-length'])>512){res.status(413).end();return;}
  if(typeof input==='string'){try{input=JSON.parse(input);}catch{res.status(400).end();return;}}
  try{
-  const models=input?.kind==='download'&&input.model!=='mdlxl'?await loadModels():[];
+  const models=(input?.kind==='download'&&input.model!=='mdlxl'||input?.kind==='view')?await loadModels():[];
   const event=validateEvent(input,models);if(!event){res.status(400).end();return;}
   event.country=countryCode(req.headers['x-vercel-ip-country']);
   const at=new Date();

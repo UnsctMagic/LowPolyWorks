@@ -23,7 +23,7 @@ async function selectModel(){
  finally{if(current===version)modelSelect.disabled=sequenceSelect.disabled=teamSelect.disabled=false;}
 }
 window.addEventListener('message',async event=>{
- if(event.source!==parent||!['https://lowpolyworks-internal-tracker.vercel.app',location.origin].includes(event.origin))return;
+ if(event.source!==parent||!['https://lowpolyworks-vault.lowpolyworks-internal-tracker.workers.dev','https://lowpolyworks-internal-tracker.vercel.app',location.origin].includes(event.origin))return;
  if(event.data?.type==='studio-clear'){version++;clear();modelSelect.replaceChildren();sequenceSelect.replaceChildren();modelSelect.disabled=sequenceSelect.disabled=true;status.textContent='Choose model files to see a preview.';return;}
  if(event.data?.type==='studio-colour'){teamSelect.value=event.data.colour;if(viewer)await selectModel();return;}
  if(event.data?.type!=='studio-files'&&event.data?.type!=='studio-card')return;
@@ -47,5 +47,5 @@ sequenceSelect.onchange=()=>viewer?.sequence(Number(sequenceSelect.value));
 teamSelect.onchange=selectModel;
 // Module texture loading can finish after the iframe load event. Signal readiness
 // only after the message listener is installed so the first file selection arrives.
-parent.postMessage({type:'studio-mounted'},'https://lowpolyworks-internal-tracker.vercel.app');
-if(location.origin!=='https://lowpolyworks-internal-tracker.vercel.app')parent.postMessage({type:'studio-mounted'},location.origin);
+for(const origin of ['https://lowpolyworks-vault.lowpolyworks-internal-tracker.workers.dev','https://lowpolyworks-internal-tracker.vercel.app'])parent.postMessage({type:'studio-mounted'},origin);
+if(!['https://lowpolyworks-vault.lowpolyworks-internal-tracker.workers.dev','https://lowpolyworks-internal-tracker.vercel.app'].includes(location.origin))parent.postMessage({type:'studio-mounted'},location.origin);

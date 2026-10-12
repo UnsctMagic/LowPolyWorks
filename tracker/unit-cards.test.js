@@ -14,6 +14,7 @@ const original=fs.readFileSync(new URL('../dist/models/WH_VC_Graveguard03.mdx',i
 function pack(){const model=parseMDX(original.buffer.slice(original.byteOffset,original.byteOffset+original.byteLength));model.Textures.find(t=>t.Image&&![1,2].includes(t.ReplaceableId)).Image='Custom\\skin.blp';const edited=new Uint8Array(generateMDX(model));const textures=JSON.parse(fs.readFileSync(new URL('../dist/textures.json',import.meta.url))),ref=parseMDX(original.buffer.slice(original.byteOffset,original.byteOffset+original.byteLength)).Textures.find(t=>t.Image&&![1,2].includes(t.ReplaceableId)).Image;const skin=fs.readFileSync(new URL('../dist/'+textures[ref.toLowerCase()],import.meta.url));return zipSync({'Pack/Main.mdx':edited,'Pack/Variant.mdx':edited,'Pack/Custom/skin.blp':skin});}
 function fixture({notifications=false}={}){let state=initialState(),writes=Promise.resolve(),time=1791532800000;const mail=[];const files=new Map(),permits=[];const store={read:async()=>({state:structuredClone(state)}),mutate:change=>{const task=writes.then(async()=>{const copy=structuredClone(state),result=await change(copy);state=copy;return structuredClone(result);});writes=task.catch(()=>{});return task;}};const env={PUBLISHING_SESSION_SECRET:'unit-test-secret'.repeat(4),PUBLISHING_OWNER_USERNAME:'owner',PUBLISHING_SETUP_TOKEN_HASH:digest('setup'),MODEL_NOTIFICATIONS_ENABLED:String(notifications)};const service=createPublishing({store,env,now:()=>time,mailConfigured:()=>notifications,sendEmail:async(message,key)=>{mail.push({message,key});return key;},createUploadToken:async p=>{permits.push(p);return 'test-token';},inspectUpload:async path=>{const file=files.get(path);if(!file)throw Error('Missing upload');return {size:file.bytes.length,contentType:file.type};},readUpload:async path=>files.get(path).bytes,saveAsset:async(path,bytes,type)=>files.set(path,{bytes,type})});return {...service,store,files,permits,mail,get state(){return state;},set time(value){time=value;}};}
 async function account(f,username='owner',owner){let token='setup';if(owner){const invite=await f.execute('invite',{username},owner);token=new URLSearchParams(new URL(invite.url).hash.slice(1)).get('invite');}const result=await f.execute('activate',{username,name:username,password:'long-unit-test-password',token});const session=result.cookie.match(/^lpw_session=([^;]+)/)[1];return {session,csrf:(await f.execute('me',{}, {session})).csrf};}
+async function login(f,username='owner'){const session=(await f.execute('login',{username,password:'long-unit-test-password'})).cookie.match(/^lpw_session=([^;]+)/)[1];return {session,csrf:(await f.execute('me',{},{session})).csrf};}
 async function upload(f,request,name,bytes){const p=await f.execute('unit-upload-token',{name,size:bytes.length},request);f.files.set(p.pathname,{bytes,type:p.type});return (await f.execute('unit-upload-complete',{id:p.id},request)).upload;}
 async function cover(f,request){const bytes=Uint8Array.from([137,80,78,71,13,10,26,10]),p=await f.execute('upload-token',{name:'unit-card.png',size:bytes.length,type:'image/png'},request);f.files.set(p.pathname,{bytes,type:'image/png'});return (await f.execute('upload-complete',{id:p.id},request)).media;}
 const content=(upload,image)=>({id:'unit-'+randomUUID(),name:'Two models',projectId:'warhammercraft',army:'vampire-counts',description:'**Lore** with [a link](https://example.test/lore) and [img]https://example.test/image.png[/img].',byline:'[Finished author](https://example.test/author)',credits:'**Model Base**\n\n[Original model](https://example.test/base) by [Source author](https://example.test/source)',uploadIds:[upload.id],coverId:image.id,defaultModelId:upload.models[0].assetId});
@@ -73,4 +74,42 @@ test('Vault publishes trigger background delivery only for actual file changes, 
  const first=await changed('Revision one');card=await publish('update-unit',{...input,revision:card.revision,uploadIds:[first.id],defaultModelId:first.models[0].assetId});assert.equal(tasks.length,2);assert.equal(f.mail.length,2);
  f.time=1791532800000+3600000;const second=await changed('Revision two');card=await publish('update-unit',{...input,revision:card.revision,uploadIds:[second.id],defaultModelId:second.models[0].assetId});assert.equal(tasks.length,3);assert.equal(f.mail.length,2);assert.equal(f.state.modelReleases.models[input.id].lastUpdateAt,1791532800000+3600000);
  assert.equal(f.state.notifications.filter(job=>job.kind==='model-update').length,1);
+});
+test('permanent removal hides a Vault card at once, can be undone for 24 hours, then deletes its card, post and files',async()=>{
+ const f=fixture(),deleted=[],start=1791532800000;let owner=await account(f);const author=await account(f,'contributor',owner);let elapsed=0;
+ const service=createPublishing({store:f.store,env:{PUBLISHING_SESSION_SECRET:'unit-test-secret'.repeat(4),PUBLISHING_OWNER_USERNAME:'owner',PUBLISHING_SETUP_TOKEN_HASH:digest('setup')},now:()=>start+elapsed,mailConfigured:()=>false,sendEmail:async()=>{},createUploadToken:async()=>'test-token',inspectUpload:async path=>({size:f.files.get(path).bytes.length,contentType:f.files.get(path).type}),readUpload:async path=>f.files.get(path).bytes,saveAsset:async(path,bytes,type)=>f.files.set(path,{bytes,type}),deleteFiles:async paths=>deleted.push(...paths)});
+ const u=await upload(f,author,'models.zip',pack()),image=await cover(f,author),input=content(u,image);await service.execute('publish-unit',input,author);
+ const kept=await upload(f,author,'other.mdx',original),keptImage=await cover(f,author),other=content(kept,keptImage);await service.execute('publish-unit',other,author);
+ await assert.rejects(service.execute('remove-unit',{id:input.id,revision:0},author),{status:403});
+ const removed=await service.execute('remove-unit',{id:input.id,revision:0},owner);assert.equal(removed.card.removeAt,new Date(start+86400000).toISOString());
+ assert.deepEqual((await service.execute('catalogue')).cards.map(card=>card.id),[other.id]);assert.equal((await service.execute('feed')).posts.length,1);
+ await assert.rejects(service.execute('restore-unit',{id:input.id,revision:1},owner),{status:409});
+ await assert.rejects(service.execute('update-unit',{...input,revision:1},author),{status:409});
+ await service.execute('undo-remove-unit',{id:input.id,revision:1},owner);assert.equal((await service.execute('catalogue')).cards.length,2);assert.equal((await service.execute('feed')).posts.length,2);
+ await service.execute('delete-unit',{id:input.id,revision:2},owner);await service.execute('remove-unit',{id:input.id,revision:3},owner);
+ elapsed=86400000-1;owner=await login(service);await service.execute('undo-remove-unit',{id:input.id,revision:4},owner);assert.equal((await service.execute('catalogue')).cards.length,1,'a card hidden before removal stays hidden after undo');
+ await service.execute('remove-unit',{id:input.id,revision:5},owner);elapsed+=86400000;owner=await login(service);
+ await assert.rejects(service.execute('undo-remove-unit',{id:input.id,revision:6},owner),{status:404},'the next admin Vault visit deletes the expired card');
+ const me=await service.execute('me',{},owner);assert.deepEqual(me.unitCards.map(card=>card.id),[other.id]);
+ assert.equal(f.state.posts.length,1);assert(!f.state.uploads.some(row=>row.id===u.id||row.parentUploadId===u.id||row.id===image.id));
+ assert(f.state.uploads.some(row=>row.id===kept.id)&&f.state.uploads.some(row=>row.id===keptImage.id));
+ assert(deleted.length>=4&&deleted.every(path=>!path.includes(kept.id)));assert.equal(f.state.removedCards[input.id].name,input.name);
+});
+test('the admin edits, hides and permanently removes existing catalogue cards with a 24-hour undo',async()=>{
+ const f=fixture();let owner=await account(f);const author=await account(f,'contributor',owner);
+ const edit={id:'graveguard',name:'Grave Guard',army:'vampire-counts',description:'New lore.',credits:'Model Base - Necron Guard by Rhapsodie',authors:[{name:'Unsanctioned Magic',url:'https://example.test/um'}],creditLinks:[{text:'Rhapsodie',url:'https://example.test/r'}]};
+ await assert.rejects(f.execute('edit-model',edit,author),{status:403});
+ await assert.rejects(f.execute('edit-model',{...edit,army:'dwarfs'},owner),{status:400});
+ await assert.rejects(f.execute('edit-model',{...edit,authors:[{name:'Bad',url:'javascript:alert(1)'}]},owner),{status:400});
+ await f.execute('edit-model',edit,owner);await assert.rejects(f.execute('edit-model',edit,owner),{status:409});
+ const saved=(await f.execute('catalogue')).modelEdits.graveguard;assert.equal(saved.name,'Grave Guard');assert.equal(saved.revision,1);
+ await f.execute('reset-model',{id:'graveguard',revision:1},owner);assert.deepEqual((await f.execute('catalogue')).modelEdits,{});
+ await f.execute('hide-model',{id:'graveguard'},owner);await f.execute('remove-model',{id:'graveguard'},owner);
+ await assert.rejects(f.execute('restore-model',{id:'graveguard'},owner),{status:409});
+ await f.execute('undo-remove-model',{id:'graveguard'},owner);assert.deepEqual((await f.execute('catalogue')).hiddenModels,['graveguard'],'hidden before removal stays hidden');
+ await f.execute('restore-model',{id:'graveguard'},owner);await f.execute('edit-model',edit,owner);
+ await f.execute('remove-model',{id:'graveguard'},owner);assert.deepEqual((await f.execute('catalogue')).hiddenModels,['graveguard']);
+ f.time=1791532800000+86400000;owner=await login(f);await assert.rejects(f.execute('undo-remove-model',{id:'graveguard'},owner),{status:410});
+ const me=await f.execute('me',{},owner);assert.deepEqual(me.removedModels,['graveguard']);assert.deepEqual(me.modelRemovals,{});assert.deepEqual(me.hiddenModels,['graveguard']);assert.equal(me.modelEdits.graveguard,undefined);
+ await assert.rejects(f.execute('restore-model',{id:'graveguard'},owner),{status:410});
 });

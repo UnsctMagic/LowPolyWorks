@@ -1,4 +1,4 @@
-const API='https://lowpolyworks-internal-tracker.vercel.app/api/publishing';
+const API='https://lowpolyworks-vault.lowpolyworks-internal-tracker.workers.dev/api/publishing';
 const storageKey='lowpolyworks.modelFollows';
 export function modelFollowMarkup(){return `<section class="model-follow" aria-label="Model emails"><label class="model-follow-label"><input type="checkbox" name="updateMe" disabled>Update me</label><p>Emails for this model’s updates and new uploads.</p><form><label for="model-follow-email">Your email</label><input id="model-follow-email" name="email" type="email" autocomplete="email" maxlength="254" placeholder="you@example.com" required disabled><button class="iron-button" type="submit" disabled>Confirm by email</button></form><p class="follow-recipient"></p><button class="iron-button follow-confirm" type="button" hidden>Confirm Update me</button><p class="follow-status" role="status">Checking availability…</p></section>`;}
 export async function mountModelFollow(element,row,{confirmation='',fetchApi=fetch,storage=localStorage}={}){

@@ -1,6 +1,6 @@
 const token=process.env.MODEL_NOTIFICATIONS_TOKEN;
 if(!token)throw Error('MODEL_NOTIFICATIONS_TOKEN is not configured.');
-const url=new URL('https://lowpolyworks-internal-tracker.vercel.app/api/model-notifications');
+const url=new URL('https://lowpolyworks-vault.lowpolyworks-internal-tracker.workers.dev/api/model-notifications');
 if(process.env.MODEL_PUBLICATION)url.searchParams.set('publication',process.env.MODEL_PUBLICATION);
 const response=await fetch(url,{
  method:'POST',headers:{Authorization:'Bearer '+token},signal:AbortSignal.timeout(280000),
