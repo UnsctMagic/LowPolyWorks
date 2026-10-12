@@ -1,5 +1,5 @@
 import {initialState,fail} from './publishing.js';
-import {countryCode,measurement} from './events.js';
+import {countryCode,measurement,summarize} from './events.js';
 // Cloudflare D1 storage: the publishing state is one versioned row, and each usage event is one row.
 const uuid=/^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89ab][a-f0-9]{3}-[a-f0-9]{12}$/i,slug=/^[a-z0-9-]{1,100}$/;
 const regionNames=new Intl.DisplayNames(['en'],{type:'region',fallback:'none'});
@@ -32,12 +32,14 @@ export function createD1Events(db){
  // Aggregates in SQL, so the CPU cost stays flat as events accumulate.
  async function summary({from='',to='',models=[]}={}){
   const where='WHERE valid=1 AND (?1=\'\' OR date>=?1) AND (?2=\'\' OR date<=?2)',q=sql=>db.prepare(sql).bind(from,to);
-  const [totalsRows,dailyRows,timelineRows,countryRows]=(await db.batch([
+  const [totalsRows,dailyRows,timelineRows,countryRows,shredderRows]=(await db.batch([
    q(`SELECT SUM(kind='visit') pageLoads,SUM(kind='download') downloadClicks,SUM(kind='view') modelViews,COUNT(DISTINCT visitor) uniqueVisitors,SUM(kind='visit' AND visitor IS NOT NULL) identifiedPageLoads,SUM(kind='visit' AND visitor IS NULL) unidentifiedPageLoads,MAX(recorded_at) lastRecordedAt FROM events ${where}`),
    q(`SELECT date,SUM(kind='visit') pageLoads,SUM(kind='download') downloadClicks,COUNT(DISTINCT visitor) uniqueVisitors FROM events ${where} GROUP BY date ORDER BY date`),
    q(`SELECT date,kind,model,format,COUNT(*) count FROM events ${where} AND kind<>'visit' GROUP BY date,kind,model,format ORDER BY date,kind,model,format`),
    // Each browser counts once, in the first known country of the period.
    q(`SELECT country code,COUNT(*) uniqueVisitors FROM (SELECT country,ROW_NUMBER() OVER (PARTITION BY visitor ORDER BY recorded_at,country) rank FROM events ${where} AND visitor IS NOT NULL AND country<>'ZZ') WHERE rank=1 GROUP BY country`),
+   // Shredder sessions are few (batched, a handful per browser a day), so summarize() reads them from their pathnames.
+   q(`SELECT pathname,recorded_at uploadedAt FROM events WHERE kind='shredder' AND (?1='' OR date>=?1) AND (?2='' OR date<=?2)`),
   ])).map(result=>result.results);
   const row=totalsRows[0]||{},totals={pageLoads:row.pageLoads||0,downloadClicks:row.downloadClicks||0,modelViews:row.modelViews||0,uniqueVisitors:row.uniqueVisitors||0};
   const applications=[{id:'mdlxl',name:'MDLxL',zipClicks:0,total:0}],byModel=new Map();
@@ -51,7 +53,7 @@ export function createD1Events(db){
   const known=countryRows.reduce((sum,row)=>sum+row.uniqueVisitors,0),countries=[...countryRows,...totals.uniqueVisitors>known?[{code:'ZZ',uniqueVisitors:totals.uniqueVisitors-known}]:[]]
    .map(({code,uniqueVisitors})=>({code,name:code==='ZZ'?'Unknown':regionNames.of(code),uniqueVisitors,share:uniqueVisitors/totals.uniqueVisitors}))
    .sort((a,b)=>(a.code==='ZZ')-(b.code==='ZZ')||b.uniqueVisitors-a.uniqueVisitors||a.name.localeCompare(b.name));
-  return {totals,coverage:{identifiedPageLoads:row.identifiedPageLoads||0,unidentifiedPageLoads:row.unidentifiedPageLoads||0},lastRecordedAt:row.lastRecordedAt||null,countries,daily:dailyRows.map(({date,pageLoads,downloadClicks,uniqueVisitors})=>({date,pageLoads,downloadClicks,uniqueVisitors})),
+  return {totals,coverage:{identifiedPageLoads:row.identifiedPageLoads||0,unidentifiedPageLoads:row.unidentifiedPageLoads||0},lastRecordedAt:row.lastRecordedAt||null,countries,shredder:summarize(shredderRows,{from,to}).shredder,daily:dailyRows.map(({date,pageLoads,downloadClicks,uniqueVisitors})=>({date,pageLoads,downloadClicks,uniqueVisitors})),
    models:[...byModel.values()].sort((a,b)=>b.total-a.total||b.views-a.views||a.name.localeCompare(b.name)),applications,timeline:timelineRows.map(({date,kind,model,format,count})=>[date,kind,model,format,count]),measurement};
  }
  return {write,summary};

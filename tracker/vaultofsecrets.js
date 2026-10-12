@@ -21,7 +21,7 @@ const armyOptions=(selected='')=>account.unitArmies.map(a=>`<option value="${esc
 function workspace(){
  postsLoaded=false;
  app.innerHTML=`<div class="vault-top"><div><h1>Vault of Secrets</h1><p class="muted">${escape(account.author.name)}${owner()?' <span class="badge">Admin</span>':''}</p></div><button id="logout" class="secondary">Log out</button></div>
-<nav class="vault-nav" aria-label="Workspace"><button data-tab="units">Unit cards</button><button data-tab="upload">New unit card</button><button data-tab="posts">Posts &amp; account</button>${owner()?'<button data-tab="activity">Activity</button>':''}</nav>
+<nav class="vault-nav" aria-label="Workspace"><button data-tab="units">Unit cards</button><button data-tab="upload">New unit card</button><button data-tab="posts">Posts &amp; account</button>${owner()?'<button data-tab="activity">Activity</button><button data-tab="stash">Shredder&#39;s Stash</button>':''}</nav>
 <section id="units-panel">
  <div id="removals" class="removals" hidden></div>
  <div class="filters" role="search"><input type="search" id="filter-query" placeholder="Search by name, author or army" aria-label="Search unit cards" value="${escape(prefs.query)}"><select id="filter-army" aria-label="Army"><option value="">All armies</option>${armyOptions(prefs.army)}<option value="other" ${prefs.army==='other'?'selected':''}>Other projects</option></select><select id="filter-status" aria-label="Status"><option value="">Any status</option><option value="live">On the site</option><option value="hidden">Hidden</option><option value="edited">Edited in the Vault</option></select>${owner()?'<select id="filter-source" aria-label="Source"><option value="">All cards</option><option value="vault">Vault uploads</option><option value="catalogue">Original catalogue</option></select>':''}<select id="filter-sort" aria-label="Order"><option value="army">Group by army</option><option value="name">Name A–Z</option><option value="downloads">Most downloads</option><option value="recent">Recently added</option></select></div>
@@ -36,7 +36,7 @@ function workspace(){
  <fieldset><legend>3 · Text &amp; credits</legend>${editorField('description','Description')}${editorField('byline','By — finished model authors')}${editorField('credits','Credits')}<p class="hint">Markdown and BBCode work here, including links and images.</p><button type="button" id="text-preview" class="secondary">Preview text</button><section id="text-result" class="post-body" hidden></section></fieldset>
  <div class="actions"><button id="publish-unit" type="submit" disabled>Publish unit card</button><button type="button" id="cancel-upload" class="secondary" hidden>Cancel upload</button></div><p id="unit-status" class="status" role="status"></p>
 </form></section>
-<section id="posts-panel" hidden><div id="author-app"></div></section><section id="activity-panel" hidden></section>`;
+<section id="posts-panel" hidden><div id="author-app"></div></section><section id="activity-panel" hidden></section><section id="stash-panel" hidden></section>`;
  app.querySelector('#logout').onclick=async()=>{await api('logout',{});account=null;clearDraft();login();};
  app.querySelector('.vault-nav').onclick=event=>{const tab=event.target.closest('[data-tab]')?.dataset.tab;if(tab)openTab(tab);};
  for(const id of ['query','army','status','source','sort']){const input=app.querySelector('#filter-'+id);if(!input)continue;input.value=prefs[id]||'';input[id==='query'?'oninput':'onchange']=()=>{prefs[id]=input.value;savePrefs();renderUnits();};}
@@ -52,9 +52,9 @@ function workspace(){
 }
 function openTab(tab){
  const panel=tab==='catalogue'?'catalogue':tab;
- for(const name of ['units','catalogue','upload','posts','activity'])app.querySelector('#'+name+'-panel').hidden=name!==panel;
+ for(const name of ['units','catalogue','upload','posts','activity','stash'])app.querySelector('#'+name+'-panel').hidden=name!==panel;
  for(const button of app.querySelectorAll('[data-tab]')){const current=button.dataset.tab===(tab==='catalogue'?'units':tab);if(current)button.setAttribute('aria-current','page');else button.removeAttribute('aria-current');}
- const run=async()=>{if(tab==='posts'&&!postsLoaded){postsLoaded=true;const editor=await import('./author.js?v=20261009-unit-upload');await editor.start();}if(tab==='activity')await activity();if(tab==='units')renderUnits();};
+ const run=async()=>{if(tab==='posts'&&!postsLoaded){postsLoaded=true;const editor=await import('./author.js?v=20261009-unit-upload');await editor.start();}if(tab==='activity')await activity();if(tab==='stash')await stash();if(tab==='units')renderUnits();};
  run().catch(error=>app.querySelector('#'+panel+'-panel').append(Object.assign(document.createElement('p'),{className:'status',textContent:error.message})));
 }
 const status=(selector,message)=>{const node=app.querySelector(selector);if(node)node.textContent=message;};
@@ -195,6 +195,14 @@ function unitIndex(report){
  const index=new Map(units().map(row=>[row.id,{id:row.id,name:row.name,army:row.army,group:row.group||'Other projects',tag:row.removeAt?'Removing':row.hidden?'Hidden':row.kind==='vault'?'Vault':''}])),removed=new Set(account.removedModels||[]);
  for(const row of report.models)if(!index.has(row.id))index.set(row.id,{id:row.id,name:row.name,army:'',group:'Removed or unlisted',tag:removed.has(row.id)||row.id.startsWith('unit-')?'Removed':'Unlisted'});
  return index;
+}
+// Shredder's Stash: how other people play with Shredder. Counts come batched from the site and never include opted-out browsers.
+async function stash(){
+ const panel=app.querySelector('#stash-panel');panel.textContent='Opening the stash…';
+ const report=await api('analytics'),stats=report.shredder,number=value=>new Intl.NumberFormat().format(value||0);
+ const rows=[['peek','Played with his peeking','Times they made him duck while he peeked'],['grab','Caught a falling peanut','Peanuts grabbed out of the air'],['feed','Fed him peanuts','Peanuts they threw that he caught'],['crack','Cracked a shell','Hard throws that broke the shell'],['follow','Led him across menus','Menu changes with a peanut in hand']];
+ const metric=(value,label)=>`<div class="metric"><strong>${number(value)}</strong><span>${label}</span></div>`;
+ panel.innerHTML=`<h2>Shredder's Stash</h2><div class="metrics">${metric(stats.people,'People who played with him')}${metric(stats.interactions.feed.count,'Peanuts fed')}${metric(stats.interactions.feed.people,'People who fed him')}</div><table><thead><tr><th scope="col">What they did</th><th scope="col">People</th><th scope="col">Times</th></tr></thead><tbody>${rows.map(([kind,label,detail])=>`<tr><td>${label}<br><span class="hint">${detail}</span></td><td>${number(stats.interactions[kind].people)}</td><td>${number(stats.interactions[kind].count)}</td></tr>`).join('')}</tbody></table><p class="hint" style="margin-top:12px">People are anonymous browsers. Your own play is never counted: browsers that opened the site with the opt-out link, the peanut test view and localhost send nothing. <a href="https://www.lowpolyworks.com/?tracking-opt-out" target="_blank" rel="noopener">Exclude this browser</a> once on every device you use. ${stats.lastPlayedAt?'Last play recorded '+escape(new Date(stats.lastPlayedAt).toLocaleString())+'.':'No play recorded yet.'} Updated ${escape(new Date(report.asOf).toLocaleString())}.</p>`;
 }
 async function activity(){
  const panel=app.querySelector('#activity-panel');if(!reports[''])panel.innerHTML='<p class="muted">Loading activity…</p>';

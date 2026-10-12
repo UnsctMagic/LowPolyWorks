@@ -28,6 +28,10 @@ function sampleBlobs(){
   add(`live/v3/${date}/download/mdlxl/mdx/${visitor}/NL/${id(++n)}.json`,at);
   add(`live/v3/${date}/view/mdlxl/none/${visitor}/NL/${id(++n)}.json`,at);
   add(`live/v2/${date}/visit/site/none/not-a-visitor/${id(++n)}.json`,at);
+  // Shredder sessions, including ones summarize() rejects.
+  add(`live/v3/${date}/shredder/peek${hour}.grab1.feed${d}.crack0.follow1/session/${hour%3?visitor:'anonymous'}/${country}/${id(++n)}.json`,at);
+  add(`testing/v3/${date}/shredder/peek9.grab9.feed9.crack9.follow9/session/${visitor}/NL/${id(++n)}.json`,at);
+  add(`live/v3/${date}/shredder/nonsense/session/${visitor}/NL/${id(++n)}.json`,at);
  }
  return blobs;
 }

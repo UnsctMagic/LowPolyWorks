@@ -1,3 +1,13 @@
 .menu-visitor-layer{position:fixed;inset:0;z-index:20;overflow:hidden;pointer-events:none}
 .menu-visitor{position:absolute;left:0;top:0;width:120px;height:130px;visibility:hidden;pointer-events:none;will-change:transform}
 .menu-visitor-frame{position:absolute;inset:0;pointer-events:none;background-repeat:no-repeat;background-size:800% 1100%}
+.menu-peanut-layer{position:fixed;inset:0;z-index:21;overflow:hidden;pointer-events:none}
+.menu-peanut{position:absolute;left:0;top:0;width:72px;height:72px;display:none;pointer-events:auto;cursor:grab;will-change:transform}
+.menu-peanut::before,.menu-visitor-beak-peanut{background:url('./ui/visitor/peanut-shell.svg') center/contain no-repeat;width:32px;height:20px}
+.menu-peanut::before{content:'';position:absolute;left:20px;top:26px;transform:rotate(-18deg);filter:drop-shadow(0 2px 2px #0006)}
+.menu-peanut[data-state="held"]{pointer-events:none}
+.menu-visitor-beak-peanut{position:absolute;display:none;pointer-events:none;transform:translate(-50%,-50%) rotate(25deg);width:25px;height:16px}
+.menu-peanut[data-broken="true"]::before,.menu-visitor-beak-peanut[data-broken="true"]{background-image:url('./ui/visitor/peanut-kernels.svg')}
+.menu-peanut-shell-fragment{position:absolute;left:0;top:0;width:32px;height:20px;background:url('./ui/visitor/peanut-shell.svg') center/contain no-repeat;pointer-events:none}
+.menu-peanut-shell-fragment.shell-left{clip-path:inset(0 50% 0 0)}
+.menu-peanut-shell-fragment.shell-right{clip-path:inset(0 0 0 50%)}
