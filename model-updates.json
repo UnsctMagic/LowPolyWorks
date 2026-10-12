@@ -138,6 +138,9 @@
     },
     "blood-dragon": {
       "sha256": "e6695082ade24b722e13a34867f2d826027592afa7ac5568611d3bdfa135dc09"
+    },
+    "nurgle-champion": {
+      "sha256": "652f4e1cf0060325aa86c86a6c04bf13aa0439b2a5a97cc09292bd3e691c6d98"
     }
   }
 }

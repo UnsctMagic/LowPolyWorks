@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import {bindVertexCamera} from './website-camera-controls.js';
+import {setEditorCameraAngles} from './vendor/mdlxl/app/editor-camera-controls.js';
 import {skinGeoset} from './vendor/mdlxl/src/animation.js';
 import {perspectiveFitDistance,modelClipRadius,updateDepthClipping} from './vendor/mdlxl/app/viewport-math.js';
 import {parseMDX,parseMDL,ModelRenderer} from './vendor/war3-model.mjs';
@@ -34,7 +35,7 @@ export async function createViewer(canvas,row,{thumbnail=false,portrait=false,fo
  // Match MDLxL's MDX load boundary: animated KGAC is BGR; static GEOA is already RGB.
  if(!/\.mdl$/i.test(row.file||row.name||''))model.GeosetAnims=convertMdxGeosetColorTracks(model.GeosetAnims);
  const displayLight=()=>new THREE.Vector3(-.65,.55,1);
- const native=new ModelRenderer(model),adapter=installWarcraftPreviewAdapter(gl,model,()=>({frame:native.getFrame(),sequenceIndex:sequence,globalTime:clock,lighting:preferences.graphics.lighting,portrait:portraitActive,hiddenGeosets:formation?scenery:undefined,preferences,lightDirection:portraitActive?[.3,-.3,.25]:displayLight().toArray(),viewDirection:camera.getWorldDirection(new THREE.Vector3()).negate().toArray()}));if(thumbnail&&row.captureRibbons===false)native.ribbonsController.emitters.length=0;installParticleNativeCompatibility(native);native.initGL(gl);adapter.ready(native);gl.depthFunc(gl.LEQUAL);
+ const native=new ModelRenderer(model),adapter=installWarcraftPreviewAdapter(gl,model,()=>({frame:native.getFrame(),sequenceIndex:sequence,globalTime:clock,lighting:preferences.graphics.lighting,portrait:portraitActive,hiddenGeosets:formation?scenery:undefined,preferences,lightDirection:portraitActive?[.3,-.3,.25]:displayLight().toArray(),viewDirection:camera.getWorldDirection(new THREE.Vector3()).negate().toArray()}));if(thumbnail&&row.captureRibbons===false)native.ribbonsController.emitters.length=0;if(thumbnail&&row.captureEmitters===false){native.particlesController.emitters.length=0;native.ribbonsController.emitters.length=0;}installParticleNativeCompatibility(native);native.initGL(gl);adapter.ready(native);gl.depthFunc(gl.LEQUAL);
  // The Champion's skin and bracer overlap at their differently weighted elbow seam.
  // Bias only the bracer's opaque layer so depth rounding cannot stripe that edge.
  if(row.id==='aspiring'){
@@ -44,7 +45,8 @@ export async function createViewer(canvas,row,{thumbnail=false,portrait=false,fo
 
  teamTextures.ready(native);
  await Promise.all([teamTextures.colour(native,teamColor),...model.Textures.filter(t=>t.Image&&!teamTextures.textures.has(t)).map(async t=>{native.setTextureImageData(t.Image,[await textureData(t.Image,row)]);improveNativeTexture(gl,native,t.Image,graphics);})]);
- const camera=new THREE.PerspectiveCamera(32,1,.1,3000);camera.up.set(0,0,1);
+ const captureOrthographic=thumbnail&&row.captureOrthographic;
+ const camera=captureOrthographic?new THREE.OrthographicCamera(-200,200,200,-200,.1,3000):new THREE.PerspectiveCamera(32,1,.1,3000);camera.up.set(0,0,1);
  native.setSequence(sequence);native.setLightColor([1,1,1]);
  previous=advanceShowcaseModel(native,model,{frame:model.Sequences[sequence].Interval[0],sequenceIndex:sequence,globalTime:0,revision,segment:sequence},previous);
  // Frame the drawn pose, excluding portrait scenery and invisible variants.
@@ -55,8 +57,9 @@ export async function createViewer(canvas,row,{thumbnail=false,portrait=false,fo
  const clipRadius=modelClipRadius(model,center,radius);
  const navigation=!thumbnail?bindVertexCamera(camera,canvas):null,controls=navigation?.controls;
  if(controls)controls.autoRotateSpeed=1.2;
- function fit(){const aspect=Math.max(1,canvas.clientWidth)/Math.max(1,canvas.clientHeight),distance=perspectiveFitDistance(radius,camera.fov,aspect);camera.zoom=1;camera.position.copy(center).addScaledVector(formation?new THREE.Vector3(Math.cos(formationYaw),Math.sin(formationYaw),.12).normalize():new THREE.Vector3(Math.cos(.75),Math.sin(.75),.18).normalize(),distance);camera.lookAt(center);if(controls){controls.target.copy(center);controls.minDistance=radius*.4;controls.maxDistance=distance*3;controls.update();}}
+ function fit(){const aspect=Math.max(1,canvas.clientWidth)/Math.max(1,canvas.clientHeight),distance=perspectiveFitDistance(radius,camera.fov??32,aspect);camera.zoom=1;camera.position.copy(center).addScaledVector(formation?new THREE.Vector3(Math.cos(formationYaw),Math.sin(formationYaw),.12).normalize():new THREE.Vector3(Math.cos(.75),Math.sin(.75),.18).normalize(),distance);camera.lookAt(center);if(controls){controls.target.copy(center);controls.minDistance=radius*.4;controls.maxDistance=distance*3;controls.update();}}
  fit();
+ if(thumbnail&&row.captureCameraAngles){setEditorCameraAngles(camera,center,row.captureCameraAngles);if(captureOrthographic){camera.left=-radius;camera.right=radius;camera.top=radius;camera.bottom=-radius;camera.updateProjectionMatrix();}}
  const portraitControls={target:new THREE.Vector3(),object:camera,update(){}};
  const detachPortrait=()=>{if(portraitActive)portraitDetached=true;};
  controls?.addEventListener('start',detachPortrait);
