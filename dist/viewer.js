@@ -82,14 +82,14 @@ export async function createViewer(canvas,row,{thumbnail=false,portrait=false,fo
  let clipRadius=sequenceClipRadius(sequence);
  const navigation=!thumbnail?bindVertexCamera(camera,canvas):null,controls=navigation?.controls;
  if(controls)controls.autoRotateSpeed=1.2;
- // The live view faces the model like its unit card and frames the drawn pose
+ // The live view faces the model head-on, centred on its body, and frames the drawn pose
  // tightly, so every model fills the same share of the viewport.
  function frontView(aspect){
-  const up=new THREE.Vector3(0,0,1),direction=new THREE.Vector3(Math.cos(.32),Math.sin(.32),.15).normalize(),right=new THREE.Vector3().crossVectors(up,direction).normalize(),screenUp=new THREE.Vector3().crossVectors(direction,right);
+  const up=new THREE.Vector3(0,0,1),direction=new THREE.Vector3(1,0,.12).normalize(),right=new THREE.Vector3().crossVectors(up,direction).normalize(),screenUp=new THREE.Vector3().crossVectors(direction,right);
   const min=[Infinity,Infinity,Infinity],max=[-Infinity,-Infinity,-Infinity],axes=[right,screenUp,direction];
   for(const p of framePoints)axes.forEach((axis,i)=>{const v=p.dot(axis);min[i]=Math.min(min[i],v);max[i]=Math.max(max[i],v);});
   if(!framePoints.length)return {target:center.clone(),direction,distance:perspectiveFitDistance(radius,camera.fov??32,aspect)};
-  const mid=min.map((v,i)=>(v+max[i])/2),target=right.clone().multiplyScalar(mid[0]).addScaledVector(screenUp,mid[1]).addScaledVector(direction,mid[2]);
+  const across=framePoints.map(p=>p.dot(right)).sort((a,b)=>a-b),mid=min.map((v,i)=>i===0?across[across.length>>1]:(v+max[i])/2),target=right.clone().multiplyScalar(mid[0]).addScaledVector(screenUp,mid[1]).addScaledVector(direction,mid[2]);
   const fill=.86,tanV=Math.tan((camera.fov??32)*Math.PI/360)*fill,tanH=tanV*aspect;let distance=1;
   for(const p of framePoints){const x=p.dot(right)-mid[0],y=p.dot(screenUp)-mid[1],z=p.dot(direction)-mid[2];distance=Math.max(distance,z+Math.max(Math.abs(x)/tanH,Math.abs(y)/tanV));}
   return {target,direction,distance};
