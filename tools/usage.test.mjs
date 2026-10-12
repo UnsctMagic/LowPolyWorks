@@ -34,3 +34,11 @@ test('other visitors still count and the opt-out URL works when storage is block
  const blocked=b.page('?tracking-opt-out=1',{getItem(){throw Error('Blocked');},setItem(){throw Error('Blocked');}});
  await blocked('visit');await blocked('download','khorne-axe','mdx');assert.equal(b.events.length,2);
 });
+test('a browser records one view per model per day, while downloads and visits are never deduplicated',async()=>{
+ const b=browser(),open=b.page();
+ await open('view','graveguard');await open('view','graveguard');await open('view','strigoi-vampire');await b.page()('view','graveguard');
+ await open('download','graveguard','mdx');await open('download','graveguard','mdx');await open('visit');await open('visit');
+ assert.deepEqual(b.events.map(event=>event.kind+':'+(event.model||'')),['view:graveguard','view:strigoi-vampire','download:graveguard','download:graveguard','visit:','visit:']);
+ b.saved.set('lowpolyworks.modelViews',JSON.stringify({date:'2000-01-01',models:['graveguard']}));await open('view','graveguard');assert.equal(b.events.at(-1).kind,'view');
+ const blocked=b.page('',{getItem(){throw Error('Blocked');},setItem(){throw Error('Blocked');}});await blocked('view','graveguard');assert.equal(b.events.at(-1).model,'graveguard');
+});

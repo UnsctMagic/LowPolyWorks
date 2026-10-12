@@ -6,7 +6,7 @@ const escape=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&
 const plain=value=>String(value||'').replace(/\[url=[^\]]*\]([^[]*)\[\/url\]/gi,'$1').replace(/\[([^\]]*)\]\([^)]*\)/g,'$1').replace(/\[\/?[a-z]+[^\]]*\]|[*_`]/gi,'').replace(/\s+/g,' ').trim();
 const number=value=>new Intl.NumberFormat().format(value||0);
 let account,csrf='',files=[],ready=null,cardId='',editing=null,busy=false,controller,coverUrl='',requestId='',completed=new Map(),coverUpload=null,postsLoaded=false;
-let catalogueRows=null,reports={},loading={},countdown,activitySort='total';
+let catalogueRows=null,reports={},loading={},countdown;
 const prefs=(()=>{try{return {query:'',army:'',status:'',source:'',sort:'army',...JSON.parse(localStorage.getItem(PREFS)||'{}')};}catch{return {query:'',army:'',status:'',source:'',sort:'army'};}})();
 const savePrefs=()=>{try{localStorage.setItem(PREFS,JSON.stringify(prefs));}catch{}};
 const activation=new URLSearchParams(location.hash.slice(1));if(location.hash)history.replaceState(null,'',location.pathname);
@@ -86,7 +86,7 @@ function renderUnits(){
  groups.innerHTML=names.map(name=>{const list=rows.filter(row=>(row.group||'Other')===name);return `<details class="unit-group" open><summary><span>${escape(name)}</span><small>${list.length}</small></summary><ul class="unit-list">${list.map(unitRow).join('')}</ul></details>`;}).join('');
 }
 function unitRow(row){
- const d=row.downloads,count=reports['']?`<div class="unit-downloads" title="${d?`MDX ${d.mdxClicks} · Pack ${d.packClicks}`:'No downloads yet'}"><strong>${number(d?.total)}</strong><span>downloads</span></div>`:owner()?'<div class="unit-downloads"><strong>–</strong><span>downloads</span></div>':'';
+ const d=row.downloads,count=reports['']?`<div class="unit-downloads" title="${d?`MDX ${d.mdxClicks} · Pack ${d.packClicks} · ${d.views||0} views`:'No downloads yet'}"><strong>${number(d?.total)}</strong><span>downloads</span></div>`:owner()?'<div class="unit-downloads"><strong>–</strong><span>downloads</span></div>':'';
  const actions=[row.hidden&&row.kind==='vault'?'':`<button class="secondary" data-action="edit" data-key="${escape(row.key)}">Edit</button>`,owner()?`<button class="secondary" data-action="${row.hidden?'show':'hide'}" data-key="${escape(row.key)}">${row.hidden?'Show':'Hide'}</button><button class="danger" data-action="remove" data-key="${escape(row.key)}">Remove…</button>`:''].join('');
  return `<li class="unit-row${row.hidden?' is-hidden':''}"><img class="unit-thumb" src="${escape(row.thumb)}" alt="" loading="lazy"><div class="unit-main"><a href="${escape(row.url)}" target="_blank" rel="noopener">${escape(row.name)}</a>${row.hidden?' <span class="badge muted-badge">Hidden</span>':''}${row.edited&&row.kind==='catalogue'?' <span class="badge">Edited</span>':''}<small>${[row.kind==='vault'?'Vault upload':'Catalogue',prefs.sort==='army'?'':row.group,row.authors&&'By '+row.authors,row.models>1?row.models+' models':''].filter(Boolean).map(escape).join(' · ')}</small></div>${count}<div class="unit-actions">${actions}</div></li>`;
 }
@@ -167,23 +167,138 @@ function bindFormatting(){
   const {id,start,end,value,mark}=selection,input=app.querySelector('#'+id+'-link input');let url;try{url=new URL(input.value);if(url.protocol!=='https:'||url.username||url.password)throw Error();}catch{app.querySelector('#unit-status').textContent='Enter a full HTTPS link.';return;}const area=app.querySelector('#'+id);area.setRangeText(mark==='image'?'[img]'+url.href+'[/img]':'['+(value||'link text')+']('+url.href+')',start,end,'end');app.querySelector('#'+id+'-link').hidden=true;input.value='';area.focus();
  });
 }
-// Downloads per unit, joined with the Vault's own card list for army and status.
-async function activity(days=app.querySelector('#activity-period')?.value||''){
- const panel=app.querySelector('#activity-panel');if(!reports[days])panel.innerHTML='<p class="muted">Loading activity…</p>';
- const [report]=await Promise.all([loadReport(days),loadCatalogue().catch(()=>null)]);
- const percent=value=>new Intl.NumberFormat(undefined,{style:'percent',maximumFractionDigits:1}).format(value),cards=new Map(units().map(row=>[row.id,row])),removed=new Set(account.removedModels||[]);
- const rows=report.models.map(row=>{const card=cards.get(row.id),vault=account.unitCards.some(c=>c.id===row.id)||row.id.startsWith('unit-');return {...row,army:card?.group||'',tag:!card?(removed.has(row.id)||vault?'Removed':'Unlisted'):card.removeAt?'Removing':card.hidden?'Hidden':vault?'Vault':''};});
- const zero=rows.filter(row=>!row.total).length;
- panel.innerHTML=`<div class="panel-head"><h2>Site activity</h2><div class="inline-controls"><select id="activity-period" aria-label="Period"><option value="">All time</option><option value="30">Last 30 days</option><option value="7">Last 7 days</option></select><button type="button" class="secondary" id="activity-refresh">Refresh</button></div></div>
-<div class="metrics"><div class="metric"><strong>${number(report.totals.pageLoads)}</strong><span>Page loads</span></div><div class="metric"><strong>${number(report.totals.uniqueVisitors)}</strong><span>Anonymous browsers</span></div><div class="metric"><strong>${number(report.totals.downloadClicks)}</strong><span>Download clicks</span></div><div class="metric"><strong>${number(report.applications[0]?.total)}</strong><span>MDLxL downloads</span></div></div>
-<section class="downloads"><div class="panel-head"><h3>Downloads per unit</h3><input type="search" id="download-filter" placeholder="Filter units" aria-label="Filter units"></div><table class="download-table"><thead><tr><th scope="col"><button type="button" data-sort="name">Unit</button></th><th scope="col" class="army-column">Army</th><th scope="col" class="num"><button type="button" data-sort="mdxClicks">MDX</button></th><th scope="col" class="num"><button type="button" data-sort="packClicks">Pack</button></th><th scope="col" class="num"><button type="button" data-sort="total">Total</button></th></tr></thead><tbody></tbody></table><p class="hint">${rows.length} units · ${zero} without downloads yet. Counts are download-button clicks${days?' in the last '+days+' days':' since tracking began'}. New units appear here as soon as they are published.</p></section>
-<details class="country-activity"><summary>Visitors by country · ${report.countries.length}</summary>${report.countries.length?`<table><thead><tr><th scope="col">Country</th><th scope="col" class="num">Anonymous browsers</th><th scope="col" class="num">Share</th></tr></thead><tbody>${report.countries.map(country=>`<tr><td>${escape(country.name)}</td><td class="num">${number(country.uniqueVisitors)}</td><td class="num">${percent(country.share)}</td></tr>`).join('')}</tbody></table>`:'<p class="empty">No recorded visitors yet.</p>'}<p class="hint">Estimated from network location. Each browser counts once, using its first known country. Earlier or unavailable locations appear as Unknown.</p></details>
-<p class="hint">Updated ${escape(new Date(report.asOf).toLocaleString())}.</p>`;
- const period=panel.querySelector('#activity-period'),filter=panel.querySelector('#download-filter'),body=panel.querySelector('tbody');period.value=days;
- const draw=()=>{const query=filter.value.trim().toLowerCase(),list=rows.filter(row=>!query||(row.name+' '+row.army+' '+row.tag).toLowerCase().includes(query)).sort(activitySort==='name'?(a,b)=>a.name.localeCompare(b.name):(a,b)=>b[activitySort]-a[activitySort]||a.name.localeCompare(b.name));body.innerHTML=list.length?list.map(row=>`<tr class="${row.total?'':'is-zero'}"><td>${escape(row.name)}${row.tag?` <span class="badge${row.tag==='Vault'?'':' muted-badge'}">${row.tag}</span>`:''}</td><td class="army-column">${escape(row.army)}</td><td class="num">${number(row.mdxClicks)}</td><td class="num">${number(row.packClicks)}</td><td class="num"><strong>${number(row.total)}</strong></td></tr>`).join(''):'<tr><td colspan="5" class="empty">No units match.</td></tr>';for(const button of panel.querySelectorAll('[data-sort]'))button.setAttribute('aria-pressed',String(button.dataset.sort===activitySort));};
- filter.oninput=draw;panel.querySelector('thead').onclick=event=>{const sort=event.target.closest('[data-sort]')?.dataset.sort;if(sort){activitySort=sort;draw();}};draw();
- period.onchange=()=>activity(period.value).then(renderUnits);
- panel.querySelector('#activity-refresh').onclick=()=>{delete loading[period.value];delete loading[''];activity(period.value).then(()=>loadReport()).then(renderUnits);};
+// Activity: one all-time report, sliced in the browser by army, unit, file type and time step.
+const GRAINS={day:{label:'Day',count:30,range:'last 30 days'},week:{label:'Week',count:26,range:'last 26 weeks'},month:{label:'Month',count:12,range:'last 12 months'},year:{label:'Year',count:10,range:'all years'}};
+const DAY=86400000,utc=key=>Date.parse(key+'T00:00:00Z'),iso=time=>new Date(time).toISOString().slice(0,10);
+function bucketStart(key,grain){const d=new Date(utc(key));if(grain==='week')d.setUTCDate(d.getUTCDate()-((d.getUTCDay()+6)%7));if(grain==='month'||grain==='year')d.setUTCDate(1);if(grain==='year')d.setUTCMonth(0);return iso(d.getTime());}
+function nextBucket(key,grain){const d=new Date(utc(key));if(grain==='day')d.setUTCDate(d.getUTCDate()+1);if(grain==='week')d.setUTCDate(d.getUTCDate()+7);if(grain==='month')d.setUTCMonth(d.getUTCMonth()+1);if(grain==='year')d.setUTCFullYear(d.getUTCFullYear()+1);return iso(d.getTime());}
+function previousBucket(key,grain,steps){const d=new Date(utc(key));if(grain==='day')d.setUTCDate(d.getUTCDate()-steps);if(grain==='week')d.setUTCDate(d.getUTCDate()-7*steps);if(grain==='month')d.setUTCMonth(d.getUTCMonth()-steps);if(grain==='year')d.setUTCFullYear(d.getUTCFullYear()-steps);return iso(d.getTime());}
+// The visible buckets end today and never start before tracking began.
+function buckets(grain,since){
+ const end=bucketStart(iso(Date.now()),grain),first=bucketStart(since,grain),{count}=GRAINS[grain];
+ let start=previousBucket(end,grain,count-1);if(start<first)start=first;
+ const list=[];for(let key=start;key<=end;key=nextBucket(key,grain))list.push(key);
+ return {list,start,end:nextBucket(end,grain),clipped:start===first};
+}
+const monthName=(key,style='short')=>new Date(utc(key)).toLocaleDateString(undefined,{month:style,timeZone:'UTC'});
+function bucketLabel(key,grain,long=false){
+ const d=new Date(utc(key)),day=d.toLocaleDateString(undefined,{day:'numeric',month:'short',timeZone:'UTC'});
+ if(grain==='day')return long?d.toLocaleDateString(undefined,{weekday:'short',day:'numeric',month:'short',year:'numeric',timeZone:'UTC'}):day;
+ if(grain==='week')return long?'Week of '+day+' '+d.getUTCFullYear():day;
+ if(grain==='month')return long?monthName(key,'long')+' '+d.getUTCFullYear():monthName(key)+(d.getUTCMonth()===0?' '+d.getUTCFullYear():'');
+ return String(d.getUTCFullYear());
+}
+function niceScale(max){if(max<=0)return {top:1,step:1};const rough=max/3,power=10**Math.floor(Math.log10(rough)),step=[1,2,5,10].map(n=>n*power).find(n=>n>=rough)||power*10,top=Math.ceil(max/step)*step;return {top,step:Math.max(1,step)};}
+const activity_state=(()=>({army:'',unit:'',format:'',grain:'day',sort:'total',query:'',...(prefs.activity||{})}))();
+const saveActivity=()=>{prefs.activity=activity_state;savePrefs();};
+function unitIndex(report){
+ const index=new Map(units().map(row=>[row.id,{id:row.id,name:row.name,army:row.army,group:row.group||'Other projects',tag:row.removeAt?'Removing':row.hidden?'Hidden':row.kind==='vault'?'Vault':''}])),removed=new Set(account.removedModels||[]);
+ for(const row of report.models)if(!index.has(row.id))index.set(row.id,{id:row.id,name:row.name,army:'',group:'Removed or unlisted',tag:removed.has(row.id)||row.id.startsWith('unit-')?'Removed':'Unlisted'});
+ return index;
+}
+async function activity(){
+ const panel=app.querySelector('#activity-panel');if(!reports[''])panel.innerHTML='<p class="muted">Loading activity…</p>';
+ const [report]=await Promise.all([loadReport(),loadCatalogue().catch(()=>null)]);
+ const firstView=report.timeline.find(row=>row[1]==='view')?.[0],index=unitIndex(report),state=activity_state,since=(report.trackingSince||report.timeline[0]?.[0]||iso(Date.now())).slice(0,10);
+ if(state.unit&&state.unit!=='mdlxl'&&!index.has(state.unit))state.unit='';
+ panel.innerHTML=`<div class="panel-head"><h2>Site activity</h2><div class="inline-controls"><span class="hint">Updated ${escape(new Date(report.asOf).toLocaleString())}</span><button type="button" class="secondary" id="activity-refresh">Refresh</button></div></div>
+<div class="metrics"><div class="metric"><strong>${number(report.totals.pageLoads)}</strong><span>Page loads</span></div><div class="metric"><strong>${number(report.totals.uniqueVisitors)}</strong><span>Anonymous browsers</span></div><div class="metric"><strong>${number(report.totals.downloadClicks)}</strong><span>Download clicks</span></div><div class="metric"><strong>${number(report.totals.modelViews)}</strong><span>Model views</span></div></div>
+<div class="insights"><aside class="picker" aria-label="Choose what to chart"><label>Army<select id="pick-army"><option value="">All units</option>${account.unitArmies.map(a=>`<option value="${escape(a.id)}">${escape(a.name)}</option>`).join('')}<option value="other">Other projects</option><option value="mdlxl">MDLxL application</option></select></label><label class="pick-search">Unit<input type="search" id="pick-search" placeholder="Find a unit" autocomplete="off"></label><ul class="pick-list" id="pick-list"></ul><div class="seg" role="group" aria-label="File type" id="pick-format"><button type="button" data-format="">All files</button><button type="button" data-format="mdx">MDX</button><button type="button" data-format="pack">Pack</button></div></aside>
+<div class="charts"><div class="chart-toolbar"><div class="seg" role="group" aria-label="Time step" id="pick-grain">${Object.entries(GRAINS).map(([key,grain])=>`<button type="button" data-grain="${key}">${grain.label}</button>`).join('')}</div><span class="range-label" id="range-label"></span></div>
+<figure class="chart" data-metric="download"><figcaption><div><h3>Downloads</h3><p class="chart-scope"></p></div><div class="chart-total"><strong></strong><small></small></div><button type="button" class="link-button" data-table>Table</button></figcaption><div class="plot"></div></figure>
+<figure class="chart" data-metric="view"><figcaption><div><h3>Model views</h3><p class="chart-scope"></p></div><div class="chart-total"><strong></strong><small></small></div><button type="button" class="link-button" data-table>Table</button></figcaption><div class="plot"></div></figure></div></div>
+<section class="downloads"><div class="panel-head"><h3 id="unit-table-title">Per unit</h3></div><table class="download-table"><thead><tr><th scope="col"><button type="button" data-sort="name">Unit</button></th><th scope="col" class="army-column">Army</th><th scope="col" class="num"><button type="button" data-sort="views">Views</button></th><th scope="col" class="num"><button type="button" data-sort="mdx">MDX</button></th><th scope="col" class="num"><button type="button" data-sort="pack">Pack</button></th><th scope="col" class="num"><button type="button" data-sort="total">Downloads</button></th></tr></thead><tbody></tbody></table><p class="hint" id="unit-table-hint"></p><p class="hint">Downloads and views here follow the time step above. In the Unit cards tab, counts are all-time.</p></section>
+<details class="country-activity"><summary>Visitors by country · ${report.countries.length}</summary>${report.countries.length?`<table><thead><tr><th scope="col">Country</th><th scope="col" class="num">Anonymous browsers</th><th scope="col" class="num">Share</th></tr></thead><tbody>${report.countries.map(country=>`<tr><td>${escape(country.name)}</td><td class="num">${number(country.uniqueVisitors)}</td><td class="num">${new Intl.NumberFormat(undefined,{style:'percent',maximumFractionDigits:1}).format(country.share)}</td></tr>`).join('')}</tbody></table>`:'<p class="empty">No recorded visitors yet.</p>'}<p class="hint">Estimated from network location. Each browser counts once, using its first known country.</p></details>
+<p class="hint">Downloads are download-button clicks. Model views count a browser opening a model page, at most once per model per day; ${firstView?'recorded since '+escape(bucketLabel(firstView,'day',true)):'not recorded yet'}. Days follow UTC.</p>`;
+ const $=selector=>panel.querySelector(selector),tables=new Set();
+ $('#pick-army').value=state.army;$('#pick-search').value=state.query;
+ const inArmy=id=>state.army==='mdlxl'?id==='mdlxl':id!=='mdlxl'&&(!state.army||index.get(id)?.army===state.army);
+ const matches=([,kind,model,format])=>(state.unit?model===state.unit:inArmy(model))&&(kind==='view'||!state.format||state.army==='mdlxl'||format===state.format);
+ const scopeName=()=>state.unit?(state.unit==='mdlxl'?'MDLxL application':index.get(state.unit)?.name||state.unit):state.army==='mdlxl'?'MDLxL application':state.army?(state.army==='other'?'Other projects':account.unitArmies.find(a=>a.id===state.army)?.name):'All units';
+ function draw(){
+  const grain=state.grain,{list,start,end,clipped}=buckets(grain,since),position=new Map(list.map((key,i)=>[key,i])),prevStart=previousBucket(start,grain,list.length);
+  const series={download:list.map(()=>({total:0,mdx:0,pack:0})),view:list.map(()=>({total:0}))},previous={download:0,view:0},perUnit=new Map();
+  for(const row of report.timeline){
+   const [date,kind,model,format,count]=row;if(kind!=='download'&&kind!=='view')continue;
+   if(date>=start&&date<end&&model!=='mdlxl'&&state.army!=='mdlxl'&&inArmy(model)){const entry=perUnit.get(model)||{views:0,mdx:0,pack:0,total:0};if(kind==='view')entry.views+=count;else{entry.total+=count;entry[format==='pack'?'pack':'mdx']+=count;}perUnit.set(model,entry);}
+   if(!matches(row))continue;
+   if(date>=start&&date<end){const bucket=series[kind][position.get(bucketStart(date,grain))];bucket.total+=count;if(kind==='download')bucket[format==='pack'?'pack':'mdx']+=count;}
+   else if(date>=prevStart&&date<start)previous[kind]+=count;
+  }
+  $('#range-label').textContent=(clipped&&grain!=='year'?'Since tracking began · ':'')+bucketLabel(list[0],grain,true)+' – '+bucketLabel(list.at(-1),grain,true);
+  for(const button of panel.querySelectorAll('[data-grain]'))button.setAttribute('aria-pressed',String(button.dataset.grain===grain));
+  for(const button of panel.querySelectorAll('[data-format]'))button.setAttribute('aria-pressed',String(button.dataset.format===state.format));
+  $('#pick-format').hidden=state.army==='mdlxl'||state.unit==='mdlxl';
+  for(const figure of panel.querySelectorAll('.chart')){
+   const metric=figure.dataset.metric,values=series[metric],total=values.reduce((sum,v)=>sum+v.total,0),prevOk=prevStart>=bucketStart(since,grain)&&!clipped,delta=total-previous[metric];
+   const noViews=metric==='view'&&(state.army==='mdlxl'||state.unit==='mdlxl');
+   figure.hidden=noViews;
+   figure.querySelector('.chart-scope').textContent=scopeName()+(metric==='download'&&state.format&&state.army!=='mdlxl'?' · '+state.format.toUpperCase()+' only':'');
+   figure.querySelector('.chart-total strong').textContent=number(total);
+   figure.querySelector('.chart-total small').textContent=prevOk?(delta===0?'Same as':delta>0?'▲ '+number(delta)+' vs':'▼ '+number(-delta)+' vs')+' previous '+GRAINS[grain].range.replace('last ',''):'in range';
+   const plot=figure.querySelector('.plot');
+   if(tables.has(metric))plot.innerHTML=`<table class="bucket-table"><thead><tr><th scope="col">${GRAINS[grain].label}</th>${metric==='download'?'<th scope="col" class="num">MDX</th><th scope="col" class="num">Pack</th>':''}<th scope="col" class="num">${metric==='download'?'Downloads':'Views'}</th></tr></thead><tbody>${list.map((key,i)=>`<tr><td>${escape(bucketLabel(key,grain,true))}</td>${metric==='download'?`<td class="num">${number(values[i].mdx)}</td><td class="num">${number(values[i].pack)}</td>`:''}<td class="num">${number(values[i].total)}</td></tr>`).reverse().join('')}</tbody></table>`;
+   else barChart(plot,list.map((key,i)=>({key,label:bucketLabel(key,grain),long:bucketLabel(key,grain,true),...values[i]})),{metric,colour:metric==='download'?'#b58a35':'#3f86c8',noun:metric==='download'?'download':'view',format:state.format});
+   figure.querySelector('[data-table]').textContent=tables.has(metric)?'Chart':'Table';
+  }
+  drawPicker(perUnit,series.download.reduce((sum,v)=>sum+v.total,0));drawUnits(perUnit,GRAINS[grain].range);
+ }
+ function drawPicker(perUnit,mdlxlTotal){
+  const query=state.query.trim().toLowerCase(),armyUnits=[...index.values()].filter(row=>inArmy(row.id)&&(!query||(row.name+' '+row.group).toLowerCase().includes(query)));
+  armyUnits.sort((a,b)=>(perUnit.get(b.id)?.total||0)-(perUnit.get(a.id)?.total||0)||a.name.localeCompare(b.name));
+  const all={total:0,views:0};for(const [id,row] of perUnit)if(inArmy(id)){all.total+=row.total;all.views+=row.views;}
+  const item=(id,name,counts,extra='',views=true)=>`<li><button type="button" data-unit="${escape(id)}" aria-pressed="${state.unit===id}"><span>${escape(name)}${extra}</span><small title="${views?'Downloads · views':'Downloads'} in range">${number(counts?.total)}${views?' · '+number(counts?.views):''}</small></button></li>`;
+  $('#pick-list').innerHTML=state.army==='mdlxl'?item('mdlxl','MDLxL application',{total:mdlxlTotal},'',false):item('','All '+(state.army?scopeNameForArmy():'units'),all)+armyUnits.map(row=>item(row.id,row.name,perUnit.get(row.id),row.tag?` <em>${row.tag}</em>`:'')).join('')+(armyUnits.length?'':'<li class="empty">No units match.</li>');
+ }
+ const scopeNameForArmy=()=>state.army==='other'?'other projects':'in '+(account.unitArmies.find(a=>a.id===state.army)?.name||'army');
+ function drawUnits(perUnit,range){
+  const query=state.query.trim().toLowerCase(),rows=[...index.values()].filter(row=>row.id!=='mdlxl'&&state.army!=='mdlxl'&&inArmy(row.id)&&(!query||(row.name+' '+row.group).toLowerCase().includes(query))).map(row=>({...row,views:0,mdx:0,pack:0,total:0,...perUnit.get(row.id)}));
+  const key=state.sort;rows.sort(key==='name'?(a,b)=>a.name.localeCompare(b.name):(a,b)=>b[key]-a[key]||b.total-a.total||a.name.localeCompare(b.name));
+  $('#unit-table-title').textContent='Per unit · '+range;
+  panel.querySelector('.download-table tbody').innerHTML=rows.length?rows.map(row=>`<tr class="${row.total||row.views?'':'is-zero'}${state.unit===row.id?' is-selected':''}" data-unit="${escape(row.id)}"><td><button type="button" class="row-pick" data-unit="${escape(row.id)}">${escape(row.name)}</button>${row.tag?` <span class="badge${row.tag==='Vault'?'':' muted-badge'}">${row.tag}</span>`:''}</td><td class="army-column">${escape(row.group)}</td><td class="num">${number(row.views)}</td><td class="num">${number(row.mdx)}</td><td class="num">${number(row.pack)}</td><td class="num"><strong>${number(row.total)}</strong></td></tr>`).join(''):'<tr><td colspan="6" class="empty">'+(state.army==='mdlxl'?'MDLxL is an application, not a unit.':'No units match.')+'</td></tr>';
+  for(const button of panel.querySelectorAll('[data-sort]'))button.setAttribute('aria-pressed',String(button.dataset.sort===key));
+  $('#unit-table-hint').textContent=`${rows.length} units · ${rows.filter(row=>!row.total).length} without downloads in this range. Select a unit to chart it.`;
+ }
+ const update=()=>{saveActivity();draw();};
+ $('#pick-army').onchange=event=>{state.army=event.target.value;state.unit=state.army==='mdlxl'?'mdlxl':'';update();};
+ $('#pick-search').oninput=event=>{state.query=event.target.value;update();};
+ panel.onclick=event=>{
+  const target=event.target.closest('[data-unit],[data-format],[data-grain],[data-sort],[data-table]');if(!target)return;
+  if(target.dataset.unit!==undefined&&target.closest('.picker,.download-table')){state.unit=state.unit===target.dataset.unit&&target.dataset.unit?'':target.dataset.unit;if(state.army==='mdlxl')state.unit='mdlxl';}
+  else if(target.dataset.format!==undefined)state.format=target.dataset.format;
+  else if(target.dataset.grain)state.grain=target.dataset.grain;
+  else if(target.dataset.sort)state.sort=target.dataset.sort;
+  else if(target.hasAttribute('data-table')){const metric=target.closest('.chart').dataset.metric;if(tables.has(metric))tables.delete(metric);else tables.add(metric);}
+  else return;
+  update();
+ };
+ $('#activity-refresh').onclick=()=>{delete loading[''];activity().then(renderUnits);};
+ resizeCharts?.disconnect();let width=0;resizeCharts=new ResizeObserver(entries=>{const next=Math.round(entries[0].contentRect.width);if(next!==width){width=next;draw();}});resizeCharts.observe($('.charts'));
+ draw();
+}
+let resizeCharts;
+// Single-series column chart: thin rounded columns from one baseline, recessive grid, one peak label and a hover tooltip.
+function barChart(plot,data,{colour,noun,format}){
+ const width=Math.max(260,plot.clientWidth||600),height=190,left=34,right=8,top=20,bottom=24,inner=width-left-right,chart=height-top-bottom;
+ const max=Math.max(0,...data.map(d=>d.total)),{top:ceiling,step}=niceScale(max),slot=inner/data.length,bar=Math.max(2,Math.min(24,slot*.68)),y=value=>top+chart-value/ceiling*chart;
+ const ticks=[];for(let value=0;value<=ceiling;value+=step)ticks.push(value);
+ const every=Math.max(1,Math.ceil(46/slot)),peak=max?data.findIndex(d=>d.total===max):-1;
+ const column=(d,i)=>{if(!d.total)return '';const x=left+i*slot+(slot-bar)/2,h=Math.max(1,chart-(y(d.total)-top)),r=Math.min(4,bar/2,h),base=top+chart;return `<path class="bar" d="M${x},${base}V${base-h+r}Q${x},${base-h} ${x+r},${base-h}H${x+bar-r}Q${x+bar},${base-h} ${x+bar},${base-h+r}V${base}Z" fill="${colour}" data-i="${i}"/>`;};
+ plot.innerHTML=`<svg viewBox="0 0 ${width} ${height}" width="${width}" height="${height}" role="img" aria-label="${escape(`${data.reduce((s,d)=>s+d.total,0)} ${noun}s from ${data[0].long} to ${data.at(-1).long}; most in ${max?data[peak].long+' ('+max+')':'no period'}`)}">
+${ticks.map(value=>`<line x1="${left}" x2="${width-right}" y1="${y(value)}" y2="${y(value)}" class="grid${value===0?' base':''}"/><text x="${left-6}" y="${y(value)+4}" class="tick" text-anchor="end">${number(value)}</text>`).join('')}
+${data.map(column).join('')}
+${data.map((d,i)=>(i%every===0&&data.length-1-i>=every)||i===data.length-1?`<text x="${left+i*slot+slot/2}" y="${height-7}" class="tick" text-anchor="middle">${escape(d.label)}</text>`:'').join('')}
+${peak>=0?`<text x="${left+peak*slot+slot/2}" y="${y(max)-6}" class="peak" text-anchor="middle">${number(max)}</text>`:''}
+${data.map((d,i)=>`<rect class="hit" x="${left+i*slot}" y="${top}" width="${slot}" height="${chart}" data-i="${i}"/>`).join('')}
+</svg>${max?'':`<p class="chart-empty">No ${noun}s in this range.</p>`}<div class="chart-tip" hidden></div>`;
+ const tip=plot.querySelector('.chart-tip'),svg=plot.querySelector('svg');
+ svg.onpointermove=event=>{
+  const i=Number(event.target.dataset?.i);if(!event.target.classList.contains('hit')||Number.isNaN(i)){tip.hidden=true;svg.classList.remove('hovering');return;}
+  const d=data[i];svg.classList.add('hovering');for(const path of svg.querySelectorAll('.bar'))path.classList.toggle('active',Number(path.dataset.i)===i);
+  tip.innerHTML=`<strong>${number(d.total)} ${noun}${d.total===1?'':'s'}</strong><span>${escape(d.long)}</span>${noun==='download'&&!format&&d.total?`<span>MDX ${number(d.mdx)} · Pack ${number(d.pack)}</span>`:''}`;
+  tip.hidden=false;const box=plot.getBoundingClientRect(),x=(left+i*slot+slot/2)/width*box.width;tip.style.left=Math.min(Math.max(x,70),box.width-70)+'px';tip.style.top=Math.max(0,(y(d.total)/height)*box.height-8)+'px';
+ };
+ svg.onpointerleave=()=>{tip.hidden=true;svg.classList.remove('hovering');};
 }
 async function loadVault(){account=await api('me');csrf=account.csrf;workspace();}
 window.addEventListener('author-logout',()=>{clearDraft();login();});

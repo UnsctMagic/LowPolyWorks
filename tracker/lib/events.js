@@ -21,9 +21,11 @@ export function authorized(header,secret){
  return actual.length===expected.length&&timingSafeEqual(actual,expected);
 }
 export function validateEvent(input,models=[]){
- if(!input||typeof input!=='object'||!['visit','download'].includes(input.kind)||!uuid.test(input.id||'')||input.visitorId!==undefined&&!uuid.test(input.visitorId))return null;
+ if(!input||typeof input!=='object'||!['visit','download','view'].includes(input.kind)||!uuid.test(input.id||'')||input.visitorId!==undefined&&!uuid.test(input.visitorId))return null;
  const visitor=input.visitorId?{visitorId:input.visitorId.toLowerCase()}:{};
  if(input.kind==='visit')return {id:input.id,kind:'visit',model:'site',format:'none',testing:input.testing===true,...visitor};
+ // A model view is one opening of a model page, counted per model.
+ if(input.kind==='view')return models.some(model=>model.id===input.model)?{id:input.id,kind:'view',model:input.model,format:'none',testing:input.testing===true,...visitor}:null;
  if(input.model==='mdlxl')return input.format==='zip'?{id:input.id,kind:'download',model:'mdlxl',format:'zip',testing:input.testing===true,...visitor}:null;
  const model=models.find(model=>model.id===input.model);
  if(!model||!['mdx','pack'].includes(input.format)||input.format==='pack'&&!model.hasPack)return null;
@@ -34,16 +36,17 @@ export function eventPath(event,now=new Date()){
  return `${event.testing?'testing':'live'}/${event.visitorId?'v2':'v1'}/${now.toISOString().slice(0,10)}/${event.kind}/${event.model}/${event.format}/${event.visitorId?event.visitorId+'/':''}${event.id}.json`;
 }
 export function summarize(blobs,{from='',to='',models=[]}={}){
- const totals={pageLoads:0,downloadClicks:0,uniqueVisitors:0},applications=[{id:'mdlxl',name:'MDLxL',zipClicks:0,total:0}],daily=new Map(),byModel=new Map(),visitors=new Set(),dailyVisitors=new Map(),visitorCountries=new Map(),coverage={identifiedPageLoads:0,unidentifiedPageLoads:0};let lastRecordedAt=null;
+ const totals={pageLoads:0,downloadClicks:0,modelViews:0,uniqueVisitors:0},timeline=new Map(),applications=[{id:'mdlxl',name:'MDLxL',zipClicks:0,total:0}],daily=new Map(),byModel=new Map(),visitors=new Set(),dailyVisitors=new Map(),visitorCountries=new Map(),coverage={identifiedPageLoads:0,unidentifiedPageLoads:0};let lastRecordedAt=null;
  // Every tracked model is listed, including new ones that have no downloads yet.
- for(const row of models)byModel.set(row.id,{id:row.id,name:row.name,mdxClicks:0,packClicks:0,total:0});
+ for(const row of models)byModel.set(row.id,{id:row.id,name:row.name,mdxClicks:0,packClicks:0,total:0,views:0});
  for(const blob of blobs){
   const [namespace,version,date,kind,model,format,visitorId,country]=blob.pathname.split('/');
-  if(namespace!=='live'||!['v1','v2','v3'].includes(version)||from&&date<from||to&&date>to||!['visit','download'].includes(kind))continue;
+  if(namespace!=='live'||!['v1','v2','v3'].includes(version)||from&&date<from||to&&date>to||!['visit','download','view'].includes(kind))continue;
   if(version==='v2'&&!uuid.test(visitorId)||version==='v3'&&visitorId!=='anonymous'&&!uuid.test(visitorId))continue;
   const identified=version!=='v1'&&uuid.test(visitorId),at=new Date(blob.uploadedAt).toISOString();
   // Stored downloads were validated when recorded, so a model later renamed or removed keeps its clicks.
   if(kind==='download'&&(model==='mdlxl'?format!=='zip':!/^[a-z0-9-]{1,100}$/.test(model)||!['mdx','pack'].includes(format)))continue;
+  if(kind==='view'&&(!/^[a-z0-9-]{1,100}$/.test(model)||model==='mdlxl'))continue;
   if(!daily.has(date)){daily.set(date,{date,pageLoads:0,downloadClicks:0,uniqueVisitors:0});dailyVisitors.set(date,new Set());}
   const day=daily.get(date);
   if(identified){
@@ -52,11 +55,17 @@ export function summarize(blobs,{from='',to='',models=[]}={}){
    if(code!=='ZZ'&&(!previous||at<previous.at||at===previous.at&&code<previous.code))visitorCountries.set(id,{code,at});
   }
   if(kind==='visit'){totals.pageLoads++;day.pageLoads++;coverage[identified?'identifiedPageLoads':'unidentifiedPageLoads']++;}
+  if(kind!=='visit'){const key=date+'|'+kind+'|'+model+'|'+format;timeline.set(key,(timeline.get(key)||0)+1);}
+  if(kind==='view'){
+   totals.modelViews++;
+   if(!byModel.has(model))byModel.set(model,{id:model,name:model,mdxClicks:0,packClicks:0,total:0,views:0,unlisted:true});
+   byModel.get(model).views++;
+  }
   if(kind==='download'){
    totals.downloadClicks++;day.downloadClicks++;
    if(model==='mdlxl'){applications[0].total++;applications[0].zipClicks++;}
    else{
-    if(!byModel.has(model))byModel.set(model,{id:model,name:model,mdxClicks:0,packClicks:0,total:0,unlisted:true});
+    if(!byModel.has(model))byModel.set(model,{id:model,name:model,mdxClicks:0,packClicks:0,total:0,views:0,unlisted:true});
     const entry=byModel.get(model);entry.total++;entry[format==='pack'?'packClicks':'mdxClicks']++;
    }
   }
@@ -65,5 +74,7 @@ export function summarize(blobs,{from='',to='',models=[]}={}){
  totals.uniqueVisitors=visitors.size;for(const [date,ids] of dailyVisitors)daily.get(date).uniqueVisitors=ids.size;
  const byCountry=new Map();for(const id of visitors){const code=visitorCountries.get(id)?.code||'ZZ';byCountry.set(code,(byCountry.get(code)||0)+1);}
  const countries=[...byCountry].map(([code,uniqueVisitors])=>({code,name:code==='ZZ'?'Unknown':regionNames.of(code),uniqueVisitors,share:uniqueVisitors/totals.uniqueVisitors})).sort((a,b)=>(a.code==='ZZ')-(b.code==='ZZ')||b.uniqueVisitors-a.uniqueVisitors||a.name.localeCompare(b.name));
- return {totals,coverage,lastRecordedAt,countries,daily:[...daily.values()].sort((a,b)=>a.date.localeCompare(b.date)),models:[...byModel.values()].sort((a,b)=>b.total-a.total||a.name.localeCompare(b.name)),applications,measurement:'Unique visitors are anonymous browser IDs, not unique people. Earlier page loads without an ID are excluded from unique counts. Countries are estimated from network location; each browser uses its first known country in the reporting period. Earlier or unavailable locations are Unknown. Downloads are button clicks, not completed transfers. MDLxL counts cover the enabled LowPolyWorks application download button.'};
+ return {totals,coverage,lastRecordedAt,countries,daily:[...daily.values()].sort((a,b)=>a.date.localeCompare(b.date)),models:[...byModel.values()].sort((a,b)=>b.total-a.total||b.views-a.views||a.name.localeCompare(b.name)),applications,
+  // Compact per-day counts, [date, kind, model, format, count], for charts at any granularity.
+  timeline:[...timeline].map(([key,count])=>[...key.split('|'),count]).sort((a,b)=>a[0].localeCompare(b[0])),measurement:'Unique visitors are anonymous browser IDs, not unique people. Earlier page loads without an ID are excluded from unique counts. Countries are estimated from network location; each browser uses its first known country in the reporting period. Earlier or unavailable locations are Unknown. Downloads are button clicks, not completed transfers. MDLxL counts cover the enabled LowPolyWorks application download button. Model views count a browser opening a model page, at most once per model per day.'};
 }

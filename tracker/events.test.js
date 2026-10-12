@@ -27,7 +27,7 @@ test('country shares preserve old totals, deduplicate browsers and use the first
  const blob=(event,at=now)=>({pathname:eventPath(event,at),uploadedAt:at});
  const blobs=[blob(visit),blob({...visit,country:'US',id:randomUUID()}),blob({...visit,country:'US',id:randomUUID()}),blob({...visit,country:'NL'},day2),blob({...visit,visitorId:other,country:'NL'}),blob({...visit,visitorId:unknown}),blob({...visit,visitorId:undefined,country:'US'}),blob({...visit,visitorId:undefined}),blob({...visit,visitorId:randomUUID(),country:'DE',testing:true}),blob({...visit,kind:'download',model:'mdlxl',format:'zip',country:'US'})];
  const report=summarize(blobs.reverse());
- assert.deepEqual(report.totals,{pageLoads:8,downloadClicks:1,uniqueVisitors:3});
+ assert.deepEqual(report.totals,{pageLoads:8,downloadClicks:1,modelViews:0,uniqueVisitors:3});
  assert.deepEqual(report.coverage,{identifiedPageLoads:6,unidentifiedPageLoads:2});
  assert.deepEqual(report.countries,[{code:'NL',name:'Netherlands',uniqueVisitors:1,share:1/3},{code:'US',name:'United States',uniqueVisitors:1,share:1/3},{code:'ZZ',name:'Unknown',uniqueVisitors:1,share:1/3}]);
  assert.equal(report.countries.reduce((sum,row)=>sum+row.uniqueVisitors,0),report.totals.uniqueVisitors);
@@ -73,8 +73,8 @@ test('newly published models are accepted and reported without restarting the tr
  await read({method:'GET',url:'/api/report',headers:{authorization:'Bearer secret'}},res);
  assert.equal(res.statusCode,200);
  assert.deepEqual(res.body.models,[
-  {id:'future-model',name:'Future Model',mdxClicks:1,packClicks:1,total:2},
-  {id:'existing-model',name:'Existing Model',mdxClicks:1,packClicks:0,total:1},
+  {id:'future-model',name:'Future Model',mdxClicks:1,packClicks:1,total:2,views:0},
+  {id:'existing-model',name:'Existing Model',mdxClicks:1,packClicks:0,total:1,views:0},
  ]);
  assert.equal(res.body.totals.downloadClicks,3);
 });
@@ -105,7 +105,7 @@ test('every catalogue download is accepted and reports its own item and format',
  assert.equal(report.models.length,catalogue.length);
  assert.equal(report.totals.downloadClicks,blobs.length);
  for(const model of catalogue){
-  assert.deepEqual(report.models.find(row=>row.id===model.id),{id:model.id,name:model.name,mdxClicks:1,packClicks:model.downloadPack?1:0,total:model.downloadPack?2:1});
+  assert.deepEqual(report.models.find(row=>row.id===model.id),{id:model.id,name:model.name,mdxClicks:1,packClicks:model.downloadPack?1:0,total:model.downloadPack?2:1,views:0});
  }
 });
 test('MDLxL ZIP clicks are accepted and reported separately from model files',()=>{
@@ -115,9 +115,9 @@ test('MDLxL ZIP clicks are accepted and reported separately from model files',()
  assert.equal(validateEvent({...input,model:'not-an-app'}),null);
  const blob=event=>({pathname:eventPath(event,now),uploadedAt:now});
  const report=summarize([blob(input),blob({...input,testing:true}),blob({...input,format:'mdx'}),blob({...input,model:'tzeentch-sword',format:'pack'})]);
- assert.deepEqual(report.totals,{pageLoads:0,downloadClicks:2,uniqueVisitors:1});
+ assert.deepEqual(report.totals,{pageLoads:0,downloadClicks:2,modelViews:0,uniqueVisitors:1});
  assert.deepEqual(report.applications,[{id:'mdlxl',name:'MDLxL',zipClicks:1,total:1}]);
- assert.equal(report.models.length,catalogue.length);assert.deepEqual(report.models[0],{id:'tzeentch-sword',name:catalogue.find(model=>model.id==='tzeentch-sword').name,mdxClicks:0,packClicks:1,total:1});
+ assert.equal(report.models.length,catalogue.length);assert.deepEqual(report.models[0],{id:'tzeentch-sword',name:catalogue.find(model=>model.id==='tzeentch-sword').name,mdxClicks:0,packClicks:1,total:1,views:0});
  assert.equal(report.daily[0].downloadClicks,2);
  assert.equal(summarize([blob(input)],{from:'2026-10-06'}).applications[0].total,0);
 });
@@ -134,7 +134,7 @@ test('only known downloads and anonymous visit payloads are accepted',()=>{
 test('test events never enter the live report; MDX and pack counts remain separate',()=>{
  const visit={id,kind:'visit',model:'site',format:'none'},download={id,kind:'download',model:'tzeentch-sword',format:'mdx'};
  const blobs=[visit,download,{...download,format:'pack'},{...download,testing:true}].map(event=>({pathname:eventPath(event,now),uploadedAt:now}));
- const report=summarize(blobs);assert.deepEqual(report.totals,{pageLoads:1,downloadClicks:2,uniqueVisitors:0});assert.equal(report.coverage.unidentifiedPageLoads,1);assert.equal(report.models[0].mdxClicks,1);assert.equal(report.models[0].packClicks,1);
+ const report=summarize(blobs);assert.deepEqual(report.totals,{pageLoads:1,downloadClicks:2,modelViews:0,uniqueVisitors:0});assert.equal(report.coverage.unidentifiedPageLoads,1);assert.equal(report.models[0].mdxClicks,1);assert.equal(report.models[0].packClicks,1);
  assert.equal(summarize(blobs,{from:'2026-10-06'}).totals.downloadClicks,0);
 });
 
@@ -150,7 +150,7 @@ test('refreshes, return visits and downloads count one browser across dates',()=
  const blob=(event,at=now)=>({pathname:eventPath(event,at),uploadedAt:at});
  const visit={id,kind:'visit',model:'site',format:'none',visitorId:id};
  const blobs=[blob(visit),blob({...visit,id:other}),blob(visit,day2),blob({...visit,visitorId:other},day2),blob({...visit,kind:'download',model:'tzeentch-sword',format:'mdx'},day2),blob({...visit,visitorId:'0a0ec2ea-2a98-4f4b-9b10-42e20e9c853b',testing:true})];
- const report=summarize(blobs);assert.deepEqual(report.totals,{pageLoads:4,downloadClicks:1,uniqueVisitors:2});
+ const report=summarize(blobs);assert.deepEqual(report.totals,{pageLoads:4,downloadClicks:1,modelViews:0,uniqueVisitors:2});
  assert.deepEqual(report.daily.map(day=>day.uniqueVisitors),[1,2]);assert.deepEqual(report.coverage,{identifiedPageLoads:4,unidentifiedPageLoads:0});
  assert.equal(summarize(blobs,{to:'2026-10-05'}).totals.uniqueVisitors,1);
  assert.equal(summarize(blobs,{from:'2026-10-06'}).totals.pageLoads,2);
@@ -176,11 +176,21 @@ test('every unit is listed with its own count, including new units without downl
  const blob=(model,format)=>({pathname:eventPath({id:randomUUID(),kind:'download',model,format},now),uploadedAt:now});
  const report=summarizeEvents([blob('old-model','mdx'),blob('unit-hidden','pack'),blob('unit-hidden','mdx'),blob('retired-model','mdx')],{models:all});
  assert.deepEqual(report.models,[
-  {id:'unit-hidden',name:'Hidden Unit',mdxClicks:1,packClicks:1,total:2},
-  {id:'old-model',name:'Old Model',mdxClicks:1,packClicks:0,total:1},
-  {id:'retired-model',name:'retired-model',mdxClicks:1,packClicks:0,total:1,unlisted:true},
-  {id:'unit-live',name:'Live Unit',mdxClicks:0,packClicks:0,total:0},
-  {id:'new-model',name:'New Model',mdxClicks:0,packClicks:0,total:0},
+  {id:'unit-hidden',name:'Hidden Unit',mdxClicks:1,packClicks:1,total:2,views:0},
+  {id:'old-model',name:'Old Model',mdxClicks:1,packClicks:0,total:1,views:0},
+  {id:'retired-model',name:'retired-model',mdxClicks:1,packClicks:0,total:1,views:0,unlisted:true},
+  {id:'unit-live',name:'Live Unit',mdxClicks:0,packClicks:0,total:0,views:0},
+  {id:'new-model',name:'New Model',mdxClicks:0,packClicks:0,total:0,views:0},
  ]);
  assert.equal(report.totals.downloadClicks,4);
+});
+test('model views are accepted only for listed models and reported per model and per day beside downloads',()=>{
+ const view={id,kind:'view',model:'graveguard',format:'none',visitorId:id};
+ assert.deepEqual(validateEvent(view),{id,kind:'view',model:'graveguard',format:'none',testing:false,visitorId:id});
+ assert.equal(validateEvent({...view,model:'not-in-catalogue'}),null);assert.equal(validateEvent({...view,model:'mdlxl'}),null);
+ const day1=new Date('2026-10-05T10:00:00Z'),day2=new Date('2026-10-06T10:00:00Z'),blob=(event,at)=>({pathname:eventPath({...event,id:randomUUID(),country:'NL'},at),uploadedAt:at});
+ const report=summarize([blob(view,day1),blob(view,day2),blob({...view,model:'strigoi-vampire'},day2),blob({id,kind:'download',model:'graveguard',format:'mdx'},day2),blob({id,kind:'visit',model:'site',format:'none'},day2),blob({...view,testing:true},day2)]);
+ assert.equal(report.totals.modelViews,3);assert.equal(report.totals.pageLoads,1);assert.equal(report.totals.downloadClicks,1);
+ assert.equal(report.models.find(row=>row.id==='graveguard').views,2);assert.equal(report.models.find(row=>row.id==='strigoi-vampire').views,1);
+ assert.deepEqual(report.timeline,[['2026-10-05','view','graveguard','none',1],['2026-10-06','view','graveguard','none',1],['2026-10-06','view','strigoi-vampire','none',1],['2026-10-06','download','graveguard','mdx',1]].sort((a,b)=>a[0].localeCompare(b[0])));
 });

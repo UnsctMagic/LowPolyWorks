@@ -20,7 +20,7 @@ test('Vault country analytics remains owner-only and returns no browser identifi
  const handler=createHandler(f,{listBlobs:async()=>({blobs,hasMore:false}),loadModels:async()=>[{id:'graveguard',name:'Graveguard'}],env:{}});
  async function call(session){const res={setHeader(){},status(code){this.statusCode=code;return this;},json(value){this.body=value;},end(){}};await handler({url:'/api/publishing?action=analytics',method:'GET',headers:session?{cookie:'lpw_session='+session}:{}},res);return res;}
  assert.equal((await call()).statusCode,401);assert.equal((await call(other.session)).statusCode,403);
- const result=await call(request.session);assert.equal(result.statusCode,200);assert.deepEqual(result.body.totals,{pageLoads:1,downloadClicks:1,uniqueVisitors:1});assert.deepEqual(result.body.countries,[{code:'NL',name:'Netherlands',uniqueVisitors:1,share:1}]);assert(!JSON.stringify(result.body).includes(visitor));
+ const result=await call(request.session);assert.equal(result.statusCode,200);assert.deepEqual(result.body.totals,{pageLoads:1,downloadClicks:1,modelViews:0,uniqueVisitors:1});assert.deepEqual(result.body.countries,[{code:'NL',name:'Netherlands',uniqueVisitors:1,share:1}]);assert(!JSON.stringify(result.body).includes(visitor));
 });
 async function subscriber(f,email='reader@example.test'){await f.execute('subscribe',{email},{ip:email});const url=f.emails.at(-1).message.text.match(/https:\/\/[^\s]+/)[0],token=new URLSearchParams(new URL(url).hash.slice(1)).get('confirm');await f.execute('confirm',{token});return f.state.subscribers.find(s=>s.email===email);}
 
