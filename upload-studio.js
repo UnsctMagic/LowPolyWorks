@@ -1,4 +1,4 @@
-import {createViewer} from './viewer.js?v=20261009-unit-upload';
+import {createViewer} from './viewer.js?v=20261012-champion-depth';
 import {unpackFile,inspectModel,findTexture,pathKey,sha256,modelPattern} from './model-files.js';
 import {TEAM_COLORS} from './vendor/mdlxl/src/team-colors.js';
 let canvas=document.querySelector('#preview');

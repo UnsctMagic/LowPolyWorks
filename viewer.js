@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import {bindVertexCamera} from './website-camera-controls.js';
 import {setEditorCameraAngles} from './vendor/mdlxl/app/editor-camera-controls.js';
-import {skinGeoset} from './vendor/mdlxl/src/animation.js';
+import {skinGeoset,sampleNodeMatrices} from './vendor/mdlxl/src/animation.js';
 import {perspectiveFitDistance,modelClipRadius,updateDepthClipping} from './vendor/mdlxl/app/viewport-math.js';
 import {parseMDX,parseMDL,ModelRenderer} from './vendor/war3-model.mjs';
 import {decodeTga} from './texture-raster.js';
@@ -61,7 +61,26 @@ export async function createViewer(canvas,row,{thumbnail=false,portrait=false,fo
  const box=new THREE.Box3(),point=new THREE.Vector3();
  for(const [index,g] of model.Geosets.entries()){const layers=model.Materials[g.MaterialID]?.Layers||[];if(scenery.has(index)||!layers.some(layer=>previewGeosetTint(model,index,layer,native.getFrame(),sequence,0)[3]>.001))continue;const vertices=skinGeoset(g,matrices);for(const id of new Set(g.Faces))box.expandByPoint(point.fromArray(vertices,id*3));}
  const center=box.getCenter(new THREE.Vector3()),radius=Math.max(1,box.getSize(new THREE.Vector3()).length()/2);
- const clipRadius=modelClipRadius(model,center,radius);
+ // Depth range for one sequence: its authored extents plus the geometry it actually
+ // draws. Other sequences' extents are excluded; the Champion's placeholder "Decay For
+ // Hive" extent (832 units) pulled the near plane to 0.47 and made close layers z-fight.
+ const clipRadii=new Map();
+ function sequenceClipRadius(index){
+  if(clipRadii.has(index))return clipRadii.get(index);
+  const s=model.Sequences[index],[start,end]=s.Interval,steps=Math.min(48,Math.max(4,Math.ceil((end-start)/50)));
+  let result=modelClipRadius({Info:model.Info,Sequences:[s],Geosets:model.Geosets.map(g=>({MinimumExtent:g.MinimumExtent,MaximumExtent:g.MaximumExtent,Anims:g.Anims?.[index]?[g.Anims[index]]:[]}))},center,radius);
+  for(let step=0;step<=steps;step++){
+   const frame=start+(end-start)*step/steps,matrices=sampleNodeMatrices(model,frame,index,frame-start);
+   for(const [geosetIndex,g] of model.Geosets.entries()){
+    if(formation&&scenery.has(geosetIndex))continue;
+    if(!(model.Materials[g.MaterialID]?.Layers||[]).some(layer=>previewGeosetTint(model,geosetIndex,layer,frame,index,frame-start)[3]>.001))continue;
+    const vertices=skinGeoset(g,matrices);
+    for(let v=0;v<vertices.length;v+=3)result=Math.max(result,Math.hypot(vertices[v]-center.x,vertices[v+1]-center.y,vertices[v+2]-center.z));
+   }
+  }
+  clipRadii.set(index,result);return result;
+ }
+ let clipRadius=sequenceClipRadius(sequence);
  const navigation=!thumbnail?bindVertexCamera(camera,canvas):null,controls=navigation?.controls;
  if(controls)controls.autoRotateSpeed=1.2;
  function fit(){const aspect=Math.max(1,canvas.clientWidth)/Math.max(1,canvas.clientHeight),distance=perspectiveFitDistance(radius,camera.fov??32,aspect);camera.zoom=1;camera.position.copy(center).addScaledVector(formation?new THREE.Vector3(Math.cos(formationYaw),Math.sin(formationYaw),.12).normalize():new THREE.Vector3(Math.cos(.75),Math.sin(.75),.18).normalize(),distance);camera.lookAt(center);if(controls){controls.target.copy(center);controls.minDistance=radius*.4;controls.maxDistance=distance*3;controls.update();}}
@@ -86,5 +105,5 @@ export async function createViewer(canvas,row,{thumbnail=false,portrait=false,fo
  gl.viewport(0,0,canvas.width,canvas.height);gl.clearColor(...(portraitActive||transparent?[0,0,0]:[16/255,24/255,39/255]),transparent?0:1);gl.clearDepth(1);gl.depthMask(true);gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT);native.render(camera.matrixWorldInverse.elements,camera.projectionMatrix.elements,{wireframe:false,useEnvironmentMap:true});}
  let last=performance.now(),raf;function tick(now){if(disposed)return;const delta=Math.min(70,now-last);last=now;controls?.update(delta/1000);render(playing?delta:0);if(playing&&!looping&&clock>=model.Sequences[sequence].Interval[1]-model.Sequences[sequence].Interval[0]){playing=false;onPlayingChange?.(playing);}raf=requestAnimationFrame(tick);}render();
  if(!thumbnail)raf=requestAnimationFrame(tick);
- return {model,render,formationAnchor:()=>new THREE.Vector3(0,0,center.z).project(camera).x/2+.5,snapshot:()=>canvas.toDataURL('image/png'),sequence(i){sequence=i;looping=!model.Sequences[i].NonLooping;clock=0;revision++;previous=null;native.setSequence(i);if(!thumbnail)setLivePortrait(/portrait/i.test(model.Sequences[i].Name));render();return looping;},loop(v){looping=v;clock=0;revision++;previous=null;render();},looping:()=>looping,pause(){playing=!playing;if(playing&&!looping&&clock>=model.Sequences[sequence].Interval[1]-model.Sequences[sequence].Interval[0]){clock=0;revision++;previous=null;render();}onPlayingChange?.(playing);return playing;},speed(v){speed=v;},orbitSpeed(v){if(controls)controls.autoRotateSpeed=1.2*v;},async colour(hex){await teamTextures.colour(native,hex);if(!disposed)render();},rotate(){rotate=!rotate;if(controls){controls.autoRotate=rotate;if(rotate)detachPortrait();}return rotate;},reset(){if(portraitActive)portraitDetached=false;else fit();render();},dispose(){disposed=true;cancelAnimationFrame(raf);controls?.removeEventListener('start',detachPortrait);navigation?.dispose();adapter.dispose();gl.getExtension('WEBGL_lose_context')?.loseContext();}};
+ return {model,render,formationAnchor:()=>new THREE.Vector3(0,0,center.z).project(camera).x/2+.5,snapshot:()=>canvas.toDataURL('image/png'),sequence(i){sequence=i;clipRadius=sequenceClipRadius(i);looping=!model.Sequences[i].NonLooping;clock=0;revision++;previous=null;native.setSequence(i);if(!thumbnail)setLivePortrait(/portrait/i.test(model.Sequences[i].Name));render();return looping;},loop(v){looping=v;clock=0;revision++;previous=null;render();},looping:()=>looping,pause(){playing=!playing;if(playing&&!looping&&clock>=model.Sequences[sequence].Interval[1]-model.Sequences[sequence].Interval[0]){clock=0;revision++;previous=null;render();}onPlayingChange?.(playing);return playing;},speed(v){speed=v;},orbitSpeed(v){if(controls)controls.autoRotateSpeed=1.2*v;},async colour(hex){await teamTextures.colour(native,hex);if(!disposed)render();},rotate(){rotate=!rotate;if(controls){controls.autoRotate=rotate;if(rotate)detachPortrait();}return rotate;},reset(){if(portraitActive)portraitDetached=false;else fit();render();},dispose(){disposed=true;cancelAnimationFrame(raf);controls?.removeEventListener('start',detachPortrait);navigation?.dispose();adapter.dispose();gl.getExtension('WEBGL_lose_context')?.loseContext();}};
 }

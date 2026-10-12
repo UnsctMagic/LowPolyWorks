@@ -5412,7 +5412,7 @@
   },
   {
     "id": "aspiring",
-    "file": "WH_WOC_Aspiring12.mdx",
+    "file": "WH_WOC_Aspiring13.mdx",
     "name": "Aspiring Champion",
     "army": "warriors-of-chaos",
     "description": "None have tasted power so sweet and so alluring as those who have bent the knee to the Ruinous Powers.\r\n\r\nMighty warlords, knights, holy men and even women... once they have glimpsed such power, they can no longer unsee.\r\n\r\nThey come to crave it, carving their path toward eternal glory or damnation, fighting harder and harder with every battle to prove their worth in the eyes of Chaos... they are the Aspiring Champions.\r\n\r\nThis is... FaceHelm... the mighty leaper of Norsca.",
@@ -5626,10 +5626,9 @@
       "Dissipate",
       "Portrait",
       "Portrait 2",
-      "Portrait Talk",
-      "Decay For Hive"
+      "Portrait Talk"
     ],
-    "bytes": 166653,
+    "bytes": 165669,
     "portraitBackdropGeosets": [
       20
     ],
@@ -5707,7 +5706,14 @@
     ],
     "formationSequence": "Stand",
     "formationBodyHeight": 1,
-    "searchDescription": "Preview and download the Aspiring Champion model for Warcraft 3. A Warhammer Fantasy character for Warriors of Chaos armies and custom maps."
+    "searchDescription": "Preview and download the Aspiring Champion model for Warcraft 3. A Warhammer Fantasy character for Warriors of Chaos armies and custom maps.",
+    "sha256": "a7f9e4c2de69ca114efceaf7b062967a6cf1324b9fb51297250683df67275564",
+    "changelog": [
+      {
+        "date": "12 October 2026",
+        "text": "Removed unnecessary data"
+      }
+    ]
   },
   {
     "id": "herrdave-124832",
