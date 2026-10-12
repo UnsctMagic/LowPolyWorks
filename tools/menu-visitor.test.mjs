@@ -211,7 +211,8 @@ test('a walking stop can be the head lean, one way and then the other', () => {
 
 test('walking stops mix his usual look around with leans played twice through', () => {
   const f=fixture(true,.6); let flip=false;
-  f.context.Math.random=()=>(flip=!flip) ? .3 : .7;
+  // The visit's peanut roll keeps out of the alternation, so it only drives the stops.
+  f.context.Math.random=()=>new Error().stack.includes('rollForPeanut') ? .9 : (flip=!flip) ? .3 : .7;
   const seen=new Set();
   for(let visit=0;visit<6;visit++) {
     f.context.visitor.choose('walk');
@@ -618,4 +619,12 @@ test('an old hand-over is ignored', () => {
   sessionStorage.setItem('lowpolyworks.shredderVisit',JSON.stringify({savedAt:Date.now()-60000,phase:'walk',point:{x:400,y:300},peanut:null}));
   const f=nextPage(sessionStorage); f.step();
   assert.equal(f.state().phase,'rest');
+});
+test('each visit, peek or walk, has a one-in-four chance of a falling peanut', () => {
+  for (const mode of ['peek', 'walk']) {
+    const lucky = fixture(false, .24); lucky.context.visitor.choose(mode); lucky.advance(6000);
+    assert(lucky.state().peanut, mode + ' visits can drop a peanut');
+    const unlucky = fixture(false, .25); unlucky.context.visitor.choose(mode); unlucky.advance(6000);
+    assert.equal(unlucky.state().peanut, null, mode + ' visits keep the roll at 25%');
+  }
 });
