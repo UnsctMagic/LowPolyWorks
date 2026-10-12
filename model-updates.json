@@ -140,7 +140,8 @@
       "sha256": "e6695082ade24b722e13a34867f2d826027592afa7ac5568611d3bdfa135dc09"
     },
     "nurgle-champion": {
-      "sha256": "652f4e1cf0060325aa86c86a6c04bf13aa0439b2a5a97cc09292bd3e691c6d98"
+      "sha256": "51a1a4375f50b5cc9793dab6bf141b7a1937da90c4d8441ed309ce2e660365b1",
+      "updatedAt": "2026-10-12T02:00:36.220Z"
     }
   }
 }
