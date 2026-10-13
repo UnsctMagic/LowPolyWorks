@@ -8,9 +8,11 @@ const source = fs.readFileSync(new URL('../dist/menu-visitor.js', import.meta.ur
 const instrumented = source.replaceAll('import.meta.url', "'http://localhost/menu-visitor.js'")
   .replace('export function startMenuVisitor(', 'function startMenuVisitor(')
   .replace('  return () => {', `  globalThis.visitor = {
-    state: () => ({phase, peanut:peanut && {...peanut}, point:paintedPoint && {...paintedPoint}, offset, deadline, speed, next}),
+    state: () => ({phase, peanut:peanut && {...peanut}, point:paintedPoint && {...paintedPoint}, offset, deadline, speed, next,
+      perch:perch && {inward:perch.inward, side:perch.side, min:perch.min, max:perch.max}, dive:dive && {...dive},
+      art:paintedSheet === 'moves' ? moves : paintedSheet === 'dive' ? diveArt : sheet}),
     choose: mode => choose(performance.now(), mode),
-    tick, tickPeanut, paint, peanutLook, rest,
+    tick, tickPeanut, paint, peanutLook, rest, pose,
   };
   return () => {`) + '\nglobalThis.played = [];\nglobalThis.stopVisitor = startMenuVisitor({onInteraction:kind => globalThis.played.push(kind)});';
 
@@ -22,7 +24,7 @@ function fixture(testMode = true, random = .6, extras = {}) {
   const rect = {left:240, right:860, top:220, bottom:550, width:620, height:330};
   const element = (className = '') => {
     const node = {className, style:{}, dataset:{}, isConnected:true, clientWidth:1100, clientHeight:800,
-      children:[], setAttribute(){}, append(...children){this.children.push(...children);},
+      children:[], getContext(){return this.context ||= {calls:[], setTransform(...v){this.calls=[];this.calls.push(['setTransform',...v]);}, clearRect(){}, save(){}, restore(){}, translate(...v){this.calls.push(['translate',...v]);}, scale(...v){this.calls.push(['scale',...v]);}, drawImage(...v){this.calls.push(['drawImage',...v]);}};}, setAttribute(){}, append(...children){this.children.push(...children);},
       remove(){this.isConnected = false;}, querySelector(){return null;}, closest(){return null;},
       matches(selector){return selector.split(',').some(s => s.trim() === '.' + this.className);},
       getBoundingClientRect(){return rect;}};
@@ -156,7 +158,7 @@ test('vertical gaze looks directly at food and follows its side on every rotated
       assert.equal(look.column,column, `column for ${turn} degrees, ${x},${y}`);
       assert.equal(look.mirrored,mirrored, `side for ${turn} degrees, ${x},${y}`);
       f.context.visitor.paint(500,400,look.row,look.column,turn,false,look.mirrored);
-      assert.equal(f.nodes.find(n=>n.className==='menu-visitor-frame').style.transform, mirrored?'scaleX(-1)':'none');
+      assert.equal(f.nodes.filter(n=>n.context).find(n=>n.context.calls.some(c=>c[0]==='scale')).context.calls.find(c=>c[0]==='scale')[1], mirrored?-1:1);
     }
   }
 });
@@ -190,8 +192,8 @@ function walkingStops(f, ms) {
   let current=null;
   for(let t=0;t<ms;t+=16) {
     f.step();
-    const [x,y]=(picture.style.backgroundPosition||'0px 0px').split(' ').map(v=>-parseFloat(v));
-    const row=Math.round(y/143)||0, column=Math.round(x/132)||0;
+    const draw=f.nodes.filter(n=>n.context).flatMap(n=>n.context.calls).find(c=>c[0]==='drawImage' && typeof c[1]?.src==='string');
+    const row=draw ? draw[3]/208 : 0, column=draw ? draw[2]/192 : 0;
     const stopped=f.state().phase==='walk' && (row===8 || row===5);
     if(!stopped) { current=null; continue; }
     if(!current) stops.push(current=[]);
@@ -211,7 +213,8 @@ test('a walking stop can be the head lean, one way and then the other', () => {
 
 test('walking stops mix his usual look around with leans played twice through', () => {
   const f=fixture(true,.6); let flip=false;
-  f.context.Math.random=()=>(flip=!flip) ? .3 : .7;
+  // The visit's peanut and special-move rolls keep out of the alternation, so it only drives the stops.
+  f.context.Math.random=()=>/rollFor(Peanut|Special)/.test(new Error().stack) ? .9 : (flip=!flip) ? .3 : .7;
   const seen=new Set();
   for(let visit=0;visit<6;visit++) {
     f.context.visitor.choose('walk');
@@ -233,14 +236,17 @@ test('walking gaze frames use the walking foot rail and reset their scale on the
   for(const row of [9,10]) {
     f.context.visitor.paint(500,400,row,0,0,false,false);
     const sourceFoot=row===9?169:170;
-    const origin=Number(picture.style.transformOrigin.split(' ')[1].slice(0,-2));
-    const shift=Number(/translateY\(([^p]+)px\)/.exec(picture.style.transform)[1]);
-    assert.equal(origin,sourceFoot/208*143);
-    assert(Math.abs(origin+shift-197/208*143)<1e-9);
-    assert(picture.style.transform.includes('scale(1.1)'));
+    const calls=f.nodes.filter(n=>n.context).flatMap(n=>n.context.calls);
+    const shift=calls.find(c=>c[0]==='translate')[2];
+    const draw=calls.find(c=>c[0]==='drawImage' && typeof c[1]?.src==='string');
+    assert(Math.abs(shift + 143 / 2 - 197 / 208 * 143)<1e-9);
+    assert(Math.abs(draw[7] + sourceFoot / 208 * 143)<1e-9);
+    assert.deepEqual(calls.find(c=>c[0]==='scale').slice(1), [1.1,1.1]);
   }
   f.context.visitor.paint(500,400,1,0);
-  assert.equal(picture.style.transform,'none'); assert.equal(picture.style.transformOrigin,'50% 50%');
+  const calls=f.nodes.filter(n=>n.context).flatMap(n=>n.context.calls);
+  assert(!calls.some(c=>c[0]==='translate'));
+  assert.deepEqual(calls.find(c=>c[0]==='scale').slice(1), [1,1]);
 });
 
 function heldFixture() {
@@ -618,4 +624,44 @@ test('an old hand-over is ignored', () => {
   sessionStorage.setItem('lowpolyworks.shredderVisit',JSON.stringify({savedAt:Date.now()-60000,phase:'walk',point:{x:400,y:300},peanut:null}));
   const f=nextPage(sessionStorage); f.step();
   assert.equal(f.state().phase,'rest');
+});
+test('being chased uses normal flight on inward and outward ledges', () => {
+  for (const random of [.1,.9]) for (const end of ['left','right']) {
+    const f=fixture();
+    f.context.Math.random=()=>/rollForPeanut/.test(new Error().stack) ? .9 : random;
+    f.context.visitor.choose('walk'); f.advance(3000);
+    assert.equal(f.state().phase,'walk'); assert.equal(f.state().perch.inward,random===.1);
+    const point=f.state().point;
+    f.move(point.x+(end==='left' ? 90 : -90),point.y+10);
+    f.step(); assert.equal(f.state().phase,'walk','runs along the ledge before taking off');
+    for(let i=0;i<180 && f.state().phase==='walk';i++) f.step();
+    assert.equal(f.state().phase,'fly'); assert.equal(f.state().dive,null);
+    assert.equal(f.state().offset,end==='left' ? f.state().perch.min : f.state().perch.max);
+  }
+});
+
+test('relaxed walking dives from inward and outward ledges, with the longer fall', () => {
+  for(const random of [.1,.9]) {
+    const f=fixture();
+    f.context.Math.random=()=>/rollForPeanut/.test(new Error().stack) ? .9 : random;
+    f.context.visitor.choose('walk'); f.advance(3000);
+    assert.equal(f.state().phase,'walk'); assert.equal(f.state().perch.inward,random===.1);
+    for(let i=0;i<1800 && f.state().phase==='walk';i++) f.step();
+    assert.equal(f.state().phase,'dive');
+    f.advance(1500); assert.equal(f.state().phase,'dive');
+    f.advance(600); assert(['fly','rest'].includes(f.state().phase));
+  }
+});
+
+test('the other authored moves remain shelved', () => {
+  assert.doesNotMatch(source,/\b(COO|BLOOP|HOP|ACROBATICS|rollForSpecial|startTrick)\b/);
+});
+
+test('each visit, peek or walk, has a one-in-four chance of a falling peanut', () => {
+  for (const mode of ['peek', 'walk']) {
+    const lucky = fixture(false, .24); lucky.context.visitor.choose(mode); lucky.advance(6000);
+    assert(lucky.state().peanut, mode + ' visits can drop a peanut');
+    const unlucky = fixture(false, .25); unlucky.context.visitor.choose(mode); unlucky.advance(6000);
+    assert.equal(unlucky.state().peanut, null, mode + ' visits keep the roll at 25%');
+  }
 });

@@ -10,6 +10,20 @@ const flightScale = .9, flightSize = 240 * flightScale, footOffset = 59.375 * bo
 // Steps are [column, beats]; the last two columns hold the original lean heads mirrored onto the body.
 const LEAN = [[0, 2], [5, 1], [4, 3], [5, 1], [0, 2], [6, 1], [7, 3], [6, 1]], LEAN_BEAT = 220;
 const LEAN_TIME = LEAN.reduce((total, [, beats]) => total + beats, 0) * LEAN_BEAT;
+// Authored edge departure: standing launch cells and tucked-wing dive cells.
+const moves = new URL('./ui/visitor/2.png' + new URL(import.meta.url).search, import.meta.url).href;
+const diveArt = new URL('./ui/visitor/3.png' + new URL(import.meta.url).search, import.meta.url).href;
+const sequence = (row, durations, dx = null) => ({row, durations, dx, duration:durations.reduce((total, ms) => total + ms, 0)});
+const DIVE_START = sequence(7, [110, 150, 200, 90, 70, 70, 70, 70]);      // look over the edge, crouch, hop off
+const DIVE_FALL = .8, DIVE_PULL = .35, DIVE_GRAVITY = 780; // seconds, seconds, px/s²
+function frameOf(seq, age) {
+  let left = Math.max(0, age);
+  for (let column = 0; column < seq.durations.length; column++) {
+    if (left < seq.durations[column]) return {column, fraction:left / seq.durations[column]};
+    left -= seq.durations[column];
+  }
+  return {column:seq.durations.length - 1, fraction:1};
+}
 // His state survives a full page load in the same tab when the next page starts within this time.
 const CARRY_OVER = 'lowpolyworks.shredderVisit', CARRY_OVER_MS = 15000;
 function leanColumn(time) {
@@ -85,7 +99,16 @@ export function startMenuVisitor({onInteraction} = {}) {
   layer.className = 'menu-visitor-layer'; layer.setAttribute('aria-hidden', 'true');
   const bird = document.createElement('div'); bird.className = 'menu-visitor';
   bird.style.width = `${bodyWidth}px`; bird.style.height = `${bodyHeight}px`;
-  const picture = document.createElement('div'); picture.className = 'menu-visitor-frame';
+  // Paint complete, decoded cells into one surface. CSS sheet/opacity swaps can
+  // expose an unpainted texture for a frame when Chrome recomposites the bird.
+  const picture = document.createElement('canvas'); picture.className = 'menu-visitor-frame';
+  const incoming = document.createElement('canvas'), outgoing = document.createElement('canvas');
+  for (const canvas of [picture, incoming, outgoing]) canvas.width = canvas.height = 480;
+  picture.style.width = picture.style.height = `${flightSize}px`;
+  picture.style.left = `${bodyWidth / 2 - 120 * flightScale}px`;
+  picture.style.top = `${bodyHeight / 2 - 101 * flightScale}px`;
+  const ink = picture.getContext('2d'), nextInk = incoming.getContext('2d'), oldInk = outgoing.getContext('2d');
+  let paintedSheet = null, joinStarted = -Infinity;
   const beakPeanut = document.createElement('div'); beakPeanut.className = 'menu-visitor-beak-peanut';
   bird.append(picture, beakPeanut); layer.append(bird); document.body.append(layer);
   // Food remains visible outside the stone-edge mask used by a peeking bird.
@@ -97,6 +120,7 @@ export function startMenuVisitor({onInteraction} = {}) {
   // The test view is the owner's own playground, so it never counts.
   const played = kind => { if (!peanutTest) onInteraction?.(kind); };
   const art = new Image(), flightArt = new Image(); art.src = sheet; flightArt.src = wings;
+  const movesImage = new Image(), diveImage = new Image(); movesImage.src = moves; diveImage.src = diveArt;
   const trimArt = new Image();
   let trimEdges, peekMask;
   trimArt.onload = () => {
@@ -126,8 +150,8 @@ export function startMenuVisitor({onInteraction} = {}) {
   let perchSize, lastWalkPoint;
   let next = last + between(8000, 12000), deadline = 0, exposure = -72 * bodyScale, fromExposure = -72 * bodyScale;
   let actionAge = 0, peck = false, offset = 0, direction = 1, speed = 0, steps = 0;
-  let pauseAt = 0, pauseUntil = 0, pauseStarted = 0, hurryUntil = 0, leanCycles = 0;
-  let flight, escapeSpeed = 420;
+  let pauseAt = 0, pauseUntil = 0, pauseStarted = 0, hurryUntil = 0, chasedUntil = 0, leanCycles = 0;
+  let flight, escapeSpeed = 420, dive = null;
   // peanut.state: 'falling' (fresh drop), 'dropped' (released by the hand), 'held', or 'carried'.
   // contested: a hand reached for free food, so he keeps away until it moves off.
   let peanut = null, peanutRollAt = Infinity, chasePoint, paintedPoint, backOffUntil = 0, backOffTarget = 0;
@@ -353,14 +377,15 @@ export function startMenuVisitor({onInteraction} = {}) {
     lastWalkPoint = null;
     paintedPoint = null;
     phase = perch.mode; started = now;
-    peanutRollAt = perch.mode === 'peek' ? now + 1400 : Infinity;
+    // Preserve the current published 25% find on either kind of visit.
+    peanutRollAt = now + 1400;
     backOffUntil = 0;
     deadline = now + between(16000, 22000);
     // Walking visits fly to the platform before showing the standing body.
     // A new peek starts with a visible crown, so the cooldown includes its entrance.
     exposure = fromExposure = perch.mode === 'walk' ? footOffset : -17 * bodyScale;
     actionAge = 0; peck = Math.random() < .55;
-    speed = steps = 0; escapeSpeed = 420; pauseAt = now + between(3500, 5500); pauseUntil = hurryUntil = 0;
+    speed = steps = 0; escapeSpeed = 420; pauseAt = now + between(3500, 5500); pauseUntil = hurryUntil = chasedUntil = 0; dive = null;
     if (perch.mode === 'walk' || arrival) {
       const point = pointFor(perch, rectFor(perch.element), offset);
       const end = perch.mode === 'walk' ? {x:point.x, y:point.y-footOffset} :
@@ -375,7 +400,7 @@ export function startMenuVisitor({onInteraction} = {}) {
   function rest(now) {
     // A follow flight whose landing surface vanished (the new view is still rendering) tries again.
     if (phase === 'arrive' && flight?.following && holding()) follow = {from:paintedPoint && {...paintedPoint}};
-    phase = 'rest'; bird.style.visibility = 'hidden';
+    phase = 'rest'; bird.style.visibility = 'hidden'; dive = null;
     if (peanut?.state === 'carried') peanut = null;
     if (isFree(peanut)) peanut.contested = false;
     beakPeanut.style.display = 'none';
@@ -422,6 +447,41 @@ export function startMenuVisitor({onInteraction} = {}) {
   window.addEventListener('hashchange', followMenu);
   if (peanutTest) window.addEventListener('keydown', testPeanut);
   document.addEventListener('pointerleave', leave);
+
+  // Relaxed walking uses the dive at either end of a ledge, including inward rails.
+  function startDive(point, now) {
+    dive = {x:point.x, y:point.y - footOffset, dir:offset >= perch.max ? 1 : -1};
+    direction = dive.dir; phase = 'dive'; started = now;
+  }
+  // Look over the edge and hop off, plummet with wings tucked, snap them open, then fly away.
+  function paintDive(now) {
+    const age = now - started, {dir} = dive;
+    layer.style.clipPath = 'none';
+    if (age < DIVE_START.duration) {
+      const {column} = frameOf(DIVE_START, age);
+      paint(dive.x + dir * Math.max(0, column - 3) * 3, dive.y, DIVE_START.row, column, 0, false, dir < 0, 'moves');
+      return;
+    }
+    const t = (age - DIVE_START.duration) / 1000, x0 = dive.x + dir * 12, y0 = dive.y - 20;
+    const fallY = y0 + DIVE_GRAVITY * DIVE_FALL * DIVE_FALL / 2;
+    if (t < DIVE_FALL) {
+      paint(x0 + dir * 90 * t, y0 + DIVE_GRAVITY * t * t / 2, 0, Math.floor(t * 1000 / 90) % 3, 0, false, false, 'dive');
+    } else if (t < DIVE_FALL + DIVE_PULL) {
+      const p = (t - DIVE_FALL) / DIVE_PULL;
+      paint(x0 + dir * (90 * DIVE_FALL + 200 * (t - DIVE_FALL)), fallY + 18 * Math.sin(p * Math.PI), 0, p < .26 ? 3 : p < .57 ? 4 : 5, 0, false, false, 'dive');
+    } else {
+      // The ordinary flight cycle takes over and carries him off screen.
+      takeOff({x:x0 + dir * (90 * DIVE_FALL + 200 * DIVE_PULL), y:fallY + footOffset}, now);
+      paintFlight(now);
+      return;
+    }
+    if (paintedPoint.y - bodyHeight > layer.clientHeight) rest(now);
+  }
+
+  function rollForPeanut(now) {
+    peanutRollAt = Infinity;
+    if (!peanut && Math.random() < .25) spawnPeanut(now);
+  }
 
   function spawnPeanut(now) {
     const width = foodLayer.clientWidth;
@@ -673,30 +733,58 @@ export function startMenuVisitor({onInteraction} = {}) {
     return {row:0, column:Math.floor(age / 440) % 6, dip:0};
   }
 
-  function paint(x, y, row, column, turn = 0, flying = false, mirroredLook = false) {
+  function paint(x, y, row, column, turn = 0, flying = false, mirroredLook = false, moveArt = null) {
     paintedPoint = {x, y};
-    const mirroredWalk = !flying && row === 2;
-    const groundedLook = !flying && phase === 'walk' && (row === 9 || row === 10);
+    const flightCell = flying || moveArt === 'dive';
+    const mirroredWalk = !flightCell && !moveArt && row === 2;
+    const groundedLook = !flightCell && !moveArt && phase === 'walk' && (row === 9 || row === 10);
     bird.style.visibility = phase === 'rest' || phase === 'peek-hidden' ? 'hidden' : 'visible';
     bird.style.transform = `translate(${x - bodyWidth / 2}px, ${y - bodyHeight / 2}px) rotate(${turn}deg)`;
-    picture.style.backgroundImage = `url("${flying ? wings : sheet}")`;
-    picture.style.backgroundSize = flying ? '400% 200%' : '800% 1100%';
-    picture.style.width = picture.style.height = flying ? `${flightSize}px` : '100%';
-    // Flight cells include the extended wings; the body retains its standing size and centre.
-    picture.style.left = flying ? `${bodyWidth / 2 - 120 * flightScale}px` : '0';
-    picture.style.top = flying ? `${bodyHeight / 2 - 101 * flightScale}px` : '0';
-    const facing = flying ? `scaleX(${direction})` : mirroredWalk || mirroredLook ? 'scaleX(-1)' : 'scaleX(1)';
+    const image = moveArt === 'dive' ? diveImage : flying ? flightArt : moveArt === 'moves' ? movesImage : art;
+    if (!image.complete || !image.naturalWidth) return;
+    const key = moveArt || (flying ? 'flight' : 'standing');
+    const facing = flightCell ? direction : mirroredWalk || mirroredLook ? -1 : 1;
+    const cellWidth = flightCell ? 240 : 192, cellHeight = flightCell ? 240 : 208;
+    const sourceRow = mirroredWalk ? 1 : row;
+    nextInk.setTransform(1, 0, 0, 1, 0, 0);
+    nextInk.clearRect(0, 0, incoming.width, incoming.height);
+    const density = incoming.width / flightSize;
+    nextInk.setTransform(density, 0, 0, density, 120 * flightScale * density, 101 * flightScale * density);
+    nextInk.save();
     if (groundedLook) {
-      // These authored rows are smaller and their feet end at 169/170 instead
-      // of the walking row's 197. Enlarge around the feet until the head matches the walking head, on that same rail.
+      // Preserve the accepted walking gaze scale and foot rail.
       const feet = row === 9 ? 169 : 170;
-      picture.style.transformOrigin = `50% ${feet / 208 * bodyHeight}px`;
-      picture.style.transform = `translateY(${(197 - feet) / 208 * bodyHeight}px) scale(1.1) ${facing}`;
+      nextInk.translate(0, 197 / 208 * bodyHeight - bodyHeight / 2);
+      nextInk.scale(1.1 * facing, 1.1);
+      nextInk.drawImage(image, column * cellWidth, sourceRow * cellHeight, cellWidth, cellHeight,
+        -bodyWidth / 2, -feet / 208 * bodyHeight, bodyWidth, bodyHeight);
     } else {
-      picture.style.transformOrigin = '50% 50%';
-      picture.style.transform = facing === 'scaleX(1)' ? 'none' : facing;
+      nextInk.scale(facing, 1);
+      nextInk.drawImage(image, column * cellWidth, sourceRow * cellHeight, cellWidth, cellHeight,
+        flightCell ? -120 * flightScale : -bodyWidth / 2,
+        flightCell ? -101 * flightScale : -bodyHeight / 2,
+        flightCell ? flightSize : bodyWidth, flightCell ? flightSize : bodyHeight);
     }
-    picture.style.backgroundPosition = `${-column * (flying ? flightSize : bodyWidth)}px ${-(mirroredWalk ? 1 : row) * (flying ? flightSize : bodyHeight)}px`;
+    nextInk.restore();
+    const now = performance.now();
+    if (paintedSheet && key !== paintedSheet &&
+        ([key, paintedSheet].some(name => name === 'moves' || name === 'dive'))) {
+      oldInk.clearRect(0, 0, outgoing.width, outgoing.height);
+      oldInk.drawImage(picture, 0, 0);
+      joinStarted = now;
+    }
+    paintedSheet = key;
+    const blend = ease((now - joinStarted) / 120);
+    ink.clearRect(0, 0, picture.width, picture.height);
+    ink.globalAlpha = blend;
+    ink.drawImage(incoming, 0, 0);
+    if (blend < 1) {
+      // Add premultiplied colours: ordinary source-over fades darken the overlap.
+      ink.globalCompositeOperation = 'lighter';
+      ink.globalAlpha = 1 - blend;
+      ink.drawImage(outgoing, 0, 0);
+    }
+    ink.globalAlpha = 1; ink.globalCompositeOperation = 'source-over';
     // One carrying variant: the original walking/flight frame with a kernel at its beak.
     const carrying = peanut?.state === 'carried';
     beakPeanut.dataset.broken = String(Boolean(peanut?.broken));
@@ -758,10 +846,7 @@ export function startMenuVisitor({onInteraction} = {}) {
         resumeFrom = null;
       }
     }
-    if (phase === 'peek' && now >= peanutRollAt) {
-      peanutRollAt = Infinity;
-      if (!peanut && Math.random() < .28) spawnPeanut(now);
-    }
+    if ((phase === 'peek' || phase === 'walk') && now >= peanutRollAt) rollForPeanut(now);
     if (isFree(peanut) && peanut.ready && !peanut.contested &&
       ['peek', 'walk', 'peek-hidden', 'duck', 'arrive'].includes(phase)) startChase(now);
     if (phase === 'peek' || phase === 'peek-hidden' || phase === 'walk' || phase === 'arrive') {
@@ -787,6 +872,8 @@ export function startMenuVisitor({onInteraction} = {}) {
       paintCarry(now, dt);
     } else if (phase === 'fly') {
       paintFlight(now);
+    } else if (phase === 'dive') {
+      paintDive(now);
     } else if (phase !== 'rest' && phase !== 'arrive') {
       const rect = rectFor(perch.element);
       // Existing visits stay attached to their host even when scrolled out of view.
@@ -805,18 +892,17 @@ export function startMenuVisitor({onInteraction} = {}) {
           const walkingDistance = inView ? Math.hypot(pointer.x - point.x, pointer.y - (point.y - 44 * bodyScale)) : Infinity;
           const pointerSpeed = now - pointer.moved < 120 ? pointer.speed : 0;
           const walkingNear = walkingDistance < 180 + Math.min(140, pointerSpeed * .1);
-          if (heldPeanut) {
+          if (heldPeanut && now >= hurryUntil && now < deadline - 2500) {
             hungryMovement(point, rect, now, dt, true);
             point = pointFor(perch, rect, offset);
             if (Math.abs(speed) > 4) { row = speed < 0 ? 2 : 1; column = Math.floor(steps / 6) % 8; }
             else { const look = peanutLook({x:point.x, y:point.y - footOffset}, 0); row = look.row; column = look.column; mirroredLook = look.mirrored; }
-            if (now >= deadline && phase === 'walk') takeOff(point, now);
           } else {
             if (walkingNear && !freePeanut) {
               direction = pointer.x < point.x ? 1 : -1;
               escapeSpeed = Math.max(420, Math.min(1200, pointerSpeed * 1.35 + 260));
               if (speed * direction < 360) speed = direction * 420;
-              hurryUntil = now + 2000; pauseUntil = 0; pauseAt = now + 4000;
+              chasedUntil = now + 2000; hurryUntil = chasedUntil; pauseUntil = 0; pauseAt = now + 4000;
             }
             if (now >= deadline - 2500) {
               pauseUntil = 0; pauseAt = Infinity;
@@ -834,14 +920,19 @@ export function startMenuVisitor({onInteraction} = {}) {
             const target = pauseUntil ? 0 : direction * (now < hurryUntil ? escapeSpeed : 30);
             speed += (target - speed) * (1 - Math.exp(-dt / (now < hurryUntil ? 35 : 130)));
             const movement = speed * dt / 1000;
-            offset += movement; steps += Math.abs(movement);
+            offset = clamp(offset + movement, perch.min, perch.max); steps += Math.abs(movement);
             point = pointFor(perch, rect, offset);
             if (pauseUntil && Math.abs(speed) < 4) {
               if (leanCycles) { row = 8; column = leanColumn(now - pauseStarted); }
               else { row = 5; column = Math.floor((now - pauseStarted) / 150) % 8; }
             }
             else { row = speed < 0 ? 2 : 1; column = Math.floor(steps / 6) % 8; }
-            if ((!freePeanut && walkingDistance < 62) || offset <= perch.min || offset >= perch.max) takeOff(point, now, walkingDistance < 62);
+            const atEnd = offset <= perch.min || offset >= perch.max;
+            if ((!freePeanut && walkingDistance < 62) || atEnd) {
+              const chased = (!freePeanut && walkingNear) || now < chasedUntil;
+              if (atEnd && !chased) startDive(point, now);
+              else takeOff(point, now, walkingDistance < 62);
+            }
           }
         } else {
           if (phase === 'peek' && near && !heldPeanut) { change('duck', now); played('peek'); }
@@ -892,6 +983,7 @@ export function startMenuVisitor({onInteraction} = {}) {
           }
         }
         if (phase === 'fly') paintFlight(now);
+        else if (phase === 'dive') paintDive(now);
         else {
           if (phase === 'walk') lastWalkPoint = {x:point.x, y:point.y};
           paint(point.x + perch.nx * exposure, point.y + perch.ny * exposure, row, column, turn, false, mirroredLook);

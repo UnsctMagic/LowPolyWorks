@@ -35,7 +35,7 @@ export function modelPage(template, row, thumbnail) {
 
 export function previewTemplate(html) {
   return html.replace('<head>', '<head><base href="/">')
-    .replace(/src="app\.js\?v=[^"]+"/, 'src="app.js?v=20261007-model-changelog"');
+    .replace(/src="app\.js\?v=[^"]+"/, 'src="app.js?v=20261013-shredder-relaxed-dive"');
 }
 
 export function previewApp(app) {
