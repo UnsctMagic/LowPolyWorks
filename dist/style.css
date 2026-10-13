@@ -151,14 +151,28 @@ footer{max-width:1740px;padding:20px 24px}
 body a[href]:any-link,body #mdlxl-ffmpeg-source[href]:any-link{color:var(--link);text-decoration:none}
 body a[href]:any-link:hover,body #mdlxl-ffmpeg-source[href]:any-link:hover{color:var(--link-hover)}
 /* Variant groups */
-.variant-badge{position:absolute;left:8px;top:8px;z-index:3;padding:1px 7px;background:#060a12d9;border:1px solid #9c8653;color:#e5ca85;font-family:'IM Fell English',Georgia,serif;font-size:.76rem;letter-spacing:.3px;line-height:1.5;pointer-events:none;box-shadow:0 2px 4px #000a}
-.variant-chips{display:flex;justify-content:center;flex-wrap:wrap;gap:2px 6px;margin-top:4px;font-size:.78rem;color:#8d7c58}
-.variant-chips a{color:#cbb37d}.variant-chips a:hover{color:#ffe2a0;text-decoration:underline;text-underline-offset:3px}
+.variant-stage{position:relative}
+.variant-count{position:absolute;right:9px;bottom:6px;z-index:3;font-size:.78rem;font-weight:700;line-height:1.25;color:#63c37b;-webkit-text-stroke:1px #17432a;paint-order:stroke fill;text-shadow:0 1px 2px #071a10;pointer-events:none}
+.variant-arrow{position:absolute;top:50%;z-index:4;width:30px;height:46px;margin-top:-23px;padding:0;border:1px solid #9c8653;background:#060a12cc;color:#e5ca85;font:1.6rem/1 'IM Fell English',Georgia,serif;opacity:0;transition:opacity .15s,background .15s;box-shadow:0 2px 6px #000a}
+.variant-arrow.prev{left:4px}.variant-arrow.next{right:4px}
+.variant-arrow:hover{background:#1b2440;color:#ffe2a0}
+.has-variants:hover .variant-arrow,.variant-arrow:focus-visible{opacity:1}
+@media(hover:none){.variant-arrow{opacity:.85}}
+.variant-dots{position:absolute;left:10px;bottom:9px;z-index:4;display:flex;gap:5px;pointer-events:none}
+.variant-dots button{pointer-events:auto;width:9px;height:9px;padding:0;border:1px solid #c2a568;border-radius:50%;background:#060a12cc;box-shadow:0 1px 2px #000}
+.variant-dots button[aria-pressed=true]{background:#e5ca85}
+.variant-strip{display:none;gap:4px;margin-top:6px;justify-content:center;flex-wrap:wrap}
+.variant-strip button{flex:1 1 0;max-width:52px;min-width:0;aspect-ratio:1;padding:0;border:1px solid #4e5260;background:radial-gradient(ellipse at 50% 62%,#2a3550,#060a12 80%);opacity:.6;transition:opacity .15s,border-color .15s}
+.variant-strip button img{width:100%;height:100%;object-fit:contain;display:block}
+.variant-strip button:hover{opacity:.9}
+.variant-strip button[aria-pressed=true]{opacity:1;border-color:#c2a568;box-shadow:inset 0 0 0 1px #c2a568}
+[data-picker=strip] .variant-strip{display:flex}
+[data-picker=strip] .variant-arrow,[data-picker=strip] .variant-dots{display:none}
+.variant-current{font-size:.8rem;color:#cbb37d;margin-top:2px}
 .variant-tabs{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin:0 0 14px}
-.variant-tabs-label{font-family:'IM Fell English',Georgia,serif;color:#b6a070;font-size:.95rem;margin-right:4px}
 .variant-tabs a{display:flex;align-items:center;gap:8px;padding:3px 14px 3px 4px;border:10px solid transparent;border-image:url('ui/slate-frame-v2.png') 180 stretch;color:#c9b17a;font-family:'IM Fell English',Georgia,serif;font-size:1.02rem;text-shadow:1px 2px 1px #000;box-shadow:0 3px 0 #020409,inset 0 0 10px #0009;background:#060a12;transition:color .15s,filter .15s}
 .variant-tabs a img{width:34px;height:34px;object-fit:contain;background:radial-gradient(ellipse at 50% 62%,#2a3550,#060a12 80%);border:1px solid #4e5260}
 .variant-tabs a:hover{color:#ffe2a0}
 .variant-tabs a[aria-selected=true]{color:#f0d690;filter:brightness(1.18);box-shadow:inset 0 0 12px #a0803540,0 3px 0 #020409}
 .variant-tabs a[aria-selected=true] img{border-color:#c2a568}
-@media(max-width:560px){.variant-tabs-label{width:100%}.variant-tabs a{font-size:.92rem;padding-right:10px}.variant-tabs a img{width:28px;height:28px}}
+@media(max-width:560px){.variant-tabs a{font-size:.92rem;padding-right:10px}.variant-tabs a img{width:28px;height:28px}}
