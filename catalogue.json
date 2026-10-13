@@ -6520,6 +6520,7 @@
   },
   {
     "id": "herrdave-104264",
+    "captureFitAlpha": 128,
     "file": "herrdave/42/Greenskin_Orc5.mdx",
     "name": "Greenskin - Black Orc Warboss (Hero)",
     "army": "orcs-and-goblins",
