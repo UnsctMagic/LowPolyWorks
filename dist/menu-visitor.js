@@ -10,6 +10,30 @@ const flightScale = .9, flightSize = 240 * flightScale, footOffset = 59.375 * bo
 // Steps are [column, beats]; the last two columns hold the original lean heads mirrored onto the body.
 const LEAN = [[0, 2], [5, 1], [4, 3], [5, 1], [0, 2], [6, 1], [7, 3], [6, 1]], LEAN_BEAT = 220;
 const LEAN_TIME = LEAN.reduce((total, [, beats]) => total + beats, 0) * LEAN_BEAT;
+// New moves. Sheet 2 holds standing cells like sheet 0 (16 columns); sheet 3 holds the dive in flight-sized cells.
+const moves = new URL('./ui/visitor/2.png' + new URL(import.meta.url).search, import.meta.url).href;
+const diveArt = new URL('./ui/visitor/3.png' + new URL(import.meta.url).search, import.meta.url).href;
+const MOVES_SCALE = bodyWidth / 192; // sheet pixels to page pixels
+const sequence = (row, durations, dx = null) => ({row, durations, dx, duration:durations.reduce((total, ms) => total + ms, 0)});
+const COO = sequence(1, Array(16).fill(100));                                  // cooing with vigor
+const BLOOP = sequence(5, [130, 130, 130, 130, 180, 650, 220, 450, 130, 130, 130, 130]); // the side-eye stare
+const HOP = sequence(3, [94, 85, 77, 85, 85, 77, 85, 94]);
+// Two low forward hops; dx is the forward travel of each frame, in sheet pixels.
+const ACROBATICS = sequence(4, [85, 85, 85, 85, 85, 85, 85, 77, 85, 85, 85, 85, 85, 85, 85, 94], [0, 0, 3, 8, 10, 9, 6, 0, 3, 8, 10, 9, 6, 0, 0, 0]);
+const DIVE_START = sequence(7, [110, 150, 200, 90, 70, 70, 70, 70]);      // look over the edge, crouch, hop off
+const SPECIAL_AT = 2600;      // where a coo or bloop slots into a peek's action cycle
+const STOP_SETTLE = 300;      // a walking stop's move starts once he has slowed to a standstill
+const DIVE_FALL = .65, DIVE_PULL = .35, DIVE_GRAVITY = 780; // seconds, seconds, px/s²
+function frameOf(seq, age) {
+  let left = Math.max(0, age);
+  for (let column = 0; column < seq.durations.length; column++) {
+    if (left < seq.durations[column]) return {column, fraction:left / seq.durations[column]};
+    left -= seq.durations[column];
+  }
+  return {column:seq.durations.length - 1, fraction:1};
+}
+// Forward travel so far, in sheet pixels, spreading each frame's dx over its duration.
+const travelled = (seq, {column, fraction}) => seq.dx.slice(0, column).reduce((total, dx) => total + dx, 0) + seq.dx[column] * fraction;
 // His state survives a full page load in the same tab when the next page starts within this time.
 const CARRY_OVER = 'lowpolyworks.shredderVisit', CARRY_OVER_MS = 15000;
 function leanColumn(time) {
@@ -97,6 +121,8 @@ export function startMenuVisitor({onInteraction} = {}) {
   // The test view is the owner's own playground, so it never counts.
   const played = kind => { if (!peanutTest) onInteraction?.(kind); };
   const art = new Image(), flightArt = new Image(); art.src = sheet; flightArt.src = wings;
+  // Preloaded so a move never shows an empty frame the first time it plays.
+  const movesImage = new Image(), diveImage = new Image(); movesImage.src = moves; diveImage.src = diveArt;
   const trimArt = new Image();
   let trimEdges, peekMask;
   trimArt.onload = () => {
@@ -128,6 +154,9 @@ export function startMenuVisitor({onInteraction} = {}) {
   let actionAge = 0, peck = false, offset = 0, direction = 1, speed = 0, steps = 0;
   let pauseAt = 0, pauseUntil = 0, pauseStarted = 0, hurryUntil = 0, leanCycles = 0;
   let flight, escapeSpeed = 420;
+  // special: a coo or bloop in this peek cycle. stopMove: a bloop at this walking stop.
+  // trick: a hop or ground acrobatics while a peanut is in hand. dive: hopping off the end of a panel.
+  let special = null, stopMove = null, trick = null, nextTrickAt = 0, dive = null;
   // peanut.state: 'falling' (fresh drop), 'dropped' (released by the hand), 'held', or 'carried'.
   // contested: a hand reached for free food, so he keeps away until it moves off.
   let peanut = null, peanutRollAt = Infinity, chasePoint, paintedPoint, backOffUntil = 0, backOffTarget = 0;
@@ -361,6 +390,8 @@ export function startMenuVisitor({onInteraction} = {}) {
     // A new peek starts with a visible crown, so the cooldown includes its entrance.
     exposure = fromExposure = perch.mode === 'walk' ? footOffset : -17 * bodyScale;
     actionAge = 0; peck = Math.random() < .55;
+    special = perch.mode === 'peek' ? rollForSpecial(true) : null;
+    stopMove = trick = dive = null; nextTrickAt = now + 1200;
     speed = steps = 0; escapeSpeed = 420; pauseAt = now + between(3500, 5500); pauseUntil = hurryUntil = 0;
     if (perch.mode === 'walk' || arrival) {
       const point = pointFor(perch, rectFor(perch.element), offset);
@@ -377,6 +408,7 @@ export function startMenuVisitor({onInteraction} = {}) {
     // A follow flight whose landing surface vanished (the new view is still rendering) tries again.
     if (phase === 'arrive' && flight?.following && holding()) follow = {from:paintedPoint && {...paintedPoint}};
     phase = 'rest'; bird.style.visibility = 'hidden';
+    trick = dive = stopMove = null;
     if (peanut?.state === 'carried') peanut = null;
     if (isFree(peanut)) peanut.contested = false;
     beakPeanut.style.display = 'none';
@@ -428,6 +460,64 @@ export function startMenuVisitor({onInteraction} = {}) {
   function rollForPeanut(now) {
     peanutRollAt = Infinity;
     if (!peanut && Math.random() < .25) spawnPeanut(now);
+  }
+
+  // Nothing new while a peanut is out. A peek may coo or bloop; a walking stop may bloop.
+  function rollForSpecial(peek) {
+    if (peanut) return null;
+    const roll = Math.random();
+    if (peek && roll < .3) return COO;
+    return roll < (peek ? .5 : .2) ? BLOOP : null;
+  }
+
+  // Showing off near the peanut in hand: a double forward hop towards it when there is room, otherwise a little hop.
+  function startTrick(now, rect, handDistance) {
+    const boundary = perch.inward ? rect.inner : rect, gap = peanut.x - boundary.left - offset;
+    const dir = Math.abs(gap) > 12 ? Math.sign(gap) : direction;
+    const room = dir > 0 ? perch.max - offset : offset - perch.min;
+    // He waits within 165 px of food along the edge. Forward hops go only for food clearly beyond that;
+    // nearer food, or food overhead, gets a hop on the spot.
+    const seq = Math.abs(gap) > 200 && handDistance > 210 && room > 80 * MOVES_SCALE ? ACROBATICS : HOP;
+    trick = {seq, started:now, from:offset, dir};
+    direction = dir; speed = 0;
+    nextTrickAt = now + seq.duration + between(1800, 3600);
+  }
+
+  // The dive belongs at the true end of a panel's top, with open space beyond it.
+  function atPanelEnd(rect, point) {
+    if (perch.inward || perch.side !== 'top') return false;
+    const length = rect.right - rect.left, margin = 44 * bodyScale + 12;
+    const end = offset >= perch.max ? perch.max >= length - margin && point.x + 90 < layer.clientWidth :
+      perch.min <= margin && point.x - 90 > 0;
+    return end;
+  }
+  function startDive(point, now) {
+    dive = {x:point.x, y:point.y - footOffset, dir:offset >= perch.max ? 1 : -1};
+    direction = dive.dir; phase = 'dive'; started = now;
+  }
+  // Look over the edge and hop off, plummet with wings tucked, snap them open, then fly away.
+  function paintDive(now) {
+    const age = now - started, {dir} = dive;
+    layer.style.clipPath = 'none';
+    if (age < DIVE_START.duration) {
+      const {column} = frameOf(DIVE_START, age);
+      paint(dive.x + dir * Math.max(0, column - 3) * 3, dive.y, DIVE_START.row, column, 0, false, dir < 0, 'moves');
+      return;
+    }
+    const t = (age - DIVE_START.duration) / 1000, x0 = dive.x + dir * 12, y0 = dive.y - 20;
+    const fallY = y0 + DIVE_GRAVITY * DIVE_FALL * DIVE_FALL / 2;
+    if (t < DIVE_FALL) {
+      paint(x0 + dir * 90 * t, y0 + DIVE_GRAVITY * t * t / 2, 0, Math.floor(t * 1000 / 90) % 3, 0, false, false, 'dive');
+    } else if (t < DIVE_FALL + DIVE_PULL) {
+      const p = (t - DIVE_FALL) / DIVE_PULL;
+      paint(x0 + dir * (90 * DIVE_FALL + 200 * (t - DIVE_FALL)), fallY + 18 * Math.sin(p * Math.PI), 0, p < .26 ? 3 : p < .57 ? 4 : 5, 0, false, false, 'dive');
+    } else {
+      // The ordinary flight cycle takes over and carries him off screen.
+      takeOff({x:x0 + dir * (90 * DIVE_FALL + 200 * DIVE_PULL), y:fallY + footOffset}, now);
+      paintFlight(now);
+      return;
+    }
+    if (paintedPoint.y - bodyHeight > layer.clientHeight) rest(now);
   }
 
   function spawnPeanut(now) {
@@ -546,13 +636,31 @@ export function startMenuVisitor({onInteraction} = {}) {
     }
   }
 
+  // Test view keys: L drops or throws a peanut, V brings him now, C coos and B bloops (no peanut out),
+  // D sends a walking visit to the end of its panel, where he dives if it is a real edge.
   function testPeanut(event) {
-    if (event.code !== 'KeyL' || event.repeat || event.ctrlKey || event.metaKey || event.altKey ||
+    if (!['KeyL', 'KeyV', 'KeyC', 'KeyB', 'KeyD'].includes(event.code) || event.repeat || event.ctrlKey || event.metaKey || event.altKey ||
       event.target.closest('input, textarea, select, [contenteditable="true"]')) return;
     event.preventDefault();
     const now = performance.now();
-    if (holding()) releasePeanut(now);
-    else if (!['chase', 'carry-land', 'carry'].includes(phase)) spawnPeanut(now);
+    if (event.code === 'KeyL') {
+      if (holding()) releasePeanut(now);
+      else if (!['chase', 'carry-land', 'carry'].includes(phase)) spawnPeanut(now);
+    } else if (event.code === 'KeyV') {
+      if (phase === 'rest') next = now;
+    } else if (peanut) {
+      return;
+    } else if (event.code === 'KeyC' || event.code === 'KeyB') {
+      const seq = event.code === 'KeyC' ? COO : BLOOP;
+      if (phase === 'peek') { special = seq; actionAge = SPECIAL_AT; }
+      else if (phase === 'walk' && seq === BLOOP) {
+        stopMove = seq; leanCycles = 0; speed = 0; hurryUntil = 0;
+        pauseStarted = now - STOP_SETTLE; pauseUntil = now + seq.duration;
+      }
+    } else if (event.code === 'KeyD' && phase === 'walk') {
+      direction = perch.max - offset < offset - perch.min ? 1 : -1;
+      escapeSpeed = 260; hurryUntil = now + 10000; pauseUntil = 0; pauseAt = Infinity;
+    }
   }
 
   function tickPeanut(dt) {
@@ -670,6 +778,8 @@ export function startMenuVisitor({onInteraction} = {}) {
   }
 
   function pose(age) {
+    if (special && age >= SPECIAL_AT && age < SPECIAL_AT + special.duration)
+      return {row:special.row, column:frameOf(special, age - SPECIAL_AT).column, dip:0, art:'moves'};
     if (peck && age >= 7200 && age < 9300) {
       const tap = (age - 7200) % 1100, dip = tap < 650 ? Math.sin(tap / 650 * Math.PI) : 0;
       return {row:dip > .7 ? 10 : 0, column:dip > .7 ? 0 : dip > .15 ? 3 : 0, dip};
@@ -680,19 +790,21 @@ export function startMenuVisitor({onInteraction} = {}) {
     return {row:0, column:Math.floor(age / 440) % 6, dip:0};
   }
 
-  function paint(x, y, row, column, turn = 0, flying = false, mirroredLook = false) {
+  // art: null for sheets 0/1, 'moves' for sheet 2 (standing cells), 'dive' for sheet 3 (flight cells).
+  function paint(x, y, row, column, turn = 0, flying = false, mirroredLook = false, art = null) {
     paintedPoint = {x, y};
-    const mirroredWalk = !flying && row === 2;
-    const groundedLook = !flying && phase === 'walk' && (row === 9 || row === 10);
+    const flightCell = flying || art === 'dive';
+    const mirroredWalk = !flightCell && !art && row === 2;
+    const groundedLook = !flightCell && !art && phase === 'walk' && (row === 9 || row === 10);
     bird.style.visibility = phase === 'rest' || phase === 'peek-hidden' ? 'hidden' : 'visible';
     bird.style.transform = `translate(${x - bodyWidth / 2}px, ${y - bodyHeight / 2}px) rotate(${turn}deg)`;
-    picture.style.backgroundImage = `url("${flying ? wings : sheet}")`;
-    picture.style.backgroundSize = flying ? '400% 200%' : '800% 1100%';
-    picture.style.width = picture.style.height = flying ? `${flightSize}px` : '100%';
+    picture.style.backgroundImage = `url("${art === 'dive' ? diveArt : flying ? wings : art === 'moves' ? moves : sheet}")`;
+    picture.style.backgroundSize = art === 'dive' ? '800% 100%' : flying ? '400% 200%' : art === 'moves' ? '1600% 1000%' : '800% 1100%';
+    picture.style.width = picture.style.height = flightCell ? `${flightSize}px` : '100%';
     // Flight cells include the extended wings; the body retains its standing size and centre.
-    picture.style.left = flying ? `${bodyWidth / 2 - 120 * flightScale}px` : '0';
-    picture.style.top = flying ? `${bodyHeight / 2 - 101 * flightScale}px` : '0';
-    const facing = flying ? `scaleX(${direction})` : mirroredWalk || mirroredLook ? 'scaleX(-1)' : 'scaleX(1)';
+    picture.style.left = flightCell ? `${bodyWidth / 2 - 120 * flightScale}px` : '0';
+    picture.style.top = flightCell ? `${bodyHeight / 2 - 101 * flightScale}px` : '0';
+    const facing = flightCell ? `scaleX(${direction})` : mirroredWalk || mirroredLook ? 'scaleX(-1)' : 'scaleX(1)';
     if (groundedLook) {
       // These authored rows are smaller and their feet end at 169/170 instead
       // of the walking row's 197. Enlarge around the feet until the head matches the walking head, on that same rail.
@@ -703,7 +815,7 @@ export function startMenuVisitor({onInteraction} = {}) {
       picture.style.transformOrigin = '50% 50%';
       picture.style.transform = facing === 'scaleX(1)' ? 'none' : facing;
     }
-    picture.style.backgroundPosition = `${-column * (flying ? flightSize : bodyWidth)}px ${-(mirroredWalk ? 1 : row) * (flying ? flightSize : bodyHeight)}px`;
+    picture.style.backgroundPosition = `${-column * (flightCell ? flightSize : bodyWidth)}px ${-(mirroredWalk ? 1 : row) * (flightCell ? flightSize : bodyHeight)}px`;
     // One carrying variant: the original walking/flight frame with a kernel at its beak.
     const carrying = peanut?.state === 'carried';
     beakPeanut.dataset.broken = String(Boolean(peanut?.broken));
@@ -791,13 +903,15 @@ export function startMenuVisitor({onInteraction} = {}) {
       paintCarry(now, dt);
     } else if (phase === 'fly') {
       paintFlight(now);
+    } else if (phase === 'dive') {
+      paintDive(now);
     } else if (phase !== 'rest' && phase !== 'arrive') {
       const rect = rectFor(perch.element);
       // Existing visits stay attached to their host even when scrolled out of view.
       // Viewport and obstacle checks belong to spawning, not scrolling.
       if (!rect) rest(now);
       else {
-        let point = pointFor(perch, rect, offset), row = 0, column = 0, turn = perch.turn, mirroredLook = false;
+        let point = pointFor(perch, rect, offset), row = 0, column = 0, turn = perch.turn, mirroredLook = false, art = null;
         const head = {x:point.x + perch.nx * 28 * bodyScale, y:point.y + perch.ny * 28 * bodyScale};
         const distance = Math.hypot(pointer.x - head.x, pointer.y - head.y);
         const inView = head.x >= 0 && head.x <= layer.clientWidth && head.y >= 0 && head.y <= layer.clientHeight;
@@ -810,10 +924,26 @@ export function startMenuVisitor({onInteraction} = {}) {
           const pointerSpeed = now - pointer.moved < 120 ? pointer.speed : 0;
           const walkingNear = walkingDistance < 180 + Math.min(140, pointerSpeed * .1);
           if (heldPeanut) {
-            hungryMovement(point, rect, now, dt, true);
-            point = pointFor(perch, rect, offset);
-            if (Math.abs(speed) > 4) { row = speed < 0 ? 2 : 1; column = Math.floor(steps / 6) % 8; }
-            else { const look = peanutLook({x:point.x, y:point.y - footOffset}, 0); row = look.row; column = look.column; mirroredLook = look.mirrored; }
+            // A hand coming close always wins: the hop stops and he backs off or flies as before.
+            if (trick && (walkingDistance < 130 || now - trick.started >= trick.seq.duration)) trick = null;
+            // Forward hops only chase a peanut that is still ahead of him.
+            if (trick?.seq.dx && (peanut.x - (perch.inward ? rect.inner : rect).left - offset) * trick.dir < 60) trick = null;
+            if (trick) {
+              const at = frameOf(trick.seq, now - trick.started);
+              if (trick.seq.dx) offset = clamp(trick.from + trick.dir * travelled(trick.seq, at) * MOVES_SCALE, perch.min, perch.max);
+              point = pointFor(perch, rect, offset);
+              row = trick.seq.row; column = at.column; art = 'moves'; mirroredLook = trick.dir < 0;
+            } else {
+              hungryMovement(point, rect, now, dt, true);
+              point = pointFor(perch, rect, offset);
+              if (Math.abs(speed) > 4) { row = speed < 0 ? 2 : 1; column = Math.floor(steps / 6) % 8; }
+              else { const look = peanutLook({x:point.x, y:point.y - footOffset}, 0); row = look.row; column = look.column; mirroredLook = look.mirrored; }
+              // Standing near the peanut, out of reach of the hand: time for a hop.
+              if (phase === 'walk' && Math.abs(speed) <= 4 && now >= nextTrickAt && walkingDistance >= 150 && walkingDistance <= 320) {
+                startTrick(now, rect, walkingDistance);
+                row = trick.seq.row; column = 0; art = 'moves'; mirroredLook = trick.dir < 0;
+              }
+            }
             if (now >= deadline && phase === 'walk') takeOff(point, now);
           } else {
             if (walkingNear && !freePeanut) {
@@ -830,22 +960,30 @@ export function startMenuVisitor({onInteraction} = {}) {
               hurryUntil = deadline + 3000;
             }
             if (now >= pauseAt && now >= hurryUntil && !pauseUntil) {
-              // Half the stops are his usual look around; the rest lean once or twice.
-              leanCycles = Math.random() < .5 ? (Math.random() < .5 ? 1 : 2) : 0;
-              pauseStarted = now; pauseUntil = now + (leanCycles ? leanCycles * LEAN_TIME : between(1300, 1900));
+              // Some stops are a bloop. Of the rest, half are his usual look around and half lean once or twice.
+              stopMove = rollForSpecial(false);
+              leanCycles = stopMove ? 0 : Math.random() < .5 ? (Math.random() < .5 ? 1 : 2) : 0;
+              pauseStarted = now;
+              pauseUntil = now + (stopMove ? STOP_SETTLE + stopMove.duration : leanCycles ? leanCycles * LEAN_TIME : between(1300, 1900));
             }
-            if (pauseUntil && now >= pauseUntil) { pauseUntil = 0; pauseAt = now + between(3500, 5500); }
+            if (pauseUntil && now >= pauseUntil) { pauseUntil = 0; stopMove = null; pauseAt = now + between(3500, 5500); }
             const target = pauseUntil ? 0 : direction * (now < hurryUntil ? escapeSpeed : 30);
             speed += (target - speed) * (1 - Math.exp(-dt / (now < hurryUntil ? 35 : 130)));
             const movement = speed * dt / 1000;
             offset += movement; steps += Math.abs(movement);
             point = pointFor(perch, rect, offset);
             if (pauseUntil && Math.abs(speed) < 4) {
-              if (leanCycles) { row = 8; column = leanColumn(now - pauseStarted); }
+              if (stopMove && !peanut) { row = stopMove.row; column = frameOf(stopMove, now - pauseStarted - STOP_SETTLE).column; art = 'moves'; }
+              else if (leanCycles) { row = 8; column = leanColumn(now - pauseStarted); }
               else { row = 5; column = Math.floor((now - pauseStarted) / 150) % 8; }
             }
             else { row = speed < 0 ? 2 : 1; column = Math.floor(steps / 6) % 8; }
-            if ((!freePeanut && walkingDistance < 62) || offset <= perch.min || offset >= perch.max) takeOff(point, now, walkingDistance < 62);
+            const atEnd = offset <= perch.min || offset >= perch.max;
+            if ((!freePeanut && walkingDistance < 62) || atEnd) {
+              // Walking off the end of a panel: hop down and dive instead of flying up.
+              if (atEnd && walkingDistance >= 62 && !peanut && atPanelEnd(rect, point)) startDive(point, now);
+              else takeOff(point, now, walkingDistance < 62);
+            }
           }
         } else {
           if (phase === 'peek' && near && !heldPeanut) { change('duck', now); played('peek'); }
@@ -854,11 +992,11 @@ export function startMenuVisitor({onInteraction} = {}) {
           if (phase === 'peek') {
             exposure = mix(fromExposure, 10 * bodyScale, age / 900);
             actionAge += dt;
-            if (actionAge > 11500) { actionAge = 0; peck = Math.random() < .55; }
+            if (actionAge > 11500) { actionAge = 0; peck = Math.random() < .55; special = rollForSpecial(true); }
             if (heldPeanut) { hungryMovement(point, rect, now, dt, false); point = pointFor(perch, rect, offset); }
             const action = holding() || isFree(peanut) ?
               {...peanutLook({x:point.x + perch.nx * exposure, y:point.y + perch.ny * exposure}, turn, perch.side), dip:0} : pose(actionAge);
-            row = action.row; column = action.column;
+            row = action.row; column = action.column; art = action.art || null;
             mirroredLook = action.mirrored || false;
             turn += action.dip * 5;
             point.x -= perch.nx * action.dip * 4 * scale; point.y -= perch.ny * action.dip * 4 * scale;
@@ -896,9 +1034,10 @@ export function startMenuVisitor({onInteraction} = {}) {
           }
         }
         if (phase === 'fly') paintFlight(now);
+        else if (phase === 'dive') paintDive(now);
         else {
           if (phase === 'walk') lastWalkPoint = {x:point.x, y:point.y};
-          paint(point.x + perch.nx * exposure, point.y + perch.ny * exposure, row, column, turn, false, mirroredLook);
+          paint(point.x + perch.nx * exposure, point.y + perch.ny * exposure, row, column, turn, false, mirroredLook, art);
         }
       }
     }

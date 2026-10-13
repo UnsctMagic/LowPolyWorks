@@ -8,7 +8,8 @@ const source = fs.readFileSync(new URL('../dist/menu-visitor.js', import.meta.ur
 const instrumented = source.replaceAll('import.meta.url', "'http://localhost/menu-visitor.js'")
   .replace('export function startMenuVisitor(', 'function startMenuVisitor(')
   .replace('  return () => {', `  globalThis.visitor = {
-    state: () => ({phase, peanut:peanut && {...peanut}, point:paintedPoint && {...paintedPoint}, offset, deadline, speed, next}),
+    state: () => ({phase, peanut:peanut && {...peanut}, point:paintedPoint && {...paintedPoint}, offset, deadline, speed, next,
+      trick:trick && trick.seq.row, special:special && special.row, stopMove:stopMove && stopMove.row, art:picture.style.backgroundImage}),
     choose: mode => choose(performance.now(), mode),
     tick, tickPeanut, paint, peanutLook, rest,
   };
@@ -211,8 +212,8 @@ test('a walking stop can be the head lean, one way and then the other', () => {
 
 test('walking stops mix his usual look around with leans played twice through', () => {
   const f=fixture(true,.6); let flip=false;
-  // The visit's peanut roll keeps out of the alternation, so it only drives the stops.
-  f.context.Math.random=()=>new Error().stack.includes('rollForPeanut') ? .9 : (flip=!flip) ? .3 : .7;
+  // The visit's peanut and special-move rolls keep out of the alternation, so it only drives the stops.
+  f.context.Math.random=()=>/rollFor(Peanut|Special)/.test(new Error().stack) ? .9 : (flip=!flip) ? .3 : .7;
   const seen=new Set();
   for(let visit=0;visit<6;visit++) {
     f.context.visitor.choose('walk');
@@ -627,4 +628,60 @@ test('each visit, peek or walk, has a one-in-four chance of a falling peanut', (
     const unlucky = fixture(false, .25); unlucky.context.visitor.choose(mode); unlucky.advance(6000);
     assert.equal(unlucky.state().peanut, null, mode + ' visits keep the roll at 25%');
   }
+});
+
+test('peeks may coo or bloop from the new sheet, but never while a peanut is out', () => {
+  // .27 coos and .4 bloops, and neither drops a random peanut (that needs under .25).
+  for (const [random, row] of [[.27, 1], [.4, 5], [.6, null]]) {
+    const f=fixture(false, random); f.context.visitor.choose('peek');
+    assert.equal(f.state().special, row);
+    f.advance(2800);
+    assert.equal(f.state().phase, 'peek');
+    assert.equal(/ui\/visitor\/2\.png/.test(f.state().art), row !== null, `random ${random}`);
+  }
+  const f=fixture(true, .27); f.key(); f.advance(100);
+  f.context.visitor.choose('peek');
+  assert.equal(f.state().special, null, 'no coo or bloop while a peanut is out');
+});
+
+test('a walking stop may be a bloop when no peanut is out', () => {
+  const f=fixture(false);
+  f.context.Math.random=()=>/rollForPeanut/.test(new Error().stack) ? .9 : .1;
+  f.context.visitor.choose('walk');
+  let bloop=false;
+  for (let elapsed=0; elapsed<9000 && !bloop; elapsed+=100) { f.advance(100); bloop=f.state().stopMove===5 && /2\.png/.test(f.state().art); }
+  assert(bloop, 'a stop played the bloop from the new sheet');
+  assert.equal(f.state().phase, 'walk');
+});
+
+test('with a peanut in hand he hops near it while standing, and still flees a close hand', () => {
+  const f=fixture(); f.key(); f.advance(1200);
+  const nut=f.state().peanut; f.click(nut.x,nut.y);
+  f.context.visitor.choose('walk'); f.advance(2400);
+  assert.equal(f.state().phase,'walk');
+  const point=f.state().point; f.move(point.x+60, point.y-200);
+  let hopped=null;
+  for (let elapsed=0; elapsed<8000 && !hopped; elapsed+=50) { f.advance(50); hopped=f.state().trick; }
+  assert([3, 4].includes(hopped), 'a hop or ground acrobatics');
+  assert.match(f.state().art, /2\.png/);
+  const here=f.state().point; f.move(here.x+10, here.y); f.step(); f.step();
+  assert.equal(f.state().trick, null, 'a close hand ends the hop');
+  assert.equal(f.state().phase, 'fly');
+});
+
+test('walking off the end of a panel he hops down and dives instead of flying up', () => {
+  const f=fixture();
+  f.context.visitor.choose('walk');
+  for (let elapsed=0; elapsed<3000 && f.state().phase!=='walk'; elapsed+=50) f.advance(50);
+  assert.equal(f.state().phase, 'walk');
+  f.emit('keydown', {code:'KeyD'});
+  for (let elapsed=0; elapsed<8000 && f.state().phase==='walk'; elapsed+=50) f.advance(50);
+  assert.equal(f.state().phase, 'dive');
+  assert.match(f.state().art, /2\.png/, 'looks over the edge and hops off');
+  f.advance(1100);
+  assert.equal(f.state().phase, 'dive'); assert.match(f.state().art, /3\.png/, 'plummets with wings tucked');
+  const falling=f.state().point.y; f.advance(300);
+  assert(f.state().point.y > falling, 'falls');
+  f.advance(800);
+  assert(['fly', 'rest'].includes(f.state().phase), 'flies off');
 });
