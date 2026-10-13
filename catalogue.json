@@ -344,6 +344,7 @@
   },
   {
     "id": "von-carstein",
+    "downloadPack": "downloads/von-carstein.zip",
     "file": "WH_VC_VonCarsteinLord07.mdx",
     "name": "Von Carstein Vampire",
     "army": "vampire-counts",
@@ -1121,7 +1122,7 @@
       }
     ],
     "sha256": "dffdf504d024ff8f6266cf1ca979ca11e16d2f4f83f7ae86395bd7610d806166",
-    "downloadPack": "downloads/von-carstein-dread-knight.zip",
+    "downloadPack": "downloads/von-carstein.zip",
     "formationBodyHeight": 0.9,
     "searchDescription": "Preview and download the Von Carstein Dread Knight for Warcraft 3. A Warhammer Fantasy Vampire Counts model reskinned from the Von Carstein Lord.",
     "changelog": [
@@ -3790,6 +3791,7 @@
   },
   {
     "id": "slaanesh-axe",
+    "downloadPack": "downloads/knight-of-slaanesh.zip",
     "file": "WH_WOC_KnightSlaaneshAxe06.mdx",
     "name": "Knight of Slaanesh · Axe",
     "army": "warriors-of-chaos",
@@ -4235,6 +4237,7 @@
   },
   {
     "id": "slaanesh-lance",
+    "downloadPack": "downloads/knight-of-slaanesh.zip",
     "file": "WH_WOC_KnightSlaaneshLance06.mdx",
     "name": "Knight of Slaanesh · Lance",
     "army": "warriors-of-chaos",
@@ -4683,6 +4686,7 @@
   },
   {
     "id": "undivided-sword",
+    "downloadPack": "downloads/knight-undivided.zip",
     "file": "WH_WOC_KnightUndividedSword05.mdx",
     "name": "Knight Undivided · Sword",
     "army": "warriors-of-chaos",
@@ -5073,6 +5077,7 @@
   },
   {
     "id": "undivided-lance",
+    "downloadPack": "downloads/knight-undivided.zip",
     "file": "WH_WOC_KnightUndividedLanceAxe06.mdx",
     "name": "Knight Undivided · Lance",
     "army": "warriors-of-chaos",
@@ -5731,7 +5736,7 @@
     "credits": "Model - HerrDave\n\nOriginal resource - Bretonnian Men-at-arms",
     "sourceUrl": "https://www.hiveworkshop.com/threads/bretonnian-men-at-arms.351097/#resource-124832",
     "sourcePack": "Bretonnian Men-at-arms",
-    "downloadPack": "downloads/herrdave/bretonnian-men-at-arms.351097.zip",
+    "downloadPack": null,
     "textureFiles": {},
     "sha256": "39884eb960f3c52af6a7c2b8f1ca50b92d7f675d0cc55c0a8f7e03d666618a35",
     "geosets": [
@@ -5900,7 +5905,7 @@
     "credits": "Model - HerrDave\n\nOriginal resource - Bretonnian Men-at-arms",
     "sourceUrl": "https://www.hiveworkshop.com/threads/bretonnian-men-at-arms.351097/#resource-124833",
     "sourcePack": "Bretonnian Men-at-arms",
-    "downloadPack": "downloads/herrdave/bretonnian-men-at-arms.351097.zip",
+    "downloadPack": null,
     "textureFiles": {},
     "sha256": "6adaf835bed574ea9280a172f18ce6347a5ceb25bf72059edc24062ebfad1e65",
     "geosets": [
@@ -6089,7 +6094,7 @@
     "credits": "Model - HerrDave\n\nOriginal resource - Bretonnian Men-at-arms",
     "sourceUrl": "https://www.hiveworkshop.com/threads/bretonnian-men-at-arms.351097/#resource-124831",
     "sourcePack": "Bretonnian Men-at-arms",
-    "downloadPack": "downloads/herrdave/bretonnian-men-at-arms.351097.zip",
+    "downloadPack": null,
     "textureFiles": {},
     "sha256": "936bce4adb0472856d11b81b30be3c6878673a165b6d56ae314302846a7c59d8",
     "geosets": [
@@ -6266,7 +6271,7 @@
     "credits": "Model - HerrDave\n\nOriginal resource - Warhammer - Greenskins (1H)",
     "sourceUrl": "https://www.hiveworkshop.com/threads/warhammer-greenskins-1h.321022/#resource-87376",
     "sourcePack": "Warhammer - Greenskins (1H)",
-    "downloadPack": "downloads/herrdave/warhammer-greenskins-1h.321022.zip",
+    "downloadPack": null,
     "textureFiles": {
       "greenskin_blackorc.blp": "textures/herrdave/42/Warhammer - Greenskins (1H)/Greenskin - Black Orc/Greenskin_BlackOrc.blp"
     },
@@ -6392,7 +6397,7 @@
     "credits": "Model - HerrDave\n\nOriginal resource - Warhammer - Greenskins (1H)",
     "sourceUrl": "https://www.hiveworkshop.com/threads/warhammer-greenskins-1h.321022/#resource-87377",
     "sourcePack": "Warhammer - Greenskins (1H)",
-    "downloadPack": "downloads/herrdave/warhammer-greenskins-1h.321022.zip",
+    "downloadPack": "downloads/black-orc-warboss.zip",
     "textureFiles": {
       "greenskin_blackorc.blp": "textures/herrdave/42/Warhammer - Greenskins (1H)/Greenskin - Black Orc Warboss/Greenskin_BlackOrc.blp"
     },
@@ -6529,7 +6534,7 @@
     "credits": "Model - HerrDave\n\nOriginal resource - Warhammer - Greenskins (1H)",
     "sourceUrl": "https://www.hiveworkshop.com/threads/warhammer-greenskins-1h.321022/#resource-104264",
     "sourcePack": "Warhammer - Greenskins (1H)",
-    "downloadPack": "downloads/herrdave/warhammer-greenskins-1h.321022.zip",
+    "downloadPack": "downloads/black-orc-warboss.zip",
     "textureFiles": {
       "greenskin_blackorc.blp": "textures/herrdave/42/Warhammer - Greenskins (1H)/Greenskin - Black Orc Warboss (Hero)/Greenskin_BlackOrc.blp"
     },
@@ -6675,7 +6680,7 @@
     "credits": "Model - HerrDave\n\nOriginal resource - Warhammer - Greenskins (1H)",
     "sourceUrl": "https://www.hiveworkshop.com/threads/warhammer-greenskins-1h.321022/#resource-87375",
     "sourcePack": "Warhammer - Greenskins (1H)",
-    "downloadPack": "downloads/herrdave/warhammer-greenskins-1h.321022.zip",
+    "downloadPack": null,
     "textureFiles": {
       "greenskin_blackorc.blp": "textures/herrdave/42/Warhammer - Greenskins (1H)/Greenskin - Orc Boy/Greenskin_BlackOrc.blp"
     },
@@ -6810,7 +6815,7 @@
     "credits": "Model - HerrDave\n\nOriginal resource - Warhammer - Greenskins (1H)",
     "sourceUrl": "https://www.hiveworkshop.com/threads/warhammer-greenskins-1h.321022/#resource-103868",
     "sourcePack": "Warhammer - Greenskins (1H)",
-    "downloadPack": "downloads/herrdave/warhammer-greenskins-1h.321022.zip",
+    "downloadPack": null,
     "textureFiles": {},
     "sha256": "55db32dfd2c3d803f2a29a21fa3869c2e6ff7b9cf3646a28cb8a6929fa0bd308",
     "geosets": [
@@ -6918,7 +6923,7 @@
     "credits": "Model - HerrDave\n\nOriginal resource - Warhammer - Greenskins (1H)",
     "sourceUrl": "https://www.hiveworkshop.com/threads/warhammer-greenskins-1h.321022/#resource-87374",
     "sourcePack": "Warhammer - Greenskins (1H)",
-    "downloadPack": "downloads/herrdave/warhammer-greenskins-1h.321022.zip",
+    "downloadPack": null,
     "textureFiles": {},
     "sha256": "49f7d59d00f7be1540bf39c3782d8e5d4694307a8db1fefb5f579041fda1c027",
     "geosets": [
@@ -7741,7 +7746,7 @@
     "credits": "Model - HerrDave\n\nOriginal resource - Warhammer Elector Count",
     "sourceUrl": "https://www.hiveworkshop.com/threads/warhammer-elector-count.319908/#resource-86862",
     "sourcePack": "Warhammer Elector Count",
-    "downloadPack": "downloads/herrdave/warhammer-elector-count.319908.zip",
+    "downloadPack": null,
     "textureFiles": {},
     "sha256": "3f548543bca99df28b08423a0f65f218a0d827645d68ffc74c357c45d683c827",
     "geosets": [
@@ -9067,7 +9072,7 @@
     "credits": "Model - HerrDave\n\nOriginal resource - Reikland Greatsword",
     "sourceUrl": "https://www.hiveworkshop.com/threads/reikland-greatsword.301045/#resource-75804",
     "sourcePack": "Reikland Greatsword",
-    "downloadPack": "downloads/herrdave/reikland-greatsword.301045.zip",
+    "downloadPack": null,
     "textureFiles": {},
     "sha256": "d1b26f1adda75f6051474171f0a868202c7ac8b9004b1aabc7dae36180c160eb",
     "geosets": [
@@ -9184,7 +9189,7 @@
     "credits": "Model - HerrDave\n\nOriginal resource - Warhammer Witch Hunter",
     "sourceUrl": "https://www.hiveworkshop.com/threads/warhammer-witch-hunter.299608/#resource-75064",
     "sourcePack": "Warhammer Witch Hunter",
-    "downloadPack": "downloads/herrdave/warhammer-witch-hunter.299608.zip",
+    "downloadPack": null,
     "textureFiles": {
       "warhammerwitchhunter.blp": "textures/herrdave/125/Warhammer Witch Hunter/WarhammerWitchHunter.blp"
     },
@@ -9276,6 +9281,7 @@
   },
   {
     "id": "tzeentch-sword",
+    "downloadPack": "downloads/knight-of-tzeentch.zip",
     "file": "WH_WOC_KnightTzeentchSword04.mdx",
     "name": "Knight of Tzeentch · Sword",
     "army": "warriors-of-chaos",
@@ -9876,6 +9882,7 @@
   },
   {
     "id": "tzeentch-lance",
+    "downloadPack": "downloads/knight-of-tzeentch.zip",
     "file": "WH_WOC_KnightTzeentchLance04.mdx",
     "name": "Knight of Tzeentch · Lance",
     "army": "warriors-of-chaos",

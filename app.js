@@ -9,7 +9,7 @@ import {recordUsage} from './usage.js?v=20261012-shredder-cloudflare';
 import {renderJournal} from './journal.js?v=20261012-cloudflare';
 import {renderMdlxl} from './mdlxl.js?v=20261011-discord-workshop';
 if (/^\/mdlxl\/?$/.test(location.pathname) && !location.hash) history.replaceState(null,'',location.pathname+location.search+'#project/mdlxl');
-const app=document.querySelector('#app'),baseCatalogue=await fetch('catalogue.json?v=20261013-estalian-infantry').then(r=>r.json());
+const app=document.querySelector('#app'),baseCatalogue=await fetch('catalogue.json?v=20261013-unit-downloads').then(r=>r.json());
 const armies=await fetch('armies.json?v=20261012-chaos-before-champion').then(r=>r.json());
 // Variant groups: near-identical models share one army card and switch through tabs on the model page.
 const variantGroups=await fetch('variants.json?v=20261013-estalian-infantry').then(r=>r.json()).catch(()=>[]);
