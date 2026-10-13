@@ -109,9 +109,25 @@ export function startMenuVisitor({onInteraction} = {}) {
   layer.className = 'menu-visitor-layer'; layer.setAttribute('aria-hidden', 'true');
   const bird = document.createElement('div'); bird.className = 'menu-visitor';
   bird.style.width = `${bodyWidth}px`; bird.style.height = `${bodyHeight}px`;
-  const picture = document.createElement('div'); picture.className = 'menu-visitor-frame';
+  // One layer per sprite sheet, each keeping its own image. Switching sheets only switches layers,
+  // so a move never waits for an image to load or decode, which showed as a blank flicker.
+  const sheetLayer = (image, size, flightCell) => {
+    const element = document.createElement('div'); element.className = 'menu-visitor-frame';
+    element.style.backgroundImage = `url("${image}")`; element.style.backgroundSize = size;
+    element.style.width = element.style.height = flightCell ? `${flightSize}px` : '100%';
+    // Flight cells include the extended wings; the body retains its standing size and centre.
+    element.style.left = flightCell ? `${bodyWidth / 2 - 120 * flightScale}px` : '0';
+    element.style.top = flightCell ? `${bodyHeight / 2 - 101 * flightScale}px` : '0';
+    // Opacity, not visibility: a visible child would show through the hidden bird, and transparent layers stay decoded.
+    element.style.opacity = '0';
+    return element;
+  };
+  const pictures = {standing:sheetLayer(sheet, '800% 1100%', false), flight:sheetLayer(wings, '400% 200%', true),
+    moves:sheetLayer(moves, '1600% 1000%', false), dive:sheetLayer(diveArt, '800% 100%', true)};
+  let picture = pictures.standing;
+  picture.style.opacity = '1';
   const beakPeanut = document.createElement('div'); beakPeanut.className = 'menu-visitor-beak-peanut';
-  bird.append(picture, beakPeanut); layer.append(bird); document.body.append(layer);
+  bird.append(...Object.values(pictures), beakPeanut); layer.append(bird); document.body.append(layer);
   // Food remains visible outside the stone-edge mask used by a peeking bird.
   const foodLayer = document.createElement('div'); foodLayer.className = 'menu-peanut-layer';
   foodLayer.setAttribute('aria-hidden', 'true');
@@ -798,12 +814,8 @@ export function startMenuVisitor({onInteraction} = {}) {
     const groundedLook = !flightCell && !art && phase === 'walk' && (row === 9 || row === 10);
     bird.style.visibility = phase === 'rest' || phase === 'peek-hidden' ? 'hidden' : 'visible';
     bird.style.transform = `translate(${x - bodyWidth / 2}px, ${y - bodyHeight / 2}px) rotate(${turn}deg)`;
-    picture.style.backgroundImage = `url("${art === 'dive' ? diveArt : flying ? wings : art === 'moves' ? moves : sheet}")`;
-    picture.style.backgroundSize = art === 'dive' ? '800% 100%' : flying ? '400% 200%' : art === 'moves' ? '1600% 1000%' : '800% 1100%';
-    picture.style.width = picture.style.height = flightCell ? `${flightSize}px` : '100%';
-    // Flight cells include the extended wings; the body retains its standing size and centre.
-    picture.style.left = flightCell ? `${bodyWidth / 2 - 120 * flightScale}px` : '0';
-    picture.style.top = flightCell ? `${bodyHeight / 2 - 101 * flightScale}px` : '0';
+    const active = pictures[art === 'dive' ? 'dive' : flying ? 'flight' : art === 'moves' ? 'moves' : 'standing'];
+    if (active !== picture) { picture.style.opacity = '0'; active.style.opacity = '1'; picture = active; }
     const facing = flightCell ? `scaleX(${direction})` : mirroredWalk || mirroredLook ? 'scaleX(-1)' : 'scaleX(1)';
     if (groundedLook) {
       // These authored rows are smaller and their feet end at 169/170 instead
