@@ -685,3 +685,22 @@ test('walking off the end of a panel he hops down and dives instead of flying up
   f.advance(800);
   assert(['fly', 'rest'].includes(f.state().phase), 'flies off');
 });
+
+test('the test view panel plays each move at once, and the live site has no panel', () => {
+  assert(!fixture(false).nodes.some(node => node.className === 'shredder-test-panel'));
+  const f=fixture(), button=label => f.nodes.find(node => node.textContent === label);
+  button('Coo (peek)').onclick(); f.advance(200);
+  assert.equal(f.state().phase, 'peek'); assert.equal(f.state().special, 1); assert.match(f.state().art, /2\.png/);
+  button('Bloop (peek)').onclick(); f.advance(200);
+  assert.equal(f.state().special, 5); assert.match(f.state().art, /2\.png/);
+  button('Bloop (walk)').onclick(); f.advance(200);
+  assert.equal(f.state().phase, 'walk'); assert.equal(f.state().stopMove, 5); assert.match(f.state().art, /2\.png/);
+  button('Ground acrobatics').onclick(); f.advance(300);
+  assert.equal(f.state().trick, 4); assert.equal(f.state().peanut.state, 'held');
+  button('Hop').onclick(); f.advance(100);
+  assert.equal(f.state().trick, 3);
+  button('Dive').onclick(); f.advance(100);
+  assert.equal(f.state().phase, 'dive');
+  button('Send away').onclick(); f.advance(100);
+  assert.equal(f.state().phase, 'rest');
+});

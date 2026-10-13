@@ -578,7 +578,7 @@ export function startMenuVisitor({onInteraction} = {}) {
   function grabOrDrop(event) {
     track(event);
     swallowClickUntil = 0;
-    if (event.button !== 0 || event.pointerType === 'touch' || !peanut) return;
+    if (event.button !== 0 || event.pointerType === 'touch' || !peanut || onTestPanel(event)) return;
     const now = performance.now();
     if (holding()) {
       // A still click on a menu link keeps the food in hand; the click handler follows it.
@@ -602,7 +602,7 @@ export function startMenuVisitor({onInteraction} = {}) {
       swallowClickUntil = 0; event.preventDefault(); event.stopImmediatePropagation();
       return;
     }
-    if (!holding() || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+    if (!holding() || onTestPanel(event) || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
     const destination = navigationTarget(event);
     if (destination !== null) {
       // Use the site's existing hash routes so the held food and visitor survive.
@@ -650,6 +650,64 @@ export function startMenuVisitor({onInteraction} = {}) {
       fragment.element.style.opacity = String(1 - t / .5);
       fragment.element.style.transform = `translate(${fragment.x-16+fragment.side*85*t}px, ${fragment.y-10-80*t+350*t*t}px) rotate(${fragment.side*(25+100*t)}deg)`;
     }
+  }
+
+  // Test view panel: every move plays at once, with no wait for a visit, an arrival or a walking stop.
+  const onTestPanel = event => Boolean(testPanel && event.target?.closest?.('.shredder-test-panel'));
+  // Starts a visit of this mode immediately, already settled, and long enough to watch.
+  function forceVisit(now, mode, keepPeanut = false) {
+    if (!keepPeanut) peanut = null;
+    special = stopMove = trick = dive = null;
+    choose(now, mode);
+    if (!perch || perch.mode !== mode || !rectFor(perch.element)) return false;
+    phase = mode; started = now; flight = null;
+    exposure = fromExposure = mode === 'walk' ? footOffset : 10 * bodyScale;
+    deadline = now + 60000; pauseAt = Infinity; pauseUntil = hurryUntil = 0; speed = 0; nextTrickAt = now + 4000;
+    peanutRollAt = Infinity; // no random peanut interrupting the move being tested
+    return true;
+  }
+  function testMove(move) {
+    const now = performance.now();
+    let done = false;
+    if (move === 'coo' || move === 'bloop-peek') {
+      if ((done = forceVisit(now, 'peek'))) { special = move === 'coo' ? COO : BLOOP; actionAge = SPECIAL_AT; }
+    } else if (move === 'bloop-walk') {
+      if ((done = forceVisit(now, 'walk'))) { stopMove = BLOOP; leanCycles = 0; pauseStarted = now - STOP_SETTLE; pauseUntil = now + BLOOP.duration; }
+    } else if (move === 'hop' || move === 'acrobatics') {
+      if ((done = forceVisit(now, 'walk'))) {
+        peanut = {state:'held', x:pointer.x + HAND.x, y:pointer.y + HAND.y, vx:0, vy:0, angle:0, spin:0, ready:true, contested:false, broken:false};
+        const dir = perch.max - offset > offset - perch.min ? 1 : -1;
+        trick = {seq:move === 'hop' ? HOP : ACROBATICS, started:now, from:offset, dir, forced:true}; direction = dir;
+      }
+    } else if (move === 'dive') {
+      // Find a walking surface with a real end, stand him on it and send him over.
+      for (let attempt = 0; attempt < 12 && !done; attempt++) {
+        if (!forceVisit(now, 'walk')) continue;
+        const rect = rectFor(perch.element);
+        for (const end of [perch.max, perch.min]) {
+          offset = end; const point = pointFor(perch, rect, offset);
+          if (atPanelEnd(rect, point)) { startDive(point, now); done = true; break; }
+        }
+      }
+    } else if (move === 'peanut') {
+      if (holding()) releasePeanut(now); else { peanut = null; spawnPeanut(now); }
+      done = true;
+    } else if (move === 'away') {
+      peanut = null; rest(now); next = now + 60000; done = true;
+    }
+    testStatus.textContent = done ? '' : move === 'dive' ? 'No panel end on this page to dive from.' : 'No free perch here right now. Scroll or try again.';
+  }
+  let testPanel = null, testStatus = null;
+  if (peanutTest) {
+    testPanel = document.createElement('div'); testPanel.className = 'shredder-test-panel';
+    for (const [label, move] of [['Coo (peek)', 'coo'], ['Bloop (peek)', 'bloop-peek'], ['Bloop (walk)', 'bloop-walk'], ['Hop', 'hop'],
+      ['Ground acrobatics', 'acrobatics'], ['Dive', 'dive'], ['Peanut', 'peanut'], ['Send away', 'away']]) {
+      const button = document.createElement('button'); button.type = 'button'; button.textContent = label;
+      button.onclick = () => testMove(move);
+      testPanel.append(button);
+    }
+    testStatus = document.createElement('span'); testStatus.className = 'shredder-test-status';
+    testPanel.append(testStatus); document.body.append(testPanel);
   }
 
   // Test view keys: L drops or throws a peanut, V brings him now, C coos and B bloops (no peanut out),
@@ -938,8 +996,8 @@ export function startMenuVisitor({onInteraction} = {}) {
           if (heldPeanut) {
             // A hand coming close always wins: the hop stops and he backs off or flies as before.
             if (trick && (walkingDistance < 130 || now - trick.started >= trick.seq.duration)) trick = null;
-            // Forward hops only chase a peanut that is still ahead of him.
-            if (trick?.seq.dx && (peanut.x - (perch.inward ? rect.inner : rect).left - offset) * trick.dir < 60) trick = null;
+            // Forward hops only chase a peanut that is still ahead of him (test-panel hops play regardless).
+            if (trick?.seq.dx && !trick.forced && (peanut.x - (perch.inward ? rect.inner : rect).left - offset) * trick.dir < 60) trick = null;
             if (trick) {
               const at = frameOf(trick.seq, now - trick.started);
               if (trick.seq.dx) offset = clamp(trick.from + trick.dir * travelled(trick.seq, at) * MOVES_SCALE, perch.min, perch.max);
@@ -1095,6 +1153,6 @@ export function startMenuVisitor({onInteraction} = {}) {
     window.removeEventListener('hashchange', followMenu);
     window.removeEventListener('keydown', testPeanut);
     document.removeEventListener('pointerleave', leave);
-    layer.remove(); foodLayer.remove(); css.remove();
+    layer.remove(); foodLayer.remove(); css.remove(); testPanel?.remove();
   };
 }
