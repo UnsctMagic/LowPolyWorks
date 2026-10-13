@@ -8,8 +8,10 @@ for(const row of rows.filter(row=>!selected||selected.includes(row.id))){let vie
  viewer=await createViewer(canvas,row,{thumbnail:true,formation:true,formationYaw:.32,teamColor:army.teamColour||army.colour});if(row.captureSequence){viewer.sequence(row.sequences.indexOf(row.captureSequence));let remaining=row.captureTime??0;while(remaining>0){const step=Math.min(20,remaining);viewer.render(step);remaining-=step;}}else viewer.render(row.id==='aspiring'?600:0);
  const capture=document.createElement('canvas');capture.width=canvas.width;capture.height=canvas.height;
  const context=capture.getContext('2d');context.drawImage(canvas,0,0);const pixels=context.getImageData(0,0,capture.width,capture.height).data;
+ // Frame on solid pixels only when a soft effect (e.g. a hero glow) would otherwise widen the crop.
+ const fitAlpha=row.captureFitAlpha??8;
  let left=capture.width,top=capture.height,right=0,bottom=0;
- for(let y=0;y<capture.height;y++)for(let x=0;x<capture.width;x++)if(pixels[(y*capture.width+x)*4+3]>8){left=Math.min(left,x);right=Math.max(right,x);top=Math.min(top,y);bottom=Math.max(bottom,y);}
+ for(let y=0;y<capture.height;y++)for(let x=0;x<capture.width;x++)if(pixels[(y*capture.width+x)*4+3]>fitAlpha){left=Math.min(left,x);right=Math.max(right,x);top=Math.min(top,y);bottom=Math.max(bottom,y);}
  if(right<=left||bottom<=top)throw Error('Empty unit render');
  // Centre the body while retaining its full weapon and silhouette in a square card.
  const anchor=viewer.formationAnchor()*capture.width,side=Math.max(2*Math.max(anchor-left,right-anchor),bottom-top+1)*1.08;
