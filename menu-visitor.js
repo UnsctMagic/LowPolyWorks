@@ -348,8 +348,9 @@ export function startMenuVisitor({onInteraction} = {}) {
     if (!choices.length) { next = now + 250; return; }
     // Each group of visits includes both behaviors, without fixing their order.
     if (!visitModes.length) visitModes.push('peek', 'peek', 'walk');
-    const mode = requestedMode || visitModes.splice(Math.floor(Math.random() * visitModes.length), 1)[0];
+    const mode = arrival ? 'walk' : requestedMode || visitModes.splice(Math.floor(Math.random() * visitModes.length), 1)[0];
     let eligible = choices.filter(choice => choice.mode === mode);
+    if (arrival && !eligible.length) { next = now + 250; return; }
     if (!eligible.length) eligible = choices;
     // Choose the page region first: extra card edges must not crowd out the menus.
     const regionFor = choice => choice.element.matches('.masthead') ? 'header' :
@@ -395,17 +396,22 @@ export function startMenuVisitor({onInteraction} = {}) {
       flight = {x, y, following:!!arrival, duration:Math.max(900, Math.hypot(end.x - x, end.y - y) / 420 * 1000)};
       phase = 'arrive';
     }
+    return true;
   }
 
   function rest(now) {
     // A follow flight whose landing surface vanished (the new view is still rendering) tries again.
-    if (phase === 'arrive' && flight?.following && holding()) follow = {from:paintedPoint && {...paintedPoint}};
+    if (phase === 'arrive' && flight?.following) {
+      const from = paintedPoint ? {...paintedPoint} : {x:flight.x, y:flight.y};
+      if (holding()) follow = {from};
+      else resumeFrom = from;
+    }
     phase = 'rest'; bird.style.visibility = 'hidden'; dive = null;
     if (peanut?.state === 'carried') peanut = null;
     if (isFree(peanut)) peanut.contested = false;
     beakPeanut.style.display = 'none';
     // Draw a fresh cooldown only after this visit has disappeared. Food left lying around brings him back sooner.
-    next = follow ? now : now + (isFree(peanut) ? between(2500, 4000) : between(8000, 12000));
+    next = follow || resumeFrom ? now : now + (isFree(peanut) ? between(2500, 4000) : between(8000, 12000));
   }
 
   function change(nextPhase, now) {
@@ -835,15 +841,13 @@ export function startMenuVisitor({onInteraction} = {}) {
     if (follow && !holding()) follow = null;
     // Following food into a new view: fly there from wherever he is, retrying until it has a perch.
     if (follow && canAppear) {
-      choose(now, 'walk', follow);
-      if (phase === 'arrive') follow = null;
+      if (choose(now, 'walk', follow)) follow = null;
     }
-    if (phase === 'rest' && canAppear) {
+    if (phase === 'rest' && canAppear && !follow) {
       if (isFree(peanut) && peanut.ready && !peanut.contested) chaseFromOffscreen(now);
       else {
         // After a page change he flies over from where he was on the previous page.
-        choose(now, peanut && !holding() ? 'peek' : undefined, resumeFrom && {from:resumeFrom});
-        resumeFrom = null;
+        if (choose(now, peanut && !holding() ? 'peek' : undefined, resumeFrom && {from:resumeFrom})) resumeFrom = null;
       }
     }
     if ((phase === 'peek' || phase === 'walk') && now >= peanutRollAt) rollForPeanut(now);
