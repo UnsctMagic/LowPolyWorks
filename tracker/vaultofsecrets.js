@@ -192,7 +192,7 @@ function niceScale(max){if(max<=0)return {top:1,step:1};const rough=max/3,power=
 const activity_state=(()=>({army:'',unit:'',format:'',grain:'day',sort:'total',query:'',...(prefs.activity||{})}))();
 const saveActivity=()=>{prefs.activity=activity_state;savePrefs();};
 function unitIndex(report){
- const index=new Map(units().map(row=>[row.id,{id:row.id,name:row.name,army:row.army,group:row.group||'Other projects',tag:row.removeAt?'Removing':row.hidden?'Hidden':row.kind==='vault'?'Vault':''}])),removed=new Set(account.removedModels||[]);
+ const index=new Map(units().map(row=>[row.id,{id:row.id,name:row.name+(row.id==='nurgle'?' (OLD)':''),army:row.army,group:row.group||'Other projects',tag:row.removeAt?'Removing':row.hidden?'Hidden':row.kind==='vault'?'Vault':''}])),removed=new Set(account.removedModels||[]);
  for(const row of report.models)if(!index.has(row.id))index.set(row.id,{id:row.id,name:row.name,army:'',group:'Removed or unlisted',tag:removed.has(row.id)||row.id.startsWith('unit-')?'Removed':'Unlisted'});
  return index;
 }
