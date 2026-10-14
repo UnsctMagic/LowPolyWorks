@@ -2811,9 +2811,1003 @@
     ]
   },
   {
+    "id": "nurgle-heavy",
+    "file": "WH_WOC_KnightNurgleHeavy01.mdx",
+    "name": "Knight of Nurgle · Heavy",
+    "army": "warriors-of-chaos",
+    "description": "There are many strange places to end up in the Old World...\r\n\r\nSome would claim the strangest is tucked within the comforting embrace of the Urfather.\r\n\r\nBut why? What could drive mortal men to seek out something so wrong?\r\n\r\nTell me, what would a knight who has lost his family to war continue fighting for? What is left to endure for those whose martial strength proved meaningless against the plights of life?\r\n\r\nThe strongest men are not broken with swords... I can tell you that much.\r\n\r\nIt is there, in those dark corners of the mind you will hear him whisper to you.\r\n\r\nHis embrace, his promises...\r\n\r\nNo more restless nights. No more seeing faces long buried. No more graves to dig... no more watching those you once loved fade and turn to dust... no more fearing the years that seem to pass faster and faster.\r\n\r\nHe would take all the pain away.\r\n\r\nHe would tuck those memories gently to sleep, still the passing of time, and silence every wound that steel could never mend...\r\n\r\nSuch a watchful father.\r\n\r\nA good father.\r\n\r\nHe does keep his promises.\r\n\r\nThe pain fades...\r\n\r\nThen the feelings.\r\n\r\nThen the memories.\r\n\r\nThen flesh swells, old wounds open and blossom yet ache no more, flies gather beneath a rusted visor and the body slowly rots... but somehow refuses to die.\r\n\r\nBut from that warm, rotten embrace do those knights rise once again...\r\n\r\nPerhaps to you they are disgusting abominations, bringers of death and decay, swollen, corpse-like and clad in rusted steel.\r\n\r\nBut in truth?\r\n\r\nThey have purpose.\r\n\r\nThey are at peace.\r\n\r\nThey are happy.\r\n\r\nAre you?...",
+    "credits": "Model Base - Vile Knight by HerrDave /  Nurgle Knight by Stein123\r\n\r\nHelm - Bandit Enforcer by Johnwar\r\n\r\nHorns - Dire Maul Stone Deer Statue - WoW model\r\n\r\nFace/Shield Face/Tongue - Ghoul Re-Classic and Abomination Re-Classic by johnwar\r\n\r\nHorse head and tail - Headless Horseman by Johnwar\r\n\r\nFur Cloak - Chaos Warrior by Azazeron\r\n\r\nScythe Top  - Reaper Ghost by Cinos",
+    "geosets": [
+      {
+        "index": 0,
+        "vertices": 60,
+        "triangles": 48,
+        "material": 0,
+        "textures": [
+          "Textures\\SkeletonArcher.blp"
+        ]
+      },
+      {
+        "index": 1,
+        "vertices": 132,
+        "triangles": 128,
+        "material": 1,
+        "textures": [
+          "Textures\\gutz.blp"
+        ]
+      },
+      {
+        "index": 2,
+        "vertices": 4,
+        "triangles": 2,
+        "material": 2,
+        "textures": [
+          "Team colour / glow"
+        ]
+      },
+      {
+        "index": 3,
+        "vertices": 84,
+        "triangles": 76,
+        "material": 3,
+        "textures": [
+          "Buildings\\Demon\\CorruptedAncientProtector\\CorruptedAncientProtector.blp"
+        ]
+      },
+      {
+        "index": 4,
+        "vertices": 36,
+        "triangles": 20,
+        "material": 4,
+        "textures": [
+          "Buildings\\Undead\\UndeadShipyard\\UndeadShipyard.blp"
+        ]
+      },
+      {
+        "index": 5,
+        "vertices": 54,
+        "triangles": 60,
+        "material": 5,
+        "textures": [
+          "Team colour / glow",
+          "Units\\Critters\\Marine\\SpaceMarine.blp"
+        ]
+      },
+      {
+        "index": 6,
+        "vertices": 18,
+        "triangles": 20,
+        "material": 34,
+        "textures": [
+          "Units\\Undead\\SkeletonMage\\SkeletonMage.blp"
+        ]
+      },
+      {
+        "index": 7,
+        "vertices": 30,
+        "triangles": 35,
+        "material": 6,
+        "textures": [
+          "UI\\Glues\\SinglePlayer\\HumanCampaign3D\\HumanCampaignFootman.blp"
+        ]
+      },
+      {
+        "index": 8,
+        "vertices": 72,
+        "triangles": 60,
+        "material": 7,
+        "textures": [
+          "Textures\\InfernalCannon.blp"
+        ]
+      },
+      {
+        "index": 9,
+        "vertices": 125,
+        "triangles": 208,
+        "material": 8,
+        "textures": [
+          "Units\\Demon\\ChaosWarlord\\ChaosWarlord.blp"
+        ]
+      },
+      {
+        "index": 10,
+        "vertices": 22,
+        "triangles": 37,
+        "material": 9,
+        "textures": [
+          "Units\\Orc\\Spiritwolf\\FeralSpirit.blp"
+        ]
+      },
+      {
+        "index": 11,
+        "vertices": 6,
+        "triangles": 4,
+        "material": 10,
+        "textures": [
+          "Team colour / glow",
+          "Textures\\InfernalCannon.blp"
+        ]
+      },
+      {
+        "index": 12,
+        "vertices": 32,
+        "triangles": 16,
+        "material": 11,
+        "textures": [
+          "Textures\\gnoll.blp"
+        ]
+      },
+      {
+        "index": 13,
+        "vertices": 52,
+        "triangles": 48,
+        "material": 12,
+        "textures": [
+          "Textures\\InfernalCannon.blp"
+        ]
+      },
+      {
+        "index": 14,
+        "vertices": 54,
+        "triangles": 64,
+        "material": 13,
+        "textures": [
+          "units\\Undead\\Ghoul\\Ghoul.blp"
+        ]
+      },
+      {
+        "index": 15,
+        "vertices": 82,
+        "triangles": 108,
+        "material": 0,
+        "textures": [
+          "Textures\\SkeletonArcher.blp"
+        ]
+      },
+      {
+        "index": 16,
+        "vertices": 181,
+        "triangles": 205,
+        "material": 14,
+        "textures": [
+          "UI\\Glues\\SinglePlayer\\OrcCampaign3D\\CampaignOrc.blp"
+        ]
+      },
+      {
+        "index": 17,
+        "vertices": 7,
+        "triangles": 6,
+        "material": 15,
+        "textures": [
+          "units\\Undead\\Ghoul\\Ghoul.blp"
+        ]
+      },
+      {
+        "index": 18,
+        "vertices": 241,
+        "triangles": 246,
+        "material": 16,
+        "textures": [
+          "Textures\\HeroBladeMaster.blp"
+        ]
+      },
+      {
+        "index": 19,
+        "vertices": 19,
+        "triangles": 13,
+        "material": 27,
+        "textures": [
+          "Team colour / glow",
+          "Textures\\Garrison.blp"
+        ]
+      },
+      {
+        "index": 20,
+        "vertices": 36,
+        "triangles": 30,
+        "material": 38,
+        "textures": [
+          "Units\\Creeps\\Lobstrokkgreen\\LobstrokkGreen.blp"
+        ]
+      },
+      {
+        "index": 21,
+        "vertices": 13,
+        "triangles": 12,
+        "material": 36,
+        "textures": [
+          "Units\\Creeps\\RevenantOfTheWaves\\RevenantOfThe Waves.blp"
+        ]
+      },
+      {
+        "index": 22,
+        "vertices": 138,
+        "triangles": 204,
+        "material": 19,
+        "textures": [
+          "Team colour / glow",
+          "Units\\Creeps\\HeroTinker\\HeroTinkerTank.blp"
+        ]
+      },
+      {
+        "index": 23,
+        "vertices": 9,
+        "triangles": 8,
+        "material": 13,
+        "textures": [
+          "units\\Undead\\Ghoul\\Ghoul.blp"
+        ]
+      },
+      {
+        "index": 24,
+        "vertices": 128,
+        "triangles": 133,
+        "material": 20,
+        "textures": [
+          "UI\\Glues\\SinglePlayer\\UndeadCampaign3D\\GhoulSkinWhitehands.blp"
+        ]
+      },
+      {
+        "index": 25,
+        "vertices": 61,
+        "triangles": 86,
+        "material": 21,
+        "textures": [
+          "ReplaceableTextures\\AshenvaleTree\\FelwoodTreeBlight.blp"
+        ]
+      },
+      {
+        "index": 26,
+        "vertices": 29,
+        "triangles": 44,
+        "material": 22,
+        "textures": [
+          "Textures\\Abomination.blp"
+        ]
+      },
+      {
+        "index": 27,
+        "vertices": 34,
+        "triangles": 56,
+        "material": 23,
+        "textures": [
+          "Textures\\Skeleton.blp"
+        ]
+      },
+      {
+        "index": 28,
+        "vertices": 96,
+        "triangles": 90,
+        "material": 5,
+        "textures": [
+          "Team colour / glow",
+          "Units\\Critters\\Marine\\SpaceMarine.blp"
+        ]
+      },
+      {
+        "index": 29,
+        "vertices": 66,
+        "triangles": 64,
+        "material": 10,
+        "textures": [
+          "Team colour / glow",
+          "Textures\\InfernalCannon.blp"
+        ]
+      },
+      {
+        "index": 30,
+        "vertices": 24,
+        "triangles": 18,
+        "material": 12,
+        "textures": [
+          "Textures\\InfernalCannon.blp"
+        ]
+      },
+      {
+        "index": 31,
+        "vertices": 12,
+        "triangles": 8,
+        "material": 17,
+        "textures": [
+          "Team colour / glow",
+          "Textures\\Garrison.blp"
+        ]
+      },
+      {
+        "index": 32,
+        "vertices": 30,
+        "triangles": 35,
+        "material": 24,
+        "textures": [
+          "Units\\Creeps\\RevenantOfTheWaves\\RevenantOfThe Waves.blp"
+        ]
+      },
+      {
+        "index": 33,
+        "vertices": 36,
+        "triangles": 20,
+        "material": 25,
+        "textures": [
+          "Buildings\\NightElf\\AncientofWar\\AncientOfWar1.blp"
+        ]
+      },
+      {
+        "index": 34,
+        "vertices": 34,
+        "triangles": 34,
+        "material": 26,
+        "textures": [
+          "Textures\\UndeadAirBarge.blp"
+        ]
+      },
+      {
+        "index": 35,
+        "vertices": 8,
+        "triangles": 8,
+        "material": 28,
+        "textures": [
+          "Units\\Creeps\\HeroTinker\\HeroTinkerTank.blp"
+        ]
+      },
+      {
+        "index": 36,
+        "vertices": 25,
+        "triangles": 30,
+        "material": 29,
+        "textures": [
+          "Units\\Creeps\\HeroTinker\\HeroTinkerTank.blp"
+        ]
+      },
+      {
+        "index": 37,
+        "vertices": 16,
+        "triangles": 16,
+        "material": 29,
+        "textures": [
+          "Units\\Creeps\\HeroTinker\\HeroTinkerTank.blp"
+        ]
+      },
+      {
+        "index": 38,
+        "vertices": 14,
+        "triangles": 14,
+        "material": 30,
+        "textures": [
+          "Units\\Creeps\\HeroTinker\\HeroTinkerTank.blp",
+          "Units\\Creeps\\HeroTinker\\HeroTinkerTank.blp"
+        ]
+      },
+      {
+        "index": 39,
+        "vertices": 14,
+        "triangles": 16,
+        "material": 31,
+        "textures": [
+          "TerrainArt\\Felwood\\Felwood_Poison.blp",
+          "TerrainArt\\Felwood\\Felwood_Poison.blp"
+        ]
+      },
+      {
+        "index": 40,
+        "vertices": 5,
+        "triangles": 4,
+        "material": 32,
+        "textures": [
+          "TerrainArt\\Felwood\\Felwood_Poison.blp"
+        ]
+      },
+      {
+        "index": 41,
+        "vertices": 16,
+        "triangles": 16,
+        "material": 33,
+        "textures": [
+          "Textures\\OutlandDoodads.blp"
+        ]
+      },
+      {
+        "index": 42,
+        "vertices": 16,
+        "triangles": 16,
+        "material": 32,
+        "textures": [
+          "TerrainArt\\Felwood\\Felwood_Poison.blp"
+        ]
+      },
+      {
+        "index": 43,
+        "vertices": 75,
+        "triangles": 76,
+        "material": 35,
+        "textures": [
+          "Textures\\TimberWolf.blp"
+        ]
+      },
+      {
+        "index": 44,
+        "vertices": 24,
+        "triangles": 34,
+        "material": 37,
+        "textures": [
+          "Units\\Demon\\Mannoroth\\Mannoroth.blp",
+          "Units\\Demon\\Mannoroth\\Mannoroth.blp"
+        ]
+      },
+      {
+        "index": 45,
+        "vertices": 31,
+        "triangles": 22,
+        "material": 18,
+        "textures": [
+          "Textures\\BloodSplash.blp",
+          "UI\\Glues\\SinglePlayer\\OrcCampaign3D\\CampaignOrc.blp"
+        ]
+      },
+      {
+        "index": 46,
+        "vertices": 34,
+        "triangles": 32,
+        "material": 36,
+        "textures": [
+          "Units\\Creeps\\RevenantOfTheWaves\\RevenantOfThe Waves.blp"
+        ]
+      },
+      {
+        "index": 47,
+        "vertices": 16,
+        "triangles": 12,
+        "material": 37,
+        "textures": [
+          "Units\\Demon\\Mannoroth\\Mannoroth.blp",
+          "Units\\Demon\\Mannoroth\\Mannoroth.blp"
+        ]
+      }
+    ],
+    "sequences": [
+      "Walk",
+      "Stand - 1",
+      "Stand - 2",
+      "Attack - 1",
+      "Death",
+      "Decay Flesh",
+      "Stand Ready",
+      "Portrait - 1",
+      "Portrait Talk - 1",
+      "Spell",
+      "Decay Bone",
+      "Dissipate",
+      "Attack - 2",
+      "Attack Slam",
+      "Attack 3"
+    ],
+    "bytes": 233065,
+    "portraitBackdropGeosets": [
+      2
+    ],
+    "authors": [
+      {
+        "name": "Unsanctioned Magic",
+        "url": "https://xgm.guru/user/UnsanctMagic"
+      },
+      {
+        "name": "Stein123",
+        "url": "https://www.hiveworkshop.com/members/stein123.196992/"
+      },
+      {
+        "name": "HerrDave",
+        "url": "https://www.hiveworkshop.com/members/herrdave.234820/"
+      }
+    ],
+    "creditLinks": [
+      {
+        "text": "Abomination Re-Classic",
+        "url": "https://www.hiveworkshop.com/threads/abomination-re-classic.357166/"
+      },
+      {
+        "text": "Headless Horseman",
+        "url": "https://www.hiveworkshop.com/threads/headless-horseman.373679/"
+      },
+      {
+        "text": "Ghoul Re-Classic",
+        "url": "https://www.hiveworkshop.com/threads/ghoul-re-classic.357165/"
+      },
+      {
+        "text": "Bandit Enforcer",
+        "url": "https://www.hiveworkshop.com/threads/bandit-enforcer-re-classic.336169/"
+      },
+      {
+        "text": "Chaos Warrior",
+        "url": "https://www.hiveworkshop.com/threads/chaos-warrior.366159/"
+      },
+      {
+        "text": "Reaper Ghost",
+        "url": "https://xgm.guru/p/wc3/reaper-ghost"
+      },
+      {
+        "text": "Vile Knight",
+        "url": "https://www.hiveworkshop.com/threads/swan-knight-vile-knight.308843/"
+      },
+      {
+        "text": "Stein123",
+        "url": "https://www.hiveworkshop.com/members/stein123.196992/"
+      },
+      {
+        "text": "HerrDave",
+        "url": "https://www.hiveworkshop.com/members/herrdave.234820/"
+      },
+      {
+        "text": "Azazeron",
+        "url": "https://www.hiveworkshop.com/members/azazeron.299156/"
+      },
+      {
+        "text": "Johnwar",
+        "url": "https://www.hiveworkshop.com/members/johnwar.264426/"
+      },
+      {
+        "text": "Cinos",
+        "url": "https://xgm.guru/user/Cinos"
+      },
+      {
+        "text": "WoW",
+        "url": "https://worldofwarcraft.blizzard.com/"
+      }
+    ],
+    "formationSequence": "Stand Ready",
+    "searchDescription": "Preview and download the heavy variant of the Knight of Nurgle model for Warcraft 3. A plague-themed Warhammer Fantasy knight for your Warriors of Chaos army.",
+    "sha256": "d291774c8f2ffef14b501c5cfad9791e8d760b051bf00c709b48ee08e6c2ccfd",
+    "downloadPack": "downloads/knight-of-nurgle.zip",
+    "changelog": [
+      {
+        "date": "14 October 2026",
+        "text": "Added new variation, fixed up a lot of clipping and animations, changed spell emitters, added attack slam.\nRe-textured rider and horse."
+      }
+    ]
+  },
+  {
+    "id": "nurgle-standard",
+    "file": "WH_WOC_KnightNurgle15.mdx",
+    "name": "Knight of Nurgle",
+    "army": "warriors-of-chaos",
+    "description": "There are many strange places to end up in the Old World...\r\n\r\nSome would claim the strangest is tucked within the comforting embrace of the Urfather.\r\n\r\nBut why? What could drive mortal men to seek out something so wrong?\r\n\r\nTell me, what would a knight who has lost his family to war continue fighting for? What is left to endure for those whose martial strength proved meaningless against the plights of life?\r\n\r\nThe strongest men are not broken with swords... I can tell you that much.\r\n\r\nIt is there, in those dark corners of the mind you will hear him whisper to you.\r\n\r\nHis embrace, his promises...\r\n\r\nNo more restless nights. No more seeing faces long buried. No more graves to dig... no more watching those you once loved fade and turn to dust... no more fearing the years that seem to pass faster and faster.\r\n\r\nHe would take all the pain away.\r\n\r\nHe would tuck those memories gently to sleep, still the passing of time, and silence every wound that steel could never mend...\r\n\r\nSuch a watchful father.\r\n\r\nA good father.\r\n\r\nHe does keep his promises.\r\n\r\nThe pain fades...\r\n\r\nThen the feelings.\r\n\r\nThen the memories.\r\n\r\nThen flesh swells, old wounds open and blossom yet ache no more, flies gather beneath a rusted visor and the body slowly rots... but somehow refuses to die.\r\n\r\nBut from that warm, rotten embrace do those knights rise once again...\r\n\r\nPerhaps to you they are disgusting abominations, bringers of death and decay, swollen, corpse-like and clad in rusted steel.\r\n\r\nBut in truth?\r\n\r\nThey have purpose.\r\n\r\nThey are at peace.\r\n\r\nThey are happy.\r\n\r\nAre you?...",
+    "credits": "Model Base - Vile Knight by HerrDave /  Nurgle Knight by Stein123\r\n\r\nHelm - Bandit Enforcer by Johnwar\r\n\r\nHorns - Dire Maul Stone Deer Statue - WoW model\r\n\r\nFace/Shield Face/Tongue - Ghoul Re-Classic and Abomination Re-Classic by johnwar\r\n\r\nHorse head and tail - Headless Horseman by Johnwar\r\n\r\nFur Cloak - Chaos Warrior by Azazeron\r\n\r\nScythe Top  - Reaper Ghost by Cinos",
+    "geosets": [
+      {
+        "index": 0,
+        "vertices": 60,
+        "triangles": 48,
+        "material": 0,
+        "textures": [
+          "Textures\\SkeletonArcher.blp"
+        ]
+      },
+      {
+        "index": 1,
+        "vertices": 132,
+        "triangles": 128,
+        "material": 1,
+        "textures": [
+          "Textures\\gutz.blp"
+        ]
+      },
+      {
+        "index": 2,
+        "vertices": 4,
+        "triangles": 2,
+        "material": 2,
+        "textures": [
+          "Team colour / glow"
+        ]
+      },
+      {
+        "index": 3,
+        "vertices": 120,
+        "triangles": 110,
+        "material": 3,
+        "textures": [
+          "Textures\\GiantSeaTurtle.blp"
+        ]
+      },
+      {
+        "index": 4,
+        "vertices": 36,
+        "triangles": 20,
+        "material": 4,
+        "textures": [
+          "Textures\\IronRaven.blp"
+        ]
+      },
+      {
+        "index": 5,
+        "vertices": 64,
+        "triangles": 60,
+        "material": 5,
+        "textures": [
+          "Team colour / glow",
+          "Units\\Critters\\Marine\\SpaceMarine.blp"
+        ]
+      },
+      {
+        "index": 6,
+        "vertices": 18,
+        "triangles": 20,
+        "material": 27,
+        "textures": [
+          "Units\\Undead\\SkeletonMage\\SkeletonMage.blp"
+        ]
+      },
+      {
+        "index": 7,
+        "vertices": 36,
+        "triangles": 35,
+        "material": 6,
+        "textures": [
+          "Textures\\furboots2.blp"
+        ]
+      },
+      {
+        "index": 8,
+        "vertices": 72,
+        "triangles": 60,
+        "material": 7,
+        "textures": [
+          "Textures\\InfernalCannon.blp"
+        ]
+      },
+      {
+        "index": 9,
+        "vertices": 125,
+        "triangles": 208,
+        "material": 8,
+        "textures": [
+          "Units\\Demon\\ChaosWarlord\\ChaosWarlord.blp"
+        ]
+      },
+      {
+        "index": 10,
+        "vertices": 22,
+        "triangles": 37,
+        "material": 9,
+        "textures": [
+          "Units\\Orc\\Spiritwolf\\FeralSpirit.blp"
+        ]
+      },
+      {
+        "index": 11,
+        "vertices": 6,
+        "triangles": 4,
+        "material": 10,
+        "textures": [
+          "Team colour / glow",
+          "Textures\\InfernalCannon.blp"
+        ]
+      },
+      {
+        "index": 12,
+        "vertices": 32,
+        "triangles": 16,
+        "material": 11,
+        "textures": [
+          "Textures\\gnoll.blp"
+        ]
+      },
+      {
+        "index": 13,
+        "vertices": 52,
+        "triangles": 48,
+        "material": 12,
+        "textures": [
+          "Textures\\InfernalCannon.blp"
+        ]
+      },
+      {
+        "index": 14,
+        "vertices": 54,
+        "triangles": 64,
+        "material": 13,
+        "textures": [
+          "units\\Undead\\Ghoul\\Ghoul.blp"
+        ]
+      },
+      {
+        "index": 15,
+        "vertices": 82,
+        "triangles": 108,
+        "material": 0,
+        "textures": [
+          "Textures\\SkeletonArcher.blp"
+        ]
+      },
+      {
+        "index": 16,
+        "vertices": 197,
+        "triangles": 217,
+        "material": 14,
+        "textures": [
+          "UI\\Glues\\SinglePlayer\\OrcCampaign3D\\CampaignOrc.blp"
+        ]
+      },
+      {
+        "index": 17,
+        "vertices": 7,
+        "triangles": 6,
+        "material": 15,
+        "textures": [
+          "units\\Undead\\Ghoul\\Ghoul.blp"
+        ]
+      },
+      {
+        "index": 18,
+        "vertices": 241,
+        "triangles": 246,
+        "material": 16,
+        "textures": [
+          "Textures\\HeroBladeMaster.blp"
+        ]
+      },
+      {
+        "index": 19,
+        "vertices": 139,
+        "triangles": 109,
+        "material": 17,
+        "textures": [
+          "Buildings\\Undead\\TombOfRelics\\TombOfRelics.blp"
+        ]
+      },
+      {
+        "index": 20,
+        "vertices": 104,
+        "triangles": 66,
+        "material": 10,
+        "textures": [
+          "Team colour / glow",
+          "Textures\\InfernalCannon.blp"
+        ]
+      },
+      {
+        "index": 21,
+        "vertices": 19,
+        "triangles": 13,
+        "material": 26,
+        "textures": [
+          "Team colour / glow",
+          "Textures\\Garrison.blp"
+        ]
+      },
+      {
+        "index": 22,
+        "vertices": 30,
+        "triangles": 26,
+        "material": 17,
+        "textures": [
+          "Buildings\\Undead\\TombOfRelics\\TombOfRelics.blp"
+        ]
+      },
+      {
+        "index": 23,
+        "vertices": 127,
+        "triangles": 128,
+        "material": 19,
+        "textures": [
+          "Units\\Human\\HeroPaladinBoss2\\HeropaladinBoss2.blp"
+        ]
+      },
+      {
+        "index": 24,
+        "vertices": 47,
+        "triangles": 44,
+        "material": 29,
+        "textures": [
+          "UI\\Glues\\SinglePlayer\\HumanCampaign3D\\HumanCampaignFootman.blp",
+          "UI\\Glues\\SinglePlayer\\HumanCampaign3D\\HumanCampaignFootman.blp"
+        ]
+      },
+      {
+        "index": 25,
+        "vertices": 138,
+        "triangles": 204,
+        "material": 21,
+        "textures": [
+          "Team colour / glow",
+          "Units\\Creeps\\HeroTinker\\HeroTinkerTank.blp"
+        ]
+      },
+      {
+        "index": 26,
+        "vertices": 9,
+        "triangles": 8,
+        "material": 13,
+        "textures": [
+          "units\\Undead\\Ghoul\\Ghoul.blp"
+        ]
+      },
+      {
+        "index": 27,
+        "vertices": 128,
+        "triangles": 133,
+        "material": 22,
+        "textures": [
+          "UI\\Glues\\SinglePlayer\\UndeadCampaign3D\\GhoulSkinWhitehands.blp"
+        ]
+      },
+      {
+        "index": 28,
+        "vertices": 61,
+        "triangles": 86,
+        "material": 23,
+        "textures": [
+          "ReplaceableTextures\\AshenvaleTree\\FelwoodTreeBlight.blp"
+        ]
+      },
+      {
+        "index": 29,
+        "vertices": 29,
+        "triangles": 44,
+        "material": 24,
+        "textures": [
+          "Textures\\Abomination.blp"
+        ]
+      },
+      {
+        "index": 30,
+        "vertices": 34,
+        "triangles": 56,
+        "material": 25,
+        "textures": [
+          "Textures\\Skeleton.blp"
+        ]
+      },
+      {
+        "index": 31,
+        "vertices": 96,
+        "triangles": 90,
+        "material": 5,
+        "textures": [
+          "Team colour / glow",
+          "Units\\Critters\\Marine\\SpaceMarine.blp"
+        ]
+      },
+      {
+        "index": 32,
+        "vertices": 24,
+        "triangles": 18,
+        "material": 12,
+        "textures": [
+          "Textures\\InfernalCannon.blp"
+        ]
+      },
+      {
+        "index": 33,
+        "vertices": 12,
+        "triangles": 8,
+        "material": 18,
+        "textures": [
+          "Team colour / glow",
+          "Textures\\Garrison.blp"
+        ]
+      },
+      {
+        "index": 34,
+        "vertices": 75,
+        "triangles": 76,
+        "material": 28,
+        "textures": [
+          "Textures\\TimberWolf.blp"
+        ]
+      },
+      {
+        "index": 35,
+        "vertices": 31,
+        "triangles": 22,
+        "material": 20,
+        "textures": [
+          "Textures\\BloodSplash.blp",
+          "UI\\Glues\\SinglePlayer\\OrcCampaign3D\\CampaignOrc.blp"
+        ]
+      }
+    ],
+    "sequences": [
+      "Walk",
+      "Stand - 1",
+      "Stand - 2",
+      "Attack - 1",
+      "Death",
+      "Decay Flesh",
+      "Stand Ready",
+      "Portrait - 1",
+      "Portrait Talk - 1",
+      "Spell",
+      "Decay Bone",
+      "Dissipate",
+      "Attack - 2",
+      "Attack Slam"
+    ],
+    "bytes": 216461,
+    "portraitBackdropGeosets": [
+      2
+    ],
+    "authors": [
+      {
+        "name": "Unsanctioned Magic",
+        "url": "https://xgm.guru/user/UnsanctMagic"
+      },
+      {
+        "name": "Stein123",
+        "url": "https://www.hiveworkshop.com/members/stein123.196992/"
+      },
+      {
+        "name": "HerrDave",
+        "url": "https://www.hiveworkshop.com/members/herrdave.234820/"
+      }
+    ],
+    "creditLinks": [
+      {
+        "text": "Abomination Re-Classic",
+        "url": "https://www.hiveworkshop.com/threads/abomination-re-classic.357166/"
+      },
+      {
+        "text": "Headless Horseman",
+        "url": "https://www.hiveworkshop.com/threads/headless-horseman.373679/"
+      },
+      {
+        "text": "Ghoul Re-Classic",
+        "url": "https://www.hiveworkshop.com/threads/ghoul-re-classic.357165/"
+      },
+      {
+        "text": "Bandit Enforcer",
+        "url": "https://www.hiveworkshop.com/threads/bandit-enforcer-re-classic.336169/"
+      },
+      {
+        "text": "Chaos Warrior",
+        "url": "https://www.hiveworkshop.com/threads/chaos-warrior.366159/"
+      },
+      {
+        "text": "Reaper Ghost",
+        "url": "https://xgm.guru/p/wc3/reaper-ghost"
+      },
+      {
+        "text": "Vile Knight",
+        "url": "https://www.hiveworkshop.com/threads/swan-knight-vile-knight.308843/"
+      },
+      {
+        "text": "Stein123",
+        "url": "https://www.hiveworkshop.com/members/stein123.196992/"
+      },
+      {
+        "text": "HerrDave",
+        "url": "https://www.hiveworkshop.com/members/herrdave.234820/"
+      },
+      {
+        "text": "Azazeron",
+        "url": "https://www.hiveworkshop.com/members/azazeron.299156/"
+      },
+      {
+        "text": "Johnwar",
+        "url": "https://www.hiveworkshop.com/members/johnwar.264426/"
+      },
+      {
+        "text": "Cinos",
+        "url": "https://xgm.guru/user/Cinos"
+      },
+      {
+        "text": "WoW",
+        "url": "https://worldofwarcraft.blizzard.com/"
+      }
+    ],
+    "formationSequence": "Stand Ready",
+    "searchDescription": "Preview and download the Knight of Nurgle model for Warcraft 3. A plague-themed Warhammer Fantasy knight for your Warriors of Chaos army.",
+    "sha256": "a07ab8b83a27fefc960e0408f9ed546b2b1185ae85e3022b7348107eade80370",
+    "downloadPack": "downloads/knight-of-nurgle.zip",
+    "changelog": [
+      {
+        "date": "14 October 2026",
+        "text": "Added new variation, fixed up a lot of clipping and animations, changed spell emitters, added attack slam.\nRe-textured rider and horse."
+      }
+    ]
+  },
+  {
     "id": "nurgle",
     "file": "WH_WOC_KnightNurgle14.mdx",
-    "name": "Knight of Nurgle",
+    "name": "Old Version",
     "army": "warriors-of-chaos",
     "description": "There are many strange places to end up in the Old World...\r\n\r\nSome would claim the strangest is tucked within the comforting embrace of the Urfather.\r\n\r\nBut why? What could drive mortal men to seek out something so wrong?\r\n\r\nTell me, what would a knight who has lost his family to war continue fighting for? What is left to endure for those whose martial strength proved meaningless against the plights of life?\r\n\r\nThe strongest men are not broken with swords... I can tell you that much.\r\n\r\nIt is there, in those dark corners of the mind you will hear him whisper to you.\r\n\r\nHis embrace, his promises...\r\n\r\nNo more restless nights. No more seeing faces long buried. No more graves to dig... no more watching those you once loved fade and turn to dust... no more fearing the years that seem to pass faster and faster.\r\n\r\nHe would take all the pain away.\r\n\r\nHe would tuck those memories gently to sleep, still the passing of time, and silence every wound that steel could never mend...\r\n\r\nSuch a watchful father.\r\n\r\nA good father.\r\n\r\nHe does keep his promises.\r\n\r\nThe pain fades...\r\n\r\nThen the feelings.\r\n\r\nThen the memories.\r\n\r\nThen flesh swells, old wounds open and blossom yet ache no more, flies gather beneath a rusted visor and the body slowly rots... but somehow refuses to die.\r\n\r\nBut from that warm, rotten embrace do those knights rise once again...\r\n\r\nPerhaps to you they are disgusting abominations, bringers of death and decay, swollen, corpse-like and clad in rusted steel.\r\n\r\nBut in truth?\r\n\r\nThey have purpose.\r\n\r\nThey are at peace.\r\n\r\nThey are happy.\r\n\r\nAre you?...",
     "credits": "Model Base - Vile Knight by HerrDave /  Nurgle Knight by Stein123\r\n\r\nHelm - Bandit Enforcer by Johnwar\r\n\r\nHorns - Dire Maul Stone Deer Statue - WoW model\r\n\r\nFace/Shield Face/Tongue - Ghoul Re-Classic and Abomination Re-Classic by johnwar\r\n\r\nHorse head and tail - Headless Horseman by Johnwar\r\n\r\nFur Cloak - Chaos Warrior by Azazeron\r\n\r\nScythe Top  - Reaper Ghost by Cinos",
@@ -3231,7 +4225,8 @@
       }
     ],
     "formationSequence": "Stand Ready",
-    "searchDescription": "Preview and download the Knight of Nurgle model for Warcraft 3. Add a plague-themed Warhammer Fantasy knight to your Warriors of Chaos army."
+    "searchDescription": "Preview and download the Old Version of the Knight of Nurgle model for Warcraft 3.",
+    "downloadPack": "downloads/knight-of-nurgle.zip"
   },
   {
     "id": "nurgle-champion",
