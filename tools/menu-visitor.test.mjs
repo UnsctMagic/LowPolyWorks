@@ -602,6 +602,48 @@ test('after a page change he flies over from where he was on the previous page',
   const start=second.state().point;
   assert(Math.hypot(start.x-was.x,start.y-was.y)<40, 'his flight starts where the last page left him');
   assert.equal(sessionStorage.saved.size,0, 'the hand-over is used once');
+  second.advance(4000);
+  assert.equal(second.state().phase,'walk', 'a page-follow flight always lands in a walk');
+});
+
+test('following from a peek lands in a walk for every next-page visit choice', () => {
+  for (const random of [.1, .4, .6, .9]) {
+    const sessionStorage=tabStorage(), first=fixture(true,.6,{sessionStorage});
+    first.context.visitor.choose('peek'); first.advance(1000); first.emit('pagehide');
+    const second=fixture(true,random,{sessionStorage}); second.step();
+    assert.equal(second.state().phase,'arrive');
+    assert.equal(second.nodes.find(n=>n.className==='menu-visitor').dataset.mode,'walk');
+    second.advance(3000);
+    assert.equal(second.state().phase,'walk');
+  }
+});
+
+test('a page-follow flight waits for a walking ledge instead of falling back to a peek', () => {
+  for (const held of [false, true]) {
+    const sessionStorage=tabStorage(), first=fixture(true,.6,{sessionStorage});
+    if (held) {
+      first.key(); first.advance(800); const nut=first.state().peanut; first.click(nut.x,nut.y);
+      first.context.visitor.choose('peek'); first.advance(700);
+    } else { first.context.visitor.choose('peek'); first.advance(1000); }
+    first.emit('pagehide');
+    const second=nextPage(sessionStorage), slab=second.nodes.find(n=>n.className==='slab');
+    slab.className='side-menu'; second.advance(500);
+    assert.equal(second.state().phase,'rest');
+    slab.className='slab'; second.advance(300);
+    assert.equal(second.state().phase,'arrive');
+    assert.equal(second.nodes.find(n=>n.className==='menu-visitor').dataset.mode,'walk');
+    second.advance(3000); assert.equal(second.state().phase,'walk');
+  }
+});
+
+test('a page-follow flight still lands walking when its landing surface is replaced', () => {
+  const sessionStorage=tabStorage(), first=fixture(true,.6,{sessionStorage});
+  first.context.visitor.choose('peek'); first.advance(1000); first.emit('pagehide');
+  const second=nextPage(sessionStorage); second.step();
+  const slab=second.nodes.find(n=>n.className==='slab'); slab.isConnected=false; second.step();
+  assert.equal(second.state().phase,'rest');
+  slab.isConnected=true; second.step(); assert.equal(second.state().phase,'arrive');
+  second.advance(3000); assert.equal(second.state().phase,'walk');
 });
 
 test('a peanut in hand stays in hand across the page change, and a chase carries on', () => {
