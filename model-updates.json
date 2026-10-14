@@ -148,11 +148,11 @@
     },
     "nurgle-heavy": {
       "sha256": "d291774c8f2ffef14b501c5cfad9791e8d760b051bf00c709b48ee08e6c2ccfd",
-      "publishedAt": "2026-10-14T17:42:55.390Z"
+      "updatedAt": "2026-10-14T17:42:55.390Z"
     },
     "nurgle-standard": {
       "sha256": "a07ab8b83a27fefc960e0408f9ed546b2b1185ae85e3022b7348107eade80370",
-      "publishedAt": "2026-10-14T17:42:55.390Z"
+      "updatedAt": "2026-10-14T17:42:55.390Z"
     }
   }
 }
