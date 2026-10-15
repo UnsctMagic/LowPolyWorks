@@ -1,5 +1,5 @@
-const sheet = new URL('./ui/visitor/0.png' + new URL(import.meta.url).search, import.meta.url).href; // Shares the script's cache key.
-const wings = new URL('./ui/visitor/1.png', import.meta.url).href;
+const sheet = new URL('./ui/visitor/0.webp' + new URL(import.meta.url).search, import.meta.url).href; // Shares the script's cache key.
+const wings = new URL('./ui/visitor/1.webp', import.meta.url).href;
 const between = (low, high) => low + Math.random() * (high - low);
 const ease = value => { const t = Math.max(0, Math.min(1, value)); return t * t * (3 - 2 * t); };
 const mix = (a, b, t) => a + (b - a) * ease(t);
@@ -11,8 +11,8 @@ const flightScale = .9, flightSize = 240 * flightScale, footOffset = 59.375 * bo
 const LEAN = [[0, 2], [5, 1], [4, 3], [5, 1], [0, 2], [6, 1], [7, 3], [6, 1]], LEAN_BEAT = 220;
 const LEAN_TIME = LEAN.reduce((total, [, beats]) => total + beats, 0) * LEAN_BEAT;
 // Authored edge departure: standing launch cells and tucked-wing dive cells.
-const moves = new URL('./ui/visitor/2.png' + new URL(import.meta.url).search, import.meta.url).href;
-const diveArt = new URL('./ui/visitor/3.png' + new URL(import.meta.url).search, import.meta.url).href;
+const moves = new URL('./ui/visitor/2.webp' + new URL(import.meta.url).search, import.meta.url).href;
+const diveArt = new URL('./ui/visitor/3.webp' + new URL(import.meta.url).search, import.meta.url).href;
 const sequence = (row, durations, dx = null) => ({row, durations, dx, duration:durations.reduce((total, ms) => total + ms, 0)});
 const DIVE_START = sequence(7, [110, 150, 200, 90, 70, 70, 70, 70]);      // look over the edge, crouch, hop off
 const DIVE_FALL = .8, DIVE_PULL = .35, DIVE_GRAVITY = 780; // seconds, seconds, px/s²

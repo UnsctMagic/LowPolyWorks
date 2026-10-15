@@ -1,7 +1,7 @@
 import {modelUpdateTagMarkup,mountModelUpdateTags} from './model-update-tags.js?v=20261012-new-and-updated-tags';
 import {modelFollowMarkup,mountModelFollow} from './model-follows.js?v=20261012-cloudflare';
 import {uploadedModelCard,renderUnitCard} from './unit-card.js?v=20261012-cloudflare';
-import {startMenuVisitor} from './menu-visitor.js?v=20261015-bg1-refinement';
+import {startMenuVisitor} from './menu-visitor.js?v=20261015-existing-polish-v1';
 import {countShredder} from './shredder-stats.js?v=20261012-shredder-cloudflare';
 // The 3D viewer (Three.js, war3-model and the 0.9 MB texture index) loads only when a model page opens.
 const createViewer=(...args)=>import('./viewer.js?v=20261012-viewer-lighting').then(m=>m.createViewer(...args));

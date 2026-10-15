@@ -29,6 +29,7 @@ LOSSLESS = [
     'blue-stone-v1', 'slate-frame-v2', 'iron-chain-v2', 'portrait-stone-classic-v3',
     'lowpolyworks-type-source', 'lowpolyworks-header-source', 'lowpolyworks-cleaned-source',
     'warhammercraft-header-source',
+    'visitor/0', 'visitor/1', 'visitor/2', 'visitor/3',
 ]
 # Masters that are only shown small: name -> (derivative suffix, edge length in px).
 DERIVED = {
