@@ -14,6 +14,7 @@ const mime = {
   '.html': 'text/html', '.js': 'text/javascript', '.mjs': 'text/javascript',
   '.css': 'text/css', '.json': 'application/json', '.png': 'image/png', '.svg': 'image/svg+xml',
   '.txt': 'text/plain', '.wasm': 'application/wasm', '.zip': 'application/zip',
+  '.webp': 'image/webp', '.gif': 'image/gif', '.jpg': 'image/jpeg', '.ico': 'image/x-icon', '.woff2': 'font/woff2', '.xml': 'application/xml',
 };
 
 http.createServer(async (req, res) => {

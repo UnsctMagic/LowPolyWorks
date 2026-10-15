@@ -59,5 +59,16 @@ exists('ui/human-portrait-frame.png');
 exists('ui/human-portrait-stone.png');
 exists('ui/portrait-stone-seamless-v2.png');
 exists('ui/portrait-stone-classic-v3.png');
+for (const name of ['blue-stone-v1', 'slate-frame-v2', 'iron-chain-v2', 'portrait-stone-classic-v3', 'lowpolyworks-type-source', 'lowpolyworks-header-source', 'lowpolyworks-cleaned-source', 'warhammercraft-header-source', 'mdlxl-icon-256']) exists(`ui/${name}.webp`);
+exists('ui/mdlxl-icon-256.png');
+// Card pages load thumbs/*.webp; each must be built from the current PNG capture.
+{
+  const manifest = JSON.parse(fs.readFileSync(path.join(root, 'thumbs', 'webp-manifest.json'), 'utf8'));
+  for (const name of fs.readdirSync(path.join(root, 'thumbs')).filter(name => /^(unit|formation)-.*\.png$/.test(name))) {
+    exists('thumbs/' + name.replace(/\.png$/, '.webp'));
+    const digest = crypto.createHash('sha256').update(fs.readFileSync(path.join(root, 'thumbs', name))).digest('hex');
+    assert.equal(manifest[name], digest, `Stale thumbs/${name.replace(/\.png$/, '.webp')}. Run python tools/optimize-ui.py`);
+  }
+}
 exists('whiteout/whiteout-paint-blp.wasm');
 console.log(`${rows.length} models, ${armies.length} armies, textures, downloads, unit cards, formation assets, and application syntax verified.`);

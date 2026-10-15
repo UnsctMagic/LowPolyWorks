@@ -143,7 +143,7 @@ export function startMenuVisitor({onInteraction} = {}) {
       trimEdges.top[x] = top; trimEdges.bottom[x] = canvas.height - 1 - bottom;
     }
   };
-  trimArt.src = new URL('./ui/slate-frame-v2.png', import.meta.url).href;
+  trimArt.src = new URL('./ui/slate-frame-v2.webp', import.meta.url).href;
   const pointer = {x:-10000, y:-10000, moved:0, sampled:0, speed:0, vx:0, vy:0, velocityAt:0};
   const throwSamples = [];
   let frame, phase = 'rest', perch, previousElement, started = 0, last = performance.now();
