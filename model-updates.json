@@ -147,12 +147,12 @@
       "updatedAt": "2026-10-12T20:54:37.124Z"
     },
     "nurgle-heavy": {
-      "sha256": "7f2de9d465d89326458052ea29d6c9ca5f1519a863836d355299a76821f6fc3e",
-      "updatedAt": "2026-10-14T18:14:28.911Z"
+      "sha256": "c6ff3a7b26c921701c056b797cf4078645040e852d3f22233fb1878946ba938e",
+      "updatedAt": "2026-10-16T21:30:42.826Z"
     },
     "nurgle-standard": {
-      "sha256": "a07ab8b83a27fefc960e0408f9ed546b2b1185ae85e3022b7348107eade80370",
-      "updatedAt": "2026-10-14T17:42:55.390Z"
+      "sha256": "645ccc96ea0016df862ef0c1415d99a475d9a986b26fa938c84299c9b84c755e",
+      "updatedAt": "2026-10-16T21:30:42.826Z"
     }
   }
 }
