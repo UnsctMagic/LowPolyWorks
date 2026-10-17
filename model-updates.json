@@ -147,17 +147,17 @@
       "publishedAt": "2026-10-12T09:03:56.313Z"
     },
     "nurgle-champion": {
-      "sha256": "06d041a8c5b06318f1e704cc597f294fe507af2873c4c618dc735e71a47547eb",
+      "sha256": "8222b4370cc853861837e926157149734250bcad90a63c15377dc4e618ccfa19",
       "publishedAt": "2026-10-12T09:03:56.313Z",
-      "updatedAt": "2026-10-17T21:18:15.447Z"
+      "updatedAt": "2026-10-17T22:19:43.696Z"
     },
     "nurgle-heavy": {
-      "sha256": "c6ff3a7b26c921701c056b797cf4078645040e852d3f22233fb1878946ba938e",
-      "updatedAt": "2026-10-16T21:30:42.826Z"
+      "sha256": "b936d18e6c1707bb548e05a4ee75c7e86b3c05e1f1b8ace6a1bd0b75d92e2a37",
+      "updatedAt": "2026-10-17T22:19:43.696Z"
     },
     "nurgle-standard": {
-      "sha256": "645ccc96ea0016df862ef0c1415d99a475d9a986b26fa938c84299c9b84c755e",
-      "updatedAt": "2026-10-16T21:30:42.826Z"
+      "sha256": "bcb0f29f8d62031a96c5d8717a675da269421e54f3affbcb1de2a50276ee5e7a",
+      "updatedAt": "2026-10-17T22:19:43.696Z"
     },
     "warrior-of-khorne": {
       "sha256": "17f09e956c2bd8a17aa9a4909e23ed6db1758805502be06a315400de17a6b801",
