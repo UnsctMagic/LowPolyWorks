@@ -213,24 +213,24 @@ async function activity(){
 <div class="metrics"><div class="metric"><strong>${number(report.totals.pageLoads)}</strong><span>Page loads</span></div><div class="metric"><strong>${number(report.totals.uniqueVisitors)}</strong><span>Anonymous browsers</span></div><div class="metric"><strong>${number(report.totals.downloadClicks)}</strong><span>Download clicks</span></div><div class="metric"><strong>${number(report.totals.modelViews)}</strong><span>Model views</span></div></div>
 <div class="insights"><aside class="picker" aria-label="Choose what to chart"><label>Army<select id="pick-army"><option value="">All units</option>${account.unitArmies.map(a=>`<option value="${escape(a.id)}">${escape(a.name)}</option>`).join('')}<option value="other">Other projects</option><option value="mdlxl">MDLxL application</option></select></label><label class="pick-search">Unit<input type="search" id="pick-search" placeholder="Find a unit" autocomplete="off"></label><ul class="pick-list" id="pick-list"></ul><div class="seg" role="group" aria-label="File type" id="pick-format"><button type="button" data-format="">All files</button><button type="button" data-format="mdx">MDX</button><button type="button" data-format="pack">Pack</button></div></aside>
 <div class="charts"><div class="chart-toolbar"><div class="seg" role="group" aria-label="Time step" id="pick-grain">${Object.entries(GRAINS).map(([key,grain])=>`<button type="button" data-grain="${key}">${grain.label}</button>`).join('')}</div><span class="range-label" id="range-label"></span></div>
-<figure class="chart" data-metric="download"><figcaption><div><h3>Downloads</h3><p class="chart-scope"></p></div><div class="chart-total"><strong></strong><small></small></div><button type="button" class="link-button" data-table>Table</button></figcaption><div class="plot"></div></figure>
+<figure class="chart" data-metric="download"><figcaption><div><h3>Downloads</h3><p class="chart-scope"></p></div><div class="chart-total"><strong></strong><small></small></div><button type="button" class="link-button" data-table>Table</button></figcaption><div class="plot"></div><div class="bucket-models" hidden></div></figure>
 <figure class="chart" data-metric="view"><figcaption><div><h3>Model views</h3><p class="chart-scope"></p></div><div class="chart-total"><strong></strong><small></small></div><button type="button" class="link-button" data-table>Table</button></figcaption><div class="plot"></div></figure></div></div>
 <section class="downloads"><div class="panel-head"><h3 id="unit-table-title">Per unit</h3></div><table class="download-table"><thead><tr><th scope="col"><button type="button" data-sort="name">Unit</button></th><th scope="col" class="army-column">Army</th><th scope="col" class="num"><button type="button" data-sort="views">Views</button></th><th scope="col" class="num"><button type="button" data-sort="mdx">MDX</button></th><th scope="col" class="num"><button type="button" data-sort="pack">Pack</button></th><th scope="col" class="num"><button type="button" data-sort="total">Downloads</button></th></tr></thead><tbody></tbody></table><p class="hint" id="unit-table-hint"></p><p class="hint">Downloads and views here follow the time step above. In the Unit cards tab, counts are all-time.</p></section>
 <details class="country-activity"><summary>Visitors by country · ${report.countries.length}</summary>${report.countries.length?`<table><thead><tr><th scope="col">Country</th><th scope="col" class="num">Anonymous browsers</th><th scope="col" class="num">Share</th></tr></thead><tbody>${report.countries.map(country=>`<tr><td>${escape(country.name)}</td><td class="num">${number(country.uniqueVisitors)}</td><td class="num">${new Intl.NumberFormat(undefined,{style:'percent',maximumFractionDigits:1}).format(country.share)}</td></tr>`).join('')}</tbody></table>`:'<p class="empty">No recorded visitors yet.</p>'}<p class="hint">Estimated from network location. Each browser counts once, using its first known country.</p></details>
 <p class="hint">Downloads are download-button clicks. Model views count a browser opening a model page, at most once per model per day; ${firstView?'recorded since '+escape(bucketLabel(firstView,'day',true)):'not recorded yet'}. Days follow UTC.</p>`;
- const $=selector=>panel.querySelector(selector),tables=new Set();
+ const $=selector=>panel.querySelector(selector),tables=new Set();let picked='';
  $('#pick-army').value=state.army;$('#pick-search').value=state.query;
  const inArmy=id=>state.army==='mdlxl'?id==='mdlxl':id!=='mdlxl'&&(!state.army||index.get(id)?.army===state.army);
  const matches=([,kind,model,format])=>(state.unit?model===state.unit:inArmy(model))&&(kind==='view'||!state.format||state.army==='mdlxl'||format===state.format);
  const scopeName=()=>state.unit?(state.unit==='mdlxl'?'MDLxL application':index.get(state.unit)?.name||state.unit):state.army==='mdlxl'?'MDLxL application':state.army?(state.army==='other'?'Other projects':account.unitArmies.find(a=>a.id===state.army)?.name):'All units';
  function draw(){
   const grain=state.grain,{list,start,end,clipped}=buckets(grain,since),position=new Map(list.map((key,i)=>[key,i])),prevStart=previousBucket(start,grain,list.length);
-  const series={download:list.map(()=>({total:0,mdx:0,pack:0})),view:list.map(()=>({total:0}))},previous={download:0,view:0},perUnit=new Map();
+  const series={download:list.map(()=>({total:0,mdx:0,pack:0})),view:list.map(()=>({total:0}))},previous={download:0,view:0},perUnit=new Map(),byModel=list.map(()=>new Map());
   for(const row of report.timeline){
    const [date,kind,model,format,count]=row;if(kind!=='download'&&kind!=='view')continue;
    if(date>=start&&date<end&&model!=='mdlxl'&&state.army!=='mdlxl'&&inArmy(model)){const entry=perUnit.get(model)||{views:0,mdx:0,pack:0,total:0};if(kind==='view')entry.views+=count;else{entry.total+=count;entry[format==='pack'?'pack':'mdx']+=count;}perUnit.set(model,entry);}
    if(!matches(row))continue;
-   if(date>=start&&date<end){const bucket=series[kind][position.get(bucketStart(date,grain))];bucket.total+=count;if(kind==='download')bucket[format==='pack'?'pack':'mdx']+=count;}
+   if(date>=start&&date<end){const i=position.get(bucketStart(date,grain)),bucket=series[kind][i],slot=format==='pack'?'pack':'mdx';bucket.total+=count;if(kind==='download'){bucket[slot]+=count;const m=byModel[i].get(model)||{mdx:0,pack:0,total:0};m[slot]+=count;m.total+=count;byModel[i].set(model,m);}}
    else if(date>=prevStart&&date<start)previous[kind]+=count;
   }
   $('#range-label').textContent=(clipped&&grain!=='year'?'Since tracking began · ':'')+bucketLabel(list[0],grain,true)+' – '+bucketLabel(list.at(-1),grain,true);
@@ -245,11 +245,20 @@ async function activity(){
    figure.querySelector('.chart-total strong').textContent=number(total);
    figure.querySelector('.chart-total small').textContent=prevOk?(delta===0?'Same as':delta>0?'▲ '+number(delta)+' vs':'▼ '+number(-delta)+' vs')+' previous '+GRAINS[grain].range.replace('last ',''):'in range';
    const plot=figure.querySelector('.plot');
-   if(tables.has(metric))plot.innerHTML=`<table class="bucket-table"><thead><tr><th scope="col">${GRAINS[grain].label}</th>${metric==='download'?'<th scope="col" class="num">MDX</th><th scope="col" class="num">Pack</th>':''}<th scope="col" class="num">${metric==='download'?'Downloads':'Views'}</th></tr></thead><tbody>${list.map((key,i)=>`<tr><td>${escape(bucketLabel(key,grain,true))}</td>${metric==='download'?`<td class="num">${number(values[i].mdx)}</td><td class="num">${number(values[i].pack)}</td>`:''}<td class="num">${number(values[i].total)}</td></tr>`).reverse().join('')}</tbody></table>`;
-   else barChart(plot,list.map((key,i)=>({key,label:bucketLabel(key,grain),long:bucketLabel(key,grain,true),...values[i]})),{metric,colour:metric==='download'?'#b58a35':'#3f86c8',noun:metric==='download'?'download':'view',format:state.format});
+   if(tables.has(metric))plot.innerHTML=`<table class="bucket-table"><thead><tr><th scope="col">${GRAINS[grain].label}</th>${metric==='download'?'<th scope="col" class="num">MDX</th><th scope="col" class="num">Pack</th>':''}<th scope="col" class="num">${metric==='download'?'Downloads':'Views'}</th></tr></thead><tbody>${list.map((key,i)=>`<tr${metric==='download'&&values[i].total?` data-bucket="${key}" class="pickable${picked===key?' is-selected':''}"`:''}><td>${escape(bucketLabel(key,grain,true))}</td>${metric==='download'?`<td class="num">${number(values[i].mdx)}</td><td class="num">${number(values[i].pack)}</td>`:''}<td class="num">${number(values[i].total)}</td></tr>`).reverse().join('')}</tbody></table>`;
+   else barChart(plot,list.map((key,i)=>({key,label:bucketLabel(key,grain),long:bucketLabel(key,grain,true),...values[i]})),{metric,colour:metric==='download'?'#b58a35':'#3f86c8',noun:metric==='download'?'download':'view',format:state.format,picked:metric==='download'?picked:'',onPick:metric==='download'?key=>{picked=picked===key?'':key;draw();}:null});
    figure.querySelector('[data-table]').textContent=tables.has(metric)?'Chart':'Table';
   }
+  drawBucketModels(list,byModel);
   drawPicker(perUnit,series.download.reduce((sum,v)=>sum+v.total,0));drawUnits(perUnit,GRAINS[grain].range);
+ }
+ // Which models made up one bucket of the Downloads chart, under the same army/unit/file filters.
+ function drawBucketModels(list,byModel){
+  const box=panel.querySelector('.bucket-models'),i=list.indexOf(picked);
+  if(i<0||!byModel[i].size){picked='';box.hidden=true;box.innerHTML='';return;}
+  const name=id=>id==='mdlxl'?'MDLxL application':index.get(id)?.name||id,rows=[...byModel[i]].sort((a,b)=>b[1].total-a[1].total||name(a[0]).localeCompare(name(b[0])));
+  box.hidden=false;
+  box.innerHTML=`<div class="bucket-models-head"><strong>${escape(bucketLabel(picked,state.grain,true))}</strong><span>${number(rows.reduce((s,[,m])=>s+m.total,0))} downloads · ${rows.length} model${rows.length===1?'':'s'}</span><button type="button" class="link-button" data-bucket-close>Close</button></div><table><thead><tr><th scope="col">Model</th><th scope="col" class="num">MDX</th><th scope="col" class="num">Pack</th><th scope="col" class="num">Downloads</th></tr></thead><tbody>${rows.map(([id,m])=>`<tr><td>${escape(name(id))}</td><td class="num">${number(m.mdx)}</td><td class="num">${number(m.pack)}</td><td class="num"><strong>${number(m.total)}</strong></td></tr>`).join('')}</tbody></table>`;
  }
  function drawPicker(perUnit,mdlxlTotal){
   const query=state.query.trim().toLowerCase(),armyUnits=[...index.values()].filter(row=>inArmy(row.id)&&(!query||(row.name+' '+row.group).toLowerCase().includes(query)));
@@ -271,6 +280,8 @@ async function activity(){
  $('#pick-army').onchange=event=>{state.army=event.target.value;state.unit=state.army==='mdlxl'?'mdlxl':'';update();};
  $('#pick-search').oninput=event=>{state.query=event.target.value;update();};
  panel.onclick=event=>{
+  if(event.target.closest('[data-bucket-close]')){picked='';draw();return;}
+  const bucketRow=event.target.closest('tr[data-bucket]');if(bucketRow){picked=picked===bucketRow.dataset.bucket?'':bucketRow.dataset.bucket;draw();return;}
   const target=event.target.closest('[data-unit],[data-format],[data-grain],[data-sort],[data-table]');if(!target)return;
   if(target.dataset.unit!==undefined&&target.closest('.picker,.download-table')){state.unit=state.unit===target.dataset.unit&&target.dataset.unit?'':target.dataset.unit;if(state.army==='mdlxl')state.unit='mdlxl';}
   else if(target.dataset.format!==undefined)state.format=target.dataset.format;
@@ -286,27 +297,28 @@ async function activity(){
 }
 let resizeCharts;
 // Single-series column chart: thin rounded columns from one baseline, recessive grid, one peak label and a hover tooltip.
-function barChart(plot,data,{colour,noun,format}){
+function barChart(plot,data,{colour,noun,format,picked='',onPick=null}){
  const width=Math.max(260,plot.clientWidth||600),height=190,left=34,right=8,top=20,bottom=24,inner=width-left-right,chart=height-top-bottom;
  const max=Math.max(0,...data.map(d=>d.total)),{top:ceiling,step}=niceScale(max),slot=inner/data.length,bar=Math.max(2,Math.min(24,slot*.68)),y=value=>top+chart-value/ceiling*chart;
  const ticks=[];for(let value=0;value<=ceiling;value+=step)ticks.push(value);
  const every=Math.max(1,Math.ceil(46/slot)),peak=max?data.findIndex(d=>d.total===max):-1;
- const column=(d,i)=>{if(!d.total)return '';const x=left+i*slot+(slot-bar)/2,h=Math.max(1,chart-(y(d.total)-top)),r=Math.min(4,bar/2,h),base=top+chart;return `<path class="bar" d="M${x},${base}V${base-h+r}Q${x},${base-h} ${x+r},${base-h}H${x+bar-r}Q${x+bar},${base-h} ${x+bar},${base-h+r}V${base}Z" fill="${colour}" data-i="${i}"/>`;};
+ const column=(d,i)=>{if(!d.total)return '';const x=left+i*slot+(slot-bar)/2,h=Math.max(1,chart-(y(d.total)-top)),r=Math.min(4,bar/2,h),base=top+chart;return `<path class="bar${picked===d.key?' picked':''}" d="M${x},${base}V${base-h+r}Q${x},${base-h} ${x+r},${base-h}H${x+bar-r}Q${x+bar},${base-h} ${x+bar},${base-h+r}V${base}Z" fill="${colour}" data-i="${i}"/>`;};
  plot.innerHTML=`<svg viewBox="0 0 ${width} ${height}" width="${width}" height="${height}" role="img" aria-label="${escape(`${data.reduce((s,d)=>s+d.total,0)} ${noun}s from ${data[0].long} to ${data.at(-1).long}; most in ${max?data[peak].long+' ('+max+')':'no period'}`)}">
 ${ticks.map(value=>`<line x1="${left}" x2="${width-right}" y1="${y(value)}" y2="${y(value)}" class="grid${value===0?' base':''}"/><text x="${left-6}" y="${y(value)+4}" class="tick" text-anchor="end">${number(value)}</text>`).join('')}
 ${data.map(column).join('')}
 ${data.map((d,i)=>(i%every===0&&data.length-1-i>=every)||i===data.length-1?`<text x="${left+i*slot+slot/2}" y="${height-7}" class="tick" text-anchor="middle">${escape(d.label)}</text>`:'').join('')}
 ${peak>=0?`<text x="${left+peak*slot+slot/2}" y="${y(max)-6}" class="peak" text-anchor="middle">${number(max)}</text>`:''}
-${data.map((d,i)=>`<rect class="hit" x="${left+i*slot}" y="${top}" width="${slot}" height="${chart}" data-i="${i}"/>`).join('')}
+${data.map((d,i)=>`<rect class="hit${onPick&&d.total?' pickable':''}" x="${left+i*slot}" y="${top}" width="${slot}" height="${chart}" data-i="${i}"/>`).join('')}
 </svg>${max?'':`<p class="chart-empty">No ${noun}s in this range.</p>`}<div class="chart-tip" hidden></div>`;
  const tip=plot.querySelector('.chart-tip'),svg=plot.querySelector('svg');
  svg.onpointermove=event=>{
   const i=Number(event.target.dataset?.i);if(!event.target.classList.contains('hit')||Number.isNaN(i)){tip.hidden=true;svg.classList.remove('hovering');return;}
   const d=data[i];svg.classList.add('hovering');for(const path of svg.querySelectorAll('.bar'))path.classList.toggle('active',Number(path.dataset.i)===i);
-  tip.innerHTML=`<strong>${number(d.total)} ${noun}${d.total===1?'':'s'}</strong><span>${escape(d.long)}</span>${noun==='download'&&!format&&d.total?`<span>MDX ${number(d.mdx)} · Pack ${number(d.pack)}</span>`:''}`;
+  tip.innerHTML=`<strong>${number(d.total)} ${noun}${d.total===1?'':'s'}</strong><span>${escape(d.long)}</span>${noun==='download'&&!format&&d.total?`<span>MDX ${number(d.mdx)} · Pack ${number(d.pack)}</span>`:''}${onPick&&d.total?'<span>Click to see models</span>':''}`;
   tip.hidden=false;const box=plot.getBoundingClientRect(),x=(left+i*slot+slot/2)/width*box.width;tip.style.left=Math.min(Math.max(x,70),box.width-70)+'px';tip.style.top=Math.max(0,(y(d.total)/height)*box.height-8)+'px';
  };
  svg.onpointerleave=()=>{tip.hidden=true;svg.classList.remove('hovering');};
+ if(onPick)svg.onclick=event=>{const i=Number(event.target.dataset?.i);if(event.target.classList.contains('hit')&&data[i]?.total)onPick(data[i].key);};
 }
 // The owner's statistics opt-out lives in www.lowpolyworks.com's own storage, which browsers clear on their own schedule
 // and never share with this origin. Renew it with a quick round trip to the site's opt-out page on every login,
