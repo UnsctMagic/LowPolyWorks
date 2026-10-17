@@ -83,3 +83,38 @@ footer>div{display:flex;gap:22px}
 .post-body blockquote{border-left:2px solid var(--gold);margin:0;padding:0 16px;color:var(--muted)}.post-body pre{overflow:auto;padding:12px;background:#0003;border-radius:4px;white-space:pre-wrap}.post-body code{font-family:ui-monospace,Consolas,monospace;font-size:.9em;background:#0003;padding:2px 4px;border-radius:3px}.post-body pre code{padding:0;background:none}.post-body ul,.post-body ol{padding-left:24px;margin:0}.post-inline-image{display:block;margin:0}.post-inline-image img{display:block;max-width:100%;max-height:600px;width:auto;height:auto;object-fit:contain}.post-body h3,.post-body h4,.post-body h5{margin:0}
 
 .feed-unit-card{max-width:280px;margin:14px 0}.feed-unit-card .card-portrait{height:240px}.feed-unit-card .card-portrait img{max-height:100%}.feed-unit-card .card-author p{margin:0}.feed-unit-card .slab{overflow:hidden}.post-body img{max-width:100%}.control-row #unit-model{max-width:100%;min-width:0}
+
+/* Keep the supplied marks inside a compact, fluid narrow-window header. */
+@media(max-width:900px){
+ .masthead{display:grid;grid-template-columns:minmax(0,1fr);justify-items:center;width:calc(100% - 24px);margin:12px auto 0;padding:8px;gap:8px}
+ .masthead .lowpolyworks-brand{min-width:0;justify-content:center}
+ .lowpolyworks-art{height:64px;transform:none}
+ .masthead nav{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);width:100%;gap:8px}
+ .masthead .project-brand{min-width:0;min-height:52px;padding:4px;gap:5px;border-width:7px}
+ .mdlxl-brand-icon{width:28px;height:28px}
+ .mdlxl-wordmark{font-size:clamp(20px,4.4vw,28px);transform:none}
+ .warhammercraft-wordmark{width:100%;max-width:258px;flex:0 1 auto}
+}
+.post-tags,.project-row{flex-wrap:wrap}
+@media(pointer:coarse){.journal button{min-height:44px}}
+
+/* One illustrated phone masthead; project marks live in its menu. */
+@media(max-width:900px){
+ .masthead{position:relative;z-index:20;display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:0;margin:8px auto 0;padding:4px 12px;border-width:10px}
+ .masthead .lowpolyworks-brand{flex:none;padding:0;min-height:0}
+ .lowpolyworks-art{height:68px;width:auto;transform:none}
+ .project-menu{margin-left:auto}
+ .project-menu>summary{justify-content:center;min-width:76px;padding:0 10px;border:1px solid #8b7447;background:var(--recess);box-shadow:inset 0 0 8px #0008}
+ .masthead .project-menu nav{position:absolute;top:calc(100% + 5px);left:-10px;right:-10px;width:auto;display:grid;grid-template-columns:minmax(0,1fr);gap:10px;padding:14px;border:10px solid transparent;border-image:url('ui/slate-frame-v2.png') 180 stretch;background:#0a101d;box-shadow:0 12px 20px #000b}
+ .masthead .project-brand{min-height:60px;padding:6px 12px;border-width:7px}
+ .masthead .mdlxl-brand-icon{width:36px;height:36px}
+ .masthead .mdlxl-wordmark{font-size:30px}
+ .masthead .warhammercraft-wordmark{width:258px;max-width:100%}
+ .journal #app{padding:0 4px}
+ .journal h1{font-size:1.65rem;margin:8px 0 20px}
+ .post{padding-bottom:22px;margin-bottom:22px}
+ .post-meta{gap:8px;margin-bottom:12px}
+ .post h2{font-size:1.35rem;line-height:1.25}
+ .post-body{font-size:1rem;line-height:1.6}
+ .post-tags{gap:8px 14px}
+}

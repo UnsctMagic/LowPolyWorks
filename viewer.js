@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import {bindVertexCamera} from './website-camera-controls.js';
+import {bindVertexCamera} from './website-camera-controls.js?v=20261018-mobile-touch';
 import {setEditorCameraAngles} from './vendor/mdlxl/app/editor-camera-controls.js';
 import {skinGeoset,sampleNodeMatrices} from './vendor/mdlxl/src/animation.js';
 import {perspectiveFitDistance,modelClipRadius,updateDepthClipping} from './vendor/mdlxl/app/viewport-math.js';
@@ -94,7 +94,7 @@ export async function createViewer(canvas,row,{thumbnail=false,portrait=false,fo
   for(const p of framePoints){const x=p.dot(right)-mid[0],y=p.dot(screenUp)-mid[1],z=p.dot(direction)-mid[2];distance=Math.max(distance,z+Math.max(Math.abs(x)/tanH,Math.abs(y)/tanV));}
   return {target,direction,distance};
  }
- function fit(){const aspect=Math.max(1,canvas.clientWidth)/Math.max(1,canvas.clientHeight);camera.zoom=1;
+ function fit(){const aspect=Math.max(1,canvas.clientWidth)/Math.max(1,canvas.clientHeight);camera.zoom=1;camera.aspect=aspect;
   if(!thumbnail){const view=frontView(aspect);camera.position.copy(view.target).addScaledVector(view.direction,view.distance);camera.lookAt(view.target);if(controls){controls.target.copy(view.target);controls.minDistance=radius*.4;controls.maxDistance=view.distance*3;controls.update();}return;}
   const distance=perspectiveFitDistance(radius,camera.fov??32,aspect);camera.position.copy(center).addScaledVector(formation?new THREE.Vector3(Math.cos(formationYaw),Math.sin(formationYaw),.12).normalize():new THREE.Vector3(Math.cos(.75),Math.sin(.75),.18).normalize(),distance);camera.lookAt(center);if(controls){controls.target.copy(center);controls.minDistance=radius*.4;controls.maxDistance=distance*3;controls.update();}}
  fit();
@@ -109,7 +109,9 @@ export async function createViewer(canvas,row,{thumbnail=false,portrait=false,fo
   portraitActive=active;portraitDetached=false;onPortraitModeChange?.(active);
  }
  const maxSize=Math.min(gl.getParameter(gl.MAX_RENDERBUFFER_SIZE),...gl.getParameter(gl.MAX_VIEWPORT_DIMS)),msaaSamples=gl.getParameter(gl.SAMPLES);
- function render(delta=0){if(disposed)return;const w=Math.max(1,canvas.clientWidth||480),h=Math.max(1,canvas.clientHeight||480),scale=Math.min(graphics.pixelRatio,maxSize/Math.max(w,h));const width=Math.round(w*scale),height=Math.round(h*scale);if(canvas.width!==width||canvas.height!==height){canvas.width=width;canvas.height=height;canvas.dataset.renderScale=String(scale);canvas.dataset.msaaSamples=String(msaaSamples);}camera.aspect=w/h;camera.updateProjectionMatrix();camera.updateMatrixWorld();native.setLightPosition(displayLight().normalize().multiplyScalar(radius*10).add(center).toArray());
+ function render(delta=0){if(disposed)return;const w=Math.max(1,canvas.clientWidth||480),h=Math.max(1,canvas.clientHeight||480),scale=Math.min(graphics.pixelRatio,maxSize/Math.max(w,h));const width=Math.round(w*scale),height=Math.round(h*scale);if(canvas.width!==width||canvas.height!==height){canvas.width=width;canvas.height=height;canvas.dataset.renderScale=String(scale);canvas.dataset.msaaSamples=String(msaaSamples);}// Preserve the current orbit and pan while keeping the same framing on resize.
+ if(!thumbnail&&!portraitActive&&camera.aspect!==w/h)camera.zoom*=Math.min(1,w/h)/Math.min(1,camera.aspect);
+ camera.aspect=w/h;camera.updateProjectionMatrix();camera.updateMatrixWorld();native.setLightPosition(displayLight().normalize().multiplyScalar(radius*10).add(center).toArray());
  clock+=delta*speed;const sample=viewerPlaybackSample(model,sequence,clock,revision,looping),frame=sample.frame;
  if(portraitActive&&!portraitDetached){const evaluated=evaluateModelCamera(model,model.Cameras[0],frame,sequence,clock);if(!applyEvaluatedModelCamera(camera,controls||portraitControls,evaluated,w/h))throw Error('Portrait camera unavailable.');}
  // Keep depth precision around the model as playback and mouse navigation change the view.
