@@ -5722,7 +5722,7 @@
   {
     "id": "undivided-sword",
     "downloadPack": "downloads/knight-undivided.zip",
-    "file": "WH_WOC_KnightUndividedSword06.mdx",
+    "file": "WH_WOC_KnightUndividedSword07.mdx",
     "name": "Knight Undivided · Sword",
     "army": "warriors-of-chaos",
     "description": "The good old days of horns, fur, and dark steel are back.\r\n\r\nFrom the far reaches of the North, clad in black steel and mounted upon mighty Chaos steeds, ride the blackest of the black, the heralds of mankinds doom.\r\n\r\nLock up your doors and hide for they come in the name of the Ruinous Powers and only in death is there glory.",
@@ -5776,8 +5776,8 @@
       },
       {
         "index": 5,
-        "vertices": 242,
-        "triangles": 270,
+        "vertices": 248,
+        "triangles": 278,
         "material": 5,
         "textures": [
           "Team colour / glow",
@@ -5869,8 +5869,8 @@
       },
       {
         "index": 15,
-        "vertices": 216,
-        "triangles": 180,
+        "vertices": 192,
+        "triangles": 160,
         "material": 12,
         "textures": [
           "Textures\\InfernalCannon.blp"
@@ -6029,7 +6029,7 @@
       "Dissipate",
       "Attack - 2"
     ],
-    "bytes": 186455,
+    "bytes": 184893,
     "portraitBackdropGeosets": [
       4
     ],
@@ -6110,8 +6110,12 @@
       }
     ],
     "searchDescription": "Download the sword variant of the Knight Undivided for Warcraft 3. Preview a mounted Chaos Undivided knight for Warhammer Fantasy maps.",
-    "sha256": "55f24a3ae6002a344755b364625c5315b55feff3694ce265de72f244f23b8cd7",
+    "sha256": "86b73e465a050572e60a42def865b252594aced076c9412c8ee170a4aec13f1a",
     "changelog": [
+      {
+        "date": "18 October 2026",
+        "text": "Fixed Chaos Star flickers. Fixed horse animations."
+      },
       {
         "date": "17 October 2026",
         "text": "Glowing eyes are now unshaded"
@@ -6121,7 +6125,7 @@
   {
     "id": "undivided-lance",
     "downloadPack": "downloads/knight-undivided.zip",
-    "file": "WH_WOC_KnightUndividedLanceAxe07.mdx",
+    "file": "WH_WOC_KnightUndividedLanceAxe08.mdx",
     "name": "Knight Undivided · Lance",
     "army": "warriors-of-chaos",
     "description": "The good old days of horns, fur, and dark steel are back.\r\n\r\nFrom the far reaches of the North, clad in black steel and mounted upon mighty Chaos steeds, ride the blackest of the black, the heralds of mankinds doom.\r\n\r\nLock up your doors and hide for they come in the name of the Ruinous Powers and only in death is there glory.",
@@ -6175,8 +6179,8 @@
       },
       {
         "index": 5,
-        "vertices": 251,
-        "triangles": 278,
+        "vertices": 257,
+        "triangles": 286,
         "material": 5,
         "textures": [
           "Team colour / glow",
@@ -6268,8 +6272,8 @@
       },
       {
         "index": 15,
-        "vertices": 216,
-        "triangles": 180,
+        "vertices": 192,
+        "triangles": 160,
         "material": 12,
         "textures": [
           "Textures\\InfernalCannon.blp"
@@ -6383,7 +6387,7 @@
       "Dissipate",
       "Attack - 2"
     ],
-    "bytes": 190971,
+    "bytes": 186473,
     "portraitBackdropGeosets": [
       4
     ],
@@ -6464,8 +6468,12 @@
       }
     ],
     "searchDescription": "Preview and download the lance variant of the Knight Undivided for Warcraft 3. Add mounted Chaos Undivided cavalry to Warhammer Fantasy maps.",
-    "sha256": "4e7b569c59ca7b0c556011e5f70587b533751b4ab7a02004033f19c8994c748b",
+    "sha256": "20d5052398845ab3b706633b095057978133e39075202af7bf189d50fff2c927",
     "changelog": [
+      {
+        "date": "18 October 2026",
+        "text": "Fixed Chaos Star flickers. Fixed horse animations."
+      },
       {
         "date": "17 October 2026",
         "text": "Glowing eyes are now unshaded"
@@ -10333,7 +10341,7 @@
   {
     "id": "tzeentch-sword",
     "downloadPack": "downloads/knight-of-tzeentch.zip",
-    "file": "WH_WOC_KnightTzeentchSword04.mdx",
+    "file": "WH_WOC_KnightTzeentchSword05.mdx",
     "name": "Knight of Tzeentch · Sword",
     "army": "warriors-of-chaos",
     "description": "This has been my company for a thousand wars, a thousand roads, a thousand years.\r\n\r\nMy brothers, that is what we call each other.\r\n\r\nWe have ridden beneath this banner for centuries... and yet I cannot recall their names nor their faces.\r\n\r\nDid they ever have faces?...\r\n\r\nWe hail from every corner of the world, or so we remember.\r\n\r\nWorlds I see when we close our eyes, cities beneath violet skies and fields without horizons...\r\n\r\nAnd always above it all a great burning eye, watching, above as the sun.\r\n\r\nWe had different lives once, different faces, different banners... I recall, sometimes.\r\n\r\nPerhaps that was a thousand years ago, perhaps it was yesterday...\r\n\r\nOr, perhaps, was it another man's dream?\r\n\r\nWe cannot tell, it does not matter.\r\n\r\nAs we ride, days stretch into years and years collapse into moments, time has no meaning.\r\n\r\nRoads unfold never ending, the ground beneath us breathes and lives and trees bend and whisper to us secrets men do not wish to hear.\r\n\r\nThe ravens herald our coming.\r\n\r\nWe can recall a thousand battles,\r\n\r\nkingdoms we have brought to ashes, kings slain, gods destroyed.\r\n\r\nBut I do not remember arriving at any of them, only leaving.\r\n\r\nHow did we end up here?\r\n\r\nA voice...\r\n\r\nA will...\r\n\r\nbut whose?...\r\n\r\nIn war we see it clearly, we feel alive... and for a moment, I wake up...\r\n\r\nThe trees stand still, the ravens fall silent and the skies are no longer violet when the ground runs red with blood...\r\n\r\nFor a moment...\r\n\r\nFor another thousand years....\r\n\r\nBut always... When we shut our eyes... A burning eye, staring, reaching deep into my soul.",
@@ -10752,8 +10760,8 @@
       },
       {
         "index": 44,
-        "vertices": 48,
-        "triangles": 40,
+        "vertices": 72,
+        "triangles": 60,
         "material": 43,
         "textures": [
           "Textures\\UndeadAirBarge.blp"
@@ -10812,7 +10820,7 @@
       "Attack - 2",
       "Attack - 3"
     ],
-    "bytes": 238203,
+    "bytes": 240471,
     "portraitBackdropGeosets": [
       4
     ],
@@ -10831,7 +10839,7 @@
       }
     ],
     "sourceUrl": "https://www.hiveworkshop.com/threads/warhammer-chaos-knight-of-tzeentch.374522/",
-    "sha256": "a8bb8990c67604112ba4f6a5fe66bf36fee02b0ece0d8df05d36c09634e6b827",
+    "sha256": "384f8e9979048ee6655fb241d32344c3e9377258a9aec82613d89b88b7851fbb",
     "creditLinks": [
       {
         "text": "Warhammer Eternal Strife",
@@ -10929,12 +10937,18 @@
     "formationSequence": "Spell",
     "formationTime": 1000,
     "formationBodyHeight": 0.78,
-    "searchDescription": "Download the sword variant of the Knight of Tzeentch for Warcraft 3. Preview this Warhammer Fantasy Warriors of Chaos model and its animations."
+    "searchDescription": "Download the sword variant of the Knight of Tzeentch for Warcraft 3. Preview this Warhammer Fantasy Warriors of Chaos model and its animations.",
+    "changelog": [
+      {
+        "date": "18 October 2026",
+        "text": "Fixed Chaos Star flickers. Fixed horse animations."
+      }
+    ]
   },
   {
     "id": "tzeentch-lance",
     "downloadPack": "downloads/knight-of-tzeentch.zip",
-    "file": "WH_WOC_KnightTzeentchLance04.mdx",
+    "file": "WH_WOC_KnightTzeentchLance05.mdx",
     "name": "Knight of Tzeentch · Lance",
     "army": "warriors-of-chaos",
     "description": "This has been my company for a thousand wars, a thousand roads, a thousand years.\r\n\r\nMy brothers, that is what we call each other.\r\n\r\nWe have ridden beneath this banner for centuries... and yet I cannot recall their names nor their faces.\r\n\r\nDid they ever have faces?...\r\n\r\nWe hail from every corner of the world, or so we remember.\r\n\r\nWorlds I see when we close our eyes, cities beneath violet skies and fields without horizons...\r\n\r\nAnd always above it all a great burning eye, watching, above as the sun.\r\n\r\nWe had different lives once, different faces, different banners... I recall, sometimes.\r\n\r\nPerhaps that was a thousand years ago, perhaps it was yesterday...\r\n\r\nOr, perhaps, was it another man's dream?\r\n\r\nWe cannot tell, it does not matter.\r\n\r\nAs we ride, days stretch into years and years collapse into moments, time has no meaning.\r\n\r\nRoads unfold never ending, the ground beneath us breathes and lives and trees bend and whisper to us secrets men do not wish to hear.\r\n\r\nThe ravens herald our coming.\r\n\r\nWe can recall a thousand battles,\r\n\r\nkingdoms we have brought to ashes, kings slain, gods destroyed.\r\n\r\nBut I do not remember arriving at any of them, only leaving.\r\n\r\nHow did we end up here?\r\n\r\nA voice...\r\n\r\nA will...\r\n\r\nbut whose?...\r\n\r\nIn war we see it clearly, we feel alive... and for a moment, I wake up...\r\n\r\nThe trees stand still, the ravens fall silent and the skies are no longer violet when the ground runs red with blood...\r\n\r\nFor a moment...\r\n\r\nFor another thousand years....\r\n\r\nBut always... When we shut our eyes... A burning eye, staring, reaching deep into my soul.",
@@ -11372,8 +11386,8 @@
       },
       {
         "index": 46,
-        "vertices": 48,
-        "triangles": 40,
+        "vertices": 72,
+        "triangles": 60,
         "material": 45,
         "textures": [
           "Textures\\UndeadAirBarge.blp"
@@ -11395,7 +11409,7 @@
       "Dissipate",
       "Attack - 2"
     ],
-    "bytes": 218859,
+    "bytes": 221703,
     "portraitBackdropGeosets": [
       4
     ],
@@ -11414,7 +11428,7 @@
       }
     ],
     "sourceUrl": "https://www.hiveworkshop.com/threads/warhammer-chaos-knight-of-tzeentch.374522/",
-    "sha256": "9b68d101acb77fe554f683ecae783255efdee107a72229c47c751ca83de60932",
+    "sha256": "e5990700d41ffc22d4da4f45d75103a7aa5d9516fd1c5737b35065ec31e1ed16",
     "creditLinks": [
       {
         "text": "Warhammer Eternal Strife",
@@ -11509,7 +11523,13 @@
         "url": "https://github.com/UnsctMagic/MDLxL"
       }
     ],
-    "searchDescription": "Preview and download the lance variant of the Knight of Tzeentch for Warcraft 3. A Warhammer Fantasy model for your Warriors of Chaos army."
+    "searchDescription": "Preview and download the lance variant of the Knight of Tzeentch for Warcraft 3. A Warhammer Fantasy model for your Warriors of Chaos army.",
+    "changelog": [
+      {
+        "date": "18 October 2026",
+        "text": "Fixed Chaos Star flickers. Fixed horse animations."
+      }
+    ]
   },
   {
     "id": "chaos-ogre",
