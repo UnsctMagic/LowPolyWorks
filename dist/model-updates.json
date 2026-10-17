@@ -150,6 +150,10 @@
     "nurgle-standard": {
       "sha256": "645ccc96ea0016df862ef0c1415d99a475d9a986b26fa938c84299c9b84c755e",
       "updatedAt": "2026-10-16T21:30:42.665Z"
+    },
+    "warrior-of-khorne": {
+      "sha256": "17f09e956c2bd8a17aa9a4909e23ed6db1758805502be06a315400de17a6b801",
+      "publishedAt": "2026-10-17T17:44:19.317Z"
     }
   }
 }
