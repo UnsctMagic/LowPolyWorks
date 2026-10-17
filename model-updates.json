@@ -157,6 +157,10 @@
     "warrior-of-khorne": {
       "sha256": "17f09e956c2bd8a17aa9a4909e23ed6db1758805502be06a315400de17a6b801",
       "publishedAt": "2026-10-17T17:44:19.317Z"
+    },
+    "kurgan-warlord": {
+      "sha256": "b285d609ba063f8723036a050600d248e8937b5831e0cba15068dc31cfd95ca9",
+      "publishedAt": "2026-10-17T21:10:06.220Z"
     }
   }
 }

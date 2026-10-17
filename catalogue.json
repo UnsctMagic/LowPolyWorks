@@ -12555,5 +12555,220 @@
     "formationBodyHeight": 0.76,
     "formationYaw": 0.15,
     "captureRibbons": false
+  },
+  {
+    "id": "kurgan-warlord",
+    "file": "WH_WOC_KurganWarlord01.mdx",
+    "name": "Kurgan Warlord",
+    "army": "warriors-of-chaos",
+    "description": "\"Why do we raid your lands? It is the will of the Gods...\"\n—Zar Seizask, Kurgan Chieftain.\n\nWarhammer Fantasy Roleplay 2nd Edition: Tome of Corruption   pg 152",
+    "credits": "Model Base - Pale Emperor by Direfury + Chaos Chosen\n\nWeapon - BadassHammer by Sin'dorei300\n\nHelm - Chaos Warrior by azazeron\n\nShoulder - Vrykul Death Knight by JesusHipster\n\nArm - OgreDeathKnight by Sin'dorei300",
+    "geosets": [
+      {
+        "index": 0,
+        "vertices": 139,
+        "triangles": 178,
+        "material": 0,
+        "textures": [
+          "Textures\\InfernalCannon.blp"
+        ]
+      },
+      {
+        "index": 1,
+        "vertices": 26,
+        "triangles": 29,
+        "material": 1,
+        "textures": [
+          "Textures\\LavaLump.blp",
+          "Textures\\LavaLump.blp"
+        ]
+      },
+      {
+        "index": 2,
+        "vertices": 67,
+        "triangles": 86,
+        "material": 2,
+        "textures": [
+          "Units\\Creeps\\Magnataur\\Magnataur.blp"
+        ]
+      },
+      {
+        "index": 3,
+        "vertices": 250,
+        "triangles": 296,
+        "material": 3,
+        "textures": [
+          "Team colour / glow",
+          "Units\\creeps\\facelessone\\facelessone.blp"
+        ]
+      },
+      {
+        "index": 4,
+        "vertices": 204,
+        "triangles": 268,
+        "material": 4,
+        "textures": [
+          "Units\\Creeps\\LordGarithos\\LordGarithos.blp"
+        ]
+      },
+      {
+        "index": 5,
+        "vertices": 425,
+        "triangles": 224,
+        "material": 5,
+        "textures": [
+          "Textures\\InfernalCannon.blp"
+        ]
+      },
+      {
+        "index": 6,
+        "vertices": 90,
+        "triangles": 101,
+        "material": 6,
+        "textures": [
+          "Textures\\Arthas1.blp"
+        ]
+      },
+      {
+        "index": 7,
+        "vertices": 22,
+        "triangles": 22,
+        "material": 7,
+        "textures": [
+          "Abilities\\Spells\\Human\\Banish\\GenericGlow2bA.blp",
+          "Abilities\\Spells\\Human\\Banish\\GenericGlow2bA.blp",
+          "Abilities\\Spells\\Human\\Banish\\GenericGlow2bA.blp"
+        ]
+      },
+      {
+        "index": 8,
+        "vertices": 131,
+        "triangles": 218,
+        "material": 8,
+        "textures": [
+          "Units\\Creeps\\SkeletonOrc\\SkeletonOrc.blp"
+        ]
+      },
+      {
+        "index": 9,
+        "vertices": 32,
+        "triangles": 47,
+        "material": 9,
+        "textures": [
+          "Team colour / glow",
+          "Units\\Creeps\\Magnataur\\Magnataur.blp"
+        ]
+      },
+      {
+        "index": 10,
+        "vertices": 6,
+        "triangles": 4,
+        "material": 10,
+        "textures": [
+          "Units\\Creeps\\Magnataur\\Magnataur.blp"
+        ]
+      },
+      {
+        "index": 11,
+        "vertices": 8,
+        "triangles": 8,
+        "material": 11,
+        "textures": [
+          "Team colour / glow",
+          "Units\\Creeps\\Magnataur\\Magnataur.blp"
+        ]
+      },
+      {
+        "index": 12,
+        "vertices": 33,
+        "triangles": 54,
+        "material": 12,
+        "textures": [
+          "units\\Undead\\Necromancer\\Necromancer.blp"
+        ]
+      },
+      {
+        "index": 13,
+        "vertices": 8,
+        "triangles": 4,
+        "material": 13,
+        "textures": [
+          "Textures\\LavaLump2.blp",
+          "Textures\\LavaLump2.blp"
+        ]
+      },
+      {
+        "index": 14,
+        "vertices": 4,
+        "triangles": 2,
+        "material": 14,
+        "textures": [
+          "Team colour / glow"
+        ]
+      }
+    ],
+    "sequences": [
+      "Stand - 1",
+      "Stand Ready",
+      "Attack - 1",
+      "Attack - 2",
+      "Attack - 3",
+      "Attack Slam",
+      "Spell Slam",
+      "Spell",
+      "Spell Throw",
+      "Death",
+      "Dissipate",
+      "Portrait",
+      "Portrait Talk",
+      "Attack Walk Stand Spin Alternate",
+      "Walk"
+    ],
+    "bytes": 153975,
+    "authors": [
+      {
+        "name": "Unsanctioned Magic",
+        "url": "https://xgm.guru/user/UnsanctMagic"
+      }
+    ],
+    "creditLinks": [
+      {
+        "text": "Pale Emperor",
+        "url": "https://www.hiveworkshop.com/threads/pale-emperor.294821/"
+      },
+      {
+        "text": "Direfury",
+        "url": "https://www.hiveworkshop.com/members/direfury.188037/"
+      },
+      {
+        "text": "BadassHammer",
+        "url": "https://www.hiveworkshop.com/threads/badasshammer.231010/"
+      },
+      {
+        "text": "Sin'dorei300",
+        "url": "https://www.hiveworkshop.com/members/209577/"
+      },
+      {
+        "text": "Chaos Warrior",
+        "url": "https://www.hiveworkshop.com/threads/chaos-warrior.366159/"
+      },
+      {
+        "text": "azazeron",
+        "url": "https://www.hiveworkshop.com/members/azazeron.299156/"
+      },
+      {
+        "text": "Vrykul Death Knight",
+        "url": "https://www.hiveworkshop.com/threads/vrykul-death-knight.258995/"
+      },
+      {
+        "text": "JesusHipster",
+        "url": "https://www.hiveworkshop.com/members/jesushipster.210592/"
+      },
+      {
+        "text": "OgreDeathKnight",
+        "url": "https://www.hiveworkshop.com/threads/ogredeathknight.222572/"
+      }
+    ],
+    "sha256": "b285d609ba063f8723036a050600d248e8937b5831e0cba15068dc31cfd95ca9"
   }
 ]
