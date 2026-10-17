@@ -12573,7 +12573,7 @@
     "name": "Kurgan Warlord",
     "army": "warriors-of-chaos",
     "description": "\"Why do we raid your lands? It is the will of the Gods...\"\n—Zar Seizask, Kurgan Chieftain.\n\nWarhammer Fantasy Roleplay 2nd Edition: Tome of Corruption   pg 152",
-    "credits": "Model Base - Pale Emperor by Direfury + Chaos Chosen\n\nWeapon - BadassHammer by Sin'dorei300\n\nHelm - Chaos Warrior by azazeron\n\nShoulder - Vrykul Death Knight by JesusHipster\n\nArm - OgreDeathKnight by Sin'dorei300",
+    "credits": "Model Base - Pale Emperor by Direfury + Chaos Chosen by Stein123\n\nWeapon - BadassHammer by Sin'dorei300\n\nHelm - Chaos Warrior by azazeron\n\nShoulder - Vrykul Death Knight by JesusHipster\n\nArm - OgreDeathKnight by Sin'dorei300",
     "geosets": [
       {
         "index": 0,
@@ -12778,6 +12778,10 @@
       {
         "text": "OgreDeathKnight",
         "url": "https://www.hiveworkshop.com/threads/ogredeathknight.222572/"
+      },
+      {
+        "text": "Stein123",
+        "url": "https://www.hiveworkshop.com/members/stein123.196992/"
       }
     ],
     "sha256": "b285d609ba063f8723036a050600d248e8937b5831e0cba15068dc31cfd95ca9"
