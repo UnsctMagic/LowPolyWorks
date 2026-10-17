@@ -4802,7 +4802,7 @@
   {
     "id": "slaanesh-axe",
     "downloadPack": "downloads/knight-of-slaanesh.zip",
-    "file": "WH_WOC_KnightSlaaneshAxe06.mdx",
+    "file": "WH_WOC_KnightSlaaneshAxe07.mdx",
     "name": "Knight of Slaanesh · Axe",
     "army": "warriors-of-chaos",
     "description": "How good of you to come all this way, just to watch me cut you apart.\r\n\r\nI see you struggle... I know this is difficult, to die... really, I do.\r\n\r\nBut if you would just hold still, this would be over so much sooner.\r\n\r\nYou might think I hate you but I don't.\r\n\r\nI take great pleasure in what we are doing together, you and I.\r\n\r\nThis little act of killing you is merely one scene in a much grander performance.\r\n\r\nYou, your friends, your people, these lands... you are all background players in my great presence, can't you feel it?\r\n\r\nYou should feel honored, my sword is inside you, after all.\r\n\r\nYou see, I WANT to be here.\r\n\r\nI want to take this from you.\r\n\r\nI want to look into your eyes while you grasp what you are losing.\r\n\r\nThat moment...\r\n\r\nThat is the pleasure.\r\n\r\nShort but so so good...\r\n\r\nI said hold still!\r\n\r\nYou know, I was like you once.\r\n\r\nI lived in these lands, I was a Knight of Bretonnia... I loved my Lady.\r\n\r\nLove...\r\n\r\nWhat a tedious thing.\r\n\r\nIt gives you nothing.\r\n\r\nLook what it gave you, holding your guts like that.\r\n\r\nYou weren't a knight for very long, were you?\r\n\r\n...\r\n\r\nYou really are having difficulty holding still.\r\n\r\nAnd why are you screaming?\r\n\r\nHmm...\r\n\r\nPerhaps I should cut out your tongue.\r\n\r\nIt would make it much easier for you to listen... you NEED to listen.\r\n\r\nNow...\r\n\r\nHold still...",
@@ -5243,12 +5243,19 @@
         "url": "https://www.hiveworkshop.com/members/johnwar.264426/"
       }
     ],
-    "searchDescription": "Download the axe variant of the Knight of Slaanesh for Warcraft 3. Preview animations for this Warhammer Fantasy Warriors of Chaos model."
+    "searchDescription": "Download the axe variant of the Knight of Slaanesh for Warcraft 3. Preview animations for this Warhammer Fantasy Warriors of Chaos model.",
+    "sha256": "86d9dc39a01995914fdaac085739d79313a3a3827e61cb3e4b65405b91884e45",
+    "changelog": [
+      {
+        "date": "17 October 2026",
+        "text": "eye glow"
+      }
+    ]
   },
   {
     "id": "slaanesh-lance",
     "downloadPack": "downloads/knight-of-slaanesh.zip",
-    "file": "WH_WOC_KnightSlaaneshLance06.mdx",
+    "file": "WH_WOC_KnightSlaaneshLance07.mdx",
     "name": "Knight of Slaanesh · Lance",
     "army": "warriors-of-chaos",
     "description": "How good of you to come all this way, just to watch me cut you apart.\r\n\r\nI see you struggle... I know this is difficult, to die... really, I do.\r\n\r\nBut if you would just hold still, this would be over so much sooner.\r\n\r\nYou might think I hate you but I don't.\r\n\r\nI take great pleasure in what we are doing together, you and I.\r\n\r\nThis little act of killing you is merely one scene in a much grander performance.\r\n\r\nYou, your friends, your people, these lands... you are all background players in my great presence, can't you feel it?\r\n\r\nYou should feel honored, my sword is inside you, after all.\r\n\r\nYou see, I WANT to be here.\r\n\r\nI want to take this from you.\r\n\r\nI want to look into your eyes while you grasp what you are losing.\r\n\r\nThat moment...\r\n\r\nThat is the pleasure.\r\n\r\nShort but so so good...\r\n\r\nI said hold still!\r\n\r\nYou know, I was like you once.\r\n\r\nI lived in these lands, I was a Knight of Bretonnia... I loved my Lady.\r\n\r\nLove...\r\n\r\nWhat a tedious thing.\r\n\r\nIt gives you nothing.\r\n\r\nLook what it gave you, holding your guts like that.\r\n\r\nYou weren't a knight for very long, were you?\r\n\r\n...\r\n\r\nYou really are having difficulty holding still.\r\n\r\nAnd why are you screaming?\r\n\r\nHmm...\r\n\r\nPerhaps I should cut out your tongue.\r\n\r\nIt would make it much easier for you to listen... you NEED to listen.\r\n\r\nNow...\r\n\r\nHold still...",
@@ -5691,8 +5698,14 @@
         "url": "https://www.hiveworkshop.com/members/johnwar.264426/"
       }
     ],
-    "formationSequence": "Stand Ready",
-    "searchDescription": "Preview and download the lance variant of the Knight of Slaanesh for Warcraft 3. A Warhammer Fantasy knight for your Warriors of Chaos army."
+    "searchDescription": "Preview and download the lance variant of the Knight of Slaanesh for Warcraft 3. A Warhammer Fantasy knight for your Warriors of Chaos army.",
+    "sha256": "89f65c755ae33e56df5251ff89a4b8571ab61b1304670d83aa98f86dd8a4ee69",
+    "changelog": [
+      {
+        "date": "17 October 2026",
+        "text": "eye glow"
+      }
+    ]
   },
   {
     "id": "undivided-sword",

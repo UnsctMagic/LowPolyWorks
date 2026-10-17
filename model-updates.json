@@ -30,10 +30,12 @@
       "sha256": "81ab2399c34fceb244e9219da5f639069c11742f0640563213dec20c2c901849"
     },
     "slaanesh-axe": {
-      "sha256": "ebeb866932a26af1703d22f949eef71293cb398007b03df6019b67daed66c39b"
+      "sha256": "86d9dc39a01995914fdaac085739d79313a3a3827e61cb3e4b65405b91884e45",
+      "updatedAt": "2026-10-17T21:26:30.435Z"
     },
     "slaanesh-lance": {
-      "sha256": "8978cc2c2ba37051fb3f78579d400e2e0c03d3c6859f7e41f8b2beb3bc79ba1b"
+      "sha256": "89f65c755ae33e56df5251ff89a4b8571ab61b1304670d83aa98f86dd8a4ee69",
+      "updatedAt": "2026-10-17T21:26:30.435Z"
     },
     "undivided-sword": {
       "sha256": "55f24a3ae6002a344755b364625c5315b55feff3694ce265de72f244f23b8cd7",
