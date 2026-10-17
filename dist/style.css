@@ -228,3 +228,60 @@ body a[href]:any-link:hover,body #mdlxl-ffmpeg-source[href]:any-link:hover{color
  .variant-dots button[aria-pressed=true]{background:none;box-shadow:none}
  .variant-dots button[aria-pressed=true]::before{border-color:#c2a568;background:radial-gradient(circle at 35% 30%,#ffd4cc,#d4241c 40%,#5c0606 80%);box-shadow:0 0 5px #ff3a2a99}
 }
+
+/* Phone composition: the artwork frames the content, while navigation and
+   secondary controls open on demand. Desktop controls stay expanded. */
+.mobile-disclosure>summary{display:none}
+.project-menu{min-width:0}
+@media(max-width:900px){
+ .mobile-disclosure>summary{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:44px;cursor:pointer;list-style:none;color:var(--gold);font-family:'IM Fell English',Georgia,serif;font-size:1.05rem}
+ .mobile-disclosure>summary::-webkit-details-marker{display:none}
+ .mobile-disclosure>summary::after{content:'+';font-size:1.3rem;line-height:1;flex:none}
+ .mobile-disclosure[open]>summary::after{content:'−'}
+ .mobile-disclosure>summary:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+ .site-shell{gap:12px;margin:12px auto 24px}
+ .site-shell>.side-left{order:0;padding:0 12px;border-width:9px}
+ .army-menu nav{flex-direction:column;gap:0;padding:6px 0 10px;border-top:1px solid #a68b5445}
+ .army-menu nav a{min-height:44px;display:flex;align-items:center;font-size:1rem}
+ .army-menu nav .all-armies{padding:8px 7px}
+ .site-shell main{order:1;min-height:0}
+ .site-shell>.side-right{order:2;padding:12px;border-width:10px}
+ .model-title{display:block;margin:4px 4px 12px}
+ .model-title h1{font-size:clamp(1.45rem,5.7vw,2rem);line-height:1.15;margin:0 0 5px}
+ .model-title .byline{font-size:.8rem;line-height:1.4}
+ .model-layout{gap:16px}
+ .viewer.slab,.details.slab{border-width:10px;padding:0}
+ .viewport{height:clamp(220px,43svh,420px)}
+ .viewport-hint{font-size:.68rem;bottom:8px}
+ .controls{padding:8px 10px}
+ .controls .control-sequence{grid-template-columns:minmax(0,1fr) 78px;gap:4px 8px}
+ .controls .control-sequence>label{grid-column:1/-1;font-size:.8rem}
+ .controls .control-sequence:has(#unit-model){grid-template-columns:minmax(0,1fr)}
+ .controls .control-sequence:has(#unit-model)>span{display:none}
+ .controls .control-row select,.controls .control-row .iron-button{height:44px;font-size:1rem}
+ .viewer-settings{margin-top:8px;border-top:1px solid #a68b5445}
+ .viewer-settings>summary{font-size:.95rem;min-height:44px}
+ .controls .viewer-settings .control-fields{grid-template-columns:96px minmax(0,1fr);margin:0;padding:8px 0 12px;border-top:0}
+ .controls .viewer-settings .control-actions{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:10px}
+ .controls .viewer-settings .loop-option{grid-column:1/-1;min-height:44px}
+ .controls .viewer-settings .control-actions>span{display:none}
+ .controls .range{height:44px}
+ .variant-tabs{flex-wrap:nowrap;overflow-x:auto;max-width:100%;gap:6px;margin:0 0 12px;padding-bottom:5px;scrollbar-width:thin}
+ .variant-tabs a{flex:none;min-height:44px;font-size:.85rem;border-width:6px;padding:3px 9px 3px 3px;gap:5px}
+ .variant-tabs a img{width:28px;height:28px}
+ .tabs{gap:0;padding:4px}
+ .tabs button{flex:1 1 30%;min-height:44px;font-size:.8rem;padding:6px 3px}
+ .tab-content{padding:16px 12px}
+ .model-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+ .model-card.slab{border-width:9px;padding:0}
+ .model-card .card-portrait{height:auto;aspect-ratio:4/5}
+ .model-card .card-portrait img{width:100%;height:100%;padding:0}
+ .card-name{font-size:.95rem;line-height:1.2}
+ .card-text{padding:9px 6px}
+ .card-text .card-author{font-size:.7rem;line-height:1.4}
+ .side-downloads{width:100%}
+ .side-downloads a{flex:1 1 130px}
+ .model-follow{margin-top:4px;padding-top:12px}
+ .army-grid{padding-top:24px;gap:44px 24px}
+}
+@media(max-width:360px){.model-grid{gap:8px}.model-card.slab{border-width:7px}.card-name{font-size:.87rem}}

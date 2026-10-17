@@ -97,3 +97,24 @@ footer>div{display:flex;gap:22px}
 }
 .post-tags,.project-row{flex-wrap:wrap}
 @media(pointer:coarse){.journal button{min-height:44px}}
+
+/* One illustrated phone masthead; project marks live in its menu. */
+@media(max-width:900px){
+ .masthead{position:relative;z-index:20;display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:0;margin:8px auto 0;padding:4px 12px;border-width:10px}
+ .masthead .lowpolyworks-brand{flex:none;padding:0;min-height:0}
+ .lowpolyworks-art{height:68px;width:auto;transform:none}
+ .project-menu{margin-left:auto}
+ .project-menu>summary{justify-content:center;min-width:76px;padding:0 10px;border:1px solid #8b7447;background:var(--recess);box-shadow:inset 0 0 8px #0008}
+ .masthead .project-menu nav{position:absolute;top:calc(100% + 5px);left:-10px;right:-10px;width:auto;display:grid;grid-template-columns:minmax(0,1fr);gap:10px;padding:14px;border:10px solid transparent;border-image:url('ui/slate-frame-v2.png') 180 stretch;background:#0a101d;box-shadow:0 12px 20px #000b}
+ .masthead .project-brand{min-height:60px;padding:6px 12px;border-width:7px}
+ .masthead .mdlxl-brand-icon{width:36px;height:36px}
+ .masthead .mdlxl-wordmark{font-size:30px}
+ .masthead .warhammercraft-wordmark{width:258px;max-width:100%}
+ .journal #app{padding:0 4px}
+ .journal h1{font-size:1.65rem;margin:8px 0 20px}
+ .post{padding-bottom:22px;margin-bottom:22px}
+ .post-meta{gap:8px;margin-bottom:12px}
+ .post h2{font-size:1.35rem;line-height:1.25}
+ .post-body{font-size:1rem;line-height:1.6}
+ .post-tags{gap:8px 14px}
+}
