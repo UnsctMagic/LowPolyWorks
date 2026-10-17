@@ -35,12 +35,12 @@
       "updatedAt": "2026-10-17T21:26:30.435Z"
     },
     "undivided-sword": {
-      "sha256": "55f24a3ae6002a344755b364625c5315b55feff3694ce265de72f244f23b8cd7",
-      "updatedAt": "2026-10-17T21:14:38.426Z"
+      "sha256": "86b73e465a050572e60a42def865b252594aced076c9412c8ee170a4aec13f1a",
+      "updatedAt": "2026-10-17T22:52:36.078Z"
     },
     "undivided-lance": {
-      "sha256": "4e7b569c59ca7b0c556011e5f70587b533751b4ab7a02004033f19c8994c748b",
-      "updatedAt": "2026-10-17T21:14:38.426Z"
+      "sha256": "20d5052398845ab3b706633b095057978133e39075202af7bf189d50fff2c927",
+      "updatedAt": "2026-10-17T22:52:36.078Z"
     },
     "aspiring": {
       "sha256": "a7f9e4c2de69ca114efceaf7b062967a6cf1324b9fb51297250683df67275564",
@@ -131,10 +131,12 @@
       "sha256": "61ba70c236d86ec58c1be9a5b5bc5da4a5e331b78da0e7717f0a588f0e8e6ff1"
     },
     "tzeentch-sword": {
-      "sha256": "a8bb8990c67604112ba4f6a5fe66bf36fee02b0ece0d8df05d36c09634e6b827"
+      "sha256": "384f8e9979048ee6655fb241d32344c3e9377258a9aec82613d89b88b7851fbb",
+      "updatedAt": "2026-10-17T22:52:36.078Z"
     },
     "tzeentch-lance": {
-      "sha256": "9b68d101acb77fe554f683ecae783255efdee107a72229c47c751ca83de60932"
+      "sha256": "e5990700d41ffc22d4da4f45d75103a7aa5d9516fd1c5737b35065ec31e1ed16",
+      "updatedAt": "2026-10-17T22:52:36.078Z"
     },
     "chaos-ogre": {
       "sha256": "b75c09c1c7c3bb353599d321bc5d6aa9700f393cdbd1a10fc387812cb45ebaef"
