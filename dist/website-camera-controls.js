@@ -1,4 +1,4 @@
-import {MOUSE} from 'three';
+import {MOUSE,TOUCH} from 'three';
 import {EditorCameraControls,preserveShiftCameraAction,zoomEditorCamera} from './vendor/mdlxl/app/editor-camera-controls.js';
 import {bindScrollSensitivity,pointerSensitivityValue} from './vendor/mdlxl/app/viewport-performance.js';
 
@@ -6,6 +6,7 @@ import {bindScrollSensitivity,pointerSensitivityValue} from './vendor/mdlxl/app/
 export function bindVertexCamera(camera,canvas,onModeChange){
  const controls=new EditorCameraControls(camera,canvas);
  controls.enableDamping=false;
+ controls.touches={ONE:TOUCH.ROTATE,TWO:TOUCH.DOLLY_PAN};
  controls.mouseButtons={LEFT:MOUSE.ROTATE,MIDDLE:null,RIGHT:MOUSE.PAN};
  const preferences={cameraBindings:{right:'pan',middle:'toggle'},pointerSensitivity:1,scrollSensitivity:2.5,fineSensitivity:.2,wheelMode:'rotate',rightScrollAdjust:true};
  let mode='rotate',zoomDrag=null;
@@ -21,7 +22,7 @@ export function bindVertexCamera(camera,canvas,onModeChange){
   onWheel:(_event,sensitivity)=>controls.zoomSpeed=sensitivity,
  });
  function pointerDown(event){
-  canvas.focus();
+  canvas.focus({preventScroll:true});
   const action=event.button===2?'move':event.button===1?'toggle':event.altKey?'rotate':mode;
   controls.enabled=true;
   controls.rotateSpeed=controls.panSpeed=pointerSensitivityValue(preferences.pointerSensitivity);

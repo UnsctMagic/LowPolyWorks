@@ -83,3 +83,17 @@ footer>div{display:flex;gap:22px}
 .post-body blockquote{border-left:2px solid var(--gold);margin:0;padding:0 16px;color:var(--muted)}.post-body pre{overflow:auto;padding:12px;background:#0003;border-radius:4px;white-space:pre-wrap}.post-body code{font-family:ui-monospace,Consolas,monospace;font-size:.9em;background:#0003;padding:2px 4px;border-radius:3px}.post-body pre code{padding:0;background:none}.post-body ul,.post-body ol{padding-left:24px;margin:0}.post-inline-image{display:block;margin:0}.post-inline-image img{display:block;max-width:100%;max-height:600px;width:auto;height:auto;object-fit:contain}.post-body h3,.post-body h4,.post-body h5{margin:0}
 
 .feed-unit-card{max-width:280px;margin:14px 0}.feed-unit-card .card-portrait{height:240px}.feed-unit-card .card-portrait img{max-height:100%}.feed-unit-card .card-author p{margin:0}.feed-unit-card .slab{overflow:hidden}.post-body img{max-width:100%}.control-row #unit-model{max-width:100%;min-width:0}
+
+/* Keep the supplied marks inside a compact, fluid narrow-window header. */
+@media(max-width:900px){
+ .masthead{display:grid;grid-template-columns:minmax(0,1fr);justify-items:center;width:calc(100% - 24px);margin:12px auto 0;padding:8px;gap:8px}
+ .masthead .lowpolyworks-brand{min-width:0;justify-content:center}
+ .lowpolyworks-art{height:64px;transform:none}
+ .masthead nav{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);width:100%;gap:8px}
+ .masthead .project-brand{min-width:0;min-height:52px;padding:4px;gap:5px;border-width:7px}
+ .mdlxl-brand-icon{width:28px;height:28px}
+ .mdlxl-wordmark{font-size:clamp(20px,4.4vw,28px);transform:none}
+ .warhammercraft-wordmark{width:100%;max-width:258px;flex:0 1 auto}
+}
+.post-tags,.project-row{flex-wrap:wrap}
+@media(pointer:coarse){.journal button{min-height:44px}}

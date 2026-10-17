@@ -31,8 +31,8 @@ body{color:var(--body)}h1,h2,h3,.tab-content h2,.brand,.brand .craft,.army-capti
 .chain{top:-66px;width:28px;height:64px;background:url('ui/iron-chain-v2.png') center -32px/auto 102px no-repeat;border:0;box-shadow:none;filter:drop-shadow(2px 3px 1px #000);image-rendering:pixelated}
 .chain.left{left:13px}.chain.right{right:13px}
 /* The first row hangs from the menu's lower stone rail. */
-@media(min-width:561px){.army-card:first-child>.chain{top:-90px;height:88px;background-position:center bottom}}
-@media(min-width:801px){.army-card:nth-child(2)>.chain{top:-90px;height:88px;background-position:center bottom}}
+@media(min-width:601px){.army-card:first-child>.chain{top:-90px;height:88px;background-position:center bottom}}
+@media(min-width:601px){.army-card:nth-child(2)>.chain{top:-90px;height:88px;background-position:center bottom}}
 nav a,.iron-button,.tabs button{border:10px solid transparent;border-image:url('ui/slate-frame-v2.png') 180 stretch;border-radius:0;padding:5px 12px;box-shadow:0 3px 0 #020409,inset 0 0 10px #0009}
 .tabs button[aria-selected=true]{border-image:url('ui/slate-frame-v2.png') 180 stretch;box-shadow:inset 0 0 12px #a0803520,0 3px 0 #020409}
 .control-row .iron-button{padding:3px 8px}
@@ -167,3 +167,64 @@ body a[href]:any-link:hover,body #mdlxl-ffmpeg-source[href]:any-link:hover{color
 .variant-tabs a[aria-selected=true]{color:#f0d690;filter:brightness(1.18);box-shadow:inset 0 0 12px #a0803540,0 3px 0 #020409}
 .variant-tabs a[aria-selected=true] img{border-color:#c2a568}
 @media(max-width:560px){.variant-tabs a{font-size:.92rem;padding-right:10px}.variant-tabs a img{width:28px;height:28px}}
+
+/* Fit the available content width, including narrow desktop windows. */
+.site-shell main{container-type:inline-size}
+.model-card,.side-menu,.model-title>*{min-width:0}
+.card-name,.byline,.tab-content,.side-downloads a{overflow-wrap:anywhere}
+.tabs{flex-wrap:wrap}
+.tabs button{min-width:0;max-width:100%;white-space:normal}
+.viewport canvas{touch-action:none}
+.viewport-hint{padding:0 8px}
+.viewport-hint .touch-hint{display:none}
+@container (max-width:900px){
+ .model-grid{grid-template-columns:repeat(auto-fill,minmax(min(180px,100%),1fr))}
+ .model-layout{grid-template-columns:minmax(0,1fr)}
+ .tab-content{max-height:none}
+}
+@media(max-width:1100px){
+ .site-shell{display:flex;flex-direction:column;width:calc(100% - 32px);gap:18px}
+ .site-shell main{width:100%;order:2}
+ .site-shell>.side-menu{position:static;width:100%;padding:8px}
+ .side-left nav{flex-direction:row;flex-wrap:wrap;gap:4px}
+ .side-left nav .all-armies{font-size:1rem;margin:0;padding:8px 7px;border:0}
+ .side-right{order:1;display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px}
+ .side-right h2{margin:0}
+ .side-stat{border:0;padding:0;gap:8px}
+ .side-downloads{display:flex;flex-wrap:wrap;gap:8px;margin:0;min-width:0;max-width:100%}
+ .side-downloads .iron-button{padding:7px 10px}
+ .model-follow{flex-basis:100%;min-width:0;margin-top:0}
+ .model-follow form{max-width:360px}
+ .army-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:600px){
+ .site-shell{width:calc(100% - 24px);margin:18px auto}
+ .army-grid{grid-template-columns:minmax(0,1fr)}
+ .model-title h1{font-size:1.6rem}
+ .tabs{gap:4px;padding:6px 4px}
+ .tabs button{flex:1 1 auto;padding:6px 8px}
+ .tab-content{padding:18px 12px}
+ .tab-footer{padding:12px}
+ footer,footer>div{flex-wrap:wrap;gap:12px 20px}
+}
+@media(max-height:600px){.site-shell>.side-menu{position:static}}
+@media(max-width:900px),(max-height:600px){
+ .viewport{height:clamp(240px,55svh,440px)}
+}
+@media(pointer:coarse){
+ .viewport-hint .mouse-hint{display:none}
+ .viewport-hint .touch-hint{display:inline}
+ .controls .control-row select,.controls .control-row .iron-button{height:44px;font-size:1rem}
+ .controls .range{height:44px}
+ .controls .loop-option,.side-menu nav a,.model-follow-label,.variant-tabs a,.tabs button{min-height:44px}
+ .controls .loop-option input,.model-follow input[type=checkbox]{width:22px;height:22px}
+ .model-follow input[type=email]{font-size:1rem;min-height:44px}
+ .model-follow .iron-button,.side-downloads .iron-button{min-height:44px}
+ .variant-arrow{width:44px;min-height:44px}
+ /* Enlarge the hit area while retaining the authored diamond indicators. */
+ .variant-dots{gap:0;bottom:0;flex-wrap:wrap}
+ .variant-dots button{display:grid;place-items:center;width:28px;height:28px;border:0;background:none;transform:none;box-shadow:none}
+ .variant-dots button::before{content:"";width:7px;height:7px;border:1px solid #8a7548;transform:rotate(45deg);background:radial-gradient(circle at 40% 40%,#1a1f2c,#03050a 70%)}
+ .variant-dots button[aria-pressed=true]{background:none;box-shadow:none}
+ .variant-dots button[aria-pressed=true]::before{border-color:#c2a568;background:radial-gradient(circle at 35% 30%,#ffd4cc,#d4241c 40%,#5c0606 80%);box-shadow:0 0 5px #ff3a2a99}
+}
