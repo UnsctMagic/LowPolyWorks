@@ -16,11 +16,12 @@
       "sha256": "6baa4e1d87d274c237759f8d3ba28dff7f108360e8b67c7387be4de4aab72645"
     },
     "khorne-axe": {
-      "sha256": "9165decc355343b4ee3613498861246c735a5d261df3bb09153def94da78fe40"
+      "sha256": "da94155bca8d1c838646c2f4b0a71d023c18e334d79250b8d25ab672d75ae924",
+      "updatedAt": "2026-10-17T21:13:14.690Z"
     },
     "khorne-flail": {
-      "sha256": "956ebaefd443d2981102d107e3d89cf4a9181309d735e58b882c3ca912570c4c",
-      "updatedAt": "2026-10-11T20:49:18.269Z"
+      "sha256": "8128d1d6f42f2e7ada59dcf6e5532b9d734854dceab8186e6c36444b1df60f3e",
+      "updatedAt": "2026-10-17T21:13:14.690Z"
     },
     "nurgle": {
       "sha256": "81ab2399c34fceb244e9219da5f639069c11742f0640563213dec20c2c901849"

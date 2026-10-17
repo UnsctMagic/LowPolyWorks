@@ -1440,7 +1440,7 @@
   },
   {
     "id": "khorne-axe",
-    "file": "WH_WOC_KnightKhorneAxe02.mdx",
+    "file": "WH_WOC_KnightKhorneAxe03.mdx",
     "name": "Knight of Khorne · Axe",
     "army": "warriors-of-chaos",
     "description": "I have never seen men fight like that...\r\n\r\nI barely made it out alive, this was no victory.\r\n\r\nStatues of brass, massive, twice the size of the biggest man I've ever seen and then some.\r\n\r\nWalking, not charging... advancing like a great wall made of brass and blood red steel.\r\n\r\nI saw men throw down their weapons crying, screaming...\r\n\r\nMen crawled beneath one another to get away...\r\n\r\nIt made no difference, there was nowhere to run.\r\n\r\nI watched a man split from shoulder to hip as he was trying to hide.\r\n\r\nAnother crushed into nothing I could recognize...\r\n\r\nMen were knocked down, trampled, hacked apart and still they kept hacking at the corpses.\r\n\r\nLike a butcher at the block, hacking away piece by piece.\r\n\r\nIt made no difference, we had to fight.\r\n\r\nThey even killed each other.\r\n\r\nThe ones we managed to injure or stagger fighting back became obstacles for the others,\r\n\r\nSo they simply cut through those to reach us faster.\r\n\r\nBut I think they knew they would die that day.\r\n\r\nI heard they razed ten cities before they reached us.\r\n\r\nThat they had come down from the north on a path of destruction.\r\n\r\nThat they had fought their way south for weeks leaving behind only blood and ash.\r\n\r\nBy the time they reached us they were outnumbered fifty to one.\r\n\r\nWe had heard of them coming.\r\n\r\nWe had heard what they had done.\r\n\r\nRivers of blood.\r\n\r\nBut It made no difference... I wanted to fight... to kill.\r\n\r\nThey did not run or beg.\r\n\r\nThey knew they were going to die, I think they wanted to.\r\n\r\nMy city has lost everything defeating them and they got what they came for.\r\n\r\nYou call this victory...?\r\n\r\nSomehow... I envy them.\r\n\r\nI have spent all my life afraid... Afraid of pain... regret... death...\r\n\r\nAfraid of fear.\r\n\r\nThose men were afraid of nothing.\r\n\r\nWanted nothing.\r\n\r\nKept nothing...\r\n\r\nBut it made no difference... I killed them too.\r\n\r\nNorth...\r\n\r\nThat is where they came from.\r\n\r\nThat is where I will go.",
@@ -1987,11 +1987,18 @@
         "url": "https://github.com/UnsctMagic/MDLxL"
       }
     ],
-    "searchDescription": "Download the axe variant of the Knight of Khorne for Warcraft 3. Preview this Warhammer Fantasy Warriors of Chaos model and its animations."
+    "searchDescription": "Download the axe variant of the Knight of Khorne for Warcraft 3. Preview this Warhammer Fantasy Warriors of Chaos model and its animations.",
+    "sha256": "da94155bca8d1c838646c2f4b0a71d023c18e334d79250b8d25ab672d75ae924",
+    "changelog": [
+      {
+        "date": "17 October 2026",
+        "text": "Glowing eyes are now unshaded"
+      }
+    ]
   },
   {
     "id": "khorne-flail",
-    "file": "WH_WOC_KnightKhorneFlail02.mdx",
+    "file": "WH_WOC_KnightKhorneFlail03.mdx",
     "name": "Knight of Khorne · Champion",
     "army": "warriors-of-chaos",
     "description": "I have never seen men fight like that...\r\n\r\nI barely made it out alive, this was no victory.\r\n\r\nStatues of brass, massive, twice the size of the biggest man I've ever seen and then some.\r\n\r\nWalking, not charging... advancing like a great wall made of brass and blood red steel.\r\n\r\nI saw men throw down their weapons crying, screaming...\r\n\r\nMen crawled beneath one another to get away...\r\n\r\nIt made no difference, there was nowhere to run.\r\n\r\nI watched a man split from shoulder to hip as he was trying to hide.\r\n\r\nAnother crushed into nothing I could recognize...\r\n\r\nMen were knocked down, trampled, hacked apart and still they kept hacking at the corpses.\r\n\r\nLike a butcher at the block, hacking away piece by piece.\r\n\r\nIt made no difference, we had to fight.\r\n\r\nThey even killed each other.\r\n\r\nThe ones we managed to injure or stagger fighting back became obstacles for the others,\r\n\r\nSo they simply cut through those to reach us faster.\r\n\r\nBut I think they knew they would die that day.\r\n\r\nI heard they razed ten cities before they reached us.\r\n\r\nThat they had come down from the north on a path of destruction.\r\n\r\nThat they had fought their way south for weeks leaving behind only blood and ash.\r\n\r\nBy the time they reached us they were outnumbered fifty to one.\r\n\r\nWe had heard of them coming.\r\n\r\nWe had heard what they had done.\r\n\r\nRivers of blood.\r\n\r\nBut It made no difference... I wanted to fight... to kill.\r\n\r\nThey did not run or beg.\r\n\r\nThey knew they were going to die, I think they wanted to.\r\n\r\nMy city has lost everything defeating them and they got what they came for.\r\n\r\nYou call this victory...?\r\n\r\nSomehow... I envy them.\r\n\r\nI have spent all my life afraid... Afraid of pain... regret... death...\r\n\r\nAfraid of fear.\r\n\r\nThose men were afraid of nothing.\r\n\r\nWanted nothing.\r\n\r\nKept nothing...\r\n\r\nBut it made no difference... I killed them too.\r\n\r\nNorth...\r\n\r\nThat is where they came from.\r\n\r\nThat is where I will go.",
@@ -2588,8 +2595,12 @@
       }
     ],
     "searchDescription": "Preview and download the Knight of Khorne Champion model for Warcraft 3. Add a Warhammer Fantasy Chaos champion to your custom army.",
-    "sha256": "956ebaefd443d2981102d107e3d89cf4a9181309d735e58b882c3ca912570c4c",
+    "sha256": "8128d1d6f42f2e7ada59dcf6e5532b9d734854dceab8186e6c36444b1df60f3e",
     "changelog": [
+      {
+        "date": "17 October 2026",
+        "text": "Glowing eyes are now unshaded"
+      },
       {
         "date": "11 October 2026",
         "text": "Fixed flail fire particles"
