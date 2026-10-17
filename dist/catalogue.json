@@ -5475,7 +5475,7 @@
   {
     "id": "undivided-sword",
     "downloadPack": "downloads/knight-undivided.zip",
-    "file": "WH_WOC_KnightUndividedSword05.mdx",
+    "file": "WH_WOC_KnightUndividedSword06.mdx",
     "name": "Knight Undivided · Sword",
     "army": "warriors-of-chaos",
     "description": "The good old days of horns, fur, and dark steel are back.\r\n\r\nFrom the far reaches of the North, clad in black steel and mounted upon mighty Chaos steeds, ride the blackest of the black, the heralds of mankinds doom.\r\n\r\nLock up your doors and hide for they come in the name of the Ruinous Powers and only in death is there glory.",
@@ -5616,6 +5616,7 @@
         "triangles": 16,
         "material": 11,
         "textures": [
+          "Textures\\Red_Glow3.blp",
           "Textures\\Red_Glow3.blp"
         ]
       },
@@ -5781,7 +5782,7 @@
       "Dissipate",
       "Attack - 2"
     ],
-    "bytes": 186427,
+    "bytes": 186455,
     "portraitBackdropGeosets": [
       4
     ],
@@ -5861,12 +5862,19 @@
         "url": "https://www.hiveworkshop.com/members/johnwar.264426/"
       }
     ],
-    "searchDescription": "Download the sword variant of the Knight Undivided for Warcraft 3. Preview a mounted Chaos Undivided knight for Warhammer Fantasy maps."
+    "searchDescription": "Download the sword variant of the Knight Undivided for Warcraft 3. Preview a mounted Chaos Undivided knight for Warhammer Fantasy maps.",
+    "sha256": "55f24a3ae6002a344755b364625c5315b55feff3694ce265de72f244f23b8cd7",
+    "changelog": [
+      {
+        "date": "17 October 2026",
+        "text": "Glowing eyes are now unshaded"
+      }
+    ]
   },
   {
     "id": "undivided-lance",
     "downloadPack": "downloads/knight-undivided.zip",
-    "file": "WH_WOC_KnightUndividedLanceAxe06.mdx",
+    "file": "WH_WOC_KnightUndividedLanceAxe07.mdx",
     "name": "Knight Undivided · Lance",
     "army": "warriors-of-chaos",
     "description": "The good old days of horns, fur, and dark steel are back.\r\n\r\nFrom the far reaches of the North, clad in black steel and mounted upon mighty Chaos steeds, ride the blackest of the black, the heralds of mankinds doom.\r\n\r\nLock up your doors and hide for they come in the name of the Ruinous Powers and only in death is there glory.",
@@ -6007,6 +6015,7 @@
         "triangles": 16,
         "material": 11,
         "textures": [
+          "Textures\\Red_Glow3.blp",
           "Textures\\Red_Glow3.blp"
         ]
       },
@@ -6127,7 +6136,7 @@
       "Dissipate",
       "Attack - 2"
     ],
-    "bytes": 190943,
+    "bytes": 190971,
     "portraitBackdropGeosets": [
       4
     ],
@@ -6207,7 +6216,14 @@
         "url": "https://www.hiveworkshop.com/members/johnwar.264426/"
       }
     ],
-    "searchDescription": "Preview and download the lance variant of the Knight Undivided for Warcraft 3. Add mounted Chaos Undivided cavalry to Warhammer Fantasy maps."
+    "searchDescription": "Preview and download the lance variant of the Knight Undivided for Warcraft 3. Add mounted Chaos Undivided cavalry to Warhammer Fantasy maps.",
+    "sha256": "4e7b569c59ca7b0c556011e5f70587b533751b4ab7a02004033f19c8994c748b",
+    "changelog": [
+      {
+        "date": "17 October 2026",
+        "text": "Glowing eyes are now unshaded"
+      }
+    ]
   },
   {
     "id": "aspiring",

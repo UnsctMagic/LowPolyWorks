@@ -33,10 +33,12 @@
       "sha256": "8978cc2c2ba37051fb3f78579d400e2e0c03d3c6859f7e41f8b2beb3bc79ba1b"
     },
     "undivided-sword": {
-      "sha256": "fed22df279ec3d6a56870c2df3063499bdf9c5fec15496e355ac016335fc5018"
+      "sha256": "55f24a3ae6002a344755b364625c5315b55feff3694ce265de72f244f23b8cd7",
+      "updatedAt": "2026-10-17T21:14:38.426Z"
     },
     "undivided-lance": {
-      "sha256": "25f7603c12aed7472bd9a1dd91754287c1a943784a771b9f821a50d7b07113f4"
+      "sha256": "4e7b569c59ca7b0c556011e5f70587b533751b4ab7a02004033f19c8994c748b",
+      "updatedAt": "2026-10-17T21:14:38.426Z"
     },
     "aspiring": {
       "sha256": "a7f9e4c2de69ca114efceaf7b062967a6cf1324b9fb51297250683df67275564",
