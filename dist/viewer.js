@@ -5,7 +5,7 @@ import {skinGeoset,sampleNodeMatrices} from './vendor/mdlxl/src/animation.js';
 import {perspectiveFitDistance,modelClipRadius,updateDepthClipping} from './vendor/mdlxl/app/viewport-math.js';
 import {parseMDX,parseMDL,ModelRenderer} from './vendor/war3-model.mjs';
 import {decodeTga} from './texture-raster.js';
-import {installWarcraftPreviewAdapter,previewGeosetTint} from './vendor/mdlxl/app/warcraft-preview-adapter.js';
+import {installWarcraftPreviewAdapter,previewGeosetTint} from './website-preview-adapter.js?v=20261018-mobile-shader';
 import {advanceShowcaseModel} from './vendor/mdlxl/app/showcase-playback.js';
 import {viewerPlaybackSample,setWarcraftCamera} from './viewer-effects.js?v=20261006-classic-portrait-controls';
 import {installParticleNativeCompatibility} from './vendor/mdlxl/particle-native.mjs';
