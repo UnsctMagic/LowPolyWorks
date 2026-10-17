@@ -7,7 +7,7 @@ import {createViewer} from './viewer.js?v=20261012-viewer-lighting';
 import {TEAM_COLORS} from './vendor/mdlxl/src/team-colors.js';
 import {recordUsage} from './usage.js?v=20261012-shredder-cloudflare';
 import {renderJournal} from './journal.js?v=20261012-cloudflare';
-import {renderMdlxl} from './mdlxl.js?v=20261011-discord-workshop';
+import {renderMdlxl} from './mdlxl.js?v=20261017-merged-0.25';
 if (/^\/mdlxl\/?$/.test(location.pathname) && !location.hash) history.replaceState(null,'',location.pathname+location.search+'#project/mdlxl');
 const app=document.querySelector('#app'),baseCatalogue=await fetch('catalogue.json?v=20261016-nurgle-v2').then(r=>r.json());
 const armies=await fetch('armies.json?v=20261012-chaos-before-champion').then(r=>r.json());
