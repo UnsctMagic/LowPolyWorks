@@ -171,8 +171,9 @@
       "publishedAt": "2026-10-17T21:10:06.220Z"
     },
     "warrior-of-khorne-berserker": {
-      "sha256": "b617d35e3942619bc93e8a516288afb4dce052029289a2f5c968b9070d4479fd",
-      "publishedAt": "2026-10-18T16:46:51.139Z"
+      "sha256": "c5312b18cc925b298835f66d3b5a20b8b014d8c82eabc3ec6a47971e2638af5f",
+      "publishedAt": "2026-10-18T16:46:51.139Z",
+      "updatedAt": "2026-10-18T17:12:55.498Z"
     }
   }
 }
