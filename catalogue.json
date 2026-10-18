@@ -10941,11 +10941,7 @@
     "changelog": [
       {
         "date": "18 October 2026",
-        "text": "Fixed issues around shoulders and arms, fixed animations."
-      },
-      {
-        "date": "18 October 2026",
-        "text": "Fixed Chaos Star flickers. Fixed horse animations."
+        "text": "Fixed shoulder and arm issues, Chaos Star flickering, and animations."
       }
     ]
   },
@@ -11531,11 +11527,7 @@
     "changelog": [
       {
         "date": "18 October 2026",
-        "text": "Fixed issues around shoulders and arms, fixed animations."
-      },
-      {
-        "date": "18 October 2026",
-        "text": "Fixed Chaos Star flickers. Fixed horse animations."
+        "text": "Fixed shoulder and arm issues, Chaos Star flickering, and animations."
       }
     ]
   },
