@@ -11532,7 +11532,7 @@
   },
   {
     "id": "warrior-of-khorne-berserker",
-    "file": "WH_WOC_WarriorKhorneBerserker01.mdx",
+    "file": "WH_WOC_WarriorKhorneBerserker02.mdx",
     "name": "Warrior of Khorne · Berserker",
     "army": "warriors-of-chaos",
     "description": "The Warriors of Chaos that follow the Blood God, as with all servants of the Ruinous Powers, are not limited to the primitive tribes of the north. His grasp can reach the heart of every soldier, every warrior, every life-taker. When a noble Knight of Bretonnia or a Templar of the Empire falls to His worship it is because they forget why they kill. To change from killing for the common good to killing only because one wants to – because the act is pleasing – is when the righteous have fallen from their path. These are the warriors Khorne embraces, never to release. These are the converts that He savours.",
@@ -11816,7 +11816,7 @@
       "Attack 1",
       "Attack 2"
     ],
-    "bytes": 135822,
+    "bytes": 136390,
     "portraitBackdropGeosets": [
       2
     ],
@@ -11888,7 +11888,7 @@
         "url": "https://www.hiveworkshop.com/members/blood-raven.194769/"
       }
     ],
-    "sha256": "b617d35e3942619bc93e8a516288afb4dce052029289a2f5c968b9070d4479fd"
+    "sha256": "c5312b18cc925b298835f66d3b5a20b8b014d8c82eabc3ec6a47971e2638af5f"
   },
   {
     "id": "warrior-of-khorne",
