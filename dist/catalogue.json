@@ -11532,7 +11532,7 @@
   },
   {
     "id": "warrior-of-khorne",
-    "file": "WH_WOC_WarriorKhorne02.mdx",
+    "file": "WH_WOC_WarriorKhorne03.mdx",
     "name": "Warrior of Khorne",
     "army": "warriors-of-chaos",
     "description": "The Warriors of Chaos that follow the Blood God, as with all servants of the Ruinous Powers, are not limited to the primitive tribes of the north. His grasp can reach the heart of every soldier, every warrior, every life-taker. When a noble Knight of Bretonnia or a Templar of the Empire falls to His worship it is because they forget why they kill. To change from killing for the common good to killing only because one wants to – because the act is pleasing – is when the righteous have fallen from their path. These are the warriors Khorne embraces, never to release. These are the converts that He savours.",
@@ -11887,7 +11887,7 @@
         "url": "https://www.hiveworkshop.com/members/johnwar.264426/"
       }
     ],
-    "sha256": "66b07368bc7a9c37ca37d38cf60adb9297324d8851c52ee639ae8a2899c735a7",
+    "sha256": "4e6633bc567d375358960c44d43ea2e056f7f8f09048d0b1bed51ebff4473d57",
     "changelog": [
       {
         "date": "18 October 2026",
