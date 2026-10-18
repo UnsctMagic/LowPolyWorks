@@ -19,3 +19,16 @@ export function installWarcraftPreviewAdapter(gl, model, getClock) {
  // The shared adapter restores the original shaderSource after native initGL.
  return adapter;
 }
+
+// Native SD hardware skinning reserves 254 bone matrices and two view matrices.
+// Portrait lighting adds one more vertex uniform vector to that shader.
+const hardwareSkinningVectors = 4 * (254 + 2) + 1;
+export function initializeWarcraftRenderer(renderer, gl) {
+ const initShaders = renderer.initShaders;
+ renderer.initShaders = function(...args) {
+  if (!this.isHD && gl.getParameter(gl.MAX_VERTEX_UNIFORM_VECTORS) < hardwareSkinningVectors) this.softwareSkinning = true;
+  return initShaders.apply(this, args);
+ };
+ try { renderer.initGL(gl); }
+ finally { renderer.initShaders = initShaders; }
+}
