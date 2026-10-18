@@ -2609,7 +2609,7 @@
   },
   {
     "id": "nurgle-heavy",
-    "file": "WH_WOC_KnightNurgleHeavy05.mdx",
+    "file": "WH_WOC_KnightNurgleHeavy06.mdx",
     "name": "Knight of Nurgle · Heavy",
     "army": "warriors-of-chaos",
     "description": "There are many strange places to end up in the Old World...\r\n\r\nSome would claim the strangest is tucked within the comforting embrace of the Urfather.\r\n\r\nBut why? What could drive mortal men to seek out something so wrong?\r\n\r\nTell me, what would a knight who has lost his family to war continue fighting for? What is left to endure for those whose martial strength proved meaningless against the plights of life?\r\n\r\nThe strongest men are not broken with swords... I can tell you that much.\r\n\r\nIt is there, in those dark corners of the mind you will hear him whisper to you.\r\n\r\nHis embrace, his promises...\r\n\r\nNo more restless nights. No more seeing faces long buried. No more graves to dig... no more watching those you once loved fade and turn to dust... no more fearing the years that seem to pass faster and faster.\r\n\r\nHe would take all the pain away.\r\n\r\nHe would tuck those memories gently to sleep, still the passing of time, and silence every wound that steel could never mend...\r\n\r\nSuch a watchful father.\r\n\r\nA good father.\r\n\r\nHe does keep his promises.\r\n\r\nThe pain fades...\r\n\r\nThen the feelings.\r\n\r\nThen the memories.\r\n\r\nThen flesh swells, old wounds open and blossom yet ache no more, flies gather beneath a rusted visor and the body slowly rots... but somehow refuses to die.\r\n\r\nBut from that warm, rotten embrace do those knights rise once again...\r\n\r\nPerhaps to you they are disgusting abominations, bringers of death and decay, swollen, corpse-like and clad in rusted steel.\r\n\r\nBut in truth?\r\n\r\nThey have purpose.\r\n\r\nThey are at peace.\r\n\r\nThey are happy.\r\n\r\nAre you?...",
@@ -2736,7 +2736,7 @@
       },
       {
         "index": 13,
-        "vertices": 52,
+        "vertices": 49,
         "triangles": 48,
         "material": 12,
         "textures": [
@@ -2754,7 +2754,7 @@
       },
       {
         "index": 15,
-        "vertices": 82,
+        "vertices": 60,
         "triangles": 108,
         "material": 0,
         "textures": [
@@ -2763,7 +2763,7 @@
       },
       {
         "index": 16,
-        "vertices": 181,
+        "vertices": 183,
         "triangles": 205,
         "material": 14,
         "textures": [
@@ -3077,7 +3077,7 @@
       "Attack Slam",
       "Attack 3"
     ],
-    "bytes": 234057,
+    "bytes": 233794,
     "portraitBackdropGeosets": [
       2
     ],
@@ -3150,7 +3150,7 @@
       }
     ],
     "searchDescription": "Preview and download the heavy variant of the Knight of Nurgle model for Warcraft 3. A plague-themed Warhammer Fantasy knight for your Warriors of Chaos army.",
-    "sha256": "6cd8baf5f7a0a5e83f94f08ef515725b32963f80995b002fb54ec85cb08ca843",
+    "sha256": "f6e05ff77be054ca901e59acaa738f7beae27f56100f3490a1fa06a31c3e0a34",
     "downloadPack": "downloads/knight-of-nurgle.zip",
     "changelog": [
       {
@@ -3169,7 +3169,7 @@
   },
   {
     "id": "nurgle-standard",
-    "file": "WH_WOC_KnightNurgleV2_04.mdx",
+    "file": "WH_WOC_KnightNurgleV2_05.mdx",
     "name": "Knight of Nurgle",
     "army": "warriors-of-chaos",
     "description": "There are many strange places to end up in the Old World...\r\n\r\nSome would claim the strangest is tucked within the comforting embrace of the Urfather.\r\n\r\nBut why? What could drive mortal men to seek out something so wrong?\r\n\r\nTell me, what would a knight who has lost his family to war continue fighting for? What is left to endure for those whose martial strength proved meaningless against the plights of life?\r\n\r\nThe strongest men are not broken with swords... I can tell you that much.\r\n\r\nIt is there, in those dark corners of the mind you will hear him whisper to you.\r\n\r\nHis embrace, his promises...\r\n\r\nNo more restless nights. No more seeing faces long buried. No more graves to dig... no more watching those you once loved fade and turn to dust... no more fearing the years that seem to pass faster and faster.\r\n\r\nHe would take all the pain away.\r\n\r\nHe would tuck those memories gently to sleep, still the passing of time, and silence every wound that steel could never mend...\r\n\r\nSuch a watchful father.\r\n\r\nA good father.\r\n\r\nHe does keep his promises.\r\n\r\nThe pain fades...\r\n\r\nThen the feelings.\r\n\r\nThen the memories.\r\n\r\nThen flesh swells, old wounds open and blossom yet ache no more, flies gather beneath a rusted visor and the body slowly rots... but somehow refuses to die.\r\n\r\nBut from that warm, rotten embrace do those knights rise once again...\r\n\r\nPerhaps to you they are disgusting abominations, bringers of death and decay, swollen, corpse-like and clad in rusted steel.\r\n\r\nBut in truth?\r\n\r\nThey have purpose.\r\n\r\nThey are at peace.\r\n\r\nThey are happy.\r\n\r\nAre you?...",
@@ -3296,7 +3296,7 @@
       },
       {
         "index": 13,
-        "vertices": 52,
+        "vertices": 49,
         "triangles": 48,
         "material": 12,
         "textures": [
@@ -3314,7 +3314,7 @@
       },
       {
         "index": 15,
-        "vertices": 82,
+        "vertices": 60,
         "triangles": 108,
         "material": 0,
         "textures": [
@@ -3323,7 +3323,7 @@
       },
       {
         "index": 16,
-        "vertices": 197,
+        "vertices": 199,
         "triangles": 217,
         "material": 14,
         "textures": [
@@ -3525,7 +3525,7 @@
       "Attack - 2",
       "Attack Slam"
     ],
-    "bytes": 217389,
+    "bytes": 217094,
     "portraitBackdropGeosets": [
       2
     ],
@@ -3598,7 +3598,7 @@
       }
     ],
     "searchDescription": "Preview and download the Knight of Nurgle model for Warcraft 3. A plague-themed Warhammer Fantasy knight for your Warriors of Chaos army.",
-    "sha256": "ed755fa53bb0173073211a5112d85bf96a328c8e8d7c0096ce0a9c10b88902c1",
+    "sha256": "bf6098bd6bd200e3c10d25576147f041a33f334ec3669779af4d81b6dd15ecca",
     "downloadPack": "downloads/knight-of-nurgle.zip",
     "changelog": [
       {
