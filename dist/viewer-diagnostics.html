@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>Model viewer GPU test — LowPolyWorks</title><script type="importmap">{"imports":{"three":"./vendor/three.module.js","three/addons/controls/OrbitControls.js":"./vendor/OrbitControls.js"}}</script><style>
+:root{color-scheme:dark}body{margin:20px auto;padding:0 16px;max-width:800px;background:#080d17;color:#e2d5b3;font:16px/1.5 system-ui}h1{font-size:1.4rem}h2{font-size:1.05rem}a{color:#acc6a2}button{font:inherit;padding:10px 16px;min-height:44px;cursor:pointer}section{border:1px solid #75613b;margin:16px 0;padding:12px}canvas{display:block;width:100%;height:300px;max-width:460px;background:#101827;touch-action:none}pre{font:12px/1.4 monospace;white-space:pre-wrap;overflow-wrap:anywhere;background:#03060b;padding:12px}#copy-status{margin-left:10px}button:disabled{opacity:.5}</style></head>
+<body><h1>Model viewer GPU test</h1><p>This runs the current model viewer twice and shows the shader errors from this device. The report stays on this page until you copy it.</p><button id="copy" disabled>Copy report</button><span id="copy-status" role="status"></span><div id="tests"></div><h2>Report</h2><pre id="report" aria-live="polite">Starting…</pre><p><a href="/model/nurgle-champion/">Return to the model page</a></p>
+<script type="module">
+const report={test:'mobile-link-audit-1',viewer:'viewer.js?v=20261018-mobile-shader',userAgent:navigator.userAgent,tests:[]};
+const output=document.querySelector('#report'),copy=document.querySelector('#copy');
+const show=()=>output.textContent=JSON.stringify(report,null,2);
+copy.onclick=async()=>{await navigator.clipboard.writeText(output.textContent);document.querySelector('#copy-status').textContent='Copied';};
+let activeViewer;const viewers=[];window.addEventListener('pagehide',()=>viewers.forEach(viewer=>viewer.dispose()));
+try{
+ const {createViewer}=await import('./viewer.js?v=20261018-mobile-shader');
+ const catalogueResponse=await fetch('./catalogue.json',{cache:'no-store'});
+ if(!catalogueResponse.ok)throw Error('Catalogue HTTP '+catalogueResponse.status);
+ const row=(await catalogueResponse.json()).find(row=>row.id==='nurgle-champion');
+ if(!row)throw Error('Test model is missing from the catalogue.');
+ for(const software of [false,true]){
+  const result={mode:software?'CPU skinning':'Automatic',programs:[],alerts:[]};report.tests.push(result);
+  const section=document.createElement('section'),heading=document.createElement('h2'),status=document.createElement('p'),canvas=document.createElement('canvas');
+  heading.textContent=result.mode;status.textContent='Loading model…';canvas.setAttribute('aria-label',result.mode+' model test');section.append(heading,status,canvas);document.querySelector('#tests').append(section);
+  const previousAlert=window.alert;
+  try{
+   const gl=canvas.getContext('webgl2',{alpha:false,premultipliedAlpha:false,antialias:true,preserveDrawingBuffer:true});
+   if(!gl)throw Error('WebGL2 could not start.');
+   const renderer=gl.getExtension('WEBGL_debug_renderer_info');
+   result.gpu={renderer:renderer?gl.getParameter(renderer.UNMASKED_RENDERER_WEBGL):gl.getParameter(gl.RENDERER),vendor:renderer?gl.getParameter(renderer.UNMASKED_VENDOR_WEBGL):gl.getParameter(gl.VENDOR),version:gl.getParameter(gl.VERSION),shadingLanguage:gl.getParameter(gl.SHADING_LANGUAGE_VERSION),vertexUniformVectors:gl.getParameter(gl.MAX_VERTEX_UNIFORM_VECTORS),vertexUniformComponents:gl.getParameter(gl.MAX_VERTEX_UNIFORM_COMPONENTS),varyingVectors:gl.getParameter(gl.MAX_VARYING_VECTORS)};
+   const getParameter=gl.getParameter,linkProgram=gl.linkProgram;
+   if(software)gl.getParameter=function(name){return name===this.MAX_VERTEX_UNIFORM_VECTORS?Math.min(256,result.gpu.vertexUniformVectors):getParameter.call(this,name);};
+   gl.linkProgram=function(program){
+    linkProgram.call(this,program);
+    const entry={linked:this.getProgramParameter(program,this.LINK_STATUS),log:this.getProgramInfoLog(program),shaders:this.getAttachedShaders(program).map(shader=>({stage:this.getShaderParameter(shader,this.SHADER_TYPE)===this.VERTEX_SHADER?'vertex':'fragment',compiled:this.getShaderParameter(shader,this.COMPILE_STATUS),log:this.getShaderInfoLog(shader),declarations:this.getShaderSource(shader).match(/(?:precision|uniform|in|out)\s+[^;{}]+;/g)}))};
+    result.programs.push(entry);show();
+   };
+   window.alert=message=>{result.alerts.push(String(message));show();};
+   activeViewer=await createViewer(canvas,row);
+   viewers.push(activeViewer);activeViewer=null;result.ready=true;result.glError=gl.getError();result.canvas={width:canvas.width,height:canvas.height};status.textContent='Model loaded. Drag to rotate.';
+   await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));
+   result.snapshot=canvas.width>0&&canvas.height>0;
+  }catch(error){result.ready=false;result.error=error.message;status.textContent='Failed: '+error.message;}
+  finally{window.alert=previousAlert;activeViewer?.dispose();activeViewer=null;show();}
+ }
+}catch(error){report.error=error.message;show();}
+copy.disabled=false;show();
+</script></body></html>
