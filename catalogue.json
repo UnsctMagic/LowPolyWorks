@@ -11760,9 +11760,369 @@
     "searchDescription": "Preview and download Chaos Ogre for Warcraft III Classic. A Warhammer Fantasy model for your Warriors of Chaos army."
   },
   {
+    "id": "warrior-of-khorne-berserker",
+    "file": "WH_WOC_WarriorKhorneBerserker01.mdx",
+    "name": "Warrior of Khorne · Berserker",
+    "army": "warriors-of-chaos",
+    "description": "The Warriors of Chaos that follow the Blood God, as with all servants of the Ruinous Powers, are not limited to the primitive tribes of the north. His grasp can reach the heart of every soldier, every warrior, every life-taker. When a noble Knight of Bretonnia or a Templar of the Empire falls to His worship it is because they forget why they kill. To change from killing for the common good to killing only because one wants to – because the act is pleasing – is when the righteous have fallen from their path. These are the warriors Khorne embraces, never to release. These are the converts that He savours.",
+    "credits": "Model Base - Chaos Warrior by azazeron\r\n\r\nMashed with - Chaos Warriors by Diazon, found on Warhammer Eternal Strife by Nightmare2077\r\n\r\nHammer - Brute Hammer by Sunchips\r\n\r\nClub - Faceless Ones Club by Midnighters\r\n\r\nHelm - Bandit Enforcer by Johnwar\r\n\r\nAxe - Felsteel Ravager by Blood Raven",
+    "geosets": [
+      {
+        "index": 0,
+        "vertices": 54,
+        "triangles": 76,
+        "material": 5,
+        "textures": [
+          "Textures\\OutlandDoodads.blp"
+        ]
+      },
+      {
+        "index": 1,
+        "vertices": 37,
+        "triangles": 22,
+        "material": 0,
+        "textures": [
+          "Textures\\gutz.blp"
+        ]
+      },
+      {
+        "index": 2,
+        "vertices": 4,
+        "triangles": 2,
+        "material": 1,
+        "textures": [
+          "Team colour / glow"
+        ]
+      },
+      {
+        "index": 3,
+        "vertices": 60,
+        "triangles": 62,
+        "material": 13,
+        "textures": [
+          "Units\\Creeps\\Magnataur\\Magnataur.blp"
+        ]
+      },
+      {
+        "index": 4,
+        "vertices": 24,
+        "triangles": 29,
+        "material": 5,
+        "textures": [
+          "Textures\\OutlandDoodads.blp"
+        ]
+      },
+      {
+        "index": 5,
+        "vertices": 30,
+        "triangles": 36,
+        "material": 4,
+        "textures": [
+          "UI\\Glues\\SinglePlayer\\HumanCampaign3D\\HumanCampaignFootman.blp"
+        ]
+      },
+      {
+        "index": 6,
+        "vertices": 11,
+        "triangles": 10,
+        "material": 6,
+        "textures": [
+          "Doodads\\Ashenvale\\Props\\ScorchedRemains\\Demonized.blp"
+        ]
+      },
+      {
+        "index": 7,
+        "vertices": 18,
+        "triangles": 24,
+        "material": 14,
+        "textures": [
+          "Textures\\Arthas1.blp"
+        ]
+      },
+      {
+        "index": 8,
+        "vertices": 14,
+        "triangles": 13,
+        "material": 8,
+        "textures": [
+          "Textures\\UndeadAirBarge.blp"
+        ]
+      },
+      {
+        "index": 9,
+        "vertices": 18,
+        "triangles": 16,
+        "material": 5,
+        "textures": [
+          "Textures\\OutlandDoodads.blp"
+        ]
+      },
+      {
+        "index": 10,
+        "vertices": 71,
+        "triangles": 58,
+        "material": 7,
+        "textures": [
+          "Textures\\Bandit.blp"
+        ]
+      },
+      {
+        "index": 11,
+        "vertices": 124,
+        "triangles": 158,
+        "material": 8,
+        "textures": [
+          "Textures\\UndeadAirBarge.blp"
+        ]
+      },
+      {
+        "index": 12,
+        "vertices": 12,
+        "triangles": 10,
+        "material": 9,
+        "textures": [
+          "Textures\\Hero_BloodElf.blp"
+        ]
+      },
+      {
+        "index": 13,
+        "vertices": 10,
+        "triangles": 8,
+        "material": 2,
+        "textures": [
+          "Units\\Orc\\OrcWarlockGuldan\\OrcWarlockGuldan.blp"
+        ]
+      },
+      {
+        "index": 14,
+        "vertices": 16,
+        "triangles": 8,
+        "material": 3,
+        "textures": [
+          "Textures\\Red_Glow3.blp"
+        ]
+      },
+      {
+        "index": 15,
+        "vertices": 32,
+        "triangles": 24,
+        "material": 10,
+        "textures": [
+          "Textures\\OutlandDoodads.blp"
+        ]
+      },
+      {
+        "index": 16,
+        "vertices": 28,
+        "triangles": 24,
+        "material": 11,
+        "textures": [
+          "Textures\\chunktop.blp"
+        ]
+      },
+      {
+        "index": 17,
+        "vertices": 140,
+        "triangles": 180,
+        "material": 12,
+        "textures": [
+          "Textures\\UndeadAirBarge.blp"
+        ]
+      },
+      {
+        "index": 18,
+        "vertices": 22,
+        "triangles": 28,
+        "material": 13,
+        "textures": [
+          "Units\\Creeps\\Magnataur\\Magnataur.blp"
+        ]
+      },
+      {
+        "index": 19,
+        "vertices": 572,
+        "triangles": 340,
+        "material": 15,
+        "textures": [
+          "Textures\\InfernalCannon.blp"
+        ]
+      },
+      {
+        "index": 20,
+        "vertices": 9,
+        "triangles": 8,
+        "material": 9,
+        "textures": [
+          "Textures\\Hero_BloodElf.blp"
+        ]
+      },
+      {
+        "index": 21,
+        "vertices": 10,
+        "triangles": 8,
+        "material": 5,
+        "textures": [
+          "Textures\\OutlandDoodads.blp"
+        ]
+      },
+      {
+        "index": 22,
+        "vertices": 14,
+        "triangles": 10,
+        "material": 9,
+        "textures": [
+          "Textures\\Hero_BloodElf.blp"
+        ]
+      },
+      {
+        "index": 23,
+        "vertices": 52,
+        "triangles": 44,
+        "material": 16,
+        "textures": [
+          "Doodads\\BlackCitadel\\Props\\RuneArt\\Demon_Rune_Ribbon1Red.blp",
+          "Doodads\\BlackCitadel\\Props\\RuneArt\\Demon_Rune_Ribbon1Red.blp"
+        ]
+      },
+      {
+        "index": 24,
+        "vertices": 190,
+        "triangles": 120,
+        "material": 17,
+        "textures": [
+          "Textures\\OutlandDoodads.blp"
+        ]
+      },
+      {
+        "index": 25,
+        "vertices": 52,
+        "triangles": 44,
+        "material": 18,
+        "textures": [
+          "UI\\Glues\\MainMenu\\MainMenu3d\\AxeBladeBlueSteel.blp"
+        ]
+      },
+      {
+        "index": 26,
+        "vertices": 468,
+        "triangles": 420,
+        "material": 17,
+        "textures": [
+          "Textures\\OutlandDoodads.blp"
+        ]
+      },
+      {
+        "index": 27,
+        "vertices": 198,
+        "triangles": 112,
+        "material": 19,
+        "textures": [
+          "Team colour / glow",
+          "UI\\Glues\\SinglePlayer\\HumanCampaign3D\\AnyHandleCopperMetal.blp"
+        ]
+      },
+      {
+        "index": 28,
+        "vertices": 24,
+        "triangles": 24,
+        "material": 20,
+        "textures": [
+          "UI\\Glues\\SinglePlayer\\HumanCampaign3D\\HumanCampaignwoodmetaltrim.blp"
+        ]
+      }
+    ],
+    "sequences": [
+      "Stand - 1",
+      "Stand - 2",
+      "Walk",
+      "Death",
+      "Decay Flesh",
+      "Decay Bone",
+      "Portrait",
+      "Portrait Talk",
+      "Stand Ready",
+      "Spell",
+      "Attack 1",
+      "Attack 2"
+    ],
+    "bytes": 135822,
+    "portraitBackdropGeosets": [
+      2
+    ],
+    "authors": [
+      {
+        "name": "Unsanctioned Magic",
+        "url": "https://xgm.guru/user/UnsanctMagic"
+      },
+      {
+        "name": "Azazeron",
+        "url": "https://www.hiveworkshop.com/members/azazeron.299156/"
+      }
+    ],
+    "creditLinks": [
+      {
+        "text": "Chaos Warrior",
+        "url": "https://www.hiveworkshop.com/threads/chaos-warrior.366159/"
+      },
+      {
+        "text": "azazeron",
+        "url": "https://www.hiveworkshop.com/members/azazeron.299156/"
+      },
+      {
+        "text": "Chaos Warriors",
+        "url": "https://www.hiveworkshop.com/threads/warhammer-eternal-strife-melee.254808/"
+      },
+      {
+        "text": "Diazon",
+        "url": "https://www.hiveworkshop.com/threads/warhammer-eternal-strife-melee.254808/"
+      },
+      {
+        "text": "Warhammer Eternal Strife",
+        "url": "https://www.hiveworkshop.com/threads/warhammer-eternal-strife-melee.254808/"
+      },
+      {
+        "text": "Nightmare2077",
+        "url": "https://www.hiveworkshop.com/members/nightmare2077.204498/"
+      },
+      {
+        "text": "Brute Hammer",
+        "url": "https://www.hiveworkshop.com/threads/brute-hammer-by-sunchips.178930/"
+      },
+      {
+        "text": "Sunchips",
+        "url": "https://www.hiveworkshop.com/members/sunchips.176515/"
+      },
+      {
+        "text": "Faceless Ones Club",
+        "url": "https://www.hiveworkshop.com/threads/faceless-ones-club.161375/"
+      },
+      {
+        "text": "Midnighters",
+        "url": "https://www.hiveworkshop.com/members/midnighters.173145/"
+      },
+      {
+        "text": "Bandit Enforcer",
+        "url": "https://www.hiveworkshop.com/threads/bandit-enforcer-re-classic.336169/"
+      },
+      {
+        "text": "Johnwar",
+        "url": "https://www.hiveworkshop.com/members/johnwar.264426/"
+      },
+      {
+        "text": "Felsteel Ravager",
+        "url": "https://www.hiveworkshop.com/threads/felsteel-ravager.269679/"
+      },
+      {
+        "text": "Blood Raven",
+        "url": "https://www.hiveworkshop.com/members/blood-raven.194769/"
+      }
+    ],
+    "sha256": "b617d35e3942619bc93e8a516288afb4dce052029289a2f5c968b9070d4479fd"
+  },
+  {
     "id": "warrior-of-khorne",
     "file": "WH_WOC_WarriorKhorne03.mdx",
-    "name": "Warrior of Khorne",
+    "name": "Warrior of Khorne · Bruiser",
     "army": "warriors-of-chaos",
     "description": "The Warriors of Chaos that follow the Blood God, as with all servants of the Ruinous Powers, are not limited to the primitive tribes of the north. His grasp can reach the heart of every soldier, every warrior, every life-taker. When a noble Knight of Bretonnia or a Templar of the Empire falls to His worship it is because they forget why they kill. To change from killing for the common good to killing only because one wants to – because the act is pleasing – is when the righteous have fallen from their path. These are the warriors Khorne embraces, never to release. These are the converts that He savours.",
     "credits": "Model Base - Chaos Warrior by azazeron\r\n\r\nMashed with - Chaos Warriors by Diazon, found on Warhammer Eternal Strife by Nightmare2077\r\n\r\nHammer - Brute Hammer by Sunchips\r\n\r\nClub - Faceless Ones Club by Midnighters\r\n\r\nHelm - Bandit Enforcer by Johnwar",
