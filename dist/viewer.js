@@ -5,7 +5,7 @@ import {skinGeoset,sampleNodeMatrices} from './vendor/mdlxl/src/animation.js';
 import {perspectiveFitDistance,modelClipRadius,updateDepthClipping} from './vendor/mdlxl/app/viewport-math.js';
 import {parseMDX,parseMDL,ModelRenderer} from './vendor/war3-model.mjs';
 import {decodeTga} from './texture-raster.js';
-import {installWarcraftPreviewAdapter,previewGeosetTint} from './website-preview-adapter.js?v=20261018-mobile-shader';
+import {installWarcraftPreviewAdapter,previewGeosetTint,initializeWarcraftRenderer} from './website-preview-adapter.js?v=20261018-uniform-budget';
 import {advanceShowcaseModel} from './vendor/mdlxl/app/showcase-playback.js';
 import {viewerPlaybackSample,setWarcraftCamera} from './viewer-effects.js?v=20261006-classic-portrait-controls';
 import {installParticleNativeCompatibility} from './vendor/mdlxl/particle-native.mjs';
@@ -38,7 +38,7 @@ export async function createViewer(canvas,row,{thumbnail=false,portrait=false,fo
  // Match MDLxL's MDX load boundary: animated KGAC is BGR; static GEOA is already RGB.
  if(!/\.mdl$/i.test(row.file||row.name||''))model.GeosetAnims=convertMdxGeosetColorTracks(model.GeosetAnims);
  const displayLight=()=>new THREE.Vector3(-.65,.55,1);
- const native=new ModelRenderer(model),adapter=installWarcraftPreviewAdapter(gl,model,()=>({frame:native.getFrame(),sequenceIndex:sequence,globalTime:clock,lighting:lightingMode!=='none'&&preferences.graphics.lighting,portrait:lightingMode==='portrait',hiddenGeosets:formation?scenery:undefined,preferences,lightDirection:lightingMode==='portrait'?[.3,-.3,.25]:displayLight().toArray(),viewDirection:camera.getWorldDirection(new THREE.Vector3()).negate().toArray()}));if(thumbnail&&row.captureRibbons===false)native.ribbonsController.emitters.length=0;if(thumbnail&&row.captureEmitters===false){native.particlesController.emitters.length=0;native.ribbonsController.emitters.length=0;}installParticleNativeCompatibility(native);native.initGL(gl);adapter.ready(native);gl.depthFunc(gl.LEQUAL);
+ const native=new ModelRenderer(model),adapter=installWarcraftPreviewAdapter(gl,model,()=>({frame:native.getFrame(),sequenceIndex:sequence,globalTime:clock,lighting:lightingMode!=='none'&&preferences.graphics.lighting,portrait:lightingMode==='portrait',hiddenGeosets:formation?scenery:undefined,preferences,lightDirection:lightingMode==='portrait'?[.3,-.3,.25]:displayLight().toArray(),viewDirection:camera.getWorldDirection(new THREE.Vector3()).negate().toArray()}));if(thumbnail&&row.captureRibbons===false)native.ribbonsController.emitters.length=0;if(thumbnail&&row.captureEmitters===false){native.particlesController.emitters.length=0;native.ribbonsController.emitters.length=0;}installParticleNativeCompatibility(native);initializeWarcraftRenderer(native,gl);adapter.ready(native);gl.depthFunc(gl.LEQUAL);
  // The Champion's skin and bracer overlap at their differently weighted elbow seam.
  // Bias only the bracer's opaque layer so depth rounding cannot stripe that edge.
  if(row.id==='aspiring'){
