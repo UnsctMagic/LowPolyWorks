@@ -9,5 +9,6 @@
  {"id":"knight-of-slaanesh","name":"Knight of Slaanesh","variants":[{"id":"slaanesh-axe","label":"Axe"},{"id":"slaanesh-lance","label":"Lance"}]},
  {"id":"knight-undivided","name":"Knight Undivided","variants":[{"id":"undivided-sword","label":"Sword"},{"id":"undivided-lance","label":"Lance"}]},
  {"id":"knight-of-tzeentch","name":"Knight of Tzeentch","variants":[{"id":"tzeentch-sword","label":"Sword"},{"id":"tzeentch-lance","label":"Lance"}]},
- {"id":"knight-of-nurgle","name":"Knight of Nurgle","variants":[{"id":"nurgle-heavy","label":"Heavy"},{"id":"nurgle-standard","label":"Standard"},{"id":"nurgle","label":"Old Version"}]}
+ {"id":"knight-of-nurgle","name":"Knight of Nurgle","variants":[{"id":"nurgle-heavy","label":"Heavy"},{"id":"nurgle-standard","label":"Standard"},{"id":"nurgle","label":"Old Version"}]},
+ {"id":"warrior-of-khorne","name":"Warrior of Khorne","variants":[{"id":"warrior-of-khorne-berserker","label":"Berserker"},{"id":"warrior-of-khorne","label":"Bruiser"}]}
 ]

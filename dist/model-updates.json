@@ -166,6 +166,10 @@
     "kurgan-warlord": {
       "sha256": "b285d609ba063f8723036a050600d248e8937b5831e0cba15068dc31cfd95ca9",
       "publishedAt": "2026-10-17T21:10:06.220Z"
+    },
+    "warrior-of-khorne-berserker": {
+      "sha256": "b617d35e3942619bc93e8a516288afb4dce052029289a2f5c968b9070d4479fd",
+      "publishedAt": "2026-10-18T16:41:44.788Z"
     }
   }
 }
