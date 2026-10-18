@@ -2823,7 +2823,7 @@
   },
   {
     "id": "nurgle-heavy",
-    "file": "WH_WOC_KnightNurgleHeavy03.mdx",
+    "file": "WH_WOC_KnightNurgleHeavy04.mdx",
     "name": "Knight of Nurgle · Heavy",
     "army": "warriors-of-chaos",
     "description": "There are many strange places to end up in the Old World...\r\n\r\nSome would claim the strangest is tucked within the comforting embrace of the Urfather.\r\n\r\nBut why? What could drive mortal men to seek out something so wrong?\r\n\r\nTell me, what would a knight who has lost his family to war continue fighting for? What is left to endure for those whose martial strength proved meaningless against the plights of life?\r\n\r\nThe strongest men are not broken with swords... I can tell you that much.\r\n\r\nIt is there, in those dark corners of the mind you will hear him whisper to you.\r\n\r\nHis embrace, his promises...\r\n\r\nNo more restless nights. No more seeing faces long buried. No more graves to dig... no more watching those you once loved fade and turn to dust... no more fearing the years that seem to pass faster and faster.\r\n\r\nHe would take all the pain away.\r\n\r\nHe would tuck those memories gently to sleep, still the passing of time, and silence every wound that steel could never mend...\r\n\r\nSuch a watchful father.\r\n\r\nA good father.\r\n\r\nHe does keep his promises.\r\n\r\nThe pain fades...\r\n\r\nThen the feelings.\r\n\r\nThen the memories.\r\n\r\nThen flesh swells, old wounds open and blossom yet ache no more, flies gather beneath a rusted visor and the body slowly rots... but somehow refuses to die.\r\n\r\nBut from that warm, rotten embrace do those knights rise once again...\r\n\r\nPerhaps to you they are disgusting abominations, bringers of death and decay, swollen, corpse-like and clad in rusted steel.\r\n\r\nBut in truth?\r\n\r\nThey have purpose.\r\n\r\nThey are at peace.\r\n\r\nThey are happy.\r\n\r\nAre you?...",
@@ -3291,7 +3291,7 @@
       "Attack Slam",
       "Attack 3"
     ],
-    "bytes": 234057,
+    "bytes": 234553,
     "portraitBackdropGeosets": [
       2
     ],
@@ -3365,9 +3365,13 @@
     ],
     "formationSequence": "Stand Ready",
     "searchDescription": "Preview and download the heavy variant of the Knight of Nurgle model for Warcraft 3. A plague-themed Warhammer Fantasy knight for your Warriors of Chaos army.",
-    "sha256": "b936d18e6c1707bb548e05a4ee75c7e86b3c05e1f1b8ace6a1bd0b75d92e2a37",
+    "sha256": "6fcff02917df624ae3e306576769b74c18df667518d7bfacd34058643c54c76a",
     "downloadPack": "downloads/knight-of-nurgle.zip",
     "changelog": [
+      {
+        "date": "18 October 2026",
+        "text": "fixed flickering."
+      },
       {
         "date": "18 October 2026",
         "text": "Fix: stitched open shield arm elbow."
@@ -3380,7 +3384,7 @@
   },
   {
     "id": "nurgle-standard",
-    "file": "WH_WOC_KnightNurgleV2_02.mdx",
+    "file": "WH_WOC_KnightNurgleV2_03.mdx",
     "name": "Knight of Nurgle",
     "army": "warriors-of-chaos",
     "description": "There are many strange places to end up in the Old World...\r\n\r\nSome would claim the strangest is tucked within the comforting embrace of the Urfather.\r\n\r\nBut why? What could drive mortal men to seek out something so wrong?\r\n\r\nTell me, what would a knight who has lost his family to war continue fighting for? What is left to endure for those whose martial strength proved meaningless against the plights of life?\r\n\r\nThe strongest men are not broken with swords... I can tell you that much.\r\n\r\nIt is there, in those dark corners of the mind you will hear him whisper to you.\r\n\r\nHis embrace, his promises...\r\n\r\nNo more restless nights. No more seeing faces long buried. No more graves to dig... no more watching those you once loved fade and turn to dust... no more fearing the years that seem to pass faster and faster.\r\n\r\nHe would take all the pain away.\r\n\r\nHe would tuck those memories gently to sleep, still the passing of time, and silence every wound that steel could never mend...\r\n\r\nSuch a watchful father.\r\n\r\nA good father.\r\n\r\nHe does keep his promises.\r\n\r\nThe pain fades...\r\n\r\nThen the feelings.\r\n\r\nThen the memories.\r\n\r\nThen flesh swells, old wounds open and blossom yet ache no more, flies gather beneath a rusted visor and the body slowly rots... but somehow refuses to die.\r\n\r\nBut from that warm, rotten embrace do those knights rise once again...\r\n\r\nPerhaps to you they are disgusting abominations, bringers of death and decay, swollen, corpse-like and clad in rusted steel.\r\n\r\nBut in truth?\r\n\r\nThey have purpose.\r\n\r\nThey are at peace.\r\n\r\nThey are happy.\r\n\r\nAre you?...",
@@ -3736,7 +3740,7 @@
       "Attack - 2",
       "Attack Slam"
     ],
-    "bytes": 217389,
+    "bytes": 217853,
     "portraitBackdropGeosets": [
       2
     ],
@@ -3810,9 +3814,13 @@
     ],
     "formationSequence": "Stand Ready",
     "searchDescription": "Preview and download the Knight of Nurgle model for Warcraft 3. A plague-themed Warhammer Fantasy knight for your Warriors of Chaos army.",
-    "sha256": "bcb0f29f8d62031a96c5d8717a675da269421e54f3affbcb1de2a50276ee5e7a",
+    "sha256": "a74b4d64ec38a4d84d27cc1b9211c70e177a73ff3baf1c173fc8bc1ff587e59b",
     "downloadPack": "downloads/knight-of-nurgle.zip",
     "changelog": [
+      {
+        "date": "18 October 2026",
+        "text": "fixed flickering."
+      },
       {
         "date": "18 October 2026",
         "text": "Fix: stitched open shield arm elbow."
