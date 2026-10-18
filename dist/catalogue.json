@@ -10115,7 +10115,7 @@
   {
     "id": "tzeentch-sword",
     "downloadPack": "downloads/knight-of-tzeentch.zip",
-    "file": "WH_WOC_KnightTzeentchSword05.mdx",
+    "file": "WH_WOC_KnightTzeentchSword07.mdx",
     "name": "Knight of Tzeentch · Sword",
     "army": "warriors-of-chaos",
     "description": "This has been my company for a thousand wars, a thousand roads, a thousand years.\r\n\r\nMy brothers, that is what we call each other.\r\n\r\nWe have ridden beneath this banner for centuries... and yet I cannot recall their names nor their faces.\r\n\r\nDid they ever have faces?...\r\n\r\nWe hail from every corner of the world, or so we remember.\r\n\r\nWorlds I see when we close our eyes, cities beneath violet skies and fields without horizons...\r\n\r\nAnd always above it all a great burning eye, watching, above as the sun.\r\n\r\nWe had different lives once, different faces, different banners... I recall, sometimes.\r\n\r\nPerhaps that was a thousand years ago, perhaps it was yesterday...\r\n\r\nOr, perhaps, was it another man's dream?\r\n\r\nWe cannot tell, it does not matter.\r\n\r\nAs we ride, days stretch into years and years collapse into moments, time has no meaning.\r\n\r\nRoads unfold never ending, the ground beneath us breathes and lives and trees bend and whisper to us secrets men do not wish to hear.\r\n\r\nThe ravens herald our coming.\r\n\r\nWe can recall a thousand battles,\r\n\r\nkingdoms we have brought to ashes, kings slain, gods destroyed.\r\n\r\nBut I do not remember arriving at any of them, only leaving.\r\n\r\nHow did we end up here?\r\n\r\nA voice...\r\n\r\nA will...\r\n\r\nbut whose?...\r\n\r\nIn war we see it clearly, we feel alive... and for a moment, I wake up...\r\n\r\nThe trees stand still, the ravens fall silent and the skies are no longer violet when the ground runs red with blood...\r\n\r\nFor a moment...\r\n\r\nFor another thousand years....\r\n\r\nBut always... When we shut our eyes... A burning eye, staring, reaching deep into my soul.",
@@ -10199,7 +10199,7 @@
       {
         "index": 8,
         "vertices": 18,
-        "triangles": 20,
+        "triangles": 18,
         "material": 8,
         "textures": [
           "Units\\Creeps\\Magnataur\\Magnataur.blp"
@@ -10262,7 +10262,7 @@
       },
       {
         "index": 15,
-        "vertices": 213,
+        "vertices": 210,
         "triangles": 308,
         "material": 15,
         "textures": [
@@ -10543,7 +10543,7 @@
       },
       {
         "index": 45,
-        "vertices": 54,
+        "vertices": 27,
         "triangles": 18,
         "material": 44,
         "textures": [
@@ -10552,7 +10552,7 @@
       },
       {
         "index": 46,
-        "vertices": 72,
+        "vertices": 24,
         "triangles": 24,
         "material": 45,
         "textures": [
@@ -10561,7 +10561,7 @@
       },
       {
         "index": 47,
-        "vertices": 36,
+        "vertices": 14,
         "triangles": 12,
         "material": 45,
         "textures": [
@@ -10570,7 +10570,7 @@
       },
       {
         "index": 48,
-        "vertices": 24,
+        "vertices": 16,
         "triangles": 8,
         "material": 46,
         "textures": [
@@ -10594,7 +10594,7 @@
       "Attack - 2",
       "Attack - 3"
     ],
-    "bytes": 240471,
+    "bytes": 239315,
     "portraitBackdropGeosets": [
       4
     ],
@@ -10613,7 +10613,7 @@
       }
     ],
     "sourceUrl": "https://www.hiveworkshop.com/threads/warhammer-chaos-knight-of-tzeentch.374522/",
-    "sha256": "384f8e9979048ee6655fb241d32344c3e9377258a9aec82613d89b88b7851fbb",
+    "sha256": "9731ddeb15b7843a2f0dae37b823b908e3693ca83a6e5a3175b2d2d24f3efa57",
     "creditLinks": [
       {
         "text": "Warhammer Eternal Strife",
@@ -10712,6 +10712,10 @@
     "changelog": [
       {
         "date": "18 October 2026",
+        "text": "Fixed issues around shoulders and arms, fixed animations."
+      },
+      {
+        "date": "18 October 2026",
         "text": "Fixed Chaos Star flickers. Fixed horse animations."
       }
     ]
@@ -10719,7 +10723,7 @@
   {
     "id": "tzeentch-lance",
     "downloadPack": "downloads/knight-of-tzeentch.zip",
-    "file": "WH_WOC_KnightTzeentchLance05.mdx",
+    "file": "WH_WOC_KnightTzeentchLance07.mdx",
     "name": "Knight of Tzeentch · Lance",
     "army": "warriors-of-chaos",
     "description": "This has been my company for a thousand wars, a thousand roads, a thousand years.\r\n\r\nMy brothers, that is what we call each other.\r\n\r\nWe have ridden beneath this banner for centuries... and yet I cannot recall their names nor their faces.\r\n\r\nDid they ever have faces?...\r\n\r\nWe hail from every corner of the world, or so we remember.\r\n\r\nWorlds I see when we close our eyes, cities beneath violet skies and fields without horizons...\r\n\r\nAnd always above it all a great burning eye, watching, above as the sun.\r\n\r\nWe had different lives once, different faces, different banners... I recall, sometimes.\r\n\r\nPerhaps that was a thousand years ago, perhaps it was yesterday...\r\n\r\nOr, perhaps, was it another man's dream?\r\n\r\nWe cannot tell, it does not matter.\r\n\r\nAs we ride, days stretch into years and years collapse into moments, time has no meaning.\r\n\r\nRoads unfold never ending, the ground beneath us breathes and lives and trees bend and whisper to us secrets men do not wish to hear.\r\n\r\nThe ravens herald our coming.\r\n\r\nWe can recall a thousand battles,\r\n\r\nkingdoms we have brought to ashes, kings slain, gods destroyed.\r\n\r\nBut I do not remember arriving at any of them, only leaving.\r\n\r\nHow did we end up here?\r\n\r\nA voice...\r\n\r\nA will...\r\n\r\nbut whose?...\r\n\r\nIn war we see it clearly, we feel alive... and for a moment, I wake up...\r\n\r\nThe trees stand still, the ravens fall silent and the skies are no longer violet when the ground runs red with blood...\r\n\r\nFor a moment...\r\n\r\nFor another thousand years....\r\n\r\nBut always... When we shut our eyes... A burning eye, staring, reaching deep into my soul.",
@@ -10803,7 +10807,7 @@
       {
         "index": 8,
         "vertices": 18,
-        "triangles": 20,
+        "triangles": 18,
         "material": 8,
         "textures": [
           "Units\\Creeps\\Magnataur\\Magnataur.blp"
@@ -11180,7 +11184,7 @@
       "Dissipate",
       "Attack - 2"
     ],
-    "bytes": 221703,
+    "bytes": 226851,
     "portraitBackdropGeosets": [
       4
     ],
@@ -11199,7 +11203,7 @@
       }
     ],
     "sourceUrl": "https://www.hiveworkshop.com/threads/warhammer-chaos-knight-of-tzeentch.374522/",
-    "sha256": "e5990700d41ffc22d4da4f45d75103a7aa5d9516fd1c5737b35065ec31e1ed16",
+    "sha256": "77e7b66c43d52e8896beecabec5e97b5a1a6b1350b2ff100efbc5b911199fd3e",
     "creditLinks": [
       {
         "text": "Warhammer Eternal Strife",
@@ -11296,6 +11300,10 @@
     ],
     "searchDescription": "Preview and download the lance variant of the Knight of Tzeentch for Warcraft 3. A Warhammer Fantasy model for your Warriors of Chaos army.",
     "changelog": [
+      {
+        "date": "18 October 2026",
+        "text": "Fixed issues around shoulders and arms, fixed animations."
+      },
       {
         "date": "18 October 2026",
         "text": "Fixed Chaos Star flickers. Fixed horse animations."
