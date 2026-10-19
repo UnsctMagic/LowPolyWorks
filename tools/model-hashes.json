@@ -198,5 +198,9 @@
   {
     "file": "WH_WOC_WarriorKhorneBerserker02.mdx",
     "sha256": "c5312b18cc925b298835f66d3b5a20b8b014d8c82eabc3ec6a47971e2638af5f"
+  },
+  {
+    "file": "WH_WOC_WarriorNurgle01.mdx",
+    "sha256": "94a898eff326c9e894194603be1b07bd3e810d95a27d5d64681432c285bb1755"
   }
 ]
