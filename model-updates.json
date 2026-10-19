@@ -6,25 +6,22 @@
     },
     "von-carstein": {
       "sha256": "b3ebf64fa6db5eba7d0a8c2afeb1ca652024f36fd850be20efc3a802ff3783cd",
-      "updatedAt": "2026-10-10T08:12:24.945Z"
+      "updatedAt": "2026-10-10T08:02:37.273Z"
     },
     "von-carstein-dread-knight": {
       "sha256": "dffdf504d024ff8f6266cf1ca979ca11e16d2f4f83f7ae86395bd7610d806166",
-      "updatedAt": "2026-10-10T08:12:24.945Z"
-    },
-    "strigoi-vampire": {
-      "sha256": "1f9ebd73855b2656b79e3129bb328b36ee606f1701da054c8298c8293ae2bcb5"
+      "updatedAt": "2026-10-10T08:02:37.273Z"
     },
     "necrarch-vampire": {
       "sha256": "6baa4e1d87d274c237759f8d3ba28dff7f108360e8b67c7387be4de4aab72645"
     },
     "khorne-axe": {
       "sha256": "da94155bca8d1c838646c2f4b0a71d023c18e334d79250b8d25ab672d75ae924",
-      "updatedAt": "2026-10-17T21:16:31.505Z"
+      "updatedAt": "2026-10-17T21:13:14.690Z"
     },
     "khorne-flail": {
       "sha256": "8128d1d6f42f2e7ada59dcf6e5532b9d734854dceab8186e6c36444b1df60f3e",
-      "updatedAt": "2026-10-17T21:16:31.505Z"
+      "updatedAt": "2026-10-17T21:13:14.690Z"
     },
     "nurgle": {
       "sha256": "81ab2399c34fceb244e9219da5f639069c11742f0640563213dec20c2c901849"
@@ -39,11 +36,11 @@
     },
     "undivided-sword": {
       "sha256": "86b73e465a050572e60a42def865b252594aced076c9412c8ee170a4aec13f1a",
-      "updatedAt": "2026-10-17T22:52:35.564Z"
+      "updatedAt": "2026-10-17T22:52:36.078Z"
     },
     "undivided-lance": {
       "sha256": "20d5052398845ab3b706633b095057978133e39075202af7bf189d50fff2c927",
-      "updatedAt": "2026-10-17T22:52:35.564Z"
+      "updatedAt": "2026-10-17T22:52:36.078Z"
     },
     "aspiring": {
       "sha256": "a7f9e4c2de69ca114efceaf7b062967a6cf1324b9fb51297250683df67275564",
@@ -135,11 +132,11 @@
     },
     "tzeentch-sword": {
       "sha256": "9731ddeb15b7843a2f0dae37b823b908e3693ca83a6e5a3175b2d2d24f3efa57",
-      "updatedAt": "2026-10-18T00:15:56.509Z"
+      "updatedAt": "2026-10-18T00:15:57.031Z"
     },
     "tzeentch-lance": {
       "sha256": "77e7b66c43d52e8896beecabec5e97b5a1a6b1350b2ff100efbc5b911199fd3e",
-      "updatedAt": "2026-10-18T00:15:56.509Z"
+      "updatedAt": "2026-10-18T00:15:57.031Z"
     },
     "chaos-ogre": {
       "sha256": "b75c09c1c7c3bb353599d321bc5d6aa9700f393cdbd1a10fc387812cb45ebaef"
@@ -151,20 +148,20 @@
     "nurgle-champion": {
       "sha256": "8222b4370cc853861837e926157149734250bcad90a63c15377dc4e618ccfa19",
       "publishedAt": "2026-10-12T09:03:56.313Z",
-      "updatedAt": "2026-10-17T22:19:43.696Z"
+      "updatedAt": "2026-10-17T22:16:56.619Z"
     },
     "nurgle-heavy": {
       "sha256": "f6e05ff77be054ca901e59acaa738f7beae27f56100f3490a1fa06a31c3e0a34",
-      "updatedAt": "2026-10-18T21:41:34.840Z"
+      "updatedAt": "2026-10-18T21:41:34.234Z"
     },
     "nurgle-standard": {
       "sha256": "bf6098bd6bd200e3c10d25576147f041a33f334ec3669779af4d81b6dd15ecca",
-      "updatedAt": "2026-10-18T21:41:34.840Z"
+      "updatedAt": "2026-10-18T21:41:34.234Z"
     },
     "warrior-of-khorne": {
       "sha256": "4e6633bc567d375358960c44d43ea2e056f7f8f09048d0b1bed51ebff4473d57",
       "publishedAt": "2026-10-17T17:44:19.317Z",
-      "updatedAt": "2026-10-18T12:27:25.964Z"
+      "updatedAt": "2026-10-18T12:27:00.583Z"
     },
     "kurgan-warlord": {
       "sha256": "b285d609ba063f8723036a050600d248e8937b5831e0cba15068dc31cfd95ca9",
@@ -172,8 +169,12 @@
     },
     "warrior-of-khorne-berserker": {
       "sha256": "c5312b18cc925b298835f66d3b5a20b8b014d8c82eabc3ec6a47971e2638af5f",
-      "publishedAt": "2026-10-18T16:46:51.139Z",
-      "updatedAt": "2026-10-18T17:12:55.498Z"
+      "publishedAt": "2026-10-18T16:41:44.788Z",
+      "updatedAt": "2026-10-18T17:12:54.835Z"
+    },
+    "warrior-of-nurgle": {
+      "sha256": "94a898eff326c9e894194603be1b07bd3e810d95a27d5d64681432c285bb1755",
+      "publishedAt": "2026-10-19T23:31:03.090Z"
     }
   }
 }
