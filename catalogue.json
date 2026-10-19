@@ -339,6 +339,7 @@
         "url": "https://github.com/UnsctMagic/MDLxL"
       }
     ],
+    "formationBodyHeight": 0.76,
     "searchDescription": "Preview and download a Warhammer Fantasy Graveguard model for Warcraft 3. Build Vampire Counts armies with animated undead infantry."
   },
   {
@@ -1122,6 +1123,7 @@
     ],
     "sha256": "dffdf504d024ff8f6266cf1ca979ca11e16d2f4f83f7ae86395bd7610d806166",
     "downloadPack": "downloads/von-carstein.zip",
+    "formationBodyHeight": 0.9,
     "searchDescription": "Preview and download the Von Carstein Dread Knight for Warcraft 3. A Warhammer Fantasy Vampire Counts model reskinned from the Von Carstein Lord.",
     "changelog": [
       {
@@ -1133,6 +1135,216 @@
         "text": "Fixed cloak bindings and clippings"
       }
     ]
+  },
+  {
+    "id": "strigoi-vampire",
+    "file": "WH_VC_StrigoiLord_04.mdx",
+    "name": "Strigoi Vampire",
+    "army": "vampire-counts",
+    "description": "The Strigoi are one of the five Vampire bloodlines of the Old World, and are all descended from the Trueborn Vampire Lord Ushoran, a former prince of the Nehekharan city-state of Lahmia.\n\nThe Vampires of the other bloodlines play at being mortal and wear the robes of lords, knights, and princes, but underneath, the Vampire is purely a savage, bloodthirsty beast. There are those Vampires who lose themselves so much in their pretense of mortality that they forget this.\n\nThe Strigoi have not forgotten and do not pretend. They embrace the beast within them, taking all the strength and fury that savage force can give them. That strength is terrible to behold, and that fury knows no end.\n\n— Warhammer Fantasy Roleplay 2nd Edition: Night’s Dark Masters, pp. 66–72.",
+    "credits": "Model Base - Vampire (HoMM 3) by Maximal\n\nGargoyle - Blizzard Entertainment.",
+    "geosets": [
+      {
+        "index": 0,
+        "vertices": 4,
+        "triangles": 2,
+        "material": 0,
+        "textures": [
+          "Team colour / glow"
+        ]
+      },
+      {
+        "index": 1,
+        "vertices": 63,
+        "triangles": 81,
+        "material": 6,
+        "textures": [
+          "Units\\Creeps\\Magnataur\\Magnataur.blp"
+        ]
+      },
+      {
+        "index": 2,
+        "vertices": 40,
+        "triangles": 56,
+        "material": 7,
+        "textures": [
+          "Team colour / glow",
+          "Units\\Creeps\\FacelessOne\\FacelessOne.blp"
+        ]
+      },
+      {
+        "index": 3,
+        "vertices": 144,
+        "triangles": 112,
+        "material": 5,
+        "textures": [
+          "Textures\\Skeleton.blp"
+        ]
+      },
+      {
+        "index": 4,
+        "vertices": 441,
+        "triangles": 824,
+        "material": 1,
+        "textures": [
+          "Units\\Undead\\Gargoyle\\Gargoyle.blp"
+        ]
+      },
+      {
+        "index": 5,
+        "vertices": 165,
+        "triangles": 187,
+        "material": 2,
+        "textures": [
+          "Units\\Undead\\Gargoyle\\Gargoyle.blp"
+        ]
+      },
+      {
+        "index": 6,
+        "vertices": 8,
+        "triangles": 4,
+        "material": 3,
+        "textures": [
+          "textures\\red_glow3.blp",
+          "textures\\red_glow3.blp"
+        ]
+      },
+      {
+        "index": 7,
+        "vertices": 16,
+        "triangles": 20,
+        "material": 4,
+        "textures": [
+          "Units\\Undead\\Gargoyle\\Gargoyle.blp"
+        ]
+      },
+      {
+        "index": 8,
+        "vertices": 84,
+        "triangles": 64,
+        "material": 8,
+        "textures": [
+          "Units\\Undead\\HeroDreadLord\\HeroDreadlord.blp"
+        ]
+      },
+      {
+        "index": 9,
+        "vertices": 22,
+        "triangles": 16,
+        "material": 8,
+        "textures": [
+          "Units\\Undead\\HeroDreadLord\\HeroDreadlord.blp"
+        ]
+      },
+      {
+        "index": 10,
+        "vertices": 22,
+        "triangles": 16,
+        "material": 8,
+        "textures": [
+          "Units\\Undead\\HeroDreadLord\\HeroDreadlord.blp"
+        ]
+      },
+      {
+        "index": 11,
+        "vertices": 65,
+        "triangles": 48,
+        "material": 8,
+        "textures": [
+          "Units\\Undead\\HeroDreadLord\\HeroDreadlord.blp"
+        ]
+      },
+      {
+        "index": 12,
+        "vertices": 64,
+        "triangles": 50,
+        "material": 8,
+        "textures": [
+          "Units\\Undead\\HeroDreadLord\\HeroDreadlord.blp"
+        ]
+      },
+      {
+        "index": 13,
+        "vertices": 21,
+        "triangles": 16,
+        "material": 8,
+        "textures": [
+          "Units\\Undead\\HeroDreadLord\\HeroDreadlord.blp"
+        ]
+      },
+      {
+        "index": 14,
+        "vertices": 22,
+        "triangles": 16,
+        "material": 8,
+        "textures": [
+          "Units\\Undead\\HeroDreadLord\\HeroDreadlord.blp"
+        ]
+      },
+      {
+        "index": 15,
+        "vertices": 20,
+        "triangles": 16,
+        "material": 8,
+        "textures": [
+          "Units\\Undead\\HeroDreadLord\\HeroDreadlord.blp"
+        ]
+      },
+      {
+        "index": 16,
+        "vertices": 19,
+        "triangles": 16,
+        "material": 8,
+        "textures": [
+          "Units\\Undead\\HeroDreadLord\\HeroDreadlord.blp"
+        ]
+      }
+    ],
+    "sequences": [
+      "Stand",
+      "Death",
+      "Dissipate",
+      "Stand Ready",
+      "Attack",
+      "Attack 2",
+      "Portrait 1",
+      "Portrait 2",
+      "Walk",
+      "Portrait Talk 1",
+      "Walk Fast",
+      "Stand 2"
+    ],
+    "bytes": 147638,
+    "authors": [
+      {
+        "name": "Unsanctioned Magic",
+        "url": "https://xgm.guru/user/UnsanctMagic"
+      },
+      {
+        "name": "Maximal",
+        "url": "https://www.hiveworkshop.com/members/maximal.251852/"
+      }
+    ],
+    "creditLinks": [
+      {
+        "text": "Vampire (HoMM 3)",
+        "url": "https://www.hiveworkshop.com/threads/vampire-homm-3.371653/"
+      },
+      {
+        "text": "Maximal",
+        "url": "https://www.hiveworkshop.com/members/maximal.251852/"
+      }
+    ],
+    "sha256": "1f9ebd73855b2656b79e3129bb328b36ee606f1701da054c8298c8293ae2bcb5",
+    "formationSequence": "Stand Ready",
+    "formationBodyHeight": 0.9,
+    "changelog": [
+      {
+        "date": "8 October 2026",
+        "text": "Cleaned up animations · Optimized file size"
+      }
+    ],
+    "searchDescription": "Preview and download a Strigoi Vampire model for Warcraft 3. Bring Warhammer Fantasy's feral Vampire Counts bloodline to your custom maps."
   },
   {
     "id": "necrarch-vampire",
@@ -1987,6 +2199,8 @@
         "url": "https://github.com/UnsctMagic/MDLxL"
       }
     ],
+    "formationSequence": "Stand Ready",
+    "formationBodyHeight": 0.78,
     "searchDescription": "Download the axe variant of the Knight of Khorne for Warcraft 3. Preview this Warhammer Fantasy Warriors of Chaos model and its animations.",
     "sha256": "da94155bca8d1c838646c2f4b0a71d023c18e334d79250b8d25ab672d75ae924",
     "changelog": [
@@ -3149,6 +3363,7 @@
         "url": "https://worldofwarcraft.blizzard.com/"
       }
     ],
+    "formationSequence": "Stand Ready",
     "searchDescription": "Preview and download the heavy variant of the Knight of Nurgle model for Warcraft 3. A plague-themed Warhammer Fantasy knight for your Warriors of Chaos army.",
     "sha256": "f6e05ff77be054ca901e59acaa738f7beae27f56100f3490a1fa06a31c3e0a34",
     "downloadPack": "downloads/knight-of-nurgle.zip",
@@ -3597,6 +3812,7 @@
         "url": "https://worldofwarcraft.blizzard.com/"
       }
     ],
+    "formationSequence": "Stand Ready",
     "searchDescription": "Preview and download the Knight of Nurgle model for Warcraft 3. A plague-themed Warhammer Fantasy knight for your Warriors of Chaos army.",
     "sha256": "bf6098bd6bd200e3c10d25576147f041a33f334ec3669779af4d81b6dd15ecca",
     "downloadPack": "downloads/knight-of-nurgle.zip",
@@ -4035,6 +4251,7 @@
         "url": "https://worldofwarcraft.blizzard.com/"
       }
     ],
+    "formationSequence": "Stand Ready",
     "searchDescription": "Preview and download the Old Version of the Knight of Nurgle model for Warcraft 3.",
     "downloadPack": "downloads/knight-of-nurgle.zip"
   },
@@ -6741,6 +6958,7 @@
         "url": "https://www.hiveworkshop.com/members/herrdave.234820/"
       }
     ],
+    "formationBodyHeight": 0.98,
     "slug": "bretonnian-archer",
     "searchDescription": "Download the Bretonnian Archer model for Warcraft 3 Warhammer maps. Preview its animations; this Bretonnia infantry model uses in-game textures."
   },
@@ -6929,6 +7147,7 @@
         "url": "https://www.hiveworkshop.com/members/herrdave.234820/"
       }
     ],
+    "formationBodyHeight": 0.58,
     "slug": "bretonnian-pikeman",
     "searchDescription": "Preview and download the Bretonnian Pikeman for Warcraft 3. Add pike infantry to Warhammer Fantasy Bretonnia armies using in-game textures."
   },
@@ -7105,6 +7324,7 @@
         "url": "https://www.hiveworkshop.com/members/herrdave.234820/"
       }
     ],
+    "formationBodyHeight": 0.94,
     "slug": "bretonnian-swordsman",
     "searchDescription": "Download the Bretonnian Swordsman model for Warcraft 3. Preview sword infantry for Warhammer Fantasy Bretonnia maps, using in-game textures."
   },
@@ -7230,6 +7450,7 @@
         "url": "https://www.hiveworkshop.com/members/herrdave.234820/"
       }
     ],
+    "formationBodyHeight": 0.82,
     "slug": "greenskin-black-orc",
     "searchDescription": "Preview and download the Black Orc model for Warcraft 3. Add Warhammer Fantasy Greenskin infantry to your Orcs and Goblins army."
   },
@@ -7512,6 +7733,7 @@
         "url": "https://www.hiveworkshop.com/members/herrdave.234820/"
       }
     ],
+    "formationBodyHeight": 0.86,
     "slug": "greenskin-black-orc-warboss-hero",
     "searchDescription": "Preview and download the hero variant of the Black Orc Warboss for Warcraft 3. A Warhammer Fantasy Greenskin hero for Orcs and Goblins armies."
   },
@@ -7646,6 +7868,7 @@
         "url": "https://www.hiveworkshop.com/members/herrdave.234820/"
       }
     ],
+    "formationBodyHeight": 0.9,
     "slug": "greenskin-orc-boy",
     "searchDescription": "Download the Orc Boy model for Warcraft 3. Preview animated Warhammer Fantasy Greenskin infantry for Orcs and Goblins armies and custom maps."
   },
@@ -8114,6 +8337,7 @@
         "url": "https://www.hiveworkshop.com/members/herrdave.234820/"
       }
     ],
+    "formationBodyHeight": 0.8,
     "slug": "empire-halberdier",
     "searchDescription": "Download the Empire Halberdier model for Warcraft 3. Preview halberd infantry for Warhammer Fantasy Empire armies and custom maps."
   },
@@ -8706,6 +8930,7 @@
         "url": "https://www.hiveworkshop.com/members/herrdave.234820/"
       }
     ],
+    "formationBodyHeight": 0.9,
     "slug": "elector-count",
     "searchDescription": "Preview and download the Elector Count hero model for Warcraft 3. Lead Warhammer Fantasy Empire armies with an animated character for custom maps."
   },
@@ -9212,6 +9437,7 @@
         "url": "https://www.hiveworkshop.com/members/herrdave.234820/"
       }
     ],
+    "formationBodyHeight": 0.88,
     "slug": "reikland-handgunner",
     "searchDescription": "Preview and download the Reikland Handgunner model for Warcraft 3. Add Empire ranged infantry to Warhammer Fantasy maps with in-game textures."
   },
@@ -10716,6 +10942,9 @@
         "url": "https://github.com/UnsctMagic/MDLxL"
       }
     ],
+    "formationSequence": "Spell",
+    "formationTime": 1000,
+    "formationBodyHeight": 0.78,
     "searchDescription": "Download the sword variant of the Knight of Tzeentch for Warcraft 3. Preview this Warhammer Fantasy Warriors of Chaos model and its animations.",
     "changelog": [
       {
