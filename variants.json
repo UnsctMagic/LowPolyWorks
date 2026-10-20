@@ -266,5 +266,331 @@
         "label": "Small Barrages"
       }
     ]
+  },
+  {
+    "id": "gluma-bestigor",
+    "name": "Bestigor",
+    "variants": [
+      {
+        "id": "gluma-127545",
+        "label": "Hero"
+      },
+      {
+        "id": "gluma-127546",
+        "label": "Unit"
+      }
+    ]
+  },
+  {
+    "id": "gluma-horn-gor",
+    "name": "Horn Gor",
+    "variants": [
+      {
+        "id": "gluma-123574",
+        "label": "Unit"
+      },
+      {
+        "id": "gluma-123571",
+        "label": "Hero"
+      }
+    ]
+  },
+  {
+    "id": "gluma-gors",
+    "name": "Gors",
+    "variants": [
+      {
+        "id": "gluma-123553",
+        "label": "Axe Hero"
+      },
+      {
+        "id": "gluma-123554",
+        "label": "Axe Unit"
+      },
+      {
+        "id": "gluma-123551",
+        "label": "Flail Hero"
+      },
+      {
+        "id": "gluma-123552",
+        "label": "Flail Unit"
+      }
+    ]
+  },
+  {
+    "id": "gluma-bray-shaman",
+    "name": "Bray Shaman",
+    "variants": [
+      {
+        "id": "gluma-137406",
+        "label": "Hero"
+      },
+      {
+        "id": "gluma-137407",
+        "label": "Unit"
+      }
+    ]
+  },
+  {
+    "id": "gluma-bray-shaman-tzeentch",
+    "name": "Bray Shaman of Tzeentch",
+    "variants": [
+      {
+        "id": "gluma-144692",
+        "label": "Hero"
+      },
+      {
+        "id": "gluma-144691",
+        "label": "Unit"
+      }
+    ]
+  },
+  {
+    "id": "gluma-ungor",
+    "name": "Ungor",
+    "variants": [
+      {
+        "id": "gluma-99740",
+        "label": "Bowman"
+      },
+      {
+        "id": "gluma-90822",
+        "label": "Spearman"
+      }
+    ]
+  },
+  {
+    "id": "gluma-ratling-gunner",
+    "name": "Ratling Gunner",
+    "variants": [
+      {
+        "id": "gluma-82702",
+        "label": "Hero"
+      },
+      {
+        "id": "gluma-82705",
+        "label": "Unit"
+      }
+    ]
+  },
+  {
+    "id": "gluma-witch-elf",
+    "name": "Witch Elf",
+    "variants": [
+      {
+        "id": "gluma-159913",
+        "label": "Hero"
+      },
+      {
+        "id": "gluma-159912",
+        "label": "Unit"
+      }
+    ]
+  },
+  {
+    "id": "gluma-dark-elf-beastmaster",
+    "name": "Dark Elf Beastmaster",
+    "variants": [
+      {
+        "id": "gluma-160458",
+        "label": "Unit"
+      },
+      {
+        "id": "gluma-160459",
+        "label": "Hero"
+      }
+    ]
+  },
+  {
+    "id": "gluma-dark-elf-slavemaster",
+    "name": "Dark Elf Slavemaster",
+    "variants": [
+      {
+        "id": "gluma-160461",
+        "label": "Hero"
+      },
+      {
+        "id": "gluma-160460",
+        "label": "Unit"
+      }
+    ]
+  },
+  {
+    "id": "gluma-ballista",
+    "name": "Ballista",
+    "variants": [
+      {
+        "id": "gluma-160792",
+        "label": "Dark Elf"
+      },
+      {
+        "id": "gluma-160790",
+        "label": "Generic"
+      }
+    ]
+  },
+  {
+    "id": "gluma-bolt-thrower",
+    "name": "Bolt Thrower",
+    "variants": [
+      {
+        "id": "gluma-160793",
+        "label": "Dark Elf"
+      },
+      {
+        "id": "gluma-160791",
+        "label": "Generic"
+      }
+    ]
+  },
+  {
+    "id": "gluma-cold-one-rider",
+    "name": "Cold One Rider",
+    "variants": [
+      {
+        "id": "gluma-143397",
+        "label": "Hero"
+      },
+      {
+        "id": "gluma-143396",
+        "label": "Unit"
+      }
+    ]
+  },
+  {
+    "id": "gluma-saurus-warrior",
+    "name": "Saurus Warrior",
+    "variants": [
+      {
+        "id": "gluma-137328",
+        "label": "Unit"
+      },
+      {
+        "id": "gluma-137329",
+        "label": "Hero"
+      }
+    ]
+  },
+  {
+    "id": "gluma-saurus-oldblood",
+    "name": "Saurus Oldblood",
+    "variants": [
+      {
+        "id": "gluma-140895",
+        "label": "Hero"
+      },
+      {
+        "id": "gluma-140896",
+        "label": "Unit"
+      }
+    ]
+  },
+  {
+    "id": "gluma-kroxigor",
+    "name": "Kroxigor",
+    "variants": [
+      {
+        "id": "gluma-146392",
+        "label": "Unit"
+      },
+      {
+        "id": "gluma-146393",
+        "label": "Hero"
+      }
+    ]
+  },
+  {
+    "id": "gluma-ancient-kroxigor",
+    "name": "Ancient Kroxigor",
+    "variants": [
+      {
+        "id": "gluma-146394",
+        "label": "Unit"
+      },
+      {
+        "id": "gluma-146395",
+        "label": "Hero"
+      }
+    ]
+  },
+  {
+    "id": "gluma-skink-high-priest",
+    "name": "Skink High Priest",
+    "variants": [
+      {
+        "id": "gluma-135399",
+        "label": "Hero"
+      },
+      {
+        "id": "gluma-135400",
+        "label": "Hero Swimless"
+      },
+      {
+        "id": "gluma-135401",
+        "label": "Unit"
+      },
+      {
+        "id": "gluma-135402",
+        "label": "Unit Swimless"
+      }
+    ]
+  },
+  {
+    "id": "gluma-skink-worker",
+    "name": "Skink Worker",
+    "variants": [
+      {
+        "id": "gluma-134840",
+        "label": "Standard"
+      },
+      {
+        "id": "gluma-134841",
+        "label": "Swimless"
+      }
+    ]
+  },
+  {
+    "id": "gluma-skink-chief",
+    "name": "Skink Chief",
+    "variants": [
+      {
+        "id": "gluma-134634",
+        "label": "Hero"
+      },
+      {
+        "id": "gluma-134635",
+        "label": "Unit"
+      }
+    ]
+  },
+  {
+    "id": "gluma-skink-troops",
+    "name": "Skink Troops",
+    "variants": [
+      {
+        "id": "gluma-134398",
+        "label": "Spear"
+      },
+      {
+        "id": "gluma-134401",
+        "label": "Orange Spear"
+      },
+      {
+        "id": "gluma-134399",
+        "label": "Blowpipe"
+      },
+      {
+        "id": "gluma-134404",
+        "label": "Orange Blowpipe"
+      },
+      {
+        "id": "gluma-134400",
+        "label": "Skirmisher"
+      },
+      {
+        "id": "gluma-134402",
+        "label": "Orange Skirmisher"
+      }
+    ]
   }
 ]
