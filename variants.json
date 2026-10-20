@@ -1,14 +1,270 @@
 [
- {"id":"empire-infantry","name":"Empire Infantry","variants":[{"id":"herrdave-86791","label":"Captain"},{"id":"herrdave-88507","label":"Halberdier"},{"id":"herrdave-86747","label":"Swordsman"},{"id":"herrdave-88510","label":"Estalian Infantry"},{"id":"herrdave-88509","label":"Estalian Swordsman"},{"id":"herrdave-88508","label":"Estalian Spearman"}]},
- {"id":"steam-tank","name":"Steam Tank","variants":[{"id":"herrdave-87246","label":"Elite"},{"id":"herrdave-87245","label":"Standard"}]},
- {"id":"handgunner","name":"Handgunner","variants":[{"id":"herrdave-75836","label":"Reikland"},{"id":"herrdave-86759","label":"Reikland (Old)"},{"id":"herrdave-86780","label":"Estalian"}]},
- {"id":"halberdier","name":"Halberdier","variants":[{"id":"herrdave-79344","label":"Reikland"},{"id":"herrdave-86735","label":"Reikland (Old)"},{"id":"herrdave-86753","label":"Estalian"}]},
- {"id":"knight-of-the-blazing-sun","name":"Knight of the Blazing Sun","variants":[{"id":"herrdave-81065","label":"Mounted"},{"id":"herrdave-76825","label":"Dismounted"}]},
- {"id":"black-orc-warboss","name":"Black Orc Warboss","variants":[{"id":"herrdave-87377","label":"Warboss"},{"id":"herrdave-104264","label":"Hero"}]},
- {"id":"von-carstein","name":"Von Carstein","variants":[{"id":"von-carstein-dread-knight","label":"Dread Knight"},{"id":"von-carstein","label":"Vampire Lord"}]},
- {"id":"knight-of-slaanesh","name":"Knight of Slaanesh","variants":[{"id":"slaanesh-axe","label":"Axe"},{"id":"slaanesh-lance","label":"Lance"}]},
- {"id":"knight-undivided","name":"Knight Undivided","variants":[{"id":"undivided-sword","label":"Sword"},{"id":"undivided-lance","label":"Lance"}]},
- {"id":"knight-of-tzeentch","name":"Knight of Tzeentch","variants":[{"id":"tzeentch-sword","label":"Sword"},{"id":"tzeentch-lance","label":"Lance"}]},
- {"id":"knight-of-nurgle","name":"Knight of Nurgle","variants":[{"id":"nurgle-heavy","label":"Heavy"},{"id":"nurgle-standard","label":"Standard"},{"id":"nurgle","label":"Old Version"}]},
- {"id":"warrior-of-khorne","name":"Warrior of Khorne","variants":[{"id":"warrior-of-khorne-berserker","label":"Berserker"},{"id":"warrior-of-khorne","label":"Bruiser"}]}
+  {
+    "id": "empire-infantry",
+    "name": "Empire Infantry",
+    "variants": [
+      {
+        "id": "herrdave-86791",
+        "label": "Captain"
+      },
+      {
+        "id": "herrdave-88507",
+        "label": "Halberdier"
+      },
+      {
+        "id": "herrdave-86747",
+        "label": "Swordsman"
+      },
+      {
+        "id": "herrdave-88510",
+        "label": "Estalian Infantry"
+      },
+      {
+        "id": "herrdave-88509",
+        "label": "Estalian Swordsman"
+      },
+      {
+        "id": "herrdave-88508",
+        "label": "Estalian Spearman"
+      }
+    ]
+  },
+  {
+    "id": "steam-tank",
+    "name": "Steam Tank",
+    "variants": [
+      {
+        "id": "herrdave-87246",
+        "label": "Elite"
+      },
+      {
+        "id": "herrdave-87245",
+        "label": "Standard"
+      }
+    ]
+  },
+  {
+    "id": "handgunner",
+    "name": "Handgunner",
+    "variants": [
+      {
+        "id": "herrdave-75836",
+        "label": "Reikland"
+      },
+      {
+        "id": "herrdave-86759",
+        "label": "Reikland (Old)"
+      },
+      {
+        "id": "herrdave-86780",
+        "label": "Estalian"
+      }
+    ]
+  },
+  {
+    "id": "halberdier",
+    "name": "Halberdier",
+    "variants": [
+      {
+        "id": "herrdave-79344",
+        "label": "Reikland"
+      },
+      {
+        "id": "herrdave-86735",
+        "label": "Reikland (Old)"
+      },
+      {
+        "id": "herrdave-86753",
+        "label": "Estalian"
+      }
+    ]
+  },
+  {
+    "id": "knight-of-the-blazing-sun",
+    "name": "Knight of the Blazing Sun",
+    "variants": [
+      {
+        "id": "herrdave-81065",
+        "label": "Mounted"
+      },
+      {
+        "id": "herrdave-76825",
+        "label": "Dismounted"
+      }
+    ]
+  },
+  {
+    "id": "black-orc-warboss",
+    "name": "Black Orc Warboss",
+    "variants": [
+      {
+        "id": "herrdave-87377",
+        "label": "Warboss"
+      },
+      {
+        "id": "herrdave-104264",
+        "label": "Hero"
+      }
+    ]
+  },
+  {
+    "id": "von-carstein",
+    "name": "Von Carstein",
+    "variants": [
+      {
+        "id": "von-carstein-dread-knight",
+        "label": "Dread Knight"
+      },
+      {
+        "id": "von-carstein",
+        "label": "Vampire Lord"
+      }
+    ]
+  },
+  {
+    "id": "knight-of-slaanesh",
+    "name": "Knight of Slaanesh",
+    "variants": [
+      {
+        "id": "slaanesh-axe",
+        "label": "Axe"
+      },
+      {
+        "id": "slaanesh-lance",
+        "label": "Lance"
+      }
+    ]
+  },
+  {
+    "id": "knight-undivided",
+    "name": "Knight Undivided",
+    "variants": [
+      {
+        "id": "undivided-sword",
+        "label": "Sword"
+      },
+      {
+        "id": "undivided-lance",
+        "label": "Lance"
+      }
+    ]
+  },
+  {
+    "id": "knight-of-tzeentch",
+    "name": "Knight of Tzeentch",
+    "variants": [
+      {
+        "id": "tzeentch-sword",
+        "label": "Sword"
+      },
+      {
+        "id": "tzeentch-lance",
+        "label": "Lance"
+      }
+    ]
+  },
+  {
+    "id": "knight-of-nurgle",
+    "name": "Knight of Nurgle",
+    "variants": [
+      {
+        "id": "nurgle-heavy",
+        "label": "Heavy"
+      },
+      {
+        "id": "nurgle-standard",
+        "label": "Standard"
+      },
+      {
+        "id": "nurgle",
+        "label": "Old Version"
+      }
+    ]
+  },
+  {
+    "id": "warrior-of-khorne",
+    "name": "Warrior of Khorne",
+    "variants": [
+      {
+        "id": "warrior-of-khorne-berserker",
+        "label": "Berserker"
+      },
+      {
+        "id": "warrior-of-khorne",
+        "label": "Bruiser"
+      }
+    ]
+  },
+  {
+    "id": "empire-handgunners",
+    "name": "Empire Handgunners",
+    "variants": [
+      {
+        "id": "gluma-164662",
+        "label": "Repeater"
+      },
+      {
+        "id": "gluma-164659",
+        "label": "Arquebus"
+      },
+      {
+        "id": "gluma-164660",
+        "label": "Flintlock"
+      },
+      {
+        "id": "gluma-164663",
+        "label": "Scoped"
+      }
+    ]
+  },
+  {
+    "id": "gluma-human-cannon",
+    "name": "Human Cannon",
+    "variants": [
+      {
+        "id": "gluma-146044",
+        "label": "Bronze"
+      },
+      {
+        "id": "gluma-146046",
+        "label": "Black"
+      }
+    ]
+  },
+  {
+    "id": "gluma-human-mortar",
+    "name": "Human Mortar",
+    "variants": [
+      {
+        "id": "gluma-146045",
+        "label": "Bronze"
+      },
+      {
+        "id": "gluma-146047",
+        "label": "Black"
+      }
+    ]
+  },
+  {
+    "id": "gluma-dwarf-organ-cannon",
+    "name": "Dwarf Organ Cannon",
+    "variants": [
+      {
+        "id": "gluma-145231",
+        "label": "Standard"
+      },
+      {
+        "id": "gluma-145232",
+        "label": "Full Barrage"
+      },
+      {
+        "id": "gluma-145233",
+        "label": "Single Shots"
+      },
+      {
+        "id": "gluma-145234",
+        "label": "Small Barrages"
+      }
+    ]
+  }
 ]

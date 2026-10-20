@@ -25,10 +25,9 @@ export function installWarcraftTeamTextures(gl,model,{transparent,graphics}){
    source=source.replace('uniform float uWireframe;','uniform float uWireframe;\nuniform float uWarcraftAdditive;\nuniform float uWarcraftOpaque;')
     .replace(/}\s*$/,`if(uWarcraftOpaque>.5) ${output}.a=uMdlvisGeosetTint.a;\nif(uWarcraftAdditive>2.5){\n if(uWarcraftAdditive>3.5)${output}.rgb*=${output}.a;\n ${output}.a=clamp(max(${output}.r,max(${output}.g,${output}.b)),0.,1.);\n}\n}\n`);
   }
-  if(source.includes('varying vec4 vColor;')&&source.includes('uniform float uDiscardAlphaLevel;')){
-   const output=source.includes('out vec4 FragColor;')?'FragColor':'gl_FragColor';
+  if(source.includes('gl_FragColor *= vColor;')){
    source=source.replace('uniform float uDiscardAlphaLevel;','uniform float uDiscardAlphaLevel;\nuniform float uWarcraftParticleAdditive;')
-    .replace(/}\s*$/,`if(uWarcraftParticleAdditive>.5){\n ${output}.rgb*=${output}.a;\n ${output}.a=clamp(max(${output}.r,max(${output}.g,${output}.b)),0.,1.);\n}\n}\n`);
+    .replace(/}\s*$/, 'if(uWarcraftParticleAdditive>.5){\n gl_FragColor.rgb*=gl_FragColor.a;\n gl_FragColor.a=clamp(max(gl_FragColor.r,max(gl_FragColor.g,gl_FragColor.b)),0.,1.);\n}\n}\n');
   }
   return shaderSource.call(this,shader,source);
  };
@@ -38,6 +37,15 @@ export function installWarcraftTeamTextures(gl,model,{transparent,graphics}){
   ready(native){
    gl.shaderSource=shaderSource;
    if(!transparent)return;
+   // Additive particle textures carry opaque black texels. Use emitted light as
+   // PNG coverage while retaining their original additive RGB contribution.
+   const particles=native.particlesController,particleLocation=gl.getUniformLocation(particles.shaderProgram,'uWarcraftParticleAdditive'),particleLayerProps=particles.setLayerProps;
+   particles.setLayerProps=function(emitter){
+    const result=particleLayerProps.call(this,emitter),additive=emitter.props.FilterMode===1;
+    gl.uniform1f(particleLocation,additive?1:0);
+    if(additive)gl.blendFuncSeparate(gl.ONE,gl.ONE,gl.ONE,gl.ONE_MINUS_SRC_ALPHA);
+    return result;
+   };
    const location=gl.getUniformLocation(native.shaderProgram,'uWarcraftAdditive'),opaqueLocation=gl.getUniformLocation(native.shaderProgram,'uWarcraftOpaque'),setLayerProps=native.setLayerProps;
    native.setLayerProps=function(layer,textureID){
     const result=setLayerProps.call(this,layer,textureID),additive=layer.FilterMode===3||layer.FilterMode===4;
@@ -45,14 +53,6 @@ export function installWarcraftTeamTextures(gl,model,{transparent,graphics}){
     // Opaque Warcraft layers ignore texture alpha; retain authored geoset/layer fades.
     gl.uniform1f(opaqueLocation,(layer.FilterMode??0)===0?1:0);
     // Native glow RGB is additive; its brightness supplies transparent PNG coverage.
-    if(additive)gl.blendFuncSeparate(gl.ONE,gl.ONE,gl.ONE,gl.ONE_MINUS_SRC_ALPHA);
-    return result;
-   };
-   const particles=native.particlesController,particleLocation=gl.getUniformLocation(particles.shaderProgram,'uWarcraftParticleAdditive'),setParticleProps=particles.setLayerProps;
-   particles.setLayerProps=function(emitter){
-    const result=setParticleProps.call(this,emitter),additive=emitter.props.FilterMode===1||emitter.props.FilterMode===2;
-    gl.uniform1f(particleLocation,additive?1:0);
-    // Additive particle textures often have opaque black texels; light supplies PNG coverage.
     if(additive)gl.blendFuncSeparate(gl.ONE,gl.ONE,gl.ONE,gl.ONE_MINUS_SRC_ALPHA);
     return result;
    };

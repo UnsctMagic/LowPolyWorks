@@ -22,3 +22,9 @@ https://www.lowpolyworks.com/vendor/fflate-LICENSE.txt
 
 Warcraft III native preview textures (Blizzard Entertainment)
 Classic archive BLPs used only for previews. Uploaded model downloads retain their original bytes.
+
+MDLxL read-only compatible MDX reader
+Existing MDLxL parser used for authored animated ribbon colours.
+
+Buffer (MIT), base64-js (MIT), ieee754 (BSD-3-Clause)
+See vendor/buffer-LICENSE.txt, vendor/base64-js-LICENSE.txt, vendor/ieee754-LICENSE.txt.
