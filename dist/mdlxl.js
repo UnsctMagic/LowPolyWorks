@@ -4,13 +4,15 @@ const escape=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&
 const sections={updates:'Patch updates',about:'About MDLxL',preview:'Preview',tutorials:'Tutorials',credits:'Credits'};
 const creditLinks={
  'Codex Astra and Sol':'https://openai.com/codex/',
+ 'Anthropic Claude':'https://claude.ai/',
+ 'Unsanctioned Magic':'https://xgm.guru/user/UnsanctMagic',
  'HerrDave':'https://www.hiveworkshop.com/members/herrdave.234820/',
  'POMEXI':'https://www.hiveworkshop.com/members/pomexi.326199/',
  'Alexey / Алексей':'https://xgm.guru/user/%D0%90%D0%BB%D0%B5%D0%BA%D1%81%D0%B5%D0%B9',
  'MDLVis':'https://xgm.guru/p/wc3/mdlvis',
  '4eb0da':'https://github.com/4eb0da', 'war3-model':'https://github.com/4eb0da/war3-model',
  'GhostWolf':'https://www.hiveworkshop.com/members/ghostwolf.137310/', 'mdx-m3-viewer':'https://github.com/flowtsohg/mdx-m3-viewer',
- 'BlinkBoy / Fernando Sahmkow':'https://github.com/FernandoS27', 'WhiteoutLib':'https://github.com/FernandoS27/WhiteoutLib',
+ 'Fernando Sahmkow':'https://github.com/FernandoS27', 'WhiteoutLib':'https://github.com/FernandoS27/WhiteoutLib',
  'Ladislav Zezula / Ladik':'https://github.com/ladislav-zezula', 'CascLib':'https://github.com/ladislav-zezula/CascLib', 'StormLib':'https://github.com/ladislav-zezula/StormLib',
  'Darithos':'https://github.com/Darithos', 'W3ModelViewer':'https://github.com/Darithos/W3ModelViewer',
  'Retera':'https://github.com/Retera', 'Retera Model Studio':'https://github.com/Retera/ReterasModelStudio', 'Warsmash Mod Engine':'https://github.com/Retera/WarsmashModEngine',
@@ -46,11 +48,12 @@ const creditLinks={
  'Lora':'https://fonts.google.com/specimen/Lora', 'The Lora Project Authors':'https://github.com/cyrealtype',
  'Open Sans':'https://fonts.google.com/specimen/Open+Sans', 'The Open Sans Project Authors':'https://mattesontypographics.com/about',
  'Orbitron':'https://fonts.google.com/specimen/Orbitron', 'The Orbitron Project Authors':'https://github.com/theleagueof',
+ 'Oxanium':'https://fonts.google.com/specimen/Oxanium', 'The Oxanium Project Authors':'https://github.com/sevmeyer/oxanium',
  'Rajdhani':'https://fonts.google.com/specimen/Rajdhani', 'Indian Type Foundry':'https://github.com/itfoundry',
  'Cormorant SC':'https://fonts.google.com/specimen/Cormorant+SC', 'The Cormorant Project Authors':'https://github.com/CatharsisFonts',
  'Grenze Gotisch':'https://fonts.google.com/specimen/Grenze+Gotisch', 'The Grenze Gotisch Project Authors':'https://github.com/Omnibus-Type',
  'Marcellus':'https://fonts.google.com/specimen/Marcellus', 'Tengwar Annatar':'https://www.dafont.com/tengwar-annatar.font', 'Johan Winge':'https://www.dafont.com/johan-winge.d757',
- 'Vite contributors':'https://github.com/vitejs', 'Vite':'https://vite.dev/', 'Rollup contributors':'https://github.com/rollup', 'Rollup':'https://rollupjs.org/', 'esbuild contributors':'https://github.com/evanw/esbuild/graphs/contributors', 'esbuild':'https://esbuild.github.io/', 'Electron Packager contributors':'https://github.com/electron/packager/graphs/contributors', 'Electron Packager':'https://github.com/electron/packager', 'Emscripten contributors':'https://github.com/emscripten-core', 'Emscripten':'https://emscripten.org/', 'CMake contributors':'https://github.com/Kitware', 'CMake':'https://cmake.org/', 'Ninja contributors':'https://github.com/ninja-build', 'Ninja':'https://ninja-build.org/', 'Catbox':'https://catbox.moe/',
+ 'Vite contributors':'https://github.com/vitejs', 'Vite':'https://vite.dev/', 'Rollup contributors':'https://github.com/rollup', 'Rollup':'https://rollupjs.org/', 'esbuild contributors':'https://github.com/evanw/esbuild/graphs/contributors', 'esbuild':'https://esbuild.github.io/', 'Electron Packager contributors':'https://github.com/electron/packager/graphs/contributors', 'Electron Packager':'https://github.com/electron/packager', 'Emscripten contributors':'https://github.com/emscripten-core', 'Emscripten':'https://emscripten.org/', 'CMake contributors':'https://github.com/Kitware', 'CMake':'https://cmake.org/', 'Ninja contributors':'https://github.com/ninja-build', 'Ninja':'https://ninja-build.org/',
  'Kwah':'https://www.hiveworkshop.com/members/kwah.135511/', 'Basic Animations':'https://www.hiveworkshop.com/threads/basic-animations.97548/', 'Vinz':'https://www.hiveworkshop.com/members/vinz.230106/', 'Particle Emitters 2':'https://www.hiveworkshop.com/threads/particle-emitters-2.329335/', 'Hermit':'https://www.hiveworkshop.com/members/hermit.229531/', 'tillinghast':'https://www.hiveworkshop.com/members/tillinghast.243965/', 'doom_sheep':'https://www.hiveworkshop.com/members/doom_sheep.158897/', 'The Hive Workshop':'https://www.hiveworkshop.com/', 'XGM':'https://xgm.guru/', 'community research bibliography':'https://github.com/UnsctMagic/MDLxL/blob/main/docs/COMMUNITY_RESEARCH.md'
 };
 const creditPattern=new RegExp(`(${Object.keys(creditLinks).sort((a,b)=>b.length-a.length).map(name=>name.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')).join('|')})`,'gu');
