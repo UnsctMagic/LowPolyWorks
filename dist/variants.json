@@ -592,5 +592,33 @@
         "label": "Orange Skirmisher"
       }
     ]
+  },
+  {
+    "id": "maximal-minotaurs",
+    "name": "Minotaurs (WHF)",
+    "variants": [
+      {
+        "id": "maximal-144834",
+        "label": "Axeman"
+      },
+      {
+        "id": "maximal-144833",
+        "label": "Drummer"
+      }
+    ]
+  },
+  {
+    "id": "maximal-centigors",
+    "name": "Centigors (WHF)",
+    "variants": [
+      {
+        "id": "maximal-141710",
+        "label": "Spearman"
+      },
+      {
+        "id": "maximal-141711",
+        "label": "Axethrower"
+      }
+    ]
   }
 ]

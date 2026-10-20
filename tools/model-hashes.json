@@ -494,5 +494,21 @@
   {
     "file": "gluma/359520/dwarf_organ_cannon_C.mdx",
     "sha256": "a759917f22ae522aadd10dd5fa9641b13b6e0c9c47e6d1a2752568c599a83d7d"
+  },
+  {
+    "file": "maximal/359401/Minotaur.mdx",
+    "sha256": "85350aaac56e636940709c6d6f83cdaae9466883bf25536a1e494c1d14cdbe75"
+  },
+  {
+    "file": "maximal/359401/MinotaurDrummer.mdx",
+    "sha256": "86d3ca09744af2dabd151ab3b71a07e65e1ebdaa878cb98aa37d31e0726d7b4d"
+  },
+  {
+    "file": "maximal/358425/Centigor(Spearman).mdx",
+    "sha256": "e05112009afd47bbad53fb02cfe40dc362154d5068370694f8c21056feb235cc"
+  },
+  {
+    "file": "maximal/358425/Centigor(AxeThrower).mdx",
+    "sha256": "67b43f2d31bd5bd2cfa62bc73ae7df15d1c8d8ed2fbafdbbedf72792098cedf7"
   }
 ]
