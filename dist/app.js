@@ -12,11 +12,12 @@ import {renderMdlxl} from './mdlxl.js?v=20261020-credits';
 if (/^\/mdlxl\/?$/.test(location.pathname) && !location.hash) history.replaceState(null,'',location.pathname+location.search+'#project/mdlxl');
 const app=document.querySelector('#app'),baseCatalogue=await fetch('catalogue.json?v=20261020-gluma-approved').then(r=>r.json());
 const armies=await fetch('armies.json?v=20261020-gluma-approved').then(r=>r.json());
-// Shuffle the army cards once per load; keep navigation and the first two armies in their established order.
+// Shuffle the middle army cards once per load; keep Chaos and Vampire Counts first and Dwarfs last.
 const pinnedArmyIds=['warriors-of-chaos','vampire-counts'];
-const armyCardOrder=armies.filter(army=>!pinnedArmyIds.includes(army.id));
+const armyCardOrder=armies.filter(army=>!pinnedArmyIds.includes(army.id)&&army.id!=='dwarfs');
 for(let i=armyCardOrder.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[armyCardOrder[i],armyCardOrder[j]]=[armyCardOrder[j],armyCardOrder[i]];}
 armyCardOrder.unshift(...pinnedArmyIds.map(id=>armies.find(army=>army.id===id)));
+armyCardOrder.push(armies.find(army=>army.id==='dwarfs'));
 // Variant groups: near-identical models share one army card and switch through tabs on the model page.
 const variantGroups=await fetch('variants.json?v=20261020-gluma-groups').then(r=>r.json()).catch(()=>[]);
 const descriptionParagraphs=(text,links=[])=>text.trim().split(/\r?\n\s*\r?\n/).map(paragraph=>`<p>${creditText({creditLinks:links},paragraph.trim()).replace(/\r?\n/g,'<br>')}</p>`).join('');
