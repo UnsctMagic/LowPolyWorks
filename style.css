@@ -285,3 +285,9 @@ body a[href]:any-link:hover,body #mdlxl-ffmpeg-source[href]:any-link:hover{color
  .army-grid{padding-top:24px;gap:44px 24px}
 }
 @media(max-width:360px){.model-grid{gap:8px}.model-card.slab{border-width:7px}.card-name{font-size:.87rem}}
+
+/* Alternate the Chaos army's existing formation with the approved warlord picture. */
+.army-picture[data-army="warriors-of-chaos"]>.formation-unit{animation:chaos-army-original 16s steps(1,end) infinite}
+.army-picture[data-army="warriors-of-chaos"]>.army-alternate{position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:contain;filter:none;transform:none;transition:none;z-index:3;opacity:0;animation:chaos-army-alternate 16s steps(1,end) infinite}
+@keyframes chaos-army-original{0%,100%{opacity:1}50%{opacity:0}}
+@keyframes chaos-army-alternate{0%,100%{opacity:0}50%{opacity:1}}
