@@ -7,6 +7,7 @@ import {fileURLToPath} from 'node:url';
 import {TEAM_COLORS} from '../dist/vendor/mdlxl/src/team-colors.js';
 import {modelPage,mdlxlPage} from './model-pages.mjs';
 import {parseMDX} from '../dist/vendor/war3-model.mjs';
+import {parseCompatibleMdx} from '../dist/warcraft-mdx-compatibility.js';
 
 const project = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const root = path.join(project, 'dist');
@@ -33,7 +34,7 @@ for (const row of rows) {
   assert(armies.some(army => army.id === row.army), `Unknown army for ${row.id}`);
   exists('models/' + row.file);
   const modelBytes = fs.readFileSync(path.join(root, 'models', row.file));
-  const model = parseMDX(modelBytes.buffer.slice(modelBytes.byteOffset, modelBytes.byteOffset + modelBytes.byteLength));
+  const model = row.mdxCompatibility==='ribbon-color'?parseCompatibleMdx(modelBytes):parseMDX(modelBytes.buffer.slice(modelBytes.byteOffset, modelBytes.byteOffset + modelBytes.byteLength));
   for (const texture of model.Textures.filter(texture => texture.Image && ![1, 2].includes(texture.ReplaceableId))) {
     const file = row.textureFiles?.[texture.Image.toLowerCase()] || textures[texture.Image.toLowerCase()];
     assert(file, `Missing rendering texture for ${row.id}: ${texture.Image}. Run node tools/model-textures.mjs ${row.id}.`);
@@ -50,6 +51,11 @@ for (const row of rows) {
 }
 for (const army of armies) {
   assert(TEAM_COLORS.some(colour => colour.rgbHex === army.colour), `Non-WC3 army colour: ${army.id}`);
+  if (army.image) {
+    exists(army.image);
+    for (const id of army.models) assert(ids.has(id), `Unknown formation model ${id}`);
+    continue;
+  }
   for (const [index, id] of army.models.entries()) {
     assert(ids.has(id), `Unknown formation model ${id}`);
     exists(`thumbs/formation-${id}-${['front', 'left', 'right'][index]}.png`);

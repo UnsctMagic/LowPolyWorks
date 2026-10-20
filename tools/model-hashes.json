@@ -8,6 +8,18 @@
     "sha256": "b3ebf64fa6db5eba7d0a8c2afeb1ca652024f36fd850be20efc3a802ff3783cd"
   },
   {
+    "file": "WH_VC_VonCarsteinDreadKnight07.mdx",
+    "sha256": "dffdf504d024ff8f6266cf1ca979ca11e16d2f4f83f7ae86395bd7610d806166"
+  },
+  {
+    "file": "WH_VC_StrigoiLord_04.mdx",
+    "sha256": "1f9ebd73855b2656b79e3129bb328b36ee606f1701da054c8298c8293ae2bcb5"
+  },
+  {
+    "file": "WH_VC_NecrarchLord02.mdx",
+    "sha256": "6baa4e1d87d274c237759f8d3ba28dff7f108360e8b67c7387be4de4aab72645"
+  },
+  {
     "file": "WH_WOC_KnightKhorneAxe03.mdx",
     "sha256": "da94155bca8d1c838646c2f4b0a71d023c18e334d79250b8d25ab672d75ae924"
   },
@@ -26,6 +38,10 @@
   {
     "file": "WH_WOC_KnightNurgle14.mdx",
     "sha256": "81ab2399c34fceb244e9219da5f639069c11742f0640563213dec20c2c901849"
+  },
+  {
+    "file": "WH_WOC_KnightNurgleChampion06.mdx",
+    "sha256": "8222b4370cc853861837e926157149734250bcad90a63c15377dc4e618ccfa19"
   },
   {
     "file": "WH_WOC_KnightSlaaneshAxe07.mdx",
@@ -168,39 +184,315 @@
     "sha256": "77e7b66c43d52e8896beecabec5e97b5a1a6b1350b2ff100efbc5b911199fd3e"
   },
   {
-    "file": "WH_VC_VonCarsteinDreadKnight07.mdx",
-    "sha256": "dffdf504d024ff8f6266cf1ca979ca11e16d2f4f83f7ae86395bd7610d806166"
-  },
-  {
-    "file": "WH_VC_NecrarchLord02.mdx",
-    "sha256": "6baa4e1d87d274c237759f8d3ba28dff7f108360e8b67c7387be4de4aab72645"
-  },
-  {
     "file": "WH_WOC_Ogre10.mdx",
     "sha256": "b75c09c1c7c3bb353599d321bc5d6aa9700f393cdbd1a10fc387812cb45ebaef"
-  },
-  {
-    "file": "WH_VC_BloodDragonAxe02.mdx",
-    "sha256": "e6695082ade24b722e13a34867f2d826027592afa7ac5568611d3bdfa135dc09"
-  },
-  {
-    "file": "WH_WOC_KnightNurgleChampion06.mdx",
-    "sha256": "8222b4370cc853861837e926157149734250bcad90a63c15377dc4e618ccfa19"
-  },
-  {
-    "file": "WH_WOC_WarriorKhorne03.mdx",
-    "sha256": "4e6633bc567d375358960c44d43ea2e056f7f8f09048d0b1bed51ebff4473d57"
-  },
-  {
-    "file": "WH_WOC_KurganWarlord01.mdx",
-    "sha256": "b285d609ba063f8723036a050600d248e8937b5831e0cba15068dc31cfd95ca9"
   },
   {
     "file": "WH_WOC_WarriorKhorneBerserker02.mdx",
     "sha256": "c5312b18cc925b298835f66d3b5a20b8b014d8c82eabc3ec6a47971e2638af5f"
   },
   {
+    "file": "WH_WOC_WarriorKhorne03.mdx",
+    "sha256": "4e6633bc567d375358960c44d43ea2e056f7f8f09048d0b1bed51ebff4473d57"
+  },
+  {
     "file": "chaos-warrior-of-nurgle/WH_WOC_WarriorNurgle01.mdx",
     "sha256": "5f107e9caa23ee3e06064d2bfab21511c67eb91a5c01e81d67d26d33b40af241"
+  },
+  {
+    "file": "WH_VC_BloodDragonAxe02.mdx",
+    "sha256": "e6695082ade24b722e13a34867f2d826027592afa7ac5568611d3bdfa135dc09"
+  },
+  {
+    "file": "WH_WOC_KurganWarlord01.mdx",
+    "sha256": "b285d609ba063f8723036a050600d248e8937b5831e0cba15068dc31cfd95ca9"
+  },
+  {
+    "file": "gluma/352415/bestigor10.mdx",
+    "sha256": "e31420b8d7da9eec4ff5a663a360088f7e90838fc0149bdee6d45b0415f1645c"
+  },
+  {
+    "file": "gluma/352415/bestigor10_noglow.mdx",
+    "sha256": "6f9274be34b9b777304868ba0114aab5c901a4e8005aee12a61a6c1f749bf3bf"
+  },
+  {
+    "file": "gluma/349961/gor_horn_NOglow.mdx",
+    "sha256": "c2e8f579e62eb26ace8d2f370504bf5f3d6a8933a8f5bef4a8989fd1028e8373"
+  },
+  {
+    "file": "gluma/349961/gor_horn_glow.mdx",
+    "sha256": "a5b8e26b84647ec47179abb2fdea7c692aa9dbbf5d791285b4531a8564fc04c6"
+  },
+  {
+    "file": "gluma/349942/gor_axe_glow.mdx",
+    "sha256": "923befcecff9368081cf6918b7d9ee0e796c56f315172d0327c06a343c36e823"
+  },
+  {
+    "file": "gluma/349942/gor_axe_NOglow.mdx",
+    "sha256": "531837b769735bfabc56eb738038e1057b5a965a0ba767a6f1bef651d55fd3ad"
+  },
+  {
+    "file": "gluma/349942/gor_flail_glow.mdx",
+    "sha256": "a475b56f11bb5551a8e9e40e8082819a69dc5fd6fac3efea5fe5e9fedb21c367"
+  },
+  {
+    "file": "gluma/349942/gor_flail_NOglow.mdx",
+    "sha256": "31f477ec0b3c2e4e72a9decbb777affcb671d78cac9b33bc05dae84fa4abe235"
+  },
+  {
+    "file": "gluma/313020/ratling_hero.mdx",
+    "sha256": "329f31d10b3bf3dcd91b60c281f29ef484dfb0ae3e8e0fdb61458b1413047d13"
+  },
+  {
+    "file": "gluma/313020/ratling_unit.mdx",
+    "sha256": "78117503daa2c12e81c8d48df7c5c4200add6559d446c27aac639830bcd01b14"
+  },
+  {
+    "file": "gluma/309376/warplock jezzail17.mdx",
+    "sha256": "74b9c4bf10595511fcc0fa870e881062b8ed63c888a0ab0d7f11f3432f20cb63"
+  },
+  {
+    "file": "gluma/312785/stormvermin7.mdx",
+    "sha256": "de1ad1a0235c242f3a4b8712c77fd01c479361198bdb59d49917185439827002"
+  },
+  {
+    "file": "gluma/309120/clanrat29.mdx",
+    "sha256": "1ec0fe74f4d1eff2ba6dadc6121b8143210580ac300996250e8ba4130ebd8a4a"
+  },
+  {
+    "file": "gluma/373390/handgunner_arquebus.mdx",
+    "sha256": "8b548da0513248a8c7524c601415377495425d76fca69b77cb380faaefab9929"
+  },
+  {
+    "file": "gluma/373390/handgunner_flintlock.mdx",
+    "sha256": "ec8d397ed9519dd7d437448ab6b177bb616a71c03f81b711a7b590dca21f4ad9"
+  },
+  {
+    "file": "gluma/373390/handgunner_scope.mdx",
+    "sha256": "cdde947153c43e361db6a7f7252b79c08d9eb3f5a5f5cb824aad2fe77f013b0f"
+  },
+  {
+    "file": "gluma/373390/handgunner_repeater.mdx",
+    "sha256": "c2ddeec38b6e50ef1a1bceacc9fe68783f88f50bf8d0190967f6c6fc2fe667cb"
+  },
+  {
+    "file": "gluma/370960/Dark_Elf_Witch_Hero_opt.mdx",
+    "sha256": "e28b75a3224053ccd44d0a9c7d5c36beb52f9b4a80a2f2a06dec98a35ddb3d5b"
+  },
+  {
+    "file": "gluma/370960/Dark_Elf_Witch_Unit_opt.mdx",
+    "sha256": "bd7451c14db0f1f615d0f852fb95a159f6c13cb2fd1fd3271e2943e7918076f6"
+  },
+  {
+    "file": "gluma/371134/Dark_Elf_Beastmaster_unit_opt.mdx",
+    "sha256": "6bcea7b7113d086d789252a9bba567633c96389ca13caf8d2ff79779578dea34"
+  },
+  {
+    "file": "gluma/371134/Dark_Elf_Beastmaster_hero_opt.mdx",
+    "sha256": "59a9a51cde19a1663a3323c2f87c8a36399e319c03514ee9033878cc27d8ef4d"
+  },
+  {
+    "file": "gluma/371134/Dark_Elf_Slavemaster_hero_opt.mdx",
+    "sha256": "ae9e0f7eed1c34e6e2dcce7375ad9b5184cd38ffeeca8b8ab10365d408a3863d"
+  },
+  {
+    "file": "gluma/371134/Dark_Elf_Slavemaster_unit_opt.mdx",
+    "sha256": "c520ac4cbad1d5c0412f09fc4fb3234068deb6a36de19506f1d8135647f72572"
+  },
+  {
+    "file": "gluma/358910/Cold_One_Rider_HERO.mdx",
+    "sha256": "cfb8468373f6a7d51ec6b1b4181f9761e75c95a38b131d11dc734f27fa96d059"
+  },
+  {
+    "file": "gluma/358910/Cold_One_Rider_UNIT.mdx",
+    "sha256": "56eb708cb9f928fd09d864accd13ebb098b202db33bceda67cf098a059e8af87"
+  },
+  {
+    "file": "gluma/358910/Cold_One_Riderless.mdx",
+    "sha256": "d2eca44435dc1b1bfa5f22a09248e26a0f41f7bfda479eb6b223a5edfd65cf47"
+  },
+  {
+    "file": "gluma/357293/bray_shaman_hero.mdx",
+    "sha256": "a2ab2da1fd7eb50097a102f8dca8c2bc0d259cf2476d7176160dbae03c859ad5"
+  },
+  {
+    "file": "gluma/357293/bray_shaman_unit.mdx",
+    "sha256": "72644e0e028376378f17902567325558d913cbaa7165fdd30c22598229997366"
+  },
+  {
+    "file": "gluma/357293/tzeench_shaman_hero.mdx",
+    "sha256": "268110b10bf4176c919ffe0614c12af754d451464c922f87789032517587945f"
+  },
+  {
+    "file": "gluma/357293/tzeench_shaman_unit.mdx",
+    "sha256": "f50f769e22a456719dc1d7ded0aeab91d5c3e6e9cfb35ae9f50161576fd3ee1e"
+  },
+  {
+    "file": "gluma/357283/saurus_warrior_unit_run.mdx",
+    "sha256": "4fe22ee9076a184a11cb8d438c61cb400b9cbef501d684ccc97da2e671c841f5"
+  },
+  {
+    "file": "gluma/357283/saurus_warrior_hero_run.mdx",
+    "sha256": "cbf6d7c967678b51e941a0cc31ca6b891b5d2753d7fa0acfdde54b69726fc34e"
+  },
+  {
+    "file": "gluma/359456/dwarf_cannon7.mdx",
+    "sha256": "cb1b62c82db68363ddc1ca372ce6de4f641d9b2d7fd2bc645e34dc40979ebdb2"
+  },
+  {
+    "file": "gluma/358116/Oldblood_hero.mdx",
+    "sha256": "e3533207a5b0378bb61f57bfeb583cb09d5d4ae5ee95fbf79e7b54f7a00af9c5"
+  },
+  {
+    "file": "gluma/358116/Oldblood_unit.mdx",
+    "sha256": "e75ac94318261bf5e2048662a80de507c05311c5e0c964e776d27431994b486b"
+  },
+  {
+    "file": "gluma/359970/kroxigor_unit_xtent_fix.mdx",
+    "sha256": "36f57762c3ddc6fe7a7404706176238c2d2cf646c3faf8c8a8e60d0839d89d19"
+  },
+  {
+    "file": "gluma/359970/kroxigor_hero_xtent_fix.mdx",
+    "sha256": "18c1dc9673e4b407f6d122ecbc8c34d01679a6776920dc0732e489b12a1d9c7e"
+  },
+  {
+    "file": "gluma/359970/kroxigor_ancient_unit_xtent_fix.mdx",
+    "sha256": "965f537413cd5615b1a669739cc96101ef49145faa58141fc918b3cbf9b5591a"
+  },
+  {
+    "file": "gluma/359970/Kroxigor_Ancient_Hero_xtent_fix.mdx",
+    "sha256": "8c84097223911ba72822112dbae1e79643e4bdbb2b74a1ff69341ef4ea3dc8d8"
+  },
+  {
+    "file": "gluma/356323/skink_high_priest_hero.mdx",
+    "sha256": "271d307d1a291a5b79cb1c51ce7cb676412f0c29b46392c40cff91ee07fc2a32"
+  },
+  {
+    "file": "gluma/356323/skink_high_priest_hero_swimless.mdx",
+    "sha256": "faba67101c1919c0ac04d86ea3f12bf8e21c547e638c27f5a16d21149ad301e4"
+  },
+  {
+    "file": "gluma/356323/skink_high_priest_unit.mdx",
+    "sha256": "5dbd9f608f93aecf23db1130fcaf3d39e9bcbd47112381657eafa61f89568d33"
+  },
+  {
+    "file": "gluma/356323/skink_high_priest_unit_swimless.mdx",
+    "sha256": "621e5b215517841ba5cdfc4eaf619f559726f70182d5963cc39dea96fb2185ff"
+  },
+  {
+    "file": "gluma/356052/skink_worker.mdx",
+    "sha256": "e4c47f22284055581c25dbbd045d7cf778209d5e5d66858286673ff8f88ccb0b"
+  },
+  {
+    "file": "gluma/356052/skink_worker_swimless.mdx",
+    "sha256": "cd136518355c59c5501158c08848aa54097db8f05e697e5cbbc3c9b014410507"
+  },
+  {
+    "file": "gluma/355959/skink_chief_hero.mdx",
+    "sha256": "f25101fecc65628ddfbca0d50ed8eb60ab9325c4a2a68129492d0d02a58f99e7"
+  },
+  {
+    "file": "gluma/355959/skink_chief_unit.mdx",
+    "sha256": "6e72d9160a027feff915be135220e4e1423a533d7252a3633a451609d335d45f"
+  },
+  {
+    "file": "gluma/355856/skink_spear_final.mdx",
+    "sha256": "ee0d924e84e86a0533de80dc772ea512377540cb8e10296fa1524def74bdf509"
+  },
+  {
+    "file": "gluma/355856/skink_blowpipe_final.mdx",
+    "sha256": "edd8d7d194cf1a03ff5b605aeafd47d1023d56ae57f32786faa6712560b8bd81"
+  },
+  {
+    "file": "gluma/355856/skink_javelin_final.mdx",
+    "sha256": "df1f4b2bfb0647d4ef369fb8dff17b03b2a405400b99ccb588034a893b41c97c"
+  },
+  {
+    "file": "gluma/355856/skink_spear_orange.mdx",
+    "sha256": "709379057fc7124ec7939d59a41aafaf12b58b84c87a8f4f279effc7203a13e5"
+  },
+  {
+    "file": "gluma/355856/skink_blowpipe_orange.mdx",
+    "sha256": "da24787368af02c6b78bb536f7feb7bbaa57906aa97fe98784be0605b13ded78"
+  },
+  {
+    "file": "gluma/355856/skink_javelin_orange.mdx",
+    "sha256": "bd7340ada1f263172c819aa83897287a0e562ec49311ecff625b5e1e0825c9d4"
+  },
+  {
+    "file": "gluma/355856/skink_chameleon.mdx",
+    "sha256": "c55827beca979c41f7a353108dd8ca30af2c1d2f99144648aa9d7c61be8d4cc0"
+  },
+  {
+    "file": "gluma/355533/gor_spear.mdx",
+    "sha256": "e92e5d5d7a65f59bda85dd27f7ca6750d7e271e3ebc49e38c9e80ff46c6a02ca"
+  },
+  {
+    "file": "gluma/355534/ungor slave fixed.mdx",
+    "sha256": "c99b26246cd61876c8770224a2377aa6872364a2d2bb318c8e9ece551d4f9aff"
+  },
+  {
+    "file": "gluma/334083/Ungor_bow.mdx",
+    "sha256": "a2e2cb2213cdb4fe27cf90f7a952ae5d400b97087fb1b977af54d3bcea6825c7"
+  },
+  {
+    "file": "gluma/326273/ungor_spear.mdx",
+    "sha256": "b89c97a4681bba27be399e7410ef6cb7888924dbc41d5bee17754ba1b3d85a42"
+  },
+  {
+    "file": "gluma/349800/arbalester.mdx",
+    "sha256": "18e638f241df81f9ead52fcb8ded9c68a07f7b4f1ebf3569dbccd4c08d14580f"
+  },
+  {
+    "file": "gluma/371422/Generic_Ballista.mdx",
+    "sha256": "72f17217a2881efaaf085be718349164125a57e913017b290c4c16faa765259a"
+  },
+  {
+    "file": "gluma/371422/Generic_Bolt_Thrower.mdx",
+    "sha256": "540704f03c535822f2d5eb86ddf9a9890afa4191510131d8cf310d5aaf831b7e"
+  },
+  {
+    "file": "gluma/371422/Dark_Elf_Ballista.mdx",
+    "sha256": "6807f5f7460ecdef78ed907c7b8149ab9dd0735eee2efca2c32847b606e8967a"
+  },
+  {
+    "file": "gluma/371422/Dark_Elf_Bolt_Thrower.mdx",
+    "sha256": "92da1cdc7ab3be74cc2f58527ad373301768019f7346d74e4f31fe492284f77f"
+  },
+  {
+    "file": "gluma/359556/Warp_Lightning_CannonB.mdx",
+    "sha256": "5d6d260bf65d07405921b72fd2d63ea3db44fdcfd417836a370ac8c3fb15e077"
+  },
+  {
+    "file": "gluma/359809/human cannon bronze.mdx",
+    "sha256": "cbc89c9d3222ab8d3b0ff692bd10aae001de80f27b0fb42a50cacda908f17aa2"
+  },
+  {
+    "file": "gluma/359809/human cannon black.mdx",
+    "sha256": "9dc7806aa698d6084c15fb4bbabacfdd7361c1dadc6fefb7bcc8bf55895eb2b2"
+  },
+  {
+    "file": "gluma/359809/human mortar bronze.mdx",
+    "sha256": "ab19c9633d15646349e0378890c52b67dfcebb60bc397e7df55916a6cb84f318"
+  },
+  {
+    "file": "gluma/359809/human mortar black.mdx",
+    "sha256": "6b08da6be5b656e8031222a63f23db199d1e28e1c760c6622265929df99a27e6"
+  },
+  {
+    "file": "gluma/359520/dwarf_organ_cannon_master.mdx",
+    "sha256": "4b23cbc91cab9294a5bd380be80d8c5d686abd376100cbfb4986f2458188d2e4"
+  },
+  {
+    "file": "gluma/359520/dwarf_organ_cannon_A.mdx",
+    "sha256": "c6c02b85de36bbc9ddd57c00ba15a72b08896c1284494671348f14f90d6346ad"
+  },
+  {
+    "file": "gluma/359520/dwarf_organ_cannon_B.mdx",
+    "sha256": "5780f6876ee89ff95bdfc4d73c3a615b62d3dbbe4ceb652b9ed40841c994170f"
+  },
+  {
+    "file": "gluma/359520/dwarf_organ_cannon_C.mdx",
+    "sha256": "a759917f22ae522aadd10dd5fa9641b13b6e0c9c47e6d1a2752568c599a83d7d"
   }
 ]

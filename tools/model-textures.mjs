@@ -6,6 +6,7 @@ import crypto from 'node:crypto';
 import {createRequire} from 'node:module';
 import {fileURLToPath} from 'node:url';
 import {parseMDX} from '../dist/vendor/war3-model.mjs';
+import {parseCompatibleMdx} from '../dist/warcraft-mdx-compatibility.js';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const [id, ...args] = process.argv.slice(2);
@@ -22,7 +23,7 @@ const modelPath = path.join(root, 'dist/models', row.file);
 const bytes = await fs.readFile(modelPath);
 const digest = data => crypto.createHash('sha256').update(data).digest('hex');
 const originalHash = digest(bytes);
-const model = parseMDX(bytes.buffer.slice(bytes.byteOffset, bytes.byteOffset + bytes.byteLength));
+const model = row.mdxCompatibility==='ribbon-color'?parseCompatibleMdx(bytes):parseMDX(bytes.buffer.slice(bytes.byteOffset, bytes.byteOffset + bytes.byteLength));
 const indexPath = path.join(root, 'dist/textures.json');
 const index = JSON.parse(await fs.readFile(indexPath, 'utf8'));
 const needed = [...new Set(model.Textures.filter(t => t.Image && ![1, 2].includes(t.ReplaceableId)).map(t => t.Image))];

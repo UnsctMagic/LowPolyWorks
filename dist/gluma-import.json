@@ -1,0 +1,1012 @@
+{
+  "checkedAt": "2026-10-20",
+  "resourceBundlesAudited": 54,
+  "selectedBundles": 29,
+  "modelVariants": 72,
+  "unitCards": 64,
+  "author": "Gluma",
+  "authorUrl": "https://www.hiveworkshop.com/members/gluma.241499/",
+  "models": [
+    {
+      "id": "gluma-127545",
+      "name": "Bestigor",
+      "army": "beastmen",
+      "file": "gluma/352415/bestigor10.mdx",
+      "sha256": "e31420b8d7da9eec4ff5a663a360088f7e90838fc0149bdee6d45b0415f1645c",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/bestigor.352415/#resource-127545",
+      "sourcePack": "Bestigor",
+      "downloadPack": "downloads/gluma/bestigor.352415.zip"
+    },
+    {
+      "id": "gluma-127546",
+      "name": "Bestigor Unit",
+      "army": "beastmen",
+      "file": "gluma/352415/bestigor10_noglow.mdx",
+      "sha256": "6f9274be34b9b777304868ba0114aab5c901a4e8005aee12a61a6c1f749bf3bf",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/bestigor.352415/#resource-127546",
+      "sourcePack": "Bestigor",
+      "downloadPack": "downloads/gluma/bestigor.352415.zip"
+    },
+    {
+      "id": "gluma-123574",
+      "name": "Horn gor (unit)",
+      "army": "beastmen",
+      "file": "gluma/349961/gor_horn_NOglow.mdx",
+      "sha256": "c2e8f579e62eb26ace8d2f370504bf5f3d6a8933a8f5bef4a8989fd1028e8373",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/horn-gor.349961/#resource-123574",
+      "sourcePack": "Horn gor",
+      "downloadPack": "downloads/gluma/horn-gor.349961.zip"
+    },
+    {
+      "id": "gluma-123571",
+      "name": "Horn gor (hero)",
+      "army": "beastmen",
+      "file": "gluma/349961/gor_horn_glow.mdx",
+      "sha256": "a5b8e26b84647ec47179abb2fdea7c692aa9dbbf5d791285b4531a8564fc04c6",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/horn-gor.349961/#resource-123571",
+      "sourcePack": "Horn gor",
+      "downloadPack": "downloads/gluma/horn-gor.349961.zip"
+    },
+    {
+      "id": "gluma-123553",
+      "name": "Gor Axe (hero)",
+      "army": "beastmen",
+      "file": "gluma/349942/gor_axe_glow.mdx",
+      "sha256": "923befcecff9368081cf6918b7d9ee0e796c56f315172d0327c06a343c36e823",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/gors.349942/#resource-123553",
+      "sourcePack": "Gors",
+      "downloadPack": "downloads/gluma/gors.349942.zip"
+    },
+    {
+      "id": "gluma-123554",
+      "name": "Gor Axe (unit)",
+      "army": "beastmen",
+      "file": "gluma/349942/gor_axe_NOglow.mdx",
+      "sha256": "531837b769735bfabc56eb738038e1057b5a965a0ba767a6f1bef651d55fd3ad",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/gors.349942/#resource-123554",
+      "sourcePack": "Gors",
+      "downloadPack": "downloads/gluma/gors.349942.zip"
+    },
+    {
+      "id": "gluma-123551",
+      "name": "Gor Flail (hero)",
+      "army": "beastmen",
+      "file": "gluma/349942/gor_flail_glow.mdx",
+      "sha256": "a475b56f11bb5551a8e9e40e8082819a69dc5fd6fac3efea5fe5e9fedb21c367",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/gors.349942/#resource-123551",
+      "sourcePack": "Gors",
+      "downloadPack": "downloads/gluma/gors.349942.zip"
+    },
+    {
+      "id": "gluma-123552",
+      "name": "Gor Flail (unit)",
+      "army": "beastmen",
+      "file": "gluma/349942/gor_flail_NOglow.mdx",
+      "sha256": "31f477ec0b3c2e4e72a9decbb777affcb671d78cac9b33bc05dae84fa4abe235",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/gors.349942/#resource-123552",
+      "sourcePack": "Gors",
+      "downloadPack": "downloads/gluma/gors.349942.zip"
+    },
+    {
+      "id": "gluma-82702",
+      "name": "Ratling Gunner",
+      "army": "skaven",
+      "file": "gluma/313020/ratling_hero.mdx",
+      "sha256": "329f31d10b3bf3dcd91b60c281f29ef484dfb0ae3e8e0fdb61458b1413047d13",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/ratling-gunner.313020/#resource-82702",
+      "sourcePack": "Ratling Gunner",
+      "downloadPack": "downloads/gluma/ratling-gunner.313020.zip"
+    },
+    {
+      "id": "gluma-82705",
+      "name": "Ratling unit",
+      "army": "skaven",
+      "file": "gluma/313020/ratling_unit.mdx",
+      "sha256": "78117503daa2c12e81c8d48df7c5c4200add6559d446c27aac639830bcd01b14",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/ratling-gunner.313020/#resource-82705",
+      "sourcePack": "Ratling Gunner",
+      "downloadPack": "downloads/gluma/ratling-gunner.313020.zip"
+    },
+    {
+      "id": "gluma-80903",
+      "name": "Warplock Jezzail",
+      "army": "skaven",
+      "file": "gluma/309376/warplock jezzail17.mdx",
+      "sha256": "74b9c4bf10595511fcc0fa870e881062b8ed63c888a0ab0d7f11f3432f20cb63",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/warplock-jezzail.309376/#resource-80903",
+      "sourcePack": "Warplock Jezzail",
+      "downloadPack": "downloads/gluma/warplock-jezzail.309376.zip"
+    },
+    {
+      "id": "gluma-82593",
+      "name": "Stormvermin",
+      "army": "skaven",
+      "file": "gluma/312785/stormvermin7.mdx",
+      "sha256": "de1ad1a0235c242f3a4b8712c77fd01c479361198bdb59d49917185439827002",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/stormvermin.312785/#resource-82593",
+      "sourcePack": "Stormvermin",
+      "downloadPack": "downloads/gluma/stormvermin.312785.zip"
+    },
+    {
+      "id": "gluma-80783",
+      "name": "Clanrat",
+      "army": "skaven",
+      "file": "gluma/309120/clanrat29.mdx",
+      "sha256": "1ec0fe74f4d1eff2ba6dadc6121b8143210580ac300996250e8ba4130ebd8a4a",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/skaven-clanrat.309120/#resource-80783",
+      "sourcePack": "Skaven Clanrat",
+      "downloadPack": "downloads/gluma/skaven-clanrat.309120.zip"
+    },
+    {
+      "id": "gluma-164659",
+      "name": "Empire Handgunners (Arquebus)",
+      "army": "the-empire",
+      "file": "gluma/373390/handgunner_arquebus.mdx",
+      "sha256": "8b548da0513248a8c7524c601415377495425d76fca69b77cb380faaefab9929",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/human-handgunners.373390/#resource-164659",
+      "sourcePack": "Human Handgunners",
+      "downloadPack": "downloads/gluma/human-handgunners.373390.zip"
+    },
+    {
+      "id": "gluma-164660",
+      "name": "Empire Handgunners (Flintlock)",
+      "army": "the-empire",
+      "file": "gluma/373390/handgunner_flintlock.mdx",
+      "sha256": "ec8d397ed9519dd7d437448ab6b177bb616a71c03f81b711a7b590dca21f4ad9",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/human-handgunners.373390/#resource-164660",
+      "sourcePack": "Human Handgunners",
+      "downloadPack": "downloads/gluma/human-handgunners.373390.zip"
+    },
+    {
+      "id": "gluma-164663",
+      "name": "Empire Handgunners (Scoped)",
+      "army": "the-empire",
+      "file": "gluma/373390/handgunner_scope.mdx",
+      "sha256": "cdde947153c43e361db6a7f7252b79c08d9eb3f5a5f5cb824aad2fe77f013b0f",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/human-handgunners.373390/#resource-164663",
+      "sourcePack": "Human Handgunners",
+      "downloadPack": "downloads/gluma/human-handgunners.373390.zip"
+    },
+    {
+      "id": "gluma-164662",
+      "name": "Empire Handgunners",
+      "army": "the-empire",
+      "file": "gluma/373390/handgunner_repeater.mdx",
+      "sha256": "c2ddeec38b6e50ef1a1bceacc9fe68783f88f50bf8d0190967f6c6fc2fe667cb",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/human-handgunners.373390/#resource-164662",
+      "sourcePack": "Human Handgunners",
+      "downloadPack": "downloads/gluma/human-handgunners.373390.zip"
+    },
+    {
+      "id": "gluma-159913",
+      "name": "Witch Elf Hero",
+      "army": "dark-elves",
+      "file": "gluma/370960/Dark_Elf_Witch_Hero_opt.mdx",
+      "sha256": "e28b75a3224053ccd44d0a9c7d5c36beb52f9b4a80a2f2a06dec98a35ddb3d5b",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/night-elf-bladedancer-dark-elf-witch.370960/#resource-159913",
+      "sourcePack": "Night Elf Bladedancer / Dark Elf Witch",
+      "downloadPack": "downloads/gluma/night-elf-bladedancer-dark-elf-witch.370960.zip"
+    },
+    {
+      "id": "gluma-159912",
+      "name": "Witch Elf Unit",
+      "army": "dark-elves",
+      "file": "gluma/370960/Dark_Elf_Witch_Unit_opt.mdx",
+      "sha256": "bd7451c14db0f1f615d0f852fb95a159f6c13cb2fd1fd3271e2943e7918076f6",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/night-elf-bladedancer-dark-elf-witch.370960/#resource-159912",
+      "sourcePack": "Night Elf Bladedancer / Dark Elf Witch",
+      "downloadPack": "downloads/gluma/night-elf-bladedancer-dark-elf-witch.370960.zip"
+    },
+    {
+      "id": "gluma-160458",
+      "name": "Dark Elf Beastmaster unit",
+      "army": "dark-elves",
+      "file": "gluma/371134/Dark_Elf_Beastmaster_unit_opt.mdx",
+      "sha256": "6bcea7b7113d086d789252a9bba567633c96389ca13caf8d2ff79779578dea34",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/elf-lashers.371134/#resource-160458",
+      "sourcePack": "Elf Lashers",
+      "downloadPack": "downloads/gluma/elf-lashers.371134.zip"
+    },
+    {
+      "id": "gluma-160459",
+      "name": "Dark Elf Beastmaster hero",
+      "army": "dark-elves",
+      "file": "gluma/371134/Dark_Elf_Beastmaster_hero_opt.mdx",
+      "sha256": "59a9a51cde19a1663a3323c2f87c8a36399e319c03514ee9033878cc27d8ef4d",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/elf-lashers.371134/#resource-160459",
+      "sourcePack": "Elf Lashers",
+      "downloadPack": "downloads/gluma/elf-lashers.371134.zip"
+    },
+    {
+      "id": "gluma-160461",
+      "name": "Dark Elf Slavemaster Hero",
+      "army": "dark-elves",
+      "file": "gluma/371134/Dark_Elf_Slavemaster_hero_opt.mdx",
+      "sha256": "ae9e0f7eed1c34e6e2dcce7375ad9b5184cd38ffeeca8b8ab10365d408a3863d",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/elf-lashers.371134/#resource-160461",
+      "sourcePack": "Elf Lashers",
+      "downloadPack": "downloads/gluma/elf-lashers.371134.zip"
+    },
+    {
+      "id": "gluma-160460",
+      "name": "Dark Elf Slavemaster unit",
+      "army": "dark-elves",
+      "file": "gluma/371134/Dark_Elf_Slavemaster_unit_opt.mdx",
+      "sha256": "c520ac4cbad1d5c0412f09fc4fb3234068deb6a36de19506f1d8135647f72572",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/elf-lashers.371134/#resource-160460",
+      "sourcePack": "Elf Lashers",
+      "downloadPack": "downloads/gluma/elf-lashers.371134.zip"
+    },
+    {
+      "id": "gluma-143397",
+      "name": "Cold One Rider Hero",
+      "army": "lizardmen",
+      "file": "gluma/358910/Cold_One_Rider_HERO.mdx",
+      "sha256": "cfb8468373f6a7d51ec6b1b4181f9761e75c95a38b131d11dc734f27fa96d059",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/cold-one-rider.358910/#resource-143397",
+      "sourcePack": "Cold One Rider",
+      "downloadPack": "downloads/gluma/cold-one-rider.358910.zip"
+    },
+    {
+      "id": "gluma-143396",
+      "name": "Cold One Rider Unit",
+      "army": "lizardmen",
+      "file": "gluma/358910/Cold_One_Rider_UNIT.mdx",
+      "sha256": "56eb708cb9f928fd09d864accd13ebb098b202db33bceda67cf098a059e8af87",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/cold-one-rider.358910/#resource-143396",
+      "sourcePack": "Cold One Rider",
+      "downloadPack": "downloads/gluma/cold-one-rider.358910.zip"
+    },
+    {
+      "id": "gluma-143398",
+      "name": "Feral Cold One",
+      "army": "lizardmen",
+      "file": "gluma/358910/Cold_One_Riderless.mdx",
+      "sha256": "d2eca44435dc1b1bfa5f22a09248e26a0f41f7bfda479eb6b223a5edfd65cf47",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/cold-one-rider.358910/#resource-143398",
+      "sourcePack": "Cold One Rider",
+      "downloadPack": "downloads/gluma/cold-one-rider.358910.zip"
+    },
+    {
+      "id": "gluma-137406",
+      "name": "Bray Shaman Hero",
+      "army": "beastmen",
+      "file": "gluma/357293/bray_shaman_hero.mdx",
+      "sha256": "a2ab2da1fd7eb50097a102f8dca8c2bc0d259cf2476d7176160dbae03c859ad5",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/bray-shaman.357293/#resource-137406",
+      "sourcePack": "Bray Shaman",
+      "downloadPack": "downloads/gluma/bray-shaman.357293.zip"
+    },
+    {
+      "id": "gluma-137407",
+      "name": "Bray Shaman Unit",
+      "army": "beastmen",
+      "file": "gluma/357293/bray_shaman_unit.mdx",
+      "sha256": "72644e0e028376378f17902567325558d913cbaa7165fdd30c22598229997366",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/bray-shaman.357293/#resource-137407",
+      "sourcePack": "Bray Shaman",
+      "downloadPack": "downloads/gluma/bray-shaman.357293.zip"
+    },
+    {
+      "id": "gluma-144692",
+      "name": "Bray Shaman of Tzeench Hero",
+      "army": "beastmen",
+      "file": "gluma/357293/tzeench_shaman_hero.mdx",
+      "sha256": "268110b10bf4176c919ffe0614c12af754d451464c922f87789032517587945f",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/bray-shaman.357293/#resource-144692",
+      "sourcePack": "Bray Shaman",
+      "downloadPack": "downloads/gluma/bray-shaman.357293.zip"
+    },
+    {
+      "id": "gluma-144691",
+      "name": "Bray Shaman of Tzeench Unit",
+      "army": "beastmen",
+      "file": "gluma/357293/tzeench_shaman_unit.mdx",
+      "sha256": "f50f769e22a456719dc1d7ded0aeab91d5c3e6e9cfb35ae9f50161576fd3ee1e",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/bray-shaman.357293/#resource-144691",
+      "sourcePack": "Bray Shaman",
+      "downloadPack": "downloads/gluma/bray-shaman.357293.zip"
+    },
+    {
+      "id": "gluma-137328",
+      "name": "Saurus Warrior",
+      "army": "lizardmen",
+      "file": "gluma/357283/saurus_warrior_unit_run.mdx",
+      "sha256": "4fe22ee9076a184a11cb8d438c61cb400b9cbef501d684ccc97da2e671c841f5",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/saurus-warrior.357283/#resource-137328",
+      "sourcePack": "Saurus Warrior",
+      "downloadPack": "downloads/gluma/saurus-warrior.357283.zip"
+    },
+    {
+      "id": "gluma-137329",
+      "name": "Saurus Warrior Hero",
+      "army": "lizardmen",
+      "file": "gluma/357283/saurus_warrior_hero_run.mdx",
+      "sha256": "cbf6d7c967678b51e941a0cc31ca6b891b5d2753d7fa0acfdde54b69726fc34e",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/saurus-warrior.357283/#resource-137329",
+      "sourcePack": "Saurus Warrior",
+      "downloadPack": "downloads/gluma/saurus-warrior.357283.zip"
+    },
+    {
+      "id": "gluma-145021",
+      "name": "Dwarf Cannon",
+      "army": "dwarfs",
+      "file": "gluma/359456/dwarf_cannon7.mdx",
+      "sha256": "cb1b62c82db68363ddc1ca372ce6de4f641d9b2d7fd2bc645e34dc40979ebdb2",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/dwarf-cannon.359456/#resource-145021",
+      "sourcePack": "Dwarf Cannon",
+      "downloadPack": "downloads/gluma/dwarf-cannon.359456.zip"
+    },
+    {
+      "id": "gluma-140895",
+      "name": "Saurus Oldblood Hero",
+      "army": "lizardmen",
+      "file": "gluma/358116/Oldblood_hero.mdx",
+      "sha256": "e3533207a5b0378bb61f57bfeb583cb09d5d4ae5ee95fbf79e7b54f7a00af9c5",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/saurus-oldblood.358116/#resource-140895",
+      "sourcePack": "Saurus Oldblood",
+      "downloadPack": "downloads/gluma/saurus-oldblood.358116.zip"
+    },
+    {
+      "id": "gluma-140896",
+      "name": "Saurus Oldblood Unit",
+      "army": "lizardmen",
+      "file": "gluma/358116/Oldblood_unit.mdx",
+      "sha256": "e75ac94318261bf5e2048662a80de507c05311c5e0c964e776d27431994b486b",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/saurus-oldblood.358116/#resource-140896",
+      "sourcePack": "Saurus Oldblood",
+      "downloadPack": "downloads/gluma/saurus-oldblood.358116.zip"
+    },
+    {
+      "id": "gluma-146392",
+      "name": "Kroxigor Unit",
+      "army": "lizardmen",
+      "file": "gluma/359970/kroxigor_unit_xtent_fix.mdx",
+      "sha256": "36f57762c3ddc6fe7a7404706176238c2d2cf646c3faf8c8a8e60d0839d89d19",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/kroxigor-ancient-kroxigor.359970/#resource-146392",
+      "sourcePack": "Kroxigor, Ancient Kroxigor",
+      "downloadPack": "downloads/gluma/kroxigor-ancient-kroxigor.359970.zip"
+    },
+    {
+      "id": "gluma-146393",
+      "name": "Kroxigor Hero",
+      "army": "lizardmen",
+      "file": "gluma/359970/kroxigor_hero_xtent_fix.mdx",
+      "sha256": "18c1dc9673e4b407f6d122ecbc8c34d01679a6776920dc0732e489b12a1d9c7e",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/kroxigor-ancient-kroxigor.359970/#resource-146393",
+      "sourcePack": "Kroxigor, Ancient Kroxigor",
+      "downloadPack": "downloads/gluma/kroxigor-ancient-kroxigor.359970.zip"
+    },
+    {
+      "id": "gluma-146394",
+      "name": "Kroxigor Ancient Unit",
+      "army": "lizardmen",
+      "file": "gluma/359970/kroxigor_ancient_unit_xtent_fix.mdx",
+      "sha256": "965f537413cd5615b1a669739cc96101ef49145faa58141fc918b3cbf9b5591a",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/kroxigor-ancient-kroxigor.359970/#resource-146394",
+      "sourcePack": "Kroxigor, Ancient Kroxigor",
+      "downloadPack": "downloads/gluma/kroxigor-ancient-kroxigor.359970.zip"
+    },
+    {
+      "id": "gluma-146395",
+      "name": "Kroxigor Ancient Hero",
+      "army": "lizardmen",
+      "file": "gluma/359970/Kroxigor_Ancient_Hero_xtent_fix.mdx",
+      "sha256": "8c84097223911ba72822112dbae1e79643e4bdbb2b74a1ff69341ef4ea3dc8d8",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/kroxigor-ancient-kroxigor.359970/#resource-146395",
+      "sourcePack": "Kroxigor, Ancient Kroxigor",
+      "downloadPack": "downloads/gluma/kroxigor-ancient-kroxigor.359970.zip"
+    },
+    {
+      "id": "gluma-135399",
+      "name": "Skink High Priest Hero",
+      "army": "lizardmen",
+      "file": "gluma/356323/skink_high_priest_hero.mdx",
+      "sha256": "271d307d1a291a5b79cb1c51ce7cb676412f0c29b46392c40cff91ee07fc2a32",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/skink-high-priest.356323/#resource-135399",
+      "sourcePack": "Skink High Priest",
+      "downloadPack": "downloads/gluma/skink-high-priest.356323.zip"
+    },
+    {
+      "id": "gluma-135400",
+      "name": "Skink High Priest Hero (Swimless)",
+      "army": "lizardmen",
+      "file": "gluma/356323/skink_high_priest_hero_swimless.mdx",
+      "sha256": "faba67101c1919c0ac04d86ea3f12bf8e21c547e638c27f5a16d21149ad301e4",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/skink-high-priest.356323/#resource-135400",
+      "sourcePack": "Skink High Priest",
+      "downloadPack": "downloads/gluma/skink-high-priest.356323.zip"
+    },
+    {
+      "id": "gluma-135401",
+      "name": "Skink High Priest Unit",
+      "army": "lizardmen",
+      "file": "gluma/356323/skink_high_priest_unit.mdx",
+      "sha256": "5dbd9f608f93aecf23db1130fcaf3d39e9bcbd47112381657eafa61f89568d33",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/skink-high-priest.356323/#resource-135401",
+      "sourcePack": "Skink High Priest",
+      "downloadPack": "downloads/gluma/skink-high-priest.356323.zip"
+    },
+    {
+      "id": "gluma-135402",
+      "name": "Skink High Priest Unit (Swimless)",
+      "army": "lizardmen",
+      "file": "gluma/356323/skink_high_priest_unit_swimless.mdx",
+      "sha256": "621e5b215517841ba5cdfc4eaf619f559726f70182d5963cc39dea96fb2185ff",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/skink-high-priest.356323/#resource-135402",
+      "sourcePack": "Skink High Priest",
+      "downloadPack": "downloads/gluma/skink-high-priest.356323.zip"
+    },
+    {
+      "id": "gluma-134840",
+      "name": "Skink Worker",
+      "army": "lizardmen",
+      "file": "gluma/356052/skink_worker.mdx",
+      "sha256": "e4c47f22284055581c25dbbd045d7cf778209d5e5d66858286673ff8f88ccb0b",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/skink-worker.356052/#resource-134840",
+      "sourcePack": "Skink Worker",
+      "downloadPack": "downloads/gluma/skink-worker.356052.zip"
+    },
+    {
+      "id": "gluma-134841",
+      "name": "Skink Worker Swimless",
+      "army": "lizardmen",
+      "file": "gluma/356052/skink_worker_swimless.mdx",
+      "sha256": "cd136518355c59c5501158c08848aa54097db8f05e697e5cbbc3c9b014410507",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/skink-worker.356052/#resource-134841",
+      "sourcePack": "Skink Worker",
+      "downloadPack": "downloads/gluma/skink-worker.356052.zip"
+    },
+    {
+      "id": "gluma-134634",
+      "name": "Skink Chief (Hero)",
+      "army": "lizardmen",
+      "file": "gluma/355959/skink_chief_hero.mdx",
+      "sha256": "f25101fecc65628ddfbca0d50ed8eb60ab9325c4a2a68129492d0d02a58f99e7",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/skink-chief.355959/#resource-134634",
+      "sourcePack": "Skink Chief",
+      "downloadPack": "downloads/gluma/skink-chief.355959.zip"
+    },
+    {
+      "id": "gluma-134635",
+      "name": "Skink Chief (Unit)",
+      "army": "lizardmen",
+      "file": "gluma/355959/skink_chief_unit.mdx",
+      "sha256": "6e72d9160a027feff915be135220e4e1423a533d7252a3633a451609d335d45f",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/skink-chief.355959/#resource-134635",
+      "sourcePack": "Skink Chief",
+      "downloadPack": "downloads/gluma/skink-chief.355959.zip"
+    },
+    {
+      "id": "gluma-134398",
+      "name": "Spear Skink",
+      "army": "lizardmen",
+      "file": "gluma/355856/skink_spear_final.mdx",
+      "sha256": "ee0d924e84e86a0533de80dc772ea512377540cb8e10296fa1524def74bdf509",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/skink-troops.355856/#resource-134398",
+      "sourcePack": "Skink Troops",
+      "downloadPack": "downloads/gluma/skink-troops.355856.zip"
+    },
+    {
+      "id": "gluma-134399",
+      "name": "Blowpipe Skink",
+      "army": "lizardmen",
+      "file": "gluma/355856/skink_blowpipe_final.mdx",
+      "sha256": "edd8d7d194cf1a03ff5b605aeafd47d1023d56ae57f32786faa6712560b8bd81",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/skink-troops.355856/#resource-134399",
+      "sourcePack": "Skink Troops",
+      "downloadPack": "downloads/gluma/skink-troops.355856.zip"
+    },
+    {
+      "id": "gluma-134400",
+      "name": "Skink Skirmisher",
+      "army": "lizardmen",
+      "file": "gluma/355856/skink_javelin_final.mdx",
+      "sha256": "df1f4b2bfb0647d4ef369fb8dff17b03b2a405400b99ccb588034a893b41c97c",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/skink-troops.355856/#resource-134400",
+      "sourcePack": "Skink Troops",
+      "downloadPack": "downloads/gluma/skink-troops.355856.zip"
+    },
+    {
+      "id": "gluma-134401",
+      "name": "Orange Spear Skink",
+      "army": "lizardmen",
+      "file": "gluma/355856/skink_spear_orange.mdx",
+      "sha256": "709379057fc7124ec7939d59a41aafaf12b58b84c87a8f4f279effc7203a13e5",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/skink-troops.355856/#resource-134401",
+      "sourcePack": "Skink Troops",
+      "downloadPack": "downloads/gluma/skink-troops.355856.zip"
+    },
+    {
+      "id": "gluma-134404",
+      "name": "Orange Blowpipe Skink",
+      "army": "lizardmen",
+      "file": "gluma/355856/skink_blowpipe_orange.mdx",
+      "sha256": "da24787368af02c6b78bb536f7feb7bbaa57906aa97fe98784be0605b13ded78",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/skink-troops.355856/#resource-134404",
+      "sourcePack": "Skink Troops",
+      "downloadPack": "downloads/gluma/skink-troops.355856.zip"
+    },
+    {
+      "id": "gluma-134402",
+      "name": "Orange Skink Skirmisher",
+      "army": "lizardmen",
+      "file": "gluma/355856/skink_javelin_orange.mdx",
+      "sha256": "bd7340ada1f263172c819aa83897287a0e562ec49311ecff625b5e1e0825c9d4",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/skink-troops.355856/#resource-134402",
+      "sourcePack": "Skink Troops",
+      "downloadPack": "downloads/gluma/skink-troops.355856.zip"
+    },
+    {
+      "id": "gluma-134405",
+      "name": "Chameleon Skink",
+      "army": "lizardmen",
+      "file": "gluma/355856/skink_chameleon.mdx",
+      "sha256": "c55827beca979c41f7a353108dd8ca30af2c1d2f99144648aa9d7c61be8d4cc0",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/skink-troops.355856/#resource-134405",
+      "sourcePack": "Skink Troops",
+      "downloadPack": "downloads/gluma/skink-troops.355856.zip"
+    },
+    {
+      "id": "gluma-133845",
+      "name": "Gor Spear Thrower",
+      "army": "beastmen",
+      "file": "gluma/355533/gor_spear.mdx",
+      "sha256": "e92e5d5d7a65f59bda85dd27f7ca6750d7e271e3ebc49e38c9e80ff46c6a02ca",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/goatman-spear-thrower.355533/#resource-133845",
+      "sourcePack": "Goatman Spear Thrower",
+      "downloadPack": "downloads/gluma/goatman-spear-thrower.355533.zip"
+    },
+    {
+      "id": "gluma-133854",
+      "name": "Ungor Slave",
+      "army": "beastmen",
+      "file": "gluma/355534/ungor slave fixed.mdx",
+      "sha256": "c99b26246cd61876c8770224a2377aa6872364a2d2bb318c8e9ece551d4f9aff",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/ungor-slave.355534/#resource-133854",
+      "sourcePack": "Ungor Slave",
+      "downloadPack": "downloads/gluma/ungor-slave.355534.zip"
+    },
+    {
+      "id": "gluma-99740",
+      "name": "Ungor Bowman",
+      "army": "beastmen",
+      "file": "gluma/334083/Ungor_bow.mdx",
+      "sha256": "a2e2cb2213cdb4fe27cf90f7a952ae5d400b97087fb1b977af54d3bcea6825c7",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/ungor-bowman.334083/#resource-99740",
+      "sourcePack": "Ungor Bowman",
+      "downloadPack": "downloads/gluma/ungor-bowman.334083.zip"
+    },
+    {
+      "id": "gluma-90822",
+      "name": "Ungor with spear",
+      "army": "beastmen",
+      "file": "gluma/326273/ungor_spear.mdx",
+      "sha256": "b89c97a4681bba27be399e7410ef6cb7888924dbc41d5bee17754ba1b3d85a42",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/ungor-with-spear.326273/#resource-90822",
+      "sourcePack": "Ungor with spear",
+      "downloadPack": "downloads/gluma/ungor-with-spear.326273.zip"
+    },
+    {
+      "id": "gluma-123406",
+      "name": "Empire Crossbowman",
+      "army": "the-empire",
+      "file": "gluma/349800/arbalester.mdx",
+      "sha256": "18e638f241df81f9ead52fcb8ded9c68a07f7b4f1ebf3569dbccd4c08d14580f",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/human-crossbowman.349800/#resource-123406",
+      "sourcePack": "Human Crossbowman",
+      "downloadPack": "downloads/gluma/human-crossbowman.349800.zip"
+    },
+    {
+      "id": "gluma-160790",
+      "name": "Generic Ballista",
+      "army": "dark-elves",
+      "file": "gluma/371422/Generic_Ballista.mdx",
+      "sha256": "72f17217a2881efaaf085be718349164125a57e913017b290c4c16faa765259a",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/ballista-and-bolt-thrower.371422/#resource-160790",
+      "sourcePack": "Ballista and Bolt Thrower",
+      "downloadPack": "downloads/gluma/ballista-and-bolt-thrower.371422.zip"
+    },
+    {
+      "id": "gluma-160791",
+      "name": "Generic Bolt Thrower",
+      "army": "dark-elves",
+      "file": "gluma/371422/Generic_Bolt_Thrower.mdx",
+      "sha256": "540704f03c535822f2d5eb86ddf9a9890afa4191510131d8cf310d5aaf831b7e",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/ballista-and-bolt-thrower.371422/#resource-160791",
+      "sourcePack": "Ballista and Bolt Thrower",
+      "downloadPack": "downloads/gluma/ballista-and-bolt-thrower.371422.zip"
+    },
+    {
+      "id": "gluma-160792",
+      "name": "Dark Elf Ballista",
+      "army": "dark-elves",
+      "file": "gluma/371422/Dark_Elf_Ballista.mdx",
+      "sha256": "6807f5f7460ecdef78ed907c7b8149ab9dd0735eee2efca2c32847b606e8967a",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/ballista-and-bolt-thrower.371422/#resource-160792",
+      "sourcePack": "Ballista and Bolt Thrower",
+      "downloadPack": "downloads/gluma/ballista-and-bolt-thrower.371422.zip"
+    },
+    {
+      "id": "gluma-160793",
+      "name": "Dark Elf Bolt Thrower",
+      "army": "dark-elves",
+      "file": "gluma/371422/Dark_Elf_Bolt_Thrower.mdx",
+      "sha256": "92da1cdc7ab3be74cc2f58527ad373301768019f7346d74e4f31fe492284f77f",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/ballista-and-bolt-thrower.371422/#resource-160793",
+      "sourcePack": "Ballista and Bolt Thrower",
+      "downloadPack": "downloads/gluma/ballista-and-bolt-thrower.371422.zip"
+    },
+    {
+      "id": "gluma-145290",
+      "name": "Warp Lightning Cannon",
+      "army": "skaven",
+      "file": "gluma/359556/Warp_Lightning_CannonB.mdx",
+      "sha256": "5d6d260bf65d07405921b72fd2d63ea3db44fdcfd417836a370ac8c3fb15e077",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/warp-lightning-cannon.359556/#resource-145290",
+      "sourcePack": "Warp Lightning Cannon",
+      "downloadPack": "downloads/gluma/warp-lightning-cannon.359556.zip"
+    },
+    {
+      "id": "gluma-146044",
+      "name": "Human Cannon Bronze",
+      "army": "the-empire",
+      "file": "gluma/359809/human cannon bronze.mdx",
+      "sha256": "cbc89c9d3222ab8d3b0ff692bd10aae001de80f27b0fb42a50cacda908f17aa2",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/human-cannon-and-mortar.359809/#resource-146044",
+      "sourcePack": "Human Cannon and Mortar",
+      "downloadPack": "downloads/gluma/human-cannon-and-mortar.359809.zip"
+    },
+    {
+      "id": "gluma-146046",
+      "name": "Human Cannon Black",
+      "army": "the-empire",
+      "file": "gluma/359809/human cannon black.mdx",
+      "sha256": "9dc7806aa698d6084c15fb4bbabacfdd7361c1dadc6fefb7bcc8bf55895eb2b2",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/human-cannon-and-mortar.359809/#resource-146046",
+      "sourcePack": "Human Cannon and Mortar",
+      "downloadPack": "downloads/gluma/human-cannon-and-mortar.359809.zip"
+    },
+    {
+      "id": "gluma-146045",
+      "name": "Human Mortar Bronze",
+      "army": "the-empire",
+      "file": "gluma/359809/human mortar bronze.mdx",
+      "sha256": "ab19c9633d15646349e0378890c52b67dfcebb60bc397e7df55916a6cb84f318",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/human-cannon-and-mortar.359809/#resource-146045",
+      "sourcePack": "Human Cannon and Mortar",
+      "downloadPack": "downloads/gluma/human-cannon-and-mortar.359809.zip"
+    },
+    {
+      "id": "gluma-146047",
+      "name": "Human Mortar Black",
+      "army": "the-empire",
+      "file": "gluma/359809/human mortar black.mdx",
+      "sha256": "6b08da6be5b656e8031222a63f23db199d1e28e1c760c6622265929df99a27e6",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/human-cannon-and-mortar.359809/#resource-146047",
+      "sourcePack": "Human Cannon and Mortar",
+      "downloadPack": "downloads/gluma/human-cannon-and-mortar.359809.zip"
+    },
+    {
+      "id": "gluma-145231",
+      "name": "Dwarf Organ Cannon",
+      "army": "dwarfs",
+      "file": "gluma/359520/dwarf_organ_cannon_master.mdx",
+      "sha256": "4b23cbc91cab9294a5bd380be80d8c5d686abd376100cbfb4986f2458188d2e4",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/dwarf-organ-cannon.359520/#resource-145231",
+      "sourcePack": "Dwarf Organ Cannon",
+      "downloadPack": "downloads/gluma/dwarf-organ-cannon.359520.zip"
+    },
+    {
+      "id": "gluma-145232",
+      "name": "Dwarf Organ Cannon (Full Barrage)",
+      "army": "dwarfs",
+      "file": "gluma/359520/dwarf_organ_cannon_A.mdx",
+      "sha256": "c6c02b85de36bbc9ddd57c00ba15a72b08896c1284494671348f14f90d6346ad",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/dwarf-organ-cannon.359520/#resource-145232",
+      "sourcePack": "Dwarf Organ Cannon",
+      "downloadPack": "downloads/gluma/dwarf-organ-cannon.359520.zip"
+    },
+    {
+      "id": "gluma-145233",
+      "name": "Dwarf Organ Cannon (Single Shots)",
+      "army": "dwarfs",
+      "file": "gluma/359520/dwarf_organ_cannon_B.mdx",
+      "sha256": "5780f6876ee89ff95bdfc4d73c3a615b62d3dbbe4ceb652b9ed40841c994170f",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/dwarf-organ-cannon.359520/#resource-145233",
+      "sourcePack": "Dwarf Organ Cannon",
+      "downloadPack": "downloads/gluma/dwarf-organ-cannon.359520.zip"
+    },
+    {
+      "id": "gluma-145234",
+      "name": "Dwarf Organ Cannon (Small Barrages)",
+      "army": "dwarfs",
+      "file": "gluma/359520/dwarf_organ_cannon_C.mdx",
+      "sha256": "a759917f22ae522aadd10dd5fa9641b13b6e0c9c47e6d1a2752568c599a83d7d",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/dwarf-organ-cannon.359520/#resource-145234",
+      "sourcePack": "Dwarf Organ Cannon",
+      "downloadPack": "downloads/gluma/dwarf-organ-cannon.359520.zip"
+    }
+  ],
+  "supportingModels": [
+    {
+      "resourceId": "80904",
+      "title": "warpstone bullet",
+      "sha256": "517969e10c1a177561ea3d985f5edae958a30c6f00632b103a8dfab97b7e6586"
+    },
+    {
+      "resourceId": "134413",
+      "title": "Blue Skink Missile",
+      "sha256": "eadec5606bf5424a2867e67e639cb63f13b08d655720be474d6a786c3886f285"
+    },
+    {
+      "resourceId": "134414",
+      "title": "Red Skink Missile",
+      "sha256": "8d95938144dc890599497103cb88b48fd4abd08243f6233f6d016acf9ff9b657"
+    },
+    {
+      "resourceId": "133846",
+      "title": "Gor Spear Missile",
+      "sha256": "8ad903558f42731b95a4144e39b1cf541560418e54316c85aa15378d90afde05"
+    },
+    {
+      "resourceId": "123408",
+      "title": "crossboltmissile",
+      "sha256": "f8cf0421b9b37bf65023f5b5d3b754b05fc9785c1e7e24f3a7684bbd6a1d8d5a"
+    },
+    {
+      "resourceId": "160794",
+      "title": "Generic Bolt Big",
+      "sha256": "10194155c7f54661da3c76baa15fb8f2151cae6f91882d02519cb30fcf2f8b0d"
+    },
+    {
+      "resourceId": "160795",
+      "title": "Generic Bolt Small",
+      "sha256": "70c2169543f028659afeb8d6d1edab8f15b41edaa438b5d9e55e0fbed2bb5d56"
+    },
+    {
+      "resourceId": "160796",
+      "title": "Dark Elf Bolt Big",
+      "sha256": "30fcfe6fc0d9b6dc06efb5459ffd689bdb6bbd989f8ecdc954cc86410cdae318"
+    },
+    {
+      "resourceId": "160797",
+      "title": "Dark Elf Bolt Small",
+      "sha256": "a1b5722edadb20e4990c21d0e152314bc07022a4cfd7b075e717b2bbea1aa05e"
+    }
+  ],
+  "packages": [
+    {
+      "sourcePack": "Bestigor",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/bestigor.352415/",
+      "file": "downloads/gluma/bestigor.352415.zip",
+      "sourcePackageSha256": "8568e35db10099acc15ce11ca9add9df641b5121750ec24b6295f15596616f88",
+      "selection": "original package",
+      "sha256": "8568e35db10099acc15ce11ca9add9df641b5121750ec24b6295f15596616f88"
+    },
+    {
+      "sourcePack": "Horn gor",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/horn-gor.349961/",
+      "file": "downloads/gluma/horn-gor.349961.zip",
+      "sourcePackageSha256": "a0e38ea09dc9c95e6f4a675ec6b6b2f1c38d5905e0eef612daa1411995784aff",
+      "selection": "original package",
+      "sha256": "a0e38ea09dc9c95e6f4a675ec6b6b2f1c38d5905e0eef612daa1411995784aff"
+    },
+    {
+      "sourcePack": "Gors",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/gors.349942/",
+      "file": "downloads/gluma/gors.349942.zip",
+      "sourcePackageSha256": "f26b1fe8cad5a94d079d421c5fcd5b59c1a83491a16d3510b8a6af82b933be40",
+      "selection": "original package",
+      "sha256": "f26b1fe8cad5a94d079d421c5fcd5b59c1a83491a16d3510b8a6af82b933be40"
+    },
+    {
+      "sourcePack": "Ratling Gunner",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/ratling-gunner.313020/",
+      "file": "downloads/gluma/ratling-gunner.313020.zip",
+      "sourcePackageSha256": "e54c8b4c53cb7d8413b7849d7fed7d8a1f1a5a7bc21c7e670aae45510339cbc7",
+      "selection": "original package",
+      "sha256": "e54c8b4c53cb7d8413b7849d7fed7d8a1f1a5a7bc21c7e670aae45510339cbc7"
+    },
+    {
+      "sourcePack": "Warplock Jezzail",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/warplock-jezzail.309376/",
+      "file": "downloads/gluma/warplock-jezzail.309376.zip",
+      "sourcePackageSha256": "30cd405fb232885b2e6c0cd144fe5aa759a49256748ccd9fc6746f100ccbfc4f",
+      "selection": "original package",
+      "sha256": "30cd405fb232885b2e6c0cd144fe5aa759a49256748ccd9fc6746f100ccbfc4f"
+    },
+    {
+      "sourcePack": "Stormvermin",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/stormvermin.312785/",
+      "file": "downloads/gluma/stormvermin.312785.zip",
+      "sourcePackageSha256": "01e96d4f4a1e3f6de8c0513fa0b7ec7fcfac1a821c5ff3649f3f07238189d3e2",
+      "selection": "original package",
+      "sha256": "01e96d4f4a1e3f6de8c0513fa0b7ec7fcfac1a821c5ff3649f3f07238189d3e2"
+    },
+    {
+      "sourcePack": "Skaven Clanrat",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/skaven-clanrat.309120/",
+      "file": "downloads/gluma/skaven-clanrat.309120.zip",
+      "sourcePackageSha256": "ebd7f0ea275ec9c26656a3c5a63411c3a2d04525db1a8d75be873bcdfdb17edf",
+      "selection": "original package",
+      "sha256": "ebd7f0ea275ec9c26656a3c5a63411c3a2d04525db1a8d75be873bcdfdb17edf"
+    },
+    {
+      "sourcePack": "Human Handgunners",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/human-handgunners.373390/",
+      "file": "downloads/gluma/human-handgunners.373390.zip",
+      "sourcePackageSha256": "f4021a3e84c1a8071bcce4872665ba913952923d896fbde098a01d5747a74045",
+      "selection": "original package",
+      "sha256": "f4021a3e84c1a8071bcce4872665ba913952923d896fbde098a01d5747a74045"
+    },
+    {
+      "sourcePack": "Night Elf Bladedancer / Dark Elf Witch",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/night-elf-bladedancer-dark-elf-witch.370960/",
+      "file": "downloads/gluma/night-elf-bladedancer-dark-elf-witch.370960.zip",
+      "sourcePackageSha256": "6c9a456b34751c9237f3a072097bb51821b93bb8d30a6cdf2f63dafac3877173",
+      "selection": "approved variants only",
+      "sha256": "f94372335fb78eef44d65756fe60a370b6f5d748bec19192f219166f7a30e8b1"
+    },
+    {
+      "sourcePack": "Elf Lashers",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/elf-lashers.371134/",
+      "file": "downloads/gluma/elf-lashers.371134.zip",
+      "sourcePackageSha256": "3aeb967a55736501b0ae1cfdab324ce504c8cb2999f0acb8622d990a91af5b07",
+      "selection": "approved variants only",
+      "sha256": "13622f0325416e74cfe21f11f77ad27291e40cb0dc458383cd75f6ce65b37d9e"
+    },
+    {
+      "sourcePack": "Cold One Rider",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/cold-one-rider.358910/",
+      "file": "downloads/gluma/cold-one-rider.358910.zip",
+      "sourcePackageSha256": "8f6ba95807e97abf2092bcc867ab17e1ede4e98dd944098ef617a3743ecc3b4f",
+      "selection": "original package",
+      "sha256": "8f6ba95807e97abf2092bcc867ab17e1ede4e98dd944098ef617a3743ecc3b4f"
+    },
+    {
+      "sourcePack": "Bray Shaman",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/bray-shaman.357293/",
+      "file": "downloads/gluma/bray-shaman.357293.zip",
+      "sourcePackageSha256": "bee1af87afd324259fab48fd95b2a03384ed148712f7c29b0a45bc204631f084",
+      "selection": "approved variants only",
+      "sha256": "12e6dac40a9c90befcbc4c49e258b0148af7e62a5d0b03d6187722d23524c9b0"
+    },
+    {
+      "sourcePack": "Saurus Warrior",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/saurus-warrior.357283/",
+      "file": "downloads/gluma/saurus-warrior.357283.zip",
+      "sourcePackageSha256": "203e03a5a59bae1dc40ddbc063664fc8e97c889bbb98a0a191bd5e9158276412",
+      "selection": "original package",
+      "sha256": "203e03a5a59bae1dc40ddbc063664fc8e97c889bbb98a0a191bd5e9158276412"
+    },
+    {
+      "sourcePack": "Dwarf Cannon",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/dwarf-cannon.359456/",
+      "file": "downloads/gluma/dwarf-cannon.359456.zip",
+      "sourcePackageSha256": "780f8477e78dab8588794d111cb24ad3bb008e996c663f2ce598fcd4584e9a64",
+      "selection": "original package",
+      "sha256": "780f8477e78dab8588794d111cb24ad3bb008e996c663f2ce598fcd4584e9a64"
+    },
+    {
+      "sourcePack": "Saurus Oldblood",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/saurus-oldblood.358116/",
+      "file": "downloads/gluma/saurus-oldblood.358116.zip",
+      "sourcePackageSha256": "1e8f5f6d2fbd5e13e30c0f0891bd91befaf585a721cb4ac37d4e00cc44876940",
+      "selection": "original package",
+      "sha256": "1e8f5f6d2fbd5e13e30c0f0891bd91befaf585a721cb4ac37d4e00cc44876940"
+    },
+    {
+      "sourcePack": "Kroxigor, Ancient Kroxigor",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/kroxigor-ancient-kroxigor.359970/",
+      "file": "downloads/gluma/kroxigor-ancient-kroxigor.359970.zip",
+      "sourcePackageSha256": "db5e04ef839e26358c589596a30040b81109df71138d5c80268d945d87d66b90",
+      "selection": "original package",
+      "sha256": "db5e04ef839e26358c589596a30040b81109df71138d5c80268d945d87d66b90"
+    },
+    {
+      "sourcePack": "Skink High Priest",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/skink-high-priest.356323/",
+      "file": "downloads/gluma/skink-high-priest.356323.zip",
+      "sourcePackageSha256": "52239f477f2ae10892975548d9274c726651169c63f2edaeade94666b7588a46",
+      "selection": "original package",
+      "sha256": "52239f477f2ae10892975548d9274c726651169c63f2edaeade94666b7588a46"
+    },
+    {
+      "sourcePack": "Skink Worker",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/skink-worker.356052/",
+      "file": "downloads/gluma/skink-worker.356052.zip",
+      "sourcePackageSha256": "2837d3326875a17c35792001267f25b49c5f1c5ddd14960d0ec7668a86d9edca",
+      "selection": "original package",
+      "sha256": "2837d3326875a17c35792001267f25b49c5f1c5ddd14960d0ec7668a86d9edca"
+    },
+    {
+      "sourcePack": "Skink Chief",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/skink-chief.355959/",
+      "file": "downloads/gluma/skink-chief.355959.zip",
+      "sourcePackageSha256": "39e90cc2355d2d6f63f04526b5ddf2ef26a7dcac7b2dc003e71e7e2271fa0530",
+      "selection": "original package",
+      "sha256": "39e90cc2355d2d6f63f04526b5ddf2ef26a7dcac7b2dc003e71e7e2271fa0530"
+    },
+    {
+      "sourcePack": "Skink Troops",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/skink-troops.355856/",
+      "file": "downloads/gluma/skink-troops.355856.zip",
+      "sourcePackageSha256": "95c3c61008714eef773da52e3b93b29b0d0799178424e3336f4bfeab010bd848",
+      "selection": "original package",
+      "sha256": "95c3c61008714eef773da52e3b93b29b0d0799178424e3336f4bfeab010bd848"
+    },
+    {
+      "sourcePack": "Goatman Spear Thrower",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/goatman-spear-thrower.355533/",
+      "file": "downloads/gluma/goatman-spear-thrower.355533.zip",
+      "sourcePackageSha256": "cfed93e53402dd8c37e67e8f4ad4d15f892953f48afbcfd75d928e7f8ae70407",
+      "selection": "approved variants only",
+      "sha256": "01095eddc6673fa3409bd2d4d95ea93cd76e9eaa4fcabd7631265c29f9a0b618"
+    },
+    {
+      "sourcePack": "Ungor Slave",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/ungor-slave.355534/",
+      "file": "downloads/gluma/ungor-slave.355534.zip",
+      "sourcePackageSha256": "ad901b7c7888ced4dd1c7dbde1dd60883bda56d8bd4770fc75652bb27aba48c6",
+      "selection": "original package",
+      "sha256": "ad901b7c7888ced4dd1c7dbde1dd60883bda56d8bd4770fc75652bb27aba48c6"
+    },
+    {
+      "sourcePack": "Ungor Bowman",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/ungor-bowman.334083/",
+      "file": "downloads/gluma/ungor-bowman.334083.zip",
+      "sourcePackageSha256": "65227c01aa69a32101ee80b084097491989e18c8a0a066229af1f5f814ef942a",
+      "selection": "original package",
+      "sha256": "65227c01aa69a32101ee80b084097491989e18c8a0a066229af1f5f814ef942a"
+    },
+    {
+      "sourcePack": "Ungor with spear",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/ungor-with-spear.326273/",
+      "file": "downloads/gluma/ungor-with-spear.326273.zip",
+      "sourcePackageSha256": "f9ec434a92233fb7ba59aad5ed0c99eb7ec95f45036a9333a44fbb2c2d04c85a",
+      "selection": "original package",
+      "sha256": "f9ec434a92233fb7ba59aad5ed0c99eb7ec95f45036a9333a44fbb2c2d04c85a"
+    },
+    {
+      "sourcePack": "Human Crossbowman",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/human-crossbowman.349800/",
+      "file": "downloads/gluma/human-crossbowman.349800.zip",
+      "sourcePackageSha256": "13aa47e703c22dfbec328c57036e2c7f442e11dc60b93d835f5a5caa3b1b4e0a",
+      "selection": "original package",
+      "sha256": "13aa47e703c22dfbec328c57036e2c7f442e11dc60b93d835f5a5caa3b1b4e0a"
+    },
+    {
+      "sourcePack": "Ballista and Bolt Thrower",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/ballista-and-bolt-thrower.371422/",
+      "file": "downloads/gluma/ballista-and-bolt-thrower.371422.zip",
+      "sourcePackageSha256": "4b70c189dc934fe3f8818e795d933cd78290a91aad317e7383f04c071f5c69af",
+      "selection": "original package",
+      "sha256": "4b70c189dc934fe3f8818e795d933cd78290a91aad317e7383f04c071f5c69af"
+    },
+    {
+      "sourcePack": "Warp Lightning Cannon",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/warp-lightning-cannon.359556/",
+      "file": "downloads/gluma/warp-lightning-cannon.359556.zip",
+      "sourcePackageSha256": "614f80e9203ca979415f4094474863e788f1e2b45311ea617b4db29b439c9247",
+      "selection": "original package",
+      "sha256": "614f80e9203ca979415f4094474863e788f1e2b45311ea617b4db29b439c9247"
+    },
+    {
+      "sourcePack": "Human Cannon and Mortar",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/human-cannon-and-mortar.359809/",
+      "file": "downloads/gluma/human-cannon-and-mortar.359809.zip",
+      "sourcePackageSha256": "d872c2df7cd05f45702dd5a8d6b5716161f67b1705d2cc934aaa90de57fa647b",
+      "selection": "original package",
+      "sha256": "d872c2df7cd05f45702dd5a8d6b5716161f67b1705d2cc934aaa90de57fa647b"
+    },
+    {
+      "sourcePack": "Dwarf Organ Cannon",
+      "sourceUrl": "https://www.hiveworkshop.com/threads/dwarf-organ-cannon.359520/",
+      "file": "downloads/gluma/dwarf-organ-cannon.359520.zip",
+      "sourcePackageSha256": "632d0b5d72dfa3cdc41c7b3344fdf17dffdcbefbfa637e5916f3d1b7905924a2",
+      "selection": "original package",
+      "sha256": "632d0b5d72dfa3cdc41c7b3344fdf17dffdcbefbfa637e5916f3d1b7905924a2"
+    }
+  ]
+}
