@@ -117,13 +117,14 @@
     {
       "title": "Credits and Contributions",
       "lines": [
-        "Made with Codex Astra and Sol."
+        "Unsanctioned Magic - Project direction, feature requests, modeling workflows and hands-on testing.",
+        "Made with Codex Astra and Sol, and Anthropic Claude."
       ]
     },
     {
       "title": "Help and Testing",
       "lines": [
-        "HerrDave - Special thanks for helping tailoring the MDLvis experience and fine tuning it.",
+        "HerrDave - Special thanks for helping tailor the MDLVis experience and fine-tune it.",
         "POMEXI - General feedback"
       ]
     },
@@ -133,7 +134,7 @@
         "Alexey / Алексей - Creator of MDLVis. Credits for the original editing workflow, interface layout, shortcuts, toolbar graphics and application icon.",
         "4eb0da - Creator of war3-model, used for MDL/MDX parsing and writing, Warcraft III rendering and BLP1 decoding.",
         "GhostWolf - Creator of mdx-m3-viewer and its model sanity checker, used by OptimizeXL. Additional references for event objects, global sequences and particle behavior.",
-        "BlinkBoy / Fernando Sahmkow - Creator of WhiteoutLib, used for Citadel Paint texture decoding and BLP/DDS export, with additional references for newer MDX structures.",
+        "Fernando Sahmkow - Creator of WhiteoutLib, used for Citadel Paint texture decoding and BLP/DDS export, with additional model-format references. BSD 3-Clause License.",
         "Ladislav Zezula / Ladik - Creator of CascLib, used to read local Warcraft III installations, and StormLib, consulted for MPQ format details.",
         "Darithos - Author of W3ModelViewer, the source of the pinned CascLib Windows binary used by MDLxL.",
         "Retera - Creator of Retera Model Studio and Warsmash Mod Engine. RMS was used for compatibility testing and model-format references; Warsmash’s lighting reconstruction informed Citadel Paint’s light-attenuation formulas.",
@@ -183,6 +184,7 @@
         "- Lora — The Lora Project Authors.",
         "- Open Sans — The Open Sans Project Authors.",
         "- Orbitron — The Orbitron Project Authors.",
+        "- Oxanium — The Oxanium Project Authors.",
         "- Rajdhani — Indian Type Foundry.",
         "- Cormorant SC — The Cormorant Project Authors.",
         "- Grenze Gotisch — The Grenze Gotisch Project Authors.",
@@ -200,7 +202,6 @@
         "Emscripten contributors - Native/WebAssembly codec build tooling.",
         "CMake contributors - Native build tooling.",
         "Ninja contributors - Native build tooling.",
-        "Catbox - Optional external hosting for uploaded GIF previews.",
         "Kwah - Author of Basic Animations, consulted for Warcraft III animation conventions.",
         "Vinz - Author of Particle Emitters 2, consulted for particle behavior and editor differences.",
         "Hermit - Filter Mode research acknowledged in Vinz's Particle Emitters 2 documentation.",

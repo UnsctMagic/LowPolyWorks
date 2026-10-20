@@ -1,5 +1,10 @@
 Third-party licenses
 
+MDLxL Showcase components
+Preview integration, lighting, animation, effects and camera controls.
+https://github.com/UnsctMagic/MDLxL
+Individual components retain their upstream licenses and source notices.
+
 war3-model (MIT)
 https://www.lowpolyworks.com/vendor/war3-model-LICENSE.txt
 
