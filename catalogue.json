@@ -23285,5 +23285,893 @@
       "Attack - 3",
       "Attack - 4"
     ]
+  },
+  {
+    "id": "maximal-144834",
+    "file": "maximal/359401/Minotaur.mdx",
+    "name": "Minotaur (WHF)",
+    "slug": "minotaur",
+    "army": "beastmen",
+    "author": "Maximal",
+    "authors": [
+      {
+        "name": "Maximal",
+        "url": "https://www.hiveworkshop.com/members/maximal.251852/"
+      }
+    ],
+    "description": "Model commissioned by @Lukor\n\nInspired by Minotaurs of Warhammer Fantasy\n\nPack includes a heavy melee axeman and a support drummer unit.\n\nleave feedback and any bugs you may find, I'll fix them quickly\n\nUpdate #1: Slowed down Stand Ready due to people's request\n\nYou can commission me for WC3 models and animations here on HIVE or on my Discord: maxim3dstuff",
+    "credits": "Model - Maximal\n\nOriginal resource - Minotaurs (WHF)\n\nCommissioned by @Lukor",
+    "creditLinks": [
+      {
+        "text": "Minotaurs (WHF)",
+        "url": "https://www.hiveworkshop.com/threads/minotaurs-whf.359401/"
+      },
+      {
+        "text": "Maximal",
+        "url": "https://www.hiveworkshop.com/members/maximal.251852/"
+      },
+      {
+        "text": "@Lukor",
+        "url": "https://www.hiveworkshop.com/members/lukor.237060/"
+      }
+    ],
+    "sourceUrl": "https://www.hiveworkshop.com/threads/minotaurs-whf.359401/#resource-144834",
+    "sourcePack": "Minotaurs (WHF)",
+    "downloadPack": "downloads/maximal/minotaurs-whf.359401.zip",
+    "sha256": "85350aaac56e636940709c6d6f83cdaae9466883bf25536a1e494c1d14cdbe75",
+    "bytes": 271405,
+    "geosets": [
+      {
+        "index": 0,
+        "vertices": 1410,
+        "triangles": 470,
+        "material": 0,
+        "textures": [
+          "Units\\Orc\\Tauren\\Minotaur.blp"
+        ]
+      },
+      {
+        "index": 1,
+        "vertices": 48,
+        "triangles": 16,
+        "material": 1,
+        "textures": [
+          "UI\\Glues\\SinglePlayer\\OrcCampaign3D\\CampaignOrcaxe.blp"
+        ]
+      },
+      {
+        "index": 2,
+        "vertices": 492,
+        "triangles": 164,
+        "material": 2,
+        "textures": [
+          "Units\\Creeps\\BanditMage\\BanditMage.blp"
+        ]
+      },
+      {
+        "index": 3,
+        "vertices": 708,
+        "triangles": 236,
+        "material": 3,
+        "textures": [
+          "Team colour / glow",
+          "Units\\Orc\\Wolfrider\\Wolfrider.blp"
+        ]
+      },
+      {
+        "index": 4,
+        "vertices": 162,
+        "triangles": 54,
+        "material": 4,
+        "textures": [
+          "Textures\\BeastMaster.blp"
+        ]
+      },
+      {
+        "index": 5,
+        "vertices": 192,
+        "triangles": 64,
+        "material": 0,
+        "textures": [
+          "Units\\Orc\\Tauren\\Minotaur.blp"
+        ]
+      },
+      {
+        "index": 6,
+        "vertices": 180,
+        "triangles": 60,
+        "material": 0,
+        "textures": [
+          "Units\\Orc\\Tauren\\Minotaur.blp"
+        ]
+      },
+      {
+        "index": 7,
+        "vertices": 30,
+        "triangles": 10,
+        "material": 0,
+        "textures": [
+          "Units\\Orc\\Tauren\\Minotaur.blp"
+        ]
+      },
+      {
+        "index": 8,
+        "vertices": 102,
+        "triangles": 34,
+        "material": 0,
+        "textures": [
+          "Units\\Orc\\Tauren\\Minotaur.blp"
+        ]
+      },
+      {
+        "index": 9,
+        "vertices": 1008,
+        "triangles": 336,
+        "material": 5,
+        "textures": [
+          "Textures\\Infernalcannon.blp"
+        ]
+      },
+      {
+        "index": 10,
+        "vertices": 24,
+        "triangles": 8,
+        "material": 2,
+        "textures": [
+          "Units\\Creeps\\BanditMage\\BanditMage.blp"
+        ]
+      },
+      {
+        "index": 11,
+        "vertices": 69,
+        "triangles": 23,
+        "material": 6,
+        "textures": [
+          "Textures\\Doodads0.blp"
+        ]
+      },
+      {
+        "index": 12,
+        "vertices": 120,
+        "triangles": 40,
+        "material": 0,
+        "textures": [
+          "Units\\Orc\\Tauren\\Minotaur.blp"
+        ]
+      },
+      {
+        "index": 13,
+        "vertices": 4,
+        "triangles": 2,
+        "material": 7,
+        "textures": [
+          "Team colour / glow"
+        ]
+      },
+      {
+        "index": 14,
+        "vertices": 62,
+        "triangles": 62,
+        "material": 8,
+        "textures": [
+          "Textures\\gutz.blp"
+        ]
+      }
+    ],
+    "sequences": [
+      "Stand",
+      "Stand 2",
+      "Walk",
+      "Stand Ready",
+      "Attack - 1",
+      "Attack - 2",
+      "Death",
+      "Portrait - 1",
+      "Portrait - 2",
+      "Portrait - 3",
+      "Portrait Talk - 1",
+      "Portrait Talk - 2",
+      "Decay Flesh",
+      "Decay Bone"
+    ]
+  },
+  {
+    "id": "maximal-144833",
+    "file": "maximal/359401/MinotaurDrummer.mdx",
+    "name": "Minotaur Drummer (WHF)",
+    "slug": "minotaur-drummer",
+    "army": "beastmen",
+    "author": "Maximal",
+    "authors": [
+      {
+        "name": "Maximal",
+        "url": "https://www.hiveworkshop.com/members/maximal.251852/"
+      }
+    ],
+    "description": "Model commissioned by @Lukor\n\nInspired by Minotaurs of Warhammer Fantasy\n\nPack includes a heavy melee axeman and a support drummer unit.\n\nleave feedback and any bugs you may find, I'll fix them quickly\n\nUpdate #1: Slowed down Stand Ready due to people's request\n\nYou can commission me for WC3 models and animations here on HIVE or on my Discord: maxim3dstuff",
+    "credits": "Model - Maximal\n\nOriginal resource - Minotaurs (WHF)\n\nCommissioned by @Lukor",
+    "creditLinks": [
+      {
+        "text": "Minotaurs (WHF)",
+        "url": "https://www.hiveworkshop.com/threads/minotaurs-whf.359401/"
+      },
+      {
+        "text": "Maximal",
+        "url": "https://www.hiveworkshop.com/members/maximal.251852/"
+      },
+      {
+        "text": "@Lukor",
+        "url": "https://www.hiveworkshop.com/members/lukor.237060/"
+      }
+    ],
+    "sourceUrl": "https://www.hiveworkshop.com/threads/minotaurs-whf.359401/#resource-144833",
+    "sourcePack": "Minotaurs (WHF)",
+    "downloadPack": "downloads/maximal/minotaurs-whf.359401.zip",
+    "sha256": "86d3ca09744af2dabd151ab3b71a07e65e1ebdaa878cb98aa37d31e0726d7b4d",
+    "bytes": 287855,
+    "geosets": [
+      {
+        "index": 0,
+        "vertices": 1607,
+        "triangles": 532,
+        "material": 0,
+        "textures": [
+          "Units\\Orc\\Tauren\\Minotaur.blp"
+        ]
+      },
+      {
+        "index": 1,
+        "vertices": 24,
+        "triangles": 8,
+        "material": 1,
+        "textures": [
+          "UI\\Glues\\SinglePlayer\\OrcCampaign3D\\CampaignOrcaxe.blp"
+        ]
+      },
+      {
+        "index": 2,
+        "vertices": 360,
+        "triangles": 120,
+        "material": 2,
+        "textures": [
+          "Units\\Creeps\\BanditMage\\BanditMage.blp"
+        ]
+      },
+      {
+        "index": 3,
+        "vertices": 360,
+        "triangles": 120,
+        "material": 3,
+        "textures": [
+          "Team colour / glow",
+          "Units\\Orc\\Wolfrider\\Wolfrider.blp"
+        ]
+      },
+      {
+        "index": 4,
+        "vertices": 90,
+        "triangles": 30,
+        "material": 4,
+        "textures": [
+          "Textures\\BeastMaster.blp"
+        ]
+      },
+      {
+        "index": 5,
+        "vertices": 192,
+        "triangles": 64,
+        "material": 0,
+        "textures": [
+          "Units\\Orc\\Tauren\\Minotaur.blp"
+        ]
+      },
+      {
+        "index": 6,
+        "vertices": 132,
+        "triangles": 44,
+        "material": 0,
+        "textures": [
+          "Units\\Orc\\Tauren\\Minotaur.blp"
+        ]
+      },
+      {
+        "index": 7,
+        "vertices": 30,
+        "triangles": 10,
+        "material": 0,
+        "textures": [
+          "Units\\Orc\\Tauren\\Minotaur.blp"
+        ]
+      },
+      {
+        "index": 8,
+        "vertices": 78,
+        "triangles": 26,
+        "material": 0,
+        "textures": [
+          "Units\\Orc\\Tauren\\Minotaur.blp"
+        ]
+      },
+      {
+        "index": 9,
+        "vertices": 72,
+        "triangles": 24,
+        "material": 5,
+        "textures": [
+          "Textures\\Infernalcannon.blp"
+        ]
+      },
+      {
+        "index": 10,
+        "vertices": 69,
+        "triangles": 23,
+        "material": 6,
+        "textures": [
+          "Textures\\Doodads0.blp"
+        ]
+      },
+      {
+        "index": 11,
+        "vertices": 4,
+        "triangles": 2,
+        "material": 7,
+        "textures": [
+          "Team colour / glow"
+        ]
+      },
+      {
+        "index": 12,
+        "vertices": 24,
+        "triangles": 8,
+        "material": 0,
+        "textures": [
+          "Units\\Orc\\Tauren\\Minotaur.blp"
+        ]
+      },
+      {
+        "index": 13,
+        "vertices": 6,
+        "triangles": 2,
+        "material": 8,
+        "textures": [
+          "units\\Orc\\Tauren\\Minotaur.blp"
+        ]
+      },
+      {
+        "index": 14,
+        "vertices": 132,
+        "triangles": 44,
+        "material": 9,
+        "textures": [
+          "Team colour / glow",
+          "Units\\Creeps\\KoboldGeomancer\\KoboldGeomancer.blp"
+        ]
+      },
+      {
+        "index": 15,
+        "vertices": 288,
+        "triangles": 96,
+        "material": 10,
+        "textures": [
+          "Team colour / glow",
+          "Textures\\KotoBeast.blp"
+        ]
+      },
+      {
+        "index": 16,
+        "vertices": 96,
+        "triangles": 32,
+        "material": 11,
+        "textures": [
+          "Units\\Creeps\\FacelessOne\\FacelessOne.blp"
+        ]
+      },
+      {
+        "index": 17,
+        "vertices": 62,
+        "triangles": 62,
+        "material": 12,
+        "textures": [
+          "Textures\\gutz.blp"
+        ]
+      }
+    ],
+    "sequences": [
+      "Stand",
+      "Stand 2",
+      "Walk Channel",
+      "Stand Ready",
+      "Attack - 1",
+      "Death",
+      "Portrait - 1",
+      "Portrait - 2",
+      "Portrait - 3",
+      "Portrait Talk - 1",
+      "Portrait Talk - 2",
+      "Walk",
+      "Stand Channel",
+      "Stand Channel 2",
+      "Decay Flesh",
+      "Decay Bone"
+    ]
+  },
+  {
+    "id": "maximal-141710",
+    "file": "maximal/358425/Centigor(Spearman).mdx",
+    "name": "Centigor Spearman",
+    "slug": "centigor-spearman",
+    "army": "beastmen",
+    "author": "Maximal",
+    "authors": [
+      {
+        "name": "Maximal",
+        "url": "https://www.hiveworkshop.com/members/maximal.251852/"
+      }
+    ],
+    "description": "Model commissioned by @Lukor, based on my Centaur Outrider\n\nInspired by Centigors of Warhammer Fantasy\n\nThere's both a melee Spearman and a ranged Axethrower complete with a matching missile\n\nleave feedback and any bugs you may find, I'll fix them quickly\n\nYou can commission me for WC3 models and animations here on HIVE or on my Discord: maxim3dstuff",
+    "credits": "Model - Maximal\n\nModel Base - Centaur Outrider by Maximal\n\nOriginal resource - Centigors (WHF)\n\nCommissioned by @Lukor",
+    "creditLinks": [
+      {
+        "text": "Centigors (WHF)",
+        "url": "https://www.hiveworkshop.com/threads/centigors-whf.358425/"
+      },
+      {
+        "text": "Maximal",
+        "url": "https://www.hiveworkshop.com/members/maximal.251852/"
+      },
+      {
+        "text": "@Lukor",
+        "url": "https://www.hiveworkshop.com/members/lukor.237060/"
+      },
+      {
+        "text": "Centaur Outrider",
+        "url": "https://www.hiveworkshop.com/threads/centaur-outrider.358118/"
+      }
+    ],
+    "sourceUrl": "https://www.hiveworkshop.com/threads/centigors-whf.358425/#resource-141710",
+    "sourcePack": "Centigors (WHF)",
+    "downloadPack": "downloads/maximal/centigors-whf.358425.zip",
+    "sha256": "e05112009afd47bbad53fb02cfe40dc362154d5068370694f8c21056feb235cc",
+    "bytes": 249587,
+    "geosets": [
+      {
+        "index": 0,
+        "vertices": 350,
+        "triangles": 412,
+        "material": 0,
+        "textures": [
+          "Textures\\BeastMaster.blp"
+        ]
+      },
+      {
+        "index": 1,
+        "vertices": 40,
+        "triangles": 56,
+        "material": 1,
+        "textures": [
+          "UI\\Glues\\SinglePlayer\\Alliance_Exp\\BE_Armor.blp"
+        ]
+      },
+      {
+        "index": 2,
+        "vertices": 169,
+        "triangles": 194,
+        "material": 2,
+        "textures": [
+          "Units\\Creeps\\BanditMage\\BanditMage.blp"
+        ]
+      },
+      {
+        "index": 3,
+        "vertices": 359,
+        "triangles": 398,
+        "material": 3,
+        "textures": [
+          "Textures\\Centaur.blp"
+        ]
+      },
+      {
+        "index": 4,
+        "vertices": 114,
+        "triangles": 78,
+        "material": 4,
+        "textures": [
+          "Team colour / glow",
+          "Units\\Creeps\\KoboldGeomancer\\KoboldGeomancer.blp"
+        ]
+      },
+      {
+        "index": 5,
+        "vertices": 172,
+        "triangles": 68,
+        "material": 5,
+        "textures": [
+          "Textures\\CampaignOrcaxe.blp"
+        ]
+      },
+      {
+        "index": 6,
+        "vertices": 61,
+        "triangles": 84,
+        "material": 2,
+        "textures": [
+          "Units\\Creeps\\BanditMage\\BanditMage.blp"
+        ]
+      },
+      {
+        "index": 7,
+        "vertices": 14,
+        "triangles": 18,
+        "material": 0,
+        "textures": [
+          "Textures\\BeastMaster.blp"
+        ]
+      },
+      {
+        "index": 8,
+        "vertices": 4,
+        "triangles": 2,
+        "material": 6,
+        "textures": [
+          "Team colour / glow"
+        ]
+      },
+      {
+        "index": 9,
+        "vertices": 115,
+        "triangles": 87,
+        "material": 7,
+        "textures": [
+          "Textures\\gutz.blp"
+        ]
+      },
+      {
+        "index": 10,
+        "vertices": 39,
+        "triangles": 38,
+        "material": 8,
+        "textures": [
+          "Textures\\DungeonDoodad0.blp"
+        ]
+      },
+      {
+        "index": 11,
+        "vertices": 24,
+        "triangles": 8,
+        "material": 9,
+        "textures": [
+          "Textures\\Skeleton.blp"
+        ]
+      },
+      {
+        "index": 12,
+        "vertices": 238,
+        "triangles": 312,
+        "material": 10,
+        "textures": [
+          "UI\\Glues\\SinglePlayer\\Alliance_Exp\\BE_Skin.blp"
+        ]
+      },
+      {
+        "index": 13,
+        "vertices": 72,
+        "triangles": 136,
+        "material": 11,
+        "textures": [
+          "Units\\Creeps\\Medivh\\Medivh.blp"
+        ]
+      },
+      {
+        "index": 14,
+        "vertices": 18,
+        "triangles": 20,
+        "material": 12,
+        "textures": [
+          "Textures\\Razormane.blp"
+        ]
+      },
+      {
+        "index": 15,
+        "vertices": 176,
+        "triangles": 124,
+        "material": 2,
+        "textures": [
+          "Units\\Creeps\\BanditMage\\BanditMage.blp"
+        ]
+      },
+      {
+        "index": 16,
+        "vertices": 456,
+        "triangles": 152,
+        "material": 13,
+        "textures": [
+          "Units\\Other\\DiabloCar\\DiabloCar.blp"
+        ]
+      },
+      {
+        "index": 17,
+        "vertices": 18,
+        "triangles": 12,
+        "material": 2,
+        "textures": [
+          "Units\\Creeps\\BanditMage\\BanditMage.blp"
+        ]
+      },
+      {
+        "index": 18,
+        "vertices": 378,
+        "triangles": 126,
+        "material": 14,
+        "textures": [
+          "Team colour / glow",
+          "Units\\Creeps\\BanditMage\\BanditMage.blp"
+        ]
+      },
+      {
+        "index": 19,
+        "vertices": 49,
+        "triangles": 52,
+        "material": 15,
+        "textures": [
+          "Textures\\OrcBloodTailParticle.blp"
+        ]
+      }
+    ],
+    "sequences": [
+      "Stand",
+      "Walk",
+      "Attack - 1",
+      "Portrait - 1",
+      "Portrait - 2",
+      "Portrait Talk - 1",
+      "Portrait Talk - 2",
+      "Death",
+      "Attack - 2",
+      "Decay Flesh",
+      "Decay Bone"
+    ],
+    "textureFiles": {
+      "units\\other\\diablocar\\diablocar.blp": "textures/native-diablocar.png"
+    }
+  },
+  {
+    "id": "maximal-141711",
+    "file": "maximal/358425/Centigor(AxeThrower).mdx",
+    "name": "Centigor Axethrower",
+    "slug": "centigor-axethrower",
+    "army": "beastmen",
+    "author": "Maximal",
+    "authors": [
+      {
+        "name": "Maximal",
+        "url": "https://www.hiveworkshop.com/members/maximal.251852/"
+      }
+    ],
+    "description": "Model commissioned by @Lukor, based on my Centaur Outrider\n\nInspired by Centigors of Warhammer Fantasy\n\nThere's both a melee Spearman and a ranged Axethrower complete with a matching missile\n\nleave feedback and any bugs you may find, I'll fix them quickly\n\nYou can commission me for WC3 models and animations here on HIVE or on my Discord: maxim3dstuff",
+    "credits": "Model - Maximal\n\nModel Base - Centaur Outrider by Maximal\n\nOriginal resource - Centigors (WHF)\n\nCommissioned by @Lukor",
+    "creditLinks": [
+      {
+        "text": "Centigors (WHF)",
+        "url": "https://www.hiveworkshop.com/threads/centigors-whf.358425/"
+      },
+      {
+        "text": "Maximal",
+        "url": "https://www.hiveworkshop.com/members/maximal.251852/"
+      },
+      {
+        "text": "@Lukor",
+        "url": "https://www.hiveworkshop.com/members/lukor.237060/"
+      },
+      {
+        "text": "Centaur Outrider",
+        "url": "https://www.hiveworkshop.com/threads/centaur-outrider.358118/"
+      }
+    ],
+    "sourceUrl": "https://www.hiveworkshop.com/threads/centigors-whf.358425/#resource-141711",
+    "sourcePack": "Centigors (WHF)",
+    "downloadPack": "downloads/maximal/centigors-whf.358425.zip",
+    "sha256": "67b43f2d31bd5bd2cfa62bc73ae7df15d1c8d8ed2fbafdbbedf72792098cedf7",
+    "bytes": 297128,
+    "geosets": [
+      {
+        "index": 0,
+        "vertices": 350,
+        "triangles": 412,
+        "material": 0,
+        "textures": [
+          "Textures\\BeastMaster.blp"
+        ]
+      },
+      {
+        "index": 1,
+        "vertices": 40,
+        "triangles": 56,
+        "material": 1,
+        "textures": [
+          "UI\\Glues\\SinglePlayer\\Alliance_Exp\\BE_Armor.blp"
+        ]
+      },
+      {
+        "index": 2,
+        "vertices": 601,
+        "triangles": 338,
+        "material": 2,
+        "textures": [
+          "Units\\Creeps\\BanditMage\\BanditMage.blp"
+        ]
+      },
+      {
+        "index": 3,
+        "vertices": 287,
+        "triangles": 374,
+        "material": 3,
+        "textures": [
+          "Textures\\Centaur.blp"
+        ]
+      },
+      {
+        "index": 4,
+        "vertices": 114,
+        "triangles": 78,
+        "material": 4,
+        "textures": [
+          "Team colour / glow",
+          "Units\\Creeps\\KoboldGeomancer\\KoboldGeomancer.blp"
+        ]
+      },
+      {
+        "index": 5,
+        "vertices": 912,
+        "triangles": 304,
+        "material": 5,
+        "textures": [
+          "Textures\\CampaignOrcaxe.blp"
+        ]
+      },
+      {
+        "index": 6,
+        "vertices": 28,
+        "triangles": 36,
+        "material": 0,
+        "textures": [
+          "Textures\\BeastMaster.blp"
+        ]
+      },
+      {
+        "index": 7,
+        "vertices": 4,
+        "triangles": 2,
+        "material": 6,
+        "textures": [
+          "Team colour / glow"
+        ]
+      },
+      {
+        "index": 8,
+        "vertices": 115,
+        "triangles": 87,
+        "material": 7,
+        "textures": [
+          "Textures\\gutz.blp"
+        ]
+      },
+      {
+        "index": 9,
+        "vertices": 39,
+        "triangles": 38,
+        "material": 8,
+        "textures": [
+          "Textures\\DungeonDoodad0.blp"
+        ]
+      },
+      {
+        "index": 10,
+        "vertices": 24,
+        "triangles": 8,
+        "material": 9,
+        "textures": [
+          "Textures\\Skeleton.blp"
+        ]
+      },
+      {
+        "index": 11,
+        "vertices": 199,
+        "triangles": 198,
+        "material": 10,
+        "textures": [
+          "UI\\Glues\\SinglePlayer\\Alliance_Exp\\BE_Skin.blp"
+        ]
+      },
+      {
+        "index": 12,
+        "vertices": 72,
+        "triangles": 136,
+        "material": 11,
+        "textures": [
+          "Units\\Creeps\\Medivh\\Medivh.blp"
+        ]
+      },
+      {
+        "index": 13,
+        "vertices": 18,
+        "triangles": 20,
+        "material": 12,
+        "textures": [
+          "Textures\\Razormane.blp"
+        ]
+      },
+      {
+        "index": 14,
+        "vertices": 286,
+        "triangles": 210,
+        "material": 2,
+        "textures": [
+          "Units\\Creeps\\BanditMage\\BanditMage.blp"
+        ]
+      },
+      {
+        "index": 15,
+        "vertices": 456,
+        "triangles": 152,
+        "material": 13,
+        "textures": [
+          "Units\\Other\\DiabloCar\\DiabloCar.blp"
+        ]
+      },
+      {
+        "index": 16,
+        "vertices": 6,
+        "triangles": 2,
+        "material": 14,
+        "textures": [
+          "Units\\Orc\\HeroTaurenChieftain\\HeroTaurenChieftain.blp"
+        ]
+      },
+      {
+        "index": 17,
+        "vertices": 112,
+        "triangles": 122,
+        "material": 15,
+        "textures": [
+          "Team colour / glow",
+          "Buildings\\Orc\\GreatHall\\GreatHall.blp"
+        ]
+      },
+      {
+        "index": 18,
+        "vertices": 36,
+        "triangles": 12,
+        "material": 2,
+        "textures": [
+          "Units\\Creeps\\BanditMage\\BanditMage.blp"
+        ]
+      },
+      {
+        "index": 19,
+        "vertices": 72,
+        "triangles": 24,
+        "material": 3,
+        "textures": [
+          "Textures\\Centaur.blp"
+        ]
+      }
+    ],
+    "sequences": [
+      "Stand",
+      "Walk",
+      "Portrait - 1",
+      "Portrait - 2",
+      "Portrait Talk - 1",
+      "Portrait Talk - 2",
+      "Death",
+      "Decay Flesh",
+      "Decay Bone",
+      "Stand Ready",
+      "Attack - 1",
+      "Attack - 2"
+    ],
+    "textureFiles": {
+      "units\\other\\diablocar\\diablocar.blp": "textures/native-diablocar.png"
+    }
   }
 ]
