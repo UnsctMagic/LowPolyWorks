@@ -11,7 +11,7 @@ import {renderJournal} from './journal.js?v=20261020-credits';
 import {renderMdlxl} from './mdlxl.js?v=20261020-credits';
 if (/^\/mdlxl\/?$/.test(location.pathname) && !location.hash) history.replaceState(null,'',location.pathname+location.search+'#project/mdlxl');
 const app=document.querySelector('#app'),baseCatalogue=await fetch('catalogue.json?v=20261020-necrarch-maximal').then(r=>r.json());
-const armies=await fetch('armies.json?v=20261020-gluma-approved').then(r=>r.json());
+const armies=await fetch('armies.json?v=20261020-army-sizes-approved').then(r=>r.json());
 // Shuffle the middle army cards once per load; keep Chaos and Vampire Counts first and Dwarfs last.
 const pinnedArmyIds=['warriors-of-chaos','vampire-counts'];
 const armyCardOrder=armies.filter(army=>!pinnedArmyIds.includes(army.id)&&army.id!=='dwarfs');
