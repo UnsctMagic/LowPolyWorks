@@ -22,8 +22,8 @@ export function installWarcraftTeamTextures(gl,model,{transparent,graphics}){
  if(transparent)gl.shaderSource=function(shader,source){
   if(source.includes('uniform mat3 uTVertexAnim;')&&source.includes('uniform float uWireframe;')){
    const output=source.includes('out vec4 FragColor;')?'FragColor':'gl_FragColor';
-   source=source.replace('uniform float uWireframe;','uniform float uWireframe;\nuniform float uWarcraftAdditive;')
-    .replace(/}\s*$/,`if(uWarcraftAdditive>2.5){\n if(uWarcraftAdditive>3.5)${output}.rgb*=${output}.a;\n ${output}.a=clamp(max(${output}.r,max(${output}.g,${output}.b)),0.,1.);\n}\n}\n`);
+   source=source.replace('uniform float uWireframe;','uniform float uWireframe;\nuniform float uWarcraftAdditive;\nuniform float uWarcraftOpaque;')
+    .replace(/}\s*$/,`if(uWarcraftOpaque>.5) ${output}.a=uMdlvisGeosetTint.a;\nif(uWarcraftAdditive>2.5){\n if(uWarcraftAdditive>3.5)${output}.rgb*=${output}.a;\n ${output}.a=clamp(max(${output}.r,max(${output}.g,${output}.b)),0.,1.);\n}\n}\n`);
   }
   return shaderSource.call(this,shader,source);
  };
@@ -33,10 +33,12 @@ export function installWarcraftTeamTextures(gl,model,{transparent,graphics}){
   ready(native){
    gl.shaderSource=shaderSource;
    if(!transparent)return;
-   const location=gl.getUniformLocation(native.shaderProgram,'uWarcraftAdditive'),setLayerProps=native.setLayerProps;
+   const location=gl.getUniformLocation(native.shaderProgram,'uWarcraftAdditive'),opaqueLocation=gl.getUniformLocation(native.shaderProgram,'uWarcraftOpaque'),setLayerProps=native.setLayerProps;
    native.setLayerProps=function(layer,textureID){
     const result=setLayerProps.call(this,layer,textureID),additive=layer.FilterMode===3||layer.FilterMode===4;
     gl.uniform1f(location,additive?layer.FilterMode:0);
+    // Opaque Warcraft layers ignore texture alpha; retain authored geoset/layer fades.
+    gl.uniform1f(opaqueLocation,(layer.FilterMode??0)===0?1:0);
     // Native glow RGB is additive; its brightness supplies transparent PNG coverage.
     if(additive)gl.blendFuncSeparate(gl.ONE,gl.ONE,gl.ONE,gl.ONE_MINUS_SRC_ALPHA);
     return result;

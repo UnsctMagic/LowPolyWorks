@@ -8,7 +8,7 @@ const escape = value => String(value).replace(/[&<>"']/g, char => ({'&':'&amp;',
 
 export function modelPage(template, row, thumbnail) {
   const url = `${site}/model/${row.slug || row.id}/`;
-  const image = `${site}/thumbs/unit-${row.id}.png`;
+  const image = `${site}/thumbs/unit-${row.id}.png${row.imageVersion ? '?v=' + encodeURIComponent(row.imageVersion) : ''}`;
   const description = (row.searchDescription ?? row.description).replace(/\s+/g, ' ').trim();
   const width = thumbnail.readUInt32BE(16), height = thumbnail.readUInt32BE(20);
   const metadata = [
