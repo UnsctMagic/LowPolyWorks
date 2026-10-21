@@ -483,6 +483,10 @@
     "maximal-141711": {
       "sha256": "67b43f2d31bd5bd2cfa62bc73ae7df15d1c8d8ed2fbafdbbedf72792098cedf7",
       "publishedAt": "2026-10-20T23:54:43.892Z"
+    },
+    "warrior-of-khorne-cleaver": {
+      "sha256": "6851e24fd3c82520badee599d54d3973235a7892636d8be5bef9a58f8d19937c",
+      "publishedAt": "2026-10-21T09:15:05.700Z"
     }
   }
 }

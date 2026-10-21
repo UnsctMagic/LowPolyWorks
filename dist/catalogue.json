@@ -12136,6 +12136,407 @@
     "sha256": "c5312b18cc925b298835f66d3b5a20b8b014d8c82eabc3ec6a47971e2638af5f"
   },
   {
+    "id": "warrior-of-khorne-cleaver",
+    "file": "WH_WOC_WarriorKhorneGW01.mdx",
+    "name": "Warrior of Khorne · Cleaver",
+    "army": "warriors-of-chaos",
+    "description": "The Warriors of Chaos that follow the Blood God, as with all servants of the Ruinous Powers, are not limited to the primitive tribes of the north. His grasp can reach the heart of every soldier, every warrior, every life-taker. When a noble Knight of Bretonnia or a Templar of the Empire falls to His worship it is because they forget why they kill. To change from killing for the common good to killing only because one wants to – because the act is pleasing – is when the righteous have fallen from their path. These are the warriors Khorne embraces, never to release. These are the converts that He savours.",
+    "credits": "Model Base - Chaos Warrior by azazeron\r\n\r\nMashed with - Chaos Warriors by Diazon, found on Warhammer Eternal Strife by Nightmare2077\r\n\r\nHammer - Brute Hammer by Sunchips\r\n\r\nClub - Faceless Ones Club by Midnighters\r\n\r\nHelm - Bandit Enforcer by Johnwar\r\n\r\nAxe - Felsteel Ravager by Blood Raven\r\n\r\nAdditional credits - Stein123\r\n\r\nGreat Weapon - Death Sword by Blood Raven",
+    "geosets": [
+      {
+        "index": 0,
+        "vertices": 54,
+        "triangles": 76,
+        "material": 4,
+        "textures": [
+          "Textures\\OutlandDoodads.blp"
+        ]
+      },
+      {
+        "index": 1,
+        "vertices": 37,
+        "triangles": 22,
+        "material": 0,
+        "textures": [
+          "Textures\\gutz.blp"
+        ]
+      },
+      {
+        "index": 2,
+        "vertices": 4,
+        "triangles": 2,
+        "material": 1,
+        "textures": [
+          "Team colour / glow"
+        ]
+      },
+      {
+        "index": 3,
+        "vertices": 36,
+        "triangles": 38,
+        "material": 10,
+        "textures": [
+          "Units\\Creeps\\Magnataur\\Magnataur.blp"
+        ]
+      },
+      {
+        "index": 4,
+        "vertices": 24,
+        "triangles": 29,
+        "material": 4,
+        "textures": [
+          "Textures\\OutlandDoodads.blp"
+        ]
+      },
+      {
+        "index": 5,
+        "vertices": 40,
+        "triangles": 56,
+        "material": 3,
+        "textures": [
+          "UI\\Glues\\SinglePlayer\\HumanCampaign3D\\HumanCampaignFootman.blp"
+        ]
+      },
+      {
+        "index": 6,
+        "vertices": 11,
+        "triangles": 10,
+        "material": 5,
+        "textures": [
+          "Doodads\\Ashenvale\\Props\\ScorchedRemains\\Demonized.blp"
+        ]
+      },
+      {
+        "index": 7,
+        "vertices": 18,
+        "triangles": 24,
+        "material": 11,
+        "textures": [
+          "Textures\\Arthas1.blp"
+        ]
+      },
+      {
+        "index": 8,
+        "vertices": 14,
+        "triangles": 13,
+        "material": 6,
+        "textures": [
+          "Textures\\UndeadAirBarge.blp"
+        ]
+      },
+      {
+        "index": 9,
+        "vertices": 18,
+        "triangles": 16,
+        "material": 4,
+        "textures": [
+          "Textures\\OutlandDoodads.blp"
+        ]
+      },
+      {
+        "index": 10,
+        "vertices": 32,
+        "triangles": 24,
+        "material": 7,
+        "textures": [
+          "Textures\\OutlandDoodads.blp"
+        ]
+      },
+      {
+        "index": 11,
+        "vertices": 24,
+        "triangles": 18,
+        "material": 8,
+        "textures": [
+          "Textures\\chunktop.blp"
+        ]
+      },
+      {
+        "index": 12,
+        "vertices": 125,
+        "triangles": 147,
+        "material": 9,
+        "textures": [
+          "Textures\\UndeadAirBarge.blp"
+        ]
+      },
+      {
+        "index": 13,
+        "vertices": 22,
+        "triangles": 28,
+        "material": 10,
+        "textures": [
+          "Units\\Creeps\\Magnataur\\Magnataur.blp"
+        ]
+      },
+      {
+        "index": 14,
+        "vertices": 16,
+        "triangles": 16,
+        "material": 12,
+        "textures": [
+          "Textures\\InfernalCannon.blp"
+        ]
+      },
+      {
+        "index": 15,
+        "vertices": 18,
+        "triangles": 28,
+        "material": 13,
+        "textures": [
+          "Buildings\\Orc\\Warmill\\Forge.blp"
+        ]
+      },
+      {
+        "index": 16,
+        "vertices": 8,
+        "triangles": 10,
+        "material": 14,
+        "textures": [
+          "UI\\Glues\\BattleNet\\BattlenetLoginGlue\\Battlenet-Login-LeftDoor04.blp"
+        ]
+      },
+      {
+        "index": 17,
+        "vertices": 129,
+        "triangles": 78,
+        "material": 4,
+        "textures": [
+          "Textures\\OutlandDoodads.blp"
+        ]
+      },
+      {
+        "index": 18,
+        "vertices": 18,
+        "triangles": 14,
+        "material": 15,
+        "textures": [
+          "TerrainArt\\Dungeon\\Cave_LavaCracks.blp"
+        ]
+      },
+      {
+        "index": 19,
+        "vertices": 17,
+        "triangles": 15,
+        "material": 16,
+        "textures": [
+          "TerrainArt\\Dungeon\\Cave_LavaCracks.blp",
+          "UI\\Glues\\BattleNet\\BattlenetLoginGlue\\Battlenet-Login-LeftDoor04.blp"
+        ]
+      },
+      {
+        "index": 20,
+        "vertices": 41,
+        "triangles": 47,
+        "material": 4,
+        "textures": [
+          "Textures\\OutlandDoodads.blp"
+        ]
+      },
+      {
+        "index": 21,
+        "vertices": 21,
+        "triangles": 26,
+        "material": 17,
+        "textures": [
+          "Textures\\Bandit.blp"
+        ]
+      },
+      {
+        "index": 22,
+        "vertices": 15,
+        "triangles": 12,
+        "material": 2,
+        "textures": [
+          "Units\\Orc\\OrcWarlockGuldan\\OrcWarlockGuldan.blp"
+        ]
+      },
+      {
+        "index": 23,
+        "vertices": 4,
+        "triangles": 2,
+        "material": 18,
+        "textures": [
+          "Textures\\LavaLump2.blp",
+          "Textures\\LavaLump2.blp",
+          "Textures\\LavaLump2.blp"
+        ]
+      },
+      {
+        "index": 24,
+        "vertices": 9,
+        "triangles": 4,
+        "material": 4,
+        "textures": [
+          "Textures\\OutlandDoodads.blp"
+        ]
+      },
+      {
+        "index": 25,
+        "vertices": 36,
+        "triangles": 44,
+        "material": 19,
+        "textures": [
+          "Team colour / glow",
+          "Textures\\chunktop.blp"
+        ]
+      },
+      {
+        "index": 26,
+        "vertices": 64,
+        "triangles": 112,
+        "material": 20,
+        "textures": [
+          "Textures\\UndeadAirBarge.blp"
+        ]
+      },
+      {
+        "index": 27,
+        "vertices": 16,
+        "triangles": 30,
+        "material": 4,
+        "textures": [
+          "Textures\\OutlandDoodads.blp"
+        ]
+      },
+      {
+        "index": 28,
+        "vertices": 25,
+        "triangles": 30,
+        "material": 21,
+        "textures": [
+          "Team colour / glow",
+          "Doodads\\Ashenvale\\Props\\ScorchedRemains\\Demonized.blp"
+        ]
+      },
+      {
+        "index": 29,
+        "vertices": 4,
+        "triangles": 2,
+        "material": 18,
+        "textures": [
+          "Textures\\LavaLump2.blp",
+          "Textures\\LavaLump2.blp",
+          "Textures\\LavaLump2.blp"
+        ]
+      },
+      {
+        "index": 30,
+        "vertices": 18,
+        "triangles": 20,
+        "material": 10,
+        "textures": [
+          "Units\\Creeps\\Magnataur\\Magnataur.blp"
+        ]
+      },
+      {
+        "index": 31,
+        "vertices": 6,
+        "triangles": 4,
+        "material": 10,
+        "textures": [
+          "Units\\Creeps\\Magnataur\\Magnataur.blp"
+        ]
+      }
+    ],
+    "sequences": [
+      "Stand - 1",
+      "Stand - 2",
+      "Attack - 1",
+      "Attack - 2",
+      "Walk",
+      "Death",
+      "Decay Flesh",
+      "Decay Bone",
+      "Stand Ready",
+      "Portrait",
+      "Portrait Talk",
+      "Stand - 2"
+    ],
+    "bytes": 105934,
+    "portraitBackdropGeosets": [
+      2
+    ],
+    "authors": [
+      {
+        "name": "Unsanctioned Magic",
+        "url": "https://xgm.guru/user/UnsanctMagic"
+      },
+      {
+        "name": "Azazeron",
+        "url": "https://www.hiveworkshop.com/members/azazeron.299156/"
+      }
+    ],
+    "creditLinks": [
+      {
+        "text": "Chaos Warrior",
+        "url": "https://www.hiveworkshop.com/threads/chaos-warrior.366159/"
+      },
+      {
+        "text": "azazeron",
+        "url": "https://www.hiveworkshop.com/members/azazeron.299156/"
+      },
+      {
+        "text": "Chaos Warriors",
+        "url": "https://www.hiveworkshop.com/threads/warhammer-eternal-strife-melee.254808/"
+      },
+      {
+        "text": "Diazon",
+        "url": "https://www.hiveworkshop.com/threads/warhammer-eternal-strife-melee.254808/"
+      },
+      {
+        "text": "Warhammer Eternal Strife",
+        "url": "https://www.hiveworkshop.com/threads/warhammer-eternal-strife-melee.254808/"
+      },
+      {
+        "text": "Nightmare2077",
+        "url": "https://www.hiveworkshop.com/members/nightmare2077.204498/"
+      },
+      {
+        "text": "Brute Hammer",
+        "url": "https://www.hiveworkshop.com/threads/brute-hammer-by-sunchips.178930/"
+      },
+      {
+        "text": "Sunchips",
+        "url": "https://www.hiveworkshop.com/members/sunchips.176515/"
+      },
+      {
+        "text": "Faceless Ones Club",
+        "url": "https://www.hiveworkshop.com/threads/faceless-ones-club.161375/"
+      },
+      {
+        "text": "Midnighters",
+        "url": "https://www.hiveworkshop.com/members/midnighters.173145/"
+      },
+      {
+        "text": "Bandit Enforcer",
+        "url": "https://www.hiveworkshop.com/threads/bandit-enforcer-re-classic.336169/"
+      },
+      {
+        "text": "Johnwar",
+        "url": "https://www.hiveworkshop.com/members/johnwar.264426/"
+      },
+      {
+        "text": "Felsteel Ravager",
+        "url": "https://www.hiveworkshop.com/threads/felsteel-ravager.269679/"
+      },
+      {
+        "text": "Blood Raven",
+        "url": "https://www.hiveworkshop.com/members/blood-raven.194769/"
+      },
+      {
+        "text": "Stein123",
+        "url": "https://www.hiveworkshop.com/members/stein123.196992/"
+      },
+      {
+        "text": "Death Sword",
+        "url": "https://www.hiveworkshop.com/threads/death-sword.292852/"
+      }
+    ],
+    "sha256": "6851e24fd3c82520badee599d54d3973235a7892636d8be5bef9a58f8d19937c",
+    "imageVersion": "20261021-cleaver-v2"
+  },
+  {
     "id": "warrior-of-khorne",
     "file": "WH_WOC_WarriorKhorne03.mdx",
     "name": "Warrior of Khorne · Bruiser",
