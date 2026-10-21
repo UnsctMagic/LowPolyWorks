@@ -595,7 +595,7 @@
   },
   {
     "id": "maximal-minotaurs",
-    "name": "Minotaurs (WHF)",
+    "name": "Minotaurs",
     "variants": [
       {
         "id": "maximal-144834",
@@ -609,7 +609,7 @@
   },
   {
     "id": "maximal-centigors",
-    "name": "Centigors (WHF)",
+    "name": "Centigors",
     "variants": [
       {
         "id": "maximal-141710",

@@ -23289,7 +23289,7 @@
   {
     "id": "maximal-144834",
     "file": "maximal/359401/Minotaur.mdx",
-    "name": "Minotaur (WHF)",
+    "name": "Minotaur",
     "slug": "minotaur",
     "army": "beastmen",
     "author": "Maximal",
@@ -23300,10 +23300,10 @@
       }
     ],
     "description": "Model commissioned by @Lukor\n\nInspired by Minotaurs of Warhammer Fantasy\n\nPack includes a heavy melee axeman and a support drummer unit.\n\nleave feedback and any bugs you may find, I'll fix them quickly\n\nUpdate #1: Slowed down Stand Ready due to people's request\n\nYou can commission me for WC3 models and animations here on HIVE or on my Discord: maxim3dstuff",
-    "credits": "Model - Maximal\n\nOriginal resource - Minotaurs (WHF)\n\nCommissioned by @Lukor",
+    "credits": "Model - Maximal\n\nOriginal resource - Minotaurs\n\nCommissioned by @Lukor",
     "creditLinks": [
       {
-        "text": "Minotaurs (WHF)",
+        "text": "Minotaurs",
         "url": "https://www.hiveworkshop.com/threads/minotaurs-whf.359401/"
       },
       {
@@ -23316,7 +23316,7 @@
       }
     ],
     "sourceUrl": "https://www.hiveworkshop.com/threads/minotaurs-whf.359401/#resource-144834",
-    "sourcePack": "Minotaurs (WHF)",
+    "sourcePack": "Minotaurs",
     "downloadPack": "downloads/maximal/minotaurs-whf.359401.zip",
     "sha256": "85350aaac56e636940709c6d6f83cdaae9466883bf25536a1e494c1d14cdbe75",
     "bytes": 271405,
@@ -23473,12 +23473,18 @@
       "Portrait Talk - 2",
       "Decay Flesh",
       "Decay Bone"
+    ],
+    "descriptionLinks": [
+      {
+        "text": "@Lukor",
+        "url": "https://www.hiveworkshop.com/members/237060/"
+      }
     ]
   },
   {
     "id": "maximal-144833",
     "file": "maximal/359401/MinotaurDrummer.mdx",
-    "name": "Minotaur Drummer (WHF)",
+    "name": "Minotaur Drummer",
     "slug": "minotaur-drummer",
     "army": "beastmen",
     "author": "Maximal",
@@ -23489,10 +23495,10 @@
       }
     ],
     "description": "Model commissioned by @Lukor\n\nInspired by Minotaurs of Warhammer Fantasy\n\nPack includes a heavy melee axeman and a support drummer unit.\n\nleave feedback and any bugs you may find, I'll fix them quickly\n\nUpdate #1: Slowed down Stand Ready due to people's request\n\nYou can commission me for WC3 models and animations here on HIVE or on my Discord: maxim3dstuff",
-    "credits": "Model - Maximal\n\nOriginal resource - Minotaurs (WHF)\n\nCommissioned by @Lukor",
+    "credits": "Model - Maximal\n\nOriginal resource - Minotaurs\n\nCommissioned by @Lukor",
     "creditLinks": [
       {
-        "text": "Minotaurs (WHF)",
+        "text": "Minotaurs",
         "url": "https://www.hiveworkshop.com/threads/minotaurs-whf.359401/"
       },
       {
@@ -23505,7 +23511,7 @@
       }
     ],
     "sourceUrl": "https://www.hiveworkshop.com/threads/minotaurs-whf.359401/#resource-144833",
-    "sourcePack": "Minotaurs (WHF)",
+    "sourcePack": "Minotaurs",
     "downloadPack": "downloads/maximal/minotaurs-whf.359401.zip",
     "sha256": "86d3ca09744af2dabd151ab3b71a07e65e1ebdaa878cb98aa37d31e0726d7b4d",
     "bytes": 287855,
@@ -23693,6 +23699,12 @@
       "Stand Channel 2",
       "Decay Flesh",
       "Decay Bone"
+    ],
+    "descriptionLinks": [
+      {
+        "text": "@Lukor",
+        "url": "https://www.hiveworkshop.com/members/237060/"
+      }
     ]
   },
   {
@@ -23709,10 +23721,10 @@
       }
     ],
     "description": "Model commissioned by @Lukor, based on my Centaur Outrider\n\nInspired by Centigors of Warhammer Fantasy\n\nThere's both a melee Spearman and a ranged Axethrower complete with a matching missile\n\nleave feedback and any bugs you may find, I'll fix them quickly\n\nYou can commission me for WC3 models and animations here on HIVE or on my Discord: maxim3dstuff",
-    "credits": "Model - Maximal\n\nModel Base - Centaur Outrider by Maximal\n\nOriginal resource - Centigors (WHF)\n\nCommissioned by @Lukor",
+    "credits": "Model - Maximal\n\nModel Base - Centaur Outrider by Maximal\n\nOriginal resource - Centigors\n\nCommissioned by @Lukor",
     "creditLinks": [
       {
-        "text": "Centigors (WHF)",
+        "text": "Centigors",
         "url": "https://www.hiveworkshop.com/threads/centigors-whf.358425/"
       },
       {
@@ -23729,7 +23741,7 @@
       }
     ],
     "sourceUrl": "https://www.hiveworkshop.com/threads/centigors-whf.358425/#resource-141710",
-    "sourcePack": "Centigors (WHF)",
+    "sourcePack": "Centigors",
     "downloadPack": "downloads/maximal/centigors-whf.358425.zip",
     "sha256": "e05112009afd47bbad53fb02cfe40dc362154d5068370694f8c21056feb235cc",
     "bytes": 249587,
@@ -23932,7 +23944,17 @@
     ],
     "textureFiles": {
       "units\\other\\diablocar\\diablocar.blp": "textures/native-diablocar.png"
-    }
+    },
+    "descriptionLinks": [
+      {
+        "text": "@Lukor",
+        "url": "https://www.hiveworkshop.com/members/237060/"
+      },
+      {
+        "text": "Centaur Outrider",
+        "url": "https://www.hiveworkshop.com/threads/centaur-outrider.358118/"
+      }
+    ]
   },
   {
     "id": "maximal-141711",
@@ -23948,10 +23970,10 @@
       }
     ],
     "description": "Model commissioned by @Lukor, based on my Centaur Outrider\n\nInspired by Centigors of Warhammer Fantasy\n\nThere's both a melee Spearman and a ranged Axethrower complete with a matching missile\n\nleave feedback and any bugs you may find, I'll fix them quickly\n\nYou can commission me for WC3 models and animations here on HIVE or on my Discord: maxim3dstuff",
-    "credits": "Model - Maximal\n\nModel Base - Centaur Outrider by Maximal\n\nOriginal resource - Centigors (WHF)\n\nCommissioned by @Lukor",
+    "credits": "Model - Maximal\n\nModel Base - Centaur Outrider by Maximal\n\nOriginal resource - Centigors\n\nCommissioned by @Lukor",
     "creditLinks": [
       {
-        "text": "Centigors (WHF)",
+        "text": "Centigors",
         "url": "https://www.hiveworkshop.com/threads/centigors-whf.358425/"
       },
       {
@@ -23968,7 +23990,7 @@
       }
     ],
     "sourceUrl": "https://www.hiveworkshop.com/threads/centigors-whf.358425/#resource-141711",
-    "sourcePack": "Centigors (WHF)",
+    "sourcePack": "Centigors",
     "downloadPack": "downloads/maximal/centigors-whf.358425.zip",
     "sha256": "67b43f2d31bd5bd2cfa62bc73ae7df15d1c8d8ed2fbafdbbedf72792098cedf7",
     "bytes": 297128,
@@ -24172,6 +24194,16 @@
     ],
     "textureFiles": {
       "units\\other\\diablocar\\diablocar.blp": "textures/native-diablocar.png"
-    }
+    },
+    "descriptionLinks": [
+      {
+        "text": "@Lukor",
+        "url": "https://www.hiveworkshop.com/members/237060/"
+      },
+      {
+        "text": "Centaur Outrider",
+        "url": "https://www.hiveworkshop.com/threads/centaur-outrider.358118/"
+      }
+    ]
   }
 ]
