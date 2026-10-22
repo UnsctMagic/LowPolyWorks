@@ -12165,8 +12165,10 @@
     "portraitBackdropGeosets": [
       2
     ],
-    "imageVersion": "20261022-tzeentch-warrior",
-    "searchDescription": "Chaos Warriors of Tzeentch tend to be subtly individual, with many small differences between them. Typically their plate armour and shield will be engraved with intricately patterned sigils that radiate with raw power, or flow with blinking eyes or gibbering mouths, or are perhaps inscribed with a minute arcane text making the wearer literally a walking grimoire. Though it is not immediately visible, many will have mutated flesh, their Chaos armour melting and reforming around the warped appendages of their bodies. They are deadly and unpredictable; they are warriors who have the favour of the God of Magic."
+    "imageVersion": "20261022-tzeentch-card-size",
+    "searchDescription": "Chaos Warriors of Tzeentch tend to be subtly individual, with many small differences between them. Typically their plate armour and shield will be engraved with intricately patterned sigils that radiate with raw power, or flow with blinking eyes or gibbering mouths, or are perhaps inscribed with a minute arcane text making the wearer literally a walking grimoire. Though it is not immediately visible, many will have mutated flesh, their Chaos armour melting and reforming around the warped appendages of their bodies. They are deadly and unpredictable; they are warriors who have the favour of the God of Magic.",
+    "captureSequence": "Stand Ready",
+    "captureTime": 0
   },
   {
     "id": "warrior-of-khorne-berserker",
