@@ -11866,8 +11866,8 @@
       },
       {
         "index": 1,
-        "vertices": 37,
-        "triangles": 22,
+        "vertices": 53,
+        "triangles": 34,
         "material": 0,
         "textures": [
           "Textures\\gutz.blp"
@@ -12164,13 +12164,19 @@
       "Portrait Talk",
       "Stand Ready"
     ],
-    "bytes": 131974,
-    "sha256": "212ed84f0f112a94b4a4c783512e8c30f10a6ba6dbb5aa7a7d7fb2d5e1472aa7",
+    "bytes": 132582,
+    "sha256": "c3cf2bcfca036169eae2293ac7135b524481dec53a2f9ea00b2d8d8b1daf6df8",
     "portraitBackdropGeosets": [
       2
     ],
     "imageVersion": "20261022-tzeentch-original-size",
-    "searchDescription": "Chaos Warriors of Tzeentch tend to be subtly individual, with many small differences between them. Typically their plate armour and shield will be engraved with intricately patterned sigils that radiate with raw power, or flow with blinking eyes or gibbering mouths, or are perhaps inscribed with a minute arcane text making the wearer literally a walking grimoire. Though it is not immediately visible, many will have mutated flesh, their Chaos armour melting and reforming around the warped appendages of their bodies. They are deadly and unpredictable; they are warriors who have the favour of the God of Magic."
+    "searchDescription": "Chaos Warriors of Tzeentch tend to be subtly individual, with many small differences between them. Typically their plate armour and shield will be engraved with intricately patterned sigils that radiate with raw power, or flow with blinking eyes or gibbering mouths, or are perhaps inscribed with a minute arcane text making the wearer literally a walking grimoire. Though it is not immediately visible, many will have mutated flesh, their Chaos armour melting and reforming around the warped appendages of their bodies. They are deadly and unpredictable; they are warriors who have the favour of the God of Magic.",
+    "changelog": [
+      {
+        "date": "23 October 2026",
+        "text": "Fixed corpse decay"
+      }
+    ]
   },
   {
     "id": "warrior-of-khorne-berserker",
@@ -12191,8 +12197,8 @@
       },
       {
         "index": 1,
-        "vertices": 37,
-        "triangles": 22,
+        "vertices": 53,
+        "triangles": 34,
         "material": 0,
         "textures": [
           "Textures\\gutz.blp"
@@ -12458,7 +12464,7 @@
       "Attack 1",
       "Attack 2"
     ],
-    "bytes": 136390,
+    "bytes": 136998,
     "portraitBackdropGeosets": [
       2
     ],
@@ -12534,7 +12540,13 @@
         "url": "https://www.hiveworkshop.com/members/stein123.196992/"
       }
     ],
-    "sha256": "c5312b18cc925b298835f66d3b5a20b8b014d8c82eabc3ec6a47971e2638af5f"
+    "sha256": "e00fdb647484055394c9dda54f586d7b9039be45b6a7740d296a16e62af36b51",
+    "changelog": [
+      {
+        "date": "23 October 2026",
+        "text": "Fixed corpse decay"
+      }
+    ]
   },
   {
     "id": "warrior-of-khorne-cleaver",
@@ -12555,8 +12567,8 @@
       },
       {
         "index": 1,
-        "vertices": 37,
-        "triangles": 22,
+        "vertices": 53,
+        "triangles": 34,
         "material": 0,
         "textures": [
           "Textures\\gutz.blp"
@@ -12854,7 +12866,7 @@
       "Portrait Talk",
       "Stand - 3"
     ],
-    "bytes": 105934,
+    "bytes": 106534,
     "portraitBackdropGeosets": [
       2
     ],
@@ -12934,8 +12946,14 @@
         "url": "https://www.hiveworkshop.com/threads/death-sword.292852/"
       }
     ],
-    "sha256": "b023be3d8be2fa1e9a25802d2d7d99f8e8af8248c8eb7bc23fce149fef6f9cb0",
-    "imageVersion": "20261021-cleaver-upload-01"
+    "sha256": "d48767097366fc0bc7b0678eb810b720c86e1982e19959ff161c7448475b4eed",
+    "imageVersion": "20261021-cleaver-upload-01",
+    "changelog": [
+      {
+        "date": "23 October 2026",
+        "text": "Fixed corpse decay"
+      }
+    ]
   },
   {
     "id": "warrior-of-khorne",
@@ -12956,8 +12974,8 @@
       },
       {
         "index": 1,
-        "vertices": 37,
-        "triangles": 22,
+        "vertices": 53,
+        "triangles": 34,
         "material": 0,
         "textures": [
           "Textures\\gutz.blp"
@@ -13230,7 +13248,7 @@
       "Attack 1",
       "Attack 2"
     ],
-    "bytes": 133800,
+    "bytes": 134408,
     "portraitBackdropGeosets": [
       2
     ],
@@ -13298,8 +13316,12 @@
         "url": "https://www.hiveworkshop.com/members/stein123.196992/"
       }
     ],
-    "sha256": "4e6633bc567d375358960c44d43ea2e056f7f8f09048d0b1bed51ebff4473d57",
+    "sha256": "19436ef306835cadc2b34ee552c1af8e63e2b0c29c52316f7f397a23cbf16e83",
     "changelog": [
+      {
+        "date": "23 October 2026",
+        "text": "Fixed corpse decay"
+      },
       {
         "date": "18 October 2026",
         "text": "Fixed hole in arm, optimized file size."
@@ -13325,8 +13347,8 @@
       },
       {
         "index": 1,
-        "vertices": 37,
-        "triangles": 22,
+        "vertices": 53,
+        "triangles": 34,
         "material": 0,
         "textures": [
           "Textures\\gutz.blp"
@@ -13658,7 +13680,7 @@
       "Spell",
       "Attack Defend"
     ],
-    "bytes": 157385,
+    "bytes": 157993,
     "portraitBackdropGeosets": [
       33
     ],
@@ -13738,7 +13760,7 @@
         "url": "https://www.hiveworkshop.com/members/stein123.196992/"
       }
     ],
-    "sha256": "5f107e9caa23ee3e06064d2bfab21511c67eb91a5c01e81d67d26d33b40af241",
+    "sha256": "2ee697be51bec232d23efc37bf4e61c33c450f94ab02933ec3d11d708827529b",
     "descriptionLinks": [
       {
         "text": "Chaos Warriors of Nurgle",
@@ -13746,7 +13768,13 @@
       }
     ],
     "searchDescription": "An unbearable stench always heralds the approach of the Plague Lord’s warriors. Their helmets often bear great, withered horns and they are clad in rust-tarnished armour which conceal vile conditions or mutations – perhaps a slimy tentacle, or translucent, jelly-like flesh that reveals their decaying inner organs, or simply a body riddled with leprosy. Sometimes the corpulent meat of their bodies spills from the cracks of their armour. Whatever the case, they are deadly fighters who are near-impervious to pain and fight on despite receiving the most horrendous wounds imaginable.",
-    "imageVersion": "20261020-chaos-warrior-final"
+    "imageVersion": "20261020-chaos-warrior-final",
+    "changelog": [
+      {
+        "date": "23 October 2026",
+        "text": "Fixed corpse decay"
+      }
+    ]
   },
   {
     "id": "blood-dragon",
