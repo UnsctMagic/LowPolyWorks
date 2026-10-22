@@ -11773,7 +11773,7 @@
   },
   {
     "id": "warrior-of-tzeentch",
-    "file": "WH_WOC_WarriorTzeentch01.mdx",
+    "file": "WH_WOC_WarriorTzeentch02.mdx",
     "name": "Warrior of Tzeentch",
     "army": "warriors-of-chaos",
     "description": "Chaos Warriors of Tzeentch tend to be subtly individual, with many small differences between them. Typically their plate armour and shield will be engraved with intricately patterned sigils that radiate with raw power, or flow with blinking eyes or gibbering mouths, or are perhaps inscribed with a minute arcane text making the wearer literally a walking grimoire. Though it is not immediately visible, many will have mutated flesh, their Chaos armour melting and reforming around the warped appendages of their bodies. They are deadly and unpredictable; they are warriors who have the favour of the God of Magic.",
@@ -12180,7 +12180,7 @@
   },
   {
     "id": "warrior-of-khorne-berserker",
-    "file": "WH_WOC_WarriorKhorneBerserker02.mdx",
+    "file": "WH_WOC_WarriorKhorneBerserker03.mdx",
     "name": "Warrior of Khorne · Berserker",
     "army": "warriors-of-chaos",
     "description": "The Warriors of Chaos that follow the Blood God, as with all servants of the Ruinous Powers, are not limited to the primitive tribes of the north. His grasp can reach the heart of every soldier, every warrior, every life-taker. When a noble Knight of Bretonnia or a Templar of the Empire falls to His worship it is because they forget why they kill. To change from killing for the common good to killing only because one wants to – because the act is pleasing – is when the righteous have fallen from their path. These are the warriors Khorne embraces, never to release. These are the converts that He savours.",
@@ -12550,7 +12550,7 @@
   },
   {
     "id": "warrior-of-khorne-cleaver",
-    "file": "WH_WOC_WarriorKhorneGW01.mdx",
+    "file": "WH_WOC_WarriorKhorneGW02.mdx",
     "name": "Warrior of Khorne · Cleaver",
     "army": "warriors-of-chaos",
     "description": "The Warriors of Chaos that follow the Blood God, as with all servants of the Ruinous Powers, are not limited to the primitive tribes of the north. His grasp can reach the heart of every soldier, every warrior, every life-taker. When a noble Knight of Bretonnia or a Templar of the Empire falls to His worship it is because they forget why they kill. To change from killing for the common good to killing only because one wants to – because the act is pleasing – is when the righteous have fallen from their path. These are the warriors Khorne embraces, never to release. These are the converts that He savours.",
@@ -12957,7 +12957,7 @@
   },
   {
     "id": "warrior-of-khorne",
-    "file": "WH_WOC_WarriorKhorne03.mdx",
+    "file": "WH_WOC_WarriorKhorne04.mdx",
     "name": "Warrior of Khorne · Bruiser",
     "army": "warriors-of-chaos",
     "description": "The Warriors of Chaos that follow the Blood God, as with all servants of the Ruinous Powers, are not limited to the primitive tribes of the north. His grasp can reach the heart of every soldier, every warrior, every life-taker. When a noble Knight of Bretonnia or a Templar of the Empire falls to His worship it is because they forget why they kill. To change from killing for the common good to killing only because one wants to – because the act is pleasing – is when the righteous have fallen from their path. These are the warriors Khorne embraces, never to release. These are the converts that He savours.",
@@ -13330,7 +13330,7 @@
   },
   {
     "id": "chaos-warrior-of-nurgle",
-    "file": "chaos-warrior-of-nurgle/WH_WOC_WarriorNurgle01.mdx",
+    "file": "chaos-warrior-of-nurgle/WH_WOC_WarriorNurgle02.mdx",
     "name": "Warrior of Nurgle",
     "army": "warriors-of-chaos",
     "description": "An unbearable stench always heralds the approach of the Plague Lord’s warriors. Their helmets often bear great, withered horns and they are clad in rust-tarnished armour which conceal vile conditions or mutations – perhaps a slimy tentacle, or translucent, jelly-like flesh that reveals their decaying inner organs, or simply a body riddled with leprosy. Sometimes the corpulent meat of their bodies spills from the cracks of their armour. Whatever the case, they are deadly fighters who are near-impervious to pain and fight on despite receiving the most horrendous wounds imaginable.\r\n\r\nSource: Chaos Warriors of Nurgle",
