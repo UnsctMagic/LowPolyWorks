@@ -1,4 +1,5 @@
-import {createViewer} from './viewer.js?v=20261012-champion-depth';
+import {createViewer} from './viewer.js?v=20261022-wheel-animations';
+import {wheelSelect} from './wheel-select.js?v=20261022-wheel-animations';
 import {unpackFile,inspectModel,findTexture,pathKey,sha256,modelPattern} from './model-files.js';
 import {TEAM_COLORS} from './vendor/mdlxl/src/team-colors.js';
 let canvas=document.querySelector('#preview');
@@ -43,7 +44,7 @@ window.addEventListener('message',async event=>{
  }catch(error){status.textContent=error.message;send('studio-error',{error:error.message});}
 });
 modelSelect.onchange=selectModel;
-sequenceSelect.onchange=()=>viewer?.sequence(Number(sequenceSelect.value));
+sequenceSelect.onchange=()=>{viewer?.sequence(Number(sequenceSelect.value));viewer?.play();};wheelSelect(sequenceSelect);
 teamSelect.onchange=selectModel;
 // Module texture loading can finish after the iframe load event. Signal readiness
 // only after the message listener is installed so the first file selection arrives.
