@@ -22,8 +22,9 @@ export function authorized(header,secret){
  return actual.length===expected.length&&timingSafeEqual(actual,expected);
 }
 // Shredder interactions arrive as one batched count per page session; the counts live in the event path
-// (for example peek2.grab1.feed1.crack0.follow0) so reports can still be built from Blob listings alone.
-export const shredderKinds=['peek','grab','feed','crack','follow'];
+// (for example peek2.grab1.feed1.crack0.follow0.attack1) so reports can still be built from Blob listings alone.
+// Paths recorded before Bird Attack end at follow and read as attack0.
+export const shredderKinds=['peek','grab','feed','crack','follow','attack'];
 export function shredderCounts(counts){
  if(!counts||typeof counts!=='object'||Array.isArray(counts)||Object.keys(counts).some(key=>!shredderKinds.includes(key)))return null;
  const values=shredderKinds.map(kind=>counts[kind]??0);
@@ -32,6 +33,7 @@ export function shredderCounts(counts){
 }
 function parseShredderCounts(segment){
  const parts=String(segment).split('.');
+ if(parts.length===shredderKinds.length-1)parts.push('attack0');
  if(parts.length!==shredderKinds.length)return null;
  const counts={};
  for(const [index,kind] of shredderKinds.entries()){const match=new RegExp('^'+kind+'(\\d{1,3})$').exec(parts[index]);if(!match)return null;counts[kind]=Number(match[1]);}

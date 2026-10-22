@@ -3,7 +3,7 @@
 // a few times a day, so his statistics cost few tracker writes. Opted-out browsers never tally or send.
 import {recordShredder,usageAllowed} from './usage.js?v=20261012-shredder-cloudflare';
 
-const KINDS = ['peek', 'grab', 'feed', 'crack', 'follow'];
+const KINDS = ['peek', 'grab', 'feed', 'crack', 'follow', 'attack'];
 const PENDING = 'lowpolyworks.shredderPending', SENT = 'lowpolyworks.shredderSent', DAILY_SENDS = 4, MAX = 999;
 
 function read(key) { try { return JSON.parse(localStorage.getItem(key) || 'null'); } catch { return null; } }
