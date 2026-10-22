@@ -514,5 +514,9 @@
   {
     "file": "WH_WOC_WarriorKhorneGW01.mdx",
     "sha256": "b023be3d8be2fa1e9a25802d2d7d99f8e8af8248c8eb7bc23fce149fef6f9cb0"
+  },
+  {
+    "file": "WH_WOC_WarriorTzeentch01.mdx",
+    "sha256": "212ed84f0f112a94b4a4c783512e8c30f10a6ba6dbb5aa7a7d7fb2d5e1472aa7"
   }
 ]

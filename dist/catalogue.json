@@ -336,7 +336,7 @@
       },
       {
         "text": "MDLxL",
-        "url": "https://github.com/UnsctMagic/MDLxL"
+        "url": "https://www.lowpolyworks.com/mdlxl/"
       }
     ],
     "formationBodyHeight": 0.76,
@@ -2200,7 +2200,7 @@
       },
       {
         "text": "MDLxL",
-        "url": "https://github.com/UnsctMagic/MDLxL"
+        "url": "https://www.lowpolyworks.com/mdlxl/"
       }
     ],
     "formationSequence": "Stand Ready",
@@ -2809,7 +2809,7 @@
       },
       {
         "text": "MDLxL",
-        "url": "https://github.com/UnsctMagic/MDLxL"
+        "url": "https://www.lowpolyworks.com/mdlxl/"
       }
     ],
     "searchDescription": "Preview and download the Knight of Khorne Champion model for Warcraft 3. Add a Warhammer Fantasy Chaos champion to your custom army.",
@@ -10943,7 +10943,7 @@
       },
       {
         "text": "MDLxL",
-        "url": "https://github.com/UnsctMagic/MDLxL"
+        "url": "https://www.lowpolyworks.com/mdlxl/"
       }
     ],
     "formationSequence": "Spell",
@@ -11532,7 +11532,7 @@
       },
       {
         "text": "MDLxL",
-        "url": "https://github.com/UnsctMagic/MDLxL"
+        "url": "https://www.lowpolyworks.com/mdlxl/"
       }
     ],
     "searchDescription": "Preview and download the lance variant of the Knight of Tzeentch for Warcraft 3. A Warhammer Fantasy model for your Warriors of Chaos army.",
@@ -11770,6 +11770,403 @@
     "sourceUrl": "https://xgm.guru/p/wc3/chaos-ogre",
     "sha256": "b75c09c1c7c3bb353599d321bc5d6aa9700f393cdbd1a10fc387812cb45ebaef",
     "searchDescription": "Preview and download Chaos Ogre for Warcraft III Classic. A Warhammer Fantasy model for your Warriors of Chaos army."
+  },
+  {
+    "id": "warrior-of-tzeentch",
+    "file": "WH_WOC_WarriorTzeentch01.mdx",
+    "name": "Warrior of Tzeentch",
+    "army": "warriors-of-chaos",
+    "description": "Chaos Warriors of Tzeentch tend to be subtly individual, with many small differences between them. Typically their plate armour and shield will be engraved with intricately patterned sigils that radiate with raw power, or flow with blinking eyes or gibbering mouths, or are perhaps inscribed with a minute arcane text making the wearer literally a walking grimoire. Though it is not immediately visible, many will have mutated flesh, their Chaos armour melting and reforming around the warped appendages of their bodies. They are deadly and unpredictable; they are warriors who have the favour of the God of Magic.",
+    "credits": "Model Base - Chaos Warrior by azazeron\r\n\r\nMashed with - Chaos Warriors by Diazon, found on Warhammer Eternal Strife by Nightmare2077\r\n\r\nAnimated Eyes - Hatchet Eye Drranosh by ratamahatta (Added many frames to make it smoother)\r\n\r\nTzeentchian Symbol - projected from 2D image using MDLxL\r\n\r\nWeapon - Infernal Gladiator Trident by Blood Raven\r\n\r\nHelm front - adapted from Vyrkul Male/Blizzard WoW Asset - Found Here\r\n\r\nHelmet backside - CrownHelmetbySunchips by Sunchips\r\n\r\nAdditional credits - Stein123",
+    "authors": [
+      {
+        "name": "Unsanctioned Magic",
+        "url": "https://xgm.guru/user/UnsanctMagic"
+      }
+    ],
+    "creditLinks": [
+      {
+        "text": "Chaos Warrior",
+        "url": "https://www.hiveworkshop.com/threads/chaos-warrior.366159/"
+      },
+      {
+        "text": "azazeron",
+        "url": "https://www.hiveworkshop.com/members/azazeron.299156/"
+      },
+      {
+        "text": "Chaos Warriors",
+        "url": "https://www.hiveworkshop.com/threads/warhammer-eternal-strife-melee.254808/"
+      },
+      {
+        "text": "Diazon",
+        "url": "https://www.hiveworkshop.com/threads/warhammer-eternal-strife-melee.254808/"
+      },
+      {
+        "text": "Warhammer Eternal Strife",
+        "url": "https://www.hiveworkshop.com/threads/warhammer-eternal-strife-melee.254808/"
+      },
+      {
+        "text": "Nightmare2077",
+        "url": "https://www.hiveworkshop.com/members/nightmare2077.204498/"
+      },
+      {
+        "text": "Stein123",
+        "url": "https://www.hiveworkshop.com/members/stein123.196992/"
+      },
+      {
+        "text": "Hatchet Eye Drranosh",
+        "url": "https://www.hiveworkshop.com/threads/hatchet-eye-dranosh.202230/"
+      },
+      {
+        "text": "ratamahatta",
+        "url": "https://www.hiveworkshop.com/members/206351/"
+      },
+      {
+        "text": "MDLxL",
+        "url": "https://www.lowpolyworks.com/mdlxl/"
+      },
+      {
+        "text": "Infernal Gladiator Trident",
+        "url": "https://www.hiveworkshop.com/threads/infernal-gladiator-trident.292591/"
+      },
+      {
+        "text": "Blood Raven",
+        "url": "https://www.hiveworkshop.com/members/blood-raven.194769/"
+      },
+      {
+        "text": "Blizzard",
+        "url": "https://www.blizzard.com/"
+      },
+      {
+        "text": "Found Here",
+        "url": "https://wc3.ninja/models/870506#d=350.0&y=0.000&p=0.028&tx=0.8&ty=25.9&tz=131.5"
+      },
+      {
+        "text": "CrownHelmetbySunchips",
+        "url": "https://www.hiveworkshop.com/threads/crownhelmetbysunchips.166520/"
+      },
+      {
+        "text": "Sunchips",
+        "url": "https://www.hiveworkshop.com/members/sunchips.176515/"
+      }
+    ],
+    "geosets": [
+      {
+        "index": 0,
+        "vertices": 52,
+        "triangles": 76,
+        "material": 5,
+        "textures": [
+          "Textures\\UndeadAirBarge.blp"
+        ]
+      },
+      {
+        "index": 1,
+        "vertices": 37,
+        "triangles": 22,
+        "material": 0,
+        "textures": [
+          "Textures\\gutz.blp"
+        ]
+      },
+      {
+        "index": 2,
+        "vertices": 4,
+        "triangles": 2,
+        "material": 1,
+        "textures": [
+          "Team colour / glow"
+        ]
+      },
+      {
+        "index": 3,
+        "vertices": 36,
+        "triangles": 38,
+        "material": 8,
+        "textures": [
+          "Units\\Creeps\\Magnataur\\Magnataur.blp"
+        ]
+      },
+      {
+        "index": 4,
+        "vertices": 24,
+        "triangles": 29,
+        "material": 3,
+        "textures": [
+          "Doodads\\Icecrown\\Structures\\Icecrown_Rubble\\Ice_Strucures.blp"
+        ]
+      },
+      {
+        "index": 5,
+        "vertices": 88,
+        "triangles": 108,
+        "material": 2,
+        "textures": [
+          "UI\\Glues\\SinglePlayer\\HumanCampaign3D\\HumanCampaignFootman.blp"
+        ]
+      },
+      {
+        "index": 6,
+        "vertices": 11,
+        "triangles": 10,
+        "material": 4,
+        "textures": [
+          "Textures\\Doodads0.blp"
+        ]
+      },
+      {
+        "index": 7,
+        "vertices": 18,
+        "triangles": 24,
+        "material": 9,
+        "textures": [
+          "Textures\\Arthas1.blp"
+        ]
+      },
+      {
+        "index": 8,
+        "vertices": 11,
+        "triangles": 13,
+        "material": 5,
+        "textures": [
+          "Textures\\UndeadAirBarge.blp"
+        ]
+      },
+      {
+        "index": 9,
+        "vertices": 46,
+        "triangles": 40,
+        "material": 3,
+        "textures": [
+          "Doodads\\Icecrown\\Structures\\Icecrown_Rubble\\Ice_Strucures.blp"
+        ]
+      },
+      {
+        "index": 10,
+        "vertices": 32,
+        "triangles": 24,
+        "material": 6,
+        "textures": [
+          "Doodads\\Icecrown\\Structures\\Icecrown_Rubble\\Ice_Strucures.blp"
+        ]
+      },
+      {
+        "index": 11,
+        "vertices": 327,
+        "triangles": 500,
+        "material": 7,
+        "textures": [
+          "Textures\\UndeadAirBarge.blp"
+        ]
+      },
+      {
+        "index": 12,
+        "vertices": 22,
+        "triangles": 28,
+        "material": 8,
+        "textures": [
+          "Units\\Creeps\\Magnataur\\Magnataur.blp"
+        ]
+      },
+      {
+        "index": 13,
+        "vertices": 34,
+        "triangles": 32,
+        "material": 11,
+        "textures": [
+          "Team colour / glow",
+          "Textures\\Arthas1.blp"
+        ]
+      },
+      {
+        "index": 14,
+        "vertices": 17,
+        "triangles": 24,
+        "material": 12,
+        "textures": [
+          "UI\\Glues\\BattleNet\\BattlenetWorkingExpansion\\BNetWorkingExp0018.blp",
+          "UI\\Glues\\BattleNet\\BattlenetWorkingExpansion\\BNetWorkingExp0019.blp",
+          "UI\\Glues\\BattleNet\\BattlenetWorkingExpansion\\BNetWorkingExp0020.blp",
+          "UI\\Glues\\BattleNet\\BattlenetWorkingExpansion\\BNetWorkingExp0021.blp",
+          "UI\\Glues\\BattleNet\\BattlenetWorkingExpansion\\BNetWorkingExp0022.blp",
+          "UI\\Glues\\BattleNet\\BattlenetWorkingExpansion\\BNetWorkingExp0023.blp",
+          "UI\\Glues\\BattleNet\\BattlenetWorkingExpansion\\BNetWorkingExp0024.blp",
+          "UI\\Glues\\BattleNet\\BattlenetWorkingExpansion\\BNetWorkingExp0025.blp",
+          "UI\\Glues\\BattleNet\\BattlenetWorkingExpansion\\BNetWorkingExp0026.blp",
+          "UI\\Glues\\BattleNet\\BattlenetWorkingExpansion\\BNetWorkingExp0027.blp",
+          "UI\\Glues\\BattleNet\\BattlenetWorkingExpansion\\BNetWorkingExp0028.blp",
+          "UI\\Glues\\BattleNet\\BattlenetWorkingExpansion\\BNetWorkingExp0029.blp",
+          "UI\\Glues\\BattleNet\\BattlenetWorkingExpansion\\BNetWorkingExp0000.blp",
+          "UI\\Glues\\BattleNet\\BattlenetWorkingExpansion\\BNetWorkingExp0001.blp",
+          "UI\\Glues\\BattleNet\\BattlenetWorkingExpansion\\BNetWorkingExp0002.blp",
+          "UI\\Glues\\BattleNet\\BattlenetWorkingExpansion\\BNetWorkingExp0003.blp",
+          "UI\\Glues\\BattleNet\\BattlenetWorkingExpansion\\BNetWorkingExp0004.blp",
+          "UI\\Glues\\BattleNet\\BattlenetWorkingExpansion\\BNetWorkingExp0005.blp",
+          "UI\\Glues\\BattleNet\\BattlenetWorkingExpansion\\BNetWorkingExp0006.blp",
+          "UI\\Glues\\BattleNet\\BattlenetWorkingExpansion\\BNetWorkingExp0007.blp",
+          "UI\\Glues\\BattleNet\\BattlenetWorkingExpansion\\BNetWorkingExp0008.blp",
+          "UI\\Glues\\BattleNet\\BattlenetWorkingExpansion\\BNetWorkingExp0009.blp",
+          "UI\\Glues\\BattleNet\\BattlenetWorkingExpansion\\BNetWorkingExp0010.blp",
+          "UI\\Glues\\BattleNet\\BattlenetWorkingExpansion\\BNetWorkingExp0011.blp",
+          "UI\\Glues\\BattleNet\\BattlenetWorkingExpansion\\BNetWorkingExp0012.blp",
+          "UI\\Glues\\BattleNet\\BattlenetWorkingExpansion\\BNetWorkingExp0013.blp",
+          "UI\\Glues\\BattleNet\\BattlenetWorkingExpansion\\BNetWorkingExp0014.blp",
+          "UI\\Glues\\BattleNet\\BattlenetWorkingExpansion\\BNetWorkingExp0015.blp",
+          "UI\\Glues\\BattleNet\\BattlenetWorkingExpansion\\BNetWorkingExp0016.blp"
+        ]
+      },
+      {
+        "index": 15,
+        "vertices": 28,
+        "triangles": 24,
+        "material": 13,
+        "textures": [
+          "Abilities\\Spells\\Undead\\VampiricAura\\AuraRune6.blp"
+        ]
+      },
+      {
+        "index": 16,
+        "vertices": 16,
+        "triangles": 16,
+        "material": 10,
+        "textures": [
+          "Textures\\InfernalCannon.blp"
+        ]
+      },
+      {
+        "index": 17,
+        "vertices": 285,
+        "triangles": 424,
+        "material": 14,
+        "textures": [
+          "Textures\\UndeadAirBarge.blp"
+        ]
+      },
+      {
+        "index": 18,
+        "vertices": 53,
+        "triangles": 62,
+        "material": 14,
+        "textures": [
+          "Textures\\UndeadAirBarge.blp"
+        ]
+      },
+      {
+        "index": 19,
+        "vertices": 14,
+        "triangles": 12,
+        "material": 15,
+        "textures": [
+          "Doodads\\Cinematic\\ArthasIllidanFight\\Arthas1.blp"
+        ]
+      },
+      {
+        "index": 20,
+        "vertices": 10,
+        "triangles": 8,
+        "material": 16,
+        "textures": [
+          "Textures\\Green_Glow2.blp"
+        ]
+      },
+      {
+        "index": 21,
+        "vertices": 12,
+        "triangles": 8,
+        "material": 17,
+        "textures": [
+          "Units\\Demon\\Mannoroth\\Mannoroth.blp"
+        ]
+      },
+      {
+        "index": 22,
+        "vertices": 41,
+        "triangles": 56,
+        "material": 18,
+        "textures": [
+          "Units\\Orc\\OrcWarlockGuldan\\OrcWarlockGuldan.blp"
+        ]
+      },
+      {
+        "index": 23,
+        "vertices": 18,
+        "triangles": 20,
+        "material": 8,
+        "textures": [
+          "Units\\Creeps\\Magnataur\\Magnataur.blp"
+        ]
+      },
+      {
+        "index": 24,
+        "vertices": 6,
+        "triangles": 4,
+        "material": 8,
+        "textures": [
+          "Units\\Creeps\\Magnataur\\Magnataur.blp"
+        ]
+      },
+      {
+        "index": 25,
+        "vertices": 31,
+        "triangles": 32,
+        "material": 19,
+        "textures": [
+          "Doodads\\Icecrown\\Structures\\Icecrown_Rubble\\Ice_Strucures.blp"
+        ]
+      },
+      {
+        "index": 26,
+        "vertices": 8,
+        "triangles": 8,
+        "material": 20,
+        "textures": [
+          "Textures\\InfernalCannon.blp"
+        ]
+      },
+      {
+        "index": 27,
+        "vertices": 120,
+        "triangles": 100,
+        "material": 20,
+        "textures": [
+          "Textures\\InfernalCannon.blp"
+        ]
+      },
+      {
+        "index": 28,
+        "vertices": 34,
+        "triangles": 32,
+        "material": 21,
+        "textures": [
+          "Team colour / glow",
+          "ReplaceableTextures\\AshenvaleTree\\AshenTreeBlight.blp"
+        ]
+      }
+    ],
+    "sequences": [
+      "Stand - 1",
+      "Stand - 2",
+      "Spell",
+      "Attack 1",
+      "Attack 2",
+      "Walk",
+      "Stand Defend",
+      "Walk Defend",
+      "Death",
+      "Decay Flesh",
+      "Attack Defend",
+      "Decay Bone",
+      "Portrait",
+      "Portrait Talk",
+      "Stand Ready"
+    ],
+    "bytes": 131974,
+    "sha256": "212ed84f0f112a94b4a4c783512e8c30f10a6ba6dbb5aa7a7d7fb2d5e1472aa7",
+    "portraitBackdropGeosets": [
+      2
+    ],
+    "imageVersion": "20261022-tzeentch-original-size",
+    "searchDescription": "Chaos Warriors of Tzeentch tend to be subtly individual, with many small differences between them. Typically their plate armour and shield will be engraved with intricately patterned sigils that radiate with raw power, or flow with blinking eyes or gibbering mouths, or are perhaps inscribed with a minute arcane text making the wearer literally a walking grimoire. Though it is not immediately visible, many will have mutated flesh, their Chaos armour melting and reforming around the warped appendages of their bodies. They are deadly and unpredictable; they are warriors who have the favour of the God of Magic."
   },
   {
     "id": "warrior-of-khorne-berserker",
