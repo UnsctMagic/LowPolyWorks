@@ -1,6 +1,6 @@
 import {authorIdentity,postMedia,postPoll,postBody} from './post-content.js?v=20261008-post-editor';
 import {browserVisitorId} from './visitor-id.js';
-import {uploadedModelCard} from './unit-card.js?v=20261012-cloudflare';
+import {uploadedModelCard} from './unit-card.js?v=20261022-wheel-animations';
 const API='https://lowpolyworks-vault.lowpolyworks-internal-tracker.workers.dev/api/publishing';
 const escape=value=>String(value??'').replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
 const labels={news:'News','model-upload':'New model','model-update':'Model update'};
