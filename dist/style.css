@@ -93,7 +93,7 @@ footer{max-width:1740px;padding:20px 24px}
 .controls .control-row+.control-row{margin-top:10px}
 .controls .control-sequence{grid-template-columns:92px minmax(0,1fr) 104px}
 .controls .control-fields{grid-template-columns:92px minmax(0,1fr) 92px minmax(0,1fr);padding:10px 0;border-top:1px solid #c9b17a1f;border-bottom:1px solid #c9b17a1f}
-.controls .control-actions{grid-template-columns:minmax(0,1fr) 104px 104px}
+.controls .control-actions{grid-template-columns:minmax(0,1fr) 104px 104px 104px}
 .controls .control-range{display:grid;grid-template-columns:minmax(0,1fr) 30px;gap:8px;align-items:center;min-width:0}
 .controls .control-row select{width:100%;height:36px;padding:4px 8px}
 .controls .control-row select.team-input{width:100%}
@@ -121,7 +121,7 @@ footer{max-width:1740px;padding:20px 24px}
 .controls .loop-option input:checked{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6.5l3 3 5-7' fill='none' stroke='%23e3c77f' stroke-width='2.2'/%3E%3C/svg%3E") center/13px no-repeat,linear-gradient(#020409,#0e1526)}
 /* The controls follow the viewer panel width, which narrows before the window does. */
 .controls{container-type:inline-size}
-@container (max-width:519px){.controls .control-row{gap:7px 8px}.controls .control-sequence{grid-template-columns:84px minmax(0,1fr) 88px}.controls .control-fields{grid-template-columns:84px minmax(0,1fr)}.controls .control-actions{grid-template-columns:minmax(0,1fr) 88px 88px}.controls .control-row label{font-size:.76rem}}
+@container (max-width:519px){.controls .control-row{gap:7px 8px}.controls .control-sequence{grid-template-columns:84px minmax(0,1fr) 88px}.controls .control-fields{grid-template-columns:84px minmax(0,1fr)}.controls .control-actions{grid-template-columns:minmax(0,1fr) 88px 88px 88px}.controls .control-row label{font-size:.76rem}}
 @container (max-width:299px){.controls .control-sequence{grid-template-columns:minmax(0,1fr) 84px}.controls .control-sequence label{grid-column:1/-1}.controls .control-fields{grid-template-columns:minmax(0,1fr)}.controls .control-actions{grid-template-columns:1fr 1fr}.controls .control-actions .loop-option{grid-column:1/-1}}
 @media(max-width:560px){.controls{padding:8px}}
 

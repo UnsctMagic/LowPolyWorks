@@ -23,10 +23,10 @@ function browser({search = '', ok = true} = {}) {
 
 test('play is tallied in the browser and sent as one batch when the page is left', async () => {
   const b = browser();
-  b.play('peek'); b.play('peek'); b.play('feed'); b.play('scratch');
+  b.play('peek'); b.play('peek'); b.play('feed'); b.play('attack'); b.play('scratch');
   assert.equal(b.events.length, 0, 'nothing is sent while playing');
   await b.leave();
-  assert.equal(b.events.length, 1); assert.deepEqual(b.events[0].counts, {peek:2, feed:1});
+  assert.equal(b.events.length, 1); assert.deepEqual(b.events[0].counts, {peek:2, feed:1, attack:1});
   assert.deepEqual(b.pending(), {});
   await b.leave(); assert.equal(b.events.length, 1, 'no play, no event');
 });

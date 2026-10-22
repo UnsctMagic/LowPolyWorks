@@ -197,8 +197,8 @@ test('model views are accepted only for listed models and reported per model and
 test("Shredder's play arrives as one batched count per session and its counts live in the event path",async()=>{
  const blobs=[],collect=createEventsHandler({writeBlob:async(pathname,data)=>blobs.push({pathname,uploadedAt:JSON.parse(data).recordedAt})});
  const send=async body=>{const res=response();await collect({method:'POST',headers:{origin:'https://www.lowpolyworks.com','x-vercel-ip-country':'NL'},body},res);return res.statusCode;};
- assert.equal(await send({id:randomUUID(),visitorId:id,kind:'shredder',counts:{peek:2,feed:1}}),204);
- assert.match(blobs[0].pathname,/^live\/v3\/\d{4}-\d{2}-\d{2}\/shredder\/peek2\.grab0\.feed1\.crack0\.follow0\/session\//);
+ assert.equal(await send({id:randomUUID(),visitorId:id,kind:'shredder',counts:{peek:2,feed:1,attack:1}}),204);
+ assert.match(blobs[0].pathname,/^live\/v3\/\d{4}-\d{2}-\d{2}\/shredder\/peek2\.grab0\.feed1\.crack0\.follow0\.attack1\/session\//);
  assert(blobs[0].pathname.includes('/session/'+id+'/NL/'));
  for(const counts of [{},{peek:0},{peek:-1},{peek:1.5},{peek:1000},{peek:'1'},{scratch:1},[1],null])
   assert.equal(await send({id:randomUUID(),visitorId:id,kind:'shredder',counts}),400,JSON.stringify(counts));
@@ -211,12 +211,14 @@ test("Shredder's Stash counts people and interactions apart from the site totals
   {pathname:eventPath({...validateEvent({id:randomUUID(),visitorId:id,kind:'visit'}),country:'NL'},now),uploadedAt:at},
   play('peek2.grab1.feed1.crack0.follow0',id),play('peek1.grab0.feed2.crack1.follow0',id,'2026-10-06'),
   play('peek0.grab0.feed1.crack0.follow1',other),play('peek3.grab0.feed0.crack0.follow0','anonymous'),
+  play('peek0.grab0.feed0.crack0.follow0.attack2',other),play('peek0.grab0.feed0.crack0.follow0.attack1',id),
+  play('peek0.grab0.feed0.crack0.follow0.attack1.extra9',other),
   play('peek9.grab9.feed9.crack9.follow9',other,'2026-10-05','testing'),play('nonsense',other),
  ];
  const report=summarize(blobs);
  assert.deepEqual(report.totals,{pageLoads:1,downloadClicks:0,modelViews:0,uniqueVisitors:1},'site totals are unchanged by play');
  assert.equal(report.shredder.people,2);
- assert.deepEqual(report.shredder.interactions,{peek:{count:6,people:1},grab:{count:1,people:1},feed:{count:4,people:2},crack:{count:1,people:1},follow:{count:1,people:1}});
+ assert.deepEqual(report.shredder.interactions,{peek:{count:6,people:1},grab:{count:1,people:1},feed:{count:4,people:2},crack:{count:1,people:1},follow:{count:1,people:1},attack:{count:3,people:2}},'paths from before Bird Attack read as attack0');
  assert.equal(summarize(blobs,{from:'2026-10-06'}).shredder.interactions.feed.count,2);
  assert(!JSON.stringify(report.shredder).includes(id),'no browser IDs leave the report');
 });

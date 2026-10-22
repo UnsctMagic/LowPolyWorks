@@ -16,6 +16,10 @@ const diveArt = new URL('./ui/visitor/3.png' + new URL(import.meta.url).search, 
 const sequence = (row, durations, dx = null) => ({row, durations, dx, duration:durations.reduce((total, ms) => total + ms, 0)});
 const DIVE_START = sequence(7, [110, 150, 200, 90, 70, 70, 70, 70]);      // look over the edge, crouch, hop off
 const DIVE_FALL = .8, DIVE_PULL = .35, DIVE_GRAVITY = 780; // seconds, seconds, px/s²
+// Bird Attack dive: aim point down the unit's canvas, launch height above it, and a slope
+// matching the tucked cells' authored lean, so the sprite needs no extra turn.
+const ATTACK_AIM = .55, ATTACK_RISE = 260, ATTACK_SLANT = .47;
+const ATTACK_SPEED = 650, ATTACK_PUSH = 2400, ATTACK_FOLLOW = .18; // px/s, px/s², seconds past the unit
 function frameOf(seq, age) {
   let left = Math.max(0, age);
   for (let column = 0; column < seq.durations.length; column++) {
@@ -90,6 +94,8 @@ function moveFood(nut, seconds, width, height) {
   return cracked;
 }
 
+// A 'lowpolyworks:bird-attack' window event ({element, onHit}) sends him diving through element;
+// he cancels the event when he takes it, and calls onHit as he passes through.
 // onInteraction(kind) hears how a visitor plays with him: 'peek', 'grab', 'feed', 'crack' or 'follow'.
 export function startMenuVisitor({onInteraction} = {}) {
   const css = document.createElement('link');
@@ -151,7 +157,7 @@ export function startMenuVisitor({onInteraction} = {}) {
   let next = last + between(8000, 12000), deadline = 0, exposure = -72 * bodyScale, fromExposure = -72 * bodyScale;
   let actionAge = 0, peck = false, offset = 0, direction = 1, speed = 0, steps = 0;
   let pauseAt = 0, pauseUntil = 0, pauseStarted = 0, hurryUntil = 0, chasedUntil = 0, leanCycles = 0;
-  let flight, escapeSpeed = 420, dive = null;
+  let flight, escapeSpeed = 420, dive = null, attack = null;
   // peanut.state: 'falling' (fresh drop), 'dropped' (released by the hand), 'held', or 'carried'.
   // contested: a hand reached for free food, so he keeps away until it moves off.
   let peanut = null, peanutRollAt = Infinity, chasePoint, paintedPoint, backOffUntil = 0, backOffTarget = 0;
@@ -406,7 +412,7 @@ export function startMenuVisitor({onInteraction} = {}) {
       if (holding()) follow = {from};
       else resumeFrom = from;
     }
-    phase = 'rest'; bird.style.visibility = 'hidden'; dive = null;
+    phase = 'rest'; bird.style.visibility = 'hidden'; dive = attack = null;
     if (peanut?.state === 'carried') peanut = null;
     if (isFree(peanut)) peanut.contested = false;
     beakPeanut.style.display = 'none';
@@ -451,6 +457,7 @@ export function startMenuVisitor({onInteraction} = {}) {
   window.addEventListener('pointerdown', grabOrDrop, true);
   window.addEventListener('click', consumeFoodClick, true);
   window.addEventListener('hashchange', followMenu);
+  window.addEventListener('lowpolyworks:bird-attack', birdAttack);
   if (peanutTest) window.addEventListener('keydown', testPeanut);
   document.addEventListener('pointerleave', leave);
 
@@ -482,6 +489,61 @@ export function startMenuVisitor({onInteraction} = {}) {
       return;
     }
     if (paintedPoint.y - bodyHeight > layer.clientHeight) rest(now);
+  }
+
+  // Bird Attack: from wherever he is, he gets above the unit and dives straight through it.
+  // A visible bird flies up to the launch point first; an absent one starts the dive above the screen.
+  function birdAttack(event) {
+    const {element, onHit} = event.detail || {};
+    if (!element?.isConnected || !art.complete || !flightArt.complete || !diveImage.complete) return;
+    event.preventDefault();
+    const box = element.getBoundingClientRect(), now = performance.now();
+    const visible = phase !== 'rest' && bird.style.visibility === 'visible' && paintedPoint;
+    const side = visible ? (paintedPoint.x < box.left + box.width / 2 ? -1 : 1) : Math.random() < .5 ? -1 : 1;
+    if (peanut?.state === 'carried') peanut = null;
+    follow = resumeFrom = dive = null; beakPeanut.style.display = 'none';
+    attack = {element, onHit, side, hit:false, from:visible ? {...paintedPoint} : null};
+    direction = -side; phase = 'attack'; started = now;
+  }
+  function attackPath() {
+    const box = attack.element.getBoundingClientRect();
+    const target = {x:box.left + box.width / 2, y:box.top + box.height * ATTACK_AIM};
+    const rise = attack.from ? ATTACK_RISE : target.y + bodyHeight;
+    return {target, launch:{x:target.x + attack.side * ATTACK_SLANT * rise, y:target.y - rise}};
+  }
+  function paintAttack(now) {
+    layer.style.clipPath = 'none';
+    if (!attack.element.isConnected) { takeOff({x:paintedPoint?.x ?? 0, y:(paintedPoint?.y ?? 0) + footOffset}, now, true); return; }
+    const {target, launch} = attackPath();
+    let age = now - started;
+    if (attack.from) {
+      const climb = Math.max(350, Math.hypot(launch.x - attack.from.x, launch.y - attack.from.y) / 900 * 1000);
+      if (age < climb) {
+        direction = launch.x >= attack.from.x ? 1 : -1;
+        paint(mix(attack.from.x, launch.x, age / climb), mix(attack.from.y, launch.y, age / climb),
+          Math.floor(age / 90) % 8 >= 4 ? 1 : 0, Math.floor(age / 90) % 4, 0, true);
+        return;
+      }
+      age -= climb;
+    }
+    direction = -attack.side;
+    const t = age / 1000, length = Math.hypot(target.x - launch.x, target.y - launch.y);
+    const ux = (target.x - launch.x) / length, uy = (target.y - launch.y) / length;
+    const travel = ATTACK_SPEED * t + ATTACK_PUSH * t * t / 2;
+    if (!attack.hit && travel >= length) { attack.hit = true; attack.onHit?.(); attack.through = t; }
+    // Tucked cells already lean 25° towards his heading; turn the rest of the way.
+    const turn = direction * 25 - Math.atan2(ux, uy) * 180 / Math.PI;
+    const x = launch.x + ux * travel, y = launch.y + uy * travel;
+    const after = attack.hit ? t - attack.through : 0;
+    if (after < ATTACK_FOLLOW) { paint(x, y, 0, Math.floor(t * 1000 / 70) % 3, turn, false, false, 'dive'); return; }
+    // Snap the wings open beyond the unit, braking, as at the end of his ledge dive.
+    const open = attack.through + ATTACK_FOLLOW, braking = Math.min(DIVE_PULL, after - ATTACK_FOLLOW), p = braking / DIVE_PULL;
+    const reach = ATTACK_SPEED * open + ATTACK_PUSH * open * open / 2 + (ATTACK_SPEED + ATTACK_PUSH * open) * braking * (1 - p / 2);
+    const bx = launch.x + ux * reach, by = launch.y + uy * reach;
+    if (p < 1) { paint(bx, by, 0, p < .26 ? 3 : p < .57 ? 4 : 5, 0, false, false, 'dive'); return; }
+    attack = null;
+    takeOff({x:bx, y:by + footOffset}, now, true);
+    paintFlight(now);
   }
 
   function rollForPeanut(now) {
@@ -840,7 +902,7 @@ export function startMenuVisitor({onInteraction} = {}) {
     const canAppear = !document.hidden && now >= next && art.complete && art.naturalWidth && flightArt.complete && flightArt.naturalWidth;
     if (follow && !holding()) follow = null;
     // Following food into a new view: fly there from wherever he is, retrying until it has a perch.
-    if (follow && canAppear) {
+    if (follow && canAppear && phase !== 'attack') {
       if (choose(now, 'walk', follow)) follow = null;
     }
     if (phase === 'rest' && canAppear && !follow) {
@@ -878,6 +940,8 @@ export function startMenuVisitor({onInteraction} = {}) {
       paintFlight(now);
     } else if (phase === 'dive') {
       paintDive(now);
+    } else if (phase === 'attack') {
+      paintAttack(now);
     } else if (phase !== 'rest' && phase !== 'arrive') {
       const rect = rectFor(perch.element);
       // Existing visits stay attached to their host even when scrolled out of view.
@@ -1034,6 +1098,7 @@ export function startMenuVisitor({onInteraction} = {}) {
     window.removeEventListener('pointermove', track); window.removeEventListener('pointerdown', grabOrDrop, true);
     window.removeEventListener('click', consumeFoodClick, true);
     window.removeEventListener('hashchange', followMenu);
+    window.removeEventListener('lowpolyworks:bird-attack', birdAttack);
     window.removeEventListener('keydown', testPeanut);
     document.removeEventListener('pointerleave', leave);
     layer.remove(); foodLayer.remove(); css.remove();
