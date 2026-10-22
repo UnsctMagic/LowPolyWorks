@@ -189,15 +189,15 @@
   },
   {
     "file": "WH_WOC_WarriorKhorneBerserker02.mdx",
-    "sha256": "c5312b18cc925b298835f66d3b5a20b8b014d8c82eabc3ec6a47971e2638af5f"
+    "sha256": "e00fdb647484055394c9dda54f586d7b9039be45b6a7740d296a16e62af36b51"
   },
   {
     "file": "WH_WOC_WarriorKhorne03.mdx",
-    "sha256": "4e6633bc567d375358960c44d43ea2e056f7f8f09048d0b1bed51ebff4473d57"
+    "sha256": "19436ef306835cadc2b34ee552c1af8e63e2b0c29c52316f7f397a23cbf16e83"
   },
   {
     "file": "chaos-warrior-of-nurgle/WH_WOC_WarriorNurgle01.mdx",
-    "sha256": "5f107e9caa23ee3e06064d2bfab21511c67eb91a5c01e81d67d26d33b40af241"
+    "sha256": "2ee697be51bec232d23efc37bf4e61c33c450f94ab02933ec3d11d708827529b"
   },
   {
     "file": "WH_VC_BloodDragonAxe02.mdx",
@@ -513,10 +513,10 @@
   },
   {
     "file": "WH_WOC_WarriorKhorneGW01.mdx",
-    "sha256": "b023be3d8be2fa1e9a25802d2d7d99f8e8af8248c8eb7bc23fce149fef6f9cb0"
+    "sha256": "d48767097366fc0bc7b0678eb810b720c86e1982e19959ff161c7448475b4eed"
   },
   {
     "file": "WH_WOC_WarriorTzeentch01.mdx",
-    "sha256": "212ed84f0f112a94b4a4c783512e8c30f10a6ba6dbb5aa7a7d7fb2d5e1472aa7"
+    "sha256": "c3cf2bcfca036169eae2293ac7135b524481dec53a2f9ea00b2d8d8b1daf6df8"
   }
 ]
