@@ -7,7 +7,7 @@ function fixture(){
  let state={subscribers:[],notifications:[]},models=[{id:'a',name:'Model A',url:'https://www.lowpolyworks.com/model/a/',fingerprint:'original'}],time=100000,writes=Promise.resolve(),failure;
  const mail=[],env={MODEL_NOTIFICATIONS_ENABLED:'true'};
  const store={read:async()=>({state:structuredClone(state)}),mutate:fn=>{const task=writes.then(async()=>{const copy=structuredClone(state),result=await fn(copy);state=copy;return structuredClone(result);});writes=task.catch(()=>{});return task;}};
- const service=createModelReleases({store,env,now:()=>time,mailConfigured:()=>true,loadPublished:async()=>structuredClone(models),unsubscribeUrl:()=> 'https://example.test/unsubscribe',fail:(status,message)=>{throw Object.assign(Error(message),{status});},sendEmail:async(message,key)=>{if(failure)throw failure;mail.push({message,key});return 'receipt-'+mail.length;}});
+ const service=createModelReleases({store,env,now:()=>time,mailConfigured:()=>true,loadPublished:async()=>({models:structuredClone(models)}),unsubscribeUrl:()=> 'https://example.test/unsubscribe',fail:(status,message)=>{throw Object.assign(Error(message),{status});},sendEmail:async(message,key)=>{if(failure)throw failure;mail.push({message,key});return 'receipt-'+mail.length;}});
  const sub=(id,ids=['a'])=>({id,email:id+'@example.test',confirmed:true,emailVerified:true,modelIds:ids,newModelsSince:0,modelFollowSince:Object.fromEntries(ids.map(id=>[id,0]))});
  return {...service,store,env,mail,sub,get state(){return state;},get models(){return models;},set models(value){models=value;},set time(value){time=value;},set failure(value){failure=value;}};
 }
@@ -22,7 +22,7 @@ test('published snapshots hash real downloads, reuse conditional reads, and incl
  const bytes=Buffer.from('MDLXactual-model'),hash=createHash('sha256').update(bytes).digest('hex');let conditional;
  const fetchApi=async(url,options)=>url.endsWith('catalogue.json')?{ok:true,json:async()=>[{id:'a',name:'A',file:'a.mdx'}]}:(conditional=options.headers,options.headers['If-None-Match']?{status:304}:{ok:true,status:200,headers:new Headers({etag:'"v1"'}),arrayBuffer:async()=>bytes});
  const loadUnits=async()=>({unitCards:[{id:'unit-a',name:'Unit A',downloads:[{sha256:'unit-hash'}]},{id:'hidden-unit',deletedAt:'today'}]});
- const first=await publishedModels({}, {fetchApi,loadUnits});assert.equal(first[0].files[0].hash,hash);assert.equal(first.length,2);const second=await publishedModels({a:first[0]},{fetchApi,loadUnits});assert.equal(conditional['If-None-Match'],'"v1"');assert.equal(second[0].fingerprint,first[0].fingerprint);
+ const {models:first}=await publishedModels({}, {fetchApi,loadUnits});assert.equal(first[0].files[0].hash,hash);assert.equal(first.length,2);const {models:second}=await publishedModels({a:first[0]},{fetchApi,loadUnits});assert.equal(conditional['If-None-Match'],'"v1"');assert.equal(second[0].fingerprint,first[0].fingerprint);
 });
 test('background worker requires its dedicated token and never accepts model contents from requests',async()=>{
  let scans=0;const handler=createHandler({releases:{sync:async()=>{scans++;return {enabled:false,remaining:0};}}},{env:{MODEL_NOTIFICATIONS_TOKEN:'test-worker-token'}});
@@ -55,7 +55,7 @@ test('a pending or delayed update cannot turn into a burst of queued emails',asy
 
 test('publication cache keys fetch fresh catalogue/download bytes while retaining canonical file identities',async()=>{
  const urls=[],publication='a'.repeat(40),bytes=Buffer.from('MDLXfresh');const fetchApi=async url=>{urls.push(url);return url.includes('/catalogue.json')?{ok:true,json:async()=>[{id:'a',name:'A',file:'a.mdx'}]}:{ok:true,headers:new Headers(),arrayBuffer:async()=>bytes};};
- const rows=await publishedModels({}, {fetchApi,publication});assert(urls.every(url=>new URL(url).searchParams.get('publication')===publication));assert.equal(rows[0].files[0].url,'https://www.lowpolyworks.com/models/a.mdx');
+ const {models:rows}=await publishedModels({}, {fetchApi,publication});assert(urls.every(url=>new URL(url).searchParams.get('publication')===publication));assert.equal(rows[0].files[0].url,'https://www.lowpolyworks.com/models/a.mdx');
 });
 
 test('overlapping upload events share delivery leases so different releases cannot exceed the serial sender rate',async()=>{
