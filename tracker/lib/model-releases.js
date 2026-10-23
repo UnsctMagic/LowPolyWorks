@@ -31,7 +31,7 @@ export async function publishedModels(previous={}, {fetchApi=fetch,loadUnits=asy
  const fresh=url=>{if(!publication)return url;const result=new URL(url);result.searchParams.set('publication',publication);return result.href;};
  let catalogue=continuation?.catalogue;
  if(!catalogue){
-  const response=await fetchApi(fresh(origin+'/catalogue.json'),{cache:'no-store',redirect:'error',signal:AbortSignal.timeout(12000)});
+  const response=await fetchApi(fresh(origin+'/catalogue.json'),{cache:'no-store',redirect:'manual',signal:AbortSignal.timeout(12000)});
   if(!response.ok)throw Error('Published catalogue unavailable (HTTP '+response.status+')');
   catalogue=(await response.json()).map(({id,name,file,downloadPack,slug})=>({id,name,file,downloadPack,slug}));
  }
@@ -41,7 +41,7 @@ export async function publishedModels(previous={}, {fetchApi=fetch,loadUnits=asy
  async function fileHash(path,old){
   const url=new URL(path,origin+'/');if(url.origin!==origin)throw Error('Model download must belong to LowPolyWorks.');
   const cached=old?.files?.find(file=>file.url===url.href);
-  const file=await fetchApi(fresh(url.href),{cache:'no-store',redirect:'error',headers:cached?.etag?{'If-None-Match':cached.etag}:{},signal:AbortSignal.timeout(12000)});
+  const file=await fetchApi(fresh(url.href),{cache:'no-store',redirect:'manual',headers:cached?.etag?{'If-None-Match':cached.etag}:{},signal:AbortSignal.timeout(12000)});
   if(file.status===304&&cached)return cached;
   if(!file.ok)throw Error('Published model download unavailable (HTTP '+file.status+')');
   const bytes=Buffer.from(await file.arrayBuffer());

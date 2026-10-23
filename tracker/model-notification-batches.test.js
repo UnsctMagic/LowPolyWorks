@@ -17,7 +17,7 @@ function fixture(t,{catalogue=Array.from({length:130},(_,i)=>({id:'model-'+i,nam
  const store=createD1State({prepare:sql=>statement(sql)});
  const state=()=>JSON.parse(sqlite.prepare('SELECT body FROM state WHERE id=1').get()?.body||'{}');
  const fetchApi=async(url,options)=>{
-  count('external');fetches.push(url);assert.equal(options.redirect,'error');
+  count('external');fetches.push(url);assert.equal(options.redirect,'manual');
   const path=new URL(url).pathname;
   if(path==='/catalogue.json')return Response.json(catalogue);
   if(unavailable&&path==='/models/10.mdx')throw Error('Download interrupted');
