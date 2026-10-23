@@ -16,9 +16,8 @@ const diveArt = new URL('./ui/visitor/3.png' + new URL(import.meta.url).search, 
 const sequence = (row, durations, dx = null) => ({row, durations, dx, duration:durations.reduce((total, ms) => total + ms, 0)});
 const DIVE_START = sequence(7, [110, 150, 200, 90, 70, 70, 70, 70]);      // look over the edge, crouch, hop off
 const DIVE_FALL = .8, DIVE_PULL = .35, DIVE_GRAVITY = 780; // seconds, seconds, px/s²
-// Bird Attack dive: aim point down the unit's canvas and launch distance from it.
-// Each attack picks its own heading anywhere around the circle, so he can come from below too.
-const ATTACK_AIM = .55, ATTACK_RISE = 260;
+// Bird Attack dive: aim point down the unit's canvas, then the wingbeats before he tucks (ms, px/s).
+const ATTACK_AIM = .55, ATTACK_FLAP = 500, ATTACK_FLAP_SPEED = 420;
 const ATTACK_SPEED = 650, ATTACK_PUSH = 2400, ATTACK_FOLLOW = .18; // px/s, px/s², seconds past the unit
 function frameOf(seq, age) {
   let left = Math.max(0, age);
@@ -491,9 +490,9 @@ export function startMenuVisitor({onInteraction} = {}) {
     if (paintedPoint.y - bodyHeight > layer.clientHeight) rest(now);
   }
 
-  // Bird Attack: from wherever he is, he gets into position on a random heading and dives straight through the unit:
-  // down, up from below, across, or anything between. A visible bird flies to the launch point first;
-  // an absent one starts the dive just off screen along that heading.
+  // Bird Attack: he comes straight at the unit with a few wingbeats, tucks, and dives through it.
+  // A visible bird attacks from where he already is; an absent one enters from just off screen
+  // on a random heading: down, up from below, across, or anything between.
   function birdAttack(event) {
     const {element, onHit} = event.detail || {};
     if (!element?.isConnected || !art.complete || !flightArt.complete || !diveImage.complete) return;
@@ -502,41 +501,47 @@ export function startMenuVisitor({onInteraction} = {}) {
     const visible = phase !== 'rest' && bird.style.visibility === 'visible' && paintedPoint;
     if (peanut?.state === 'carried') peanut = null;
     follow = resumeFrom = dive = null; beakPeanut.style.display = 'none';
-    // ux, uy: unit vector of his travel through the unit.
-    attack = {element, onHit, ux:Math.sin(heading), uy:Math.cos(heading), hit:false, from:visible ? {...paintedPoint} : null};
-    direction = attack.ux < 0 ? -1 : 1; phase = 'attack'; started = now;
+    attack = {element, onHit, heading, hit:false, from:visible ? {...paintedPoint} : null};
+    phase = 'attack'; started = now;
+    const {ux} = attackPath();
+    direction = ux < 0 ? -1 : 1;
   }
+  // ux, uy: unit vector of his travel through the unit. Recomputed each frame, so scrolling keeps him on target.
   function attackPath() {
-    const box = attack.element.getBoundingClientRect(), {ux, uy} = attack;
+    const box = attack.element.getBoundingClientRect();
     const target = {x:box.left + box.width / 2, y:box.top + box.height * ATTACK_AIM};
-    // Back along the heading to the nearest screen edge, plus a body so he starts unseen.
+    if (attack.from) {
+      const dx = target.x - attack.from.x, dy = target.y - attack.from.y, length = Math.hypot(dx, dy) || 1;
+      return {target, launch:attack.from, ux:dx / length, uy:dy / length};
+    }
+    const ux = Math.sin(attack.heading), uy = Math.cos(attack.heading);
+    // Back along the heading to the nearest screen edge, plus half a body so his first wingbeats show.
     const exit = (position, size, unit) => unit > 0 ? Math.max(0, position) / unit : unit < 0 ? Math.max(0, size - position) / -unit : Infinity;
-    const rise = attack.from ? ATTACK_RISE :
-      Math.min(exit(target.x, layer.clientWidth, ux), exit(target.y, layer.clientHeight, uy)) + bodyHeight;
-    return {target, launch:{x:target.x - ux * rise, y:target.y - uy * rise}};
+    const rise = Math.min(exit(target.x, layer.clientWidth, ux), exit(target.y, layer.clientHeight, uy)) + bodyWidth / 2;
+    return {target, launch:{x:target.x - ux * rise, y:target.y - uy * rise}, ux, uy};
   }
   function paintAttack(now) {
     layer.style.clipPath = 'none';
     if (!attack.element.isConnected) { takeOff({x:paintedPoint?.x ?? 0, y:(paintedPoint?.y ?? 0) + footOffset}, now, true); return; }
-    const {target, launch} = attackPath();
-    let age = now - started;
-    if (attack.from) {
-      const climb = Math.max(350, Math.hypot(launch.x - attack.from.x, launch.y - attack.from.y) / 900 * 1000);
-      if (age < climb) {
-        direction = launch.x >= attack.from.x ? 1 : -1;
-        paint(mix(attack.from.x, launch.x, age / climb), mix(attack.from.y, launch.y, age / climb),
-          Math.floor(age / 90) % 8 >= 4 ? 1 : 0, Math.floor(age / 90) % 4, 0, true);
-        return;
-      }
-      age -= climb;
-    }
-    const {ux, uy} = attack;
+    const path = attackPath(), {target, ux, uy} = path;
+    const age = now - started, total = Math.hypot(target.x - path.launch.x, target.y - path.launch.y);
     direction = ux < 0 ? -1 : 1;
-    const t = age / 1000, length = Math.hypot(target.x - launch.x, target.y - launch.y);
+    // Tucked cells already lean 25° towards his heading; turn the rest of the way.
+    const heading = Math.atan2(ux, uy) * 180 / Math.PI, turn = direction * 25 - heading;
+    // A few wingbeats along the line, leaving at least half of it for the dive.
+    const flap = attack.flap ??= Math.min(ATTACK_FLAP, total / 2 / ATTACK_FLAP_SPEED * 1000);
+    if (age < flap) {
+      // Flight cells fly level; pitch onto the heading, easing into the dive's lean as he tucks.
+      const travel = ATTACK_FLAP_SPEED * age / 1000;
+      paint(path.launch.x + ux * travel, path.launch.y + uy * travel, Math.floor(age / 90) % 8 >= 4 ? 1 : 0, Math.floor(age / 90) % 4,
+        mix(direction * 90 - heading, turn, age / flap), true);
+      return;
+    }
+    const flown = ATTACK_FLAP_SPEED * flap / 1000;
+    const launch = {x:path.launch.x + ux * flown, y:path.launch.y + uy * flown};
+    const t = (age - flap) / 1000, length = total - flown;
     const travel = ATTACK_SPEED * t + ATTACK_PUSH * t * t / 2;
     if (!attack.hit && travel >= length) { attack.hit = true; attack.onHit?.(); attack.through = t; }
-    // Tucked cells already lean 25° towards his heading; turn the rest of the way.
-    const turn = direction * 25 - Math.atan2(ux, uy) * 180 / Math.PI;
     const x = launch.x + ux * travel, y = launch.y + uy * travel;
     const after = attack.hit ? t - attack.through : 0;
     if (after < ATTACK_FOLLOW) { paint(x, y, 0, Math.floor(t * 1000 / 70) % 3, turn, false, false, 'dive'); return; }
