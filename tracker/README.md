@@ -26,6 +26,8 @@ Configure `RESEND_API_KEY` and `MODEL_MAIL_FROM` (`LowPolyWorks <updates@lowpoly
 
 The protected `POST /api/model-notifications` worker reads the public catalogue, hashes published MDX/package downloads with conditional ETag reads, and includes the Vault's published unit download hashes. Titles, credits, artwork and journal posts never trigger model mail. The first scan records the current catalogue without historical announcements. Subsequent new models notify every active, verified subscriber; changed downloads notify only that model's followers. Hidden/deleted models do not generate announcements. Restoring identical files does not generate an email.
 
+The GitHub runner completes one publication using separate bounded Worker requests: `phase=scan` checks at most ten catalogue rows (twenty downloads, plus the catalogue on the first request), and `phase=deliver` handles one recipient. Download redirects are rejected so they cannot multiply the request count. D1 saves the catalogue snapshot and scan position after each batch; no partial scan queues announcements. A different publication starts a fresh snapshot. Delivery keeps the existing receipts and idempotency keys. The runner continues until the scan and pending deliveries finish, including batches that only skip unsubscribed recipients. It reports unfinished work as a failure, with saved progress available to the next run. Scan and delivery never share an invocation. Even all five D1 write attempts use at most 41 queries for a delivery batch, below the Free limit of 50.
+
 Automatic model announcements use `MODEL_NOTIFICATIONS_ENABLED=true` and the same random `MODEL_NOTIFICATIONS_TOKEN` in a Vercel Production Secret and a GitHub Actions repository secret. Run an initial baseline with delivery disabled before enabling announcements. The **Deliver model notifications** workflow compares the catalogue and download-file Git identities after a successful Pages deployment and calls the protected worker only for an uploaded model or changed model download. Vault publication records file changes and starts delivery in the background. There are no recurring checks. Manual workflow dispatch remains available for administration. The public feed's `modelNotificationsEnabled` reports the production delivery setting; signup remains per-model.
 
 Each existing model has a rolling 24-hour update cooldown. The first changed update can send an email. Every further file change within that window restarts its timer without another email; expiration alone sends nothing. A later file change after 24 hours of quiet can notify again. Each model has its own timer, and new model releases are exempt. Pending deliveries and actual send times also prevent delayed updates from creating a burst.
@@ -35,7 +37,7 @@ Private queued recipients, saved receipts, leases and Resend idempotency keys pr
 Verification:
 
 ```sh
-node --test tracker/events.test.js tracker/publishing.test.js tracker/media.test.js tracker/unit-cards.test.js tracker/model-follows.test.js tracker/model-releases.test.js
+node --test tracker/events.test.js tracker/publishing.test.js tracker/media.test.js tracker/unit-cards.test.js tracker/model-follows.test.js tracker/model-releases.test.js tracker/model-notification-batches.test.js
 node --test tools/model-follow-ui.test.mjs tools/model-publication-changed.test.mjs
 node tools/check-project.mjs
 ```
