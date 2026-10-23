@@ -2,13 +2,11 @@ name: Deliver model notifications
 
 on:
   workflow_dispatch:
-  workflow_run:
-    workflows: [pages-build-deployment]
-    types: [completed]
+  schedule:
+    - cron: '17 7 * * *'
 
 permissions:
   contents: read
-  actions: read
 
 concurrency:
   group: model-notifications
@@ -16,7 +14,6 @@ concurrency:
 
 jobs:
   deliver:
-    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
@@ -24,15 +21,7 @@ jobs:
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with:
           node-version: 24
-      - name: Identify published model uploads or file updates
-        id: models
-        if: github.event_name == 'workflow_run'
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
-        run: node tools/model-publication-changed.mjs
-      - name: Check published models and send subscribed updates
-        if: github.event_name == 'workflow_dispatch' || steps.models.outputs.changed == 'true'
+      - name: Check published models and deliver eligible subscriber digests
         env:
           MODEL_NOTIFICATIONS_TOKEN: ${{ secrets.MODEL_NOTIFICATIONS_TOKEN }}
-          MODEL_PUBLICATION: ${{ github.event.workflow_run.head_sha }}
         run: node tools/model-notifications.mjs

@@ -27,7 +27,7 @@ function servicesFor(env){
 export default {async fetch(request,env,ctx){
  const {pathname}=new URL(request.url),{events,loadModels,eventModels,publishing}=servicesFor(env);
  const handler={
-  '/api/publishing':()=>createPublishingHandler(publishing,{summary:events.summary,loadModels,env,background:promise=>ctx.waitUntil(promise)}),
+  '/api/publishing':()=>createPublishingHandler(publishing,{summary:events.summary,loadModels,env}),
   '/api/events':()=>createEventsHandler({writeBlob:events.write,loadModels:eventModels}),
   '/api/report':()=>createReportHandler({summary:events.summary,loadModels,env}),
   '/api/model-notifications':()=>createNotificationsHandler(publishing,{env}),

@@ -48,21 +48,21 @@ test('one runner processes all 130 models and 105 packs in 13 bounded Worker sca
  assert.equal(Math.max(...f.calls.map(call=>call.queries)),5);assert(!f.state().modelScan);
  f.version=2;const updated=await f.run();assert.equal(updated.queued,8);assert.equal(updated.sent,8);assert.equal(updated.remaining,0);
  assert.equal(updated.requests,21);assert.equal(new Set(f.mail.map(mail=>mail.key)).size,8);
- assert(f.calls.filter(call=>call.phase==='deliver').every(call=>call.external===1&&call.queries===9));
+ assert(f.calls.filter(call=>call.phase==='deliver').every(call=>call.external===1&&call.queries===4));
  assert.equal((await f.run()).queued,0);assert.equal(f.mail.length,8);
 });
 
 test('five conditional-write attempts still stay below the D1 limit for scanning and delivery',async t=>{
  const f=fixture(t,{catalogue:[{id:'model-0',name:'Model',file:'0.mdx'}],conflicts:true});await f.subscribe();await f.run();
  f.version=2;await f.run();assert.equal(f.mail.length,1);
- assert.equal(Math.max(...f.calls.map(call=>call.queries)),41);
+ assert.equal(Math.max(...f.calls.map(call=>call.queries)),21);
  assert(f.calls.every(call=>call.external+call.queries<50));
 });
 
 test('known email rejection and all conditional-write retries stay within the D1 budget',async t=>{
  const f=fixture(t,{catalogue:[{id:'model-0',name:'Model',file:'0.mdx'}],conflicts:true});await f.subscribe();await f.run();
  f.version=2;f.mailFailure=Object.assign(Error('Quota rejected'),{status:429});
- await assert.rejects(f.run(),/Quota rejected/);assert.equal(f.calls.at(-1).queries,41);
+ await assert.rejects(f.run(),/Quota rejected/);assert.equal(f.calls.at(-1).queries,20);
  assert.deepEqual(f.state().notifications[0].attempts,{});f.mailFailure=null;await f.run();assert.equal(f.mail.length,1);
 });
 
@@ -110,4 +110,10 @@ test('the runner fails clearly on an old Worker or an uncompleted deadline inste
  let time=0;
  await assert.rejects(deliverModelNotifications({token:'test',now:()=>time,pause:async()=>{time+=25*60*1000;},fetchApi:async()=>Response.json({error:'Busy',retryAfter:5},{status:409})}),/Saved progress will resume/);
  await assert.rejects(deliverModelNotifications({token:'test',fetchApi:async()=>Response.json({error:'Earlier email result needs review'},{status:409})}),/Earlier email result needs review/);
+});
+
+test('the daily runner exits successfully with cooldown work retained, then sends it after 48 hours',async t=>{
+ const f=fixture(t,{catalogue:[{id:'model-0',name:'Model',file:'0.mdx'}]});await f.subscribe(3);await f.run();f.version=2;await f.run();assert.equal(f.mail.length,3);
+ f.version=3;const waiting=await f.run();assert.equal(waiting.sent,0);assert.equal(waiting.remaining,3);assert.equal(waiting.deferred,3);assert.equal(waiting.requests,2);assert.equal(f.mail.length,3);
+ f.time=100000+49*3600000;const resumed=await f.run();assert.equal(resumed.sent,3);assert.equal(resumed.remaining,0);assert.equal(f.mail.length,6);
 });

@@ -24,13 +24,16 @@ export async function deliverModelNotifications({token,publication,fetchApi=fetc
   if(!result.enabled)throw Error('Automatic model notifications are disabled.');
   if(result.phase!==phase||typeof result.more!=='boolean')throw Error('Model notification worker does not support bounded batches.');
   failures=0;
-  onProgress({phase,checked:result.checked,total:result.total,sent:result.sent,remaining:result.remaining});
+  onProgress({phase,checked:result.checked,total:result.total,sent:result.sent,remaining:result.remaining,deferred:result.deferred});
   if(phase==='scan'){
    if(result.more)continue;
    summary={models:result.models,baselined:result.baselined,queued:result.queued};
    phase='deliver';
-  }else sent+=result.sent;
-  if(!result.remaining)return {...summary,sent,remaining:0,requests};
+  }else{
+   sent+=result.sent;
+   if(!result.more)return {...summary,sent,remaining:result.remaining,deferred:result.deferred||0,requests};
+  }
+  if(!result.remaining)return {...summary,sent,remaining:0,deferred:0,requests};
   if(phase==='deliver')await pause(600);
  }
  throw Error('Model notification batches did not finish within 25 minutes. Saved progress will resume on the next run.');

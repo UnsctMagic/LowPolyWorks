@@ -61,20 +61,19 @@ test('asset HTTP route protects drafts, serves exact ZIP bytes with CORS, and re
  await f.execute('delete-unit',{id:card.id,revision:0},owner);assert.equal((await get()).status,404);
 });
 
-test('Vault publishes trigger background delivery only for actual file changes, with an atomic rolling cooldown',async()=>{
+test('Vault publication queues actual file changes for one digest without starting background mail',async()=>{
  const f=fixture({notifications:true}),owner=await account(f),u=await upload(f,owner,'unit.mdx',original),image=await cover(f,owner),input=content(u,image),tasks=[];
  await f.store.mutate(s=>s.subscribers.push({id:'reader',email:'reader@example.test',confirmed:true,emailVerified:true,modelIds:[input.id],newModelsSince:0,modelFollowSince:{[input.id]:0}}));
  const handler=createHandler(f,{background:promise=>tasks.push(promise)});
- async function publish(action,body){const res={setHeader(){},status(code){this.code=code;return this;},json(body){this.body=body;}};await handler({url:'/api/publishing?action='+action,method:'POST',headers:{origin:'https://lowpolyworks-internal-tracker.vercel.app','content-type':'application/json',cookie:'lpw_session='+owner.session,'x-csrf-token':owner.csrf},body},res);assert.equal(res.code,200);assert(!Object.hasOwn(res.body,'modelChanged'));await Promise.all(tasks);return res.body.card;}
- let card=await publish('publish-unit',input);assert.equal(tasks.length,1);assert.equal(f.mail.length,1);
- await publish('publish-unit',input);assert.equal(tasks.length,1);
- card=await publish('update-unit',{...input,revision:card.revision,name:'Cosmetic edit'});assert.equal(tasks.length,1);
+ async function publish(action,body){const res={setHeader(){},status(code){this.code=code;return this;},json(body){this.body=body;}};await handler({url:'/api/publishing?action='+action,method:'POST',headers:{origin:'https://lowpolyworks-internal-tracker.vercel.app','content-type':'application/json',cookie:'lpw_session='+owner.session,'x-csrf-token':owner.csrf},body},res);assert.equal(res.code,200);assert(!Object.hasOwn(res.body,'modelChanged'));return res.body.card;}
+ let card=await publish('publish-unit',input);await publish('publish-unit',input);card=await publish('update-unit',{...input,revision:card.revision,name:'Cosmetic edit'});assert.equal(f.state.notifications.length,1);
  const parsed=parseMDX(original.buffer.slice(original.byteOffset,original.byteOffset+original.byteLength));
  async function changed(name){parsed.Info.Name=name;return upload(f,owner,'changed.mdx',new Uint8Array(generateMDX(parsed)));}
- const first=await changed('Revision one');card=await publish('update-unit',{...input,revision:card.revision,uploadIds:[first.id],defaultModelId:first.models[0].assetId});assert.equal(tasks.length,2);assert.equal(f.mail.length,2);
- f.time=1791532800000+3600000;const second=await changed('Revision two');card=await publish('update-unit',{...input,revision:card.revision,uploadIds:[second.id],defaultModelId:second.models[0].assetId});assert.equal(tasks.length,3);assert.equal(f.mail.length,2);assert.equal(f.state.modelReleases.models[input.id].lastUpdateAt,1791532800000+3600000);
- assert.equal(f.state.notifications.filter(job=>job.kind==='model-update').length,1);
+ const first=await changed('Revision one');card=await publish('update-unit',{...input,revision:card.revision,uploadIds:[first.id],defaultModelId:first.models[0].assetId});
+ f.time=1791532800000+3600000;const second=await changed('Revision two');await publish('update-unit',{...input,revision:card.revision,uploadIds:[second.id],defaultModelId:second.models[0].assetId});assert.equal(tasks.length,0);assert.equal(f.mail.length,0);assert.equal(f.state.notifications.length,3);
+ assert.equal((await f.releases.deliver()).sent,1);assert.equal(f.mail.length,1);assert(f.state.notifications.every(job=>job.sent.includes('reader')));assert.equal((await f.releases.deliver()).sent,0);
 });
+
 test('permanent removal hides a Vault card at once, can be undone for 24 hours, then deletes its card, post and files',async()=>{
  const f=fixture(),deleted=[],start=1791532800000;let owner=await account(f);const author=await account(f,'contributor',owner);let elapsed=0;
  const service=createPublishing({store:f.store,env:{PUBLISHING_SESSION_SECRET:'unit-test-secret'.repeat(4),PUBLISHING_OWNER_USERNAME:'owner',PUBLISHING_SETUP_TOKEN_HASH:digest('setup')},now:()=>start+elapsed,mailConfigured:()=>false,sendEmail:async()=>{},createUploadToken:async()=>'test-token',inspectUpload:async path=>({size:f.files.get(path).bytes.length,contentType:f.files.get(path).type}),readUpload:async path=>f.files.get(path).bytes,saveAsset:async(path,bytes,type)=>f.files.set(path,{bytes,type}),deleteFiles:async paths=>deleted.push(...paths)});
