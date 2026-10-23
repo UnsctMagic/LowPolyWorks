@@ -162,23 +162,23 @@
       "updatedAt": "2026-10-18T21:41:34.840Z"
     },
     "warrior-of-khorne": {
-      "sha256": "19436ef306835cadc2b34ee552c1af8e63e2b0c29c52316f7f397a23cbf16e83",
+      "sha256": "dc4557a2923bb24e3ffc9e1350e751e664a6c21074af416b470251c62f0a7a1b",
       "publishedAt": "2026-10-17T17:44:19.317Z",
-      "updatedAt": "2026-10-22T23:37:25.980Z"
+      "updatedAt": "2026-10-23T00:01:18.829Z"
     },
     "kurgan-warlord": {
       "sha256": "b285d609ba063f8723036a050600d248e8937b5831e0cba15068dc31cfd95ca9",
       "publishedAt": "2026-10-17T21:10:06.220Z"
     },
     "warrior-of-khorne-berserker": {
-      "sha256": "e00fdb647484055394c9dda54f586d7b9039be45b6a7740d296a16e62af36b51",
+      "sha256": "5cd164f268ec72a293d391e3482670c1e298c50949e36fed598f2489df21b13c",
       "publishedAt": "2026-10-18T16:46:51.139Z",
-      "updatedAt": "2026-10-22T23:37:25.980Z"
+      "updatedAt": "2026-10-23T00:01:18.829Z"
     },
     "chaos-warrior-of-nurgle": {
-      "sha256": "2ee697be51bec232d23efc37bf4e61c33c450f94ab02933ec3d11d708827529b",
+      "sha256": "6f3bf59ebfcee8beda63bc70b2058fc59a1a74f36c5fd14bb624af6c961312a7",
       "publishedAt": "2026-10-19T23:31:03.090Z",
-      "updatedAt": "2026-10-22T23:37:25.980Z"
+      "updatedAt": "2026-10-23T00:01:18.829Z"
     },
     "gluma-127545": {
       "sha256": "e31420b8d7da9eec4ff5a663a360088f7e90838fc0149bdee6d45b0415f1645c",
@@ -485,14 +485,14 @@
       "publishedAt": "2026-10-20T23:54:43.892Z"
     },
     "warrior-of-khorne-cleaver": {
-      "sha256": "d48767097366fc0bc7b0678eb810b720c86e1982e19959ff161c7448475b4eed",
+      "sha256": "aa71793b4134dd9febb31ae837e2a02a282d818ffe227d00f0ccfe7ad75580e8",
       "publishedAt": "2026-10-21T09:45:33.925Z",
-      "updatedAt": "2026-10-22T23:37:25.980Z"
+      "updatedAt": "2026-10-23T00:01:18.829Z"
     },
     "warrior-of-tzeentch": {
-      "sha256": "c3cf2bcfca036169eae2293ac7135b524481dec53a2f9ea00b2d8d8b1daf6df8",
+      "sha256": "67d71609888e655b7562eb54496a2f4cd80df6987ea5cb05f692cf8030599700",
       "publishedAt": "2026-10-22T15:33:20.781Z",
-      "updatedAt": "2026-10-22T23:37:25.980Z"
+      "updatedAt": "2026-10-23T00:01:18.829Z"
     }
   }
 }
