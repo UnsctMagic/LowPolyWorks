@@ -112,3 +112,10 @@ test('a missing provider receipt remains uncertain and retries cannot duplicate 
  const f=fixture();await f.store.mutate(s=>s.subscribers.push(f.sub('reader')));await f.sync();f.models[0].fingerprint='updated';await f.sync();f.missingReceipt=true;assert.match((await f.deliver()).error,/send receipt/);assert.equal(f.mail.length,1);assert(f.state.modelDigests.reader);assert.equal(f.state.notifications[0].sent.length,0);
  f.missingReceipt=false;assert.equal((await f.deliver()).sent,1);assert.equal(f.mail.length,1);assert.deepEqual(f.attempts[0],f.attempts[1]);assert.equal((await f.deliver()).sent,0);
 });
+
+test('the Worker-compatible manual redirect mode rejects catalogue and download redirects without following them',async()=>{
+ for(const redirectCatalogue of [true,false]){
+  const calls=[],fetchApi=async(url,options)=>{calls.push(url);assert.equal(options.redirect,'manual');if(!redirectCatalogue&&url.endsWith('/catalogue.json'))return Response.json([{id:'a',name:'A',file:'a.mdx'}]);return new Response(null,{status:302,headers:{Location:'https://example.test/redirected'}});};
+  await assert.rejects(publishedModels({}, {fetchApi}),/HTTP 302/);assert.equal(calls.length,redirectCatalogue?1:2);assert(calls.every(url=>url.startsWith('https://www.lowpolyworks.com/')));
+ }
+});
