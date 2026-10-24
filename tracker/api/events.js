@@ -11,6 +11,8 @@ export function createEventsHandler({writeBlob=put,loadModels=trackedModels}={})
  let input=req.body;
  if(Number(req.headers['content-length'])>512){res.status(413).end();return;}
  if(typeof input==='string'){try{input=JSON.parse(input);}catch{res.status(400).end();return;}}
+ // An app ping carries only its kind and version; the event ID is made here.
+ if(app)input={kind:input?.kind,version:input?.version,id:crypto.randomUUID()};
  try{
   const models=(input?.kind==='download'&&input.model!=='mdlxl'||input?.kind==='view')?await loadModels():[];
   const event=validateEvent(input,models,{app});if(!event){res.status(400).end();return;}
