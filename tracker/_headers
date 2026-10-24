@@ -9,5 +9,5 @@
   Referrer-Policy: no-referrer
 
 /vaultofsecrets.html
-  Content-Security-Policy: default-src 'self'; img-src 'self' data: blob: https:; style-src 'self'; script-src 'self'; connect-src 'self' https://www.lowpolyworks.com https://blob.vercel-storage.com https://*.blob.vercel-storage.com; frame-src https://www.lowpolyworks.com https://www.youtube-nocookie.com https://player.vimeo.com; media-src https: blob:; object-src 'none'; base-uri 'none'; frame-ancestors 'none'
+  Content-Security-Policy: default-src 'self'; img-src 'self' data: blob: https:; style-src 'self'; script-src 'self'; connect-src 'self' https://www.lowpolyworks.com https://api.github.com https://blob.vercel-storage.com https://*.blob.vercel-storage.com; frame-src https://www.lowpolyworks.com https://www.youtube-nocookie.com https://player.vimeo.com; media-src https: blob:; object-src 'none'; base-uri 'none'; frame-ancestors 'none'
   Referrer-Policy: no-referrer
