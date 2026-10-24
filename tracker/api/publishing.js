@@ -3,13 +3,13 @@ import {blobState} from '../lib/publishing-state.js';
 import {mailConfigured,sendEmail} from '../lib/publishing-mail.js';
 import {generateClientTokenFromReadWriteToken} from '@vercel/blob/client';
 import {head,list,get,put,del} from '@vercel/blob';
-import {listSummary,trackedModels} from '../lib/events.js';
+import {listSummary,localDay,trackedModels} from '../lib/events.js';
 const service=createPublishing({store:blobState,sendEmail,mailConfigured,createUploadToken:({pathname,type,size})=>generateClientTokenFromReadWriteToken({pathname,allowedContentTypes:[type],maximumSizeInBytes:size,validUntil:Date.now()+15*60*1000,addRandomSuffix:false,allowOverwrite:false}),inspectUpload:pathname=>head(pathname),readUpload:async pathname=>{const blob=await get(pathname,{access:'private'});if(!blob||blob.statusCode!==200)throw Error('Upload unavailable');return new Uint8Array(await new Response(blob.stream).arrayBuffer());},saveAsset:(pathname,bytes,type)=>put(pathname,bytes,{access:'private',addRandomSuffix:false,contentType:type}),deleteFiles:pathnames=>del(pathnames)});
 const publicWrites=new Set(['subscribe','vote','follow','follow-confirm','follow-status','unfollow']);
 async function analytics(publishing,session,{summary,loadModels,env,days}){
  const account=await publishing.execute('me',{}, {session});
  if(account.author.role!=='owner')throw Object.assign(Error('Owner access required.'),{status:403});
- const from=days?new Date(Date.now()-(days-1)*86400000).toISOString().slice(0,10):'';
+ const from=days?localDay(Date.now()-(days-1)*86400000):'';
  return {asOf:new Date().toISOString(),trackingSince:env.TRACKING_STARTED_AT,days:days||null,...await summary({from,models:await loadModels({includeRemoved:true})})};
 }
 export function createHandler(publishing=service,{listBlobs=list,summary=listSummary(listBlobs),loadModels=trackedModels,env=process.env}={}){return async function handler(req,res){

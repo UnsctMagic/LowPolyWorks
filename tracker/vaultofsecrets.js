@@ -169,13 +169,14 @@ function bindFormatting(){
 }
 // Activity: one all-time report, sliced in the browser by army, unit, file type and time step.
 const GRAINS={day:{label:'Day',count:30,range:'last 30 days'},week:{label:'Week',count:26,range:'last 26 weeks'},month:{label:'Month',count:12,range:'last 12 months'},year:{label:'Year',count:10,range:'all years'}};
-const DAY=86400000,utc=key=>Date.parse(key+'T00:00:00Z'),iso=time=>new Date(time).toISOString().slice(0,10);
+// Keys are calendar dates; utc() only does date arithmetic on them. Today follows Amsterdam time, like the stored days.
+const DAY=86400000,utc=key=>Date.parse(key+'T00:00:00Z'),iso=time=>new Date(time).toISOString().slice(0,10),amsterdamDay=new Intl.DateTimeFormat('en-CA',{timeZone:'Europe/Amsterdam',year:'numeric',month:'2-digit',day:'2-digit'}),today=()=>amsterdamDay.format(new Date());
 function bucketStart(key,grain){const d=new Date(utc(key));if(grain==='week')d.setUTCDate(d.getUTCDate()-((d.getUTCDay()+6)%7));if(grain==='month'||grain==='year')d.setUTCDate(1);if(grain==='year')d.setUTCMonth(0);return iso(d.getTime());}
 function nextBucket(key,grain){const d=new Date(utc(key));if(grain==='day')d.setUTCDate(d.getUTCDate()+1);if(grain==='week')d.setUTCDate(d.getUTCDate()+7);if(grain==='month')d.setUTCMonth(d.getUTCMonth()+1);if(grain==='year')d.setUTCFullYear(d.getUTCFullYear()+1);return iso(d.getTime());}
 function previousBucket(key,grain,steps){const d=new Date(utc(key));if(grain==='day')d.setUTCDate(d.getUTCDate()-steps);if(grain==='week')d.setUTCDate(d.getUTCDate()-7*steps);if(grain==='month')d.setUTCMonth(d.getUTCMonth()-steps);if(grain==='year')d.setUTCFullYear(d.getUTCFullYear()-steps);return iso(d.getTime());}
 // The visible buckets end today and never start before tracking began.
 function buckets(grain,since){
- const end=bucketStart(iso(Date.now()),grain),first=bucketStart(since,grain),{count}=GRAINS[grain];
+ const end=bucketStart(today(),grain),first=bucketStart(since,grain),{count}=GRAINS[grain];
  let start=previousBucket(end,grain,count-1);if(start<first)start=first;
  const list=[];for(let key=start;key<=end;key=nextBucket(key,grain))list.push(key);
  return {list,start,end:nextBucket(end,grain),clipped:start===first};
@@ -221,7 +222,7 @@ async function fillMdlxlUpdates(panel,updates){
 async function activity(){
  const panel=app.querySelector('#activity-panel');if(!reports[''])panel.innerHTML='<p class="muted">Loading activity…</p>';
  const [report]=await Promise.all([loadReport(),loadCatalogue().catch(()=>null)]);
- const firstView=report.timeline.find(row=>row[1]==='view')?.[0],index=unitIndex(report),state=activity_state,since=(report.trackingSince||report.timeline[0]?.[0]||iso(Date.now())).slice(0,10);
+ const firstView=report.timeline.find(row=>row[1]==='view')?.[0],index=unitIndex(report),state=activity_state,since=(report.trackingSince||report.timeline[0]?.[0]||today()).slice(0,10);
  if(state.unit&&state.unit!=='mdlxl'&&!index.has(state.unit))state.unit='';
  panel.innerHTML=`<div class="panel-head"><h2>Site activity</h2><div class="inline-controls"><span class="hint">Updated ${escape(new Date(report.asOf).toLocaleString())}</span><button type="button" class="secondary" id="activity-refresh">Refresh</button></div></div>
 <div class="metrics"><div class="metric"><strong>${number(report.totals.pageLoads)}</strong><span>Page loads</span></div><div class="metric"><strong>${number(report.totals.uniqueVisitors)}</strong><span>Anonymous browsers</span></div><div class="metric"><strong>${number(report.totals.downloadClicks)}</strong><span>Download clicks</span></div><div class="metric"><strong>${number(report.totals.modelViews)}</strong><span>Model views</span></div></div>
@@ -232,7 +233,7 @@ async function activity(){
 <section class="downloads"><div class="panel-head"><h3 id="unit-table-title">Per unit</h3></div><table class="download-table"><thead><tr><th scope="col"><button type="button" data-sort="name">Unit</button></th><th scope="col" class="army-column">Army</th><th scope="col" class="num"><button type="button" data-sort="views">Views</button></th><th scope="col" class="num"><button type="button" data-sort="mdx">MDX</button></th><th scope="col" class="num"><button type="button" data-sort="pack">Pack</button></th><th scope="col" class="num"><button type="button" data-sort="total">Downloads</button></th></tr></thead><tbody></tbody></table><p class="hint" id="unit-table-hint"></p><p class="hint">Downloads and views here follow the time step above. In the Unit cards tab, counts are all-time.</p></section>
 <details class="country-activity"><summary>Visitors by country · ${report.countries.length}</summary>${report.countries.length?`<table><thead><tr><th scope="col">Country</th><th scope="col" class="num">Anonymous browsers</th><th scope="col" class="num">Share</th></tr></thead><tbody>${report.countries.map(country=>`<tr><td>${escape(country.name)}</td><td class="num">${number(country.uniqueVisitors)}</td><td class="num">${new Intl.NumberFormat(undefined,{style:'percent',maximumFractionDigits:1}).format(country.share)}</td></tr>`).join('')}</tbody></table>`:'<p class="empty">No recorded visitors yet.</p>'}<p class="hint">Estimated from network location. Each browser counts once, using its first known country.</p></details>
 ${mdlxlUpdates(report.updates||{downloads:0,versions:[]})}
-<p class="hint">Downloads are download-button clicks. Model views count a browser opening a model page, at most once per model per day; ${firstView?'recorded since '+escape(bucketLabel(firstView,'day',true)):'not recorded yet'}. Days follow UTC.</p>`;
+<p class="hint">Downloads are download-button clicks. Model views count a browser opening a model page, at most once per model per day; ${firstView?'recorded since '+escape(bucketLabel(firstView,'day',true)):'not recorded yet'}. Days follow Amsterdam time.</p>`;
  fillMdlxlUpdates(panel,report.updates||{downloads:0,versions:[]});
  const $=selector=>panel.querySelector(selector),tables=new Set();let picked='';
  $('#pick-army').value=state.army;$('#pick-search').value=state.query;
