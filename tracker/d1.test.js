@@ -32,6 +32,8 @@ function sampleBlobs(){
   add(`live/v3/${date}/shredder/peek${hour}.grab1.feed${d}.crack0.follow1/session/${hour%3?visitor:'anonymous'}/${country}/${id(++n)}.json`,at);
   add(`testing/v3/${date}/shredder/peek9.grab9.feed9.crack9.follow9/session/${visitor}/NL/${id(++n)}.json`,at);
   add(`live/v3/${date}/shredder/nonsense/session/${visitor}/NL/${id(++n)}.json`,at);
+  add(`live/v3/${date}/update/mdlxl/0.3${hour%3}.0/${hour%2?visitor:'anonymous'}/${country}/${id(++n)}.json`,at);
+  add(`live/v3/${date}/update/mdlxl/latest/${visitor}/NL/${id(++n)}.json`,at);
  }
  return blobs;
 }
