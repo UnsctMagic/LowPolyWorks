@@ -3,11 +3,11 @@ import {modelUpdateTagMarkup,mountModelUpdateTags} from './model-update-tags.js?
 import {modelFollowMarkup,mountModelFollow} from './model-follows.js?v=20261012-cloudflare';
 import {uploadedModelCard,renderUnitCard} from './unit-card.js?v=20261022-wheel-animations';
 import {startMenuVisitor} from './menu-visitor.js?v=20261023-bird-attack-flap-in';
-import {countShredder} from './shredder-stats.js?v=20261022-stash-tzeentch';
+import {countShredder} from './shredder-stats.js?v=20261025-amsterdam-days';
 import {createViewer} from './viewer.js?v=20261022-wheel-animations';
 import {wheelSelect} from './wheel-select.js?v=20261022-wheel-animations';
 import {TEAM_COLORS} from './vendor/mdlxl/src/team-colors.js';
-import {recordUsage} from './usage.js?v=20261012-shredder-cloudflare';
+import {recordUsage} from './usage.js?v=20261025-amsterdam-days';
 import {renderJournal} from './journal.js?v=20261022-tzeentch-warrior';
 import {renderMdlxl} from './mdlxl.js?v=20261023-merged-0.29.2';
 if (/^\/mdlxl\/?$/.test(location.pathname) && !location.hash) history.replaceState(null,'',location.pathname+location.search+'#project/mdlxl');
