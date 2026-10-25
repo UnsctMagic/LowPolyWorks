@@ -1,0 +1,9 @@
+{
+  "version": "0.32.1",
+  "notes": {
+    "en": "# MDLxL 0.32.1 - Bones chip is back\n\n- **Bones editor**: the top row has its **Bones** and **Attachment** chips again. After **Clear**, click **Bones** to show and select bones again (the Bones box in the Object panel follows it).\n\n**Update** Open Settings > Configuration > Search for updates > Update and restart, or download the full portable ZIP from the MDLxL page.",
+    "es": "# MDLxL 0.32.1 - Vuelve el botón de huesos\n\n- **Editor de huesos**: la fila superior vuelve a tener sus botones **Bones** y **Attachment**. Después de **Clear**, haz clic en **Bones** para volver a mostrar y seleccionar los huesos (la casilla Bones del panel Object lo sigue).\n\n**Actualizar** Abre Ajustes > Configuración > Buscar actualizaciones > Actualizar y reiniciar, o descarga el ZIP portátil completo desde la página de MDLxL.",
+    "ru": "# MDLxL 0.32.1 - Кнопка костей вернулась\n\n- **Редактор костей**: в верхнем ряду снова есть кнопки **Bones** и **Attachment**. После **Clear** нажмите **Bones**, чтобы снова показать и выбирать кости (флажок Bones в панели Object следует за ней).\n\n**Обновление** Откройте Настройки > Конфигурация > Проверить обновления > Обновить и перезапустить или скачайте полный портативный ZIP со страницы MDLxL.",
+    "zh": "# MDLxL 0.32.1 - 骨骼按钮回来了\n\n- **骨骼编辑器**：顶部一行重新有了 **Bones** 和 **Attachment** 按钮。点击 **Clear** 之后，点击 **Bones** 即可重新显示并选择骨骼（Object 面板中的 Bones 复选框会同步）。\n\n**更新** 打开 设置 > 配置 > 检查更新 > 更新并重启，或从 MDLxL 页面下载完整的便携版 ZIP。"
+  }
+}
