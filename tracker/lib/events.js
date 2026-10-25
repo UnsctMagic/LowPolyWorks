@@ -9,6 +9,10 @@ export async function trackedModels({loadUnits=savedUnits,includeRemoved=false}=
  const base=(await response.json()).map(model=>({id:model.id,name:model.name,slug:model.slug||model.id,hasPack:Boolean(model.downloadPack)}));
  const units=await loadUnits();return [...base,...units.filter(card=>includeRemoved||!card.deletedAt).map(card=>({id:card.id,name:card.name,slug:card.id,url:'https://www.lowpolyworks.com/#model/'+card.id,hasPack:card.downloads.some(file=>/\.zip$/i.test(file.name))}))];
 }
+// Usage days follow Amsterdam time (CET/CEST), the owner's calendar day.
+export const dayZone='Europe/Amsterdam';
+const dayFormat=new Intl.DateTimeFormat('en-CA',{timeZone:dayZone,year:'numeric',month:'2-digit',day:'2-digit'});
+export const localDay=(time=new Date())=>dayFormat.format(new Date(time));
 const uuid=/^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89ab][a-f0-9]{3}-[a-f0-9]{12}$/i;
 const regionNames=new Intl.DisplayNames(['en'],{type:'region',fallback:'none'});
 export function countryCode(value){
@@ -56,8 +60,8 @@ export function validateEvent(input,models=[],{app=false}={}){
  return {id:input.id,kind:'download',model:input.model,format:input.format,testing:input.testing===true,...visitor};
 }
 export function eventPath(event,now=new Date()){
- if(event.country!==undefined)return `${event.testing?'testing':'live'}/v3/${now.toISOString().slice(0,10)}/${event.kind}/${event.model}/${event.format}/${event.visitorId||'anonymous'}/${countryCode(event.country)}/${event.id}.json`;
- return `${event.testing?'testing':'live'}/${event.visitorId?'v2':'v1'}/${now.toISOString().slice(0,10)}/${event.kind}/${event.model}/${event.format}/${event.visitorId?event.visitorId+'/':''}${event.id}.json`;
+ if(event.country!==undefined)return `${event.testing?'testing':'live'}/v3/${localDay(now)}/${event.kind}/${event.model}/${event.format}/${event.visitorId||'anonymous'}/${countryCode(event.country)}/${event.id}.json`;
+ return `${event.testing?'testing':'live'}/${event.visitorId?'v2':'v1'}/${localDay(now)}/${event.kind}/${event.model}/${event.format}/${event.visitorId?event.visitorId+'/':''}${event.id}.json`;
 }
 // Lists every live event blob page by page, then summarizes the listing.
 export const listSummary=listBlobs=>async options=>{const blobs=[];let cursor;do{const page=await listBlobs({prefix:'live/',limit:1000,cursor});blobs.push(...page.blobs);cursor=page.hasMore?page.cursor:undefined;}while(cursor);return summarize(blobs,options);};

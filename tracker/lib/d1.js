@@ -41,6 +41,7 @@ export function createD1Events(db){
    // Shredder sessions are few (batched, a handful per browser a day), so summarize() reads them from their pathnames.
    q(`SELECT pathname,recorded_at uploadedAt FROM events WHERE kind='shredder' AND (?1='' OR date>=?1) AND (?2='' OR date<=?2)`),
    // MDLxL updates are one per downloaded release, so they are read the same way.
+   // The date column already limits both to the period; older pathnames carry UTC dates.
    q(`SELECT pathname,recorded_at uploadedAt FROM events WHERE kind='update' AND (?1='' OR date>=?1) AND (?2='' OR date<=?2)`),
   ])).map(result=>result.results);
   const row=totalsRows[0]||{},totals={pageLoads:row.pageLoads||0,downloadClicks:row.downloadClicks||0,modelViews:row.modelViews||0,uniqueVisitors:row.uniqueVisitors||0};
@@ -55,7 +56,7 @@ export function createD1Events(db){
   const known=countryRows.reduce((sum,row)=>sum+row.uniqueVisitors,0),countries=[...countryRows,...totals.uniqueVisitors>known?[{code:'ZZ',uniqueVisitors:totals.uniqueVisitors-known}]:[]]
    .map(({code,uniqueVisitors})=>({code,name:code==='ZZ'?'Unknown':regionNames.of(code),uniqueVisitors,share:uniqueVisitors/totals.uniqueVisitors}))
    .sort((a,b)=>(a.code==='ZZ')-(b.code==='ZZ')||b.uniqueVisitors-a.uniqueVisitors||a.name.localeCompare(b.name));
-  return {totals,coverage:{identifiedPageLoads:row.identifiedPageLoads||0,unidentifiedPageLoads:row.unidentifiedPageLoads||0},lastRecordedAt:row.lastRecordedAt||null,countries,shredder:summarize(shredderRows,{from,to}).shredder,updates:summarize(updateRows,{from,to}).updates,daily:dailyRows.map(({date,pageLoads,downloadClicks,uniqueVisitors})=>({date,pageLoads,downloadClicks,uniqueVisitors})),
+  return {totals,coverage:{identifiedPageLoads:row.identifiedPageLoads||0,unidentifiedPageLoads:row.unidentifiedPageLoads||0},lastRecordedAt:row.lastRecordedAt||null,countries,shredder:summarize(shredderRows).shredder,updates:summarize(updateRows).updates,daily:dailyRows.map(({date,pageLoads,downloadClicks,uniqueVisitors})=>({date,pageLoads,downloadClicks,uniqueVisitors})),
    models:[...byModel.values()].sort((a,b)=>b.total-a.total||b.views-a.views||a.name.localeCompare(b.name)),applications,timeline:timelineRows.map(({date,kind,model,format,count})=>[date,kind,model,format,count]),measurement};
  }
  return {write,summary};
