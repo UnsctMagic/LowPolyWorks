@@ -493,6 +493,10 @@
       "sha256": "67d71609888e655b7562eb54496a2f4cd80df6987ea5cb05f692cf8030599700",
       "publishedAt": "2026-10-22T15:33:20.781Z",
       "updatedAt": "2026-10-23T00:01:18.829Z"
+    },
+    "warrior-of-slaanesh": {
+      "sha256": "0265e77a10461906cb7ba01030fa19a618bb3f707c2400a36b1491abfa7f0123",
+      "publishedAt": "2026-10-26T23:53:16.821Z"
     }
   }
 }

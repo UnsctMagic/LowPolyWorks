@@ -518,5 +518,9 @@
   {
     "file": "WH_WOC_WarriorTzeentch02.mdx",
     "sha256": "67d71609888e655b7562eb54496a2f4cd80df6987ea5cb05f692cf8030599700"
+  },
+  {
+    "file": "WH_WOC_WarriorSlaaneshGW02.mdx",
+    "sha256": "0265e77a10461906cb7ba01030fa19a618bb3f707c2400a36b1491abfa7f0123"
   }
 ]
