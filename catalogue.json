@@ -12179,6 +12179,391 @@
     ]
   },
   {
+    "id": "warrior-of-slaanesh",
+    "file": "WH_WOC_WarriorSlaaneshGW02.mdx",
+    "name": "Warrior of Slaanesh",
+    "army": "warriors-of-chaos",
+    "description": "Chaos Warriors dedicated to the Dark Prince of Chaos are regarded by His lesser warriors as walking avatars of their God. They truly walk the path of damnation and excess, the strongest fated to become His chosen or mighty champions if they survive their ordeals. Although armour-clad, many leave portions of pale flesh bare as if to titillate opponents with the illusion of weakness, inviting them to attempt to strike at imagined weak spots. Consumed by their own dark passions, they appear distant and something other than human. Their followers bathe in this otherworldly glory, driven by the need for the great warriors’ approval to commit further atrocities.",
+    "credits": "Model Base - Chaos Warrior by azazeron\r\n\r\nMashed with - Chaos Warriors by Diazon, found on Warhammer Eternal Strife by Nightmare2077\r\n\r\nWeapon - The Grand Marshal by Blood Raven\r\n\r\nHelm - Swan Knight & Vile Knight by HerrDave\r\n\r\nHorns - Eredar Witch by FerSZ\r\n\r\nAdditional credits - Stein123",
+    "authors": [
+      {
+        "name": "Unsanctioned Magic",
+        "url": "https://xgm.guru/user/UnsanctMagic"
+      },
+      {
+        "name": "Azazeron",
+        "url": "https://www.hiveworkshop.com/members/azazeron.299156/"
+      }
+    ],
+    "creditLinks": [
+      {
+        "text": "Chaos Warrior",
+        "url": "https://www.hiveworkshop.com/threads/chaos-warrior.366159/"
+      },
+      {
+        "text": "azazeron",
+        "url": "https://www.hiveworkshop.com/members/azazeron.299156/"
+      },
+      {
+        "text": "Chaos Warriors",
+        "url": "https://www.hiveworkshop.com/threads/warhammer-eternal-strife-melee.254808/"
+      },
+      {
+        "text": "Diazon",
+        "url": "https://www.hiveworkshop.com/threads/warhammer-eternal-strife-melee.254808/"
+      },
+      {
+        "text": "Warhammer Eternal Strife",
+        "url": "https://www.hiveworkshop.com/threads/warhammer-eternal-strife-melee.254808/"
+      },
+      {
+        "text": "Nightmare2077",
+        "url": "https://www.hiveworkshop.com/members/nightmare2077.204498/"
+      },
+      {
+        "text": "Stein123",
+        "url": "https://www.hiveworkshop.com/members/stein123.196992/"
+      },
+      {
+        "text": "The Grand Marshal",
+        "url": "https://www.hiveworkshop.com/threads/the-grand-marshal.295602/"
+      },
+      {
+        "text": "Blood Raven",
+        "url": "https://www.hiveworkshop.com/members/blood-raven.194769/"
+      },
+      {
+        "text": "Swan Knight & Vile Knight",
+        "url": "https://www.hiveworkshop.com/threads/swan-knight-vile-knight.308843/"
+      },
+      {
+        "text": "HerrDave",
+        "url": "https://www.hiveworkshop.com/members/herrdave.234820/"
+      },
+      {
+        "text": "Eredar Witch",
+        "url": "https://www.hiveworkshop.com/threads/eredar-witch.290652/"
+      },
+      {
+        "text": "FerSZ",
+        "url": "https://www.hiveworkshop.com/members/fersz.252357/"
+      }
+    ],
+    "geosets": [
+      {
+        "index": 0,
+        "vertices": 25,
+        "triangles": 32,
+        "material": 15,
+        "textures": [
+          "Doodads\\Cinematic\\ArthasIllidanFight\\IllidanCineStuff.blp"
+        ]
+      },
+      {
+        "index": 1,
+        "vertices": 37,
+        "triangles": 22,
+        "material": 0,
+        "textures": [
+          "Textures\\gutz.blp"
+        ]
+      },
+      {
+        "index": 2,
+        "vertices": 4,
+        "triangles": 2,
+        "material": 1,
+        "textures": [
+          "Team colour / glow"
+        ]
+      },
+      {
+        "index": 3,
+        "vertices": 76,
+        "triangles": 86,
+        "material": 17,
+        "textures": [
+          "Units\\Creeps\\MagnataurBlue\\MagnataurBlue.blp"
+        ]
+      },
+      {
+        "index": 4,
+        "vertices": 24,
+        "triangles": 29,
+        "material": 5,
+        "textures": [
+          "Textures\\InfernalCannon.blp"
+        ]
+      },
+      {
+        "index": 5,
+        "vertices": 40,
+        "triangles": 56,
+        "material": 16,
+        "textures": [
+          "UI\\Glues\\SinglePlayer\\HumanCampaign3D\\HumanCampaignFootman.blp",
+          "Textures\\GOLDCoin.blp"
+        ]
+      },
+      {
+        "index": 6,
+        "vertices": 11,
+        "triangles": 10,
+        "material": 2,
+        "textures": [
+          "Units\\Demon\\ChaosWarlock\\ChaosWarlock.blp"
+        ]
+      },
+      {
+        "index": 7,
+        "vertices": 18,
+        "triangles": 24,
+        "material": 15,
+        "textures": [
+          "Doodads\\Cinematic\\ArthasIllidanFight\\IllidanCineStuff.blp"
+        ]
+      },
+      {
+        "index": 8,
+        "vertices": 7,
+        "triangles": 6,
+        "material": 15,
+        "textures": [
+          "Doodads\\Cinematic\\ArthasIllidanFight\\IllidanCineStuff.blp"
+        ]
+      },
+      {
+        "index": 9,
+        "vertices": 18,
+        "triangles": 16,
+        "material": 15,
+        "textures": [
+          "Doodads\\Cinematic\\ArthasIllidanFight\\IllidanCineStuff.blp"
+        ]
+      },
+      {
+        "index": 10,
+        "vertices": 32,
+        "triangles": 24,
+        "material": 3,
+        "textures": [
+          "Buildings\\Undead\\AltarOfDarkness\\CreepyAltarOfDark.blp"
+        ]
+      },
+      {
+        "index": 11,
+        "vertices": 28,
+        "triangles": 24,
+        "material": 13,
+        "textures": [
+          "Units\\Human\\Phoenix\\Phoenix2.blp"
+        ]
+      },
+      {
+        "index": 12,
+        "vertices": 100,
+        "triangles": 122,
+        "material": 4,
+        "textures": [
+          "Textures\\InfernalCannon.blp"
+        ]
+      },
+      {
+        "index": 13,
+        "vertices": 16,
+        "triangles": 16,
+        "material": 4,
+        "textures": [
+          "Textures\\InfernalCannon.blp"
+        ]
+      },
+      {
+        "index": 14,
+        "vertices": 6,
+        "triangles": 4,
+        "material": 18,
+        "textures": [
+          "Team colour / glow",
+          "Units\\Human\\Jaina\\Jaina.blp"
+        ]
+      },
+      {
+        "index": 15,
+        "vertices": 107,
+        "triangles": 202,
+        "material": 5,
+        "textures": [
+          "Textures\\InfernalCannon.blp"
+        ]
+      },
+      {
+        "index": 16,
+        "vertices": 73,
+        "triangles": 86,
+        "material": 6,
+        "textures": [
+          "Doodads\\Cinematic\\ArthasIllidanFight\\IllidanBlade.blp"
+        ]
+      },
+      {
+        "index": 17,
+        "vertices": 26,
+        "triangles": 44,
+        "material": 13,
+        "textures": [
+          "Units\\Human\\Phoenix\\Phoenix2.blp"
+        ]
+      },
+      {
+        "index": 18,
+        "vertices": 14,
+        "triangles": 12,
+        "material": 7,
+        "textures": [
+          "Team colour / glow",
+          "Textures\\InfernalCannon.blp"
+        ]
+      },
+      {
+        "index": 19,
+        "vertices": 9,
+        "triangles": 8,
+        "material": 4,
+        "textures": [
+          "Textures\\InfernalCannon.blp"
+        ]
+      },
+      {
+        "index": 20,
+        "vertices": 8,
+        "triangles": 32,
+        "material": 8,
+        "textures": [
+          "ReplaceableTextures\\TeamGlow\\TeamGlow07.blp"
+        ]
+      },
+      {
+        "index": 21,
+        "vertices": 21,
+        "triangles": 20,
+        "material": 9,
+        "textures": [
+          "Textures\\OutlandDoodads.blp"
+        ]
+      },
+      {
+        "index": 22,
+        "vertices": 108,
+        "triangles": 132,
+        "material": 10,
+        "textures": [
+          "UI\\Glues\\SinglePlayer\\Alliance_Exp\\BloodElf-old.blp"
+        ]
+      },
+      {
+        "index": 23,
+        "vertices": 39,
+        "triangles": 44,
+        "material": 11,
+        "textures": [
+          "Doodads\\Cinematic\\ArthasIllidanFight\\IllidanBlade.blp"
+        ]
+      },
+      {
+        "index": 24,
+        "vertices": 57,
+        "triangles": 54,
+        "material": 12,
+        "textures": [
+          "Textures\\BatTroll.blp"
+        ]
+      },
+      {
+        "index": 25,
+        "vertices": 12,
+        "triangles": 16,
+        "material": 13,
+        "textures": [
+          "Units\\Human\\Phoenix\\Phoenix2.blp"
+        ]
+      },
+      {
+        "index": 26,
+        "vertices": 53,
+        "triangles": 68,
+        "material": 14,
+        "textures": [
+          "Buildings\\Other\\DalaranGuardTower\\DalaranGuardTower.blp"
+        ]
+      },
+      {
+        "index": 27,
+        "vertices": 12,
+        "triangles": 8,
+        "material": 15,
+        "textures": [
+          "Doodads\\Cinematic\\ArthasIllidanFight\\IllidanCineStuff.blp"
+        ]
+      },
+      {
+        "index": 28,
+        "vertices": 16,
+        "triangles": 16,
+        "material": 15,
+        "textures": [
+          "Doodads\\Cinematic\\ArthasIllidanFight\\IllidanCineStuff.blp"
+        ]
+      },
+      {
+        "index": 29,
+        "vertices": 20,
+        "triangles": 30,
+        "material": 15,
+        "textures": [
+          "Doodads\\Cinematic\\ArthasIllidanFight\\IllidanCineStuff.blp"
+        ]
+      },
+      {
+        "index": 30,
+        "vertices": 12,
+        "triangles": 12,
+        "material": 15,
+        "textures": [
+          "Doodads\\Cinematic\\ArthasIllidanFight\\IllidanCineStuff.blp"
+        ]
+      },
+      {
+        "index": 31,
+        "vertices": 12,
+        "triangles": 12,
+        "material": 15,
+        "textures": [
+          "Doodads\\Cinematic\\ArthasIllidanFight\\IllidanCineStuff.blp"
+        ]
+      }
+    ],
+    "sequences": [
+      "Stand - 1",
+      "Stand - 2",
+      "Attack - 1",
+      "Attack - 2",
+      "Walk",
+      "Death",
+      "Decay Flesh",
+      "Decay Bone",
+      "Stand Ready",
+      "Portrait",
+      "Portrait Talk",
+      "Stand - 3"
+    ],
+    "bytes": 109183,
+    "sha256": "0265e77a10461906cb7ba01030fa19a618bb3f707c2400a36b1491abfa7f0123",
+    "imageVersion": "20261027-slaanesh-gw",
+    "portraitBackdropGeosets": [
+      2
+    ]
+  },
+  {
     "id": "warrior-of-khorne-berserker",
     "file": "WH_WOC_WarriorKhorneBerserker03.mdx",
     "name": "Warrior of Khorne · Berserker",
