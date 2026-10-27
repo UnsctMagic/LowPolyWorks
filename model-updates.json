@@ -46,8 +46,8 @@
       "updatedAt": "2026-10-17T22:52:35.564Z"
     },
     "aspiring": {
-      "sha256": "a7f9e4c2de69ca114efceaf7b062967a6cf1324b9fb51297250683df67275564",
-      "updatedAt": "2026-10-12T10:41:21.557Z"
+      "sha256": "a7748db8dc1eb9a1274be1c9ab79bd5082005f2ba13b2c1f6e08909e4bb4d7e5",
+      "updatedAt": "2026-10-27T00:32:09.708Z"
     },
     "herrdave-124832": {
       "sha256": "39884eb960f3c52af6a7c2b8f1ca50b92d7f675d0cc55c0a8f7e03d666618a35"
@@ -497,6 +497,10 @@
     "warrior-of-slaanesh": {
       "sha256": "0265e77a10461906cb7ba01030fa19a618bb3f707c2400a36b1491abfa7f0123",
       "publishedAt": "2026-10-26T23:53:16.821Z"
+    },
+    "aspiring-unit": {
+      "sha256": "f1315c2d8576ebef8419004b63517b57216a86e412c2577a922e4a4418d44b68",
+      "publishedAt": "2026-10-27T00:32:09.708Z"
     }
   }
 }
