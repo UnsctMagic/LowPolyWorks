@@ -11,7 +11,7 @@ import {recordUsage} from './usage.js?v=20261025-amsterdam-days';
 import {renderJournal} from './journal.js?v=20261022-tzeentch-warrior';
 import {renderMdlxl} from './mdlxl.js?v=20261026-merged-0.32.1';
 if (/^\/mdlxl\/?$/.test(location.pathname) && !location.hash) history.replaceState(null,'',location.pathname+location.search+'#project/mdlxl');
-const app=document.querySelector('#app'),baseCatalogue=await fetch('catalogue.json?v=20261027-kurgan-hero').then(r=>r.json());
+const app=document.querySelector('#app'),baseCatalogue=await fetch('catalogue.json?v=20261027-shoulder-credits').then(r=>r.json());
 const armies=await fetch('armies.json?v=20261020-army-sizes-approved').then(r=>r.json());
 // Shuffle the middle army cards once per load; keep Chaos and Vampire Counts first and Dwarfs last.
 const pinnedArmyIds=['warriors-of-chaos','vampire-counts'];

@@ -1660,7 +1660,7 @@
     "name": "Knight of Khorne · Axe",
     "army": "warriors-of-chaos",
     "description": "I have never seen men fight like that...\r\n\r\nI barely made it out alive, this was no victory.\r\n\r\nStatues of brass, massive, twice the size of the biggest man I've ever seen and then some.\r\n\r\nWalking, not charging... advancing like a great wall made of brass and blood red steel.\r\n\r\nI saw men throw down their weapons crying, screaming...\r\n\r\nMen crawled beneath one another to get away...\r\n\r\nIt made no difference, there was nowhere to run.\r\n\r\nI watched a man split from shoulder to hip as he was trying to hide.\r\n\r\nAnother crushed into nothing I could recognize...\r\n\r\nMen were knocked down, trampled, hacked apart and still they kept hacking at the corpses.\r\n\r\nLike a butcher at the block, hacking away piece by piece.\r\n\r\nIt made no difference, we had to fight.\r\n\r\nThey even killed each other.\r\n\r\nThe ones we managed to injure or stagger fighting back became obstacles for the others,\r\n\r\nSo they simply cut through those to reach us faster.\r\n\r\nBut I think they knew they would die that day.\r\n\r\nI heard they razed ten cities before they reached us.\r\n\r\nThat they had come down from the north on a path of destruction.\r\n\r\nThat they had fought their way south for weeks leaving behind only blood and ash.\r\n\r\nBy the time they reached us they were outnumbered fifty to one.\r\n\r\nWe had heard of them coming.\r\n\r\nWe had heard what they had done.\r\n\r\nRivers of blood.\r\n\r\nBut It made no difference... I wanted to fight... to kill.\r\n\r\nThey did not run or beg.\r\n\r\nThey knew they were going to die, I think they wanted to.\r\n\r\nMy city has lost everything defeating them and they got what they came for.\r\n\r\nYou call this victory...?\r\n\r\nSomehow... I envy them.\r\n\r\nI have spent all my life afraid... Afraid of pain... regret... death...\r\n\r\nAfraid of fear.\r\n\r\nThose men were afraid of nothing.\r\n\r\nWanted nothing.\r\n\r\nKept nothing...\r\n\r\nBut it made no difference... I killed them too.\r\n\r\nNorth...\r\n\r\nThat is where they came from.\r\n\r\nThat is where I will go.",
-    "credits": "Model Base - Vile Knight by HerrDave / Further edited by Stein123\r\n\r\nFlail Animations - Knight, Bandit Lord & Riderless Horse by loktar\r\n\r\nBloodied Khorne Symbol - Blood Letter by Ironmaiden\r\n\r\nHelm 1 Base - Black Knight by Direfury\r\n\r\nHelm 2 Base - Advanced White Helm by Astaroth Zion\r\n\r\nHelm Horehair Crest - Blackorder Assassin by Rhapsodie\r\n\r\nFlail Knight Face - adapted from IronMaiden's Dawn of War Helms\r\n\r\nHelm Khorne Bunny Ears - adapted and reshaped from World Eaters Helm by Ironmaiden\r\n\r\nShield Base - Projected and shaped using the forge feature of MDLxL\r\n\r\nSkull Jaw - reshaped World of Warcraft: Legion - Drogbar asset\r\n\r\nKhorne Symbol - Adept of Khorne by WebSter\r\n\r\nAxe - Traitor Knightess by Greedy Martyrdom\r\n\r\nHorse head and tail - Headless Horseman by Johnwar\r\n\r\nFur Cloak - Chaos Warrior by Azazeron",
+    "credits": "Model Base - Vile Knight by HerrDave / Further edited by Stein123\r\n\r\nFlail Animations - Knight, Bandit Lord & Riderless Horse by loktar\r\n\r\nBloodied Khorne Symbol - Blood Letter by Ironmaiden\r\n\r\nHelm 1 Base - Black Knight by Direfury\r\n\r\nHelm 2 Base - Advanced White Helm by Astaroth Zion\r\n\r\nHelm Horehair Crest - Blackorder Assassin by Rhapsodie\r\n\r\nFlail Knight Face - adapted from IronMaiden's Dawn of War Helms\r\n\r\nHelm Khorne Bunny Ears - adapted and reshaped from World Eaters Helm by Ironmaiden\r\n\r\nShield Base - Projected and shaped using the forge feature of MDLxL\r\n\r\nSkull Jaw - reshaped World of Warcraft: Legion - Drogbar asset\r\n\r\nKhorne Symbol - Adept of Khorne by WebSter\r\n\r\nAxe - Traitor Knightess by Greedy Martyrdom\r\n\r\nHorse head and tail - Headless Horseman by Johnwar\r\n\r\nFur Cloak - Chaos Warrior by Azazeron\r\n\r\nShoulders - Diablo_3_Barbarian_Shoulders by Forgotten_Warlord",
     "geosets": [
       {
         "index": 0,
@@ -2201,6 +2201,14 @@
       {
         "text": "MDLxL",
         "url": "https://www.lowpolyworks.com/mdlxl/"
+      },
+      {
+        "text": "Diablo_3_Barbarian_Shoulders",
+        "url": "https://www.hiveworkshop.com/threads/diablo_3_barbarian_shoulders-by-forgotten_warlord.157993/"
+      },
+      {
+        "text": "Forgotten_Warlord",
+        "url": "https://www.hiveworkshop.com/members/forgotten_warlord.182381/"
       }
     ],
     "formationSequence": "Stand Ready",
@@ -2220,7 +2228,7 @@
     "name": "Knight of Khorne · Champion",
     "army": "warriors-of-chaos",
     "description": "I have never seen men fight like that...\r\n\r\nI barely made it out alive, this was no victory.\r\n\r\nStatues of brass, massive, twice the size of the biggest man I've ever seen and then some.\r\n\r\nWalking, not charging... advancing like a great wall made of brass and blood red steel.\r\n\r\nI saw men throw down their weapons crying, screaming...\r\n\r\nMen crawled beneath one another to get away...\r\n\r\nIt made no difference, there was nowhere to run.\r\n\r\nI watched a man split from shoulder to hip as he was trying to hide.\r\n\r\nAnother crushed into nothing I could recognize...\r\n\r\nMen were knocked down, trampled, hacked apart and still they kept hacking at the corpses.\r\n\r\nLike a butcher at the block, hacking away piece by piece.\r\n\r\nIt made no difference, we had to fight.\r\n\r\nThey even killed each other.\r\n\r\nThe ones we managed to injure or stagger fighting back became obstacles for the others,\r\n\r\nSo they simply cut through those to reach us faster.\r\n\r\nBut I think they knew they would die that day.\r\n\r\nI heard they razed ten cities before they reached us.\r\n\r\nThat they had come down from the north on a path of destruction.\r\n\r\nThat they had fought their way south for weeks leaving behind only blood and ash.\r\n\r\nBy the time they reached us they were outnumbered fifty to one.\r\n\r\nWe had heard of them coming.\r\n\r\nWe had heard what they had done.\r\n\r\nRivers of blood.\r\n\r\nBut It made no difference... I wanted to fight... to kill.\r\n\r\nThey did not run or beg.\r\n\r\nThey knew they were going to die, I think they wanted to.\r\n\r\nMy city has lost everything defeating them and they got what they came for.\r\n\r\nYou call this victory...?\r\n\r\nSomehow... I envy them.\r\n\r\nI have spent all my life afraid... Afraid of pain... regret... death...\r\n\r\nAfraid of fear.\r\n\r\nThose men were afraid of nothing.\r\n\r\nWanted nothing.\r\n\r\nKept nothing...\r\n\r\nBut it made no difference... I killed them too.\r\n\r\nNorth...\r\n\r\nThat is where they came from.\r\n\r\nThat is where I will go.",
-    "credits": "Model Base - Vile Knight by HerrDave / Further edited by Stein123\r\n\r\nFlail Animations - Knight, Bandit Lord & Riderless Horse by loktar\r\n\r\nBloodied Khorne Symbol - Blood Letter by Ironmaiden\r\n\r\nHelm 1 Base - Black Knight by Direfury\r\n\r\nHelm 2 Base - Advanced White Helm by Astaroth Zion\r\n\r\nHelm Horehair Crest - Blackorder Assassin by Rhapsodie\r\n\r\nFlail Knight Face - adapted from IronMaiden's Dawn of War Helms\r\n\r\nHelm Khorne Bunny Ears - adapted and reshaped from World Eaters Helm by Ironmaiden\r\n\r\nShield Base - Projected and shaped using the forge feature of MDLxL\r\n\r\nSkull Jaw - reshaped World of Warcraft: Legion - Drogbar asset\r\n\r\nKhorne Symbol - Adept of Khorne by WebSter\r\n\r\nAxe - Traitor Knightess by Greedy Martyrdom\r\n\r\nHorse head and tail - Headless Horseman by Johnwar\r\n\r\nFur Cloak - Chaos Warrior by Azazeron",
+    "credits": "Model Base - Vile Knight by HerrDave / Further edited by Stein123\r\n\r\nFlail Animations - Knight, Bandit Lord & Riderless Horse by loktar\r\n\r\nBloodied Khorne Symbol - Blood Letter by Ironmaiden\r\n\r\nHelm 1 Base - Black Knight by Direfury\r\n\r\nHelm 2 Base - Advanced White Helm by Astaroth Zion\r\n\r\nHelm Horehair Crest - Blackorder Assassin by Rhapsodie\r\n\r\nFlail Knight Face - adapted from IronMaiden's Dawn of War Helms\r\n\r\nHelm Khorne Bunny Ears - adapted and reshaped from World Eaters Helm by Ironmaiden\r\n\r\nShield Base - Projected and shaped using the forge feature of MDLxL\r\n\r\nSkull Jaw - reshaped World of Warcraft: Legion - Drogbar asset\r\n\r\nKhorne Symbol - Adept of Khorne by WebSter\r\n\r\nAxe - Traitor Knightess by Greedy Martyrdom\r\n\r\nHorse head and tail - Headless Horseman by Johnwar\r\n\r\nFur Cloak - Chaos Warrior by Azazeron\r\n\r\nShoulders - Diablo_3_Barbarian_Shoulders by Forgotten_Warlord",
     "geosets": [
       {
         "index": 0,
@@ -2810,6 +2818,14 @@
       {
         "text": "MDLxL",
         "url": "https://www.lowpolyworks.com/mdlxl/"
+      },
+      {
+        "text": "Diablo_3_Barbarian_Shoulders",
+        "url": "https://www.hiveworkshop.com/threads/diablo_3_barbarian_shoulders-by-forgotten_warlord.157993/"
+      },
+      {
+        "text": "Forgotten_Warlord",
+        "url": "https://www.hiveworkshop.com/members/forgotten_warlord.182381/"
       }
     ],
     "searchDescription": "Preview and download the Knight of Khorne Champion model for Warcraft 3. Add a Warhammer Fantasy Chaos champion to your custom army.",
@@ -12076,7 +12092,7 @@
     "name": "Warrior of Tzeentch",
     "army": "warriors-of-chaos",
     "description": "Chaos Warriors of Tzeentch tend to be subtly individual, with many small differences between them. Typically their plate armour and shield will be engraved with intricately patterned sigils that radiate with raw power, or flow with blinking eyes or gibbering mouths, or are perhaps inscribed with a minute arcane text making the wearer literally a walking grimoire. Though it is not immediately visible, many will have mutated flesh, their Chaos armour melting and reforming around the warped appendages of their bodies. They are deadly and unpredictable; they are warriors who have the favour of the God of Magic.",
-    "credits": "Model Base - Chaos Warrior by azazeron\r\n\r\nMashed with - Chaos Warriors by Diazon, found on Warhammer Eternal Strife by Nightmare2077\r\n\r\nAnimated Eyes - Hatchet Eye Drranosh by ratamahatta (Added many frames to make it smoother)\r\n\r\nTzeentchian Symbol - projected from 2D image using MDLxL\r\n\r\nWeapon - Infernal Gladiator Trident by Blood Raven\r\n\r\nHelm front - adapted from Vyrkul Male/Blizzard WoW Asset - Found Here\r\n\r\nHelmet backside - CrownHelmetbySunchips by Sunchips\r\n\r\nAdditional credits - Stein123",
+    "credits": "Model Base - Chaos Warrior by azazeron\r\n\r\nMashed with - Chaos Warriors by Diazon, found on Warhammer Eternal Strife by Nightmare2077\r\n\r\nAnimated Eyes - Hatchet Eye Drranosh by ratamahatta (Added many frames to make it smoother)\r\n\r\nTzeentchian Symbol - projected from 2D image using MDLxL\r\n\r\nWeapon - Infernal Gladiator Trident by Blood Raven\r\n\r\nHelm front - adapted from Vyrkul Male/Blizzard WoW Asset - Found Here\r\n\r\nHelmet backside - CrownHelmetbySunchips by Sunchips\r\n\r\nAdditional credits - Stein123\r\n\r\nShoulders - Diablo_3_Barbarian_Shoulders by Forgotten_Warlord",
     "authors": [
       {
         "name": "Unsanctioned Magic",
@@ -12151,6 +12167,14 @@
       {
         "text": "Sunchips",
         "url": "https://www.hiveworkshop.com/members/sunchips.176515/"
+      },
+      {
+        "text": "Diablo_3_Barbarian_Shoulders",
+        "url": "https://www.hiveworkshop.com/threads/diablo_3_barbarian_shoulders-by-forgotten_warlord.157993/"
+      },
+      {
+        "text": "Forgotten_Warlord",
+        "url": "https://www.hiveworkshop.com/members/forgotten_warlord.182381/"
       }
     ],
     "geosets": [
@@ -12483,7 +12507,7 @@
     "name": "Warrior of Slaanesh",
     "army": "warriors-of-chaos",
     "description": "Chaos Warriors dedicated to the Dark Prince of Chaos are regarded by His lesser warriors as walking avatars of their God. They truly walk the path of damnation and excess, the strongest fated to become His chosen or mighty champions if they survive their ordeals. Although armour-clad, many leave portions of pale flesh bare as if to titillate opponents with the illusion of weakness, inviting them to attempt to strike at imagined weak spots. Consumed by their own dark passions, they appear distant and something other than human. Their followers bathe in this otherworldly glory, driven by the need for the great warriors’ approval to commit further atrocities.",
-    "credits": "Model Base - Chaos Warrior by azazeron\r\n\r\nMashed with - Chaos Warriors by Diazon, found on Warhammer Eternal Strife by Nightmare2077\r\n\r\nWeapon - The Grand Marshal by Blood Raven\r\n\r\nHelm - Swan Knight & Vile Knight by HerrDave\r\n\r\nHorns - Eredar Witch by FerSZ\r\n\r\nAdditional credits - Stein123",
+    "credits": "Model Base - Chaos Warrior by azazeron\r\n\r\nMashed with - Chaos Warriors by Diazon, found on Warhammer Eternal Strife by Nightmare2077\r\n\r\nWeapon - The Grand Marshal by Blood Raven\r\n\r\nHelm - Swan Knight & Vile Knight by HerrDave\r\n\r\nHorns - Eredar Witch by FerSZ\r\n\r\nAdditional credits - Stein123\r\n\r\nShoulders - Diablo_3_Barbarian_Shoulders by Forgotten_Warlord",
     "authors": [
       {
         "name": "Unsanctioned Magic",
@@ -12546,6 +12570,14 @@
       {
         "text": "FerSZ",
         "url": "https://www.hiveworkshop.com/members/fersz.252357/"
+      },
+      {
+        "text": "Diablo_3_Barbarian_Shoulders",
+        "url": "https://www.hiveworkshop.com/threads/diablo_3_barbarian_shoulders-by-forgotten_warlord.157993/"
+      },
+      {
+        "text": "Forgotten_Warlord",
+        "url": "https://www.hiveworkshop.com/members/forgotten_warlord.182381/"
       }
     ],
     "geosets": [
@@ -12868,7 +12900,7 @@
     "name": "Warrior of Khorne · Berserker",
     "army": "warriors-of-chaos",
     "description": "The Warriors of Chaos that follow the Blood God, as with all servants of the Ruinous Powers, are not limited to the primitive tribes of the north. His grasp can reach the heart of every soldier, every warrior, every life-taker. When a noble Knight of Bretonnia or a Templar of the Empire falls to His worship it is because they forget why they kill. To change from killing for the common good to killing only because one wants to – because the act is pleasing – is when the righteous have fallen from their path. These are the warriors Khorne embraces, never to release. These are the converts that He savours.",
-    "credits": "Model Base - Chaos Warrior by azazeron\r\n\r\nMashed with - Chaos Warriors by Diazon, found on Warhammer Eternal Strife by Nightmare2077\r\n\r\nHammer - Brute Hammer by Sunchips\r\n\r\nClub - Faceless Ones Club by Midnighters\r\n\r\nHelm - Bandit Enforcer by Johnwar\r\n\r\nAxe - Felsteel Ravager by Blood Raven\r\n\r\nAdditional credits - Stein123",
+    "credits": "Model Base - Chaos Warrior by azazeron\r\n\r\nMashed with - Chaos Warriors by Diazon, found on Warhammer Eternal Strife by Nightmare2077\r\n\r\nHammer - Brute Hammer by Sunchips\r\n\r\nClub - Faceless Ones Club by Midnighters\r\n\r\nHelm - Bandit Enforcer by Johnwar\r\n\r\nAxe - Felsteel Ravager by Blood Raven\r\n\r\nAdditional credits - Stein123\r\n\r\nShoulders - Diablo_3_Barbarian_Shoulders by Forgotten_Warlord",
     "geosets": [
       {
         "index": 0,
@@ -13222,6 +13254,14 @@
       {
         "text": "Stein123",
         "url": "https://www.hiveworkshop.com/members/stein123.196992/"
+      },
+      {
+        "text": "Diablo_3_Barbarian_Shoulders",
+        "url": "https://www.hiveworkshop.com/threads/diablo_3_barbarian_shoulders-by-forgotten_warlord.157993/"
+      },
+      {
+        "text": "Forgotten_Warlord",
+        "url": "https://www.hiveworkshop.com/members/forgotten_warlord.182381/"
       }
     ],
     "sha256": "5cd164f268ec72a293d391e3482670c1e298c50949e36fed598f2489df21b13c",
@@ -13238,7 +13278,7 @@
     "name": "Warrior of Khorne · Cleaver",
     "army": "warriors-of-chaos",
     "description": "The Warriors of Chaos that follow the Blood God, as with all servants of the Ruinous Powers, are not limited to the primitive tribes of the north. His grasp can reach the heart of every soldier, every warrior, every life-taker. When a noble Knight of Bretonnia or a Templar of the Empire falls to His worship it is because they forget why they kill. To change from killing for the common good to killing only because one wants to – because the act is pleasing – is when the righteous have fallen from their path. These are the warriors Khorne embraces, never to release. These are the converts that He savours.",
-    "credits": "Model Base - Chaos Warrior by azazeron\r\n\r\nMashed with - Chaos Warriors by Diazon, found on Warhammer Eternal Strife by Nightmare2077\r\n\r\nHammer - Brute Hammer by Sunchips\r\n\r\nClub - Faceless Ones Club by Midnighters\r\n\r\nHelm - Bandit Enforcer by Johnwar\r\n\r\nAxe - Felsteel Ravager by Blood Raven\r\n\r\nAdditional credits - Stein123\r\n\r\nGreat Weapon - Death Sword by Blood Raven",
+    "credits": "Model Base - Chaos Warrior by azazeron\r\n\r\nMashed with - Chaos Warriors by Diazon, found on Warhammer Eternal Strife by Nightmare2077\r\n\r\nHammer - Brute Hammer by Sunchips\r\n\r\nClub - Faceless Ones Club by Midnighters\r\n\r\nHelm - Bandit Enforcer by Johnwar\r\n\r\nAxe - Felsteel Ravager by Blood Raven\r\n\r\nAdditional credits - Stein123\r\n\r\nGreat Weapon - Death Sword by Blood Raven\r\n\r\nShoulders - Diablo_3_Barbarian_Shoulders by Forgotten_Warlord",
     "geosets": [
       {
         "index": 0,
@@ -13628,6 +13668,14 @@
       {
         "text": "Death Sword",
         "url": "https://www.hiveworkshop.com/threads/death-sword.292852/"
+      },
+      {
+        "text": "Diablo_3_Barbarian_Shoulders",
+        "url": "https://www.hiveworkshop.com/threads/diablo_3_barbarian_shoulders-by-forgotten_warlord.157993/"
+      },
+      {
+        "text": "Forgotten_Warlord",
+        "url": "https://www.hiveworkshop.com/members/forgotten_warlord.182381/"
       }
     ],
     "sha256": "aa71793b4134dd9febb31ae837e2a02a282d818ffe227d00f0ccfe7ad75580e8",
@@ -13645,7 +13693,7 @@
     "name": "Warrior of Khorne · Bruiser",
     "army": "warriors-of-chaos",
     "description": "The Warriors of Chaos that follow the Blood God, as with all servants of the Ruinous Powers, are not limited to the primitive tribes of the north. His grasp can reach the heart of every soldier, every warrior, every life-taker. When a noble Knight of Bretonnia or a Templar of the Empire falls to His worship it is because they forget why they kill. To change from killing for the common good to killing only because one wants to – because the act is pleasing – is when the righteous have fallen from their path. These are the warriors Khorne embraces, never to release. These are the converts that He savours.",
-    "credits": "Model Base - Chaos Warrior by azazeron\r\n\r\nMashed with - Chaos Warriors by Diazon, found on Warhammer Eternal Strife by Nightmare2077\r\n\r\nHammer - Brute Hammer by Sunchips\r\n\r\nClub - Faceless Ones Club by Midnighters\r\n\r\nHelm - Bandit Enforcer by Johnwar\r\n\r\nAdditional credits - Stein123",
+    "credits": "Model Base - Chaos Warrior by azazeron\r\n\r\nMashed with - Chaos Warriors by Diazon, found on Warhammer Eternal Strife by Nightmare2077\r\n\r\nHammer - Brute Hammer by Sunchips\r\n\r\nClub - Faceless Ones Club by Midnighters\r\n\r\nHelm - Bandit Enforcer by Johnwar\r\n\r\nAdditional credits - Stein123\r\n\r\nShoulders - Diablo_3_Barbarian_Shoulders by Forgotten_Warlord",
     "geosets": [
       {
         "index": 0,
@@ -13998,6 +14046,14 @@
       {
         "text": "Stein123",
         "url": "https://www.hiveworkshop.com/members/stein123.196992/"
+      },
+      {
+        "text": "Diablo_3_Barbarian_Shoulders",
+        "url": "https://www.hiveworkshop.com/threads/diablo_3_barbarian_shoulders-by-forgotten_warlord.157993/"
+      },
+      {
+        "text": "Forgotten_Warlord",
+        "url": "https://www.hiveworkshop.com/members/forgotten_warlord.182381/"
       }
     ],
     "sha256": "dc4557a2923bb24e3ffc9e1350e751e664a6c21074af416b470251c62f0a7a1b",
