@@ -167,8 +167,9 @@
       "updatedAt": "2026-10-23T00:01:18.829Z"
     },
     "kurgan-warlord": {
-      "sha256": "b285d609ba063f8723036a050600d248e8937b5831e0cba15068dc31cfd95ca9",
-      "publishedAt": "2026-10-17T21:10:06.220Z"
+      "sha256": "a7a1a1c2a06a863d1e3db8de1b7f382e7137278f6768c9182b46202cb0fcd5ea",
+      "publishedAt": "2026-10-17T21:10:06.220Z",
+      "updatedAt": "2026-10-27T01:06:56.095Z"
     },
     "warrior-of-khorne-berserker": {
       "sha256": "5cd164f268ec72a293d391e3482670c1e298c50949e36fed598f2489df21b13c",
@@ -501,6 +502,10 @@
     "aspiring-unit": {
       "sha256": "f1315c2d8576ebef8419004b63517b57216a86e412c2577a922e4a4418d44b68",
       "publishedAt": "2026-10-27T00:32:09.708Z"
+    },
+    "kurgan-warlord-unit": {
+      "sha256": "ab65fe6f6aaa0f1115603e6cb0f335c79592c13ee039900f2acdc1aa642881f4",
+      "publishedAt": "2026-10-17T21:10:06.220Z"
     }
   }
 }

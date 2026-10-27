@@ -638,5 +638,19 @@
         "label": "Unit"
       }
     ]
+  },
+  {
+    "id": "kurgan-warlord",
+    "name": "Kurgan Warlord",
+    "variants": [
+      {
+        "id": "kurgan-warlord",
+        "label": "Hero"
+      },
+      {
+        "id": "kurgan-warlord-unit",
+        "label": "Unit"
+      }
+    ]
   }
 ]
