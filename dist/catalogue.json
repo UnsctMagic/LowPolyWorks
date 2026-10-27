@@ -6494,7 +6494,7 @@
   },
   {
     "id": "aspiring",
-    "file": "WH_WOC_Aspiring13.mdx",
+    "file": "WH_WOC_AspiringHero01.mdx",
     "name": "Aspiring Champion",
     "army": "warriors-of-chaos",
     "description": "None have tasted power so sweet and so alluring as those who have bent the knee to the Ruinous Powers.\r\n\r\nMighty warlords, knights, holy men and even women... once they have glimpsed such power, they can no longer unsee.\r\n\r\nThey come to crave it, carving their path toward eternal glory or damnation, fighting harder and harder with every battle to prove their worth in the eyes of Chaos... they are the Aspiring Champions.\r\n\r\nThis is... FaceHelm... the mighty leaper of Norsca.",
@@ -6502,7 +6502,7 @@
     "geosets": [
       {
         "index": 0,
-        "vertices": 241,
+        "vertices": 227,
         "triangles": 278,
         "material": 0,
         "textures": [
@@ -6566,128 +6566,128 @@
       },
       {
         "index": 7,
-        "vertices": 8,
-        "triangles": 4,
-        "material": 7,
-        "textures": [
-          "Textures\\lavalump.blp"
-        ]
-      },
-      {
-        "index": 8,
         "vertices": 65,
         "triangles": 50,
-        "material": 8,
+        "material": 7,
         "textures": [
           "Textures\\InfernalCannon.blp"
         ]
       },
       {
-        "index": 9,
+        "index": 8,
         "vertices": 392,
         "triangles": 383,
-        "material": 9,
+        "material": 8,
         "textures": [
           "Units\\Demon\\ChaosWarlock\\ChaosWarlock.blp"
         ]
       },
       {
-        "index": 10,
+        "index": 9,
         "vertices": 8,
         "triangles": 4,
-        "material": 10,
+        "material": 9,
         "textures": [
           "Textures\\LavaLump.blp",
           "Textures\\LavaLump.blp"
         ]
       },
       {
-        "index": 11,
+        "index": 10,
         "vertices": 107,
         "triangles": 120,
-        "material": 11,
+        "material": 10,
         "textures": [
           "Textures\\Skeleton.blp"
         ]
       },
       {
-        "index": 12,
+        "index": 11,
         "vertices": 182,
         "triangles": 167,
-        "material": 12,
+        "material": 11,
         "textures": [
           "Team colour / glow",
           "Units\\Demon\\ChaosWolfrider\\ChaosWolfrider.blp"
         ]
       },
       {
-        "index": 13,
+        "index": 12,
         "vertices": 244,
         "triangles": 223,
-        "material": 13,
+        "material": 12,
         "textures": [
           "Units\\Orc\\Spiritwolf\\FeralSpirit.blp"
         ]
       },
       {
-        "index": 14,
+        "index": 13,
         "vertices": 19,
         "triangles": 17,
-        "material": 14,
+        "material": 13,
         "textures": [
           "Team colour / glow",
           "Units\\Orc\\Spiritwolf\\FeralSpirit.blp"
         ]
       },
       {
-        "index": 15,
+        "index": 14,
         "vertices": 114,
         "triangles": 88,
-        "material": 15,
+        "material": 14,
         "textures": [
           "units\\Creeps\\FacelessOne\\FacelessOne.blp"
         ]
       },
       {
-        "index": 16,
+        "index": 15,
         "vertices": 74,
         "triangles": 108,
-        "material": 16,
+        "material": 15,
         "textures": [
           "units\\Undead\\Necromancer\\Necromancer.blp"
         ]
       },
       {
-        "index": 17,
+        "index": 16,
         "vertices": 13,
         "triangles": 20,
-        "material": 17,
+        "material": 16,
         "textures": [
           "units\\Creeps\\ChaosWarlockGreen\\ChaosGreenWarlock.blp"
         ]
       },
       {
-        "index": 18,
+        "index": 17,
         "vertices": 74,
         "triangles": 108,
-        "material": 16,
+        "material": 15,
         "textures": [
           "units\\Undead\\Necromancer\\Necromancer.blp"
+        ]
+      },
+      {
+        "index": 18,
+        "vertices": 4,
+        "triangles": 2,
+        "material": 17,
+        "textures": [
+          "Team colour / glow"
         ]
       },
       {
         "index": 19,
         "vertices": 12,
         "triangles": 6,
-        "material": 18,
+        "material": 19,
         "textures": [
           "Team colour / glow"
         ]
       },
       {
         "index": 20,
-        "vertices": 4,
-        "triangles": 2,
+        "vertices": 16,
+        "triangles": 8,
         "material": 19,
         "textures": [
           "Team colour / glow"
@@ -6710,9 +6710,9 @@
       "Portrait 2",
       "Portrait Talk"
     ],
-    "bytes": 165669,
+    "bytes": 165431,
     "portraitBackdropGeosets": [
-      20
+      18
     ],
     "authors": [
       {
@@ -6789,13 +6789,312 @@
     "formationSequence": "Stand",
     "formationBodyHeight": 1,
     "searchDescription": "Preview and download the Aspiring Champion model for Warcraft 3. A Warhammer Fantasy character for Warriors of Chaos armies and custom maps.",
-    "sha256": "a7f9e4c2de69ca114efceaf7b062967a6cf1324b9fb51297250683df67275564",
+    "sha256": "a7748db8dc1eb9a1274be1c9ab79bd5082005f2ba13b2c1f6e08909e4bb4d7e5",
     "changelog": [
+      {
+        "date": "27 October 2026",
+        "text": "Fixed animation irregularities, improved hero glow, non glow version."
+      },
       {
         "date": "12 October 2026",
         "text": "Removed unnecessary data"
       }
-    ]
+    ],
+    "imageVersion": "20261027-aspiring15",
+    "downloadPack": "downloads/aspiring-champion.zip"
+  },
+  {
+    "id": "aspiring-unit",
+    "file": "WH_WOC_Aspiring15.mdx",
+    "name": "Aspiring Champion",
+    "army": "warriors-of-chaos",
+    "description": "None have tasted power so sweet and so alluring as those who have bent the knee to the Ruinous Powers.\r\n\r\nMighty warlords, knights, holy men and even women... once they have glimpsed such power, they can no longer unsee.\r\n\r\nThey come to crave it, carving their path toward eternal glory or damnation, fighting harder and harder with every battle to prove their worth in the eyes of Chaos... they are the Aspiring Champions.\r\n\r\nThis is... FaceHelm... the mighty leaper of Norsca.",
+    "credits": "Model Base - Captain Marwyn by Direfury\r\n\r\nAxe - Armageddon by KayS\r\n\r\nHelm - Chaos Chosen by Stein123\r\n\r\nHelm Base - Dark Knight - Highlord Inquistor by Greedy Martyrdom\r\n\r\nCloak - Shamelessly skinned by Unsanctioned Magic from Blizzard.\r\n\r\nHorns - Force Commander and Chaos Lords by @EmirDaud, @Darnish89",
+    "geosets": [
+      {
+        "index": 0,
+        "vertices": 227,
+        "triangles": 278,
+        "material": 0,
+        "textures": [
+          "Units\\Creeps\\Magnataur\\Magnataur.blp"
+        ]
+      },
+      {
+        "index": 1,
+        "vertices": 33,
+        "triangles": 34,
+        "material": 1,
+        "textures": [
+          "Units\\Creeps\\HumanMage\\HumanMage.blp"
+        ]
+      },
+      {
+        "index": 2,
+        "vertices": 102,
+        "triangles": 101,
+        "material": 2,
+        "textures": [
+          "Team colour / glow",
+          "Units\\Creeps\\OgreOneHeadedArmored\\OgreLord.blp"
+        ]
+      },
+      {
+        "index": 3,
+        "vertices": 74,
+        "triangles": 68,
+        "material": 3,
+        "textures": [
+          "UI\\Glues\\SinglePlayer\\NightElfCampaign3D\\Bow.blp"
+        ]
+      },
+      {
+        "index": 4,
+        "vertices": 154,
+        "triangles": 236,
+        "material": 4,
+        "textures": [
+          "Textures\\InfernalCannon.blp"
+        ]
+      },
+      {
+        "index": 5,
+        "vertices": 123,
+        "triangles": 140,
+        "material": 5,
+        "textures": [
+          "UI\\Glues\\MainMenu\\MainMenu3d\\AxeBladeBlueSteel.blp"
+        ]
+      },
+      {
+        "index": 6,
+        "vertices": 137,
+        "triangles": 154,
+        "material": 6,
+        "textures": [
+          "Textures\\HeroLich.blp"
+        ]
+      },
+      {
+        "index": 7,
+        "vertices": 65,
+        "triangles": 50,
+        "material": 7,
+        "textures": [
+          "Textures\\InfernalCannon.blp"
+        ]
+      },
+      {
+        "index": 8,
+        "vertices": 392,
+        "triangles": 383,
+        "material": 8,
+        "textures": [
+          "Units\\Demon\\ChaosWarlock\\ChaosWarlock.blp"
+        ]
+      },
+      {
+        "index": 9,
+        "vertices": 8,
+        "triangles": 4,
+        "material": 9,
+        "textures": [
+          "Textures\\LavaLump.blp",
+          "Textures\\LavaLump.blp"
+        ]
+      },
+      {
+        "index": 10,
+        "vertices": 107,
+        "triangles": 120,
+        "material": 10,
+        "textures": [
+          "Textures\\Skeleton.blp"
+        ]
+      },
+      {
+        "index": 11,
+        "vertices": 182,
+        "triangles": 167,
+        "material": 11,
+        "textures": [
+          "Team colour / glow",
+          "Units\\Demon\\ChaosWolfrider\\ChaosWolfrider.blp"
+        ]
+      },
+      {
+        "index": 12,
+        "vertices": 244,
+        "triangles": 223,
+        "material": 12,
+        "textures": [
+          "Units\\Orc\\Spiritwolf\\FeralSpirit.blp"
+        ]
+      },
+      {
+        "index": 13,
+        "vertices": 19,
+        "triangles": 17,
+        "material": 13,
+        "textures": [
+          "Team colour / glow",
+          "Units\\Orc\\Spiritwolf\\FeralSpirit.blp"
+        ]
+      },
+      {
+        "index": 14,
+        "vertices": 114,
+        "triangles": 88,
+        "material": 14,
+        "textures": [
+          "units\\Creeps\\FacelessOne\\FacelessOne.blp"
+        ]
+      },
+      {
+        "index": 15,
+        "vertices": 74,
+        "triangles": 108,
+        "material": 15,
+        "textures": [
+          "units\\Undead\\Necromancer\\Necromancer.blp"
+        ]
+      },
+      {
+        "index": 16,
+        "vertices": 13,
+        "triangles": 20,
+        "material": 16,
+        "textures": [
+          "units\\Creeps\\ChaosWarlockGreen\\ChaosGreenWarlock.blp"
+        ]
+      },
+      {
+        "index": 17,
+        "vertices": 74,
+        "triangles": 108,
+        "material": 15,
+        "textures": [
+          "units\\Undead\\Necromancer\\Necromancer.blp"
+        ]
+      },
+      {
+        "index": 18,
+        "vertices": 4,
+        "triangles": 2,
+        "material": 17,
+        "textures": [
+          "Team colour / glow"
+        ]
+      }
+    ],
+    "sequences": [
+      "Stand",
+      "Stand - 2",
+      "Stand Ready",
+      "Attack - 1",
+      "Attack - 2",
+      "Attack Spell Two",
+      "Attack Spell Slam",
+      "Walk",
+      "Cinematic Walk",
+      "Death",
+      "Dissipate",
+      "Portrait",
+      "Portrait 2",
+      "Portrait Talk"
+    ],
+    "bytes": 161559,
+    "portraitBackdropGeosets": [
+      18
+    ],
+    "authors": [
+      {
+        "name": "Unsanctioned Magic",
+        "url": "https://xgm.guru/user/UnsanctMagic"
+      },
+      {
+        "name": "Stein123",
+        "url": "https://www.hiveworkshop.com/members/stein123.196992/"
+      },
+      {
+        "name": "Direfury",
+        "url": "https://www.hiveworkshop.com/members/direfury.188037/"
+      }
+    ],
+    "creditLinks": [
+      {
+        "text": "Dark Knight - Highlord Inquistor",
+        "url": "https://www.hiveworkshop.com/threads/dark-knight-highlord-inquisitor.364248/"
+      },
+      {
+        "text": "Force Commander and Chaos Lords",
+        "url": "https://www.hiveworkshop.com/threads/force-commanders-and-chaos-lords.366770/"
+      },
+      {
+        "text": "Unsanctioned Magic",
+        "url": "https://xgm.guru/user/UnsanctMagic"
+      },
+      {
+        "text": "Greedy Martyrdom",
+        "url": "https://www.hiveworkshop.com/members/265154/"
+      },
+      {
+        "text": "Captain Marwyn",
+        "url": "https://www.hiveworkshop.com/threads/captain-marwyn.271127/"
+      },
+      {
+        "text": "Armageddon",
+        "url": "https://www.hiveworkshop.com/threads/armageddon.184966/"
+      },
+      {
+        "text": "@Darnish89",
+        "url": "https://www.hiveworkshop.com/members/315417/"
+      },
+      {
+        "text": "@EmirDaud",
+        "url": "https://www.hiveworkshop.com/members/286231/"
+      },
+      {
+        "text": "Darnish89",
+        "url": "https://www.hiveworkshop.com/members/315417/"
+      },
+      {
+        "text": "Direfury",
+        "url": "https://www.hiveworkshop.com/members/188037/"
+      },
+      {
+        "text": "Stein123",
+        "url": "https://www.hiveworkshop.com/members/stein123.196992/"
+      },
+      {
+        "text": "EmirDaud",
+        "url": "https://www.hiveworkshop.com/members/286231/"
+      },
+      {
+        "text": "Blizzard",
+        "url": "https://www.blizzard.com/"
+      },
+      {
+        "text": "KayS",
+        "url": "https://www.hiveworkshop.com/members/187760/"
+      }
+    ],
+    "formationSequence": "Stand",
+    "formationBodyHeight": 1,
+    "searchDescription": "Preview and download the Aspiring Champion model for Warcraft 3. A Warhammer Fantasy character for Warriors of Chaos armies and custom maps.",
+    "sha256": "f1315c2d8576ebef8419004b63517b57216a86e412c2577a922e4a4418d44b68",
+    "changelog": [
+      {
+        "date": "27 October 2026",
+        "text": "Fixed animation irregularities, improved hero glow, non glow version."
+      },
+      {
+        "date": "12 October 2026",
+        "text": "Removed unnecessary data"
+      }
+    ],
+    "imageVersion": "20261027-aspiring15",
+    "downloadPack": "downloads/aspiring-champion.zip"
   },
   {
     "id": "herrdave-124832",

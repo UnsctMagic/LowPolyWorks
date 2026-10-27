@@ -624,5 +624,19 @@
         "label": "Axethrower"
       }
     ]
+  },
+  {
+    "id": "aspiring-champion",
+    "name": "Aspiring Champion",
+    "variants": [
+      {
+        "id": "aspiring",
+        "label": "Hero"
+      },
+      {
+        "id": "aspiring-unit",
+        "label": "Non glow"
+      }
+    ]
   }
 ]

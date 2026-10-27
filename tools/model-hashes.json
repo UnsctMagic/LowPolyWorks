@@ -60,8 +60,12 @@
     "sha256": "20d5052398845ab3b706633b095057978133e39075202af7bf189d50fff2c927"
   },
   {
-    "file": "WH_WOC_Aspiring13.mdx",
-    "sha256": "a7f9e4c2de69ca114efceaf7b062967a6cf1324b9fb51297250683df67275564"
+    "file": "WH_WOC_AspiringHero01.mdx",
+    "sha256": "a7748db8dc1eb9a1274be1c9ab79bd5082005f2ba13b2c1f6e08909e4bb4d7e5"
+  },
+  {
+    "file": "WH_WOC_Aspiring15.mdx",
+    "sha256": "f1315c2d8576ebef8419004b63517b57216a86e412c2577a922e4a4418d44b68"
   },
   {
     "file": "herrdave/17/Bretonnian_Archer.mdx",
