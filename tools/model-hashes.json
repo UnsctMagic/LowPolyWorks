@@ -44,8 +44,12 @@
     "sha256": "81ab2399c34fceb244e9219da5f639069c11742f0640563213dec20c2c901849"
   },
   {
-    "file": "WH_WOC_KnightNurgleChampion06.mdx",
-    "sha256": "8222b4370cc853861837e926157149734250bcad90a63c15377dc4e618ccfa19"
+    "file": "WH_WOC_KnightNurgleChampionHero01.mdx",
+    "sha256": "82e0f8824ee93be7ca51b32685c3033d49d9c36a3096ade12db73aa89e2feebf"
+  },
+  {
+    "file": "WH_WOC_KnightNurgleChampionUnit07.mdx",
+    "sha256": "3e8e767830116069b4f65b5ff3b2bd2504f6685570824821a657582191cd52c5"
   },
   {
     "file": "WH_WOC_KnightSlaaneshAxe07.mdx",
