@@ -149,9 +149,9 @@
       "publishedAt": "2026-10-12T09:03:56.313Z"
     },
     "nurgle-champion": {
-      "sha256": "8222b4370cc853861837e926157149734250bcad90a63c15377dc4e618ccfa19",
+      "sha256": "82e0f8824ee93be7ca51b32685c3033d49d9c36a3096ade12db73aa89e2feebf",
       "publishedAt": "2026-10-12T09:03:56.313Z",
-      "updatedAt": "2026-10-17T22:19:43.696Z"
+      "updatedAt": "2026-10-28T05:03:23.405Z"
     },
     "nurgle-heavy": {
       "sha256": "f6e05ff77be054ca901e59acaa738f7beae27f56100f3490a1fa06a31c3e0a34",
@@ -510,6 +510,11 @@
     "khorne-flail-unit": {
       "sha256": "ebaec764caaebabe4c7a46329eb63bece56ff09eeed2371facd780352a8ddfb4",
       "updatedAt": "2026-10-17T21:16:31.505Z"
+    },
+    "nurgle-champion-unit": {
+      "sha256": "3e8e767830116069b4f65b5ff3b2bd2504f6685570824821a657582191cd52c5",
+      "publishedAt": "2026-10-12T09:03:56.313Z",
+      "updatedAt": "2026-10-17T22:19:43.696Z"
     }
   }
 }

@@ -666,5 +666,19 @@
         "label": "Unit"
       }
     ]
+  },
+  {
+    "id": "nurgle-champion",
+    "name": "Knight of Nurgle · Champion",
+    "variants": [
+      {
+        "id": "nurgle-champion",
+        "label": "Hero"
+      },
+      {
+        "id": "nurgle-champion-unit",
+        "label": "Unit"
+      }
+    ]
   }
 ]
