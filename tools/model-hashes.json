@@ -24,8 +24,12 @@
     "sha256": "da94155bca8d1c838646c2f4b0a71d023c18e334d79250b8d25ab672d75ae924"
   },
   {
-    "file": "WH_WOC_KnightKhorneFlail03.mdx",
-    "sha256": "8128d1d6f42f2e7ada59dcf6e5532b9d734854dceab8186e6c36444b1df60f3e"
+    "file": "WH_WOC_KnightKhorneFlailHero01.mdx",
+    "sha256": "1b0f13a7026df0924fdb027c2381983724791838724a94c632d192a4cb413a89"
+  },
+  {
+    "file": "WH_WOC_KnightKhorneFlailUnit03.mdx",
+    "sha256": "ebaec764caaebabe4c7a46329eb63bece56ff09eeed2371facd780352a8ddfb4"
   },
   {
     "file": "WH_WOC_KnightNurgleHeavy06.mdx",
