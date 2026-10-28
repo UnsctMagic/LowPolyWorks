@@ -2725,9 +2725,11 @@
         "text": "Fixed flail fire particles"
       }
     ],
-    "imageVersion": "20261028-champions-order",
+    "imageVersion": "20261028-khorne-hero-emitters",
     "downloadPack": "downloads/khorne-champion.zip",
-    "captureFitAlpha": 200
+    "captureFitAlpha": 200,
+    "captureSequence": "Stand",
+    "captureTime": 600
   },
   {
     "id": "khorne-flail-unit",
