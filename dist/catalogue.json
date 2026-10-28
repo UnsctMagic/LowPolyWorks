@@ -340,7 +340,8 @@
       }
     ],
     "formationBodyHeight": 0.76,
-    "searchDescription": "Preview and download a Warhammer Fantasy Graveguard model for Warcraft 3. Build Vampire Counts armies with animated undead infantry."
+    "searchDescription": "Preview and download a Warhammer Fantasy Graveguard model for Warcraft 3. Build Vampire Counts armies with animated undead infantry.",
+    "sha256": "514126ee78cbf1a50a4245eecc6da49402b5f04664a1b4ae02c0ca24cfd13bda"
   },
   {
     "id": "von-carstein",
@@ -704,7 +705,7 @@
       }
     ],
     "searchDescription": "Download the Von Carstein Vampire model for Warcraft 3 Warhammer maps. Preview animations for this Vampire Counts character in 3D.",
-    "sha256": "b3ebf64fa6db5eba7d0a8c2afeb1ca652024f36fd850be20efc3a802ff3783cd",
+    "sha256": "58aefe16c10d4d095d35be9477d102581e707aa80f0e72416a2a749b76a72968",
     "changelog": [
       {
         "date": "10 October 2026",
@@ -1121,7 +1122,7 @@
         "url": "https://www.hiveworkshop.com/threads/vampyr.193210/"
       }
     ],
-    "sha256": "dffdf504d024ff8f6266cf1ca979ca11e16d2f4f83f7ae86395bd7610d806166",
+    "sha256": "59e82db43528846aa1efa015cb96a9c550363ef8f299e684ea59a10155a1b2b8",
     "downloadPack": "downloads/von-carstein.zip",
     "formationBodyHeight": 0.9,
     "searchDescription": "Preview and download the Von Carstein Dread Knight for Warcraft 3. A Warhammer Fantasy Vampire Counts model reskinned from the Von Carstein Lord.",
@@ -1335,7 +1336,7 @@
         "url": "https://www.hiveworkshop.com/members/maximal.251852/"
       }
     ],
-    "sha256": "1f9ebd73855b2656b79e3129bb328b36ee606f1701da054c8298c8293ae2bcb5",
+    "sha256": "bd806b238eab59f28a9b0c6a2eddf907c342ed7e6d16dbd9e1e6602e4028d120",
     "formationSequence": "Stand Ready",
     "formationBodyHeight": 0.9,
     "changelog": [
@@ -1652,7 +1653,7 @@
         "url": "https://www.hiveworkshop.com/members/maximal.251852/"
       }
     ],
-    "sha256": "6baa4e1d87d274c237759f8d3ba28dff7f108360e8b67c7387be4de4aab72645"
+    "sha256": "c15bd66ab015bce1a63838ccc4f6f0f6b784e3fa2b6a90bcccf7bdc5c774ca3a"
   },
   {
     "id": "khorne-axe",
@@ -2214,7 +2215,7 @@
     "formationSequence": "Stand Ready",
     "formationBodyHeight": 0.78,
     "searchDescription": "Download the axe variant of the Knight of Khorne for Warcraft 3. Preview this Warhammer Fantasy Warriors of Chaos model and its animations.",
-    "sha256": "da94155bca8d1c838646c2f4b0a71d023c18e334d79250b8d25ab672d75ae924",
+    "sha256": "7907efb9716f921644f347c0ae72729cef3f5287febd711f549161cbb9f403cc",
     "changelog": [
       {
         "date": "17 October 2026",
@@ -2709,7 +2710,7 @@
       }
     ],
     "searchDescription": "Preview and download the Knight of Khorne Champion model for Warcraft 3. Add a Warhammer Fantasy Chaos champion to your custom army.",
-    "sha256": "1b0f13a7026df0924fdb027c2381983724791838724a94c632d192a4cb413a89",
+    "sha256": "7915398ad1c61ffb2b00e142a1262bf72ff94bf9f297090a36e5dacd1a04b13c",
     "changelog": [
       {
         "date": "28 October 2026",
@@ -3197,7 +3198,7 @@
       }
     ],
     "searchDescription": "Preview and download the Knight of Khorne Champion model for Warcraft 3. Add a Warhammer Fantasy Chaos champion to your custom army.",
-    "sha256": "ebaec764caaebabe4c7a46329eb63bece56ff09eeed2371facd780352a8ddfb4",
+    "sha256": "0cf0c041cb45997622e068f6632556d537832d737d0ecc25671df65ab7ccbf51",
     "changelog": [
       {
         "date": "28 October 2026",
@@ -3760,7 +3761,7 @@
     ],
     "formationSequence": "Stand Ready",
     "searchDescription": "Preview and download the heavy variant of the Knight of Nurgle model for Warcraft 3. A plague-themed Warhammer Fantasy knight for your Warriors of Chaos army.",
-    "sha256": "f6e05ff77be054ca901e59acaa738f7beae27f56100f3490a1fa06a31c3e0a34",
+    "sha256": "37e049d18bc67ce36f474189afddff4b5ff8d25e9854e5ef6656d36e4b5a97fc",
     "downloadPack": "downloads/knight-of-nurgle.zip",
     "changelog": [
       {
@@ -4209,7 +4210,7 @@
     ],
     "formationSequence": "Stand Ready",
     "searchDescription": "Preview and download the Knight of Nurgle model for Warcraft 3. A plague-themed Warhammer Fantasy knight for your Warriors of Chaos army.",
-    "sha256": "bf6098bd6bd200e3c10d25576147f041a33f334ec3669779af4d81b6dd15ecca",
+    "sha256": "735001cce9e3695aab2d07a49d8ed55ff1c4825f4d1d9dda62afea7907558754",
     "downloadPack": "downloads/knight-of-nurgle.zip",
     "changelog": [
       {
@@ -5197,7 +5198,7 @@
     ],
     "formationSequence": "Attack Slam",
     "searchDescription": "Preview and download the Knight of Nurgle · Champion model for Warcraft 3. Add a plague-themed Warhammer Fantasy champion to your Warriors of Chaos army.",
-    "sha256": "82e0f8824ee93be7ca51b32685c3033d49d9c36a3096ade12db73aa89e2feebf",
+    "sha256": "29d2902599b8c47965e8f83470789cdfca9a2fc795319b2d0b673777823f83c5",
     "formationTime": 815,
     "formationBodyHeight": 1,
     "changelog": [
@@ -5733,7 +5734,7 @@
     ],
     "formationSequence": "Attack Slam",
     "searchDescription": "Preview and download the Knight of Nurgle · Champion model for Warcraft 3. Add a plague-themed Warhammer Fantasy champion to your Warriors of Chaos army.",
-    "sha256": "3e8e767830116069b4f65b5ff3b2bd2504f6685570824821a657582191cd52c5",
+    "sha256": "7e7ab64216961b2e340c3e1627e5a1559f17bd02051f779f164162577c1a9fa7",
     "formationTime": 815,
     "formationBodyHeight": 1,
     "changelog": [
@@ -6203,7 +6204,7 @@
       }
     ],
     "searchDescription": "Download the axe variant of the Knight of Slaanesh for Warcraft 3. Preview animations for this Warhammer Fantasy Warriors of Chaos model.",
-    "sha256": "86d9dc39a01995914fdaac085739d79313a3a3827e61cb3e4b65405b91884e45",
+    "sha256": "824aee61ee08439d4d284d6ab26cf6a72f384fe52e08a03be05ecadee04a83e3",
     "changelog": [
       {
         "date": "17 October 2026",
@@ -6658,7 +6659,7 @@
       }
     ],
     "searchDescription": "Preview and download the lance variant of the Knight of Slaanesh for Warcraft 3. A Warhammer Fantasy knight for your Warriors of Chaos army.",
-    "sha256": "89f65c755ae33e56df5251ff89a4b8571ab61b1304670d83aa98f86dd8a4ee69",
+    "sha256": "5ba05c2101ed8a0cf1b824d2cedc79882a86a456f71f77d6182f3411b8e82c48",
     "changelog": [
       {
         "date": "17 October 2026",
@@ -7057,7 +7058,7 @@
       }
     ],
     "searchDescription": "Download the sword variant of the Knight Undivided for Warcraft 3. Preview a mounted Chaos Undivided knight for Warhammer Fantasy maps.",
-    "sha256": "86b73e465a050572e60a42def865b252594aced076c9412c8ee170a4aec13f1a",
+    "sha256": "6c335aab258d1fc103f17ac4ecce1c96c1f7c40a9328008d1841fc5b86fe6453",
     "changelog": [
       {
         "date": "18 October 2026",
@@ -7415,7 +7416,7 @@
       }
     ],
     "searchDescription": "Preview and download the lance variant of the Knight Undivided for Warcraft 3. Add mounted Chaos Undivided cavalry to Warhammer Fantasy maps.",
-    "sha256": "20d5052398845ab3b706633b095057978133e39075202af7bf189d50fff2c927",
+    "sha256": "ac51fae9756b682af736b437f82b289f06b08a9a6295308028cd9fb5426154fc",
     "changelog": [
       {
         "date": "18 October 2026",
@@ -7724,7 +7725,7 @@
     "formationSequence": "Stand",
     "formationBodyHeight": 1,
     "searchDescription": "Preview and download the Aspiring Champion model for Warcraft 3. A Warhammer Fantasy character for Warriors of Chaos armies and custom maps.",
-    "sha256": "a7748db8dc1eb9a1274be1c9ab79bd5082005f2ba13b2c1f6e08909e4bb4d7e5",
+    "sha256": "808daccd9a65109ed2866203158041ac57a6bb8bf802094cc87b0bee9827a71b",
     "changelog": [
       {
         "date": "27 October 2026",
@@ -8017,7 +8018,7 @@
     "formationSequence": "Stand",
     "formationBodyHeight": 1,
     "searchDescription": "Preview and download the Aspiring Champion model for Warcraft 3. A Warhammer Fantasy character for Warriors of Chaos armies and custom maps.",
-    "sha256": "f1315c2d8576ebef8419004b63517b57216a86e412c2577a922e4a4418d44b68",
+    "sha256": "245d1f8a43f586497dfc48119787dce2b684739358628b63e1fe7e895880dc0d",
     "changelog": [
       {
         "date": "27 October 2026",
@@ -12085,7 +12086,7 @@
       }
     ],
     "sourceUrl": "https://www.hiveworkshop.com/threads/warhammer-chaos-knight-of-tzeentch.374522/",
-    "sha256": "9731ddeb15b7843a2f0dae37b823b908e3693ca83a6e5a3175b2d2d24f3efa57",
+    "sha256": "9a7a863ecd2faf554e856c3512c21ead4d4a12d74f92ccdaa281dc24ea273f99",
     "creditLinks": [
       {
         "text": "Warhammer Eternal Strife",
@@ -12674,7 +12675,7 @@
       }
     ],
     "sourceUrl": "https://www.hiveworkshop.com/threads/warhammer-chaos-knight-of-tzeentch.374522/",
-    "sha256": "77e7b66c43d52e8896beecabec5e97b5a1a6b1350b2ff100efbc5b911199fd3e",
+    "sha256": "7ad03a7bdd0460c0f56caad57e5a9c84988efbe6c37f7fb1ee870e0c6428b75f",
     "creditLinks": [
       {
         "text": "Warhammer Eternal Strife",
@@ -13002,7 +13003,7 @@
       }
     ],
     "sourceUrl": "https://xgm.guru/p/wc3/chaos-ogre",
-    "sha256": "b75c09c1c7c3bb353599d321bc5d6aa9700f393cdbd1a10fc387812cb45ebaef",
+    "sha256": "56898367cf154666b21dcd72dbcec8cc6471077a651f79e24bb08c7acb90eb2a",
     "searchDescription": "Preview and download Chaos Ogre for Warcraft III Classic. A Warhammer Fantasy model for your Warriors of Chaos army."
   },
   {
@@ -13807,7 +13808,7 @@
       "Stand - 3"
     ],
     "bytes": 109183,
-    "sha256": "0265e77a10461906cb7ba01030fa19a618bb3f707c2400a36b1491abfa7f0123",
+    "sha256": "6a02ca2a8f97747db2eb90821b0288571d4a7d73bfd0dfb1c896ef6cd190add7",
     "imageVersion": "20261027-slaanesh-gw",
     "portraitBackdropGeosets": [
       2
@@ -14183,7 +14184,7 @@
         "url": "https://www.hiveworkshop.com/members/forgotten_warlord.182381/"
       }
     ],
-    "sha256": "5cd164f268ec72a293d391e3482670c1e298c50949e36fed598f2489df21b13c",
+    "sha256": "4d622d96f8e206991948f994688b19929d64b9a6edd49507fe7673fa2216cbb5",
     "changelog": [
       {
         "date": "23 October 2026",
@@ -14597,7 +14598,7 @@
         "url": "https://www.hiveworkshop.com/members/forgotten_warlord.182381/"
       }
     ],
-    "sha256": "aa71793b4134dd9febb31ae837e2a02a282d818ffe227d00f0ccfe7ad75580e8",
+    "sha256": "2cb28ecd61a1e1508f2281c7085b2d910610a7f878e87288943777ad6977b1cd",
     "imageVersion": "20261021-cleaver-upload-01",
     "changelog": [
       {
@@ -14975,7 +14976,7 @@
         "url": "https://www.hiveworkshop.com/members/forgotten_warlord.182381/"
       }
     ],
-    "sha256": "dc4557a2923bb24e3ffc9e1350e751e664a6c21074af416b470251c62f0a7a1b",
+    "sha256": "79dd02db1c337683b4590741870719dae8e25ca64364e323f507542f15275de6",
     "changelog": [
       {
         "date": "23 October 2026",
@@ -15945,7 +15946,7 @@
       "Attack Walk Stand Spin"
     ],
     "bytes": 254283,
-    "sha256": "e6695082ade24b722e13a34867f2d826027592afa7ac5568611d3bdfa135dc09",
+    "sha256": "04033e3aab58e55cf76f8b6de4b25a3cf2bb25ac19e13740d40e74b7feb7c34e",
     "formationSequence": "Attack Slam",
     "formationTime": 1018,
     "searchDescription": "Preview and download a Warhammer Fantasy Blood Dragon model for Warcraft 3. A Vampire Counts warrior with a double axe and 16 animations.",
@@ -16192,7 +16193,7 @@
         "url": "https://www.hiveworkshop.com/members/stein123.196992/"
       }
     ],
-    "sha256": "a7a1a1c2a06a863d1e3db8de1b7f382e7137278f6768c9182b46202cb0fcd5ea",
+    "sha256": "2d199aacd15a40861b65b80b251700bf5b83347a02b0ca57230853fda61f7ec4",
     "imageVersion": "20261027-kurgan-hero",
     "portraitBackdropGeosets": [
       14
@@ -16426,7 +16427,7 @@
         "url": "https://www.hiveworkshop.com/members/stein123.196992/"
       }
     ],
-    "sha256": "ab65fe6f6aaa0f1115603e6cb0f335c79592c13ee039900f2acdc1aa642881f4",
+    "sha256": "faee50ddeac3b38479cfc548cb4cf1dddbe9553551b8cf124678bd5051c9d5d6",
     "imageVersion": "20261027-kurgan-hero",
     "portraitBackdropGeosets": [
       14
