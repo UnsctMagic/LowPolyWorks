@@ -652,5 +652,19 @@
         "label": "Unit"
       }
     ]
+  },
+  {
+    "id": "khorne-champion",
+    "name": "Knight of Khorne · Champion",
+    "variants": [
+      {
+        "id": "khorne-flail",
+        "label": "Hero"
+      },
+      {
+        "id": "khorne-flail-unit",
+        "label": "Unit"
+      }
+    ]
   }
 ]

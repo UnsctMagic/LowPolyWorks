@@ -23,8 +23,8 @@
       "updatedAt": "2026-10-17T21:16:31.505Z"
     },
     "khorne-flail": {
-      "sha256": "8128d1d6f42f2e7ada59dcf6e5532b9d734854dceab8186e6c36444b1df60f3e",
-      "updatedAt": "2026-10-17T21:16:31.505Z"
+      "sha256": "1b0f13a7026df0924fdb027c2381983724791838724a94c632d192a4cb413a89",
+      "updatedAt": "2026-10-28T04:50:59.633Z"
     },
     "nurgle": {
       "sha256": "81ab2399c34fceb244e9219da5f639069c11742f0640563213dec20c2c901849"
@@ -506,6 +506,10 @@
     "kurgan-warlord-unit": {
       "sha256": "ab65fe6f6aaa0f1115603e6cb0f335c79592c13ee039900f2acdc1aa642881f4",
       "publishedAt": "2026-10-17T21:10:06.220Z"
+    },
+    "khorne-flail-unit": {
+      "sha256": "ebaec764caaebabe4c7a46329eb63bece56ff09eeed2371facd780352a8ddfb4",
+      "updatedAt": "2026-10-17T21:16:31.505Z"
     }
   }
 }

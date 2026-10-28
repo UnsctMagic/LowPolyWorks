@@ -2224,7 +2224,7 @@
   },
   {
     "id": "khorne-flail",
-    "file": "WH_WOC_KnightKhorneFlail03.mdx",
+    "file": "WH_WOC_KnightKhorneFlailHero01.mdx",
     "name": "Knight of Khorne · Champion",
     "army": "warriors-of-chaos",
     "description": "I have never seen men fight like that...\r\n\r\nI barely made it out alive, this was no victory.\r\n\r\nStatues of brass, massive, twice the size of the biggest man I've ever seen and then some.\r\n\r\nWalking, not charging... advancing like a great wall made of brass and blood red steel.\r\n\r\nI saw men throw down their weapons crying, screaming...\r\n\r\nMen crawled beneath one another to get away...\r\n\r\nIt made no difference, there was nowhere to run.\r\n\r\nI watched a man split from shoulder to hip as he was trying to hide.\r\n\r\nAnother crushed into nothing I could recognize...\r\n\r\nMen were knocked down, trampled, hacked apart and still they kept hacking at the corpses.\r\n\r\nLike a butcher at the block, hacking away piece by piece.\r\n\r\nIt made no difference, we had to fight.\r\n\r\nThey even killed each other.\r\n\r\nThe ones we managed to injure or stagger fighting back became obstacles for the others,\r\n\r\nSo they simply cut through those to reach us faster.\r\n\r\nBut I think they knew they would die that day.\r\n\r\nI heard they razed ten cities before they reached us.\r\n\r\nThat they had come down from the north on a path of destruction.\r\n\r\nThat they had fought their way south for weeks leaving behind only blood and ash.\r\n\r\nBy the time they reached us they were outnumbered fifty to one.\r\n\r\nWe had heard of them coming.\r\n\r\nWe had heard what they had done.\r\n\r\nRivers of blood.\r\n\r\nBut It made no difference... I wanted to fight... to kill.\r\n\r\nThey did not run or beg.\r\n\r\nThey knew they were going to die, I think they wanted to.\r\n\r\nMy city has lost everything defeating them and they got what they came for.\r\n\r\nYou call this victory...?\r\n\r\nSomehow... I envy them.\r\n\r\nI have spent all my life afraid... Afraid of pain... regret... death...\r\n\r\nAfraid of fear.\r\n\r\nThose men were afraid of nothing.\r\n\r\nWanted nothing.\r\n\r\nKept nothing...\r\n\r\nBut it made no difference... I killed them too.\r\n\r\nNorth...\r\n\r\nThat is where they came from.\r\n\r\nThat is where I will go.",
@@ -2250,432 +2250,312 @@
       },
       {
         "index": 2,
-        "vertices": 28,
-        "triangles": 24,
+        "vertices": 52,
+        "triangles": 48,
         "material": 2,
-        "textures": [
-          "Team colour / glow",
-          "Textures\\UndeadAirBarge.blp"
-        ]
-      },
-      {
-        "index": 3,
-        "vertices": 36,
-        "triangles": 32,
-        "material": 3,
         "textures": [
           "UI\\Glues\\SinglePlayer\\HumanCampaign3D\\HumanCampaignFootman.blp"
         ]
       },
       {
-        "index": 4,
-        "vertices": 48,
-        "triangles": 40,
-        "material": 4,
+        "index": 3,
+        "vertices": 974,
+        "triangles": 1190,
+        "material": 3,
         "textures": [
           "Textures\\UndeadAirBarge.blp"
         ]
       },
       {
-        "index": 5,
+        "index": 4,
         "vertices": 124,
         "triangles": 208,
-        "material": 5,
+        "material": 4,
         "textures": [
           "Units\\Demon\\ChaosWarlord\\ChaosWarlord.blp"
         ]
       },
       {
-        "index": 6,
+        "index": 5,
         "vertices": 22,
         "triangles": 37,
-        "material": 6,
+        "material": 5,
         "textures": [
           "Units\\Orc\\Spiritwolf\\FeralSpirit.blp"
         ]
       },
       {
-        "index": 7,
+        "index": 6,
         "vertices": 110,
         "triangles": 114,
-        "material": 7,
+        "material": 6,
         "textures": [
           "Team colour / glow",
           "Textures\\UndeadAirBarge.blp"
         ]
       },
       {
-        "index": 8,
+        "index": 7,
         "vertices": 32,
         "triangles": 16,
-        "material": 8,
+        "material": 7,
         "textures": [
           "Textures\\OutlandDoodads.blp"
         ]
       },
       {
-        "index": 9,
-        "vertices": 36,
-        "triangles": 20,
-        "material": 9,
-        "textures": [
-          "Textures\\UndeadAirBarge.blp"
-        ]
-      },
-      {
-        "index": 10,
-        "vertices": 64,
-        "triangles": 84,
-        "material": 9,
-        "textures": [
-          "Textures\\UndeadAirBarge.blp"
-        ]
-      },
-      {
-        "index": 11,
+        "index": 8,
         "vertices": 26,
         "triangles": 36,
-        "material": 10,
+        "material": 8,
         "textures": [
           "Team colour / glow",
           "Doodads\\Cityscape\\Structures\\Cathedral\\Cathedral.blp"
         ]
       },
       {
-        "index": 12,
+        "index": 9,
         "vertices": 62,
         "triangles": 64,
-        "material": 11,
+        "material": 9,
         "textures": [
           "Team colour / glow",
           "Textures\\OutlandDoodads.blp"
         ]
       },
       {
-        "index": 13,
-        "vertices": 48,
-        "triangles": 40,
-        "material": 12,
-        "textures": [
-          "Textures\\chunktop.blp"
-        ]
-      },
-      {
-        "index": 14,
+        "index": 10,
         "vertices": 36,
         "triangles": 30,
-        "material": 13,
+        "material": 10,
         "textures": [
           "Textures\\OutlandDoodads.blp"
         ]
       },
       {
-        "index": 15,
+        "index": 11,
         "vertices": 18,
         "triangles": 20,
-        "material": 14,
+        "material": 11,
         "textures": [
           "Units\\Creeps\\Magnataur\\Magnataur.blp"
         ]
       },
       {
-        "index": 16,
+        "index": 12,
         "vertices": 42,
         "triangles": 26,
-        "material": 15,
+        "material": 12,
         "textures": [
           "Textures\\OutlandDoodads.blp"
         ]
       },
       {
-        "index": 17,
+        "index": 13,
         "vertices": 39,
         "triangles": 66,
-        "material": 13,
+        "material": 10,
         "textures": [
           "Textures\\OutlandDoodads.blp"
         ]
       },
       {
-        "index": 18,
-        "vertices": 340,
-        "triangles": 522,
-        "material": 4,
-        "textures": [
-          "Textures\\UndeadAirBarge.blp"
-        ]
-      },
-      {
-        "index": 19,
-        "vertices": 36,
-        "triangles": 28,
-        "material": 16,
+        "index": 14,
+        "vertices": 84,
+        "triangles": 68,
+        "material": 13,
         "textures": [
           "Team colour / glow",
           "Textures\\chunktop.blp"
         ]
       },
       {
-        "index": 20,
+        "index": 15,
         "vertices": 29,
         "triangles": 44,
-        "material": 17,
+        "material": 14,
         "textures": [
           "Team colour / glow",
           "Units\\Creeps\\Revenant\\Revenant.blp"
         ]
       },
       {
-        "index": 21,
+        "index": 16,
         "vertices": 32,
         "triangles": 24,
-        "material": 18,
+        "material": 15,
         "textures": [
           "Textures\\OrcBarraks.blp"
         ]
       },
       {
-        "index": 22,
+        "index": 17,
         "vertices": 16,
         "triangles": 24,
-        "material": 13,
+        "material": 10,
         "textures": [
           "Textures\\OutlandDoodads.blp"
         ]
       },
       {
-        "index": 23,
-        "vertices": 57,
-        "triangles": 42,
-        "material": 19,
-        "textures": [
-          "Doodads\\Cinematic\\RunesOfGuldan\\RunesOfGuldan.blp"
-        ]
-      },
-      {
-        "index": 24,
-        "vertices": 12,
-        "triangles": 16,
-        "material": 20,
-        "textures": [
-          "Team colour / glow",
-          "Textures\\InfernalCannon.blp"
-        ]
-      },
-      {
-        "index": 25,
-        "vertices": 119,
-        "triangles": 170,
-        "material": 21,
-        "textures": [
-          "Textures\\OutlandDoodads.blp"
-        ]
-      },
-      {
-        "index": 26,
-        "vertices": 48,
-        "triangles": 76,
-        "material": 22,
-        "textures": [
-          "Textures\\OutlandDoodads.blp"
-        ]
-      },
-      {
-        "index": 27,
+        "index": 18,
         "vertices": 95,
         "triangles": 144,
-        "material": 23,
+        "material": 17,
         "textures": [
           "Team colour / glow",
           "Buildings\\Human\\Blacksmith\\NewBlacksmith.blp"
         ]
       },
       {
-        "index": 28,
+        "index": 19,
         "vertices": 8,
         "triangles": 4,
-        "material": 24,
+        "material": 18,
         "textures": [
           "Textures\\Red_Glow3.blp"
         ]
       },
       {
-        "index": 29,
+        "index": 20,
         "vertices": 13,
         "triangles": 12,
-        "material": 25,
+        "material": 19,
         "textures": [
           "Textures\\OutlandDoodads.blp"
         ]
       },
       {
-        "index": 30,
+        "index": 21,
         "vertices": 14,
         "triangles": 10,
-        "material": 15,
+        "material": 12,
         "textures": [
           "Textures\\OutlandDoodads.blp"
         ]
       },
       {
-        "index": 31,
-        "vertices": 16,
-        "triangles": 16,
-        "material": 26,
-        "textures": [
-          "UI\\Glues\\SinglePlayer\\HumanCampaign3D\\HumanCampaignFootman.blp"
-        ]
-      },
-      {
-        "index": 32,
+        "index": 22,
         "vertices": 75,
         "triangles": 76,
-        "material": 27,
+        "material": 20,
         "textures": [
           "Textures\\TimberWolf.blp"
         ]
       },
       {
-        "index": 33,
+        "index": 23,
         "vertices": 175,
         "triangles": 336,
-        "material": 28,
+        "material": 21,
         "textures": [
           "UI\\Glues\\SpriteLayers\\Expansion\\GlueScreen-Panel-MetalPieces-Expansion.blp"
         ]
       },
       {
-        "index": 34,
-        "vertices": 7,
-        "triangles": 8,
-        "material": 29,
+        "index": 24,
+        "vertices": 19,
+        "triangles": 24,
+        "material": 22,
         "textures": [
           "Textures\\InfernalCannon.blp"
         ]
       },
       {
-        "index": 35,
+        "index": 25,
         "vertices": 42,
         "triangles": 56,
-        "material": 30,
+        "material": 23,
         "textures": [
           "Textures\\Skeleton.blp"
         ]
       },
       {
-        "index": 36,
-        "vertices": 31,
-        "triangles": 36,
-        "material": 31,
-        "textures": [
-          "Textures\\UndeadAirBarge.blp"
-        ]
-      },
-      {
-        "index": 37,
+        "index": 26,
         "vertices": 59,
         "triangles": 55,
-        "material": 32,
+        "material": 24,
         "textures": [
           "Units\\Human\\HeroPaladinBoss\\HeropaladinBoss.blp"
         ]
       },
       {
-        "index": 38,
+        "index": 27,
         "vertices": 35,
         "triangles": 46,
-        "material": 33,
+        "material": 25,
         "textures": [
           "Units\\Undead\\HeroDreadLord\\HeroDreadlord.blp"
         ]
       },
       {
-        "index": 39,
-        "vertices": 183,
-        "triangles": 168,
-        "material": 34,
-        "textures": [
-          "Textures\\UndeadAirBarge.blp"
-        ]
-      },
-      {
-        "index": 40,
+        "index": 28,
         "vertices": 6,
         "triangles": 8,
-        "material": 35,
+        "material": 26,
         "textures": [
           "Textures\\Knight.blp"
         ]
       },
       {
-        "index": 41,
+        "index": 29,
         "vertices": 14,
         "triangles": 16,
-        "material": 36,
+        "material": 27,
         "textures": [
           "Units\\Creeps\\Kobold\\Kobold.blp"
         ]
       },
       {
-        "index": 42,
-        "vertices": 35,
-        "triangles": 22,
-        "material": 37,
+        "index": 30,
+        "vertices": 92,
+        "triangles": 64,
+        "material": 28,
         "textures": [
           "Doodads\\Cinematic\\RunesOfGuldan\\RunesOfGuldan.blp"
         ]
       },
       {
-        "index": 43,
-        "vertices": 84,
-        "triangles": 126,
-        "material": 22,
+        "index": 31,
+        "vertices": 251,
+        "triangles": 372,
+        "material": 16,
         "textures": [
           "Textures\\OutlandDoodads.blp"
         ]
       },
       {
-        "index": 44,
-        "vertices": 244,
-        "triangles": 296,
-        "material": 7,
-        "textures": [
-          "Team colour / glow",
-          "Textures\\UndeadAirBarge.blp"
-        ]
-      },
-      {
-        "index": 45,
+        "index": 32,
         "vertices": 4,
         "triangles": 2,
-        "material": 38,
+        "material": 29,
         "textures": [
           "Team colour / glow"
         ]
       },
       {
-        "index": 46,
+        "index": 33,
         "vertices": 132,
         "triangles": 128,
-        "material": 39,
+        "material": 30,
         "textures": [
           "Textures\\gutz.blp"
         ]
       },
       {
-        "index": 47,
-        "vertices": 8,
-        "triangles": 4,
-        "material": 40,
+        "index": 34,
+        "vertices": 12,
+        "triangles": 6,
+        "material": 31,
         "textures": [
           "Team colour / glow"
         ]
       },
       {
-        "index": 48,
-        "vertices": 8,
-        "triangles": 4,
-        "material": 41,
+        "index": 35,
+        "vertices": 12,
+        "triangles": 6,
+        "material": 31,
         "textures": [
           "Team colour / glow"
         ]
@@ -2696,9 +2576,9 @@
       "Dissipate",
       "Attack - 2"
     ],
-    "bytes": 232748,
+    "bytes": 225952,
     "portraitBackdropGeosets": [
-      45
+      32
     ],
     "authors": [
       {
@@ -2829,8 +2709,12 @@
       }
     ],
     "searchDescription": "Preview and download the Knight of Khorne Champion model for Warcraft 3. Add a Warhammer Fantasy Chaos champion to your custom army.",
-    "sha256": "8128d1d6f42f2e7ada59dcf6e5532b9d734854dceab8186e6c36444b1df60f3e",
+    "sha256": "1b0f13a7026df0924fdb027c2381983724791838724a94c632d192a4cb413a89",
     "changelog": [
+      {
+        "date": "28 October 2026",
+        "text": "Added Hero version and updated Unit version."
+      },
       {
         "date": "17 October 2026",
         "text": "Glowing eyes are now unshaded"
@@ -2839,7 +2723,498 @@
         "date": "11 October 2026",
         "text": "Fixed flail fire particles"
       }
-    ]
+    ],
+    "imageVersion": "20261028-khorne-champion",
+    "downloadPack": "downloads/khorne-champion.zip",
+    "captureFitAlpha": 200
+  },
+  {
+    "id": "khorne-flail-unit",
+    "file": "WH_WOC_KnightKhorneFlailUnit03.mdx",
+    "name": "Knight of Khorne · Champion",
+    "army": "warriors-of-chaos",
+    "description": "I have never seen men fight like that...\r\n\r\nI barely made it out alive, this was no victory.\r\n\r\nStatues of brass, massive, twice the size of the biggest man I've ever seen and then some.\r\n\r\nWalking, not charging... advancing like a great wall made of brass and blood red steel.\r\n\r\nI saw men throw down their weapons crying, screaming...\r\n\r\nMen crawled beneath one another to get away...\r\n\r\nIt made no difference, there was nowhere to run.\r\n\r\nI watched a man split from shoulder to hip as he was trying to hide.\r\n\r\nAnother crushed into nothing I could recognize...\r\n\r\nMen were knocked down, trampled, hacked apart and still they kept hacking at the corpses.\r\n\r\nLike a butcher at the block, hacking away piece by piece.\r\n\r\nIt made no difference, we had to fight.\r\n\r\nThey even killed each other.\r\n\r\nThe ones we managed to injure or stagger fighting back became obstacles for the others,\r\n\r\nSo they simply cut through those to reach us faster.\r\n\r\nBut I think they knew they would die that day.\r\n\r\nI heard they razed ten cities before they reached us.\r\n\r\nThat they had come down from the north on a path of destruction.\r\n\r\nThat they had fought their way south for weeks leaving behind only blood and ash.\r\n\r\nBy the time they reached us they were outnumbered fifty to one.\r\n\r\nWe had heard of them coming.\r\n\r\nWe had heard what they had done.\r\n\r\nRivers of blood.\r\n\r\nBut It made no difference... I wanted to fight... to kill.\r\n\r\nThey did not run or beg.\r\n\r\nThey knew they were going to die, I think they wanted to.\r\n\r\nMy city has lost everything defeating them and they got what they came for.\r\n\r\nYou call this victory...?\r\n\r\nSomehow... I envy them.\r\n\r\nI have spent all my life afraid... Afraid of pain... regret... death...\r\n\r\nAfraid of fear.\r\n\r\nThose men were afraid of nothing.\r\n\r\nWanted nothing.\r\n\r\nKept nothing...\r\n\r\nBut it made no difference... I killed them too.\r\n\r\nNorth...\r\n\r\nThat is where they came from.\r\n\r\nThat is where I will go.",
+    "credits": "Model Base - Vile Knight by HerrDave / Further edited by Stein123\r\n\r\nFlail Animations - Knight, Bandit Lord & Riderless Horse by loktar\r\n\r\nBloodied Khorne Symbol - Blood Letter by Ironmaiden\r\n\r\nHelm 1 Base - Black Knight by Direfury\r\n\r\nHelm 2 Base - Advanced White Helm by Astaroth Zion\r\n\r\nHelm Horehair Crest - Blackorder Assassin by Rhapsodie\r\n\r\nFlail Knight Face - adapted from IronMaiden's Dawn of War Helms\r\n\r\nHelm Khorne Bunny Ears - adapted and reshaped from World Eaters Helm by Ironmaiden\r\n\r\nShield Base - Projected and shaped using the forge feature of MDLxL\r\n\r\nSkull Jaw - reshaped World of Warcraft: Legion - Drogbar asset\r\n\r\nKhorne Symbol - Adept of Khorne by WebSter\r\n\r\nAxe - Traitor Knightess by Greedy Martyrdom\r\n\r\nHorse head and tail - Headless Horseman by Johnwar\r\n\r\nFur Cloak - Chaos Warrior by Azazeron\r\n\r\nShoulders - Diablo_3_Barbarian_Shoulders by Forgotten_Warlord",
+    "geosets": [
+      {
+        "index": 0,
+        "vertices": 20,
+        "triangles": 16,
+        "material": 0,
+        "textures": [
+          "Textures\\RedDragon.blp"
+        ]
+      },
+      {
+        "index": 1,
+        "vertices": 36,
+        "triangles": 20,
+        "material": 1,
+        "textures": [
+          "Units\\Undead\\SkeletonMage\\SkeletonMage.blp"
+        ]
+      },
+      {
+        "index": 2,
+        "vertices": 52,
+        "triangles": 48,
+        "material": 2,
+        "textures": [
+          "UI\\Glues\\SinglePlayer\\HumanCampaign3D\\HumanCampaignFootman.blp"
+        ]
+      },
+      {
+        "index": 3,
+        "vertices": 974,
+        "triangles": 1190,
+        "material": 3,
+        "textures": [
+          "Textures\\UndeadAirBarge.blp"
+        ]
+      },
+      {
+        "index": 4,
+        "vertices": 124,
+        "triangles": 208,
+        "material": 4,
+        "textures": [
+          "Units\\Demon\\ChaosWarlord\\ChaosWarlord.blp"
+        ]
+      },
+      {
+        "index": 5,
+        "vertices": 22,
+        "triangles": 37,
+        "material": 5,
+        "textures": [
+          "Units\\Orc\\Spiritwolf\\FeralSpirit.blp"
+        ]
+      },
+      {
+        "index": 6,
+        "vertices": 110,
+        "triangles": 114,
+        "material": 6,
+        "textures": [
+          "Team colour / glow",
+          "Textures\\UndeadAirBarge.blp"
+        ]
+      },
+      {
+        "index": 7,
+        "vertices": 32,
+        "triangles": 16,
+        "material": 7,
+        "textures": [
+          "Textures\\OutlandDoodads.blp"
+        ]
+      },
+      {
+        "index": 8,
+        "vertices": 26,
+        "triangles": 36,
+        "material": 8,
+        "textures": [
+          "Team colour / glow",
+          "Doodads\\Cityscape\\Structures\\Cathedral\\Cathedral.blp"
+        ]
+      },
+      {
+        "index": 9,
+        "vertices": 62,
+        "triangles": 64,
+        "material": 9,
+        "textures": [
+          "Team colour / glow",
+          "Textures\\OutlandDoodads.blp"
+        ]
+      },
+      {
+        "index": 10,
+        "vertices": 36,
+        "triangles": 30,
+        "material": 10,
+        "textures": [
+          "Textures\\OutlandDoodads.blp"
+        ]
+      },
+      {
+        "index": 11,
+        "vertices": 18,
+        "triangles": 20,
+        "material": 11,
+        "textures": [
+          "Units\\Creeps\\Magnataur\\Magnataur.blp"
+        ]
+      },
+      {
+        "index": 12,
+        "vertices": 42,
+        "triangles": 26,
+        "material": 12,
+        "textures": [
+          "Textures\\OutlandDoodads.blp"
+        ]
+      },
+      {
+        "index": 13,
+        "vertices": 39,
+        "triangles": 66,
+        "material": 10,
+        "textures": [
+          "Textures\\OutlandDoodads.blp"
+        ]
+      },
+      {
+        "index": 14,
+        "vertices": 84,
+        "triangles": 68,
+        "material": 13,
+        "textures": [
+          "Team colour / glow",
+          "Textures\\chunktop.blp"
+        ]
+      },
+      {
+        "index": 15,
+        "vertices": 29,
+        "triangles": 44,
+        "material": 14,
+        "textures": [
+          "Team colour / glow",
+          "Units\\Creeps\\Revenant\\Revenant.blp"
+        ]
+      },
+      {
+        "index": 16,
+        "vertices": 32,
+        "triangles": 24,
+        "material": 15,
+        "textures": [
+          "Textures\\OrcBarraks.blp"
+        ]
+      },
+      {
+        "index": 17,
+        "vertices": 16,
+        "triangles": 24,
+        "material": 10,
+        "textures": [
+          "Textures\\OutlandDoodads.blp"
+        ]
+      },
+      {
+        "index": 18,
+        "vertices": 95,
+        "triangles": 144,
+        "material": 17,
+        "textures": [
+          "Team colour / glow",
+          "Buildings\\Human\\Blacksmith\\NewBlacksmith.blp"
+        ]
+      },
+      {
+        "index": 19,
+        "vertices": 8,
+        "triangles": 4,
+        "material": 18,
+        "textures": [
+          "Textures\\Red_Glow3.blp"
+        ]
+      },
+      {
+        "index": 20,
+        "vertices": 13,
+        "triangles": 12,
+        "material": 19,
+        "textures": [
+          "Textures\\OutlandDoodads.blp"
+        ]
+      },
+      {
+        "index": 21,
+        "vertices": 14,
+        "triangles": 10,
+        "material": 12,
+        "textures": [
+          "Textures\\OutlandDoodads.blp"
+        ]
+      },
+      {
+        "index": 22,
+        "vertices": 75,
+        "triangles": 76,
+        "material": 20,
+        "textures": [
+          "Textures\\TimberWolf.blp"
+        ]
+      },
+      {
+        "index": 23,
+        "vertices": 175,
+        "triangles": 336,
+        "material": 21,
+        "textures": [
+          "UI\\Glues\\SpriteLayers\\Expansion\\GlueScreen-Panel-MetalPieces-Expansion.blp"
+        ]
+      },
+      {
+        "index": 24,
+        "vertices": 19,
+        "triangles": 24,
+        "material": 22,
+        "textures": [
+          "Textures\\InfernalCannon.blp"
+        ]
+      },
+      {
+        "index": 25,
+        "vertices": 42,
+        "triangles": 56,
+        "material": 23,
+        "textures": [
+          "Textures\\Skeleton.blp"
+        ]
+      },
+      {
+        "index": 26,
+        "vertices": 59,
+        "triangles": 55,
+        "material": 24,
+        "textures": [
+          "Units\\Human\\HeroPaladinBoss\\HeropaladinBoss.blp"
+        ]
+      },
+      {
+        "index": 27,
+        "vertices": 35,
+        "triangles": 46,
+        "material": 25,
+        "textures": [
+          "Units\\Undead\\HeroDreadLord\\HeroDreadlord.blp"
+        ]
+      },
+      {
+        "index": 28,
+        "vertices": 6,
+        "triangles": 8,
+        "material": 26,
+        "textures": [
+          "Textures\\Knight.blp"
+        ]
+      },
+      {
+        "index": 29,
+        "vertices": 14,
+        "triangles": 16,
+        "material": 27,
+        "textures": [
+          "Units\\Creeps\\Kobold\\Kobold.blp"
+        ]
+      },
+      {
+        "index": 30,
+        "vertices": 92,
+        "triangles": 64,
+        "material": 28,
+        "textures": [
+          "Doodads\\Cinematic\\RunesOfGuldan\\RunesOfGuldan.blp"
+        ]
+      },
+      {
+        "index": 31,
+        "vertices": 251,
+        "triangles": 372,
+        "material": 16,
+        "textures": [
+          "Textures\\OutlandDoodads.blp"
+        ]
+      },
+      {
+        "index": 32,
+        "vertices": 4,
+        "triangles": 2,
+        "material": 29,
+        "textures": [
+          "Team colour / glow"
+        ]
+      },
+      {
+        "index": 33,
+        "vertices": 132,
+        "triangles": 128,
+        "material": 30,
+        "textures": [
+          "Textures\\gutz.blp"
+        ]
+      }
+    ],
+    "sequences": [
+      "Walk",
+      "Stand",
+      "Stand - 2",
+      "Attack - 1",
+      "Death",
+      "Decay Flesh",
+      "Stand Ready",
+      "Portrait - 1",
+      "Portrait Talk - 1",
+      "Attack - Slam",
+      "Decay Bone",
+      "Dissipate",
+      "Attack - 2"
+    ],
+    "bytes": 222420,
+    "portraitBackdropGeosets": [
+      32
+    ],
+    "authors": [
+      {
+        "name": "Unsanctioned Magic",
+        "url": "https://xgm.guru/user/UnsanctMagic"
+      },
+      {
+        "name": "Stein123",
+        "url": "https://www.hiveworkshop.com/members/stein123.196992/"
+      },
+      {
+        "name": "HerrDave",
+        "url": "https://www.hiveworkshop.com/members/herrdave.234820/"
+      }
+    ],
+    "creditLinks": [
+      {
+        "text": "Knight, Bandit Lord & Riderless Horse",
+        "url": "https://www.hiveworkshop.com/threads/knight-bandit-lord-riderless-horse-wc1-wc2.321079/"
+      },
+      {
+        "text": "Advanced White Helm",
+        "url": "https://www.hiveworkshop.com/threads/advanced-white-helm.216845/"
+      },
+      {
+        "text": "Blackorder Assassin",
+        "url": "https://www.hiveworkshop.com/threads/crimson-skull-heroes.333862/"
+      },
+      {
+        "text": "World Eaters Helm",
+        "url": "https://www.hiveworkshop.com/threads/world-eaters-helm.184360/"
+      },
+      {
+        "text": "Traitor Knightess",
+        "url": "https://www.hiveworkshop.com/threads/traitor-knightess.353153/"
+      },
+      {
+        "text": "Headless Horseman",
+        "url": "https://www.hiveworkshop.com/threads/headless-horseman.373679/"
+      },
+      {
+        "text": "World of Warcraft",
+        "url": "https://worldofwarcraft.blizzard.com/"
+      },
+      {
+        "text": "Dawn of War Helms",
+        "url": "https://wc3.ninja/models/2854360"
+      },
+      {
+        "text": "Greedy Martyrdom",
+        "url": "https://www.hiveworkshop.com/members/greedy-martyrdom.265154/"
+      },
+      {
+        "text": "Adept of Khorne",
+        "url": "https://xgm.guru/p/wc3/adept-of-khorne"
+      },
+      {
+        "text": "Astaroth Zion",
+        "url": "https://www.hiveworkshop.com/members/202681/"
+      },
+      {
+        "text": "Chaos Warrior",
+        "url": "https://www.hiveworkshop.com/threads/chaos-warrior.366159/"
+      },
+      {
+        "text": "Blood Letter",
+        "url": "https://xgm.guru/p/wc3/blood-letter"
+      },
+      {
+        "text": "Black Knight",
+        "url": "https://www.hiveworkshop.com/threads/bandit-enforcer-black-knight.272619/"
+      },
+      {
+        "text": "IronMaiden's",
+        "url": "https://www.hiveworkshop.com/members/ironmaiden.180550/"
+      },
+      {
+        "text": "Vile Knight",
+        "url": "https://www.hiveworkshop.com/threads/swan-knight-vile-knight.308843/"
+      },
+      {
+        "text": "Ironmaiden",
+        "url": "https://www.hiveworkshop.com/members/180550/"
+      },
+      {
+        "text": "Rhapsodie",
+        "url": "https://www.hiveworkshop.com/members/273952/"
+      },
+      {
+        "text": "Direfury",
+        "url": "https://www.hiveworkshop.com/members/direfury.188037/"
+      },
+      {
+        "text": "Stein123",
+        "url": "https://www.hiveworkshop.com/members/stein123.196992/"
+      },
+      {
+        "text": "HerrDave",
+        "url": "https://www.hiveworkshop.com/members/herrdave.234820/"
+      },
+      {
+        "text": "Azazeron",
+        "url": "https://www.hiveworkshop.com/members/azazeron.299156/"
+      },
+      {
+        "text": "WebSter",
+        "url": "https://xgm.guru/user/WebSter"
+      },
+      {
+        "text": "Johnwar",
+        "url": "https://www.hiveworkshop.com/members/johnwar.264426/"
+      },
+      {
+        "text": "loktar",
+        "url": "https://www.hiveworkshop.com/members/115150/"
+      },
+      {
+        "text": "MDLxL",
+        "url": "https://www.lowpolyworks.com/mdlxl/"
+      },
+      {
+        "text": "Diablo_3_Barbarian_Shoulders",
+        "url": "https://www.hiveworkshop.com/threads/diablo_3_barbarian_shoulders-by-forgotten_warlord.157993/"
+      },
+      {
+        "text": "Forgotten_Warlord",
+        "url": "https://www.hiveworkshop.com/members/forgotten_warlord.182381/"
+      }
+    ],
+    "searchDescription": "Preview and download the Knight of Khorne Champion model for Warcraft 3. Add a Warhammer Fantasy Chaos champion to your custom army.",
+    "sha256": "ebaec764caaebabe4c7a46329eb63bece56ff09eeed2371facd780352a8ddfb4",
+    "changelog": [
+      {
+        "date": "28 October 2026",
+        "text": "Added Hero version and updated Unit version."
+      },
+      {
+        "date": "17 October 2026",
+        "text": "Glowing eyes are now unshaded"
+      },
+      {
+        "date": "11 October 2026",
+        "text": "Fixed flail fire particles"
+      }
+    ],
+    "imageVersion": "20261028-khorne-champion",
+    "downloadPack": "downloads/khorne-champion.zip",
+    "captureFitAlpha": 200
   },
   {
     "id": "nurgle-heavy",
