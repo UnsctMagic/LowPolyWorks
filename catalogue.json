@@ -13764,13 +13764,18 @@
         "url": "https://www.hiveworkshop.com/members/forgotten_warlord.182381/"
       }
     ],
-    "sha256": "4d622d96f8e206991948f994688b19929d64b9a6edd49507fe7673fa2216cbb5",
+    "sha256": "ed8a78ee8d6bdf78890f135c418282af77b4f6cd9b6dab75e16ad99f19cb6b8c",
     "changelog": [
+      {
+        "date": "29 October 2026",
+        "text": "Matched mouth-hole geometry to the Bruiser."
+      },
       {
         "date": "23 October 2026",
         "text": "Fixed corpse decay"
       }
-    ]
+    ],
+    "imageVersion": "20261029-berserker-mouth"
   },
   {
     "id": "warrior-of-khorne-cleaver",

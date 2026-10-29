@@ -2,16 +2,16 @@ import {prepareMobileLayout} from './mobile-layout.js?v=20261018-mobile-layout';
 import {modelUpdateTagMarkup,mountModelUpdateTags} from './model-update-tags.js?v=20261012-new-and-updated-tags';
 import {modelFollowMarkup,mountModelFollow} from './model-follows.js?v=20261012-cloudflare';
 import {uploadedModelCard,renderUnitCard} from './unit-card.js?v=20261022-wheel-animations';
-import {startMenuVisitor} from './menu-visitor.js?v=20261023-bird-attack-flap-in';
-import {countShredder} from './shredder-stats.js?v=20261025-amsterdam-days';
+import {startMenuVisitor} from './menu-visitor.js?v=20261022-bird-attack';
+import {countShredder} from './shredder-stats.js?v=20261022-stash-tzeentch';
 import {createViewer} from './viewer.js?v=20261027-slaanesh-gw';
 import {wheelSelect} from './wheel-select.js?v=20261022-wheel-animations';
 import {TEAM_COLORS} from './vendor/mdlxl/src/team-colors.js';
-import {recordUsage} from './usage.js?v=20261025-amsterdam-days';
+import {recordUsage} from './usage.js?v=20261012-shredder-cloudflare';
 import {renderJournal} from './journal.js?v=20261022-tzeentch-warrior';
 import {renderMdlxl} from './mdlxl.js?v=20261029-project-branding';
 if (/^\/mdlxl\/?$/.test(location.pathname) && !location.hash) history.replaceState(null,'',location.pathname+location.search+'#project/mdlxl');
-const app=document.querySelector('#app'),baseCatalogue=await fetch('catalogue.json?v=20261028-khorne-hero-emitters').then(r=>r.json());
+const app=document.querySelector('#app'),baseCatalogue=await fetch('catalogue.json?v=20261029-berserker-mouth').then(r=>r.json());
 const armies=await fetch('armies.json?v=20261020-army-sizes-approved').then(r=>r.json());
 // Shuffle the middle army cards once per load; keep Chaos and Vampire Counts first and Dwarfs last.
 const pinnedArmyIds=['warriors-of-chaos','vampire-counts'];
@@ -42,7 +42,7 @@ let khorneWarriorPicture;
 function chooseKhorneWarriorPicture(variants){if(khorneWarriorPicture===undefined){khorneWarriorPicture=sessionStorage.getItem('lpw-khorne-warrior-picture')==='cleaver'?'warrior-of-khorne-berserker':'warrior-of-khorne-cleaver';sessionStorage.setItem('lpw-khorne-warrior-picture',khorneWarriorPicture==='warrior-of-khorne-cleaver'?'cleaver':'berserker');}return variants.findIndex(variant=>variant.id===khorneWarriorPicture);}
 let alternateChaosArmy;
 function chooseChaosArmyPicture(){if(alternateChaosArmy===undefined){alternateChaosArmy=sessionStorage.getItem('lpw-chaos-army-picture')!=='alternate';sessionStorage.setItem('lpw-chaos-army-picture',alternateChaosArmy?'alternate':'original');}return alternateChaosArmy;}
-const thumbnail=id=>`thumbs/unit-${id}.png?v=${id==='khorne-flail'?'20261028-khorne-hero-emitters':id==='khorne-flail-unit'?'20261028-khorne-unit-emitters':['khorne-flail','khorne-flail-unit','nurgle-champion','nurgle-champion-unit'].includes(id)?'20261028-champions-order':['khorne-flail','khorne-flail-unit'].includes(id)?'20261028-khorne-champion':['kurgan-warlord','kurgan-warlord-unit'].includes(id)?'20261027-kurgan-hero':['aspiring','aspiring-unit'].includes(id)?'20261027-kurgan-hero':id==='warrior-of-slaanesh'?'20261027-slaanesh-gw':id==='warrior-of-tzeentch'?'20261022-tzeentch-original-size':id==='warrior-of-khorne-cleaver'?'20261021-cleaver-upload-01':id==='chaos-warrior-of-nurgle'?'20261020-chaos-warrior-final':['nurgle-heavy','nurgle-standard'].includes(id)?'20261018-nurgle-original-helm-jaw-bounds':id==='warrior-of-khorne-berserker'?'20261018-berserker02':id==='warrior-of-khorne'?'20261018-warrior03':['tzeentch-sword','tzeentch-lance'].includes(id)?'20261018-tzeentch07':['undivided-sword','undivided-lance','tzeentch-sword','tzeentch-lance'].includes(id)?'20261018-knights-star-horns':['slaanesh-axe','slaanesh-lance'].includes(id)?'20261017-main-author-credits-2':id==='nurgle-champion'?'20261018-nurgle-elbow':['undivided-sword','undivided-lance'].includes(id)?'20261017-unshaded':['khorne-axe','khorne-flail'].includes(id)?'20261017-khorne-unshaded':['nurgle-heavy','nurgle-standard'].includes(id)?'20261018-nurgle-elbow':'20261013-warboss-hero-framing'}`;
+const thumbnail=id=>`thumbs/unit-${id}.png?v=${id==='khorne-flail'?'20261028-khorne-hero-emitters':id==='khorne-flail-unit'?'20261028-khorne-unit-emitters':['khorne-flail','khorne-flail-unit','nurgle-champion','nurgle-champion-unit'].includes(id)?'20261028-champions-order':['khorne-flail','khorne-flail-unit'].includes(id)?'20261028-khorne-champion':['kurgan-warlord','kurgan-warlord-unit'].includes(id)?'20261027-kurgan-hero':['aspiring','aspiring-unit'].includes(id)?'20261027-kurgan-hero':id==='warrior-of-slaanesh'?'20261027-slaanesh-gw':id==='warrior-of-tzeentch'?'20261022-tzeentch-original-size':id==='warrior-of-khorne-cleaver'?'20261021-cleaver-upload-01':id==='chaos-warrior-of-nurgle'?'20261020-chaos-warrior-final':['nurgle-heavy','nurgle-standard'].includes(id)?'20261018-nurgle-original-helm-jaw-bounds':id==='warrior-of-khorne-berserker'?'20261029-berserker-mouth':id==='warrior-of-khorne'?'20261018-warrior03':['tzeentch-sword','tzeentch-lance'].includes(id)?'20261018-tzeentch07':['undivided-sword','undivided-lance','tzeentch-sword','tzeentch-lance'].includes(id)?'20261018-knights-star-horns':['slaanesh-axe','slaanesh-lance'].includes(id)?'20261017-main-author-credits-2':id==='nurgle-champion'?'20261018-nurgle-elbow':['undivided-sword','undivided-lance'].includes(id)?'20261017-unshaded':['khorne-axe','khorne-flail'].includes(id)?'20261017-khorne-unshaded':['nurgle-heavy','nurgle-standard'].includes(id)?'20261018-nurgle-elbow':'20261013-warboss-hero-framing'}`;
 const authorLinks=row=>row.authors.map(author=>`<a href="${escape(author.url)}" target="_blank" rel="noopener noreferrer">${escape(author.name)}</a>`).join(', ');
 function creditText(row,text){
  const links=(row.creditLinks||[]).filter(link=>/^https?:\/\//.test(link.url)).sort((a,b)=>b.text.length-a.text.length);
