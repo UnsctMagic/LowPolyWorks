@@ -1,16 +1,17 @@
 import {createHash,randomUUID} from 'node:crypto';
 import {modelDigestEmail} from './model-email.js';
 import {AUTHOR_ORIGIN} from './author-origin.js';
+import {modelContent,packageContent} from './model-release-content.js';
 const origin='https://www.lowpolyworks.com';
 const hash=value=>createHash('sha256').update(value).digest('hex');
 const active=sub=>sub.confirmed&&sub.emailVerified&&sub.modelIds?.length>0;
 const digestCooldown=48*3600000;
-// Ten rows need at most twenty downloads. Redirects must not silently multiply
-// those requests; the remaining headroom is for state reads and writes.
-const scanBatchSize=10;
+// Package content comparison can inflate an MDX and custom textures. Keep that
+// CPU work to one catalogue row per invocation on the Workers Free plan.
+const scanBatchSize=1;
 const scanBusy=message=>{throw Object.assign(Error(message),{status:409,retryAfter:5});};
 export const unitRelease=card=>({id:card.id,source:'vault',name:card.name,url:origin+'/#model/'+card.id,imageUrl:AUTHOR_ORIGIN+'/api/assets?id='+card.coverId,files:[],fingerprint:hash(JSON.stringify(card.downloads.map(file=>file.sha256).sort()))});
-const eligible=(sub,job)=>active(sub)&&(job.kind==='model-upload'?(!job.createdAt||sub.newModelsSince<=Date.parse(job.createdAt)):(sub.modelIds.includes(job.modelId)&&(!job.createdAt||sub.modelFollowSince?.[job.modelId]<=Date.parse(job.createdAt))));
+const eligible=(sub,job)=>active(sub)&&(job.kind==='model-upload'?(!job.createdAt||sub.newModelsSince<=Date.parse(job.createdAt)):(job.relatedModelIds||[job.modelId]).some(id=>sub.modelIds.includes(id)&&(!job.createdAt||sub.modelFollowSince?.[id]<=Date.parse(job.createdAt))));
 const pendingFor=(state,sub)=>(state.notifications||[]).filter(job=>job.source==='catalogue'&&!job.cancelledAt&&job.recipients.includes(sub.id)&&!job.sent.includes(sub.id)&&eligible(sub,job)&&!state.hiddenModels?.includes(job.modelId)&&!state.unitCards?.some(card=>card.id===job.modelId&&card.deletedAt));
 const readyAt=sub=>(sub.lastModelEmailAt??-Infinity)+digestCooldown;
 export const pendingModelEmails=state=>(state.subscribers||[]).filter(sub=>pendingFor(state,sub).length).length;
@@ -29,29 +30,43 @@ function initializeDigestPolicy(state,time){
 // Compare the downloadable bytes, rather than titles, artwork, credits, or posts.
 export async function publishedModels(previous={}, {fetchApi=fetch,loadUnits=async()=>({unitCards:[],hiddenModels:[]}),publication,continuation}={}){
  const fresh=url=>{if(!publication)return url;const result=new URL(url);result.searchParams.set('publication',publication);return result.href;};
- let catalogue=continuation?.catalogue;
+ let catalogue=continuation?.catalogue,groups=continuation?.groups;
  if(!catalogue){
   const response=await fetchApi(fresh(origin+'/catalogue.json'),{cache:'no-store',redirect:'manual',signal:AbortSignal.timeout(12000)});
   if(!response.ok)throw Error('Published catalogue unavailable (HTTP '+response.status+')');
   catalogue=(await response.json()).map(({id,name,file,downloadPack,slug})=>({id,name,file,downloadPack,slug}));
  }
+ if(!groups){
+  const response=await fetchApi(fresh(origin+'/variants.json'),{cache:'no-store',redirect:'manual',signal:AbortSignal.timeout(12000)});
+  if(!response.ok)throw Error('Published model variants unavailable (HTTP '+response.status+')');
+  groups=await response.json();
+ }
  const state=await loadUnits(),hidden=new Set(state.hiddenModels||[]),offset=continuation?.offset||0;
  const end=Math.min(offset+scanBatchSize,catalogue.length),rows=catalogue.slice(offset,end).filter(model=>!hidden.has(model.id));
  const result=[];let next=0;
- async function fileHash(path,old){
+ async function fileHash(path,old,scope,readContent){
   const url=new URL(path,origin+'/');if(url.origin!==origin)throw Error('Model download must belong to LowPolyWorks.');
   const cached=old?.files?.find(file=>file.url===url.href);
-  const file=await fetchApi(fresh(url.href),{cache:'no-store',redirect:'manual',headers:cached?.etag?{'If-None-Match':cached.etag}:{},signal:AbortSignal.timeout(12000)});
-  if(file.status===304&&cached)return cached;
+  const reusable=cached?.contentHash&&cached.scope===scope;
+  const file=await fetchApi(fresh(url.href),{cache:'no-store',redirect:'manual',headers:reusable&&cached.etag?{'If-None-Match':cached.etag}:{},signal:AbortSignal.timeout(12000)});
+  if(file.status===304&&reusable)return cached;
   if(!file.ok)throw Error('Published model download unavailable (HTTP '+file.status+')');
   const bytes=Buffer.from(await file.arrayBuffer());
   if(/\.mdx$/i.test(url.pathname)&&bytes.subarray(0,4).toString()!=='MDLX'||/\.zip$/i.test(url.pathname)&&bytes.subarray(0,2).toString()!=='PK')throw Error('Published model download has invalid file contents.');
-  return {url:url.href,hash:hash(bytes),etag:file.headers.get('etag')||null};
+  return {url:url.href,hash:hash(bytes),etag:file.headers.get('etag')||null,scope,...readContent(bytes)};
  }
- await Promise.all(Array.from({length:4},async()=>{while(next<rows.length){const model=rows[next++],files=[];files.push(await fileHash('models/'+model.file,previous[model.id]));if(model.downloadPack)files.push(await fileHash(model.downloadPack,previous[model.id]));result.push({id:model.id,name:model.name,url:origin+'/model/'+(model.slug||model.id)+'/',files,fingerprint:hash(JSON.stringify(files.map(file=>file.hash).sort()))});}}));
+ await Promise.all(Array.from({length:4},async()=>{while(next<rows.length){
+  const model=rows[next++],files=[],group=groups.find(group=>group.variants.length===2&&group.variants.every(variant=>['Hero','Unit'].includes(variant.label))&&group.variants.some(variant=>variant.id===model.id));
+  const primary=await fileHash('models/'+model.file,previous[model.id],'mdx-name-v1',modelContent);files.push(primary);
+  if(model.downloadPack){
+   const scope=hash(JSON.stringify([model.file,primary.textures,primary.contentHash]));
+   files.push(await fileHash(model.downloadPack,previous[model.id],scope,bytes=>({contentHash:packageContent(bytes,model.file,primary.textures,primary.contentHash)})));
+  }
+  result.push({id:model.id,name:model.name,url:origin+'/model/'+(model.slug||model.id)+'/',releaseId:group?.id||model.id,relatedModelIds:group?group.variants.map(variant=>variant.id):[model.id],files,fingerprint:hash(JSON.stringify(files.map(file=>file.hash).sort())),contentFingerprint:hash(JSON.stringify(files.map(file=>file.contentHash)))});
+ }}));
  const more=end<catalogue.length;
  if(!more)for(const card of (state.unitCards||[]).filter(card=>!card.deletedAt))result.push(unitRelease(card));
- return {models:result,continuation:more?{catalogue,offset:end}:null,checked:end,total:catalogue.length};
+ return {models:result,continuation:more?{catalogue,groups,offset:end}:null,checked:end,total:catalogue.length};
 }
 
 export function createModelReleases({store,env,sendEmail,mailConfigured,loadPublished=publishedModels,now=()=>Date.now(),unsubscribeUrl,fail}){
@@ -60,12 +75,14 @@ export function createModelReleases({store,env,sendEmail,mailConfigured,loadPubl
  function record(s,model,{baseline=false}={}){
   const time=now(),timestamp=new Date(time).toISOString();
   s.modelReleases??={baselineAt:timestamp,models:{}};
-  const old=s.modelReleases.models[model.id],changed=old?.fingerprint!==model.fingerprint;
+  const old=s.modelReleases.models[model.id],changed=old?.contentFingerprint&&model.contentFingerprint?old.contentFingerprint!==model.contentFingerprint:old?.fingerprint!==model.fingerprint;
   const revision=old?(old.revision||0)+(changed?1:0):0;
-  const kind=old?'model-update':'model-upload';
+  const known=old||(model.relatedModelIds||[]).some(id=>s.modelReleases.models[id]);
+  const kind=known?'model-update':'model-upload';
   let queued=0;
   if(!baseline&&changed&&enabled()){
-   const job={id:hash(model.id+':'+revision+':'+model.fingerprint),source:'catalogue',modelId:model.id,kind,model:{name:model.name,url:model.url,...(model.imageUrl?{imageUrl:model.imageUrl}:{})},createdAt:timestamp,recipients:s.subscribers.filter(sub=>eligible(sub,{kind,modelId:model.id,createdAt:timestamp})).map(sub=>sub.id),sent:[],attempts:{},receipts:{}};
+   const identity={modelId:model.id,...(model.releaseId?{releaseId:model.releaseId,relatedModelIds:old?[model.id]:model.relatedModelIds}:{})};
+   const job={id:hash(model.id+':'+revision+':'+model.fingerprint),source:'catalogue',...identity,kind,model:{name:model.name,url:model.url,...(model.imageUrl?{imageUrl:model.imageUrl}:{})},createdAt:timestamp,recipients:s.subscribers.filter(sub=>eligible(sub,{kind,...identity,createdAt:timestamp})).map(sub=>sub.id),sent:[],attempts:{},receipts:{}};
    s.notifications.push(job);queued=job.recipients.length;
   }
   s.modelReleases.models[model.id]={...old,...model,revision,...(old&&changed?{lastUpdateAt:time}:{})};

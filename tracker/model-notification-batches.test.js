@@ -6,6 +6,8 @@ import {createD1State} from './lib/d1.js';
 import {createModelReleases,publishedModels} from './lib/model-releases.js';
 import {createHandler} from './api/model-notifications.js';
 import {deliverModelNotifications} from '../tools/model-notifications.mjs';
+import {zipSync} from 'fflate';
+import {mdx} from './model-release-fixtures.js';
 
 function fixture(t,{catalogue=Array.from({length:130},(_,i)=>({id:'model-'+i,name:'Model '+i,file:i+'.mdx',...(i<105?{downloadPack:i+'.zip'}:{})})),conflicts=false}={}){
  const sqlite=new DatabaseSync(':memory:');t.after(()=>sqlite.close());
@@ -20,10 +22,11 @@ function fixture(t,{catalogue=Array.from({length:130},(_,i)=>({id:'model-'+i,nam
   count('external');fetches.push(url);assert.equal(options.redirect,'manual');
   const path=new URL(url).pathname;
   if(path==='/catalogue.json')return Response.json(catalogue);
-  if(unavailable&&path==='/models/10.mdx')throw Error('Download interrupted');
+  if(path==='/variants.json')return Response.json([]);
+  if(unavailable&&path==='/models/1.mdx')throw Error('Download interrupted');
   const etag='"'+version+'"';
   if(options.headers['If-None-Match']===etag)return new Response(null,{status:304});
-  return new Response((path.endsWith('.mdx')?'MDLX':'PK')+path+version,{headers:{etag}});
+  return new Response(path.endsWith('.mdx')?mdx(path+version):zipSync({[path.slice(1,-4)+'.mdx']:mdx('/models/'+path.slice(1,-4)+'.mdx'+version)}),{headers:{etag}});
  };
  const releases=createModelReleases({store,env:{MODEL_NOTIFICATIONS_ENABLED:'true'},mailConfigured:()=>true,now:()=>time,
   loadPublished:(previous,options)=>publishedModels(previous,{...options,fetchApi,loadUnits:async()=>(await store.read()).state}),
@@ -41,13 +44,13 @@ function fixture(t,{catalogue=Array.from({length:130},(_,i)=>({id:'model-'+i,nam
  return {store,invoke,run,subscribe,state,calls,mail,fetches,releases,set unavailable(value){unavailable=value;},set version(value){version=value;},set time(value){time=value;},set mailFailure(value){mailFailure=value;}};
 }
 
-test('one runner processes all 130 models and 105 packs in 13 bounded Worker scans, then drains deliveries',async t=>{
+test('one runner processes all 130 models and 105 packs in 130 bounded Worker scans, then drains deliveries',async t=>{
  const f=fixture(t);await f.subscribe(8);
- const baseline=await f.run();assert.equal(baseline.models,130);assert.equal(baseline.baselined,true);assert.equal(baseline.requests,13);
- assert.equal(f.fetches.length,236);assert.equal(f.mail.length,0);assert.equal(Math.max(...f.calls.map(call=>call.external)),21);
+ const baseline=await f.run();assert.equal(baseline.models,130);assert.equal(baseline.baselined,true);assert.equal(baseline.requests,130);
+ assert.equal(f.fetches.length,237);assert.equal(f.mail.length,0);assert.equal(Math.max(...f.calls.map(call=>call.external)),4);
  assert.equal(Math.max(...f.calls.map(call=>call.queries)),5);assert(!f.state().modelScan);
  f.version=2;const updated=await f.run();assert.equal(updated.queued,8);assert.equal(updated.sent,8);assert.equal(updated.remaining,0);
- assert.equal(updated.requests,21);assert.equal(new Set(f.mail.map(mail=>mail.key)).size,8);
+ assert.equal(updated.requests,138);assert.equal(new Set(f.mail.map(mail=>mail.key)).size,8);
  assert(f.calls.filter(call=>call.phase==='deliver').every(call=>call.external===1&&call.queries===4));
  assert.equal((await f.run()).queued,0);assert.equal(f.mail.length,8);
 });
@@ -68,8 +71,8 @@ test('known email rejection and all conditional-write retries stay within the D1
 
 test('an interrupted scan resumes its saved catalogue and never commits a partial baseline',async t=>{
  const f=fixture(t);await f.subscribe();
- assert.equal((await f.invoke()).status,200);assert.equal(f.state().modelScan.continuation.offset,10);assert(!f.state().modelReleases);
- f.unavailable=true;assert.equal((await f.invoke()).status,503);assert.equal(f.state().modelScan.continuation.offset,10);assert(!f.state().modelScanLease);
+ assert.equal((await f.invoke()).status,200);assert.equal(f.state().modelScan.continuation.offset,1);assert(!f.state().modelReleases);
+ f.unavailable=true;assert.equal((await f.invoke()).status,503);assert.equal(f.state().modelScan.continuation.offset,1);assert(!f.state().modelScanLease);
  assert(!f.state().modelReleases);assert.equal(f.mail.length,0);
  f.unavailable=false;const result=await f.run({publication:undefined});assert.equal(result.models,130);assert.equal(result.baselined,true);
  assert.equal(f.fetches.filter(url=>new URL(url).pathname==='/catalogue.json').length,1);assert.equal(f.mail.length,0);
