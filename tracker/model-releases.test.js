@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import {createHash} from 'node:crypto';
 import {createModelReleases,publishedModels} from './lib/model-releases.js';
 import {createHandler} from './api/model-notifications.js';
+import {mdx} from './model-release-fixtures.js';
 function fixture(){
  let state={subscribers:[],notifications:[]},models=[{id:'a',name:'Model A',url:'https://www.lowpolyworks.com/model/a/',fingerprint:'original'}],time=100000,writes=Promise.resolve(),failure,missingReceipt=false;
  const mail=[],attempts=[],env={MODEL_NOTIFICATIONS_ENABLED:'true'};
@@ -12,6 +13,31 @@ function fixture(){
  return {...service,store,env,mail,attempts,sub,get state(){return state;},get models(){return models;},set models(value){models=value;},set time(value){time=value;},set failure(value){failure=value;},set missingReceipt(value){missingReceipt=value;}};
 }
 test('baseline mails no historical models and retires legacy post jobs',async()=>{const f=fixture();await f.store.mutate(s=>{s.subscribers.push(f.sub('reader'));s.notifications.push({id:'old',recipients:['reader'],sent:[]});});assert.equal((await f.sync()).baselined,true);assert.equal((await f.deliver()).sent,0);assert(f.state.notifications[0].cancelledAt);assert.equal(f.mail.length,0);});
+test('adding a Hero/Unit variant updates its existing card for followers, never announces a new release to everyone',async()=>{
+ const f=fixture();await f.store.mutate(s=>s.subscribers.push(f.sub('follower'),f.sub('other',['unrelated'])));await f.sync();
+ const identity={releaseId:'champion',relatedModelIds:['a','a-unit']};Object.assign(f.models[0],identity);
+ f.models.push({id:'a-unit',name:'Champion',url:'https://example.test/unit',fingerprint:'unit',...identity});
+ assert.equal((await f.sync()).queued,1);assert.equal(f.state.notifications[0].kind,'model-update');assert.deepEqual(f.state.notifications[0].recipients,['follower']);
+ await f.deliver();assert.equal(f.mail.length,1);assert.match(f.mail[0].message.subject,/Model update:/);assert(!f.mail[0].message.text.includes('A new model'));
+});
+test('a new card with several variants produces one new-model entry; subsequent variants collapse to one update',async()=>{
+ const f=fixture();await f.store.mutate(s=>s.subscribers.push(f.sub('reader')));await f.sync();
+ const identity={releaseId:'new-card',relatedModelIds:['new-hero','new-unit']};f.models.push(...identity.relatedModelIds.map(id=>({id,name:'New card',url:'https://example.test/'+id,fingerprint:id,...identity})));
+ await f.sync();await f.deliver();assert.equal(f.mail[0].message.subject,'New model: New card');assert.equal((f.mail[0].message.text.match(/A new model/g)||[]).length,1);
+ await f.store.mutate(s=>{s.subscribers[0].modelIds=['new-unit'];s.subscribers[0].modelFollowSince['new-unit']=0;});
+ f.time=100000+48*3600000;f.models[1].fingerprint+='changed';f.models[2].fingerprint+='changed';await f.sync();await f.deliver();assert.equal(f.mail[1].message.subject,'Model update: New card');
+});
+test('content fingerprints migrate without a release and suppress name-only/raw ZIP changes while real changes still mail',async()=>{
+ const f=fixture();await f.store.mutate(s=>s.subscribers.push(f.sub('reader')));await f.sync();
+ f.models[0].contentFingerprint='same-content';assert.equal((await f.sync()).queued,0);
+ f.models[0].fingerprint='renamed-or-repacked-bytes';assert.equal((await f.sync()).queued,0);assert.equal((await f.deliver()).sent,0);
+ f.models[0].contentFingerprint='new-animation';assert.equal((await f.sync()).queued,1);assert.equal((await f.deliver()).sent,1);
+});
+test('updates to an existing Hero/Unit variant preserve the exact followed-model recipient rule',async()=>{
+ const f=fixture(),identity={releaseId:'champion',relatedModelIds:['a','a-unit']};Object.assign(f.models[0],identity);f.models.push({id:'a-unit',name:'Unit',fingerprint:'unit',...identity});
+ await f.store.mutate(s=>s.subscribers.push(f.sub('hero-follower'),f.sub('unit-follower',['a-unit'])));await f.sync();
+ f.models[0].fingerprint='updated hero';assert.equal((await f.sync()).queued,1);assert.deepEqual(f.state.notifications[0].recipients,['hero-follower']);await f.deliver();assert.equal(f.mail[0].message.to,'hero-follower@example.test');
+});
 test('updates reach only followers and each reader has an independent digest cooldown',async()=>{
  const f=fixture();await f.store.mutate(s=>s.subscribers.push(f.sub('a-reader'),f.sub('b-reader',['b']),{...f.sub('pending'),confirmed:false},f.sub('off',[])));await f.sync();
  f.models[0].fingerprint='updated';assert.equal((await f.sync()).queued,1);await Promise.all([f.deliver(),f.deliver()]);assert.equal(f.mail.length,1);assert.equal(f.mail[0].message.to,'a-reader@example.test');assert.match(f.mail[0].message.subject,/Model update:/);assert.equal(f.state.notifications[0].receipts['a-reader'],'receipt-1');
@@ -25,8 +51,8 @@ test('failed sends retain stable keys and receipts, and ambiguous results stop b
 test('known quota rejection can retry the next day without treating it as an ambiguous send',async()=>{const f=fixture();await f.store.mutate(s=>s.subscribers.push(f.sub('reader')));await f.sync();f.models[0].fingerprint='updated';await f.sync();f.failure=Object.assign(Error('quota'),{status:429});await f.deliver();f.failure=null;f.time=100000+86400000;await f.deliver();assert.equal(f.mail.length,1);});
 test('parallel model scans cannot enqueue duplicated releases; disabled delivery records a baseline only',async()=>{const f=fixture();const results=await Promise.allSettled([f.sync(),f.sync()]);assert.equal(results.filter(result=>result.status==='rejected').length,1);f.env.MODEL_NOTIFICATIONS_ENABLED='false';f.models[0].fingerprint='changed';assert.equal((await f.sync()).queued,0);await assert.rejects(f.deliver(),{status:503});});
 test('published snapshots hash real downloads, reuse conditional reads, and include published unit download hashes',async()=>{
- const bytes=Buffer.from('MDLXactual-model'),hash=createHash('sha256').update(bytes).digest('hex');let conditional;
- const fetchApi=async(url,options)=>url.endsWith('catalogue.json')?{ok:true,json:async()=>[{id:'a',name:'A',file:'a.mdx'}]}:(conditional=options.headers,options.headers['If-None-Match']?{status:304}:{ok:true,status:200,headers:new Headers({etag:'"v1"'}),arrayBuffer:async()=>bytes});
+ const bytes=mdx('actual-model'),hash=createHash('sha256').update(bytes).digest('hex');let conditional;
+ const fetchApi=async(url,options)=>url.endsWith('variants.json')?Response.json([]):url.endsWith('catalogue.json')?{ok:true,json:async()=>[{id:'a',name:'A',file:'a.mdx'}]}:(conditional=options.headers,options.headers['If-None-Match']?{status:304}:{ok:true,status:200,headers:new Headers({etag:'"v1"'}),arrayBuffer:async()=>bytes});
  const loadUnits=async()=>({unitCards:[{id:'unit-a',name:'Unit A',downloads:[{sha256:'unit-hash'}]},{id:'hidden-unit',deletedAt:'today'}]});
  const {models:first}=await publishedModels({}, {fetchApi,loadUnits});assert.equal(first[0].files[0].hash,hash);assert.equal(first.length,2);const {models:second}=await publishedModels({a:first[0]},{fetchApi,loadUnits});assert.equal(conditional['If-None-Match'],'"v1"');assert.equal(second[0].fingerprint,first[0].fingerprint);
 });
@@ -64,7 +90,7 @@ test('delayed changes and an unsent new release are coalesced without losing the
 });
 
 test('publication cache keys fetch fresh catalogue/download bytes while retaining canonical file identities',async()=>{
- const urls=[],publication='a'.repeat(40),bytes=Buffer.from('MDLXfresh');const fetchApi=async url=>{urls.push(url);return url.includes('/catalogue.json')?{ok:true,json:async()=>[{id:'a',name:'A',file:'a.mdx'}]}:{ok:true,headers:new Headers(),arrayBuffer:async()=>bytes};};
+ const urls=[],publication='a'.repeat(40),bytes=mdx('fresh');const fetchApi=async url=>{urls.push(url);return url.includes('/variants.json')?Response.json([]):url.includes('/catalogue.json')?{ok:true,json:async()=>[{id:'a',name:'A',file:'a.mdx'}]}:{ok:true,headers:new Headers(),arrayBuffer:async()=>bytes};};
  const {models:rows}=await publishedModels({}, {fetchApi,publication});assert(urls.every(url=>new URL(url).searchParams.get('publication')===publication));assert.equal(rows[0].files[0].url,'https://www.lowpolyworks.com/models/a.mdx');
 });
 
@@ -115,7 +141,7 @@ test('a missing provider receipt remains uncertain and retries cannot duplicate 
 
 test('the Worker-compatible manual redirect mode rejects catalogue and download redirects without following them',async()=>{
  for(const redirectCatalogue of [true,false]){
-  const calls=[],fetchApi=async(url,options)=>{calls.push(url);assert.equal(options.redirect,'manual');if(!redirectCatalogue&&url.endsWith('/catalogue.json'))return Response.json([{id:'a',name:'A',file:'a.mdx'}]);return new Response(null,{status:302,headers:{Location:'https://example.test/redirected'}});};
-  await assert.rejects(publishedModels({}, {fetchApi}),/HTTP 302/);assert.equal(calls.length,redirectCatalogue?1:2);assert(calls.every(url=>url.startsWith('https://www.lowpolyworks.com/')));
+  const calls=[],fetchApi=async(url,options)=>{calls.push(url);assert.equal(options.redirect,'manual');if(url.endsWith('/variants.json'))return Response.json([]);if(!redirectCatalogue&&url.endsWith('/catalogue.json'))return Response.json([{id:'a',name:'A',file:'a.mdx'}]);return new Response(null,{status:302,headers:{Location:'https://example.test/redirected'}});};
+  await assert.rejects(publishedModels({}, {fetchApi}),/HTTP 302/);assert.equal(calls.length,redirectCatalogue?1:3);assert(calls.every(url=>url.startsWith('https://www.lowpolyworks.com/')));
  }
 });

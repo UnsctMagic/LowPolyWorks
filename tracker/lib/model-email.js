@@ -4,8 +4,10 @@ export function modelEmail(work,unsubscribe){return modelDigestEmail([work],unsu
 export function modelDigestEmail(jobs,unsubscribe){
  const latest=new Map();
  for(const job of jobs){
-  const previous=latest.get(job.modelId);
-  latest.set(job.modelId,{...job,kind:previous?.kind==='model-upload'?'model-upload':job.kind});
+  const id=job.releaseId||job.modelId,previous=latest.get(id);
+  // Hash downloads concurrently, but choose the newest queued revision by time.
+  const newest=previous&&Date.parse(previous.createdAt)>Date.parse(job.createdAt)?previous:job;
+  latest.set(id,{...newest,kind:previous?.kind==='model-upload'||job.kind==='model-upload'?'model-upload':newest.kind});
  }
  const items=[...latest.values()];
  if(!items.length)throw Error('A model digest must contain at least one release.');
