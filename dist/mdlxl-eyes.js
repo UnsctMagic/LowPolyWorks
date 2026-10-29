@@ -52,7 +52,7 @@ let deadline=null;
 const begin=()=>{if(deadline==null&&document.visibilityState!=='hidden')deadline=performance.now()+DELAY;};
 
 export function mdlxlLogoMarkup(alt){
- return `<span class="mdlxl-logo"><img src="ui/mdlxl-icon.png" alt="${alt}" width="128" height="128"><canvas data-helmet width="512" height="512" aria-hidden="true"></canvas><canvas data-particles width="768" height="768" aria-hidden="true"></canvas></span>`;
+ return `<span class="mdlxl-logo"><img src="ui/mdlxl-button-icon-cleaned-v1.svg" alt="${alt}" width="128" height="128"><canvas data-helmet width="512" height="512" aria-hidden="true"></canvas><canvas data-particles width="768" height="768" aria-hidden="true"></canvas></span>`;
 }
 
 export async function igniteMdlxlLogo(element){
