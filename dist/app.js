@@ -9,7 +9,7 @@ import {wheelSelect} from './wheel-select.js?v=20261022-wheel-animations';
 import {TEAM_COLORS} from './vendor/mdlxl/src/team-colors.js';
 import {recordUsage} from './usage.js?v=20261012-shredder-cloudflare';
 import {renderJournal} from './journal.js?v=20261022-tzeentch-warrior';
-import {renderMdlxl} from './mdlxl.js?v=20261026-merged-0.32.1';
+import {renderMdlxl} from './mdlxl.js?v=20261029-logo-eyes';
 if (/^\/mdlxl\/?$/.test(location.pathname) && !location.hash) history.replaceState(null,'',location.pathname+location.search+'#project/mdlxl');
 const app=document.querySelector('#app'),baseCatalogue=await fetch('catalogue.json?v=20261028-khorne-hero-emitters').then(r=>r.json());
 const armies=await fetch('armies.json?v=20261020-army-sizes-approved').then(r=>r.json());
