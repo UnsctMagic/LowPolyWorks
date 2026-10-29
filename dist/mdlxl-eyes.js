@@ -1,13 +1,13 @@
 // The MDLxL update popup's helmet eyes for the MDLxL page logo: dark eye cores
-// that slowly ignite after 190 ms with the Aspiring Champion's four native eye emitters.
+// that slowly ignite after 150 ms with the Aspiring Champion's four native eye emitters.
 // Based on MDLxL src/update-popup-effects.js, without the fanfare.
 import {ModelRenderer,parseMDX,decodeBLP,getBLPImageData} from './vendor/war3-model.mjs';
 import {Matrix4,Vector3} from 'three';
 import {eyeScene,eyeTextures} from './mdlxl-eyes-assets.js?v=20261029-logo-eyes';
 
-// Slower than the popup so the ignition reads on a page: a 190 ms start,
+// Slower than the popup so the ignition reads on a page: a 150 ms start,
 // then a gradual fade from dark to burning, and the eye flames at 60% speed.
-const DELAY=190,FADE=1200,FLAME_SPEED=.6;
+const DELAY=150,FADE=1200,FLAME_SPEED=.6;
 const bytes=value=>Uint8Array.from(atob(value),character=>character.charCodeAt(0));
 
 // Follow the two connected red eye regions, including their brighter centers.
