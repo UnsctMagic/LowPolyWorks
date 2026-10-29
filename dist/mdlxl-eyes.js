@@ -1,11 +1,13 @@
 // The MDLxL update popup's helmet eyes for the MDLxL page logo: dark eye cores
-// that ignite after 650 ms with the Aspiring Champion's four native eye emitters.
-// Same effect as MDLxL src/update-popup-effects.js, without the fanfare.
+// that slowly ignite after 650 ms with the Aspiring Champion's four native eye emitters.
+// Based on MDLxL src/update-popup-effects.js, without the fanfare.
 import {ModelRenderer,parseMDX,decodeBLP,getBLPImageData} from './vendor/war3-model.mjs';
 import {Matrix4,Vector3} from 'three';
 import {eyeScene,eyeTextures} from './mdlxl-eyes-assets.js?v=20261029-logo-eyes';
 
-const DELAY=650;
+// Slower than the popup so the ignition reads on a page: the same 650 ms start,
+// then a gradual fade from dark to burning, and the eye flames at 60% speed.
+const DELAY=650,FADE=1200,FLAME_SPEED=.6;
 const bytes=value=>Uint8Array.from(atob(value),character=>character.charCodeAt(0));
 
 // Follow the two connected red eye regions, including their brighter centers.
@@ -54,7 +56,7 @@ export function mdlxlLogoMarkup(alt){
 export async function igniteMdlxlLogo(element){
  if(!element||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
  const image=element.querySelector('img'),picture=element.querySelector('[data-helmet]'),canvas=element.querySelector('[data-particles]');
- let native,gl,frame=0,lastTime=null,burning=false;
+ let native,gl,frame=0,lastTime=null,shown=-1;
  const dispose=()=>{
   cancelAnimationFrame(frame);
   document.removeEventListener('visibilitychange',begin);
@@ -83,14 +85,22 @@ export async function igniteMdlxlLogo(element){
   context.drawImage(image,0,0,picture.width,picture.height);
   const lit=context.getImageData(0,0,picture.width,picture.height);
   const dark=new ImageData(darkEyePixels(lit.data,lit.width,lit.height),lit.width,lit.height);
+  const litImage=document.createElement('canvas');litImage.width=lit.width;litImage.height=lit.height;litImage.getContext('2d').putImageData(lit,0,0);
   document.addEventListener('visibilitychange',begin);
   begin();
   const render=time=>{
    frame=0;
    if(!element.isConnected)return dispose();
    if(deadline!=null&&time>=deadline){
-    if(!burning){burning=true;context.putImageData(lit,0,0);element.dataset.eyes='lit';}
-    native.update(lastTime==null?0:Math.min(50,Math.max(0,time-lastTime)));
+    const glow=Math.min(1,(time-deadline)/FADE),eased=glow*glow*(3-2*glow);
+    if(eased!==shown){
+     shown=eased;
+     context.putImageData(dark,0,0);
+     context.globalAlpha=eased;context.drawImage(litImage,0,0);context.globalAlpha=1;
+     canvas.style.opacity=eased;
+     element.dataset.eyes=glow<1?'igniting':'lit';
+    }
+    native.update(lastTime==null?0:Math.min(50,Math.max(0,time-lastTime))*FLAME_SPEED);
     lastTime=time;
     gl.viewport(0,0,canvas.width,canvas.height);
     gl.clearColor(0,0,0,0);
