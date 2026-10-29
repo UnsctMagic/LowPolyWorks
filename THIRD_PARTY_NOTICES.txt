@@ -23,6 +23,9 @@ https://www.lowpolyworks.com/vendor/fflate-LICENSE.txt
 Warcraft III native preview textures (Blizzard Entertainment)
 Classic archive BLPs used only for previews. Uploaded model downloads retain their original bytes.
 
+MDLxL logo eye textures (Blizzard Entertainment)
+Textures\red_Glow2.blp and Units\NightElf\EvilIllidan\Shadow.blp, used by Unsanctioned Magic's Aspiring Champion eye emitters on the MDLxL page logo. Same detached emitters and original pixels as the MDLxL update popup; no model mesh.
+
 MDLxL read-only compatible MDX reader
 Existing MDLxL parser used for authored animated ribbon colours.
 
