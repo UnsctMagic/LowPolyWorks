@@ -1,13 +1,15 @@
 // The MDLxL update popup's helmet eyes for the MDLxL page logo: dark eye cores
-// that slowly ignite after 150 ms with the Aspiring Champion's four native eye emitters.
+// that slowly ignite after 900 ms with the Aspiring Champion's four native eye emitters.
 // Based on MDLxL src/update-popup-effects.js, without the fanfare.
 import {ModelRenderer,parseMDX,decodeBLP,getBLPImageData} from './vendor/war3-model.mjs';
 import {Matrix4,Vector3} from 'three';
 import {eyeScene,eyeTextures} from './mdlxl-eyes-assets.js?v=20261029-logo-eyes';
 
-// Slower than the popup so the ignition reads on a page: a 150 ms start,
+// Slower than the popup so the ignition reads on a page: a 900 ms start,
 // then a gradual fade from dark to burning, and the eye flames at 60% speed.
-const DELAY=150,FADE=1200,FLAME_SPEED=.6;
+// At logo size each newly emitted particle pops in at full brightness and
+// reads as flicker, so frames are blended over ~90 ms (emitters unchanged).
+const DELAY=900,FADE=1200,FLAME_SPEED=.6,SMOOTHING=90;
 const bytes=value=>Uint8Array.from(atob(value),character=>character.charCodeAt(0));
 
 // Follow the two connected red eye regions, including their brighter centers.
@@ -55,7 +57,8 @@ export function mdlxlLogoMarkup(alt){
 
 export async function igniteMdlxlLogo(element){
  if(!element||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
- const image=element.querySelector('img'),picture=element.querySelector('[data-helmet]'),canvas=element.querySelector('[data-particles]');
+ const image=element.querySelector('img'),picture=element.querySelector('[data-helmet]'),display=element.querySelector('[data-particles]');
+ const canvas=document.createElement('canvas');canvas.width=display.width;canvas.height=display.height;
  let native,gl,frame=0,lastTime=null,shown=-1;
  const dispose=()=>{
   cancelAnimationFrame(frame);
@@ -70,6 +73,7 @@ export async function igniteMdlxlLogo(element){
  try{
   const context=picture.getContext('2d',{willReadFrequently:true});
   gl=canvas.getContext('webgl',{alpha:true,premultipliedAlpha:false,antialias:true});
+  const smooth=display.getContext('2d');
   if(!gl)throw Error('The MDLxL logo eyes need WebGL.');
   native=new ModelRenderer(parseMDX(bytes(eyeScene).buffer));
   native.initGL(gl);
@@ -97,15 +101,19 @@ export async function igniteMdlxlLogo(element){
      shown=eased;
      context.putImageData(dark,0,0);
      context.globalAlpha=eased;context.drawImage(litImage,0,0);context.globalAlpha=1;
-     canvas.style.opacity=eased;
+     display.style.opacity=eased;
      element.dataset.eyes=glow<1?'igniting':'lit';
     }
-    native.update(lastTime==null?0:Math.min(50,Math.max(0,time-lastTime))*FLAME_SPEED);
+    const step=lastTime==null?0:Math.min(50,Math.max(0,time-lastTime));
+    native.update(step*FLAME_SPEED);
     lastTime=time;
     gl.viewport(0,0,canvas.width,canvas.height);
-    gl.clearColor(0,0,0,0);
+    gl.clearColor(0,0,0,1);
     gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT);
     native.render(view,projection,{wireframe:false,env:false,useEnvironmentMap:false});
+    // Opaque black frames are invisible under the screen blend and let old frames fade out.
+    smooth.globalAlpha=step?1-Math.exp(-step/SMOOTHING):1;
+    smooth.drawImage(canvas,0,0);
    }
    frame=requestAnimationFrame(render);
   };
