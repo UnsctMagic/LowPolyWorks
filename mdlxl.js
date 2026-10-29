@@ -1,4 +1,4 @@
-import {mdlxlLogoMarkup,igniteMdlxlLogo} from './mdlxl-eyes.js?v=20261029-logo-eyes-250';
+import {mdlxlLogoMarkup,igniteMdlxlLogo} from './mdlxl-eyes.js?v=20261029-logo-eyes-190';
 const REPO='https://github.com/UnsctMagic/MDLxL';
 const API='https://api.github.com/repos/UnsctMagic/MDLxL';
 const escape=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
