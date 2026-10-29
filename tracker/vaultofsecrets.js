@@ -169,13 +169,14 @@ function bindFormatting(){
 }
 // Activity: one all-time report, sliced in the browser by army, unit, file type and time step.
 const GRAINS={day:{label:'Day',count:30,range:'last 30 days'},week:{label:'Week',count:26,range:'last 26 weeks'},month:{label:'Month',count:12,range:'last 12 months'},year:{label:'Year',count:10,range:'all years'}};
-const DAY=86400000,utc=key=>Date.parse(key+'T00:00:00Z'),iso=time=>new Date(time).toISOString().slice(0,10);
+// Keys are calendar dates; utc() only does date arithmetic on them. Today follows Amsterdam time, like the stored days.
+const DAY=86400000,utc=key=>Date.parse(key+'T00:00:00Z'),iso=time=>new Date(time).toISOString().slice(0,10),amsterdamDay=new Intl.DateTimeFormat('en-CA',{timeZone:'Europe/Amsterdam',year:'numeric',month:'2-digit',day:'2-digit'}),today=()=>amsterdamDay.format(new Date());
 function bucketStart(key,grain){const d=new Date(utc(key));if(grain==='week')d.setUTCDate(d.getUTCDate()-((d.getUTCDay()+6)%7));if(grain==='month'||grain==='year')d.setUTCDate(1);if(grain==='year')d.setUTCMonth(0);return iso(d.getTime());}
 function nextBucket(key,grain){const d=new Date(utc(key));if(grain==='day')d.setUTCDate(d.getUTCDate()+1);if(grain==='week')d.setUTCDate(d.getUTCDate()+7);if(grain==='month')d.setUTCMonth(d.getUTCMonth()+1);if(grain==='year')d.setUTCFullYear(d.getUTCFullYear()+1);return iso(d.getTime());}
 function previousBucket(key,grain,steps){const d=new Date(utc(key));if(grain==='day')d.setUTCDate(d.getUTCDate()-steps);if(grain==='week')d.setUTCDate(d.getUTCDate()-7*steps);if(grain==='month')d.setUTCMonth(d.getUTCMonth()-steps);if(grain==='year')d.setUTCFullYear(d.getUTCFullYear()-steps);return iso(d.getTime());}
 // The visible buckets end today and never start before tracking began.
 function buckets(grain,since){
- const end=bucketStart(iso(Date.now()),grain),first=bucketStart(since,grain),{count}=GRAINS[grain];
+ const end=bucketStart(today(),grain),first=bucketStart(since,grain),{count}=GRAINS[grain];
  let start=previousBucket(end,grain,count-1);if(start<first)start=first;
  const list=[];for(let key=start;key<=end;key=nextBucket(key,grain))list.push(key);
  return {list,start,end:nextBucket(end,grain),clipped:start===first};
@@ -189,7 +190,7 @@ function bucketLabel(key,grain,long=false){
  return String(d.getUTCFullYear());
 }
 function niceScale(max){if(max<=0)return {top:1,step:1};const rough=max/3,power=10**Math.floor(Math.log10(rough)),step=[1,2,5,10].map(n=>n*power).find(n=>n>=rough)||power*10,top=Math.ceil(max/step)*step;return {top,step:Math.max(1,step)};}
-const activity_state=(()=>({army:'',unit:'',format:'',grain:'day',sort:'total',query:'',...(prefs.activity||{})}))();
+const activity_state=(()=>({army:'',unit:'',format:'',grain:'day',sort:'total',query:'',unitsOpen:false,...(prefs.activity||{})}))();
 const saveActivity=()=>{prefs.activity=activity_state;savePrefs();};
 function unitIndex(report){
  const index=new Map(units().map(row=>[row.id,{id:row.id,name:row.id==='nurgle'?'Knight of Nurgle - Old':row.name,army:row.army,group:row.group||'Other projects',tag:row.removeAt?'Removing':row.hidden?'Hidden':row.kind==='vault'?'Vault':''}])),removed=new Set(account.removedModels||[]);
@@ -204,10 +205,24 @@ async function stash(){
  const metric=(value,label)=>`<div class="metric"><strong>${number(value)}</strong><span>${label}</span></div>`;
  panel.innerHTML=`<h2>Shredder's Stash</h2><div class="metrics">${metric(stats.people,'People who played with him')}${metric(stats.interactions.feed.count,'Peanuts fed')}${metric(stats.interactions.feed.people,'People who fed him')}</div><table><thead><tr><th scope="col">What they did</th><th scope="col">People</th><th scope="col">Times</th></tr></thead><tbody>${rows.map(([kind,label,detail])=>`<tr><td>${label}<br><span class="hint">${detail}</span></td><td>${number(stats.interactions[kind].people)}</td><td>${number(stats.interactions[kind].count)}</td></tr>`).join('')}</tbody></table><p class="hint" style="margin-top:12px">People are anonymous browsers. Your own play is never counted: browsers that opened the site with the opt-out link, the peanut test view and localhost send nothing. ${optOutSaved===false?'<strong>This browser blocks site storage, so it could not be excluded automatically.</strong> ':'This browser is excluded again every time you log in to the Vault. '}On a device where you don\'t open the Vault, use <a href="https://www.lowpolyworks.com/?tracking-opt-out" target="_blank" rel="noopener">Exclude this browser</a>. ${stats.lastPlayedAt?'Last play recorded '+escape(new Date(stats.lastPlayedAt).toLocaleString())+'.':'No play recorded yet.'} Updated ${escape(new Date(report.asOf).toLocaleString())}.</p>`;
 }
+// MDLxL in-app updates, beside GitHub's count of every release ZIP download (the website button and the updater together).
+const releaseDownloads=fetch('https://api.github.com/repos/UnsctMagic/MDLxL/releases?per_page=100',{headers:{Accept:'application/vnd.github+json'}}).then(r=>r.ok?r.json():null).then(list=>list&&new Map(list.filter(r=>!r.draft).map(r=>{const version=r.tag_name.replace(/^v/,'');return [version,r.assets.find(a=>a.name===`MDLxL-${version}-win32-x64.zip`)?.download_count||0];}))).catch(()=>null);
+function mdlxlUpdates(updates){
+ return `<details class="country-activity" id="mdlxl-updates" open><summary>MDLxL in-app updates · ${number(updates.downloads)}</summary><div class="metrics"><div class="metric"><strong>${number(updates.downloads)}</strong><span>Updates installed in the app</span></div><div class="metric"><strong id="zip-total">…</strong><span>All release ZIP downloads (GitHub)</span></div></div><table><thead><tr><th scope="col">Version</th><th scope="col" class="num">In-app updates</th><th scope="col" class="num">All ZIP downloads</th></tr></thead><tbody></tbody></table><p class="hint">In-app updates count each update MDLxL installs through its own updater, starting with updates to MDLxL 0.31.0. All ZIP downloads come from GitHub and include the website button, the updater and direct downloads. The table lists the five newest versions; the totals above cover every version. ${updates.lastDownloadedAt?'Last update recorded '+escape(new Date(updates.lastDownloadedAt).toLocaleString())+'.':'No in-app update recorded yet.'}</p></details>`;
+}
+async function fillMdlxlUpdates(panel,updates){
+ const section=panel.querySelector('#mdlxl-updates'),body=section.querySelector('tbody'),own=new Map(updates.versions.map(row=>[row.version,row])),row=(version,zips)=>`<tr><td>${escape(version)}</td><td class="num">${number(own.get(version)?.downloads)}</td><td class="num">${zips===undefined?'…':zips===null?'—':number(zips)}</td></tr>`;
+ const newest=(a,b)=>b.split('.').reduce((order,part,i)=>order||Number(part)-Number(a.split('.')[i]),0);
+ body.innerHTML=updates.versions.slice(0,5).map(r=>row(r.version)).join('');
+ const github=await releaseDownloads;if(!section.isConnected)return;
+ section.querySelector('#zip-total').textContent=github?number([...github.values()].reduce((a,b)=>a+b,0)):'—';
+ const versions=[...new Set([...own.keys(),...github?.keys()||[]])].filter(v=>/^\d+\.\d+\.\d+$/.test(v)).sort(newest).slice(0,5);
+ body.innerHTML=versions.length?versions.map(v=>row(v,github?github.get(v)??0:null)).join(''):'<tr><td colspan="3" class="empty">No releases yet.</td></tr>';
+}
 async function activity(){
  const panel=app.querySelector('#activity-panel');if(!reports[''])panel.innerHTML='<p class="muted">Loading activity…</p>';
  const [report]=await Promise.all([loadReport(),loadCatalogue().catch(()=>null)]);
- const firstView=report.timeline.find(row=>row[1]==='view')?.[0],index=unitIndex(report),state=activity_state,since=(report.trackingSince||report.timeline[0]?.[0]||iso(Date.now())).slice(0,10);
+ const firstView=report.timeline.find(row=>row[1]==='view')?.[0],index=unitIndex(report),state=activity_state,since=(report.trackingSince||report.timeline[0]?.[0]||today()).slice(0,10);
  if(state.unit&&state.unit!=='mdlxl'&&!index.has(state.unit))state.unit='';
  panel.innerHTML=`<div class="panel-head"><h2>Site activity</h2><div class="inline-controls"><span class="hint">Updated ${escape(new Date(report.asOf).toLocaleString())}</span><button type="button" class="secondary" id="activity-refresh">Refresh</button></div></div>
 <div class="metrics"><div class="metric"><strong>${number(report.totals.pageLoads)}</strong><span>Page loads</span></div><div class="metric"><strong>${number(report.totals.uniqueVisitors)}</strong><span>Anonymous browsers</span></div><div class="metric"><strong>${number(report.totals.downloadClicks)}</strong><span>Download clicks</span></div><div class="metric"><strong>${number(report.totals.modelViews)}</strong><span>Model views</span></div></div>
@@ -215,10 +230,13 @@ async function activity(){
 <div class="charts"><div class="chart-toolbar"><div class="seg" role="group" aria-label="Time step" id="pick-grain">${Object.entries(GRAINS).map(([key,grain])=>`<button type="button" data-grain="${key}">${grain.label}</button>`).join('')}</div><span class="range-label" id="range-label"></span></div>
 <figure class="chart" data-metric="download"><figcaption><div><h3>Downloads</h3><p class="chart-scope"></p></div><div class="chart-total"><strong></strong><small></small></div><button type="button" class="link-button" data-table>Table</button></figcaption><div class="plot"></div><div class="bucket-models" hidden></div></figure>
 <figure class="chart" data-metric="view"><figcaption><div><h3>Model views</h3><p class="chart-scope"></p></div><div class="chart-total"><strong></strong><small></small></div><button type="button" class="link-button" data-table>Table</button></figcaption><div class="plot"></div></figure></div></div>
-<section class="downloads"><div class="panel-head"><h3 id="unit-table-title">Per unit</h3></div><table class="download-table"><thead><tr><th scope="col"><button type="button" data-sort="name">Unit</button></th><th scope="col" class="army-column">Army</th><th scope="col" class="num"><button type="button" data-sort="views">Views</button></th><th scope="col" class="num"><button type="button" data-sort="mdx">MDX</button></th><th scope="col" class="num"><button type="button" data-sort="pack">Pack</button></th><th scope="col" class="num"><button type="button" data-sort="total">Downloads</button></th></tr></thead><tbody></tbody></table><p class="hint" id="unit-table-hint"></p><p class="hint">Downloads and views here follow the time step above. In the Unit cards tab, counts are all-time.</p></section>
+<details class="downloads country-activity" id="unit-table"${state.unitsOpen?' open':''}><summary id="unit-table-title">Per unit</summary><table class="download-table"><thead><tr><th scope="col"><button type="button" data-sort="name">Unit</button></th><th scope="col" class="army-column">Army</th><th scope="col" class="num"><button type="button" data-sort="views">Views</button></th><th scope="col" class="num"><button type="button" data-sort="mdx">MDX</button></th><th scope="col" class="num"><button type="button" data-sort="pack">Pack</button></th><th scope="col" class="num"><button type="button" data-sort="total">Downloads</button></th></tr></thead><tbody></tbody></table><p class="hint" id="unit-table-hint"></p><p class="hint">Downloads and views here follow the time step above. In the Unit cards tab, counts are all-time.</p></details>
 <details class="country-activity"><summary>Visitors by country · ${report.countries.length}</summary>${report.countries.length?`<table><thead><tr><th scope="col">Country</th><th scope="col" class="num">Anonymous browsers</th><th scope="col" class="num">Share</th></tr></thead><tbody>${report.countries.map(country=>`<tr><td>${escape(country.name)}</td><td class="num">${number(country.uniqueVisitors)}</td><td class="num">${new Intl.NumberFormat(undefined,{style:'percent',maximumFractionDigits:1}).format(country.share)}</td></tr>`).join('')}</tbody></table>`:'<p class="empty">No recorded visitors yet.</p>'}<p class="hint">Estimated from network location. Each browser counts once, using its first known country.</p></details>
-<p class="hint">Downloads are download-button clicks. Model views count a browser opening a model page, at most once per model per day; ${firstView?'recorded since '+escape(bucketLabel(firstView,'day',true)):'not recorded yet'}. Days follow UTC.</p>`;
+${mdlxlUpdates(report.updates||{downloads:0,versions:[]})}
+<p class="hint">Downloads are download-button clicks. Model views count a browser opening a model page, at most once per model per day; ${firstView?'recorded since '+escape(bucketLabel(firstView,'day',true)):'not recorded yet'}. Days follow Amsterdam time.</p>`;
+ fillMdlxlUpdates(panel,report.updates||{downloads:0,versions:[]});
  const $=selector=>panel.querySelector(selector),tables=new Set();let picked='';
+ $('#unit-table').ontoggle=event=>{state.unitsOpen=event.target.open;saveActivity();};
  $('#pick-army').value=state.army;$('#pick-search').value=state.query;
  const inArmy=id=>state.army==='mdlxl'?id==='mdlxl':id!=='mdlxl'&&(!state.army||index.get(id)?.army===state.army);
  const matches=([,kind,model,format])=>(state.unit?model===state.unit:inArmy(model))&&(kind==='view'||!state.format||state.army==='mdlxl'||format===state.format);

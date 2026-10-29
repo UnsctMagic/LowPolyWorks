@@ -222,3 +222,20 @@ test("Shredder's Stash counts people and interactions apart from the site totals
  assert.equal(summarize(blobs,{from:'2026-10-06'}).shredder.interactions.feed.count,2);
  assert(!JSON.stringify(report.shredder).includes(id),'no browser IDs leave the report');
 });
+test('MDLxL sends a bare ping per installed update, kept apart from the site totals',async()=>{
+ const blobs=[],collect=createEventsHandler({writeBlob:async(pathname,data)=>blobs.push({pathname,uploadedAt:JSON.parse(data).recordedAt})});
+ const send=async(body,headers={'user-agent':'MDLxL/0.30.1'})=>{const res=response();await collect({method:'POST',headers:{'x-vercel-ip-country':'NL',...headers},body},res);return res.statusCode;};
+ assert.equal(await send({kind:'update',version:'0.31.0'}),204);
+ assert.equal(await send({kind:'update',version:'0.31.0'}),204);
+ assert.equal(await send({kind:'update',version:'0.32.0',visitorId:id}),204);
+ assert.match(blobs[0].pathname,/^live\/v3\/\d{4}-\d{2}-\d{2}\/update\/mdlxl\/0\.31\.0\/anonymous\/NL\//);
+ assert(blobs.every(blob=>!blob.pathname.includes(id)),'an app ping never stores an ID it sends');
+ assert.equal(await send({kind:'update',version:'../x'}),400);
+ assert.equal(await send({kind:'visit'}),400,'the app sends only updates');
+ assert.equal(await send({id:randomUUID(),kind:'update',version:'0.31.0'},{origin:'https://www.lowpolyworks.com'}),400,'the site cannot send updates');
+ assert.equal(await send({kind:'update',version:'0.31.0'},{'user-agent':'curl/8'}),403);
+ const report=summarize(blobs);
+ assert.deepEqual(report.updates.versions,[{version:'0.32.0',downloads:1},{version:'0.31.0',downloads:2}]);
+ assert.equal(report.updates.downloads,3);
+ assert.equal(report.totals.uniqueVisitors,0);assert.equal(report.totals.downloadClicks,0);
+});

@@ -9,6 +9,10 @@ export async function trackedModels({loadUnits=savedUnits,includeRemoved=false}=
  const base=(await response.json()).map(model=>({id:model.id,name:model.name,slug:model.slug||model.id,hasPack:Boolean(model.downloadPack)}));
  const units=await loadUnits();return [...base,...units.filter(card=>includeRemoved||!card.deletedAt).map(card=>({id:card.id,name:card.name,slug:card.id,url:'https://www.lowpolyworks.com/#model/'+card.id,hasPack:card.downloads.some(file=>/\.zip$/i.test(file.name))}))];
 }
+// Usage days follow Amsterdam time (CET/CEST), the owner's calendar day.
+export const dayZone='Europe/Amsterdam';
+const dayFormat=new Intl.DateTimeFormat('en-CA',{timeZone:dayZone,year:'numeric',month:'2-digit',day:'2-digit'});
+export const localDay=(time=new Date())=>dayFormat.format(new Date(time));
 const uuid=/^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89ab][a-f0-9]{3}-[a-f0-9]{12}$/i;
 const regionNames=new Intl.DisplayNames(['en'],{type:'region',fallback:'none'});
 export function countryCode(value){
@@ -39,9 +43,13 @@ function parseShredderCounts(segment){
  for(const [index,kind] of shredderKinds.entries()){const match=new RegExp('^'+kind+'(\\d{1,3})$').exec(parts[index]);if(!match)return null;counts[kind]=Number(match[1]);}
  return counts;
 }
-export function validateEvent(input,models=[]){
- if(!input||typeof input!=='object'||!['visit','download','view','shredder'].includes(input.kind)||!uuid.test(input.id||'')||input.visitorId!==undefined&&!uuid.test(input.visitorId))return null;
+// The MDLxL app sends a bare ping per update it installs; its version is the event format.
+export const appVersion=/^\d{1,4}\.\d{1,4}\.\d{1,4}$/;
+export function validateEvent(input,models=[],{app=false}={}){
+ if(!input||typeof input!=='object'||!['visit','download','view','shredder','update'].includes(input.kind)||!uuid.test(input.id||'')||input.visitorId!==undefined&&!uuid.test(input.visitorId))return null;
  const visitor=input.visitorId?{visitorId:input.visitorId.toLowerCase()}:{};
+ // Update events come only from the app, and the app sends nothing else.
+ if(app||input.kind==='update')return app&&input.kind==='update'&&appVersion.test(input.version||'')?{id:input.id,kind:'update',model:'mdlxl',format:input.version,testing:false}:null;
  if(input.kind==='visit')return {id:input.id,kind:'visit',model:'site',format:'none',testing:input.testing===true,...visitor};
  // A model view is one opening of a model page, counted per model.
  if(input.kind==='view')return models.some(model=>model.id===input.model)?{id:input.id,kind:'view',model:input.model,format:'none',testing:input.testing===true,...visitor}:null;
@@ -52,8 +60,8 @@ export function validateEvent(input,models=[]){
  return {id:input.id,kind:'download',model:input.model,format:input.format,testing:input.testing===true,...visitor};
 }
 export function eventPath(event,now=new Date()){
- if(event.country!==undefined)return `${event.testing?'testing':'live'}/v3/${now.toISOString().slice(0,10)}/${event.kind}/${event.model}/${event.format}/${event.visitorId||'anonymous'}/${countryCode(event.country)}/${event.id}.json`;
- return `${event.testing?'testing':'live'}/${event.visitorId?'v2':'v1'}/${now.toISOString().slice(0,10)}/${event.kind}/${event.model}/${event.format}/${event.visitorId?event.visitorId+'/':''}${event.id}.json`;
+ if(event.country!==undefined)return `${event.testing?'testing':'live'}/v3/${localDay(now)}/${event.kind}/${event.model}/${event.format}/${event.visitorId||'anonymous'}/${countryCode(event.country)}/${event.id}.json`;
+ return `${event.testing?'testing':'live'}/${event.visitorId?'v2':'v1'}/${localDay(now)}/${event.kind}/${event.model}/${event.format}/${event.visitorId?event.visitorId+'/':''}${event.id}.json`;
 }
 // Lists every live event blob page by page, then summarizes the listing.
 export const listSummary=listBlobs=>async options=>{const blobs=[];let cursor;do{const page=await listBlobs({prefix:'live/',limit:1000,cursor});blobs.push(...page.blobs);cursor=page.hasMore?page.cursor:undefined;}while(cursor);return summarize(blobs,options);};
@@ -64,6 +72,8 @@ export function summarize(blobs,{from='',to='',models=[]}={}){
  for(const row of models)byModel.set(row.id,{id:row.id,name:row.name,mdxClicks:0,packClicks:0,total:0,views:0});
  // Shredder's Stash is kept apart from the site totals: interaction counts, and the browsers behind each kind.
  const shredderTotals=Object.fromEntries(shredderKinds.map(kind=>[kind,0])),shredderPeople=Object.fromEntries(shredderKinds.map(kind=>[kind,new Set()])),shredderPlayers=new Set();let shredderLastAt=null;
+ // MDLxL in-app updates are kept apart too, counted per version.
+ const updateVersions=new Map();let updateDownloads=0,updateLastAt=null;
  for(const blob of blobs){
   const [namespace,version,date,kind,model,format,visitorId,country]=blob.pathname.split('/');
   if(kind==='shredder'){
@@ -73,6 +83,13 @@ export function summarize(blobs,{from='',to='',models=[]}={}){
    for(const type of shredderKinds)if(counts[type]){shredderTotals[type]+=counts[type];if(id)shredderPeople[type].add(id);}
    if(id)shredderPlayers.add(id);
    if(!shredderLastAt||at>shredderLastAt)shredderLastAt=at;
+   continue;
+  }
+  if(kind==='update'){
+   if(namespace!=='live'||version!=='v3'||model!=='mdlxl'||!appVersion.test(format)||from&&date<from||to&&date>to||visitorId!=='anonymous'&&!uuid.test(visitorId))continue;
+   const at=new Date(blob.uploadedAt).toISOString(),entry=updateVersions.get(format)||{version:format,downloads:0};
+   updateDownloads++;entry.downloads++;updateVersions.set(format,entry);
+   if(!updateLastAt||at>updateLastAt)updateLastAt=at;
    continue;
   }
   if(namespace!=='live'||!['v1','v2','v3'].includes(version)||from&&date<from||to&&date>to||!['visit','download','view'].includes(kind))continue;
@@ -109,7 +126,9 @@ export function summarize(blobs,{from='',to='',models=[]}={}){
  const byCountry=new Map();for(const id of visitors){const code=visitorCountries.get(id)?.code||'ZZ';byCountry.set(code,(byCountry.get(code)||0)+1);}
  const countries=[...byCountry].map(([code,uniqueVisitors])=>({code,name:code==='ZZ'?'Unknown':regionNames.of(code),uniqueVisitors,share:uniqueVisitors/totals.uniqueVisitors})).sort((a,b)=>(a.code==='ZZ')-(b.code==='ZZ')||b.uniqueVisitors-a.uniqueVisitors||a.name.localeCompare(b.name));
  const shredder={people:shredderPlayers.size,lastPlayedAt:shredderLastAt,interactions:Object.fromEntries(shredderKinds.map(kind=>[kind,{count:shredderTotals[kind],people:shredderPeople[kind].size}]))};
- return {totals,coverage,lastRecordedAt,countries,shredder,daily:[...daily.values()].sort((a,b)=>a.date.localeCompare(b.date)),models:[...byModel.values()].sort((a,b)=>b.total-a.total||b.views-a.views||a.name.localeCompare(b.name)),applications,
+ const newest=(a,b)=>b.split('.').reduce((order,part,i)=>order||Number(part)-Number(a.split('.')[i]),0);
+ const updates={downloads:updateDownloads,lastDownloadedAt:updateLastAt,versions:[...updateVersions.values()].sort((a,b)=>newest(a.version,b.version))};
+ return {totals,coverage,lastRecordedAt,countries,shredder,updates,daily:[...daily.values()].sort((a,b)=>a.date.localeCompare(b.date)),models:[...byModel.values()].sort((a,b)=>b.total-a.total||b.views-a.views||a.name.localeCompare(b.name)),applications,
   // Compact per-day counts, [date, kind, model, format, count], for charts at any granularity.
   timeline:[...timeline].map(([key,count])=>[...key.split('|'),count]).sort((a,b)=>a[0].localeCompare(b[0])),measurement};
 }

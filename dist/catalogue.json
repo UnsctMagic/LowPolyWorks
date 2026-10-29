@@ -340,7 +340,8 @@
       }
     ],
     "formationBodyHeight": 0.76,
-    "searchDescription": "Preview and download a Warhammer Fantasy Graveguard model for Warcraft 3. Build Vampire Counts armies with animated undead infantry."
+    "searchDescription": "Preview and download a Warhammer Fantasy Graveguard model for Warcraft 3. Build Vampire Counts armies with animated undead infantry.",
+    "sha256": "514126ee78cbf1a50a4245eecc6da49402b5f04664a1b4ae02c0ca24cfd13bda"
   },
   {
     "id": "von-carstein",
@@ -704,7 +705,7 @@
       }
     ],
     "searchDescription": "Download the Von Carstein Vampire model for Warcraft 3 Warhammer maps. Preview animations for this Vampire Counts character in 3D.",
-    "sha256": "b3ebf64fa6db5eba7d0a8c2afeb1ca652024f36fd850be20efc3a802ff3783cd",
+    "sha256": "58aefe16c10d4d095d35be9477d102581e707aa80f0e72416a2a749b76a72968",
     "changelog": [
       {
         "date": "10 October 2026",
@@ -1121,7 +1122,7 @@
         "url": "https://www.hiveworkshop.com/threads/vampyr.193210/"
       }
     ],
-    "sha256": "dffdf504d024ff8f6266cf1ca979ca11e16d2f4f83f7ae86395bd7610d806166",
+    "sha256": "59e82db43528846aa1efa015cb96a9c550363ef8f299e684ea59a10155a1b2b8",
     "downloadPack": "downloads/von-carstein.zip",
     "formationBodyHeight": 0.9,
     "searchDescription": "Preview and download the Von Carstein Dread Knight for Warcraft 3. A Warhammer Fantasy Vampire Counts model reskinned from the Von Carstein Lord.",
@@ -1335,7 +1336,7 @@
         "url": "https://www.hiveworkshop.com/members/maximal.251852/"
       }
     ],
-    "sha256": "1f9ebd73855b2656b79e3129bb328b36ee606f1701da054c8298c8293ae2bcb5",
+    "sha256": "bd806b238eab59f28a9b0c6a2eddf907c342ed7e6d16dbd9e1e6602e4028d120",
     "formationSequence": "Stand Ready",
     "formationBodyHeight": 0.9,
     "changelog": [
@@ -1652,7 +1653,7 @@
         "url": "https://www.hiveworkshop.com/members/maximal.251852/"
       }
     ],
-    "sha256": "6baa4e1d87d274c237759f8d3ba28dff7f108360e8b67c7387be4de4aab72645"
+    "sha256": "c15bd66ab015bce1a63838ccc4f6f0f6b784e3fa2b6a90bcccf7bdc5c774ca3a"
   },
   {
     "id": "khorne-axe",
@@ -1660,7 +1661,7 @@
     "name": "Knight of Khorne · Axe",
     "army": "warriors-of-chaos",
     "description": "I have never seen men fight like that...\r\n\r\nI barely made it out alive, this was no victory.\r\n\r\nStatues of brass, massive, twice the size of the biggest man I've ever seen and then some.\r\n\r\nWalking, not charging... advancing like a great wall made of brass and blood red steel.\r\n\r\nI saw men throw down their weapons crying, screaming...\r\n\r\nMen crawled beneath one another to get away...\r\n\r\nIt made no difference, there was nowhere to run.\r\n\r\nI watched a man split from shoulder to hip as he was trying to hide.\r\n\r\nAnother crushed into nothing I could recognize...\r\n\r\nMen were knocked down, trampled, hacked apart and still they kept hacking at the corpses.\r\n\r\nLike a butcher at the block, hacking away piece by piece.\r\n\r\nIt made no difference, we had to fight.\r\n\r\nThey even killed each other.\r\n\r\nThe ones we managed to injure or stagger fighting back became obstacles for the others,\r\n\r\nSo they simply cut through those to reach us faster.\r\n\r\nBut I think they knew they would die that day.\r\n\r\nI heard they razed ten cities before they reached us.\r\n\r\nThat they had come down from the north on a path of destruction.\r\n\r\nThat they had fought their way south for weeks leaving behind only blood and ash.\r\n\r\nBy the time they reached us they were outnumbered fifty to one.\r\n\r\nWe had heard of them coming.\r\n\r\nWe had heard what they had done.\r\n\r\nRivers of blood.\r\n\r\nBut It made no difference... I wanted to fight... to kill.\r\n\r\nThey did not run or beg.\r\n\r\nThey knew they were going to die, I think they wanted to.\r\n\r\nMy city has lost everything defeating them and they got what they came for.\r\n\r\nYou call this victory...?\r\n\r\nSomehow... I envy them.\r\n\r\nI have spent all my life afraid... Afraid of pain... regret... death...\r\n\r\nAfraid of fear.\r\n\r\nThose men were afraid of nothing.\r\n\r\nWanted nothing.\r\n\r\nKept nothing...\r\n\r\nBut it made no difference... I killed them too.\r\n\r\nNorth...\r\n\r\nThat is where they came from.\r\n\r\nThat is where I will go.",
-    "credits": "Model Base - Vile Knight by HerrDave / Further edited by Stein123\r\n\r\nFlail Animations - Knight, Bandit Lord & Riderless Horse by loktar\r\n\r\nBloodied Khorne Symbol - Blood Letter by Ironmaiden\r\n\r\nHelm 1 Base - Black Knight by Direfury\r\n\r\nHelm 2 Base - Advanced White Helm by Astaroth Zion\r\n\r\nHelm Horehair Crest - Blackorder Assassin by Rhapsodie\r\n\r\nFlail Knight Face - adapted from IronMaiden's Dawn of War Helms\r\n\r\nHelm Khorne Bunny Ears - adapted and reshaped from World Eaters Helm by Ironmaiden\r\n\r\nShield Base - Projected and shaped using the forge feature of MDLxL\r\n\r\nSkull Jaw - reshaped World of Warcraft: Legion - Drogbar asset\r\n\r\nKhorne Symbol - Adept of Khorne by WebSter\r\n\r\nAxe - Traitor Knightess by Greedy Martyrdom\r\n\r\nHorse head and tail - Headless Horseman by Johnwar\r\n\r\nFur Cloak - Chaos Warrior by Azazeron",
+    "credits": "Model Base - Vile Knight by HerrDave / Further edited by Stein123\r\n\r\nFlail Animations - Knight, Bandit Lord & Riderless Horse by loktar\r\n\r\nBloodied Khorne Symbol - Blood Letter by Ironmaiden\r\n\r\nHelm 1 Base - Black Knight by Direfury\r\n\r\nHelm 2 Base - Advanced White Helm by Astaroth Zion\r\n\r\nHelm Horehair Crest - Blackorder Assassin by Rhapsodie\r\n\r\nFlail Knight Face - adapted from IronMaiden's Dawn of War Helms\r\n\r\nHelm Khorne Bunny Ears - adapted and reshaped from World Eaters Helm by Ironmaiden\r\n\r\nShield Base - Projected and shaped using the forge feature of MDLxL\r\n\r\nSkull Jaw - reshaped World of Warcraft: Legion - Drogbar asset\r\n\r\nKhorne Symbol - Adept of Khorne by WebSter\r\n\r\nAxe - Traitor Knightess by Greedy Martyrdom\r\n\r\nHorse head and tail - Headless Horseman by Johnwar\r\n\r\nFur Cloak - Chaos Warrior by Azazeron\r\n\r\nShoulders - Diablo_3_Barbarian_Shoulders by Forgotten_Warlord",
     "geosets": [
       {
         "index": 0,
@@ -2201,12 +2202,20 @@
       {
         "text": "MDLxL",
         "url": "https://www.lowpolyworks.com/mdlxl/"
+      },
+      {
+        "text": "Diablo_3_Barbarian_Shoulders",
+        "url": "https://www.hiveworkshop.com/threads/diablo_3_barbarian_shoulders-by-forgotten_warlord.157993/"
+      },
+      {
+        "text": "Forgotten_Warlord",
+        "url": "https://www.hiveworkshop.com/members/forgotten_warlord.182381/"
       }
     ],
     "formationSequence": "Stand Ready",
     "formationBodyHeight": 0.78,
     "searchDescription": "Download the axe variant of the Knight of Khorne for Warcraft 3. Preview this Warhammer Fantasy Warriors of Chaos model and its animations.",
-    "sha256": "da94155bca8d1c838646c2f4b0a71d023c18e334d79250b8d25ab672d75ae924",
+    "sha256": "7907efb9716f921644f347c0ae72729cef3f5287febd711f549161cbb9f403cc",
     "changelog": [
       {
         "date": "17 October 2026",
@@ -2216,11 +2225,11 @@
   },
   {
     "id": "khorne-flail",
-    "file": "WH_WOC_KnightKhorneFlail03.mdx",
+    "file": "WH_WOC_KnightKhorneFlailHero01.mdx",
     "name": "Knight of Khorne · Champion",
     "army": "warriors-of-chaos",
     "description": "I have never seen men fight like that...\r\n\r\nI barely made it out alive, this was no victory.\r\n\r\nStatues of brass, massive, twice the size of the biggest man I've ever seen and then some.\r\n\r\nWalking, not charging... advancing like a great wall made of brass and blood red steel.\r\n\r\nI saw men throw down their weapons crying, screaming...\r\n\r\nMen crawled beneath one another to get away...\r\n\r\nIt made no difference, there was nowhere to run.\r\n\r\nI watched a man split from shoulder to hip as he was trying to hide.\r\n\r\nAnother crushed into nothing I could recognize...\r\n\r\nMen were knocked down, trampled, hacked apart and still they kept hacking at the corpses.\r\n\r\nLike a butcher at the block, hacking away piece by piece.\r\n\r\nIt made no difference, we had to fight.\r\n\r\nThey even killed each other.\r\n\r\nThe ones we managed to injure or stagger fighting back became obstacles for the others,\r\n\r\nSo they simply cut through those to reach us faster.\r\n\r\nBut I think they knew they would die that day.\r\n\r\nI heard they razed ten cities before they reached us.\r\n\r\nThat they had come down from the north on a path of destruction.\r\n\r\nThat they had fought their way south for weeks leaving behind only blood and ash.\r\n\r\nBy the time they reached us they were outnumbered fifty to one.\r\n\r\nWe had heard of them coming.\r\n\r\nWe had heard what they had done.\r\n\r\nRivers of blood.\r\n\r\nBut It made no difference... I wanted to fight... to kill.\r\n\r\nThey did not run or beg.\r\n\r\nThey knew they were going to die, I think they wanted to.\r\n\r\nMy city has lost everything defeating them and they got what they came for.\r\n\r\nYou call this victory...?\r\n\r\nSomehow... I envy them.\r\n\r\nI have spent all my life afraid... Afraid of pain... regret... death...\r\n\r\nAfraid of fear.\r\n\r\nThose men were afraid of nothing.\r\n\r\nWanted nothing.\r\n\r\nKept nothing...\r\n\r\nBut it made no difference... I killed them too.\r\n\r\nNorth...\r\n\r\nThat is where they came from.\r\n\r\nThat is where I will go.",
-    "credits": "Model Base - Vile Knight by HerrDave / Further edited by Stein123\r\n\r\nFlail Animations - Knight, Bandit Lord & Riderless Horse by loktar\r\n\r\nBloodied Khorne Symbol - Blood Letter by Ironmaiden\r\n\r\nHelm 1 Base - Black Knight by Direfury\r\n\r\nHelm 2 Base - Advanced White Helm by Astaroth Zion\r\n\r\nHelm Horehair Crest - Blackorder Assassin by Rhapsodie\r\n\r\nFlail Knight Face - adapted from IronMaiden's Dawn of War Helms\r\n\r\nHelm Khorne Bunny Ears - adapted and reshaped from World Eaters Helm by Ironmaiden\r\n\r\nShield Base - Projected and shaped using the forge feature of MDLxL\r\n\r\nSkull Jaw - reshaped World of Warcraft: Legion - Drogbar asset\r\n\r\nKhorne Symbol - Adept of Khorne by WebSter\r\n\r\nAxe - Traitor Knightess by Greedy Martyrdom\r\n\r\nHorse head and tail - Headless Horseman by Johnwar\r\n\r\nFur Cloak - Chaos Warrior by Azazeron",
+    "credits": "Model Base - Vile Knight by HerrDave / Further edited by Stein123\r\n\r\nFlail Animations - Knight, Bandit Lord & Riderless Horse by loktar\r\n\r\nBloodied Khorne Symbol - Blood Letter by Ironmaiden\r\n\r\nHelm 1 Base - Black Knight by Direfury\r\n\r\nHelm 2 Base - Advanced White Helm by Astaroth Zion\r\n\r\nHelm Horehair Crest - Blackorder Assassin by Rhapsodie\r\n\r\nFlail Knight Face - adapted from IronMaiden's Dawn of War Helms\r\n\r\nHelm Khorne Bunny Ears - adapted and reshaped from World Eaters Helm by Ironmaiden\r\n\r\nShield Base - Projected and shaped using the forge feature of MDLxL\r\n\r\nSkull Jaw - reshaped World of Warcraft: Legion - Drogbar asset\r\n\r\nKhorne Symbol - Adept of Khorne by WebSter\r\n\r\nAxe - Traitor Knightess by Greedy Martyrdom\r\n\r\nHorse head and tail - Headless Horseman by Johnwar\r\n\r\nFur Cloak - Chaos Warrior by Azazeron\r\n\r\nShoulders - Diablo_3_Barbarian_Shoulders by Forgotten_Warlord",
     "geosets": [
       {
         "index": 0,
@@ -2242,432 +2251,312 @@
       },
       {
         "index": 2,
-        "vertices": 28,
-        "triangles": 24,
+        "vertices": 52,
+        "triangles": 48,
         "material": 2,
-        "textures": [
-          "Team colour / glow",
-          "Textures\\UndeadAirBarge.blp"
-        ]
-      },
-      {
-        "index": 3,
-        "vertices": 36,
-        "triangles": 32,
-        "material": 3,
         "textures": [
           "UI\\Glues\\SinglePlayer\\HumanCampaign3D\\HumanCampaignFootman.blp"
         ]
       },
       {
-        "index": 4,
-        "vertices": 48,
-        "triangles": 40,
-        "material": 4,
+        "index": 3,
+        "vertices": 974,
+        "triangles": 1190,
+        "material": 3,
         "textures": [
           "Textures\\UndeadAirBarge.blp"
         ]
       },
       {
-        "index": 5,
+        "index": 4,
         "vertices": 124,
         "triangles": 208,
-        "material": 5,
+        "material": 4,
         "textures": [
           "Units\\Demon\\ChaosWarlord\\ChaosWarlord.blp"
         ]
       },
       {
-        "index": 6,
+        "index": 5,
         "vertices": 22,
         "triangles": 37,
-        "material": 6,
+        "material": 5,
         "textures": [
           "Units\\Orc\\Spiritwolf\\FeralSpirit.blp"
         ]
       },
       {
-        "index": 7,
+        "index": 6,
         "vertices": 110,
         "triangles": 114,
-        "material": 7,
+        "material": 6,
         "textures": [
           "Team colour / glow",
           "Textures\\UndeadAirBarge.blp"
         ]
       },
       {
-        "index": 8,
+        "index": 7,
         "vertices": 32,
         "triangles": 16,
-        "material": 8,
+        "material": 7,
         "textures": [
           "Textures\\OutlandDoodads.blp"
         ]
       },
       {
-        "index": 9,
-        "vertices": 36,
-        "triangles": 20,
-        "material": 9,
-        "textures": [
-          "Textures\\UndeadAirBarge.blp"
-        ]
-      },
-      {
-        "index": 10,
-        "vertices": 64,
-        "triangles": 84,
-        "material": 9,
-        "textures": [
-          "Textures\\UndeadAirBarge.blp"
-        ]
-      },
-      {
-        "index": 11,
+        "index": 8,
         "vertices": 26,
         "triangles": 36,
-        "material": 10,
+        "material": 8,
         "textures": [
           "Team colour / glow",
           "Doodads\\Cityscape\\Structures\\Cathedral\\Cathedral.blp"
         ]
       },
       {
-        "index": 12,
+        "index": 9,
         "vertices": 62,
         "triangles": 64,
-        "material": 11,
+        "material": 9,
         "textures": [
           "Team colour / glow",
           "Textures\\OutlandDoodads.blp"
         ]
       },
       {
-        "index": 13,
-        "vertices": 48,
-        "triangles": 40,
-        "material": 12,
-        "textures": [
-          "Textures\\chunktop.blp"
-        ]
-      },
-      {
-        "index": 14,
+        "index": 10,
         "vertices": 36,
         "triangles": 30,
-        "material": 13,
+        "material": 10,
         "textures": [
           "Textures\\OutlandDoodads.blp"
         ]
       },
       {
-        "index": 15,
+        "index": 11,
         "vertices": 18,
         "triangles": 20,
-        "material": 14,
+        "material": 11,
         "textures": [
           "Units\\Creeps\\Magnataur\\Magnataur.blp"
         ]
       },
       {
-        "index": 16,
+        "index": 12,
         "vertices": 42,
         "triangles": 26,
-        "material": 15,
+        "material": 12,
         "textures": [
           "Textures\\OutlandDoodads.blp"
         ]
       },
       {
-        "index": 17,
+        "index": 13,
         "vertices": 39,
         "triangles": 66,
-        "material": 13,
+        "material": 10,
         "textures": [
           "Textures\\OutlandDoodads.blp"
         ]
       },
       {
-        "index": 18,
-        "vertices": 340,
-        "triangles": 522,
-        "material": 4,
-        "textures": [
-          "Textures\\UndeadAirBarge.blp"
-        ]
-      },
-      {
-        "index": 19,
-        "vertices": 36,
-        "triangles": 28,
-        "material": 16,
+        "index": 14,
+        "vertices": 84,
+        "triangles": 68,
+        "material": 13,
         "textures": [
           "Team colour / glow",
           "Textures\\chunktop.blp"
         ]
       },
       {
-        "index": 20,
+        "index": 15,
         "vertices": 29,
         "triangles": 44,
-        "material": 17,
+        "material": 14,
         "textures": [
           "Team colour / glow",
           "Units\\Creeps\\Revenant\\Revenant.blp"
         ]
       },
       {
-        "index": 21,
+        "index": 16,
         "vertices": 32,
         "triangles": 24,
-        "material": 18,
+        "material": 15,
         "textures": [
           "Textures\\OrcBarraks.blp"
         ]
       },
       {
-        "index": 22,
+        "index": 17,
         "vertices": 16,
         "triangles": 24,
-        "material": 13,
+        "material": 10,
         "textures": [
           "Textures\\OutlandDoodads.blp"
         ]
       },
       {
-        "index": 23,
-        "vertices": 57,
-        "triangles": 42,
-        "material": 19,
-        "textures": [
-          "Doodads\\Cinematic\\RunesOfGuldan\\RunesOfGuldan.blp"
-        ]
-      },
-      {
-        "index": 24,
-        "vertices": 12,
-        "triangles": 16,
-        "material": 20,
-        "textures": [
-          "Team colour / glow",
-          "Textures\\InfernalCannon.blp"
-        ]
-      },
-      {
-        "index": 25,
-        "vertices": 119,
-        "triangles": 170,
-        "material": 21,
-        "textures": [
-          "Textures\\OutlandDoodads.blp"
-        ]
-      },
-      {
-        "index": 26,
-        "vertices": 48,
-        "triangles": 76,
-        "material": 22,
-        "textures": [
-          "Textures\\OutlandDoodads.blp"
-        ]
-      },
-      {
-        "index": 27,
+        "index": 18,
         "vertices": 95,
         "triangles": 144,
-        "material": 23,
+        "material": 17,
         "textures": [
           "Team colour / glow",
           "Buildings\\Human\\Blacksmith\\NewBlacksmith.blp"
         ]
       },
       {
-        "index": 28,
+        "index": 19,
         "vertices": 8,
         "triangles": 4,
-        "material": 24,
+        "material": 18,
         "textures": [
           "Textures\\Red_Glow3.blp"
         ]
       },
       {
-        "index": 29,
+        "index": 20,
         "vertices": 13,
         "triangles": 12,
-        "material": 25,
+        "material": 19,
         "textures": [
           "Textures\\OutlandDoodads.blp"
         ]
       },
       {
-        "index": 30,
+        "index": 21,
         "vertices": 14,
         "triangles": 10,
-        "material": 15,
+        "material": 12,
         "textures": [
           "Textures\\OutlandDoodads.blp"
         ]
       },
       {
-        "index": 31,
-        "vertices": 16,
-        "triangles": 16,
-        "material": 26,
-        "textures": [
-          "UI\\Glues\\SinglePlayer\\HumanCampaign3D\\HumanCampaignFootman.blp"
-        ]
-      },
-      {
-        "index": 32,
+        "index": 22,
         "vertices": 75,
         "triangles": 76,
-        "material": 27,
+        "material": 20,
         "textures": [
           "Textures\\TimberWolf.blp"
         ]
       },
       {
-        "index": 33,
+        "index": 23,
         "vertices": 175,
         "triangles": 336,
-        "material": 28,
+        "material": 21,
         "textures": [
           "UI\\Glues\\SpriteLayers\\Expansion\\GlueScreen-Panel-MetalPieces-Expansion.blp"
         ]
       },
       {
-        "index": 34,
-        "vertices": 7,
-        "triangles": 8,
-        "material": 29,
+        "index": 24,
+        "vertices": 19,
+        "triangles": 24,
+        "material": 22,
         "textures": [
           "Textures\\InfernalCannon.blp"
         ]
       },
       {
-        "index": 35,
+        "index": 25,
         "vertices": 42,
         "triangles": 56,
-        "material": 30,
+        "material": 23,
         "textures": [
           "Textures\\Skeleton.blp"
         ]
       },
       {
-        "index": 36,
-        "vertices": 31,
-        "triangles": 36,
-        "material": 31,
-        "textures": [
-          "Textures\\UndeadAirBarge.blp"
-        ]
-      },
-      {
-        "index": 37,
+        "index": 26,
         "vertices": 59,
         "triangles": 55,
-        "material": 32,
+        "material": 24,
         "textures": [
           "Units\\Human\\HeroPaladinBoss\\HeropaladinBoss.blp"
         ]
       },
       {
-        "index": 38,
+        "index": 27,
         "vertices": 35,
         "triangles": 46,
-        "material": 33,
+        "material": 25,
         "textures": [
           "Units\\Undead\\HeroDreadLord\\HeroDreadlord.blp"
         ]
       },
       {
-        "index": 39,
-        "vertices": 183,
-        "triangles": 168,
-        "material": 34,
-        "textures": [
-          "Textures\\UndeadAirBarge.blp"
-        ]
-      },
-      {
-        "index": 40,
+        "index": 28,
         "vertices": 6,
         "triangles": 8,
-        "material": 35,
+        "material": 26,
         "textures": [
           "Textures\\Knight.blp"
         ]
       },
       {
-        "index": 41,
+        "index": 29,
         "vertices": 14,
         "triangles": 16,
-        "material": 36,
+        "material": 27,
         "textures": [
           "Units\\Creeps\\Kobold\\Kobold.blp"
         ]
       },
       {
-        "index": 42,
-        "vertices": 35,
-        "triangles": 22,
-        "material": 37,
+        "index": 30,
+        "vertices": 92,
+        "triangles": 64,
+        "material": 28,
         "textures": [
           "Doodads\\Cinematic\\RunesOfGuldan\\RunesOfGuldan.blp"
         ]
       },
       {
-        "index": 43,
-        "vertices": 84,
-        "triangles": 126,
-        "material": 22,
+        "index": 31,
+        "vertices": 251,
+        "triangles": 372,
+        "material": 16,
         "textures": [
           "Textures\\OutlandDoodads.blp"
         ]
       },
       {
-        "index": 44,
-        "vertices": 244,
-        "triangles": 296,
-        "material": 7,
-        "textures": [
-          "Team colour / glow",
-          "Textures\\UndeadAirBarge.blp"
-        ]
-      },
-      {
-        "index": 45,
+        "index": 32,
         "vertices": 4,
         "triangles": 2,
-        "material": 38,
+        "material": 29,
         "textures": [
           "Team colour / glow"
         ]
       },
       {
-        "index": 46,
+        "index": 33,
         "vertices": 132,
         "triangles": 128,
-        "material": 39,
+        "material": 30,
         "textures": [
           "Textures\\gutz.blp"
         ]
       },
       {
-        "index": 47,
-        "vertices": 8,
-        "triangles": 4,
-        "material": 40,
+        "index": 34,
+        "vertices": 12,
+        "triangles": 6,
+        "material": 31,
         "textures": [
           "Team colour / glow"
         ]
       },
       {
-        "index": 48,
-        "vertices": 8,
-        "triangles": 4,
-        "material": 41,
+        "index": 35,
+        "vertices": 12,
+        "triangles": 6,
+        "material": 31,
         "textures": [
           "Team colour / glow"
         ]
@@ -2688,9 +2577,9 @@
       "Dissipate",
       "Attack - 2"
     ],
-    "bytes": 232748,
+    "bytes": 225952,
     "portraitBackdropGeosets": [
-      45
+      32
     ],
     "authors": [
       {
@@ -2810,11 +2699,23 @@
       {
         "text": "MDLxL",
         "url": "https://www.lowpolyworks.com/mdlxl/"
+      },
+      {
+        "text": "Diablo_3_Barbarian_Shoulders",
+        "url": "https://www.hiveworkshop.com/threads/diablo_3_barbarian_shoulders-by-forgotten_warlord.157993/"
+      },
+      {
+        "text": "Forgotten_Warlord",
+        "url": "https://www.hiveworkshop.com/members/forgotten_warlord.182381/"
       }
     ],
     "searchDescription": "Preview and download the Knight of Khorne Champion model for Warcraft 3. Add a Warhammer Fantasy Chaos champion to your custom army.",
-    "sha256": "8128d1d6f42f2e7ada59dcf6e5532b9d734854dceab8186e6c36444b1df60f3e",
+    "sha256": "7915398ad1c61ffb2b00e142a1262bf72ff94bf9f297090a36e5dacd1a04b13c",
     "changelog": [
+      {
+        "date": "28 October 2026",
+        "text": "Added Hero version and updated Unit version."
+      },
       {
         "date": "17 October 2026",
         "text": "Glowing eyes are now unshaded"
@@ -2823,7 +2724,502 @@
         "date": "11 October 2026",
         "text": "Fixed flail fire particles"
       }
-    ]
+    ],
+    "imageVersion": "20261028-khorne-hero-emitters",
+    "downloadPack": "downloads/khorne-champion.zip",
+    "captureFitAlpha": 200,
+    "captureSequence": "Stand",
+    "captureTime": 600
+  },
+  {
+    "id": "khorne-flail-unit",
+    "file": "WH_WOC_KnightKhorneFlailUnit03.mdx",
+    "name": "Knight of Khorne · Champion",
+    "army": "warriors-of-chaos",
+    "description": "I have never seen men fight like that...\r\n\r\nI barely made it out alive, this was no victory.\r\n\r\nStatues of brass, massive, twice the size of the biggest man I've ever seen and then some.\r\n\r\nWalking, not charging... advancing like a great wall made of brass and blood red steel.\r\n\r\nI saw men throw down their weapons crying, screaming...\r\n\r\nMen crawled beneath one another to get away...\r\n\r\nIt made no difference, there was nowhere to run.\r\n\r\nI watched a man split from shoulder to hip as he was trying to hide.\r\n\r\nAnother crushed into nothing I could recognize...\r\n\r\nMen were knocked down, trampled, hacked apart and still they kept hacking at the corpses.\r\n\r\nLike a butcher at the block, hacking away piece by piece.\r\n\r\nIt made no difference, we had to fight.\r\n\r\nThey even killed each other.\r\n\r\nThe ones we managed to injure or stagger fighting back became obstacles for the others,\r\n\r\nSo they simply cut through those to reach us faster.\r\n\r\nBut I think they knew they would die that day.\r\n\r\nI heard they razed ten cities before they reached us.\r\n\r\nThat they had come down from the north on a path of destruction.\r\n\r\nThat they had fought their way south for weeks leaving behind only blood and ash.\r\n\r\nBy the time they reached us they were outnumbered fifty to one.\r\n\r\nWe had heard of them coming.\r\n\r\nWe had heard what they had done.\r\n\r\nRivers of blood.\r\n\r\nBut It made no difference... I wanted to fight... to kill.\r\n\r\nThey did not run or beg.\r\n\r\nThey knew they were going to die, I think they wanted to.\r\n\r\nMy city has lost everything defeating them and they got what they came for.\r\n\r\nYou call this victory...?\r\n\r\nSomehow... I envy them.\r\n\r\nI have spent all my life afraid... Afraid of pain... regret... death...\r\n\r\nAfraid of fear.\r\n\r\nThose men were afraid of nothing.\r\n\r\nWanted nothing.\r\n\r\nKept nothing...\r\n\r\nBut it made no difference... I killed them too.\r\n\r\nNorth...\r\n\r\nThat is where they came from.\r\n\r\nThat is where I will go.",
+    "credits": "Model Base - Vile Knight by HerrDave / Further edited by Stein123\r\n\r\nFlail Animations - Knight, Bandit Lord & Riderless Horse by loktar\r\n\r\nBloodied Khorne Symbol - Blood Letter by Ironmaiden\r\n\r\nHelm 1 Base - Black Knight by Direfury\r\n\r\nHelm 2 Base - Advanced White Helm by Astaroth Zion\r\n\r\nHelm Horehair Crest - Blackorder Assassin by Rhapsodie\r\n\r\nFlail Knight Face - adapted from IronMaiden's Dawn of War Helms\r\n\r\nHelm Khorne Bunny Ears - adapted and reshaped from World Eaters Helm by Ironmaiden\r\n\r\nShield Base - Projected and shaped using the forge feature of MDLxL\r\n\r\nSkull Jaw - reshaped World of Warcraft: Legion - Drogbar asset\r\n\r\nKhorne Symbol - Adept of Khorne by WebSter\r\n\r\nAxe - Traitor Knightess by Greedy Martyrdom\r\n\r\nHorse head and tail - Headless Horseman by Johnwar\r\n\r\nFur Cloak - Chaos Warrior by Azazeron\r\n\r\nShoulders - Diablo_3_Barbarian_Shoulders by Forgotten_Warlord",
+    "geosets": [
+      {
+        "index": 0,
+        "vertices": 20,
+        "triangles": 16,
+        "material": 0,
+        "textures": [
+          "Textures\\RedDragon.blp"
+        ]
+      },
+      {
+        "index": 1,
+        "vertices": 36,
+        "triangles": 20,
+        "material": 1,
+        "textures": [
+          "Units\\Undead\\SkeletonMage\\SkeletonMage.blp"
+        ]
+      },
+      {
+        "index": 2,
+        "vertices": 52,
+        "triangles": 48,
+        "material": 2,
+        "textures": [
+          "UI\\Glues\\SinglePlayer\\HumanCampaign3D\\HumanCampaignFootman.blp"
+        ]
+      },
+      {
+        "index": 3,
+        "vertices": 974,
+        "triangles": 1190,
+        "material": 3,
+        "textures": [
+          "Textures\\UndeadAirBarge.blp"
+        ]
+      },
+      {
+        "index": 4,
+        "vertices": 124,
+        "triangles": 208,
+        "material": 4,
+        "textures": [
+          "Units\\Demon\\ChaosWarlord\\ChaosWarlord.blp"
+        ]
+      },
+      {
+        "index": 5,
+        "vertices": 22,
+        "triangles": 37,
+        "material": 5,
+        "textures": [
+          "Units\\Orc\\Spiritwolf\\FeralSpirit.blp"
+        ]
+      },
+      {
+        "index": 6,
+        "vertices": 110,
+        "triangles": 114,
+        "material": 6,
+        "textures": [
+          "Team colour / glow",
+          "Textures\\UndeadAirBarge.blp"
+        ]
+      },
+      {
+        "index": 7,
+        "vertices": 32,
+        "triangles": 16,
+        "material": 7,
+        "textures": [
+          "Textures\\OutlandDoodads.blp"
+        ]
+      },
+      {
+        "index": 8,
+        "vertices": 26,
+        "triangles": 36,
+        "material": 8,
+        "textures": [
+          "Team colour / glow",
+          "Doodads\\Cityscape\\Structures\\Cathedral\\Cathedral.blp"
+        ]
+      },
+      {
+        "index": 9,
+        "vertices": 62,
+        "triangles": 64,
+        "material": 9,
+        "textures": [
+          "Team colour / glow",
+          "Textures\\OutlandDoodads.blp"
+        ]
+      },
+      {
+        "index": 10,
+        "vertices": 36,
+        "triangles": 30,
+        "material": 10,
+        "textures": [
+          "Textures\\OutlandDoodads.blp"
+        ]
+      },
+      {
+        "index": 11,
+        "vertices": 18,
+        "triangles": 20,
+        "material": 11,
+        "textures": [
+          "Units\\Creeps\\Magnataur\\Magnataur.blp"
+        ]
+      },
+      {
+        "index": 12,
+        "vertices": 42,
+        "triangles": 26,
+        "material": 12,
+        "textures": [
+          "Textures\\OutlandDoodads.blp"
+        ]
+      },
+      {
+        "index": 13,
+        "vertices": 39,
+        "triangles": 66,
+        "material": 10,
+        "textures": [
+          "Textures\\OutlandDoodads.blp"
+        ]
+      },
+      {
+        "index": 14,
+        "vertices": 84,
+        "triangles": 68,
+        "material": 13,
+        "textures": [
+          "Team colour / glow",
+          "Textures\\chunktop.blp"
+        ]
+      },
+      {
+        "index": 15,
+        "vertices": 29,
+        "triangles": 44,
+        "material": 14,
+        "textures": [
+          "Team colour / glow",
+          "Units\\Creeps\\Revenant\\Revenant.blp"
+        ]
+      },
+      {
+        "index": 16,
+        "vertices": 32,
+        "triangles": 24,
+        "material": 15,
+        "textures": [
+          "Textures\\OrcBarraks.blp"
+        ]
+      },
+      {
+        "index": 17,
+        "vertices": 16,
+        "triangles": 24,
+        "material": 10,
+        "textures": [
+          "Textures\\OutlandDoodads.blp"
+        ]
+      },
+      {
+        "index": 18,
+        "vertices": 95,
+        "triangles": 144,
+        "material": 17,
+        "textures": [
+          "Team colour / glow",
+          "Buildings\\Human\\Blacksmith\\NewBlacksmith.blp"
+        ]
+      },
+      {
+        "index": 19,
+        "vertices": 8,
+        "triangles": 4,
+        "material": 18,
+        "textures": [
+          "Textures\\Red_Glow3.blp"
+        ]
+      },
+      {
+        "index": 20,
+        "vertices": 13,
+        "triangles": 12,
+        "material": 19,
+        "textures": [
+          "Textures\\OutlandDoodads.blp"
+        ]
+      },
+      {
+        "index": 21,
+        "vertices": 14,
+        "triangles": 10,
+        "material": 12,
+        "textures": [
+          "Textures\\OutlandDoodads.blp"
+        ]
+      },
+      {
+        "index": 22,
+        "vertices": 75,
+        "triangles": 76,
+        "material": 20,
+        "textures": [
+          "Textures\\TimberWolf.blp"
+        ]
+      },
+      {
+        "index": 23,
+        "vertices": 175,
+        "triangles": 336,
+        "material": 21,
+        "textures": [
+          "UI\\Glues\\SpriteLayers\\Expansion\\GlueScreen-Panel-MetalPieces-Expansion.blp"
+        ]
+      },
+      {
+        "index": 24,
+        "vertices": 19,
+        "triangles": 24,
+        "material": 22,
+        "textures": [
+          "Textures\\InfernalCannon.blp"
+        ]
+      },
+      {
+        "index": 25,
+        "vertices": 42,
+        "triangles": 56,
+        "material": 23,
+        "textures": [
+          "Textures\\Skeleton.blp"
+        ]
+      },
+      {
+        "index": 26,
+        "vertices": 59,
+        "triangles": 55,
+        "material": 24,
+        "textures": [
+          "Units\\Human\\HeroPaladinBoss\\HeropaladinBoss.blp"
+        ]
+      },
+      {
+        "index": 27,
+        "vertices": 35,
+        "triangles": 46,
+        "material": 25,
+        "textures": [
+          "Units\\Undead\\HeroDreadLord\\HeroDreadlord.blp"
+        ]
+      },
+      {
+        "index": 28,
+        "vertices": 6,
+        "triangles": 8,
+        "material": 26,
+        "textures": [
+          "Textures\\Knight.blp"
+        ]
+      },
+      {
+        "index": 29,
+        "vertices": 14,
+        "triangles": 16,
+        "material": 27,
+        "textures": [
+          "Units\\Creeps\\Kobold\\Kobold.blp"
+        ]
+      },
+      {
+        "index": 30,
+        "vertices": 92,
+        "triangles": 64,
+        "material": 28,
+        "textures": [
+          "Doodads\\Cinematic\\RunesOfGuldan\\RunesOfGuldan.blp"
+        ]
+      },
+      {
+        "index": 31,
+        "vertices": 251,
+        "triangles": 372,
+        "material": 16,
+        "textures": [
+          "Textures\\OutlandDoodads.blp"
+        ]
+      },
+      {
+        "index": 32,
+        "vertices": 4,
+        "triangles": 2,
+        "material": 29,
+        "textures": [
+          "Team colour / glow"
+        ]
+      },
+      {
+        "index": 33,
+        "vertices": 132,
+        "triangles": 128,
+        "material": 30,
+        "textures": [
+          "Textures\\gutz.blp"
+        ]
+      }
+    ],
+    "sequences": [
+      "Walk",
+      "Stand",
+      "Stand - 2",
+      "Attack - 1",
+      "Death",
+      "Decay Flesh",
+      "Stand Ready",
+      "Portrait - 1",
+      "Portrait Talk - 1",
+      "Attack - Slam",
+      "Decay Bone",
+      "Dissipate",
+      "Attack - 2"
+    ],
+    "bytes": 222420,
+    "portraitBackdropGeosets": [
+      32
+    ],
+    "authors": [
+      {
+        "name": "Unsanctioned Magic",
+        "url": "https://xgm.guru/user/UnsanctMagic"
+      },
+      {
+        "name": "Stein123",
+        "url": "https://www.hiveworkshop.com/members/stein123.196992/"
+      },
+      {
+        "name": "HerrDave",
+        "url": "https://www.hiveworkshop.com/members/herrdave.234820/"
+      }
+    ],
+    "creditLinks": [
+      {
+        "text": "Knight, Bandit Lord & Riderless Horse",
+        "url": "https://www.hiveworkshop.com/threads/knight-bandit-lord-riderless-horse-wc1-wc2.321079/"
+      },
+      {
+        "text": "Advanced White Helm",
+        "url": "https://www.hiveworkshop.com/threads/advanced-white-helm.216845/"
+      },
+      {
+        "text": "Blackorder Assassin",
+        "url": "https://www.hiveworkshop.com/threads/crimson-skull-heroes.333862/"
+      },
+      {
+        "text": "World Eaters Helm",
+        "url": "https://www.hiveworkshop.com/threads/world-eaters-helm.184360/"
+      },
+      {
+        "text": "Traitor Knightess",
+        "url": "https://www.hiveworkshop.com/threads/traitor-knightess.353153/"
+      },
+      {
+        "text": "Headless Horseman",
+        "url": "https://www.hiveworkshop.com/threads/headless-horseman.373679/"
+      },
+      {
+        "text": "World of Warcraft",
+        "url": "https://worldofwarcraft.blizzard.com/"
+      },
+      {
+        "text": "Dawn of War Helms",
+        "url": "https://wc3.ninja/models/2854360"
+      },
+      {
+        "text": "Greedy Martyrdom",
+        "url": "https://www.hiveworkshop.com/members/greedy-martyrdom.265154/"
+      },
+      {
+        "text": "Adept of Khorne",
+        "url": "https://xgm.guru/p/wc3/adept-of-khorne"
+      },
+      {
+        "text": "Astaroth Zion",
+        "url": "https://www.hiveworkshop.com/members/202681/"
+      },
+      {
+        "text": "Chaos Warrior",
+        "url": "https://www.hiveworkshop.com/threads/chaos-warrior.366159/"
+      },
+      {
+        "text": "Blood Letter",
+        "url": "https://xgm.guru/p/wc3/blood-letter"
+      },
+      {
+        "text": "Black Knight",
+        "url": "https://www.hiveworkshop.com/threads/bandit-enforcer-black-knight.272619/"
+      },
+      {
+        "text": "IronMaiden's",
+        "url": "https://www.hiveworkshop.com/members/ironmaiden.180550/"
+      },
+      {
+        "text": "Vile Knight",
+        "url": "https://www.hiveworkshop.com/threads/swan-knight-vile-knight.308843/"
+      },
+      {
+        "text": "Ironmaiden",
+        "url": "https://www.hiveworkshop.com/members/180550/"
+      },
+      {
+        "text": "Rhapsodie",
+        "url": "https://www.hiveworkshop.com/members/273952/"
+      },
+      {
+        "text": "Direfury",
+        "url": "https://www.hiveworkshop.com/members/direfury.188037/"
+      },
+      {
+        "text": "Stein123",
+        "url": "https://www.hiveworkshop.com/members/stein123.196992/"
+      },
+      {
+        "text": "HerrDave",
+        "url": "https://www.hiveworkshop.com/members/herrdave.234820/"
+      },
+      {
+        "text": "Azazeron",
+        "url": "https://www.hiveworkshop.com/members/azazeron.299156/"
+      },
+      {
+        "text": "WebSter",
+        "url": "https://xgm.guru/user/WebSter"
+      },
+      {
+        "text": "Johnwar",
+        "url": "https://www.hiveworkshop.com/members/johnwar.264426/"
+      },
+      {
+        "text": "loktar",
+        "url": "https://www.hiveworkshop.com/members/115150/"
+      },
+      {
+        "text": "MDLxL",
+        "url": "https://www.lowpolyworks.com/mdlxl/"
+      },
+      {
+        "text": "Diablo_3_Barbarian_Shoulders",
+        "url": "https://www.hiveworkshop.com/threads/diablo_3_barbarian_shoulders-by-forgotten_warlord.157993/"
+      },
+      {
+        "text": "Forgotten_Warlord",
+        "url": "https://www.hiveworkshop.com/members/forgotten_warlord.182381/"
+      }
+    ],
+    "searchDescription": "Preview and download the Knight of Khorne Champion model for Warcraft 3. Add a Warhammer Fantasy Chaos champion to your custom army.",
+    "sha256": "0cf0c041cb45997622e068f6632556d537832d737d0ecc25671df65ab7ccbf51",
+    "changelog": [
+      {
+        "date": "28 October 2026",
+        "text": "Added Hero version and updated Unit version."
+      },
+      {
+        "date": "17 October 2026",
+        "text": "Glowing eyes are now unshaded"
+      },
+      {
+        "date": "11 October 2026",
+        "text": "Fixed flail fire particles"
+      }
+    ],
+    "imageVersion": "20261028-khorne-unit-emitters",
+    "downloadPack": "downloads/khorne-champion.zip",
+    "captureFitAlpha": 200,
+    "captureSequence": "Stand",
+    "captureTime": 600
   },
   {
     "id": "nurgle-heavy",
@@ -3369,7 +3765,7 @@
     ],
     "formationSequence": "Stand Ready",
     "searchDescription": "Preview and download the heavy variant of the Knight of Nurgle model for Warcraft 3. A plague-themed Warhammer Fantasy knight for your Warriors of Chaos army.",
-    "sha256": "f6e05ff77be054ca901e59acaa738f7beae27f56100f3490a1fa06a31c3e0a34",
+    "sha256": "37e049d18bc67ce36f474189afddff4b5ff8d25e9854e5ef6656d36e4b5a97fc",
     "downloadPack": "downloads/knight-of-nurgle.zip",
     "changelog": [
       {
@@ -3818,7 +4214,7 @@
     ],
     "formationSequence": "Stand Ready",
     "searchDescription": "Preview and download the Knight of Nurgle model for Warcraft 3. A plague-themed Warhammer Fantasy knight for your Warriors of Chaos army.",
-    "sha256": "bf6098bd6bd200e3c10d25576147f041a33f334ec3669779af4d81b6dd15ecca",
+    "sha256": "735001cce9e3695aab2d07a49d8ed55ff1c4825f4d1d9dda62afea7907558754",
     "downloadPack": "downloads/knight-of-nurgle.zip",
     "changelog": [
       {
@@ -3836,432 +4232,8 @@
     ]
   },
   {
-    "id": "nurgle",
-    "file": "WH_WOC_KnightNurgle14.mdx",
-    "name": "Old Version",
-    "army": "warriors-of-chaos",
-    "description": "There are many strange places to end up in the Old World...\r\n\r\nSome would claim the strangest is tucked within the comforting embrace of the Urfather.\r\n\r\nBut why? What could drive mortal men to seek out something so wrong?\r\n\r\nTell me, what would a knight who has lost his family to war continue fighting for? What is left to endure for those whose martial strength proved meaningless against the plights of life?\r\n\r\nThe strongest men are not broken with swords... I can tell you that much.\r\n\r\nIt is there, in those dark corners of the mind you will hear him whisper to you.\r\n\r\nHis embrace, his promises...\r\n\r\nNo more restless nights. No more seeing faces long buried. No more graves to dig... no more watching those you once loved fade and turn to dust... no more fearing the years that seem to pass faster and faster.\r\n\r\nHe would take all the pain away.\r\n\r\nHe would tuck those memories gently to sleep, still the passing of time, and silence every wound that steel could never mend...\r\n\r\nSuch a watchful father.\r\n\r\nA good father.\r\n\r\nHe does keep his promises.\r\n\r\nThe pain fades...\r\n\r\nThen the feelings.\r\n\r\nThen the memories.\r\n\r\nThen flesh swells, old wounds open and blossom yet ache no more, flies gather beneath a rusted visor and the body slowly rots... but somehow refuses to die.\r\n\r\nBut from that warm, rotten embrace do those knights rise once again...\r\n\r\nPerhaps to you they are disgusting abominations, bringers of death and decay, swollen, corpse-like and clad in rusted steel.\r\n\r\nBut in truth?\r\n\r\nThey have purpose.\r\n\r\nThey are at peace.\r\n\r\nThey are happy.\r\n\r\nAre you?...",
-    "credits": "Model Base - Vile Knight by HerrDave /  Nurgle Knight by Stein123\r\n\r\nHelm - Bandit Enforcer by Johnwar\r\n\r\nHorns - Dire Maul Stone Deer Statue - WoW model\r\n\r\nFace/Shield Face/Tongue - Ghoul Re-Classic and Abomination Re-Classic by johnwar\r\n\r\nHorse head and tail - Headless Horseman by Johnwar\r\n\r\nFur Cloak - Chaos Warrior by Azazeron\r\n\r\nScythe Top  - Reaper Ghost by Cinos",
-    "geosets": [
-      {
-        "index": 0,
-        "vertices": 60,
-        "triangles": 48,
-        "material": 0,
-        "textures": [
-          "Textures\\SkeletonArcher.blp"
-        ]
-      },
-      {
-        "index": 1,
-        "vertices": 132,
-        "triangles": 128,
-        "material": 1,
-        "textures": [
-          "Textures\\gutz.blp"
-        ]
-      },
-      {
-        "index": 2,
-        "vertices": 4,
-        "triangles": 2,
-        "material": 2,
-        "textures": [
-          "Team colour / glow"
-        ]
-      },
-      {
-        "index": 3,
-        "vertices": 98,
-        "triangles": 102,
-        "material": 3,
-        "textures": [
-          "Textures\\GiantSeaTurtle.blp"
-        ]
-      },
-      {
-        "index": 4,
-        "vertices": 36,
-        "triangles": 20,
-        "material": 4,
-        "textures": [
-          "Textures\\IronRaven.blp"
-        ]
-      },
-      {
-        "index": 5,
-        "vertices": 64,
-        "triangles": 60,
-        "material": 5,
-        "textures": [
-          "Team colour / glow",
-          "Units\\Critters\\Marine\\SpaceMarine.blp"
-        ]
-      },
-      {
-        "index": 6,
-        "vertices": 44,
-        "triangles": 48,
-        "material": 6,
-        "textures": [
-          "Units\\Creeps\\MagnataurBrown\\BrownMagnataur.blp"
-        ]
-      },
-      {
-        "index": 7,
-        "vertices": 33,
-        "triangles": 35,
-        "material": 7,
-        "textures": [
-          "Textures\\furboots2.blp"
-        ]
-      },
-      {
-        "index": 8,
-        "vertices": 96,
-        "triangles": 80,
-        "material": 8,
-        "textures": [
-          "Textures\\InfernalCannon.blp"
-        ]
-      },
-      {
-        "index": 9,
-        "vertices": 130,
-        "triangles": 208,
-        "material": 9,
-        "textures": [
-          "Units\\Demon\\ChaosWarlord\\ChaosWarlord.blp"
-        ]
-      },
-      {
-        "index": 10,
-        "vertices": 22,
-        "triangles": 37,
-        "material": 10,
-        "textures": [
-          "Units\\Orc\\Spiritwolf\\FeralSpirit.blp"
-        ]
-      },
-      {
-        "index": 11,
-        "vertices": 6,
-        "triangles": 4,
-        "material": 11,
-        "textures": [
-          "Team colour / glow",
-          "Textures\\InfernalCannon.blp"
-        ]
-      },
-      {
-        "index": 12,
-        "vertices": 32,
-        "triangles": 16,
-        "material": 12,
-        "textures": [
-          "Textures\\gnoll.blp"
-        ]
-      },
-      {
-        "index": 13,
-        "vertices": 49,
-        "triangles": 48,
-        "material": 13,
-        "textures": [
-          "Textures\\InfernalCannon.blp"
-        ]
-      },
-      {
-        "index": 14,
-        "vertices": 55,
-        "triangles": 64,
-        "material": 14,
-        "textures": [
-          "units\\Undead\\Ghoul\\Ghoul.blp"
-        ]
-      },
-      {
-        "index": 15,
-        "vertices": 60,
-        "triangles": 108,
-        "material": 0,
-        "textures": [
-          "Textures\\SkeletonArcher.blp"
-        ]
-      },
-      {
-        "index": 16,
-        "vertices": 183,
-        "triangles": 205,
-        "material": 15,
-        "textures": [
-          "UI\\Glues\\SinglePlayer\\OrcCampaign3D\\CampaignOrc.blp"
-        ]
-      },
-      {
-        "index": 17,
-        "vertices": 7,
-        "triangles": 6,
-        "material": 16,
-        "textures": [
-          "units\\Undead\\Ghoul\\Ghoul.blp"
-        ]
-      },
-      {
-        "index": 18,
-        "vertices": 216,
-        "triangles": 246,
-        "material": 17,
-        "textures": [
-          "Textures\\HeroBladeMaster.blp"
-        ]
-      },
-      {
-        "index": 19,
-        "vertices": 114,
-        "triangles": 109,
-        "material": 18,
-        "textures": [
-          "Buildings\\Undead\\TombOfRelics\\TombOfRelics.blp"
-        ]
-      },
-      {
-        "index": 20,
-        "vertices": 92,
-        "triangles": 66,
-        "material": 11,
-        "textures": [
-          "Team colour / glow",
-          "Textures\\InfernalCannon.blp"
-        ]
-      },
-      {
-        "index": 21,
-        "vertices": 8,
-        "triangles": 13,
-        "material": 19,
-        "textures": [
-          "Team colour / glow",
-          "Textures\\Garrison.blp"
-        ]
-      },
-      {
-        "index": 22,
-        "vertices": 15,
-        "triangles": 26,
-        "material": 18,
-        "textures": [
-          "Buildings\\Undead\\TombOfRelics\\TombOfRelics.blp"
-        ]
-      },
-      {
-        "index": 23,
-        "vertices": 36,
-        "triangles": 30,
-        "material": 20,
-        "textures": [
-          "Units\\Human\\HeroPaladinBoss2\\HeropaladinBoss2.blp"
-        ]
-      },
-      {
-        "index": 24,
-        "vertices": 112,
-        "triangles": 112,
-        "material": 21,
-        "textures": [
-          "Textures\\BloodSplash.blp",
-          "UI\\Glues\\SinglePlayer\\OrcCampaign3D\\CampaignOrc.blp"
-        ]
-      },
-      {
-        "index": 25,
-        "vertices": 135,
-        "triangles": 204,
-        "material": 22,
-        "textures": [
-          "Team colour / glow",
-          "Units\\Creeps\\HeroTinker\\HeroTinkerTank.blp"
-        ]
-      },
-      {
-        "index": 26,
-        "vertices": 9,
-        "triangles": 8,
-        "material": 14,
-        "textures": [
-          "units\\Undead\\Ghoul\\Ghoul.blp"
-        ]
-      },
-      {
-        "index": 27,
-        "vertices": 120,
-        "triangles": 133,
-        "material": 23,
-        "textures": [
-          "UI\\Glues\\SinglePlayer\\UndeadCampaign3D\\GhoulSkinWhitehands.blp"
-        ]
-      },
-      {
-        "index": 28,
-        "vertices": 61,
-        "triangles": 86,
-        "material": 24,
-        "textures": [
-          "ReplaceableTextures\\AshenvaleTree\\FelwoodTreeBlight.blp"
-        ]
-      },
-      {
-        "index": 29,
-        "vertices": 27,
-        "triangles": 44,
-        "material": 25,
-        "textures": [
-          "Textures\\Abomination.blp"
-        ]
-      },
-      {
-        "index": 30,
-        "vertices": 34,
-        "triangles": 56,
-        "material": 26,
-        "textures": [
-          "Textures\\Skeleton.blp"
-        ]
-      },
-      {
-        "index": 31,
-        "vertices": 96,
-        "triangles": 90,
-        "material": 5,
-        "textures": [
-          "Team colour / glow",
-          "Units\\Critters\\Marine\\SpaceMarine.blp"
-        ]
-      },
-      {
-        "index": 32,
-        "vertices": 62,
-        "triangles": 64,
-        "material": 11,
-        "textures": [
-          "Team colour / glow",
-          "Textures\\InfernalCannon.blp"
-        ]
-      },
-      {
-        "index": 33,
-        "vertices": 24,
-        "triangles": 18,
-        "material": 13,
-        "textures": [
-          "Textures\\InfernalCannon.blp"
-        ]
-      },
-      {
-        "index": 34,
-        "vertices": 12,
-        "triangles": 8,
-        "material": 19,
-        "textures": [
-          "Team colour / glow",
-          "Textures\\Garrison.blp"
-        ]
-      }
-    ],
-    "sequences": [
-      "Walk",
-      "Stand - 1",
-      "Stand - 2",
-      "Attack - 1",
-      "Death",
-      "Decay Flesh",
-      "Stand Ready",
-      "Portrait - 1",
-      "Portrait Talk - 1",
-      "Spell",
-      "Decay Bone",
-      "Dissipate",
-      "Attack - 2"
-    ],
-    "bytes": 208218,
-    "portraitBackdropGeosets": [
-      2
-    ],
-    "authors": [
-      {
-        "name": "Unsanctioned Magic",
-        "url": "https://xgm.guru/user/UnsanctMagic"
-      },
-      {
-        "name": "Stein123",
-        "url": "https://www.hiveworkshop.com/members/stein123.196992/"
-      },
-      {
-        "name": "HerrDave",
-        "url": "https://www.hiveworkshop.com/members/herrdave.234820/"
-      }
-    ],
-    "creditLinks": [
-      {
-        "text": "Abomination Re-Classic",
-        "url": "https://www.hiveworkshop.com/threads/abomination-re-classic.357166/"
-      },
-      {
-        "text": "Headless Horseman",
-        "url": "https://www.hiveworkshop.com/threads/headless-horseman.373679/"
-      },
-      {
-        "text": "Ghoul Re-Classic",
-        "url": "https://www.hiveworkshop.com/threads/ghoul-re-classic.357165/"
-      },
-      {
-        "text": "Bandit Enforcer",
-        "url": "https://www.hiveworkshop.com/threads/bandit-enforcer-re-classic.336169/"
-      },
-      {
-        "text": "Chaos Warrior",
-        "url": "https://www.hiveworkshop.com/threads/chaos-warrior.366159/"
-      },
-      {
-        "text": "Reaper Ghost",
-        "url": "https://xgm.guru/p/wc3/reaper-ghost"
-      },
-      {
-        "text": "Vile Knight",
-        "url": "https://www.hiveworkshop.com/threads/swan-knight-vile-knight.308843/"
-      },
-      {
-        "text": "Stein123",
-        "url": "https://www.hiveworkshop.com/members/stein123.196992/"
-      },
-      {
-        "text": "HerrDave",
-        "url": "https://www.hiveworkshop.com/members/herrdave.234820/"
-      },
-      {
-        "text": "Azazeron",
-        "url": "https://www.hiveworkshop.com/members/azazeron.299156/"
-      },
-      {
-        "text": "Johnwar",
-        "url": "https://www.hiveworkshop.com/members/johnwar.264426/"
-      },
-      {
-        "text": "Cinos",
-        "url": "https://xgm.guru/user/Cinos"
-      },
-      {
-        "text": "WoW",
-        "url": "https://worldofwarcraft.blizzard.com/"
-      }
-    ],
-    "formationSequence": "Stand Ready",
-    "searchDescription": "Preview and download the Old Version of the Knight of Nurgle model for Warcraft 3.",
-    "downloadPack": "downloads/knight-of-nurgle.zip"
-  },
-  {
     "id": "nurgle-champion",
-    "file": "WH_WOC_KnightNurgleChampion06.mdx",
+    "file": "WH_WOC_KnightNurgleChampionHero01.mdx",
     "name": "Knight of Nurgle · Champion",
     "army": "warriors-of-chaos",
     "description": "There are many strange places to end up in the Old World...\r\n\r\nSome would claim the strangest is tucked within the comforting embrace of the Urfather.\r\n\r\nBut why? What could drive mortal men to seek out something so wrong?\r\n\r\nTell me, what would a knight who has lost his family to war continue fighting for? What is left to endure for those whose martial strength proved meaningless against the plights of life?\r\n\r\nThe strongest men are not broken with swords... I can tell you that much.\r\n\r\nIt is there, in those dark corners of the mind you will hear him whisper to you.\r\n\r\nHis embrace, his promises...\r\n\r\nNo more restless nights. No more seeing faces long buried. No more graves to dig... no more watching those you once loved fade and turn to dust... no more fearing the years that seem to pass faster and faster.\r\n\r\nHe would take all the pain away.\r\n\r\nHe would tuck those memories gently to sleep, still the passing of time, and silence every wound that steel could never mend...\r\n\r\nSuch a watchful father.\r\n\r\nA good father.\r\n\r\nHe does keep his promises.\r\n\r\nThe pain fades...\r\n\r\nThen the feelings.\r\n\r\nThen the memories.\r\n\r\nThen flesh swells, old wounds open and blossom yet ache no more, flies gather beneath a rusted visor and the body slowly rots... but somehow refuses to die.\r\n\r\nBut from that warm, rotten embrace do those knights rise once again...\r\n\r\nPerhaps to you they are disgusting abominations, bringers of death and decay, swollen, corpse-like and clad in rusted steel.\r\n\r\nBut in truth?\r\n\r\nThey have purpose.\r\n\r\nThey are at peace.\r\n\r\nThey are happy.\r\n\r\nAre you?...",
@@ -4415,8 +4387,8 @@
       },
       {
         "index": 16,
-        "vertices": 13,
-        "triangles": 12,
+        "vertices": 35,
+        "triangles": 48,
         "material": 16,
         "textures": [
           "UI\\Glues\\SinglePlayer\\HumanCampaign3D\\HumanCampaignFootman.blp"
@@ -4562,128 +4534,129 @@
       },
       {
         "index": 32,
-        "vertices": 42,
-        "triangles": 36,
-        "material": 29,
-        "textures": [
-          "TerrainArt\\Felwood\\Felwood_Poison.blp"
-        ]
-      },
-      {
-        "index": 33,
         "vertices": 12,
         "triangles": 12,
-        "material": 30,
+        "material": 29,
         "textures": [
           "Units\\Undead\\CryptFiend\\CryptFiend.blp"
         ]
       },
       {
-        "index": 34,
+        "index": 33,
         "vertices": 62,
         "triangles": 60,
-        "material": 31,
+        "material": 30,
         "textures": [
           "UI\\Glues\\BattleNet\\BattlenetLoginGlue\\Battlenet-Login-LeftDoor04.blp"
         ]
       },
       {
-        "index": 35,
-        "vertices": 67,
-        "triangles": 76,
-        "material": 32,
+        "index": 34,
+        "vertices": 109,
+        "triangles": 112,
+        "material": 31,
         "textures": [
           "TerrainArt\\Felwood\\Felwood_Poison.blp"
         ]
       },
       {
-        "index": 36,
+        "index": 35,
         "vertices": 64,
         "triangles": 72,
-        "material": 33,
+        "material": 32,
         "textures": [
           "Textures\\SlaughterHouse.blp"
         ]
       },
       {
-        "index": 37,
+        "index": 36,
         "vertices": 89,
         "triangles": 90,
-        "material": 34,
+        "material": 33,
         "textures": [
           "Textures\\DarkPortal03.blp"
         ]
       },
       {
-        "index": 38,
+        "index": 37,
         "vertices": 64,
         "triangles": 60,
-        "material": 35,
+        "material": 34,
         "textures": [
           "Textures\\UndeadTransportShip.blp"
         ]
       },
       {
-        "index": 39,
+        "index": 38,
         "vertices": 184,
         "triangles": 136,
-        "material": 36,
+        "material": 35,
         "textures": [
           "TerrainArt\\Felwood\\Felwood_Poison.blp"
         ]
       },
       {
-        "index": 40,
+        "index": 39,
         "vertices": 99,
         "triangles": 156,
-        "material": 37,
+        "material": 36,
         "textures": [
           "Units\\Undead\\Skeleton\\Skeleton.blp"
         ]
       },
       {
-        "index": 41,
+        "index": 40,
         "vertices": 38,
         "triangles": 48,
-        "material": 38,
+        "material": 37,
         "textures": [
           "UI\\Glues\\SinglePlayer\\UndeadCampaign3D\\GhoulSkinWhitehands.blp"
         ]
       },
       {
-        "index": 42,
+        "index": 41,
         "vertices": 242,
         "triangles": 252,
-        "material": 39,
+        "material": 38,
         "textures": [
           "Buildings\\Human\\HumanTower\\Tower.blp"
         ]
       },
       {
-        "index": 43,
+        "index": 42,
         "vertices": 8,
         "triangles": 4,
-        "material": 40,
+        "material": 39,
         "textures": [
+          "Doodads\\Cinematic\\GlowingRunes\\GLowColors.blp",
           "Doodads\\Cinematic\\GlowingRunes\\GLowColors.blp"
         ]
       },
       {
-        "index": 44,
+        "index": 43,
         "vertices": 75,
         "triangles": 76,
-        "material": 41,
+        "material": 40,
         "textures": [
           "Textures\\TimberWolf.blp"
         ]
       },
       {
+        "index": 44,
+        "vertices": 12,
+        "triangles": 6,
+        "material": 41,
+        "textures": [
+          "Team colour / glow"
+        ]
+      },
+      {
         "index": 45,
-        "vertices": 22,
-        "triangles": 36,
+        "vertices": 20,
+        "triangles": 10,
         "material": 42,
         "textures": [
-          "UI\\Glues\\SinglePlayer\\HumanCampaign3D\\HumanCampaignFootman.blp"
+          "Team colour / glow"
         ]
       }
     ],
@@ -4703,7 +4676,7 @@
       "Attack - 2",
       "Attack Slam"
     ],
-    "bytes": 241783,
+    "bytes": 243971,
     "portraitBackdropGeosets": [
       2
     ],
@@ -4805,10 +4778,14 @@
     ],
     "formationSequence": "Attack Slam",
     "searchDescription": "Preview and download the Knight of Nurgle · Champion model for Warcraft 3. Add a plague-themed Warhammer Fantasy champion to your Warriors of Chaos army.",
-    "sha256": "8222b4370cc853861837e926157149734250bcad90a63c15377dc4e618ccfa19",
+    "sha256": "29d2902599b8c47965e8f83470789cdfca9a2fc795319b2d0b673777823f83c5",
     "formationTime": 815,
     "formationBodyHeight": 1,
     "changelog": [
+      {
+        "date": "28 October 2026",
+        "text": "Added Hero version and updated Unit version."
+      },
       {
         "date": "18 October 2026",
         "text": "Fix: stitched open shield arm elbow."
@@ -4821,7 +4798,546 @@
         "date": "12 October 2026",
         "text": "Fixed normals and weapon"
       }
-    ]
+    ],
+    "imageVersion": "20261028-champions-order",
+    "downloadPack": "downloads/nurgle-champion.zip",
+    "captureFitAlpha": 200
+  },
+  {
+    "id": "nurgle-champion-unit",
+    "file": "WH_WOC_KnightNurgleChampionUnit07.mdx",
+    "name": "Knight of Nurgle · Champion",
+    "army": "warriors-of-chaos",
+    "description": "There are many strange places to end up in the Old World...\r\n\r\nSome would claim the strangest is tucked within the comforting embrace of the Urfather.\r\n\r\nBut why? What could drive mortal men to seek out something so wrong?\r\n\r\nTell me, what would a knight who has lost his family to war continue fighting for? What is left to endure for those whose martial strength proved meaningless against the plights of life?\r\n\r\nThe strongest men are not broken with swords... I can tell you that much.\r\n\r\nIt is there, in those dark corners of the mind you will hear him whisper to you.\r\n\r\nHis embrace, his promises...\r\n\r\nNo more restless nights. No more seeing faces long buried. No more graves to dig... no more watching those you once loved fade and turn to dust... no more fearing the years that seem to pass faster and faster.\r\n\r\nHe would take all the pain away.\r\n\r\nHe would tuck those memories gently to sleep, still the passing of time, and silence every wound that steel could never mend...\r\n\r\nSuch a watchful father.\r\n\r\nA good father.\r\n\r\nHe does keep his promises.\r\n\r\nThe pain fades...\r\n\r\nThen the feelings.\r\n\r\nThen the memories.\r\n\r\nThen flesh swells, old wounds open and blossom yet ache no more, flies gather beneath a rusted visor and the body slowly rots... but somehow refuses to die.\r\n\r\nBut from that warm, rotten embrace do those knights rise once again...\r\n\r\nPerhaps to you they are disgusting abominations, bringers of death and decay, swollen, corpse-like and clad in rusted steel.\r\n\r\nBut in truth?\r\n\r\nThey have purpose.\r\n\r\nThey are at peace.\r\n\r\nThey are happy.\r\n\r\nAre you?...",
+    "credits": "Model Base - Vile Knight by HerrDave /  Nurgle Knight by Stein123\r\n\r\nHelm - Gladiator's Helmet by Deolrin / Bandit Enforcer by Johnwar\r\n\r\nHelm Horns - Goats by bakr\r\n\r\nHorns - Dire Maul Stone Deer Statue - WoW model\r\n\r\nFace/Shield Face/Tongue - Ghoul Re-Classic and Abomination Re-Classic by johnwar\r\n\r\nHorse head and tail - Headless Horseman by Johnwar\r\n\r\nFur Cloak - Chaos Warrior by Azazeron\r\n\r\nAxe Blade - Igneous Cleaver by Solu9 / Further edited by Epimetheus\r\n\r\nWeapon Shaft - Orcish Staff by Sunchips",
+    "geosets": [
+      {
+        "index": 0,
+        "vertices": 40,
+        "triangles": 32,
+        "material": 0,
+        "textures": [
+          "Textures\\SkeletonArcher.blp"
+        ]
+      },
+      {
+        "index": 1,
+        "vertices": 132,
+        "triangles": 128,
+        "material": 1,
+        "textures": [
+          "Textures\\gutz.blp"
+        ]
+      },
+      {
+        "index": 2,
+        "vertices": 4,
+        "triangles": 2,
+        "material": 2,
+        "textures": [
+          "Team colour / glow"
+        ]
+      },
+      {
+        "index": 3,
+        "vertices": 66,
+        "triangles": 76,
+        "material": 3,
+        "textures": [
+          "Buildings\\Demon\\CorruptedAncientProtector\\CorruptedAncientProtector.blp"
+        ]
+      },
+      {
+        "index": 4,
+        "vertices": 36,
+        "triangles": 20,
+        "material": 4,
+        "textures": [
+          "Buildings\\Undead\\UndeadShipyard\\UndeadShipyard.blp"
+        ]
+      },
+      {
+        "index": 5,
+        "vertices": 54,
+        "triangles": 60,
+        "material": 5,
+        "textures": [
+          "Team colour / glow",
+          "Units\\Critters\\Marine\\SpaceMarine.blp"
+        ]
+      },
+      {
+        "index": 6,
+        "vertices": 18,
+        "triangles": 20,
+        "material": 6,
+        "textures": [
+          "Units\\Undead\\SkeletonMage\\SkeletonMage.blp"
+        ]
+      },
+      {
+        "index": 7,
+        "vertices": 40,
+        "triangles": 44,
+        "material": 7,
+        "textures": [
+          "UI\\Glues\\SinglePlayer\\HumanCampaign3D\\HumanCampaignFootman.blp"
+        ]
+      },
+      {
+        "index": 8,
+        "vertices": 72,
+        "triangles": 60,
+        "material": 8,
+        "textures": [
+          "Textures\\InfernalCannon.blp"
+        ]
+      },
+      {
+        "index": 9,
+        "vertices": 124,
+        "triangles": 208,
+        "material": 9,
+        "textures": [
+          "Units\\Demon\\ChaosWarlord\\ChaosWarlord.blp"
+        ]
+      },
+      {
+        "index": 10,
+        "vertices": 22,
+        "triangles": 37,
+        "material": 10,
+        "textures": [
+          "Units\\Orc\\Spiritwolf\\FeralSpirit.blp"
+        ]
+      },
+      {
+        "index": 11,
+        "vertices": 6,
+        "triangles": 4,
+        "material": 11,
+        "textures": [
+          "Team colour / glow",
+          "Textures\\InfernalCannon.blp"
+        ]
+      },
+      {
+        "index": 12,
+        "vertices": 32,
+        "triangles": 16,
+        "material": 12,
+        "textures": [
+          "Textures\\gnoll.blp"
+        ]
+      },
+      {
+        "index": 13,
+        "vertices": 98,
+        "triangles": 124,
+        "material": 13,
+        "textures": [
+          "UI\\Glues\\SinglePlayer\\OrcCampaign3D\\CampaignOrc.blp"
+        ]
+      },
+      {
+        "index": 14,
+        "vertices": 160,
+        "triangles": 191,
+        "material": 14,
+        "textures": [
+          "Textures\\HeroBladeMaster.blp"
+        ]
+      },
+      {
+        "index": 15,
+        "vertices": 31,
+        "triangles": 30,
+        "material": 15,
+        "textures": [
+          "Units\\Human\\HeroPaladinBoss2\\HeropaladinBoss2.blp"
+        ]
+      },
+      {
+        "index": 16,
+        "vertices": 35,
+        "triangles": 48,
+        "material": 16,
+        "textures": [
+          "UI\\Glues\\SinglePlayer\\HumanCampaign3D\\HumanCampaignFootman.blp"
+        ]
+      },
+      {
+        "index": 17,
+        "vertices": 135,
+        "triangles": 204,
+        "material": 17,
+        "textures": [
+          "Team colour / glow",
+          "Units\\Creeps\\HeroTinker\\HeroTinkerTank.blp"
+        ]
+      },
+      {
+        "index": 18,
+        "vertices": 9,
+        "triangles": 8,
+        "material": 18,
+        "textures": [
+          "units\\Undead\\Ghoul\\Ghoul.blp"
+        ]
+      },
+      {
+        "index": 19,
+        "vertices": 120,
+        "triangles": 133,
+        "material": 19,
+        "textures": [
+          "UI\\Glues\\SinglePlayer\\UndeadCampaign3D\\GhoulSkinWhitehands.blp"
+        ]
+      },
+      {
+        "index": 20,
+        "vertices": 61,
+        "triangles": 86,
+        "material": 20,
+        "textures": [
+          "ReplaceableTextures\\AshenvaleTree\\FelwoodTreeBlight.blp"
+        ]
+      },
+      {
+        "index": 21,
+        "vertices": 27,
+        "triangles": 44,
+        "material": 21,
+        "textures": [
+          "Textures\\Abomination.blp"
+        ]
+      },
+      {
+        "index": 22,
+        "vertices": 34,
+        "triangles": 56,
+        "material": 22,
+        "textures": [
+          "Textures\\Skeleton.blp"
+        ]
+      },
+      {
+        "index": 23,
+        "vertices": 81,
+        "triangles": 90,
+        "material": 5,
+        "textures": [
+          "Team colour / glow",
+          "Units\\Critters\\Marine\\SpaceMarine.blp"
+        ]
+      },
+      {
+        "index": 24,
+        "vertices": 85,
+        "triangles": 98,
+        "material": 23,
+        "textures": [
+          "Team colour / glow",
+          "Units\\Demon\\Mannoroth\\Mannoroth.blp"
+        ]
+      },
+      {
+        "index": 25,
+        "vertices": 30,
+        "triangles": 35,
+        "material": 25,
+        "textures": [
+          "Units\\Creeps\\RevenantOfTheWaves\\RevenantOfThe Waves.blp"
+        ]
+      },
+      {
+        "index": 26,
+        "vertices": 36,
+        "triangles": 20,
+        "material": 26,
+        "textures": [
+          "Buildings\\NightElf\\AncientofWar\\AncientOfWar1.blp"
+        ]
+      },
+      {
+        "index": 27,
+        "vertices": 34,
+        "triangles": 34,
+        "material": 27,
+        "textures": [
+          "Textures\\UndeadAirBarge.blp"
+        ]
+      },
+      {
+        "index": 28,
+        "vertices": 85,
+        "triangles": 74,
+        "material": 24,
+        "textures": [
+          "Units\\Demon\\Mannoroth\\Mannoroth.blp"
+        ]
+      },
+      {
+        "index": 29,
+        "vertices": 48,
+        "triangles": 24,
+        "material": 28,
+        "textures": [
+          "Textures\\GlueScreen-Panel-MetalPieces.blp"
+        ]
+      },
+      {
+        "index": 30,
+        "vertices": 12,
+        "triangles": 12,
+        "material": 29,
+        "textures": [
+          "Units\\Undead\\CryptFiend\\CryptFiend.blp"
+        ]
+      },
+      {
+        "index": 31,
+        "vertices": 62,
+        "triangles": 60,
+        "material": 30,
+        "textures": [
+          "UI\\Glues\\BattleNet\\BattlenetLoginGlue\\Battlenet-Login-LeftDoor04.blp"
+        ]
+      },
+      {
+        "index": 32,
+        "vertices": 109,
+        "triangles": 112,
+        "material": 31,
+        "textures": [
+          "TerrainArt\\Felwood\\Felwood_Poison.blp"
+        ]
+      },
+      {
+        "index": 33,
+        "vertices": 64,
+        "triangles": 72,
+        "material": 32,
+        "textures": [
+          "Textures\\SlaughterHouse.blp"
+        ]
+      },
+      {
+        "index": 34,
+        "vertices": 89,
+        "triangles": 90,
+        "material": 33,
+        "textures": [
+          "Textures\\DarkPortal03.blp"
+        ]
+      },
+      {
+        "index": 35,
+        "vertices": 64,
+        "triangles": 60,
+        "material": 34,
+        "textures": [
+          "Textures\\UndeadTransportShip.blp"
+        ]
+      },
+      {
+        "index": 36,
+        "vertices": 184,
+        "triangles": 136,
+        "material": 35,
+        "textures": [
+          "TerrainArt\\Felwood\\Felwood_Poison.blp"
+        ]
+      },
+      {
+        "index": 37,
+        "vertices": 99,
+        "triangles": 156,
+        "material": 36,
+        "textures": [
+          "Units\\Undead\\Skeleton\\Skeleton.blp"
+        ]
+      },
+      {
+        "index": 38,
+        "vertices": 38,
+        "triangles": 48,
+        "material": 37,
+        "textures": [
+          "UI\\Glues\\SinglePlayer\\UndeadCampaign3D\\GhoulSkinWhitehands.blp"
+        ]
+      },
+      {
+        "index": 39,
+        "vertices": 242,
+        "triangles": 252,
+        "material": 38,
+        "textures": [
+          "Buildings\\Human\\HumanTower\\Tower.blp"
+        ]
+      },
+      {
+        "index": 40,
+        "vertices": 8,
+        "triangles": 4,
+        "material": 39,
+        "textures": [
+          "Doodads\\Cinematic\\GlowingRunes\\GLowColors.blp",
+          "Doodads\\Cinematic\\GlowingRunes\\GLowColors.blp"
+        ]
+      },
+      {
+        "index": 41,
+        "vertices": 75,
+        "triangles": 76,
+        "material": 40,
+        "textures": [
+          "Textures\\TimberWolf.blp"
+        ]
+      }
+    ],
+    "sequences": [
+      "Walk",
+      "Stand - 1",
+      "Stand - 2",
+      "Attack - 1",
+      "Death",
+      "Decay Flesh",
+      "Stand Ready",
+      "Portrait - 1",
+      "Portrait Talk - 1",
+      "Spell",
+      "Decay Bone",
+      "Dissipate",
+      "Attack - 2",
+      "Attack Slam"
+    ],
+    "bytes": 238151,
+    "portraitBackdropGeosets": [
+      2
+    ],
+    "authors": [
+      {
+        "name": "Unsanctioned Magic",
+        "url": "https://xgm.guru/user/UnsanctMagic"
+      },
+      {
+        "name": "Stein123",
+        "url": "https://www.hiveworkshop.com/members/stein123.196992/"
+      },
+      {
+        "name": "HerrDave",
+        "url": "https://www.hiveworkshop.com/members/herrdave.234820/"
+      }
+    ],
+    "creditLinks": [
+      {
+        "text": "Abomination Re-Classic",
+        "url": "https://www.hiveworkshop.com/threads/abomination-re-classic.357166/"
+      },
+      {
+        "text": "Headless Horseman",
+        "url": "https://www.hiveworkshop.com/threads/headless-horseman.373679/"
+      },
+      {
+        "text": "Ghoul Re-Classic",
+        "url": "https://www.hiveworkshop.com/threads/ghoul-re-classic.357165/"
+      },
+      {
+        "text": "Bandit Enforcer",
+        "url": "https://www.hiveworkshop.com/threads/bandit-enforcer-re-classic.336169/"
+      },
+      {
+        "text": "Chaos Warrior",
+        "url": "https://www.hiveworkshop.com/threads/chaos-warrior.366159/"
+      },
+      {
+        "text": "Vile Knight",
+        "url": "https://www.hiveworkshop.com/threads/swan-knight-vile-knight.308843/"
+      },
+      {
+        "text": "Stein123",
+        "url": "https://www.hiveworkshop.com/members/stein123.196992/"
+      },
+      {
+        "text": "HerrDave",
+        "url": "https://www.hiveworkshop.com/members/herrdave.234820/"
+      },
+      {
+        "text": "Azazeron",
+        "url": "https://www.hiveworkshop.com/members/azazeron.299156/"
+      },
+      {
+        "text": "Johnwar",
+        "url": "https://www.hiveworkshop.com/members/johnwar.264426/"
+      },
+      {
+        "text": "WoW",
+        "url": "https://worldofwarcraft.blizzard.com/"
+      },
+      {
+        "text": "Gladiator's Helmet",
+        "url": "https://www.hiveworkshop.com/threads/gladiators-helmet.223316/"
+      },
+      {
+        "text": "Deolrin",
+        "url": "https://www.hiveworkshop.com/members/deolrin.147111/"
+      },
+      {
+        "text": "Igneous Cleaver",
+        "url": "https://www.hiveworkshop.com/threads/igneous-cleaver.274500/"
+      },
+      {
+        "text": "Solu9",
+        "url": "https://www.hiveworkshop.com/members/solu9.202017/"
+      },
+      {
+        "text": "Epimetheus",
+        "url": "https://www.hiveworkshop.com/members/epimetheus.221180/"
+      },
+      {
+        "text": "Orcish Staff",
+        "url": "https://www.hiveworkshop.com/threads/orcish-staff.237603/"
+      },
+      {
+        "text": "Sunchips",
+        "url": "https://www.hiveworkshop.com/members/sunchips.176515/"
+      },
+      {
+        "text": "Goats",
+        "url": "https://www.hiveworkshop.com/threads/goats.371456/"
+      },
+      {
+        "text": "bakr",
+        "url": "https://www.hiveworkshop.com/members/bakr.284239/"
+      }
+    ],
+    "formationSequence": "Attack Slam",
+    "searchDescription": "Preview and download the Knight of Nurgle · Champion model for Warcraft 3. Add a plague-themed Warhammer Fantasy champion to your Warriors of Chaos army.",
+    "sha256": "7e7ab64216961b2e340c3e1627e5a1559f17bd02051f779f164162577c1a9fa7",
+    "formationTime": 815,
+    "formationBodyHeight": 1,
+    "changelog": [
+      {
+        "date": "28 October 2026",
+        "text": "Added Hero version and updated Unit version."
+      },
+      {
+        "date": "18 October 2026",
+        "text": "Fix: stitched open shield arm elbow."
+      },
+      {
+        "date": "17 October 2026",
+        "text": "Glowing eyes are now unshaded"
+      },
+      {
+        "date": "12 October 2026",
+        "text": "Fixed normals and weapon"
+      }
+    ],
+    "imageVersion": "20261028-champions-order",
+    "downloadPack": "downloads/nurgle-champion.zip",
+    "captureFitAlpha": 200
   },
   {
     "id": "slaanesh-axe",
@@ -5268,7 +5784,7 @@
       }
     ],
     "searchDescription": "Download the axe variant of the Knight of Slaanesh for Warcraft 3. Preview animations for this Warhammer Fantasy Warriors of Chaos model.",
-    "sha256": "86d9dc39a01995914fdaac085739d79313a3a3827e61cb3e4b65405b91884e45",
+    "sha256": "824aee61ee08439d4d284d6ab26cf6a72f384fe52e08a03be05ecadee04a83e3",
     "changelog": [
       {
         "date": "17 October 2026",
@@ -5723,7 +6239,7 @@
       }
     ],
     "searchDescription": "Preview and download the lance variant of the Knight of Slaanesh for Warcraft 3. A Warhammer Fantasy knight for your Warriors of Chaos army.",
-    "sha256": "89f65c755ae33e56df5251ff89a4b8571ab61b1304670d83aa98f86dd8a4ee69",
+    "sha256": "5ba05c2101ed8a0cf1b824d2cedc79882a86a456f71f77d6182f3411b8e82c48",
     "changelog": [
       {
         "date": "17 October 2026",
@@ -6122,7 +6638,7 @@
       }
     ],
     "searchDescription": "Download the sword variant of the Knight Undivided for Warcraft 3. Preview a mounted Chaos Undivided knight for Warhammer Fantasy maps.",
-    "sha256": "86b73e465a050572e60a42def865b252594aced076c9412c8ee170a4aec13f1a",
+    "sha256": "6c335aab258d1fc103f17ac4ecce1c96c1f7c40a9328008d1841fc5b86fe6453",
     "changelog": [
       {
         "date": "18 October 2026",
@@ -6480,7 +6996,7 @@
       }
     ],
     "searchDescription": "Preview and download the lance variant of the Knight Undivided for Warcraft 3. Add mounted Chaos Undivided cavalry to Warhammer Fantasy maps.",
-    "sha256": "20d5052398845ab3b706633b095057978133e39075202af7bf189d50fff2c927",
+    "sha256": "ac51fae9756b682af736b437f82b289f06b08a9a6295308028cd9fb5426154fc",
     "changelog": [
       {
         "date": "18 October 2026",
@@ -6494,7 +7010,7 @@
   },
   {
     "id": "aspiring",
-    "file": "WH_WOC_Aspiring13.mdx",
+    "file": "WH_WOC_AspiringHero01.mdx",
     "name": "Aspiring Champion",
     "army": "warriors-of-chaos",
     "description": "None have tasted power so sweet and so alluring as those who have bent the knee to the Ruinous Powers.\r\n\r\nMighty warlords, knights, holy men and even women... once they have glimpsed such power, they can no longer unsee.\r\n\r\nThey come to crave it, carving their path toward eternal glory or damnation, fighting harder and harder with every battle to prove their worth in the eyes of Chaos... they are the Aspiring Champions.\r\n\r\nThis is... FaceHelm... the mighty leaper of Norsca.",
@@ -6502,7 +7018,7 @@
     "geosets": [
       {
         "index": 0,
-        "vertices": 241,
+        "vertices": 227,
         "triangles": 278,
         "material": 0,
         "textures": [
@@ -6566,128 +7082,128 @@
       },
       {
         "index": 7,
-        "vertices": 8,
-        "triangles": 4,
-        "material": 7,
-        "textures": [
-          "Textures\\lavalump.blp"
-        ]
-      },
-      {
-        "index": 8,
         "vertices": 65,
         "triangles": 50,
-        "material": 8,
+        "material": 7,
         "textures": [
           "Textures\\InfernalCannon.blp"
         ]
       },
       {
-        "index": 9,
+        "index": 8,
         "vertices": 392,
         "triangles": 383,
-        "material": 9,
+        "material": 8,
         "textures": [
           "Units\\Demon\\ChaosWarlock\\ChaosWarlock.blp"
         ]
       },
       {
-        "index": 10,
+        "index": 9,
         "vertices": 8,
         "triangles": 4,
-        "material": 10,
+        "material": 9,
         "textures": [
           "Textures\\LavaLump.blp",
           "Textures\\LavaLump.blp"
         ]
       },
       {
-        "index": 11,
+        "index": 10,
         "vertices": 107,
         "triangles": 120,
-        "material": 11,
+        "material": 10,
         "textures": [
           "Textures\\Skeleton.blp"
         ]
       },
       {
-        "index": 12,
+        "index": 11,
         "vertices": 182,
         "triangles": 167,
-        "material": 12,
+        "material": 11,
         "textures": [
           "Team colour / glow",
           "Units\\Demon\\ChaosWolfrider\\ChaosWolfrider.blp"
         ]
       },
       {
-        "index": 13,
+        "index": 12,
         "vertices": 244,
         "triangles": 223,
-        "material": 13,
+        "material": 12,
         "textures": [
           "Units\\Orc\\Spiritwolf\\FeralSpirit.blp"
         ]
       },
       {
-        "index": 14,
+        "index": 13,
         "vertices": 19,
         "triangles": 17,
-        "material": 14,
+        "material": 13,
         "textures": [
           "Team colour / glow",
           "Units\\Orc\\Spiritwolf\\FeralSpirit.blp"
         ]
       },
       {
-        "index": 15,
+        "index": 14,
         "vertices": 114,
         "triangles": 88,
-        "material": 15,
+        "material": 14,
         "textures": [
           "units\\Creeps\\FacelessOne\\FacelessOne.blp"
         ]
       },
       {
-        "index": 16,
+        "index": 15,
         "vertices": 74,
         "triangles": 108,
-        "material": 16,
+        "material": 15,
         "textures": [
           "units\\Undead\\Necromancer\\Necromancer.blp"
         ]
       },
       {
-        "index": 17,
+        "index": 16,
         "vertices": 13,
         "triangles": 20,
-        "material": 17,
+        "material": 16,
         "textures": [
           "units\\Creeps\\ChaosWarlockGreen\\ChaosGreenWarlock.blp"
         ]
       },
       {
-        "index": 18,
+        "index": 17,
         "vertices": 74,
         "triangles": 108,
-        "material": 16,
+        "material": 15,
         "textures": [
           "units\\Undead\\Necromancer\\Necromancer.blp"
+        ]
+      },
+      {
+        "index": 18,
+        "vertices": 4,
+        "triangles": 2,
+        "material": 17,
+        "textures": [
+          "Team colour / glow"
         ]
       },
       {
         "index": 19,
         "vertices": 12,
         "triangles": 6,
-        "material": 18,
+        "material": 19,
         "textures": [
           "Team colour / glow"
         ]
       },
       {
         "index": 20,
-        "vertices": 4,
-        "triangles": 2,
+        "vertices": 16,
+        "triangles": 8,
         "material": 19,
         "textures": [
           "Team colour / glow"
@@ -6710,9 +7226,9 @@
       "Portrait 2",
       "Portrait Talk"
     ],
-    "bytes": 165669,
+    "bytes": 165431,
     "portraitBackdropGeosets": [
-      20
+      18
     ],
     "authors": [
       {
@@ -6789,13 +7305,312 @@
     "formationSequence": "Stand",
     "formationBodyHeight": 1,
     "searchDescription": "Preview and download the Aspiring Champion model for Warcraft 3. A Warhammer Fantasy character for Warriors of Chaos armies and custom maps.",
-    "sha256": "a7f9e4c2de69ca114efceaf7b062967a6cf1324b9fb51297250683df67275564",
+    "sha256": "808daccd9a65109ed2866203158041ac57a6bb8bf802094cc87b0bee9827a71b",
     "changelog": [
+      {
+        "date": "27 October 2026",
+        "text": "Fixed animation irregularities, improved hero glow, non glow version."
+      },
       {
         "date": "12 October 2026",
         "text": "Removed unnecessary data"
       }
-    ]
+    ],
+    "imageVersion": "20261027-kurgan-hero",
+    "downloadPack": "downloads/aspiring-champion.zip"
+  },
+  {
+    "id": "aspiring-unit",
+    "file": "WH_WOC_Aspiring15.mdx",
+    "name": "Aspiring Champion",
+    "army": "warriors-of-chaos",
+    "description": "None have tasted power so sweet and so alluring as those who have bent the knee to the Ruinous Powers.\r\n\r\nMighty warlords, knights, holy men and even women... once they have glimpsed such power, they can no longer unsee.\r\n\r\nThey come to crave it, carving their path toward eternal glory or damnation, fighting harder and harder with every battle to prove their worth in the eyes of Chaos... they are the Aspiring Champions.\r\n\r\nThis is... FaceHelm... the mighty leaper of Norsca.",
+    "credits": "Model Base - Captain Marwyn by Direfury\r\n\r\nAxe - Armageddon by KayS\r\n\r\nHelm - Chaos Chosen by Stein123\r\n\r\nHelm Base - Dark Knight - Highlord Inquistor by Greedy Martyrdom\r\n\r\nCloak - Shamelessly skinned by Unsanctioned Magic from Blizzard.\r\n\r\nHorns - Force Commander and Chaos Lords by @EmirDaud, @Darnish89",
+    "geosets": [
+      {
+        "index": 0,
+        "vertices": 227,
+        "triangles": 278,
+        "material": 0,
+        "textures": [
+          "Units\\Creeps\\Magnataur\\Magnataur.blp"
+        ]
+      },
+      {
+        "index": 1,
+        "vertices": 33,
+        "triangles": 34,
+        "material": 1,
+        "textures": [
+          "Units\\Creeps\\HumanMage\\HumanMage.blp"
+        ]
+      },
+      {
+        "index": 2,
+        "vertices": 102,
+        "triangles": 101,
+        "material": 2,
+        "textures": [
+          "Team colour / glow",
+          "Units\\Creeps\\OgreOneHeadedArmored\\OgreLord.blp"
+        ]
+      },
+      {
+        "index": 3,
+        "vertices": 74,
+        "triangles": 68,
+        "material": 3,
+        "textures": [
+          "UI\\Glues\\SinglePlayer\\NightElfCampaign3D\\Bow.blp"
+        ]
+      },
+      {
+        "index": 4,
+        "vertices": 154,
+        "triangles": 236,
+        "material": 4,
+        "textures": [
+          "Textures\\InfernalCannon.blp"
+        ]
+      },
+      {
+        "index": 5,
+        "vertices": 123,
+        "triangles": 140,
+        "material": 5,
+        "textures": [
+          "UI\\Glues\\MainMenu\\MainMenu3d\\AxeBladeBlueSteel.blp"
+        ]
+      },
+      {
+        "index": 6,
+        "vertices": 137,
+        "triangles": 154,
+        "material": 6,
+        "textures": [
+          "Textures\\HeroLich.blp"
+        ]
+      },
+      {
+        "index": 7,
+        "vertices": 65,
+        "triangles": 50,
+        "material": 7,
+        "textures": [
+          "Textures\\InfernalCannon.blp"
+        ]
+      },
+      {
+        "index": 8,
+        "vertices": 392,
+        "triangles": 383,
+        "material": 8,
+        "textures": [
+          "Units\\Demon\\ChaosWarlock\\ChaosWarlock.blp"
+        ]
+      },
+      {
+        "index": 9,
+        "vertices": 8,
+        "triangles": 4,
+        "material": 9,
+        "textures": [
+          "Textures\\LavaLump.blp",
+          "Textures\\LavaLump.blp"
+        ]
+      },
+      {
+        "index": 10,
+        "vertices": 107,
+        "triangles": 120,
+        "material": 10,
+        "textures": [
+          "Textures\\Skeleton.blp"
+        ]
+      },
+      {
+        "index": 11,
+        "vertices": 182,
+        "triangles": 167,
+        "material": 11,
+        "textures": [
+          "Team colour / glow",
+          "Units\\Demon\\ChaosWolfrider\\ChaosWolfrider.blp"
+        ]
+      },
+      {
+        "index": 12,
+        "vertices": 244,
+        "triangles": 223,
+        "material": 12,
+        "textures": [
+          "Units\\Orc\\Spiritwolf\\FeralSpirit.blp"
+        ]
+      },
+      {
+        "index": 13,
+        "vertices": 19,
+        "triangles": 17,
+        "material": 13,
+        "textures": [
+          "Team colour / glow",
+          "Units\\Orc\\Spiritwolf\\FeralSpirit.blp"
+        ]
+      },
+      {
+        "index": 14,
+        "vertices": 114,
+        "triangles": 88,
+        "material": 14,
+        "textures": [
+          "units\\Creeps\\FacelessOne\\FacelessOne.blp"
+        ]
+      },
+      {
+        "index": 15,
+        "vertices": 74,
+        "triangles": 108,
+        "material": 15,
+        "textures": [
+          "units\\Undead\\Necromancer\\Necromancer.blp"
+        ]
+      },
+      {
+        "index": 16,
+        "vertices": 13,
+        "triangles": 20,
+        "material": 16,
+        "textures": [
+          "units\\Creeps\\ChaosWarlockGreen\\ChaosGreenWarlock.blp"
+        ]
+      },
+      {
+        "index": 17,
+        "vertices": 74,
+        "triangles": 108,
+        "material": 15,
+        "textures": [
+          "units\\Undead\\Necromancer\\Necromancer.blp"
+        ]
+      },
+      {
+        "index": 18,
+        "vertices": 4,
+        "triangles": 2,
+        "material": 17,
+        "textures": [
+          "Team colour / glow"
+        ]
+      }
+    ],
+    "sequences": [
+      "Stand",
+      "Stand - 2",
+      "Stand Ready",
+      "Attack - 1",
+      "Attack - 2",
+      "Attack Spell Two",
+      "Attack Spell Slam",
+      "Walk",
+      "Cinematic Walk",
+      "Death",
+      "Dissipate",
+      "Portrait",
+      "Portrait 2",
+      "Portrait Talk"
+    ],
+    "bytes": 161559,
+    "portraitBackdropGeosets": [
+      18
+    ],
+    "authors": [
+      {
+        "name": "Unsanctioned Magic",
+        "url": "https://xgm.guru/user/UnsanctMagic"
+      },
+      {
+        "name": "Stein123",
+        "url": "https://www.hiveworkshop.com/members/stein123.196992/"
+      },
+      {
+        "name": "Direfury",
+        "url": "https://www.hiveworkshop.com/members/direfury.188037/"
+      }
+    ],
+    "creditLinks": [
+      {
+        "text": "Dark Knight - Highlord Inquistor",
+        "url": "https://www.hiveworkshop.com/threads/dark-knight-highlord-inquisitor.364248/"
+      },
+      {
+        "text": "Force Commander and Chaos Lords",
+        "url": "https://www.hiveworkshop.com/threads/force-commanders-and-chaos-lords.366770/"
+      },
+      {
+        "text": "Unsanctioned Magic",
+        "url": "https://xgm.guru/user/UnsanctMagic"
+      },
+      {
+        "text": "Greedy Martyrdom",
+        "url": "https://www.hiveworkshop.com/members/265154/"
+      },
+      {
+        "text": "Captain Marwyn",
+        "url": "https://www.hiveworkshop.com/threads/captain-marwyn.271127/"
+      },
+      {
+        "text": "Armageddon",
+        "url": "https://www.hiveworkshop.com/threads/armageddon.184966/"
+      },
+      {
+        "text": "@Darnish89",
+        "url": "https://www.hiveworkshop.com/members/315417/"
+      },
+      {
+        "text": "@EmirDaud",
+        "url": "https://www.hiveworkshop.com/members/286231/"
+      },
+      {
+        "text": "Darnish89",
+        "url": "https://www.hiveworkshop.com/members/315417/"
+      },
+      {
+        "text": "Direfury",
+        "url": "https://www.hiveworkshop.com/members/188037/"
+      },
+      {
+        "text": "Stein123",
+        "url": "https://www.hiveworkshop.com/members/stein123.196992/"
+      },
+      {
+        "text": "EmirDaud",
+        "url": "https://www.hiveworkshop.com/members/286231/"
+      },
+      {
+        "text": "Blizzard",
+        "url": "https://www.blizzard.com/"
+      },
+      {
+        "text": "KayS",
+        "url": "https://www.hiveworkshop.com/members/187760/"
+      }
+    ],
+    "formationSequence": "Stand",
+    "formationBodyHeight": 1,
+    "searchDescription": "Preview and download the Aspiring Champion model for Warcraft 3. A Warhammer Fantasy character for Warriors of Chaos armies and custom maps.",
+    "sha256": "245d1f8a43f586497dfc48119787dce2b684739358628b63e1fe7e895880dc0d",
+    "changelog": [
+      {
+        "date": "27 October 2026",
+        "text": "Fixed animation irregularities, improved hero glow, non glow version."
+      },
+      {
+        "date": "12 October 2026",
+        "text": "Removed unnecessary data"
+      }
+    ],
+    "imageVersion": "20261027-kurgan-hero",
+    "downloadPack": "downloads/aspiring-champion.zip"
   },
   {
     "id": "herrdave-124832",
@@ -10851,7 +11666,7 @@
       }
     ],
     "sourceUrl": "https://www.hiveworkshop.com/threads/warhammer-chaos-knight-of-tzeentch.374522/",
-    "sha256": "9731ddeb15b7843a2f0dae37b823b908e3693ca83a6e5a3175b2d2d24f3efa57",
+    "sha256": "9a7a863ecd2faf554e856c3512c21ead4d4a12d74f92ccdaa281dc24ea273f99",
     "creditLinks": [
       {
         "text": "Warhammer Eternal Strife",
@@ -11440,7 +12255,7 @@
       }
     ],
     "sourceUrl": "https://www.hiveworkshop.com/threads/warhammer-chaos-knight-of-tzeentch.374522/",
-    "sha256": "77e7b66c43d52e8896beecabec5e97b5a1a6b1350b2ff100efbc5b911199fd3e",
+    "sha256": "7ad03a7bdd0460c0f56caad57e5a9c84988efbe6c37f7fb1ee870e0c6428b75f",
     "creditLinks": [
       {
         "text": "Warhammer Eternal Strife",
@@ -11768,16 +12583,16 @@
       }
     ],
     "sourceUrl": "https://xgm.guru/p/wc3/chaos-ogre",
-    "sha256": "b75c09c1c7c3bb353599d321bc5d6aa9700f393cdbd1a10fc387812cb45ebaef",
+    "sha256": "56898367cf154666b21dcd72dbcec8cc6471077a651f79e24bb08c7acb90eb2a",
     "searchDescription": "Preview and download Chaos Ogre for Warcraft III Classic. A Warhammer Fantasy model for your Warriors of Chaos army."
   },
   {
     "id": "warrior-of-tzeentch",
-    "file": "WH_WOC_WarriorTzeentch01.mdx",
+    "file": "WH_WOC_WarriorTzeentch02.mdx",
     "name": "Warrior of Tzeentch",
     "army": "warriors-of-chaos",
     "description": "Chaos Warriors of Tzeentch tend to be subtly individual, with many small differences between them. Typically their plate armour and shield will be engraved with intricately patterned sigils that radiate with raw power, or flow with blinking eyes or gibbering mouths, or are perhaps inscribed with a minute arcane text making the wearer literally a walking grimoire. Though it is not immediately visible, many will have mutated flesh, their Chaos armour melting and reforming around the warped appendages of their bodies. They are deadly and unpredictable; they are warriors who have the favour of the God of Magic.",
-    "credits": "Model Base - Chaos Warrior by azazeron\r\n\r\nMashed with - Chaos Warriors by Diazon, found on Warhammer Eternal Strife by Nightmare2077\r\n\r\nAnimated Eyes - Hatchet Eye Drranosh by ratamahatta (Added many frames to make it smoother)\r\n\r\nTzeentchian Symbol - projected from 2D image using MDLxL\r\n\r\nWeapon - Infernal Gladiator Trident by Blood Raven\r\n\r\nHelm front - adapted from Vyrkul Male/Blizzard WoW Asset - Found Here\r\n\r\nHelmet backside - CrownHelmetbySunchips by Sunchips\r\n\r\nAdditional credits - Stein123",
+    "credits": "Model Base - Chaos Warrior by azazeron\r\n\r\nMashed with - Chaos Warriors by Diazon, found on Warhammer Eternal Strife by Nightmare2077\r\n\r\nAnimated Eyes - Hatchet Eye Drranosh by ratamahatta (Added many frames to make it smoother)\r\n\r\nTzeentchian Symbol - projected from 2D image using MDLxL\r\n\r\nWeapon - Infernal Gladiator Trident by Blood Raven\r\n\r\nHelm front - adapted from Vyrkul Male/Blizzard WoW Asset - Found Here\r\n\r\nHelmet backside - CrownHelmetbySunchips by Sunchips\r\n\r\nAdditional credits - Stein123\r\n\r\nShoulders - Diablo_3_Barbarian_Shoulders by Forgotten_Warlord",
     "authors": [
       {
         "name": "Unsanctioned Magic",
@@ -11852,6 +12667,14 @@
       {
         "text": "Sunchips",
         "url": "https://www.hiveworkshop.com/members/sunchips.176515/"
+      },
+      {
+        "text": "Diablo_3_Barbarian_Shoulders",
+        "url": "https://www.hiveworkshop.com/threads/diablo_3_barbarian_shoulders-by-forgotten_warlord.157993/"
+      },
+      {
+        "text": "Forgotten_Warlord",
+        "url": "https://www.hiveworkshop.com/members/forgotten_warlord.182381/"
       }
     ],
     "geosets": [
@@ -11866,8 +12689,8 @@
       },
       {
         "index": 1,
-        "vertices": 37,
-        "triangles": 22,
+        "vertices": 53,
+        "triangles": 34,
         "material": 0,
         "textures": [
           "Textures\\gutz.blp"
@@ -12164,21 +12987,420 @@
       "Portrait Talk",
       "Stand Ready"
     ],
-    "bytes": 131974,
-    "sha256": "212ed84f0f112a94b4a4c783512e8c30f10a6ba6dbb5aa7a7d7fb2d5e1472aa7",
+    "bytes": 132582,
+    "sha256": "67d71609888e655b7562eb54496a2f4cd80df6987ea5cb05f692cf8030599700",
     "portraitBackdropGeosets": [
       2
     ],
     "imageVersion": "20261022-tzeentch-original-size",
-    "searchDescription": "Chaos Warriors of Tzeentch tend to be subtly individual, with many small differences between them. Typically their plate armour and shield will be engraved with intricately patterned sigils that radiate with raw power, or flow with blinking eyes or gibbering mouths, or are perhaps inscribed with a minute arcane text making the wearer literally a walking grimoire. Though it is not immediately visible, many will have mutated flesh, their Chaos armour melting and reforming around the warped appendages of their bodies. They are deadly and unpredictable; they are warriors who have the favour of the God of Magic."
+    "searchDescription": "Chaos Warriors of Tzeentch tend to be subtly individual, with many small differences between them. Typically their plate armour and shield will be engraved with intricately patterned sigils that radiate with raw power, or flow with blinking eyes or gibbering mouths, or are perhaps inscribed with a minute arcane text making the wearer literally a walking grimoire. Though it is not immediately visible, many will have mutated flesh, their Chaos armour melting and reforming around the warped appendages of their bodies. They are deadly and unpredictable; they are warriors who have the favour of the God of Magic.",
+    "changelog": [
+      {
+        "date": "23 October 2026",
+        "text": "Fixed corpse decay"
+      }
+    ]
+  },
+  {
+    "id": "warrior-of-slaanesh",
+    "file": "WH_WOC_WarriorSlaaneshGW02.mdx",
+    "name": "Warrior of Slaanesh",
+    "army": "warriors-of-chaos",
+    "description": "Chaos Warriors dedicated to the Dark Prince of Chaos are regarded by His lesser warriors as walking avatars of their God. They truly walk the path of damnation and excess, the strongest fated to become His chosen or mighty champions if they survive their ordeals. Although armour-clad, many leave portions of pale flesh bare as if to titillate opponents with the illusion of weakness, inviting them to attempt to strike at imagined weak spots. Consumed by their own dark passions, they appear distant and something other than human. Their followers bathe in this otherworldly glory, driven by the need for the great warriors’ approval to commit further atrocities.",
+    "credits": "Model Base - Chaos Warrior by azazeron\r\n\r\nMashed with - Chaos Warriors by Diazon, found on Warhammer Eternal Strife by Nightmare2077\r\n\r\nWeapon - The Grand Marshal by Blood Raven\r\n\r\nHelm - Swan Knight & Vile Knight by HerrDave\r\n\r\nHorns - Eredar Witch by FerSZ\r\n\r\nAdditional credits - Stein123\r\n\r\nShoulders - Diablo_3_Barbarian_Shoulders by Forgotten_Warlord",
+    "authors": [
+      {
+        "name": "Unsanctioned Magic",
+        "url": "https://xgm.guru/user/UnsanctMagic"
+      },
+      {
+        "name": "Azazeron",
+        "url": "https://www.hiveworkshop.com/members/azazeron.299156/"
+      }
+    ],
+    "creditLinks": [
+      {
+        "text": "Chaos Warrior",
+        "url": "https://www.hiveworkshop.com/threads/chaos-warrior.366159/"
+      },
+      {
+        "text": "azazeron",
+        "url": "https://www.hiveworkshop.com/members/azazeron.299156/"
+      },
+      {
+        "text": "Chaos Warriors",
+        "url": "https://www.hiveworkshop.com/threads/warhammer-eternal-strife-melee.254808/"
+      },
+      {
+        "text": "Diazon",
+        "url": "https://www.hiveworkshop.com/threads/warhammer-eternal-strife-melee.254808/"
+      },
+      {
+        "text": "Warhammer Eternal Strife",
+        "url": "https://www.hiveworkshop.com/threads/warhammer-eternal-strife-melee.254808/"
+      },
+      {
+        "text": "Nightmare2077",
+        "url": "https://www.hiveworkshop.com/members/nightmare2077.204498/"
+      },
+      {
+        "text": "Stein123",
+        "url": "https://www.hiveworkshop.com/members/stein123.196992/"
+      },
+      {
+        "text": "The Grand Marshal",
+        "url": "https://www.hiveworkshop.com/threads/the-grand-marshal.295602/"
+      },
+      {
+        "text": "Blood Raven",
+        "url": "https://www.hiveworkshop.com/members/blood-raven.194769/"
+      },
+      {
+        "text": "Swan Knight & Vile Knight",
+        "url": "https://www.hiveworkshop.com/threads/swan-knight-vile-knight.308843/"
+      },
+      {
+        "text": "HerrDave",
+        "url": "https://www.hiveworkshop.com/members/herrdave.234820/"
+      },
+      {
+        "text": "Eredar Witch",
+        "url": "https://www.hiveworkshop.com/threads/eredar-witch.290652/"
+      },
+      {
+        "text": "FerSZ",
+        "url": "https://www.hiveworkshop.com/members/fersz.252357/"
+      },
+      {
+        "text": "Diablo_3_Barbarian_Shoulders",
+        "url": "https://www.hiveworkshop.com/threads/diablo_3_barbarian_shoulders-by-forgotten_warlord.157993/"
+      },
+      {
+        "text": "Forgotten_Warlord",
+        "url": "https://www.hiveworkshop.com/members/forgotten_warlord.182381/"
+      }
+    ],
+    "geosets": [
+      {
+        "index": 0,
+        "vertices": 25,
+        "triangles": 32,
+        "material": 15,
+        "textures": [
+          "Doodads\\Cinematic\\ArthasIllidanFight\\IllidanCineStuff.blp"
+        ]
+      },
+      {
+        "index": 1,
+        "vertices": 37,
+        "triangles": 22,
+        "material": 0,
+        "textures": [
+          "Textures\\gutz.blp"
+        ]
+      },
+      {
+        "index": 2,
+        "vertices": 4,
+        "triangles": 2,
+        "material": 1,
+        "textures": [
+          "Team colour / glow"
+        ]
+      },
+      {
+        "index": 3,
+        "vertices": 76,
+        "triangles": 86,
+        "material": 17,
+        "textures": [
+          "Units\\Creeps\\MagnataurBlue\\MagnataurBlue.blp"
+        ]
+      },
+      {
+        "index": 4,
+        "vertices": 24,
+        "triangles": 29,
+        "material": 5,
+        "textures": [
+          "Textures\\InfernalCannon.blp"
+        ]
+      },
+      {
+        "index": 5,
+        "vertices": 40,
+        "triangles": 56,
+        "material": 16,
+        "textures": [
+          "UI\\Glues\\SinglePlayer\\HumanCampaign3D\\HumanCampaignFootman.blp",
+          "Textures\\GOLDCoin.blp"
+        ]
+      },
+      {
+        "index": 6,
+        "vertices": 11,
+        "triangles": 10,
+        "material": 2,
+        "textures": [
+          "Units\\Demon\\ChaosWarlock\\ChaosWarlock.blp"
+        ]
+      },
+      {
+        "index": 7,
+        "vertices": 18,
+        "triangles": 24,
+        "material": 15,
+        "textures": [
+          "Doodads\\Cinematic\\ArthasIllidanFight\\IllidanCineStuff.blp"
+        ]
+      },
+      {
+        "index": 8,
+        "vertices": 7,
+        "triangles": 6,
+        "material": 15,
+        "textures": [
+          "Doodads\\Cinematic\\ArthasIllidanFight\\IllidanCineStuff.blp"
+        ]
+      },
+      {
+        "index": 9,
+        "vertices": 18,
+        "triangles": 16,
+        "material": 15,
+        "textures": [
+          "Doodads\\Cinematic\\ArthasIllidanFight\\IllidanCineStuff.blp"
+        ]
+      },
+      {
+        "index": 10,
+        "vertices": 32,
+        "triangles": 24,
+        "material": 3,
+        "textures": [
+          "Buildings\\Undead\\AltarOfDarkness\\CreepyAltarOfDark.blp"
+        ]
+      },
+      {
+        "index": 11,
+        "vertices": 28,
+        "triangles": 24,
+        "material": 13,
+        "textures": [
+          "Units\\Human\\Phoenix\\Phoenix2.blp"
+        ]
+      },
+      {
+        "index": 12,
+        "vertices": 100,
+        "triangles": 122,
+        "material": 4,
+        "textures": [
+          "Textures\\InfernalCannon.blp"
+        ]
+      },
+      {
+        "index": 13,
+        "vertices": 16,
+        "triangles": 16,
+        "material": 4,
+        "textures": [
+          "Textures\\InfernalCannon.blp"
+        ]
+      },
+      {
+        "index": 14,
+        "vertices": 6,
+        "triangles": 4,
+        "material": 18,
+        "textures": [
+          "Team colour / glow",
+          "Units\\Human\\Jaina\\Jaina.blp"
+        ]
+      },
+      {
+        "index": 15,
+        "vertices": 107,
+        "triangles": 202,
+        "material": 5,
+        "textures": [
+          "Textures\\InfernalCannon.blp"
+        ]
+      },
+      {
+        "index": 16,
+        "vertices": 73,
+        "triangles": 86,
+        "material": 6,
+        "textures": [
+          "Doodads\\Cinematic\\ArthasIllidanFight\\IllidanBlade.blp"
+        ]
+      },
+      {
+        "index": 17,
+        "vertices": 26,
+        "triangles": 44,
+        "material": 13,
+        "textures": [
+          "Units\\Human\\Phoenix\\Phoenix2.blp"
+        ]
+      },
+      {
+        "index": 18,
+        "vertices": 14,
+        "triangles": 12,
+        "material": 7,
+        "textures": [
+          "Team colour / glow",
+          "Textures\\InfernalCannon.blp"
+        ]
+      },
+      {
+        "index": 19,
+        "vertices": 9,
+        "triangles": 8,
+        "material": 4,
+        "textures": [
+          "Textures\\InfernalCannon.blp"
+        ]
+      },
+      {
+        "index": 20,
+        "vertices": 8,
+        "triangles": 32,
+        "material": 8,
+        "textures": [
+          "ReplaceableTextures\\TeamGlow\\TeamGlow07.blp"
+        ]
+      },
+      {
+        "index": 21,
+        "vertices": 21,
+        "triangles": 20,
+        "material": 9,
+        "textures": [
+          "Textures\\OutlandDoodads.blp"
+        ]
+      },
+      {
+        "index": 22,
+        "vertices": 108,
+        "triangles": 132,
+        "material": 10,
+        "textures": [
+          "UI\\Glues\\SinglePlayer\\Alliance_Exp\\BloodElf-old.blp"
+        ]
+      },
+      {
+        "index": 23,
+        "vertices": 39,
+        "triangles": 44,
+        "material": 11,
+        "textures": [
+          "Doodads\\Cinematic\\ArthasIllidanFight\\IllidanBlade.blp"
+        ]
+      },
+      {
+        "index": 24,
+        "vertices": 57,
+        "triangles": 54,
+        "material": 12,
+        "textures": [
+          "Textures\\BatTroll.blp"
+        ]
+      },
+      {
+        "index": 25,
+        "vertices": 12,
+        "triangles": 16,
+        "material": 13,
+        "textures": [
+          "Units\\Human\\Phoenix\\Phoenix2.blp"
+        ]
+      },
+      {
+        "index": 26,
+        "vertices": 53,
+        "triangles": 68,
+        "material": 14,
+        "textures": [
+          "Buildings\\Other\\DalaranGuardTower\\DalaranGuardTower.blp"
+        ]
+      },
+      {
+        "index": 27,
+        "vertices": 12,
+        "triangles": 8,
+        "material": 15,
+        "textures": [
+          "Doodads\\Cinematic\\ArthasIllidanFight\\IllidanCineStuff.blp"
+        ]
+      },
+      {
+        "index": 28,
+        "vertices": 16,
+        "triangles": 16,
+        "material": 15,
+        "textures": [
+          "Doodads\\Cinematic\\ArthasIllidanFight\\IllidanCineStuff.blp"
+        ]
+      },
+      {
+        "index": 29,
+        "vertices": 20,
+        "triangles": 30,
+        "material": 15,
+        "textures": [
+          "Doodads\\Cinematic\\ArthasIllidanFight\\IllidanCineStuff.blp"
+        ]
+      },
+      {
+        "index": 30,
+        "vertices": 12,
+        "triangles": 12,
+        "material": 15,
+        "textures": [
+          "Doodads\\Cinematic\\ArthasIllidanFight\\IllidanCineStuff.blp"
+        ]
+      },
+      {
+        "index": 31,
+        "vertices": 12,
+        "triangles": 12,
+        "material": 15,
+        "textures": [
+          "Doodads\\Cinematic\\ArthasIllidanFight\\IllidanCineStuff.blp"
+        ]
+      }
+    ],
+    "sequences": [
+      "Stand - 1",
+      "Stand - 2",
+      "Attack - 1",
+      "Attack - 2",
+      "Walk",
+      "Death",
+      "Decay Flesh",
+      "Decay Bone",
+      "Stand Ready",
+      "Portrait",
+      "Portrait Talk",
+      "Stand - 3"
+    ],
+    "bytes": 109183,
+    "sha256": "6a02ca2a8f97747db2eb90821b0288571d4a7d73bfd0dfb1c896ef6cd190add7",
+    "imageVersion": "20261027-slaanesh-gw",
+    "portraitBackdropGeosets": [
+      2
+    ]
   },
   {
     "id": "warrior-of-khorne-berserker",
-    "file": "WH_WOC_WarriorKhorneBerserker02.mdx",
+    "file": "WH_WOC_WarriorKhorneBerserker03.mdx",
     "name": "Warrior of Khorne · Berserker",
     "army": "warriors-of-chaos",
     "description": "The Warriors of Chaos that follow the Blood God, as with all servants of the Ruinous Powers, are not limited to the primitive tribes of the north. His grasp can reach the heart of every soldier, every warrior, every life-taker. When a noble Knight of Bretonnia or a Templar of the Empire falls to His worship it is because they forget why they kill. To change from killing for the common good to killing only because one wants to – because the act is pleasing – is when the righteous have fallen from their path. These are the warriors Khorne embraces, never to release. These are the converts that He savours.",
-    "credits": "Model Base - Chaos Warrior by azazeron\r\n\r\nMashed with - Chaos Warriors by Diazon, found on Warhammer Eternal Strife by Nightmare2077\r\n\r\nHammer - Brute Hammer by Sunchips\r\n\r\nClub - Faceless Ones Club by Midnighters\r\n\r\nHelm - Bandit Enforcer by Johnwar\r\n\r\nAxe - Felsteel Ravager by Blood Raven\r\n\r\nAdditional credits - Stein123",
+    "credits": "Model Base - Chaos Warrior by azazeron\r\n\r\nMashed with - Chaos Warriors by Diazon, found on Warhammer Eternal Strife by Nightmare2077\r\n\r\nHammer - Brute Hammer by Sunchips\r\n\r\nClub - Faceless Ones Club by Midnighters\r\n\r\nHelm - Bandit Enforcer by Johnwar\r\n\r\nAxe - Felsteel Ravager by Blood Raven\r\n\r\nAdditional credits - Stein123\r\n\r\nShoulders - Diablo_3_Barbarian_Shoulders by Forgotten_Warlord",
     "geosets": [
       {
         "index": 0,
@@ -12191,8 +13413,8 @@
       },
       {
         "index": 1,
-        "vertices": 37,
-        "triangles": 22,
+        "vertices": 53,
+        "triangles": 34,
         "material": 0,
         "textures": [
           "Textures\\gutz.blp"
@@ -12458,7 +13680,7 @@
       "Attack 1",
       "Attack 2"
     ],
-    "bytes": 136390,
+    "bytes": 136998,
     "portraitBackdropGeosets": [
       2
     ],
@@ -12532,17 +13754,31 @@
       {
         "text": "Stein123",
         "url": "https://www.hiveworkshop.com/members/stein123.196992/"
+      },
+      {
+        "text": "Diablo_3_Barbarian_Shoulders",
+        "url": "https://www.hiveworkshop.com/threads/diablo_3_barbarian_shoulders-by-forgotten_warlord.157993/"
+      },
+      {
+        "text": "Forgotten_Warlord",
+        "url": "https://www.hiveworkshop.com/members/forgotten_warlord.182381/"
       }
     ],
-    "sha256": "c5312b18cc925b298835f66d3b5a20b8b014d8c82eabc3ec6a47971e2638af5f"
+    "sha256": "4d622d96f8e206991948f994688b19929d64b9a6edd49507fe7673fa2216cbb5",
+    "changelog": [
+      {
+        "date": "23 October 2026",
+        "text": "Fixed corpse decay"
+      }
+    ]
   },
   {
     "id": "warrior-of-khorne-cleaver",
-    "file": "WH_WOC_WarriorKhorneGW01.mdx",
+    "file": "WH_WOC_WarriorKhorneGW02.mdx",
     "name": "Warrior of Khorne · Cleaver",
     "army": "warriors-of-chaos",
     "description": "The Warriors of Chaos that follow the Blood God, as with all servants of the Ruinous Powers, are not limited to the primitive tribes of the north. His grasp can reach the heart of every soldier, every warrior, every life-taker. When a noble Knight of Bretonnia or a Templar of the Empire falls to His worship it is because they forget why they kill. To change from killing for the common good to killing only because one wants to – because the act is pleasing – is when the righteous have fallen from their path. These are the warriors Khorne embraces, never to release. These are the converts that He savours.",
-    "credits": "Model Base - Chaos Warrior by azazeron\r\n\r\nMashed with - Chaos Warriors by Diazon, found on Warhammer Eternal Strife by Nightmare2077\r\n\r\nHammer - Brute Hammer by Sunchips\r\n\r\nClub - Faceless Ones Club by Midnighters\r\n\r\nHelm - Bandit Enforcer by Johnwar\r\n\r\nAxe - Felsteel Ravager by Blood Raven\r\n\r\nAdditional credits - Stein123\r\n\r\nGreat Weapon - Death Sword by Blood Raven",
+    "credits": "Model Base - Chaos Warrior by azazeron\r\n\r\nMashed with - Chaos Warriors by Diazon, found on Warhammer Eternal Strife by Nightmare2077\r\n\r\nHammer - Brute Hammer by Sunchips\r\n\r\nClub - Faceless Ones Club by Midnighters\r\n\r\nHelm - Bandit Enforcer by Johnwar\r\n\r\nAxe - Felsteel Ravager by Blood Raven\r\n\r\nAdditional credits - Stein123\r\n\r\nGreat Weapon - Death Sword by Blood Raven\r\n\r\nShoulders - Diablo_3_Barbarian_Shoulders by Forgotten_Warlord",
     "geosets": [
       {
         "index": 0,
@@ -12555,8 +13791,8 @@
       },
       {
         "index": 1,
-        "vertices": 37,
-        "triangles": 22,
+        "vertices": 53,
+        "triangles": 34,
         "material": 0,
         "textures": [
           "Textures\\gutz.blp"
@@ -12854,7 +14090,7 @@
       "Portrait Talk",
       "Stand - 3"
     ],
-    "bytes": 105934,
+    "bytes": 106534,
     "portraitBackdropGeosets": [
       2
     ],
@@ -12932,18 +14168,32 @@
       {
         "text": "Death Sword",
         "url": "https://www.hiveworkshop.com/threads/death-sword.292852/"
+      },
+      {
+        "text": "Diablo_3_Barbarian_Shoulders",
+        "url": "https://www.hiveworkshop.com/threads/diablo_3_barbarian_shoulders-by-forgotten_warlord.157993/"
+      },
+      {
+        "text": "Forgotten_Warlord",
+        "url": "https://www.hiveworkshop.com/members/forgotten_warlord.182381/"
       }
     ],
-    "sha256": "b023be3d8be2fa1e9a25802d2d7d99f8e8af8248c8eb7bc23fce149fef6f9cb0",
-    "imageVersion": "20261021-cleaver-upload-01"
+    "sha256": "2cb28ecd61a1e1508f2281c7085b2d910610a7f878e87288943777ad6977b1cd",
+    "imageVersion": "20261021-cleaver-upload-01",
+    "changelog": [
+      {
+        "date": "23 October 2026",
+        "text": "Fixed corpse decay"
+      }
+    ]
   },
   {
     "id": "warrior-of-khorne",
-    "file": "WH_WOC_WarriorKhorne03.mdx",
+    "file": "WH_WOC_WarriorKhorne04.mdx",
     "name": "Warrior of Khorne · Bruiser",
     "army": "warriors-of-chaos",
     "description": "The Warriors of Chaos that follow the Blood God, as with all servants of the Ruinous Powers, are not limited to the primitive tribes of the north. His grasp can reach the heart of every soldier, every warrior, every life-taker. When a noble Knight of Bretonnia or a Templar of the Empire falls to His worship it is because they forget why they kill. To change from killing for the common good to killing only because one wants to – because the act is pleasing – is when the righteous have fallen from their path. These are the warriors Khorne embraces, never to release. These are the converts that He savours.",
-    "credits": "Model Base - Chaos Warrior by azazeron\r\n\r\nMashed with - Chaos Warriors by Diazon, found on Warhammer Eternal Strife by Nightmare2077\r\n\r\nHammer - Brute Hammer by Sunchips\r\n\r\nClub - Faceless Ones Club by Midnighters\r\n\r\nHelm - Bandit Enforcer by Johnwar\r\n\r\nAdditional credits - Stein123",
+    "credits": "Model Base - Chaos Warrior by azazeron\r\n\r\nMashed with - Chaos Warriors by Diazon, found on Warhammer Eternal Strife by Nightmare2077\r\n\r\nHammer - Brute Hammer by Sunchips\r\n\r\nClub - Faceless Ones Club by Midnighters\r\n\r\nHelm - Bandit Enforcer by Johnwar\r\n\r\nAdditional credits - Stein123\r\n\r\nShoulders - Diablo_3_Barbarian_Shoulders by Forgotten_Warlord",
     "geosets": [
       {
         "index": 0,
@@ -12956,8 +14206,8 @@
       },
       {
         "index": 1,
-        "vertices": 37,
-        "triangles": 22,
+        "vertices": 53,
+        "triangles": 34,
         "material": 0,
         "textures": [
           "Textures\\gutz.blp"
@@ -13230,7 +14480,7 @@
       "Attack 1",
       "Attack 2"
     ],
-    "bytes": 133800,
+    "bytes": 134408,
     "portraitBackdropGeosets": [
       2
     ],
@@ -13296,10 +14546,22 @@
       {
         "text": "Stein123",
         "url": "https://www.hiveworkshop.com/members/stein123.196992/"
+      },
+      {
+        "text": "Diablo_3_Barbarian_Shoulders",
+        "url": "https://www.hiveworkshop.com/threads/diablo_3_barbarian_shoulders-by-forgotten_warlord.157993/"
+      },
+      {
+        "text": "Forgotten_Warlord",
+        "url": "https://www.hiveworkshop.com/members/forgotten_warlord.182381/"
       }
     ],
-    "sha256": "4e6633bc567d375358960c44d43ea2e056f7f8f09048d0b1bed51ebff4473d57",
+    "sha256": "79dd02db1c337683b4590741870719dae8e25ca64364e323f507542f15275de6",
     "changelog": [
+      {
+        "date": "23 October 2026",
+        "text": "Fixed corpse decay"
+      },
       {
         "date": "18 October 2026",
         "text": "Fixed hole in arm, optimized file size."
@@ -13308,7 +14570,7 @@
   },
   {
     "id": "chaos-warrior-of-nurgle",
-    "file": "chaos-warrior-of-nurgle/WH_WOC_WarriorNurgle01.mdx",
+    "file": "chaos-warrior-of-nurgle/WH_WOC_WarriorNurgle02.mdx",
     "name": "Warrior of Nurgle",
     "army": "warriors-of-chaos",
     "description": "An unbearable stench always heralds the approach of the Plague Lord’s warriors. Their helmets often bear great, withered horns and they are clad in rust-tarnished armour which conceal vile conditions or mutations – perhaps a slimy tentacle, or translucent, jelly-like flesh that reveals their decaying inner organs, or simply a body riddled with leprosy. Sometimes the corpulent meat of their bodies spills from the cracks of their armour. Whatever the case, they are deadly fighters who are near-impervious to pain and fight on despite receiving the most horrendous wounds imaginable.\r\n\r\nSource: Chaos Warriors of Nurgle",
@@ -13325,8 +14587,8 @@
       },
       {
         "index": 1,
-        "vertices": 37,
-        "triangles": 22,
+        "vertices": 53,
+        "triangles": 34,
         "material": 0,
         "textures": [
           "Textures\\gutz.blp"
@@ -13658,7 +14920,7 @@
       "Spell",
       "Attack Defend"
     ],
-    "bytes": 157385,
+    "bytes": 157993,
     "portraitBackdropGeosets": [
       33
     ],
@@ -13738,7 +15000,7 @@
         "url": "https://www.hiveworkshop.com/members/stein123.196992/"
       }
     ],
-    "sha256": "5f107e9caa23ee3e06064d2bfab21511c67eb91a5c01e81d67d26d33b40af241",
+    "sha256": "6f3bf59ebfcee8beda63bc70b2058fc59a1a74f36c5fd14bb624af6c961312a7",
     "descriptionLinks": [
       {
         "text": "Chaos Warriors of Nurgle",
@@ -13746,7 +15008,13 @@
       }
     ],
     "searchDescription": "An unbearable stench always heralds the approach of the Plague Lord’s warriors. Their helmets often bear great, withered horns and they are clad in rust-tarnished armour which conceal vile conditions or mutations – perhaps a slimy tentacle, or translucent, jelly-like flesh that reveals their decaying inner organs, or simply a body riddled with leprosy. Sometimes the corpulent meat of their bodies spills from the cracks of their armour. Whatever the case, they are deadly fighters who are near-impervious to pain and fight on despite receiving the most horrendous wounds imaginable.",
-    "imageVersion": "20261020-chaos-warrior-final"
+    "imageVersion": "20261020-chaos-warrior-final",
+    "changelog": [
+      {
+        "date": "23 October 2026",
+        "text": "Fixed corpse decay"
+      }
+    ]
   },
   {
     "id": "blood-dragon",
@@ -14258,7 +15526,7 @@
       "Attack Walk Stand Spin"
     ],
     "bytes": 254283,
-    "sha256": "e6695082ade24b722e13a34867f2d826027592afa7ac5568611d3bdfa135dc09",
+    "sha256": "04033e3aab58e55cf76f8b6de4b25a3cf2bb25ac19e13740d40e74b7feb7c34e",
     "formationSequence": "Attack Slam",
     "formationTime": 1018,
     "searchDescription": "Preview and download a Warhammer Fantasy Blood Dragon model for Warcraft 3. A Vampire Counts warrior with a double axe and 16 animations.",
@@ -14268,7 +15536,259 @@
   },
   {
     "id": "kurgan-warlord",
-    "file": "WH_WOC_KurganWarlord01.mdx",
+    "file": "WH_WOC_KurganWarlordHero01.mdx",
+    "name": "Kurgan Warlord",
+    "army": "warriors-of-chaos",
+    "description": "\"Why do we raid your lands? It is the will of the Gods...\"\n—Zar Seizask, Kurgan Chieftain.\n\nWarhammer Fantasy Roleplay 2nd Edition: Tome of Corruption   pg 152",
+    "credits": "Model Base - Pale Emperor by Direfury + Chaos Chosen by Stein123\n\nWeapon - BadassHammer by Sin'dorei300\n\nHelm - Chaos Warrior by azazeron\n\nShoulder - Vrykul Death Knight by JesusHipster\n\nArm - OgreDeathKnight by Sin'dorei300",
+    "geosets": [
+      {
+        "index": 0,
+        "vertices": 139,
+        "triangles": 178,
+        "material": 0,
+        "textures": [
+          "Textures\\InfernalCannon.blp"
+        ]
+      },
+      {
+        "index": 1,
+        "vertices": 26,
+        "triangles": 29,
+        "material": 1,
+        "textures": [
+          "Textures\\LavaLump.blp",
+          "Textures\\LavaLump.blp"
+        ]
+      },
+      {
+        "index": 2,
+        "vertices": 67,
+        "triangles": 86,
+        "material": 2,
+        "textures": [
+          "Units\\Creeps\\Magnataur\\Magnataur.blp"
+        ]
+      },
+      {
+        "index": 3,
+        "vertices": 250,
+        "triangles": 296,
+        "material": 3,
+        "textures": [
+          "Team colour / glow",
+          "Units\\creeps\\facelessone\\facelessone.blp"
+        ]
+      },
+      {
+        "index": 4,
+        "vertices": 204,
+        "triangles": 268,
+        "material": 4,
+        "textures": [
+          "Units\\Creeps\\LordGarithos\\LordGarithos.blp"
+        ]
+      },
+      {
+        "index": 5,
+        "vertices": 425,
+        "triangles": 224,
+        "material": 5,
+        "textures": [
+          "Textures\\InfernalCannon.blp"
+        ]
+      },
+      {
+        "index": 6,
+        "vertices": 90,
+        "triangles": 101,
+        "material": 6,
+        "textures": [
+          "Textures\\Arthas1.blp"
+        ]
+      },
+      {
+        "index": 7,
+        "vertices": 22,
+        "triangles": 22,
+        "material": 7,
+        "textures": [
+          "Abilities\\Spells\\Human\\Banish\\GenericGlow2bA.blp",
+          "Abilities\\Spells\\Human\\Banish\\GenericGlow2bA.blp",
+          "Abilities\\Spells\\Human\\Banish\\GenericGlow2bA.blp"
+        ]
+      },
+      {
+        "index": 8,
+        "vertices": 131,
+        "triangles": 218,
+        "material": 8,
+        "textures": [
+          "Units\\Creeps\\SkeletonOrc\\SkeletonOrc.blp"
+        ]
+      },
+      {
+        "index": 9,
+        "vertices": 32,
+        "triangles": 47,
+        "material": 9,
+        "textures": [
+          "Team colour / glow",
+          "Units\\Creeps\\Magnataur\\Magnataur.blp"
+        ]
+      },
+      {
+        "index": 10,
+        "vertices": 6,
+        "triangles": 4,
+        "material": 10,
+        "textures": [
+          "Units\\Creeps\\Magnataur\\Magnataur.blp"
+        ]
+      },
+      {
+        "index": 11,
+        "vertices": 8,
+        "triangles": 8,
+        "material": 11,
+        "textures": [
+          "Team colour / glow",
+          "Units\\Creeps\\Magnataur\\Magnataur.blp"
+        ]
+      },
+      {
+        "index": 12,
+        "vertices": 33,
+        "triangles": 54,
+        "material": 12,
+        "textures": [
+          "units\\Undead\\Necromancer\\Necromancer.blp"
+        ]
+      },
+      {
+        "index": 13,
+        "vertices": 8,
+        "triangles": 4,
+        "material": 13,
+        "textures": [
+          "Textures\\LavaLump2.blp",
+          "Textures\\LavaLump2.blp"
+        ]
+      },
+      {
+        "index": 14,
+        "vertices": 4,
+        "triangles": 2,
+        "material": 14,
+        "textures": [
+          "Team colour / glow"
+        ]
+      },
+      {
+        "index": 15,
+        "vertices": 12,
+        "triangles": 6,
+        "material": 15,
+        "textures": [
+          "Team colour / glow"
+        ]
+      },
+      {
+        "index": 16,
+        "vertices": 20,
+        "triangles": 10,
+        "material": 15,
+        "textures": [
+          "Team colour / glow"
+        ]
+      }
+    ],
+    "sequences": [
+      "Stand - 1",
+      "Stand Ready",
+      "Attack - 1",
+      "Attack - 2",
+      "Attack - 3",
+      "Attack Slam",
+      "Spell Slam",
+      "Spell",
+      "Spell Throw",
+      "Death",
+      "Dissipate",
+      "Portrait",
+      "Portrait Talk",
+      "Attack Walk Stand Spin Alternate",
+      "Walk"
+    ],
+    "bytes": 156259,
+    "authors": [
+      {
+        "name": "Unsanctioned Magic",
+        "url": "https://xgm.guru/user/UnsanctMagic"
+      },
+      {
+        "name": "Direfury",
+        "url": "https://www.hiveworkshop.com/members/direfury.188037/"
+      }
+    ],
+    "creditLinks": [
+      {
+        "text": "Pale Emperor",
+        "url": "https://www.hiveworkshop.com/threads/pale-emperor.294821/"
+      },
+      {
+        "text": "Direfury",
+        "url": "https://www.hiveworkshop.com/members/direfury.188037/"
+      },
+      {
+        "text": "BadassHammer",
+        "url": "https://www.hiveworkshop.com/threads/badasshammer.231010/"
+      },
+      {
+        "text": "Sin'dorei300",
+        "url": "https://www.hiveworkshop.com/members/209577/"
+      },
+      {
+        "text": "Chaos Warrior",
+        "url": "https://www.hiveworkshop.com/threads/chaos-warrior.366159/"
+      },
+      {
+        "text": "azazeron",
+        "url": "https://www.hiveworkshop.com/members/azazeron.299156/"
+      },
+      {
+        "text": "Vrykul Death Knight",
+        "url": "https://www.hiveworkshop.com/threads/vrykul-death-knight.258995/"
+      },
+      {
+        "text": "JesusHipster",
+        "url": "https://www.hiveworkshop.com/members/jesushipster.210592/"
+      },
+      {
+        "text": "OgreDeathKnight",
+        "url": "https://www.hiveworkshop.com/threads/ogredeathknight.222572/"
+      },
+      {
+        "text": "Stein123",
+        "url": "https://www.hiveworkshop.com/members/stein123.196992/"
+      }
+    ],
+    "sha256": "2d199aacd15a40861b65b80b251700bf5b83347a02b0ca57230853fda61f7ec4",
+    "imageVersion": "20261027-kurgan-hero",
+    "portraitBackdropGeosets": [
+      14
+    ],
+    "changelog": [
+      {
+        "date": "27 October 2026",
+        "text": "added hero version"
+      }
+    ],
+    "downloadPack": "downloads/kurgan-warlord.zip"
+  },
+  {
+    "id": "kurgan-warlord-unit",
+    "file": "WH_WOC_KurganWarlord02.mdx",
     "name": "Kurgan Warlord",
     "army": "warriors-of-chaos",
     "description": "\"Why do we raid your lands? It is the will of the Gods...\"\n—Zar Seizask, Kurgan Chieftain.\n\nWarhammer Fantasy Roleplay 2nd Edition: Tome of Corruption   pg 152",
@@ -14434,7 +15954,7 @@
       "Attack Walk Stand Spin Alternate",
       "Walk"
     ],
-    "bytes": 153975,
+    "bytes": 152231,
     "authors": [
       {
         "name": "Unsanctioned Magic",
@@ -14487,7 +16007,18 @@
         "url": "https://www.hiveworkshop.com/members/stein123.196992/"
       }
     ],
-    "sha256": "b285d609ba063f8723036a050600d248e8937b5831e0cba15068dc31cfd95ca9"
+    "sha256": "faee50ddeac3b38479cfc548cb4cf1dddbe9553551b8cf124678bd5051c9d5d6",
+    "imageVersion": "20261027-kurgan-hero",
+    "portraitBackdropGeosets": [
+      14
+    ],
+    "changelog": [
+      {
+        "date": "27 October 2026",
+        "text": "added hero version"
+      }
+    ],
+    "downloadPack": "downloads/kurgan-warlord.zip"
   },
   {
     "id": "gluma-127545",

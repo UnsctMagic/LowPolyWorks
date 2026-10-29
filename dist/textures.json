@@ -6267,5 +6267,6 @@
   "units\\orc\\tauren\\minotaur.blp": "textures/native-bank/589048023c7853b9ff9a0ed602c9e124218d50bf35bb2f095f5680d3199e9314.blp",
   "units\\orc\\wolfrider\\wolfrider.blp": "textures/native-bank/cef41042f018d7994e108ed9066c8aa0815fd52563ab0f847f2ab1a138ab95ea.blp",
   "units\\undead\\frostwyrm\\frostwyrm.blp": "textures/native-bank/9ab49a806d639a0521166917a72cd22ccd6403176d8bdb31c7f1b64feccd9d41.blp",
-  "units\\undead\\frostwyrm\\starfield.blp": "textures/native-bank/966f399340668711cebe60c6dd094d47f167f3a0e4ffc0fc1586d09ded1c206f.blp"
+  "units\\undead\\frostwyrm\\starfield.blp": "textures/native-bank/966f399340668711cebe60c6dd094d47f167f3a0e4ffc0fc1586d09ded1c206f.blp",
+  "textures\\goldcoin.blp": "textures/native-51e69fbacc4ade8f.png"
 }

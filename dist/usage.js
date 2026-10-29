@@ -14,10 +14,10 @@ function browserVisitorId(){
   return savedVisitorId();
  }catch(error){console.warn('Unique visitor tracking is unavailable',error.name);}
 }
-// A browser counts one view per model per UTC day, so revisits and refreshes do not add storage writes.
+// A browser counts one view per model per Amsterdam day, so revisits and refreshes do not add storage writes.
 function viewedToday(model){
  try{
-  const today=new Date().toISOString().slice(0,10),saved=JSON.parse(localStorage.getItem('lowpolyworks.modelViews')||'{}'),seen=saved.date===today?saved.models:[];
+  const today=new Intl.DateTimeFormat('en-CA',{timeZone:'Europe/Amsterdam',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date()),saved=JSON.parse(localStorage.getItem('lowpolyworks.modelViews')||'{}'),seen=saved.date===today?saved.models:[];
   if(seen.includes(model))return true;
   localStorage.setItem('lowpolyworks.modelViews',JSON.stringify({date:today,models:[...seen,model]}));
  }catch{}

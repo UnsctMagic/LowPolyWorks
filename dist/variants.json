@@ -174,10 +174,6 @@
       {
         "id": "nurgle-standard",
         "label": "Standard"
-      },
-      {
-        "id": "nurgle",
-        "label": "Old Version"
       }
     ]
   },
@@ -622,6 +618,62 @@
       {
         "id": "maximal-141711",
         "label": "Axethrower"
+      }
+    ]
+  },
+  {
+    "id": "aspiring-champion",
+    "name": "Aspiring Champion",
+    "variants": [
+      {
+        "id": "aspiring",
+        "label": "Hero"
+      },
+      {
+        "id": "aspiring-unit",
+        "label": "Unit"
+      }
+    ]
+  },
+  {
+    "id": "kurgan-warlord",
+    "name": "Kurgan Warlord",
+    "variants": [
+      {
+        "id": "kurgan-warlord",
+        "label": "Hero"
+      },
+      {
+        "id": "kurgan-warlord-unit",
+        "label": "Unit"
+      }
+    ]
+  },
+  {
+    "id": "khorne-champion",
+    "name": "Knight of Khorne · Champion",
+    "variants": [
+      {
+        "id": "khorne-flail",
+        "label": "Hero"
+      },
+      {
+        "id": "khorne-flail-unit",
+        "label": "Unit"
+      }
+    ]
+  },
+  {
+    "id": "nurgle-champion",
+    "name": "Knight of Nurgle · Champion",
+    "variants": [
+      {
+        "id": "nurgle-champion",
+        "label": "Hero"
+      },
+      {
+        "id": "nurgle-champion-unit",
+        "label": "Unit"
       }
     ]
   }
