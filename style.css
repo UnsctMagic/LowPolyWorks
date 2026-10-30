@@ -148,8 +148,8 @@ footer{max-width:1740px;padding:20px 24px}
 .army-picture[data-army="vampire-counts"] img.rear-left[src*="formation-blood-dragon-left.png"]{height:calc(81.65% / .9);left:26%}
 /* Use the post-feed link colours throughout the public site. */
 :root{--link:#acc6a2;--link-hover:#d1e3c8}
-body a[href]:any-link,body #mdlxl-ffmpeg-source[href]:any-link{color:var(--link);text-decoration:none}
-body a[href]:any-link:hover,body #mdlxl-ffmpeg-source[href]:any-link:hover{color:var(--link-hover)}
+body a[href]:any-link{color:var(--link);text-decoration:none}
+body a[href]:any-link:hover{color:var(--link-hover)}
 /* Variant groups */
 .variant-stage{position:relative}
 .variant-arrow{position:absolute;top:50%;z-index:4;width:30px;height:46px;margin-top:-23px;padding:0;border:1px solid #9c8653;background:#060a12cc;color:#e5ca85;font:1.6rem/1 'IM Fell English',Georgia,serif;opacity:0;transition:opacity .15s,background .15s;box-shadow:0 2px 6px #000a}
