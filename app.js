@@ -9,8 +9,9 @@ import {wheelSelect} from './wheel-select.js?v=20261022-wheel-animations';
 import {TEAM_COLORS} from './vendor/mdlxl/src/team-colors.js';
 import {recordUsage} from './usage.js?v=20261012-shredder-cloudflare';
 import {renderJournal} from './journal.js?v=20261022-tzeentch-warrior';
-import {renderMdlxl} from './mdlxl.js?v=20261030-tutorial-languages';
-if (/^\/mdlxl\/?$/.test(location.pathname) && !location.hash) history.replaceState(null,'',location.pathname+location.search+'#project/mdlxl');
+import {renderMdlxl} from './mdlxl.js?v=20261030-mdlxl-navigation';
+import {readMdlxlRoute,mdlxlHref} from './mdlxl-routes.js?v=20261030-mdlxl-navigation';
+const initialMdlxl=readMdlxlRoute(location);if(initialMdlxl&&location.hash.startsWith('#project/mdlxl'))history.replaceState(null,'',mdlxlHref(initialMdlxl.section,initialMdlxl.tutorial,location.search));
 const app=document.querySelector('#app'),baseCatalogue=await fetch('catalogue.json?v=20261030-nurgle-card-rotation').then(r=>r.json());
 const armies=await fetch('armies.json?v=20261020-army-sizes-approved').then(r=>r.json());
 // Shuffle the middle army cards once per load; keep Chaos and Vampire Counts first and Dwarfs last.
@@ -66,9 +67,9 @@ function sideMenus(army,row,confirmation=''){
  prepareMobileLayout(document.querySelector('.side-left'));
  if(row)mountModelFollow(document.querySelector('#catalogue-summary .model-follow'),row,{confirmation});
 }
-async function route(){prepareMobileLayout(document.querySelector('.masthead'));const version=++routeVersion,swap=swapping;swapping=false;const carried=swap?carry:null;carry=null;viewer?.dispose();viewer=null;stopUpdateTags?.();stopUpdateTags=null;const modelPath=location.pathname.match(/^\/model\/([a-z0-9-]+)\/?$/);const confirmation=location.hash.startsWith('#follow-confirm=')?new URLSearchParams(location.hash.slice(1)).get('follow-confirm')||'':new URLSearchParams(location.search).get('follow-confirm')||'';const [,kind,id]=((location.hash.startsWith('#follow-confirm=')?'':location.hash)||(modelPath?'#model/'+modelPath[1]:'')).match(/^#(army|model)\/(.+)$/)||[];if(!swap){app.classList.remove('route-enter');void app.offsetWidth;app.classList.add('route-enter');window.scrollTo(0,0);}
+async function route(){prepareMobileLayout(document.querySelector('.masthead'));const version=++routeVersion,swap=swapping;swapping=false;const carried=swap?carry:null;carry=null;viewer?.dispose();viewer=null;stopUpdateTags?.();stopUpdateTags=null;const modelPath=location.pathname.match(/^\/model\/([a-z0-9-]+)\/?$/);const confirmation=location.hash.startsWith('#follow-confirm=')?new URLSearchParams(location.hash.slice(1)).get('follow-confirm')||'':new URLSearchParams(location.search).get('follow-confirm')||'';const [,kind,id]=((location.hash.startsWith('#follow-confirm=')?'':location.hash)||(modelPath?'#model/'+modelPath[1]:'')).match(/^#(army|model)\/(.+)$/)||[];const mdlxlState=readMdlxlRoute(location),keepMdlxl=!!(mdlxlState&&app.querySelector('.mdlxl-hero'));if(keepMdlxl)app.classList.remove('route-enter');if(!swap&&!keepMdlxl){app.classList.remove('route-enter');void app.offsetWidth;app.classList.add('route-enter');window.scrollTo(0,0);}
  const isCatalogue=location.hash==='#project/warhammercraft'||location.hash==='#armies'||Boolean(kind);document.body.classList.toggle('journal',!isCatalogue);
- const isMdlxl=/^#project\/mdlxl(?:\/|$)/.test(location.hash)||/^\/mdlxl\/?$/.test(location.pathname)&&!location.hash;document.body.classList.toggle('mdlxl',isMdlxl);
+ const isMdlxl=!!mdlxlState;document.body.classList.toggle('mdlxl',isMdlxl);
  for(const link of document.querySelectorAll('.masthead nav a')){const selected=link.pathname==='/mdlxl/'?isMdlxl:link.hash===location.hash||link.hash==='#feed'&&!isCatalogue&&!/^#(project\/|subscribe|acknowledgements)/.test(location.hash)||link.hash==='#project/warhammercraft'&&isCatalogue;if(selected)link.setAttribute('aria-current','page');else link.removeAttribute('aria-current');}
  if(isMdlxl){document.querySelector('.masthead a[href="/mdlxl/"]').setAttribute('aria-current','page');await renderMdlxl(app,()=>version===routeVersion,recordUsage);return;}
  if(!isCatalogue){await renderJournal(app,()=>version===routeVersion);return;}
@@ -89,5 +90,6 @@ async function route(){prepareMobileLayout(document.querySelector('.masthead'));
 }
 document.querySelector('#catalogue-summary').addEventListener('click',event=>{const link=event.target.closest('a[data-download]');if(link)recordUsage('download',link.dataset.model,link.dataset.download);});
 recordUsage('visit');
+document.addEventListener('click',event=>{if(event.defaultPrevented||event.button!==0||event.ctrlKey||event.metaKey||event.shiftKey||event.altKey)return;const link=event.target.closest('a[href]');if(!link||link.target||link.hasAttribute('download'))return;const url=new URL(link.href,location.href),next=url.origin===location.origin&&readMdlxlRoute(url);if(!next)return;event.preventDefault();const search=new URLSearchParams(url.search),language=document.getElementById('tutorial-language')?.value||new URLSearchParams(location.search).get('lang');if(language&&!search.has('lang'))search.set('lang',language);const href=mdlxlHref(next.section,next.tutorial,search);if(location.pathname+location.search+location.hash!==href)history.pushState(null,'',href);route();});
 window.addEventListener('hashchange',route);window.addEventListener('popstate',()=>{if(/^\/model\//.test(location.pathname)&&/^\/model\//.test(document.querySelector('.variant-tabs a')?.pathname||''))swapping=true;route();});route();
 startMenuVisitor({onInteraction:countShredder});

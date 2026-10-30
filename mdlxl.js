@@ -1,3 +1,4 @@
+import {readMdlxlRoute,mdlxlHref} from './mdlxl-routes.js?v=20261030-mdlxl-navigation';
 import {mdlxlLogoMarkup,igniteMdlxlLogo} from './mdlxl-eyes.js?v=20261029-project-branding';
 const REPO='https://github.com/UnsctMagic/MDLxL';
 const API='https://api.github.com/repos/UnsctMagic/MDLxL';
@@ -107,20 +108,22 @@ function contentSection(section,data){
  return '<div class="mdlxl-section-heading"><h2><a href="https://discord.gg/CDXrQHsj2" target="_blank" rel="noopener noreferrer">Find us on Discord at HerrDave&#39;s Workshop</a></h2></div><div id="mdlxl-releases" aria-live="polite"><p>Loading patch notes…</p></div>';
 }
 export async function renderMdlxl(app,isCurrent,recordUsage){
- const requested=location.hash.split('/')[2]||'updates',section=Object.hasOwn(sections,requested)?requested:'updates';
+ const navigation=readMdlxlRoute(location)||{section:'updates'},section=navigation.section;
  document.title=`${sections[section]} — MDLxL — LowPolyWorks`;
- if(section==='tutorials'&&app.querySelector('#tutorial-header')){const {renderTutorials}=await import('./mdlxl-tutorials.js?v=20261030-tutorial-languages');if(isCurrent())await renderTutorials(app.querySelector('#mdlxl-content'),isCurrent,location.hash.split('/')[3]);return;}
- app.innerHTML=`<section class="mdlxl-hero slab">${mdlxlLogoMarkup('MDLxL helmet: half wireframe, half textured')}<div class="mdlxl-identity"><p class="kicker">THE WARCRAFT III MODEL WORKSHOP</p><h1 class="mdlxl-wordmark">MDL<span>x</span>L</h1><p>You wanted more CTRL Z?</p><small>Built for Warcraft III SD models.</small></div><div class="mdlxl-download"><a id="mdlxl-download" class="iron-button primary" aria-disabled="true" href="/mdlxl">Loading download…</a><span id="mdlxl-version">Windows · Portable ZIP</span><a id="mdlxl-ffmpeg-source" hidden>FFmpeg corresponding source ↗</a></div></section><div class="mdlxl-layout"><aside class="mdlxl-menu side-menu"><p class="mdlxl-menu-label">THE WORKSHOP</p><nav aria-label="MDLxL sections">${Object.entries(sections).map(([key,label])=>`<a href="/mdlxl/#project/mdlxl${key==='updates'?'':'/'+key}" ${key===section?'aria-current="page"':''}>${label}</a>`).join('')}</nav><a class="mdlxl-source" href="${REPO}" target="_blank" rel="noopener noreferrer">MDLxL source code ↗</a></aside><section class="mdlxl-content slab" id="mdlxl-content"><p>Loading…</p></section></div>`;
- igniteMdlxlLogo(app.querySelector('.mdlxl-logo'));
- const latestPromise=json(API+'/releases/latest');
+ const hasShell=!!app.querySelector('.mdlxl-hero');
+ if(!hasShell){app.innerHTML=`<section class="mdlxl-hero slab">${mdlxlLogoMarkup('MDLxL helmet: half wireframe, half textured')}<div class="mdlxl-identity"><p class="kicker">THE WARCRAFT III MODEL WORKSHOP</p><h1 class="mdlxl-wordmark">MDL<span>x</span>L</h1><p>You wanted more CTRL Z?</p><small>Built for Warcraft III SD models.</small></div><div class="mdlxl-download"><a id="mdlxl-download" class="iron-button primary" aria-disabled="true" href="/mdlxl">Loading download…</a><span id="mdlxl-version">Windows · Portable ZIP</span><a id="mdlxl-ffmpeg-source" hidden>FFmpeg corresponding source ↗</a></div></section><div class="mdlxl-layout"><aside class="mdlxl-menu side-menu"><p class="mdlxl-menu-label">THE WORKSHOP</p><nav aria-label="MDLxL sections">${Object.entries(sections).map(([key,label])=>`<a href="${mdlxlHref(key,undefined,location.search)}" ${key===section?'aria-current="page"':''}>${label}</a>`).join('')}</nav><a class="mdlxl-source" href="${REPO}" target="_blank" rel="noopener noreferrer">MDLxL source code ↗</a></aside><section class="mdlxl-content slab" id="mdlxl-content"><p>Loading…</p></section></div>`;
+ igniteMdlxlLogo(app.querySelector('.mdlxl-logo'));app._mdlxlLatestRelease=json(API+'/releases/latest');}
+ if(hasShell)for(const link of app.querySelectorAll('.mdlxl-menu nav a')){const selected=readMdlxlRoute(new URL(link.href))?.section===section;selected?link.setAttribute('aria-current','page'):link.removeAttribute('aria-current');}
+ const latestPromise=app._mdlxlLatestRelease;
  const button=app.querySelector('#mdlxl-download');button.onclick=event=>{if(button.getAttribute('aria-disabled')==='true')event.preventDefault();else recordUsage('download','mdlxl','zip');};
- const currentDownload=()=>isCurrent()||(section==='tutorials'&&button.isConnected&&app.querySelector('#mdlxl-download')===button);
+ const currentDownload=()=>isCurrent()||(button.isConnected&&app.querySelector('#mdlxl-download')===button);
  const latestTask=latestPromise.then(release=>{if(!currentDownload())return;const url=downloadUrl(release);if(!url)throw Error('No application ZIP');button.href=url;button.removeAttribute('aria-disabled');button.textContent='Download '+release.tag_name+' ↗';app.querySelector('#mdlxl-version').textContent='Windows · Portable ZIP';const source=release.assets?.find(a=>/FFmpeg-corresponding-source.*\.zip$/i.test(a.name));if(source){const link=app.querySelector('#mdlxl-ffmpeg-source');link.href=source.browser_download_url;link.hidden=false;}}).catch(()=>{if(currentDownload()){button.textContent='Download unavailable';app.querySelector('#mdlxl-version').textContent='Please try again later.';}});
  const panel=app.querySelector('#mdlxl-content');
  if(section==='tutorials'){
-  try{const {renderTutorials}=await import('./mdlxl-tutorials.js?v=20261030-tutorial-languages');if(!isCurrent())return;await renderTutorials(panel,isCurrent,location.hash.split('/')[3]);}catch{if(isCurrent())panel.innerHTML='<p>Tutorials could not load. Please reload the page.</p>';}
+  try{const {renderTutorials}=await import('./mdlxl-tutorials.js?v=20261030-mdlxl-navigation');if(!isCurrent())return;await renderTutorials(panel,isCurrent,navigation.tutorial);}catch{if(isCurrent())panel.innerHTML='<p>Tutorials could not load. Please reload the page.</p>';}
   await latestTask;return;
  }
+ if(section!=='tutorials'){delete panel.dataset?.tutorialLanguage;panel.removeAttribute?.('lang');}
  if(section!=='updates'){
   try{const data=await json('mdlxl-content.json');if(!isCurrent())return;panel.innerHTML=contentSection(section,data);}catch{if(isCurrent())panel.innerHTML='<p>This section could not load. Please reload the page.</p>';}
   await latestTask;return;
