@@ -31,3 +31,5 @@ Existing MDLxL parser used for authored animated ribbon colours.
 
 Buffer (MIT), base64-js (MIT), ieee754 (BSD-3-Clause)
 See vendor/buffer-LICENSE.txt, vendor/base64-js-LICENSE.txt, vendor/ieee754-LICENSE.txt.
+
+MDLxL tutorial Mordor typography: Tengwar Annatar, copyright (c) 2004–2005 Johan Winge. The complete, unmodified original font distribution is included under mdlxl/tutorials/fonts/tengwar-annatar/, with its LICENCE and readme.txt.

@@ -1,0 +1,76 @@
+    <div class="tutorial-library" id="tutorial-library">
+      <p class="tutorial-intro">Выберите инструмент и следуйте краткому наглядному руководству.</p>
+      <nav class="tutorial-menu" aria-label="Выбрать урок">
+        <button type="button" class="tutorial-card" id="tab-anchor" aria-controls="tutorial-anchor" data-tutorial="anchor">
+          <span class="tutorial-card-media" aria-hidden="true"><img src="/mdlxl/tutorials/ru/tutorial-card-anchor.png" width="944" height="600" alt=""></span>
+          <span class="tutorial-card-copy"><span class="tutorial-card-category">Редактор вершин</span><span class="tutorial-card-title">Anchor</span><span class="tutorial-card-description">Масштабируйте вокруг неподвижной вершины.</span><span class="tutorial-card-footer"><span>2 шага</span><span class="tutorial-card-open">Открыть урок <span aria-hidden="true">→</span></span></span></span>
+        </button>
+        <button type="button" class="tutorial-card" id="tab-align" aria-controls="tutorial-align" data-tutorial="align">
+          <span class="tutorial-card-media" aria-hidden="true"><img src="/mdlxl/tutorials/ru/tutorial-card-align.png" width="944" height="600" alt=""></span>
+          <span class="tutorial-card-copy"><span class="tutorial-card-category">Редактор вершин</span><span class="tutorial-card-title">Выровнять</span><span class="tutorial-card-description">Выровняйте вершины относительно текущего вида.</span><span class="tutorial-card-footer"><span>3 шага</span><span class="tutorial-card-open">Открыть урок <span aria-hidden="true">→</span></span></span></span>
+        </button>
+        <button type="button" class="tutorial-card" id="tab-live" aria-controls="tutorial-live" data-tutorial="live">
+          <span class="tutorial-card-media" aria-hidden="true"><img src="/mdlxl/tutorials/ru/tutorial-card-live.png" width="944" height="600" alt=""></span>
+          <span class="tutorial-card-copy"><span class="tutorial-card-category">UV-развёртка</span><span class="tutorial-card-title">Выбор в предпросмотре</span><span class="tutorial-card-description">Выделяйте в 3D и перемещайте координаты на UV-карте.</span><span class="tutorial-card-footer"><span>2 шага</span><span class="tutorial-card-open">Открыть урок <span aria-hidden="true">→</span></span></span></span>
+        </button>
+        <button type="button" class="tutorial-card" id="tab-corpse" aria-controls="tutorial-corpse" data-tutorial="corpse">
+          <span class="tutorial-card-media" aria-hidden="true"><img src="/mdlxl/tutorials/ru/tutorial-card-corpse.png" width="944" height="600" alt=""></span>
+          <span class="tutorial-card-copy"><span class="tutorial-card-category">Автотруп</span><span class="tutorial-card-title">Автотруп</span><span class="tutorial-card-description">Подгоните останки и настройте анимации разложения.</span><span class="tutorial-card-footer"><span>3 шага</span><span class="tutorial-card-open">Открыть урок <span aria-hidden="true">→</span></span></span></span>
+        </button>
+      </nav>
+    </div>
+    <button type="button" class="tutorial-back" id="tutorial-back" hidden><span aria-hidden="true">←</span> Все уроки</button>
+    <article class="tutorial-panel" role="region" id="tutorial-anchor" aria-labelledby="tab-anchor" hidden>
+      <p class="sample-note">РЕДАКТОР ВЕРШИН · КРАТКОЕ РУКОВОДСТВО</p>
+      <h3>Anchor: масштабирование вокруг вершины</h3>
+      <p>Anchor удерживает одну вершину на месте, пока остальные масштабируются вокруг неё.</p>
+      <figure class="tool-shot"><a href="/mdlxl/tutorials/ru/anchor-tool.png" aria-label="Anchor: масштабирование вокруг вершины"><img src="/mdlxl/tutorials/ru/anchor-tool.png" alt="Anchor: масштабирование вокруг вершины. Зелёный маркер указывает кнопку Масштабирование — Z . Зелёная надпись ANCHOR отмечает неподвижную вершину."><svg data-tool-ping aria-hidden="true" viewBox="0 0 96 96" style="left:92.70217483108108%;top:44.64446107784431%;width:8.108108108108109%"><path fill="none" stroke="#001807" stroke-width="6"/><path fill="none" stroke="#30ff70" stroke-width="3"/></svg></a><figcaption>Зелёный маркер указывает кнопку <strong>Масштабирование</strong> — <strong>Z</strong>. Зелёная надпись <strong>ANCHOR</strong> отмечает неподвижную вершину.</figcaption></figure>
+      <section class="demo-step"><h4>1. Выделите вершины и задайте Anchor</h4>
+        <figure class="gif-player" data-animation="anchor-selection"><canvas class="player-frame" width="944" height="600" role="img" aria-label="1. Выделите вершины и задайте Anchor. Выделите три вершины, добавляя их через Shift + щелчок . Нажмите Z , затем удерживайте 1 и обведите рамкой вершину, которая должна остаться неподвижной."></canvas><div class="tutorial-hotkey" aria-hidden="true" hidden></div></figure><p>Выделите три вершины, добавляя их через <strong>Shift + щелчок</strong>. Нажмите <strong>Z</strong>, затем удерживайте <strong>1</strong> и обведите рамкой вершину, которая должна остаться неподвижной.</p>
+      </section>
+      <section class="demo-step"><h4>2. Измените размер</h4>
+        <figure class="gif-player" data-animation="anchor-action"><canvas class="player-frame" width="944" height="600" role="img" aria-label="2. Измените размер. Перетаскивайте мышь в пустой области окна. Зелёный Anchor остаётся на месте."></canvas><div class="tutorial-hotkey" aria-hidden="true" hidden></div></figure><p>Перетаскивайте мышь в пустой области окна. Зелёный Anchor остаётся на месте.</p>
+      </section>
+    </article>
+    <article class="tutorial-panel" role="region" id="tutorial-align" aria-labelledby="tab-align" hidden>
+      <p class="sample-note">РЕДАКТОР ВЕРШИН · КРАТКОЕ РУКОВОДСТВО</p>
+      <h3>Выровнять: совместите три острия</h3>
+      <p>В виде спереди основания всех трёх шипов совпадают. Только переднее и заднее острия наклонены влево и вправо. Выровняйте их по прямому среднему острию, затем поверните вид: все три шипа одинаковы и направлены в одну сторону.</p>
+      <figure class="tool-shot"><a href="/mdlxl/tutorials/ru/align-tool.png" aria-label="Выровнять: совместите три острия"><img src="/mdlxl/tutorials/ru/align-tool.png" alt="Выровнять: совместите три острия. Выберите Масштабирование ( Z ), затем нажмите Shift+1 . Розовая надпись ALIGN отмечает целевое острие."><svg data-tool-ping aria-hidden="true" viewBox="0 0 96 96" style="left:92.70217483108108%;top:44.64446107784431%;width:8.108108108108109%"><path fill="none" stroke="#001807" stroke-width="6"/><path fill="none" stroke="#30ff70" stroke-width="3"/></svg></a><figcaption>Выберите <strong>Масштабирование</strong> (<strong>Z</strong>), затем нажмите <strong>Shift+1</strong>. Розовая надпись <strong>ALIGN</strong> отмечает целевое острие.</figcaption></figure>
+      <section class="demo-step"><h4>1. Выделите острия и задайте цель</h4>
+        <figure class="gif-player" data-animation="align-selection"><canvas class="player-frame" width="944" height="600" role="img" aria-label="1. Выделите острия и задайте цель. В виде Спереди выделите три острия. Нажмите Z , затем Shift+1 . Обведите рамкой среднее острие."></canvas><div class="tutorial-hotkey" aria-hidden="true" hidden></div></figure><p>В виде <strong>Спереди</strong> выделите три острия. Нажмите <strong>Z</strong>, затем <strong>Shift+1</strong>. Обведите рамкой среднее острие.</p>
+      </section>
+      <section class="demo-step"><h4>2. Выровняйте в виде спереди</h4>
+        <figure class="gif-player" data-animation="align-action"><canvas class="player-frame" width="944" height="600" role="img" aria-label="2. Выровняйте в виде спереди. Тяните мышью, пока в виде спереди не останется один полностью совмещённый шип."></canvas><div class="tutorial-hotkey" aria-hidden="true" hidden></div></figure><p>Тяните мышью, пока в виде спереди не останется один полностью совмещённый шип.</p>
+      </section>
+      <section class="demo-step"><h4>3. Проверьте с другого ракурса</h4>
+        <figure class="gif-player" data-animation="align-rotation"><canvas class="player-frame" width="944" height="600" role="img" aria-label="3. Проверьте с другого ракурса. Поверните вид вверх и в сторону. Видны три отдельных шипа одинакового размера и направления: их острия выровнены относительно вида спереди."></canvas><div class="tutorial-hotkey" aria-hidden="true" hidden></div></figure><p>Поверните вид вверх и в сторону. Видны три отдельных шипа одинакового размера и направления: их острия выровнены относительно вида спереди.</p>
+      </section>
+    </article>
+    <article class="tutorial-panel" role="region" id="tutorial-live" aria-labelledby="tab-live" hidden>
+      <p class="sample-note">UV-РАЗВЁРТКА · КРАТКОЕ РУКОВОДСТВО</p>
+      <h3>Выбор в предпросмотре: работа с UV в реальном времени</h3>
+      <p>Выбирайте одну или несколько вершин в живом 3D-предпросмотре и сразу изменяйте их координаты на UV-карте. Так можно разделить наложенные координаты.</p>
+      <figure class="tool-shot"><a href="/mdlxl/tutorials/ru/live-tool.png" aria-label="Выбор в предпросмотре: работа с UV в реальном времени"><img src="/mdlxl/tutorials/ru/live-tool.png" alt="Выбор в предпросмотре: работа с UV в реальном времени. Выбор в предпросмотре связывает выделение в 3D и на UV-карте. Выбор насквозь отключён, поэтому выбираются только видимые вершины. Перемещение меняет выбранные UV-координаты."><svg data-tool-ping aria-hidden="true" viewBox="0 0 96 96" style="left:54.47107263513513%;top:83.72754491017965%;width:8.108108108108109%"><path fill="none" stroke="#001807" stroke-width="6"/><path fill="none" stroke="#30ff70" stroke-width="3"/></svg><svg data-tool-ping aria-hidden="true" viewBox="0 0 96 96" style="left:59.37434016047297%;top:93.21107784431138%;width:8.108108108108109%"><path fill="none" stroke="#001807" stroke-width="6"/><path fill="none" stroke="#30ff70" stroke-width="3"/></svg></a><figcaption><strong>Выбор в предпросмотре</strong> связывает выделение в 3D и на UV-карте. <strong>Выбор насквозь</strong> отключён, поэтому выбираются только видимые вершины. <strong>Перемещение</strong> меняет выбранные UV-координаты.</figcaption></figure>
+      <section class="demo-step"><h4>1. Выделите вершины в предпросмотре</h4>
+        <figure class="gif-player" data-animation="live-selection"><canvas class="player-frame" width="944" height="600" role="img" aria-label="1. Выделите вершины в предпросмотре. Удерживайте A и протяните рамку по видимым вершинам в предпросмотре. Их UV-координаты также выделятся."></canvas><div class="tutorial-hotkey" aria-hidden="true" hidden></div></figure><p>Удерживайте <strong>A</strong> и протяните рамку по видимым вершинам в предпросмотре. Их UV-координаты также выделятся.</p>
+      </section>
+      <section class="demo-step"><h4>2. Разделите наложенные координаты</h4>
+        <figure class="gif-player" data-animation="live-action"><canvas class="player-frame" width="944" height="600" role="img" aria-label="2. Разделите наложенные координаты. Выберите другую видимую группу через A + щелчок . Нажмите Ctrl+E , чтобы включить связанные вершины, затем M для перемещения. Оттащите её UV-координаты от наложения. Повторите для остальных видимых групп."></canvas><div class="tutorial-hotkey" aria-hidden="true" hidden></div></figure><p>Выберите другую видимую группу через <strong>A + щелчок</strong>. Нажмите <strong>Ctrl+E</strong>, чтобы включить связанные вершины, затем <strong>M</strong> для перемещения. Оттащите её UV-координаты от наложения. Повторите для остальных видимых групп.</p>
+      </section>
+    </article>
+    <article class="tutorial-panel" role="region" id="tutorial-corpse" aria-labelledby="tab-corpse" hidden>
+      <p class="sample-note">АВТОТРУП · КРАТКОЕ РУКОВОДСТВО</p>
+      <h3>Автотруп: подгонка останков</h3>
+      <p>Используйте тело как ориентир и подгоните части, которые не совпали автоматически.</p>
+      <figure class="tool-shot"><a href="/mdlxl/tutorials/ru/corpse-tool.png" aria-label="Автотруп: подгонка останков"><img src="/mdlxl/tutorials/ru/corpse-tool.png" alt="Автотруп: подгонка останков. Откройте CORP и перейдите на вкладку Редактор останков ."><svg data-tool-ping aria-hidden="true" viewBox="0 0 96 96" style="left:85.91638513513513%;top:3.293413173652695%;width:8.108108108108109%"><path fill="none" stroke="#001807" stroke-width="6"/><path fill="none" stroke="#30ff70" stroke-width="3"/></svg></a><figcaption>Откройте <strong>CORP</strong> и перейдите на вкладку <strong>Редактор останков</strong>.</figcaption></figure>
+      <section class="demo-step"><h4>1. Сравните положение</h4>
+        <figure class="gif-player" data-animation="corpse-compare"><canvas class="player-frame" width="944" height="600" role="img" aria-label="1. Сравните положение. Оставьте Контур тела включённым. Переключайте Показать: body , чтобы сравнить останки с телом, затем отключите отображение тела для удобного редактирования."></canvas><div class="tutorial-hotkey" aria-hidden="true" hidden></div></figure><p>Оставьте <strong>Контур тела</strong> включённым. Переключайте <strong>Показать: body</strong>, чтобы сравнить останки с телом, затем отключите отображение тела для удобного редактирования.</p>
+      </section>
+      <section class="demo-step"><h4>2. Переместите, растяните и расширьте части</h4>
+        <figure class="gif-player" data-animation="corpse-fit"><canvas class="player-frame" width="944" height="600" role="img" aria-label="2. Переместите, растяните и расширьте части. Дважды щёлкните по части. Тяните центральный маркер для перемещения, крайний маркер для растяжения и боковой маркер для изменения ширины. Ориентируйтесь на контур и повторяйте там, где нужна подгонка."></canvas><div class="tutorial-hotkey" aria-hidden="true" hidden></div></figure><p><strong>Дважды щёлкните по части.</strong> Тяните <strong>центральный маркер</strong> для перемещения, <strong>крайний маркер</strong> для растяжения и <strong>боковой маркер</strong> для изменения ширины. Ориентируйтесь на контур и повторяйте там, где нужна подгонка.</p>
+      </section>
+      <section class="demo-step"><h4>3. Настройте высоту и цвет</h4>
+        <figure class="gif-player" data-animation="corpse-finish"><canvas class="player-frame" width="944" height="600" role="img" aria-label="3. Настройте высоту и цвет. Параметр Высота поднимает или опускает кости; здесь используется 80% . Для показанного результата задайте Цветовой оттенок : R 225 · G 255 · B 100 . Ещё раз включите Показать: body для проверки и нажмите Создать , когда подгонка готова. Автотруп также настраивает Decay Flesh и Decay Bone , включая видимость тела и останков."></canvas><div class="tutorial-hotkey" aria-hidden="true" hidden></div></figure><p>Параметр <strong>Высота</strong> поднимает или опускает кости; здесь используется <strong>80%</strong>. Для показанного результата задайте <strong>Цветовой оттенок</strong>: <strong>R 225 · G 255 · B 100</strong>. Ещё раз включите <strong>Показать: body</strong> для проверки и нажмите <strong>Создать</strong>, когда подгонка готова. Автотруп также настраивает <strong>Decay Flesh</strong> и <strong>Decay Bone</strong>, включая видимость тела и останков.</p>
+      </section>
+    </article>

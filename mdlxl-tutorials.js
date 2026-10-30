@@ -1,17 +1,45 @@
-import {mountTutorialPlayers} from './mdlxl/tutorials/playback.js?v=20261030-tutorials';
-import {startToolPings} from './mdlxl/tutorials/highlights.js?v=20261030-tutorials';
-export async function renderTutorials(panel, isCurrent, requested) {
-  if (!document.getElementById('mdlxl-tutorial-style')) {
-    const style = document.createElement('link');style.id='mdlxl-tutorial-style';style.rel='stylesheet';style.href='/mdlxl-tutorials.css?v=20261030-tutorials';document.head.append(style);
+import {mountTutorialPlayers} from './mdlxl/tutorials/playback.js?v=20261030-tutorial-languages';
+import {startToolPings} from './mdlxl/tutorials/highlights.js?v=20261030-tutorial-languages';
+import {tutorialLanguages,tutorialText} from './mdlxl/tutorials/languages.js?v=20261030-tutorial-languages';
+const version='20261030-tutorial-languages';
+const valid=language=>tutorialLanguages.some(item=>item.id===language);
+function showTutorial(state) {
+  const cards=[...state.body.querySelectorAll('.tutorial-card')];
+  const selected=cards.find(card=>card.dataset.tutorial===state.requested);
+  state.body.querySelector('#tutorial-library').hidden=!!selected;
+  state.body.querySelector('#tutorial-back').hidden=!selected;
+  for(const card of cards){state.body.querySelector('#'+card.getAttribute('aria-controls')).hidden=card!==selected;card.onclick=()=>{location.hash='project/mdlxl/tutorials/'+card.dataset.tutorial;};}
+  state.body.querySelector('#tutorial-back').onclick=()=>{location.hash='project/mdlxl/tutorials';};
+  const heading=selected?state.body.querySelector('#'+selected.getAttribute('aria-controls')+' h3'):state.title;
+  if(document.activeElement!==state.select){heading.tabIndex=-1;heading.focus({preventScroll:true});}
+  state.header.scrollIntoView({block:'start'});
+}
+export async function renderTutorials(panel,isCurrent,requested) {
+  if(!document.getElementById('mdlxl-tutorial-style')){
+    const style=document.createElement('link');style.id='mdlxl-tutorial-style';style.rel='stylesheet';style.href='/mdlxl-tutorials.css?v='+version;document.head.append(style);
   }
-  const [response, {default: animations}] = await Promise.all([fetch('/mdlxl/tutorials/content.html?v=20261030-tutorials'), import('./mdlxl/tutorials/animation-data.js?v=20261030-tutorials')]);
-  if (!response.ok) throw Error('Tutorials could not load.');
-  const markup = await response.text();if (!isCurrent()) return;
-  panel.innerHTML=markup;
-  const cards=[...panel.querySelectorAll('.tutorial-card')], selected=cards.find(card=>card.dataset.tutorial===requested);
-  panel.querySelector('#tutorial-library').hidden=!!selected;panel.querySelector('#tutorial-back').hidden=!selected;
-  for(const card of cards){panel.querySelector('#'+card.getAttribute('aria-controls')).hidden=card!==selected;card.onclick=()=>{location.hash='project/mdlxl/tutorials/'+card.dataset.tutorial;};}
-  panel.querySelector('#tutorial-back').onclick=()=>{location.hash='project/mdlxl/tutorials';};
-  mountTutorialPlayers(panel,animations);startToolPings(panel);
-  panel.scrollIntoView({block:'start'});
+  let state=panel._tutorialController;
+  if(!state){
+    panel.innerHTML='<header class="tutorial-header" id="tutorial-header"><h2 id="tutorial-heading">Tutorials</h2><label class="tutorial-language"><span class="tutorial-language-label">Language</span><select id="tutorial-language" aria-label="Language">'+tutorialLanguages.map(item=>'<option value="'+item.id+'">'+item.label+'</option>').join('')+'</select></label></header><div class="tutorial-body" id="tutorial-body"></div>';
+    state=panel._tutorialController={panel,header:panel.querySelector('#tutorial-header'),title:panel.querySelector('#tutorial-heading'),select:panel.querySelector('#tutorial-language'),body:panel.querySelector('#tutorial-body'),generation:0,loadedLanguage:null};
+    const tutorialLink=panel.closest('.mdlxl-layout').querySelector('.mdlxl-menu a[href$="/tutorials"]');
+    tutorialLink.onclick=event=>{event.preventDefault();location.hash='project/mdlxl/tutorials';};
+    state.select.onchange=()=>{const language=state.select.value;localStorage.setItem('mdlxl-tutorial-language',language);const url=new URL(location.href);url.searchParams.set('lang',language);history.replaceState(null,'',url);renderTutorials(panel,state.isCurrent,state.requested);};
+  }
+  state.isCurrent=isCurrent;state.requested=requested;
+  const query=new URLSearchParams(location.search).get('lang'),saved=localStorage.getItem('mdlxl-tutorial-language'),language=valid(query)?query:valid(saved)?saved:'en',text=tutorialText[language],generation=++state.generation;
+  if(valid(query))localStorage.setItem('mdlxl-tutorial-language',language);
+  state.select.value=language;state.select.setAttribute('aria-label',text.language);state.select.title=text.language;state.title.textContent=text.title;panel.querySelector('.tutorial-language-label').textContent=text.language;
+  panel.dataset.tutorialLanguage=language;panel.lang=language;document.title=text.title+' — MDLxL — LowPolyWorks';
+  if(state.loadedLanguage===language){showTutorial(state);return;}
+  state.loadedLanguage=null;state.body.textContent=text.loading;
+  const prefix=language==='en'?'':language+'/';
+  try{
+    const [response,{default:animations}]=await Promise.all([fetch('/mdlxl/tutorials/'+prefix+'content.html?v='+version),import('/mdlxl/tutorials/'+prefix+'animation-data.js?v='+version)]);
+    if(!response.ok)throw Error('Tutorial language could not load');
+    const markup=await response.text();if(generation!==state.generation||!state.isCurrent()||!panel.isConnected)return;
+    const content=document.createElement('div');content.className='tutorial-language-body';content.dataset.tutorialLocale=language;content.innerHTML=markup;state.body.replaceChildren(content);
+    for(const host of content.querySelectorAll('[data-animation]'))host.dataset.language=language;
+    state.loadedLanguage=language;mountTutorialPlayers(content,animations);startToolPings(content);showTutorial(state);
+  }catch(error){if(generation===state.generation&&state.isCurrent()&&panel.isConnected)state.body.textContent=text.error;}
 }
