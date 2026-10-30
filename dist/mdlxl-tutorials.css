@@ -38,3 +38,16 @@
 @media(max-width:650px){.tutorial-panel h3{font-size:1.35rem}.gif-player,.tool-shot{padding:4px}}
 
 .tutorial-hotkey{position:absolute;left:28px;bottom:22px;pointer-events:none;padding:5px 12px;border-radius:5px;background:#151a22d9;box-shadow:0 2px 8px #0005;font:600 19px/1.4 system-ui,sans-serif;color:#fff;text-shadow:0 1px 2px #000}.tutorial-hotkey[hidden]{display:none}
+.tutorial-header{display:grid;grid-template-columns:minmax(0,1fr) 220px;align-items:center;gap:18px;min-height:62px;margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid #756344}
+.mdlxl-content .tutorial-header h2{margin:0;line-height:1.25}
+.tutorial-language{display:block;min-width:0;position:relative}
+.tutorial-language-label{position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.journal .tutorial-language select{width:100%;font: .9rem/1.4 Georgia,serif;color:var(--bone);padding:8px 10px;cursor:pointer}
+.tutorial-language-body>.tutorial-panel{border-top:0;padding-top:0}
+.tutorial-card-footer{margin-top:auto}
+.tutorial-card-description{margin-bottom:18px}
+@font-face{font-family:MDLxL-Mordor;src:url('/mdlxl/tutorials/fonts/tengwar-annatar/tngan.ttf') format('truetype');font-weight:400;font-display:swap}
+@font-face{font-family:MDLxL-Mordor;src:url('/mdlxl/tutorials/fonts/tengwar-annatar/tnganb.ttf') format('truetype');font-weight:700;font-display:swap}
+[data-tutorial-language=mordor] #tutorial-heading,[data-tutorial-language=mordor] .tutorial-body :is(p,h3,h4,button,figcaption,span,strong){font-family:MDLxL-Mordor,serif;letter-spacing:.035em}
+[data-tutorial-language=mordor] .tutorial-language,[data-tutorial-language=mordor] .tutorial-language *{font-family:Georgia,serif;letter-spacing:normal}
+@media(max-width:650px){.tutorial-header{grid-template-columns:minmax(0,1fr) minmax(145px,46vw);gap:10px;min-height:58px;padding-bottom:13px}.mdlxl-content .tutorial-header h2{font-size:1.35rem}.journal .tutorial-language select{font-size:.83rem;padding:8px 6px}}
