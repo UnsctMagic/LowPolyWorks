@@ -1,29 +1,30 @@
+import {mdlxlHref} from './mdlxl-routes.js?v=20261030-mdlxl-navigation';
 import {mountTutorialPlayers} from './mdlxl/tutorials/playback.js?v=20261030-tutorial-languages';
 import {startToolPings} from './mdlxl/tutorials/highlights.js?v=20261030-tutorial-languages';
 import {tutorialLanguages,tutorialText} from './mdlxl/tutorials/languages.js?v=20261030-tutorial-languages';
-const version='20261030-tutorial-languages';
+const version='20261030-mdlxl-navigation';
 const valid=language=>tutorialLanguages.some(item=>item.id===language);
 function showTutorial(state) {
   const cards=[...state.body.querySelectorAll('.tutorial-card')];
   const selected=cards.find(card=>card.dataset.tutorial===state.requested);
   state.body.querySelector('#tutorial-library').hidden=!!selected;
   state.body.querySelector('#tutorial-back').hidden=!selected;
-  for(const card of cards){state.body.querySelector('#'+card.getAttribute('aria-controls')).hidden=card!==selected;card.onclick=()=>{location.hash='project/mdlxl/tutorials/'+card.dataset.tutorial;};}
-  state.body.querySelector('#tutorial-back').onclick=()=>{location.hash='project/mdlxl/tutorials';};
+  const search=new URLSearchParams(location.search);search.set('lang',state.select.value);
+  for(const link of state.panel.closest('.mdlxl-layout').querySelectorAll('.mdlxl-menu nav a')){const url=new URL(link.href);url.searchParams.set('lang',state.select.value);link.href=url;}
+  for(const card of cards){state.body.querySelector('#'+card.getAttribute('aria-controls')).hidden=card!==selected;card.href=mdlxlHref('tutorials',card.dataset.tutorial,search);}
+  state.body.querySelector('#tutorial-back').href=mdlxlHref('tutorials',undefined,search);
   const heading=selected?state.body.querySelector('#'+selected.getAttribute('aria-controls')+' h3'):state.title;
   if(document.activeElement!==state.select){heading.tabIndex=-1;heading.focus({preventScroll:true});}
-  state.header.scrollIntoView({block:'start'});
+  const rect=state.header.getBoundingClientRect();if(rect.top<0||rect.bottom>innerHeight)state.header.scrollIntoView({block:'start'});
 }
 export async function renderTutorials(panel,isCurrent,requested) {
   if(!document.getElementById('mdlxl-tutorial-style')){
     const style=document.createElement('link');style.id='mdlxl-tutorial-style';style.rel='stylesheet';style.href='/mdlxl-tutorials.css?v='+version;document.head.append(style);
   }
   let state=panel._tutorialController;
-  if(!state){
+  if(!state||!state.header.isConnected){
     panel.innerHTML='<header class="tutorial-header" id="tutorial-header"><h2 id="tutorial-heading">Tutorials</h2><label class="tutorial-language"><span class="tutorial-language-label">Language</span><select id="tutorial-language" aria-label="Language">'+tutorialLanguages.map(item=>'<option value="'+item.id+'">'+item.label+'</option>').join('')+'</select></label></header><div class="tutorial-body" id="tutorial-body"></div>';
     state=panel._tutorialController={panel,header:panel.querySelector('#tutorial-header'),title:panel.querySelector('#tutorial-heading'),select:panel.querySelector('#tutorial-language'),body:panel.querySelector('#tutorial-body'),generation:0,loadedLanguage:null};
-    const tutorialLink=panel.closest('.mdlxl-layout').querySelector('.mdlxl-menu a[href$="/tutorials"]');
-    tutorialLink.onclick=event=>{event.preventDefault();location.hash='project/mdlxl/tutorials';};
     state.select.onchange=()=>{const language=state.select.value;localStorage.setItem('mdlxl-tutorial-language',language);const url=new URL(location.href);url.searchParams.set('lang',language);history.replaceState(null,'',url);renderTutorials(panel,state.isCurrent,state.requested);};
   }
   state.isCurrent=isCurrent;state.requested=requested;

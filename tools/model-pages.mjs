@@ -1,3 +1,4 @@
+import {mdlxlSections,tutorialSlugs} from '../dist/mdlxl-routes.js';
 import {syncModelUpdates} from './model-updates.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -55,10 +56,11 @@ export function generateSearchFiles(root, rows) {
   return urls.length;
 }
 
-export function mdlxlPage(template) {
-  const title = 'MDLxL — Warcraft III Model Editor — LowPolyWorks';
+export function mdlxlPage(template, section='updates', tutorial) {
+  const sectionNames={about:'About MDLxL',preview:'Preview',tutorials:'Tutorials',credits:'Credits'},guideNames={anchor:'Anchor',align:'Align',live:'Live Select',corpse:'Auto Corpse'};
+  const title = section==='updates'?'MDLxL — Warcraft III Model Editor — LowPolyWorks':(tutorial?guideNames[tutorial]+' tutorial':sectionNames[section])+' — MDLxL — LowPolyWorks';
   const description = "Download MDLxL, a Warcraft 3 SD model editor inspired by MDLVis. Edit meshes, UV maps and animations, and read the latest patch notes.";
-  const url = `${site}/mdlxl/`;
+  const url = `${site}/mdlxl/${section==='updates'?'':section+'/'}${tutorial?tutorialSlugs[tutorial]+'/':''}`;
   const metadata = [
     `<link rel="canonical" href="${url}">`,
     `<meta property="og:type" content="website">`,
@@ -85,6 +87,8 @@ export function generateModelPages(root) {
   }
   fs.mkdirSync(path.join(root, 'mdlxl'), {recursive:true});
   fs.writeFileSync(path.join(root, 'mdlxl', 'index.html'), mdlxlPage(template));
+  for(const section of mdlxlSections.filter(section=>section!=='updates')){const directory=path.join(root,'mdlxl',section);fs.mkdirSync(directory,{recursive:true});fs.writeFileSync(path.join(directory,'index.html'),mdlxlPage(template,section));}
+  for(const tutorial of Object.keys(tutorialSlugs)){const directory=path.join(root,'mdlxl','tutorials',tutorialSlugs[tutorial]);fs.mkdirSync(directory,{recursive:true});fs.writeFileSync(path.join(directory,'index.html'),mdlxlPage(template,'tutorials',tutorial));}
   generateSearchFiles(root, rows);
   return rows.length;
 }
