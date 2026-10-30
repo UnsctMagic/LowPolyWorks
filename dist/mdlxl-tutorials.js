@@ -1,8 +1,8 @@
-import {mdlxlHref} from './mdlxl-routes.js?v=20261030-mdlxl-navigation';
+import {mdlxlHref} from './mdlxl-routes.js?v=20261030-glow-approved';
 import {mountTutorialPlayers} from './mdlxl/tutorials/playback.js?v=20261030-tutorial-languages';
 import {startToolPings} from './mdlxl/tutorials/highlights.js?v=20261030-tutorial-languages';
 import {tutorialLanguages,tutorialText} from './mdlxl/tutorials/languages.js?v=20261030-tutorial-languages';
-const version='20261030-mdlxl-navigation';
+const version='20261030-glow-approved';
 const valid=language=>tutorialLanguages.some(item=>item.id===language);
 function showTutorial(state) {
   const cards=[...state.body.querySelectorAll('.tutorial-card')];
