@@ -1,24 +1,18 @@
 const sheet = new URL('./ui/visitor/0.png' + new URL(import.meta.url).search, import.meta.url).href; // Shares the script's cache key.
 const wings = new URL('./ui/visitor/1.png', import.meta.url).href;
-// Halloween 2026, October 30–31 in Europe/Amsterdam; the normal art is untouched.
+// Calendar windows use Europe/Amsterdam midnight. Ends are exclusive.
 const HALLOWEEN_START = Date.UTC(2026, 9, 29, 23), HALLOWEEN_END = Date.UTC(2026, 9, 31, 23);
-const halloween = () => Date.now() >= HALLOWEEN_START && Date.now() < HALLOWEEN_END;
-// Crown [x, y, angle] in each authored cell, before its existing mirror/scale/rotation.
-const HAT_HEADS = [
-  [[97,72,0],[94,72,0],[95,72,0],[89,74,0],[95,72,0],[96,72,0],[97,43,0],null],
-  [[107,71,0],[107,71,0],[107,71,0],[107,71,0],[107,71,0],[107,71,0],[107,71,0],[107,71,0]],
-  [[84,71,0],[84,71,0],[84,71,0],[84,71,0],[84,71,0],[84,71,0],[84,71,0],[84,71,0]],
-  [[101,70,0],[101,70,0],[101,70,0],[101,70,0],null,null,null,null],
-  [[95,74,0],[102,50,0],[103,14,0],[102,50,0],[95,74,0],null,null,null],
-  [[96,72,0],[96,76,0],[97,80,0],[97,81,0],[96,82,0],[96,78,0],[96,81,0],[96,76,0]],
-  [[95,72,0],[98,72,0],[99,77,0],[102,81,0],[94,76,0],[96,72,0],null,null],
-  [[102,72,0],[99,74,0],[110,82,0],[103,75,0],[105,75,0],[103,75,0],null,null],
-  [[95,73,0],[93,72,0],[95,73,0],[99,74,0],[104,74,-18],[94,73,-8],[93,73,8],[84,74,18]],
-  [[93,50,0],[103,61,0],[104,63,0],[104,66,0],[104,68,0],[106,75,0],[108,83,0],[105,89,0]],
-  [[93,64,0],[94,65,0],[91,69,0],[91,69,0],[94,66,0],[93,66,0],[91,64,0],[85,57,0]]
-];
-const HAT_LAUNCH = [[107,71,0],[133,85,28],[133,85,28],[136,93,28],[120,86,20],[120,79,20],[120,72,20],[120,67,20]];
-const HAT_DIVE = [[151,148,95],[151,148,95],[151,148,95],[154,127,55],[144,84,0],[144,84,0],[144,84,0],[144,84,0]];
+// Prime Video Season 3 premiere: 11 November 2026. Crown: 8–12 November.
+// https://www.aboutamazon.com/news/entertainment/lord-of-the-rings-rings-of-power-season-3-prime-video
+const MORGOTH_START = Date.UTC(2026, 10, 7, 23), MORGOTH_END = Date.UTC(2026, 10, 12, 23);
+export function costumeAt(now = Date.now()) {
+  if (now >= HALLOWEEN_START && now < HALLOWEEN_END) return 'halloween';
+  if (now >= MORGOTH_START && now < MORGOTH_END) return 'morgoth';
+  // December is UTC+1 in Amsterdam: 11 December through the whole of 26 December.
+  const year = new Date(now).getUTCFullYear();
+  if (now >= Date.UTC(year, 11, 10, 23) && now < Date.UTC(year, 11, 26, 23)) return 'christmas';
+  return 'none';
+}
 const between = (low, high) => low + Math.random() * (high - low);
 const ease = value => { const t = Math.max(0, Math.min(1, value)); return t * t * (3 - 2 * t); };
 const mix = (a, b, t) => a + (b - a) * ease(t);
@@ -119,6 +113,10 @@ export function startMenuVisitor({onInteraction} = {}) {
   const css = document.createElement('link');
   css.rel = 'stylesheet'; css.href = new URL('./menu-visitor.css' + new URL(import.meta.url).search, import.meta.url).href; // Shares the script's cache key.
   document.head.append(css);
+  const costumeSize = flightSize + 80, costumePadding = 40;
+  let directionalHats, disposed = false;
+  const hatReady = import('./visitor-hats.js?v=20261030-seasonal-hats').then(async module => { if (disposed) return; const hats = await module.createDirectionalHatRenderer(); if (disposed) hats.dispose(); else directionalHats = hats; });
+  const costumeActive = () => costumeAt() !== 'none';
   const layer = document.createElement('div');
   layer.className = 'menu-visitor-layer'; layer.setAttribute('aria-hidden', 'true');
   const bird = document.createElement('div'); bird.className = 'menu-visitor';
@@ -127,12 +125,12 @@ export function startMenuVisitor({onInteraction} = {}) {
   // expose an unpainted texture for a frame when Chrome recomposites the bird.
   const picture = document.createElement('canvas'); picture.className = 'menu-visitor-frame';
   const incoming = document.createElement('canvas'), outgoing = document.createElement('canvas');
-  for (const canvas of [picture, incoming, outgoing]) canvas.width = canvas.height = 480;
-  picture.style.width = picture.style.height = `${flightSize}px`;
-  picture.style.left = `${bodyWidth / 2 - 120 * flightScale}px`;
-  picture.style.top = `${bodyHeight / 2 - 101 * flightScale}px`;
+  for (const canvas of [picture, incoming, outgoing]) canvas.width = canvas.height = Math.round(480 * costumeSize / flightSize);
+  picture.style.width = picture.style.height = `${costumeSize}px`;
+  picture.style.left = `${bodyWidth / 2 - 120 * flightScale - costumePadding}px`;
+  picture.style.top = `${bodyHeight / 2 - 101 * flightScale - costumePadding}px`;
   const ink = picture.getContext('2d'), nextInk = incoming.getContext('2d'), oldInk = outgoing.getContext('2d');
-  let paintedSheet = null, joinStarted = -Infinity;
+  let paintedSheet = null, paintedCostume = null, joinStarted = -Infinity;
   const beakPeanut = document.createElement('div'); beakPeanut.className = 'menu-visitor-beak-peanut';
   bird.append(picture, beakPeanut); layer.append(bird); document.body.append(layer);
   // Food remains visible outside the stone-edge mask used by a peeking bird.
@@ -145,8 +143,6 @@ export function startMenuVisitor({onInteraction} = {}) {
   const played = kind => { if (!peanutTest) onInteraction?.(kind); };
   const art = new Image(), flightArt = new Image(); art.src = sheet; flightArt.src = wings;
   const movesImage = new Image(), diveImage = new Image(); movesImage.src = moves; diveImage.src = diveArt;
-  const hatImage = new Image();
-  if (halloween()) hatImage.src = new URL('./ui/visitor/witch-hat.png', import.meta.url).href;
   const trimArt = new Image();
   let trimEdges, peekMask;
   trimArt.onload = () => {
@@ -846,8 +842,8 @@ export function startMenuVisitor({onInteraction} = {}) {
     const sourceRow = mirroredWalk ? 1 : row;
     nextInk.setTransform(1, 0, 0, 1, 0, 0);
     nextInk.clearRect(0, 0, incoming.width, incoming.height);
-    const density = incoming.width / flightSize;
-    nextInk.setTransform(density, 0, 0, density, 120 * flightScale * density, 101 * flightScale * density);
+    const density = incoming.width / costumeSize;
+    nextInk.setTransform(density, 0, 0, density, (120 * flightScale + costumePadding) * density, (101 * flightScale + costumePadding) * density);
     nextInk.save();
     if (groundedLook) {
       // Preserve the accepted walking gaze scale and foot rail.
@@ -863,22 +859,19 @@ export function startMenuVisitor({onInteraction} = {}) {
         flightCell ? -101 * flightScale : -bodyHeight / 2,
         flightCell ? flightSize : bodyWidth, flightCell ? flightSize : bodyHeight);
     }
-    if (halloween() && hatImage.complete && hatImage.naturalWidth) {
-      const head = key === 'dive' ? HAT_DIVE[column] : key === 'moves' ? HAT_LAUNCH[column] :
-        key === 'flight' ? [column === 2 ? 143 : 142, row ? 84 : 82, 0] : HAT_HEADS[sourceRow]?.[column];
-      if (head) {
-        const unitX = (flightCell ? flightSize : bodyWidth) / cellWidth;
-        const unitY = (flightCell ? flightSize : bodyHeight) / cellHeight;
-        const left = flightCell ? -120 * flightScale : -bodyWidth / 2;
-        const top = groundedLook ? -(row === 9 ? 169 : 170) / 208 * bodyHeight :
-          flightCell ? -101 * flightScale : -bodyHeight / 2;
-        const width = (flightCell ? 60 : 70) * unitX, height = width * hatImage.naturalHeight / hatImage.naturalWidth;
-        nextInk.save();
-        nextInk.translate(left + head[0] * unitX, top + head[1] * unitY);
-        nextInk.rotate(head[2] * Math.PI / 180);
-        nextInk.drawImage(hatImage, -width / 2, -height * .87, width, height);
-        nextInk.restore();
-      }
+    const costume = costumeAt();
+    bird.dataset.hat = costume;
+    if (paintedCostume !== costume) {
+      paintedSheet = null; joinStarted = -Infinity; paintedCostume = costume;
+    }
+    if (costume !== 'none' && directionalHats) {
+      const pose = directionalHats.poseFor(key, sourceRow, column);
+      if (!pose) throw Error('Missing authored head pose: '+key+':'+sourceRow+':'+column);
+      const unitX = (flightCell ? flightSize : bodyWidth) / cellWidth, unitY = (flightCell ? flightSize : bodyHeight) / cellHeight;
+      const left = flightCell ? -120 * flightScale : -bodyWidth / 2;
+      const top = groundedLook ? -(row === 9 ? 169 : 170) / 208 * bodyHeight : flightCell ? -101 * flightScale : -bodyHeight / 2;
+      const image = directionalHats.render(costume, pose), width = 128 * pose.scale * unitX, height = 128 * pose.scale * unitY;
+      nextInk.drawImage(image, left + pose.x * unitX - width / 2, top + pose.y * unitY - height / 2, width, height);
     }
     nextInk.restore();
     const now = performance.now();
@@ -1080,8 +1073,8 @@ export function startMenuVisitor({onInteraction} = {}) {
         // Use the layer's own size so every mask meets its chosen trim exactly.
         const width = layer.clientWidth, height = layer.clientHeight;
         const mask = perch.inward ? {...rect.inner} : {left:0, right:width, top:0, bottom:height};
-        // Let the Halloween hat rise above the inward rail; retain side and foot clipping.
-        if (perch.inward && perch.mode === 'walk' && halloween()) mask.top = 0;
+        // Let seasonal hats rise above the inward rail; retain side and foot clipping.
+        if (perch.inward && perch.mode === 'walk' && costumeActive()) mask.top = 0;
         if (!perch.inward) {
           if (perch.side === 'top') mask.bottom = rect.top;
           if (perch.side === 'bottom') mask.top = rect.bottom;
@@ -1138,9 +1131,20 @@ export function startMenuVisitor({onInteraction} = {}) {
   }
   window.addEventListener('pagehide', saveVisit);
   window.addEventListener('pageshow', forgetVisit);
-  restoreVisit(performance.now());
-
-  frame = requestAnimationFrame(tick);
+  // Resume on the first animation timestamp after the selected hat is decoded.
+  // Using performance.now() here can start a carried-food pose after that frame's timestamp.
+  if (hatReady) hatReady.then(() => {
+    if (disposed) return;
+    frame = requestAnimationFrame(now => {
+      last = now;
+      restoreVisit(now);
+      tick(now);
+    });
+  });
+  else {
+    restoreVisit(performance.now());
+    frame = requestAnimationFrame(tick);
+  }
   return () => {
     cancelAnimationFrame(frame);
     window.removeEventListener('pagehide', saveVisit); window.removeEventListener('pageshow', forgetVisit);
@@ -1150,6 +1154,6 @@ export function startMenuVisitor({onInteraction} = {}) {
     window.removeEventListener('lowpolyworks:bird-attack', birdAttack);
     window.removeEventListener('keydown', testPeanut);
     document.removeEventListener('pointerleave', leave);
-    layer.remove(); foodLayer.remove(); css.remove();
+    disposed = true; directionalHats?.dispose(); layer.remove(); foodLayer.remove(); css.remove();
   };
 }
