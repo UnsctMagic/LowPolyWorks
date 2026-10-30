@@ -733,3 +733,15 @@ test('the original sprite alone is painted outside Halloween', () => {
     assert.equal(incoming.context.calls.filter(c=>c[0]==='drawImage').length,1);
   }
 });
+
+
+test('the Halloween hat clears the inward rail top without changing the foot or side mask', () => {
+  let now=Date.UTC(2026,9,30,12);
+  const f=fixture(true,.1,{Date:class extends Date {static now(){return now;}}});
+  f.context.visitor.choose('walk');f.advance(3000);
+  assert.equal(f.state().phase,'walk');assert.equal(f.state().perch.inward,true);
+  const layer=f.nodes.find(n=>n.className==='menu-visitor-layer');
+  assert.equal(layer.style.clipPath,'inset(0px 258px 268px 258px)');
+  now=Date.UTC(2026,9,31,23);f.step();
+  assert.equal(layer.style.clipPath,'inset(238px 258px 268px 258px)');
+});
