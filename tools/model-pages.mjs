@@ -57,7 +57,7 @@ export function generateSearchFiles(root, rows) {
 }
 
 export function mdlxlPage(template, section='updates', tutorial) {
-  const sectionNames={about:'About MDLxL',preview:'Preview',tutorials:'Tutorials',credits:'Credits'},guideNames={anchor:'Anchor',align:'Align',live:'Live Select',corpse:'Auto Corpse',glow:'Glow Up'};
+  const sectionNames={about:'About MDLxL',preview:'Preview',tutorials:'Tutorials',credits:'Credits'},guideNames={anchor:'Anchor',align:'Align',live:'Live Select',corpse:'Auto Corpse'};
   const title = section==='updates'?'MDLxL — Warcraft III Model Editor — LowPolyWorks':(tutorial?guideNames[tutorial]+' tutorial':sectionNames[section])+' — MDLxL — LowPolyWorks';
   const description = "Download MDLxL, a Warcraft 3 SD model editor inspired by MDLVis. Edit meshes, UV maps and animations, and read the latest patch notes.";
   const url = `${site}/mdlxl/${section==='updates'?'':section+'/'}${tutorial?tutorialSlugs[tutorial]+'/':''}`;
