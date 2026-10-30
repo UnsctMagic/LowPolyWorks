@@ -512,6 +512,10 @@
       "sha256": "7e7ab64216961b2e340c3e1627e5a1559f17bd02051f779f164162577c1a9fa7",
       "publishedAt": "2026-10-12T09:03:56.313Z",
       "updatedAt": "2026-10-17T22:19:43.696Z"
+    },
+    "chaos-warrior-of-nurgle-heavy-flail": {
+      "sha256": "afe3b4908432d671d36e942daf23a2ecee7af106bbcfe138b8e5f8e84bb6a64b",
+      "publishedAt": "2026-10-30T18:49:47.215Z"
     }
   }
 }

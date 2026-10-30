@@ -15022,6 +15022,339 @@
     ]
   },
   {
+    "id": "chaos-warrior-of-nurgle-heavy-flail",
+    "file": "chaos-warrior-of-nurgle/WH_WOC_WarriorNurgleHeavy01.mdx",
+    "name": "Warrior of Nurgle · Heavy Flail",
+    "army": "warriors-of-chaos",
+    "description": "An unbearable stench always heralds the approach of the Plague Lord’s warriors. Their helmets often bear great, withered horns and they are clad in rust-tarnished armour which conceal vile conditions or mutations – perhaps a slimy tentacle, or translucent, jelly-like flesh that reveals their decaying inner organs, or simply a body riddled with leprosy. Sometimes the corpulent meat of their bodies spills from the cracks of their armour. Whatever the case, they are deadly fighters who are near-impervious to pain and fight on despite receiving the most horrendous wounds imaginable.\r\n\r\nSource: Chaos Warriors of Nurgle",
+    "credits": "Model Base - Chaos Warrior by azazeron\r\n\r\nMashed with - Chaos Warriors by Diazon, found on Warhammer Eternal Strife by Nightmare2077\r\n\r\nHelm - Tzeentch Pack Old Ver.2 by Grey Knight\r\n\r\nShoulders - Bandit Enforcer (Re-Classic) by johnwar\r\n\r\nAxe - Iron Raven by Blood Raven\r\n\r\nGuts - Abomination (Re-Classic) by johnwar\r\n\r\nHorns - Goats by bakr\r\n\r\nAdditional credits - Stein123\r\n\r\nHelm (Heavy Flail variation) - Bandit Enforcer/Black Knight by Direfury\r\n\r\nFlail head - Plague Monks by Diazon, found on Warhammer Eternal Strife by Nightmare2077",
+    "geosets": [
+      {
+        "index": 0,
+        "vertices": 46,
+        "triangles": 52,
+        "material": 0,
+        "textures": [
+          "Units\\Creeps\\MagnataurBrown\\BrownMagnataur.blp"
+        ]
+      },
+      {
+        "index": 1,
+        "vertices": 42,
+        "triangles": 48,
+        "material": 7,
+        "textures": [
+          "UI\\Glues\\SinglePlayer\\HumanCampaign3D\\HumanCampaignFootman.blp"
+        ]
+      },
+      {
+        "index": 2,
+        "vertices": 18,
+        "triangles": 24,
+        "material": 1,
+        "textures": [
+          "UI\\Glues\\SinglePlayer\\OrcCampaign3D\\CampaignOrc.blp"
+        ]
+      },
+      {
+        "index": 3,
+        "vertices": 583,
+        "triangles": 366,
+        "material": 5,
+        "textures": [
+          "Units\\Creeps\\HeroTinker\\HeroTinkerTank.blp"
+        ]
+      },
+      {
+        "index": 4,
+        "vertices": 13,
+        "triangles": 13,
+        "material": 15,
+        "textures": [
+          "Team colour / glow",
+          "Units\\Demon\\Mannoroth\\Mannoroth.blp"
+        ]
+      },
+      {
+        "index": 5,
+        "vertices": 18,
+        "triangles": 16,
+        "material": 6,
+        "textures": [
+          "Textures\\GiantSeaTurtle.blp"
+        ]
+      },
+      {
+        "index": 6,
+        "vertices": 14,
+        "triangles": 10,
+        "material": 2,
+        "textures": [
+          "Textures\\Abomination.blp"
+        ]
+      },
+      {
+        "index": 7,
+        "vertices": 14,
+        "triangles": 10,
+        "material": 3,
+        "textures": [
+          "Textures\\Abomination.blp"
+        ]
+      },
+      {
+        "index": 8,
+        "vertices": 6,
+        "triangles": 6,
+        "material": 2,
+        "textures": [
+          "Textures\\Abomination.blp"
+        ]
+      },
+      {
+        "index": 9,
+        "vertices": 40,
+        "triangles": 24,
+        "material": 4,
+        "textures": [
+          "Textures\\BeastMaster.blp"
+        ]
+      },
+      {
+        "index": 10,
+        "vertices": 33,
+        "triangles": 52,
+        "material": 8,
+        "textures": [
+          "Units\\Creeps\\UndeadDestroyerShip\\UndeadDestroyerShip.blp"
+        ]
+      },
+      {
+        "index": 11,
+        "vertices": 12,
+        "triangles": 12,
+        "material": 9,
+        "textures": [
+          "ReplaceableTextures\\NorthrendTree\\NorthTree.blp"
+        ]
+      },
+      {
+        "index": 12,
+        "vertices": 121,
+        "triangles": 124,
+        "material": 10,
+        "textures": [
+          "Units\\Creeps\\HeroTinker\\HeroTinkerTank.blp"
+        ]
+      },
+      {
+        "index": 13,
+        "vertices": 62,
+        "triangles": 50,
+        "material": 11,
+        "textures": [
+          "TerrainArt\\Felwood\\Felwood_Poison.blp"
+        ]
+      },
+      {
+        "index": 14,
+        "vertices": 32,
+        "triangles": 16,
+        "material": 12,
+        "textures": [
+          "Textures\\GlueScreen-Panel-MetalPieces.blp"
+        ]
+      },
+      {
+        "index": 15,
+        "vertices": 8,
+        "triangles": 8,
+        "material": 13,
+        "textures": [
+          "Textures\\Green_Glow3.blp"
+        ]
+      },
+      {
+        "index": 16,
+        "vertices": 26,
+        "triangles": 24,
+        "material": 14,
+        "textures": [
+          "Units\\Orc\\OrcWarlockGuldan\\OrcWarlockGuldan.blp"
+        ]
+      },
+      {
+        "index": 17,
+        "vertices": 242,
+        "triangles": 317,
+        "material": 15,
+        "textures": [
+          "Team colour / glow",
+          "Units\\Demon\\Mannoroth\\Mannoroth.blp"
+        ]
+      },
+      {
+        "index": 18,
+        "vertices": 24,
+        "triangles": 12,
+        "material": 16,
+        "textures": [
+          "units\\Creeps\\LordGarithos\\LordGarithos.blp"
+        ]
+      },
+      {
+        "index": 19,
+        "vertices": 25,
+        "triangles": 24,
+        "material": 17,
+        "textures": [
+          "Buildings\\Naga\\AltarOfDepths\\AltarOfDepths.blp"
+        ]
+      },
+      {
+        "index": 20,
+        "vertices": 45,
+        "triangles": 26,
+        "material": 18,
+        "textures": [
+          "Textures\\gutz.blp"
+        ]
+      },
+      {
+        "index": 21,
+        "vertices": 4,
+        "triangles": 2,
+        "material": 19,
+        "textures": [
+          "Team colour / glow"
+        ]
+      },
+      {
+        "index": 22,
+        "vertices": 4,
+        "triangles": 2,
+        "material": 3,
+        "textures": [
+          "Textures\\Abomination.blp"
+        ]
+      }
+    ],
+    "sequences": [
+      "Stand - 1",
+      "Walk",
+      "Stand Ready",
+      "Attack - 1",
+      "Attack - 2",
+      "Attack Slam",
+      "Death",
+      "Decay Flesh",
+      "Decay Bone",
+      "Portrait",
+      "Portrait Talk"
+    ],
+    "bytes": 128691,
+    "portraitBackdropGeosets": [
+      21
+    ],
+    "authors": [
+      {
+        "name": "Unsanctioned Magic",
+        "url": "https://xgm.guru/user/UnsanctMagic"
+      },
+      {
+        "name": "Azazeron",
+        "url": "https://www.hiveworkshop.com/members/azazeron.299156/"
+      }
+    ],
+    "creditLinks": [
+      {
+        "text": "Chaos Warrior",
+        "url": "https://www.hiveworkshop.com/threads/chaos-warrior.366159/"
+      },
+      {
+        "text": "azazeron",
+        "url": "https://www.hiveworkshop.com/members/azazeron.299156/"
+      },
+      {
+        "text": "Chaos Warriors",
+        "url": "https://www.hiveworkshop.com/threads/warhammer-eternal-strife-melee.254808/"
+      },
+      {
+        "text": "Diazon",
+        "url": "https://www.hiveworkshop.com/threads/warhammer-eternal-strife-melee.254808/"
+      },
+      {
+        "text": "Warhammer Eternal Strife",
+        "url": "https://www.hiveworkshop.com/threads/warhammer-eternal-strife-melee.254808/"
+      },
+      {
+        "text": "Nightmare2077",
+        "url": "https://www.hiveworkshop.com/members/nightmare2077.204498/"
+      },
+      {
+        "text": "Tzeentch Pack Old Ver.2",
+        "url": "https://www.hiveworkshop.com/threads/tzeentch-pack-old-ver-2.325501/"
+      },
+      {
+        "text": "Grey Knight",
+        "url": "https://www.hiveworkshop.com/members/grey-knight.245238/"
+      },
+      {
+        "text": "Bandit Enforcer (Re-Classic)",
+        "url": "https://www.hiveworkshop.com/threads/bandit-enforcer-re-classic.336169/"
+      },
+      {
+        "text": "johnwar",
+        "url": "https://www.hiveworkshop.com/members/johnwar.264426/"
+      },
+      {
+        "text": "Iron Raven",
+        "url": "https://www.hiveworkshop.com/threads/iron-raven.277559/"
+      },
+      {
+        "text": "Blood Raven",
+        "url": "https://www.hiveworkshop.com/members/blood-raven.194769/"
+      },
+      {
+        "text": "Abomination (Re-Classic)",
+        "url": "https://www.hiveworkshop.com/threads/abomination-re-classic.357166/"
+      },
+      {
+        "text": "Goats",
+        "url": "https://www.hiveworkshop.com/threads/goats.371456/"
+      },
+      {
+        "text": "bakr",
+        "url": "https://www.hiveworkshop.com/members/bakr.284239/"
+      },
+      {
+        "text": "Stein123",
+        "url": "https://www.hiveworkshop.com/members/stein123.196992/"
+      },
+      {
+        "text": "Bandit Enforcer/Black Knight",
+        "url": "https://www.hiveworkshop.com/threads/bandit-enforcer-black-knight.272619/"
+      },
+      {
+        "text": "Direfury",
+        "url": "https://www.hiveworkshop.com/members/direfury.188037/"
+      },
+      {
+        "text": "Plague Monks",
+        "url": "https://www.hiveworkshop.com/threads/warhammer-eternal-strife-melee.254808/"
+      }
+    ],
+    "sha256": "afe3b4908432d671d36e942daf23a2ecee7af106bbcfe138b8e5f8e84bb6a64b",
+    "descriptionLinks": [
+      {
+        "text": "Chaos Warriors of Nurgle",
+        "url": "https://totalwarwarhammer.fandom.com/wiki/Chaos_Warriors_of_Nurgle"
+      }
+    ],
+    "searchDescription": "An unbearable stench always heralds the approach of the Plague Lord’s warriors. Their helmets often bear great, withered horns and they are clad in rust-tarnished armour which conceal vile conditions or mutations – perhaps a slimy tentacle, or translucent, jelly-like flesh that reveals their decaying inner organs, or simply a body riddled with leprosy. Sometimes the corpulent meat of their bodies spills from the cracks of their armour. Whatever the case, they are deadly fighters who are near-impervious to pain and fight on despite receiving the most horrendous wounds imaginable.",
+    "imageVersion": "20261030-nurgle-heavy-flail-v2"
+  },
+  {
     "id": "blood-dragon",
     "file": "WH_VC_BloodDragonAxe02.mdx",
     "name": "Blood Dragon",
