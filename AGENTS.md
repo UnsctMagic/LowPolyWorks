@@ -4,6 +4,12 @@
 - Preserve authored team-glow geometry and effects in live previews and captured model images. Transparent captures must retain the glow without an opaque background rectangle.
 - Verify colour changes on the model itself before publishing; changing a card background does not verify a team-colour change.
 
+## Warriors of Chaos card sizing
+
+- Treat every Warrior of Khorne, Nurgle, Slaanesh, and Tzeentch variant as one visual card family. Use the same 4:5 army-card frame and a square 1024×1024 transparent card image. Preserve model proportions; any size correction must be uniform and limited to the army card.
+- Before publishing a new Warrior variant or changing a Warrior card, cycle **every** variant on the Warriors of Chaos army page at desktop and mobile widths. Match perceived occupied area against the existing cards, including bulky shields and thin weapons; equal PNG dimensions or equal head-to-foot height alone do not establish equal visual size. The current accepted set occupies roughly 25–38% of a 1024×1024 image in pixels with alpha above 8 after card scaling. Use that as a guide, then inspect the page for clipping, readable eyes, and full weapons.
+- Keep card-image changes separate from model-page thumbnails, the rotatable 3D preview, and MDX files.
+
 ## Model file additions
 
 - When adding a user-supplied model file to the catalogue, preserve the provided description or lore and credit every supplied source model. The `By:` list is for the finished model's authors; source-model authors belong under `Model Base` or the relevant parts credit, not automatically in `By:` on the card, page, or Credits tab. Only add a source author to `By:` when explicitly requested as a co-author of the finished model. In credits, show linked model titles and linked author names; never print raw source URLs.
