@@ -5,7 +5,10 @@ import {test} from 'node:test';
 
 const source = fs.readFileSync(new URL('../dist/menu-visitor.js', import.meta.url), 'utf8');
 // Inspect state in a test-only copy. The shipped visitor has no testing API.
-const instrumented = source.replaceAll('import.meta.url', "'http://localhost/menu-visitor.js'")
+const instrumented = source.replace('export function costumeAt(', 'function costumeAt(')
+  .replace(/  const hatReady = import\([^\n]+/, '  const hatReady = null;')
+  .replace('let directionalHats, disposed = false;', "let directionalHats = {poseFor:()=>({x:97,y:72,scale:1}),render:id=>({src:id==='halloween'?'witch-hat.png':id+'.png'}),dispose(){}}, disposed = false;")
+  .replaceAll('import.meta.url', "'http://localhost/menu-visitor.js'")
   .replace('export function startMenuVisitor(', 'function startMenuVisitor(')
   .replace('  return () => {', `  globalThis.visitor = {
     state: () => ({phase, peanut:peanut && {...peanut}, point:paintedPoint && {...paintedPoint}, offset, deadline, speed, next,
@@ -744,4 +747,27 @@ test('the Halloween hat clears the inward rail top without changing the foot or 
   assert.equal(layer.style.clipPath,'inset(0px 258px 268px 258px)');
   now=Date.UTC(2026,9,31,23);f.step();
   assert.equal(layer.style.clipPath,'inset(238px 258px 268px 258px)');
+});
+
+// Exact Amsterdam-midnight boundaries, including a tab that stays open across the cutoff.
+test('seasonal crown and Christmas windows start and end on the requested days', () => {
+  const f=fixture();
+  for(const [start,end,hat] of [[Date.UTC(2026,10,7,23),Date.UTC(2026,10,12,23),'morgoth'],[Date.UTC(2026,11,10,23),Date.UTC(2026,11,26,23),'christmas'],[Date.UTC(2027,11,10,23),Date.UTC(2027,11,26,23),'christmas']]) {
+    assert.equal(f.context.costumeAt(start-1),'none');
+    assert.equal(f.context.costumeAt(start),hat);
+    assert.equal(f.context.costumeAt(end-1),hat);
+    assert.equal(f.context.costumeAt(end),'none');
+  }
+  assert.equal(f.context.costumeAt(Date.UTC(2027,10,10)),'none','Season 3 is a one-off release');
+});
+test('a seasonal cutoff immediately clears an outgoing hat blend without reloading', () => {
+  let now=Date.UTC(2026,9,31,23)-1;
+  const f=fixture(true,.6,{Date:class extends Date {static now(){return now;}}});
+  f.context.visitor.paint(500,400,0,0);
+  f.context.visitor.paint(500,400,0,0,0,false,false,'dive');
+  const picture=f.nodes.find(n=>n.className==='menu-visitor-frame');
+  const previous=picture.context.calls.filter(c=>c[0]==='drawImage').length;
+  now++;
+  f.context.visitor.paint(500,400,0,0);
+  assert.equal(picture.context.calls.filter(c=>c[0]==='drawImage').length-previous,1,'expired hat is not retained in the outgoing blend');
 });
