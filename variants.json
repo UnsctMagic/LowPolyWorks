@@ -196,6 +196,20 @@
     ]
   },
   {
+    "id": "chaos-warrior-of-nurgle",
+    "name": "Warrior of Nurgle",
+    "variants": [
+      {
+        "id": "chaos-warrior-of-nurgle",
+        "label": "Standard"
+      },
+      {
+        "id": "chaos-warrior-of-nurgle-heavy-flail",
+        "label": "Heavy Flail"
+      }
+    ]
+  },
+  {
     "id": "empire-handgunners",
     "name": "Empire Handgunners",
     "variants": [
