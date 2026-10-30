@@ -1080,6 +1080,8 @@ export function startMenuVisitor({onInteraction} = {}) {
         // Use the layer's own size so every mask meets its chosen trim exactly.
         const width = layer.clientWidth, height = layer.clientHeight;
         const mask = perch.inward ? {...rect.inner} : {left:0, right:width, top:0, bottom:height};
+        // Let the Halloween hat rise above the inward rail; retain side and foot clipping.
+        if (perch.inward && perch.mode === 'walk' && halloween()) mask.top = 0;
         if (!perch.inward) {
           if (perch.side === 'top') mask.bottom = rect.top;
           if (perch.side === 'bottom') mask.top = rect.bottom;
