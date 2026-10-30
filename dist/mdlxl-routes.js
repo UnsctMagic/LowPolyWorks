@@ -1,5 +1,5 @@
 export const mdlxlSections=['updates','about','preview','tutorials','credits'];
-export const tutorialSlugs={anchor:'anchor',align:'align',live:'live-select',corpse:'auto-corpse'};
+export const tutorialSlugs={anchor:'anchor',align:'align',live:'live-select',corpse:'auto-corpse',glow:'glow-up'};
 export function readMdlxlRoute(address=globalThis.location){
  const hash=address?.hash||'',legacy=hash.match(/^#project\/mdlxl(?:\/([^/]+))?(?:\/([^/]+))?\/?$/);
  if(legacy){const section=mdlxlSections.includes(legacy[1])?legacy[1]:'updates';return{section,tutorial:section==='tutorials'&&Object.hasOwn(tutorialSlugs,legacy[2])?legacy[2]:undefined};}
