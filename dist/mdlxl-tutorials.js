@@ -19,7 +19,7 @@ function showTutorial(state) {
 }
 export async function renderTutorials(panel,isCurrent,requested) {
   if(!document.getElementById('mdlxl-tutorial-style')){
-    const style=document.createElement('link');style.id='mdlxl-tutorial-style';style.rel='stylesheet';style.href='/mdlxl-tutorials.css?v='+version;document.head.append(style);
+    const style=document.createElement('link');style.id='mdlxl-tutorial-style';style.rel='stylesheet';style.href='/mdlxl-tutorials.css?v=20261031-compact-cards';document.head.append(style);
   }
   let state=panel._tutorialController;
   if(!state||!state.header.isConnected){
