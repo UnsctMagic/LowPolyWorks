@@ -294,5 +294,3 @@ body a[href]:any-link:hover,body #mdlxl-ffmpeg-source[href]:any-link:hover{color
 .army-picture[data-army="the-empire"] img.rear-right{left:70%}
 
 .model-card .card-portrait img[src^="thumbs/unit-warrior-of-tzeentch.png"]{transform:scale(1.15);transform-origin:50% 95%}
-
-.model-card .card-portrait img[src^="thumbs/unit-chaos-warrior-of-nurgle.png"]{transform:scale(.95);transform-origin:50% 50%}
