@@ -53,3 +53,5 @@
 @media(max-width:650px){.tutorial-header{grid-template-columns:minmax(0,1fr) minmax(145px,46vw);gap:10px;min-height:58px;padding-bottom:13px}.mdlxl-content .tutorial-header h2{font-size:1.35rem}.journal .tutorial-language select{font-size:.83rem;padding:8px 6px}}
 
 .mdlxl-content a.tutorial-card,.mdlxl-content a.tutorial-back{text-decoration:none}
+
+#tutorial-glow .gif-player{box-sizing:content-box;width:944px;max-width:calc(100% - 12px)}
