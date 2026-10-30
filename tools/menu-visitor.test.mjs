@@ -24,7 +24,7 @@ function fixture(testMode = true, random = .6, extras = {}) {
   const rect = {left:240, right:860, top:220, bottom:550, width:620, height:330};
   const element = (className = '') => {
     const node = {className, style:{}, dataset:{}, isConnected:true, clientWidth:1100, clientHeight:800,
-      children:[], getContext(){return this.context ||= {calls:[], setTransform(...v){this.calls=[];this.calls.push(['setTransform',...v]);}, clearRect(){}, save(){}, restore(){}, translate(...v){this.calls.push(['translate',...v]);}, scale(...v){this.calls.push(['scale',...v]);}, drawImage(...v){this.calls.push(['drawImage',...v]);}};}, setAttribute(){}, append(...children){this.children.push(...children);},
+      children:[], getContext(){return this.context ||= {calls:[], setTransform(...v){this.calls=[];this.calls.push(['setTransform',...v]);}, clearRect(){}, save(){}, restore(){}, translate(...v){this.calls.push(['translate',...v]);}, scale(...v){this.calls.push(['scale',...v]);}, rotate(...v){this.calls.push(['rotate',...v]);}, drawImage(...v){this.calls.push(['drawImage',...v]);}};}, setAttribute(){}, append(...children){this.children.push(...children);},
       remove(){this.isConnected = false;}, querySelector(){return null;}, closest(){return null;},
       matches(selector){return selector.split(',').some(s => s.trim() === '.' + this.className);},
       getBoundingClientRect(){return rect;}};
@@ -40,7 +40,7 @@ function fixture(testMode = true, random = .6, extras = {}) {
     get hash(){return hash;}, set hash(value){if(value!==hash){hash=value;listeners.get('hashchange')?.({});}}};
   const context = vm.createContext({document, window:events, location,
     URL, URLSearchParams, Math:math, performance:{now:()=>now}, innerHeight:800,
-    Image:class {complete=true; naturalWidth=1536;},
+    Image:class {complete=true; naturalWidth=1536; naturalHeight=1098;},
     getComputedStyle:()=>({visibility:'visible',borderLeftWidth:'18',borderRightWidth:'18',borderTopWidth:'18',borderBottomWidth:'18'}),
     requestAnimationFrame:callback=>{raf=callback; return 1;}, cancelAnimationFrame:()=>{raf=null;}, ...extras});
   vm.runInContext(instrumented, context);
@@ -245,7 +245,7 @@ test('walking gaze frames use the walking foot rail and reset their scale on the
   }
   f.context.visitor.paint(500,400,1,0);
   const calls=f.nodes.filter(n=>n.context).flatMap(n=>n.context.calls);
-  assert(!calls.some(c=>c[0]==='translate'));
+  assert(!calls.some(c=>c[0]==='translate' && c[1]===0)); // No grounded-gaze foot-rail shift.
   assert.deepEqual(calls.find(c=>c[0]==='scale').slice(1), [1,1]);
 });
 
@@ -705,5 +705,31 @@ test('each visit, peek or walk, has a one-in-four chance of a falling peanut', (
     assert(lucky.state().peanut, mode + ' visits can drop a peanut');
     const unlucky = fixture(false, .25); unlucky.context.visitor.choose(mode); unlucky.advance(6000);
     assert.equal(unlucky.state().peanut, null, mode + ' visits keep the roll at 25%');
+  }
+});
+
+
+test('the Halloween hat follows each sheet and disappears at November 1 Amsterdam midnight', () => {
+  let now = Date.UTC(2026, 9, 29, 23);
+  const f = fixture(true, .6, {Date:class extends Date {static now(){return now;}}});
+  const incoming = f.nodes.filter(n => n.context)[1];
+  for (const [row, column, flying, moveArt] of [[0,0,false,null],[2,3,false,null],[8,7,false,null],[0,1,true,null],[7,3,false,'moves'],[0,0,false,'dive']]) {
+    f.context.visitor.paint(500,400,row,column,0,flying,false,moveArt);
+    assert(incoming.context.calls.some(c => c[0] === 'drawImage' && c[1].src?.endsWith('witch-hat.png')));
+  }
+  now = Date.UTC(2026, 9, 31, 23) - 1;
+  f.context.visitor.paint(500,400,0,0);
+  assert(incoming.context.calls.some(c => c[0] === 'drawImage' && c[1].src?.endsWith('witch-hat.png')));
+  now++;
+  f.context.visitor.paint(500,400,0,0);
+  assert(!incoming.context.calls.some(c => c[0] === 'drawImage' && c[1].src?.endsWith('witch-hat.png')));
+});
+
+test('the original sprite alone is painted outside Halloween', () => {
+  for (const now of [Date.UTC(2026,9,29,23)-1, Date.UTC(2026,9,31,23), Date.UTC(2027,9,30)]) {
+    const f=fixture(true,.6,{Date:class extends Date {static now(){return now;}}});
+    f.context.visitor.paint(500,400,0,0);
+    const incoming=f.nodes.filter(n=>n.context)[1];
+    assert.equal(incoming.context.calls.filter(c=>c[0]==='drawImage').length,1);
   }
 });

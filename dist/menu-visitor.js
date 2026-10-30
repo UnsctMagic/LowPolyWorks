@@ -1,5 +1,24 @@
 const sheet = new URL('./ui/visitor/0.png' + new URL(import.meta.url).search, import.meta.url).href; // Shares the script's cache key.
 const wings = new URL('./ui/visitor/1.png', import.meta.url).href;
+// Halloween 2026, October 30–31 in Europe/Amsterdam; the normal art is untouched.
+const HALLOWEEN_START = Date.UTC(2026, 9, 29, 23), HALLOWEEN_END = Date.UTC(2026, 9, 31, 23);
+const halloween = () => Date.now() >= HALLOWEEN_START && Date.now() < HALLOWEEN_END;
+// Crown [x, y, angle] in each authored cell, before its existing mirror/scale/rotation.
+const HAT_HEADS = [
+  [[97,72,0],[94,72,0],[95,72,0],[89,74,0],[95,72,0],[96,72,0],[97,43,0],null],
+  [[107,71,0],[107,71,0],[107,71,0],[107,71,0],[107,71,0],[107,71,0],[107,71,0],[107,71,0]],
+  [[84,71,0],[84,71,0],[84,71,0],[84,71,0],[84,71,0],[84,71,0],[84,71,0],[84,71,0]],
+  [[101,70,0],[101,70,0],[101,70,0],[101,70,0],null,null,null,null],
+  [[95,74,0],[102,50,0],[103,14,0],[102,50,0],[95,74,0],null,null,null],
+  [[96,72,0],[96,76,0],[97,80,0],[97,81,0],[96,82,0],[96,78,0],[96,81,0],[96,76,0]],
+  [[95,72,0],[98,72,0],[99,77,0],[102,81,0],[94,76,0],[96,72,0],null,null],
+  [[102,72,0],[99,74,0],[110,82,0],[103,75,0],[105,75,0],[103,75,0],null,null],
+  [[95,73,0],[93,72,0],[95,73,0],[99,74,0],[104,74,-18],[94,73,-8],[93,73,8],[84,74,18]],
+  [[93,50,0],[103,61,0],[104,63,0],[104,66,0],[104,68,0],[106,75,0],[108,83,0],[105,89,0]],
+  [[93,64,0],[94,65,0],[91,69,0],[91,69,0],[94,66,0],[93,66,0],[91,64,0],[85,57,0]]
+];
+const HAT_LAUNCH = [[107,71,0],[133,85,28],[133,85,28],[136,93,28],[120,86,20],[120,79,20],[120,72,20],[120,67,20]];
+const HAT_DIVE = [[151,148,95],[151,148,95],[151,148,95],[154,127,55],[144,84,0],[144,84,0],[144,84,0],[144,84,0]];
 const between = (low, high) => low + Math.random() * (high - low);
 const ease = value => { const t = Math.max(0, Math.min(1, value)); return t * t * (3 - 2 * t); };
 const mix = (a, b, t) => a + (b - a) * ease(t);
@@ -126,6 +145,8 @@ export function startMenuVisitor({onInteraction} = {}) {
   const played = kind => { if (!peanutTest) onInteraction?.(kind); };
   const art = new Image(), flightArt = new Image(); art.src = sheet; flightArt.src = wings;
   const movesImage = new Image(), diveImage = new Image(); movesImage.src = moves; diveImage.src = diveArt;
+  const hatImage = new Image();
+  if (halloween()) hatImage.src = new URL('./ui/visitor/witch-hat.png', import.meta.url).href;
   const trimArt = new Image();
   let trimEdges, peekMask;
   trimArt.onload = () => {
@@ -841,6 +862,23 @@ export function startMenuVisitor({onInteraction} = {}) {
         flightCell ? -120 * flightScale : -bodyWidth / 2,
         flightCell ? -101 * flightScale : -bodyHeight / 2,
         flightCell ? flightSize : bodyWidth, flightCell ? flightSize : bodyHeight);
+    }
+    if (halloween() && hatImage.complete && hatImage.naturalWidth) {
+      const head = key === 'dive' ? HAT_DIVE[column] : key === 'moves' ? HAT_LAUNCH[column] :
+        key === 'flight' ? [column === 2 ? 143 : 142, row ? 84 : 82, 0] : HAT_HEADS[sourceRow]?.[column];
+      if (head) {
+        const unitX = (flightCell ? flightSize : bodyWidth) / cellWidth;
+        const unitY = (flightCell ? flightSize : bodyHeight) / cellHeight;
+        const left = flightCell ? -120 * flightScale : -bodyWidth / 2;
+        const top = groundedLook ? -(row === 9 ? 169 : 170) / 208 * bodyHeight :
+          flightCell ? -101 * flightScale : -bodyHeight / 2;
+        const width = (flightCell ? 60 : 70) * unitX, height = width * hatImage.naturalHeight / hatImage.naturalWidth;
+        nextInk.save();
+        nextInk.translate(left + head[0] * unitX, top + head[1] * unitY);
+        nextInk.rotate(head[2] * Math.PI / 180);
+        nextInk.drawImage(hatImage, -width / 2, -height * .87, width, height);
+        nextInk.restore();
+      }
     }
     nextInk.restore();
     const now = performance.now();
