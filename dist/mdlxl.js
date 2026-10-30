@@ -102,7 +102,6 @@ const prose=lines=>lines.map(line=>`<p>${escape(line.replace(/^- /,''))}</p>`).j
 const creditProse=lines=>lines.map(line=>`<p>${creditLine(line.replace(/^- /,''))}</p>`).join('');
 function contentSection(section,data){
  if(section==='preview')return '<h2>Preview</h2><div class="mdlxl-placeholder"><span aria-hidden="true">◇</span><p>Screenshots are coming soon.</p></div>';
- if(section==='tutorials')return '<h2>Tutorials</h2><div class="mdlxl-placeholder"><span aria-hidden="true">✧</span><p>Tutorials are coming soon.</p></div>';
  if(section==='credits')return `<h2>Credits & acknowledgements</h2>${creditProse(data.creditIntro)}${data.credits.map(group=>`<section class="mdlxl-text-group"><h3>${escape(group.title)}</h3>${creditProse(group.lines)}</section>`).join('')}`;
  if(section==='about')return `<h2>A dream for more CTRL+Z.</h2>${prose(data.intro)}<img class="mdlxl-author-image" src="ui/author-space-dog.gif" alt="A dog in a space station with the caption: I have no idea what I'm doing.">${prose(data.story)}<h2 class="mdlxl-features-heading">Inside the workshop</h2>${data.features.map(group=>`<section class="mdlxl-text-group"><h3>${escape(group.title)}</h3>${prose(group.lines)}</section>`).join('')}${prose(data.closing)}`;
  return '<div class="mdlxl-section-heading"><h2><a href="https://discord.gg/CDXrQHsj2" target="_blank" rel="noopener noreferrer">Find us on Discord at HerrDave&#39;s Workshop</a></h2></div><div id="mdlxl-releases" aria-live="polite"><p>Loading patch notes…</p></div>';
@@ -116,6 +115,10 @@ export async function renderMdlxl(app,isCurrent,recordUsage){
  const button=app.querySelector('#mdlxl-download');button.onclick=event=>{if(button.getAttribute('aria-disabled')==='true')event.preventDefault();else recordUsage('download','mdlxl','zip');};
  const latestTask=latestPromise.then(release=>{if(!isCurrent())return;const url=downloadUrl(release);if(!url)throw Error('No application ZIP');button.href=url;button.removeAttribute('aria-disabled');button.textContent='Download '+release.tag_name+' ↗';app.querySelector('#mdlxl-version').textContent='Windows · Portable ZIP';const source=release.assets?.find(a=>/FFmpeg-corresponding-source.*\.zip$/i.test(a.name));if(source){const link=app.querySelector('#mdlxl-ffmpeg-source');link.href=source.browser_download_url;link.hidden=false;}}).catch(()=>{if(isCurrent()){button.textContent='Download unavailable';app.querySelector('#mdlxl-version').textContent='Please try again later.';}});
  const panel=app.querySelector('#mdlxl-content');
+ if(section==='tutorials'){
+  try{const {renderTutorials}=await import('./mdlxl-tutorials.js?v=20261030-tutorials');if(!isCurrent())return;await renderTutorials(panel,isCurrent,location.hash.split('/')[3]);}catch{if(isCurrent())panel.innerHTML='<p>Tutorials could not load. Please reload the page.</p>';}
+  await latestTask;return;
+ }
  if(section!=='updates'){
   try{const data=await json('mdlxl-content.json');if(!isCurrent())return;panel.innerHTML=contentSection(section,data);}catch{if(isCurrent())panel.innerHTML='<p>This section could not load. Please reload the page.</p>';}
   await latestTask;return;

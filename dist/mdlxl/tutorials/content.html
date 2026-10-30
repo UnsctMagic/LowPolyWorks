@@ -1,0 +1,77 @@
+    <div class="tutorial-library" id="tutorial-library">
+      <h2 id="tutorial-library-title" tabindex="-1">Tutorials</h2>
+      <p class="tutorial-intro">Pick a tool. Follow a short visual guide.</p>
+      <nav class="tutorial-menu" aria-label="Choose a tutorial">
+        <button type="button" class="tutorial-card" id="tab-anchor" aria-controls="tutorial-anchor" data-tutorial="anchor">
+          <span class="tutorial-card-media" aria-hidden="true"><img src="/mdlxl/tutorials/tutorial-card-anchor.png" width="944" height="600" alt=""></span>
+          <span class="tutorial-card-copy"><span class="tutorial-card-category">Vertex editor</span><span class="tutorial-card-title">Anchor</span><span class="tutorial-card-description">Resize around a fixed vertex.</span><span class="tutorial-card-footer"><span>2 steps</span><span class="tutorial-card-open">Open tutorial <span aria-hidden="true">→</span></span></span></span>
+        </button>
+        <button type="button" class="tutorial-card" id="tab-align" aria-controls="tutorial-align" data-tutorial="align">
+          <span class="tutorial-card-media" aria-hidden="true"><img src="/mdlxl/tutorials/tutorial-card-align.png" width="944" height="600" alt=""></span>
+          <span class="tutorial-card-copy"><span class="tutorial-card-category">Vertex editor</span><span class="tutorial-card-title">Align</span><span class="tutorial-card-description">Line up vertices from your current viewpoint.</span><span class="tutorial-card-footer"><span>3 steps</span><span class="tutorial-card-open">Open tutorial <span aria-hidden="true">→</span></span></span></span>
+        </button>
+        <button type="button" class="tutorial-card" id="tab-live" aria-controls="tutorial-live" data-tutorial="live">
+          <span class="tutorial-card-media" aria-hidden="true"><img src="/mdlxl/tutorials/tutorial-card-live.png" width="944" height="600" alt=""></span>
+          <span class="tutorial-card-copy"><span class="tutorial-card-category">UV Wrapper</span><span class="tutorial-card-title">Live Select</span><span class="tutorial-card-description">Select in 3D and move coordinates in the UV map.</span><span class="tutorial-card-footer"><span>2 steps</span><span class="tutorial-card-open">Open tutorial <span aria-hidden="true">→</span></span></span></span>
+        </button>
+        <button type="button" class="tutorial-card" id="tab-corpse" aria-controls="tutorial-corpse" data-tutorial="corpse">
+          <span class="tutorial-card-media" aria-hidden="true"><img src="/mdlxl/tutorials/tutorial-card-corpse.png" width="944" height="600" alt=""></span>
+          <span class="tutorial-card-copy"><span class="tutorial-card-category">Auto Corpse</span><span class="tutorial-card-title">Auto Corpse</span><span class="tutorial-card-description">Adjust the fit and set up the decay animations.</span><span class="tutorial-card-footer"><span>3 steps</span><span class="tutorial-card-open">Open tutorial <span aria-hidden="true">→</span></span></span></span>
+        </button>
+      </nav>
+    </div>
+    <button type="button" class="tutorial-back" id="tutorial-back" hidden><span aria-hidden="true">←</span> All tutorials</button>
+    <article class="tutorial-panel" role="region" id="tutorial-anchor" aria-labelledby="tab-anchor" hidden>
+      <p class="sample-note">VERTEX EDITOR · QUICK GUIDE</p>
+      <h3>Anchor: resize around one vertex</h3>
+      <p>Anchor holds one vertex still while the others resize around it.</p>
+      <figure class="tool-shot"><a href="/mdlxl/tutorials/anchor-tool.png" aria-label="Open the Anchor tool screenshot"><img src="/mdlxl/tutorials/anchor-tool.png" alt="MDLxL vertex editor with the Resize button marked with a green ping and the chosen Anchor vertex marked green"><svg data-tool-ping aria-hidden="true" viewBox="0 0 96 96" style="left:92.70217483108108%;top:44.64446107784431%;width:8.108108108108109%"><path fill="none" stroke="#001807" stroke-width="6"/><path fill="none" stroke="#30ff70" stroke-width="3"/></svg></a><figcaption>The highlighted <strong>Resize</strong> button is <strong>Z</strong>. The green <strong>ANCHOR</strong> marker shows the fixed vertex.</figcaption></figure>
+      <section class="demo-step"><h4>1. Select and set Anchor</h4>
+        <figure class="gif-player" data-animation="anchor-selection"><canvas class="player-frame" width="944" height="600" role="img" aria-label="Loop showing three vertices selected and a visible box dragged around the Anchor vertex"></canvas><div class="tutorial-hotkey" aria-hidden="true" hidden></div></figure><p>Select three vertices (<strong>Shift-click</strong> to add). Press <strong>Z</strong>, then hold <strong>1</strong> while dragging a box around the vertex to keep fixed.</p>
+      </section>
+      <section class="demo-step"><h4>2. Resize</h4>
+        <figure class="gif-player" data-animation="anchor-action"><canvas class="player-frame" width="944" height="600" role="img" aria-label="Looping Anchor resize with the selected vertex fixed"></canvas><div class="tutorial-hotkey" aria-hidden="true" hidden></div></figure><p>Drag in empty viewport space. The green Anchor stays in place.</p>
+      </section>
+    </article>
+    <article class="tutorial-panel" role="region" id="tutorial-align" aria-labelledby="tab-align" hidden>
+      <p class="sample-note">VERTEX EDITOR · QUICK GUIDE</p>
+      <h3>Align: line up three spike tips</h3>
+      <p>All three bases overlap in Front view. Only the forward and rear tips lean left and right. Align them to the straight middle tip, then rotate to see three equal, upright spikes.</p>
+      <figure class="tool-shot"><a href="/mdlxl/tutorials/align-tool.png" aria-label="Open the Align tool screenshot"><img src="/mdlxl/tutorials/align-tool.png" alt="Three tilted wireframe spikes in Front view, the Resize button marked with a green ping, and a pink Align target on the middle tip"><svg data-tool-ping aria-hidden="true" viewBox="0 0 96 96" style="left:92.70217483108108%;top:44.64446107784431%;width:8.108108108108109%"><path fill="none" stroke="#001807" stroke-width="6"/><path fill="none" stroke="#30ff70" stroke-width="3"/></svg></a><figcaption>Choose <strong>Resize</strong> (<strong>Z</strong>), then <strong>Shift+1</strong>. The pink <strong>ALIGN</strong> marker is the target tip.</figcaption></figure>
+      <section class="demo-step"><h4>1. Select the tips and set Align</h4>
+        <figure class="gif-player" data-animation="align-selection"><canvas class="player-frame" width="944" height="600" role="img" aria-label="Loop selecting three uneven spike tips and boxing the middle tip as Align target"></canvas><div class="tutorial-hotkey" aria-hidden="true" hidden></div></figure><p>In <strong>Front</strong> view, select the three tips. Press <strong>Z</strong>, then <strong>Shift+1</strong>. Drag a box around the middle tip.</p>
+      </section>
+      <section class="demo-step"><h4>2. Align from the front</h4>
+        <figure class="gif-player" data-animation="align-action"><canvas class="player-frame" width="944" height="600" role="img" aria-label="Aligning three selected tips until their Front-view projections overlap"></canvas><div class="tutorial-hotkey" aria-hidden="true" hidden></div></figure><p>Pull until Front view shows one complete spike.</p>
+      </section>
+      <section class="demo-step"><h4>3. Inspect from another view</h4>
+        <figure class="gif-player" data-animation="align-rotation"><canvas class="player-frame" width="944" height="600" role="img" aria-label="A separate upward and sideways rotation from aligned Front view to a raised Side view"></canvas><div class="tutorial-hotkey" aria-hidden="true" hidden></div></figure><p>Rotate upward and sideways. The three separate spikes are the same size and point the same way; their tips lined up according to the Front viewpoint.</p>
+      </section>
+    </article>
+    <article class="tutorial-panel" role="region" id="tutorial-live" aria-labelledby="tab-live" hidden>
+      <p class="sample-note">UV WRAPPER · QUICK GUIDE</p>
+      <h3>Live Select: manipulate UV coordinates live</h3>
+      <p>Live Select lets you select one or more vertices in the live 3D preview while working in the UV map, then manipulate their UV coordinates immediately. Use it to separate overlapping coordinates.</p>
+      <figure class="tool-shot"><a href="/mdlxl/tutorials/live-tool.png" aria-label="Open the Live Select tool screenshot"><img src="/mdlxl/tutorials/live-tool.png" alt="Live Select with front visible vertices selected, Grabthrough unchecked, and Live Select and Move controls marked with green pings"><svg data-tool-ping aria-hidden="true" viewBox="0 0 96 96" style="left:51.130305109797305%;top:83.72754491017965%;width:8.108108108108109%"><path fill="none" stroke="#001807" stroke-width="6"/><path fill="none" stroke="#30ff70" stroke-width="3"/></svg><svg data-tool-ping aria-hidden="true" viewBox="0 0 96 96" style="left:59.37434016047297%;top:93.21107784431138%;width:8.108108108108109%"><path fill="none" stroke="#001807" stroke-width="6"/><path fill="none" stroke="#30ff70" stroke-width="3"/></svg></a><figcaption><strong>Live Select</strong> links the preview and UV selection. <strong>Grabthrough</strong> is off, so only visible vertices can be picked. <strong>Move</strong> edits the selected UV coordinates.</figcaption></figure>
+      <section class="demo-step"><h4>1. Select vertices in the live preview</h4>
+        <figure class="gif-player" data-animation="live-selection"><canvas class="player-frame" width="944" height="600" role="img" aria-label="Live Select selecting visible vertices with Grabthrough disabled"></canvas><div class="tutorial-hotkey" aria-hidden="true" hidden></div></figure><p>Hold <strong>A</strong> and drag over visible vertices in the live preview. Their matching UV coordinates become selected.</p>
+      </section>
+      <section class="demo-step"><h4>2. Separate overlapping coordinates</h4>
+        <figure class="gif-player" data-animation="live-action"><canvas class="player-frame" width="944" height="600" role="img" aria-label="Separating five overlapping UV coordinate groups using only visible front selections"></canvas><div class="tutorial-hotkey" aria-hidden="true" hidden></div></figure><p>Select another visible set with <strong>A + click</strong>. Press <strong>Ctrl+E</strong> to include connected vertices, then <strong>M</strong> for Move. Drag its UV coordinates away from the overlap. Repeat for other visible sets.</p>
+      </section>
+    </article>
+    <article class="tutorial-panel" role="region" id="tutorial-corpse" aria-labelledby="tab-corpse" hidden>
+      <p class="sample-note">AUTO CORPSE · QUICK GUIDE</p>
+      <h3>Auto Corpse: adjust the fit</h3>
+      <p>Use the body as a reference, then adjust any parts that need a closer fit.</p>
+      <figure class="tool-shot"><a href="/mdlxl/tutorials/corpse-tool.png" aria-label="Open the Auto Corpse tool screenshot"><img src="/mdlxl/tutorials/corpse-tool.png" alt="The CORP toolbar button marked with a green ping in the native MDLxL interface"><svg data-tool-ping aria-hidden="true" viewBox="0 0 96 96" style="left:85.91638513513513%;top:3.293413173652695%;width:8.108108108108109%"><path fill="none" stroke="#001807" stroke-width="6"/><path fill="none" stroke="#30ff70" stroke-width="3"/></svg></a><figcaption>Open <strong>CORP</strong>, then use the <strong>Corpse Editor</strong> tab.</figcaption></figure>
+      <section class="demo-step"><h4>1. Compare the fit</h4>
+        <figure class="gif-player" data-animation="corpse-compare"><canvas class="player-frame" width="944" height="600" role="img" aria-label="Toggling Show body to compare the generated corpse against the body and its outline"></canvas><div class="tutorial-hotkey" aria-hidden="true" hidden></div></figure><p>Keep <strong>Body outline</strong> on. Toggle <strong>Show body</strong> to compare the generated corpse with the body, then turn it off to see the parts clearly.</p>
+      </section>
+      <section class="demo-step"><h4>2. Move, stretch and widen parts</h4>
+        <figure class="gif-player" data-animation="corpse-fit"><canvas class="player-frame" width="944" height="600" role="img" aria-label="Double-clicking a part, then dragging its center, end and side handles to fit the body outline"></canvas><div class="tutorial-hotkey" aria-hidden="true" hidden></div></figure><p><strong>Double-click a part.</strong> Drag the <strong>center handle</strong> to move it, an <strong>end handle</strong> to stretch it, and the <strong>side handle</strong> to adjust its width. Use the outline to judge the fit; repeat wherever needed.</p>
+      </section>
+      <section class="demo-step"><h4>3. Set height and tint</h4>
+        <figure class="gif-player" data-animation="corpse-finish"><canvas class="player-frame" width="944" height="600" role="img" aria-label="Lowering Height to 80 percent, setting Color Tint to 225 255 100, then checking the body overlay"></canvas><div class="tutorial-hotkey" aria-hidden="true" hidden></div></figure><p>Use <strong>Height</strong> to lower or raise the bones; this example uses <strong>80%</strong>. Set <strong>Color Tint</strong> to <strong>R 225 · G 255 · B 100</strong> for the result shown. Check <strong>Show body</strong> again, then click <strong>Create</strong> when the fit is right. Auto Corpse also sets up <strong>Decay Flesh</strong> and <strong>Decay Bone</strong>, including body and corpse visibility.</p>
+      </section>
+    </article>
