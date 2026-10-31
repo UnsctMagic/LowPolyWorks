@@ -13897,7 +13897,7 @@
       },
       {
         "index": 11,
-        "vertices": 122,
+        "vertices": 121,
         "triangles": 158,
         "material": 8,
         "textures": [
@@ -13969,7 +13969,7 @@
       },
       {
         "index": 19,
-        "vertices": 546,
+        "vertices": 180,
         "triangles": 340,
         "material": 15,
         "textures": [
@@ -14005,7 +14005,7 @@
       },
       {
         "index": 23,
-        "vertices": 52,
+        "vertices": 38,
         "triangles": 44,
         "material": 16,
         "textures": [
@@ -14014,7 +14014,7 @@
       },
       {
         "index": 24,
-        "vertices": 188,
+        "vertices": 180,
         "triangles": 120,
         "material": 17,
         "textures": [
@@ -14023,7 +14023,7 @@
       },
       {
         "index": 25,
-        "vertices": 52,
+        "vertices": 38,
         "triangles": 44,
         "material": 18,
         "textures": [
@@ -14032,7 +14032,7 @@
       },
       {
         "index": 26,
-        "vertices": 468,
+        "vertices": 384,
         "triangles": 420,
         "material": 17,
         "textures": [
@@ -14073,7 +14073,7 @@
       "Portrait",
       "Portrait Talk"
     ],
-    "bytes": 143194,
+    "bytes": 127123,
     "portraitBackdropGeosets": [
       2
     ],
@@ -14157,8 +14157,12 @@
         "url": "https://www.hiveworkshop.com/members/forgotten_warlord.182381/"
       }
     ],
-    "sha256": "ae202f4d12e627a065f270b39a7eab9ce83cbe305f8a1328db6c9078a7021365",
+    "sha256": "c846f4ceeb0c265468e8193b75f22c3307af613c6f398f53b1688920e8b24564",
     "changelog": [
+      {
+        "date": "31 October 2026",
+        "text": "optimized file size"
+      },
       {
         "date": "31 October 2026",
         "text": "fixed animations"
@@ -14172,7 +14176,7 @@
         "text": "Fixed corpse decay"
       }
     ],
-    "imageVersion": "20261031-berserker-animations"
+    "imageVersion": "20261031-berserker-compact"
   },
   {
     "id": "warrior-of-khorne-cleaver",
