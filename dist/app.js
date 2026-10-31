@@ -9,7 +9,7 @@ import {wheelSelect} from './wheel-select.js?v=20261022-wheel-animations';
 import {TEAM_COLORS} from './vendor/mdlxl/src/team-colors.js';
 import {recordUsage} from './usage.js?v=20261012-shredder-cloudflare';
 import {renderJournal} from './journal.js?v=20261022-tzeentch-warrior';
-import {renderMdlxl} from './mdlxl.js?v=20261030-glow-approved';
+import {renderMdlxl} from './mdlxl.js?v=20261031-fold-0.37.2';
 import {readMdlxlRoute,mdlxlHref} from './mdlxl-routes.js?v=20261030-glow-approved';
 const initialMdlxl=readMdlxlRoute(location);if(initialMdlxl&&location.hash.startsWith('#project/mdlxl'))history.replaceState(null,'',mdlxlHref(initialMdlxl.section,initialMdlxl.tutorial,location.search));
 const app=document.querySelector('#app'),baseCatalogue=await fetch('catalogue.json?v=20261030-nurgle-card-rotation').then(r=>r.json());
