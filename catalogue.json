@@ -13790,7 +13790,7 @@
   },
   {
     "id": "warrior-of-khorne-berserker",
-    "file": "WH_WOC_WarriorKhorneBerserker03.mdx",
+    "file": "WH_WOC_WarriorKhorneBerserker04.mdx",
     "name": "Warrior of Khorne · Berserker",
     "army": "warriors-of-chaos",
     "description": "The Warriors of Chaos that follow the Blood God, as with all servants of the Ruinous Powers, are not limited to the primitive tribes of the north. His grasp can reach the heart of every soldier, every warrior, every life-taker. When a noble Knight of Bretonnia or a Templar of the Empire falls to His worship it is because they forget why they kill. To change from killing for the common good to killing only because one wants to – because the act is pleasing – is when the righteous have fallen from their path. These are the warriors Khorne embraces, never to release. These are the converts that He savours.",
@@ -13798,7 +13798,7 @@
     "geosets": [
       {
         "index": 0,
-        "vertices": 54,
+        "vertices": 53,
         "triangles": 76,
         "material": 5,
         "textures": [
@@ -13870,7 +13870,7 @@
       },
       {
         "index": 8,
-        "vertices": 14,
+        "vertices": 13,
         "triangles": 13,
         "material": 8,
         "textures": [
@@ -13897,7 +13897,7 @@
       },
       {
         "index": 11,
-        "vertices": 124,
+        "vertices": 122,
         "triangles": 158,
         "material": 8,
         "textures": [
@@ -13924,7 +13924,7 @@
       },
       {
         "index": 14,
-        "vertices": 16,
+        "vertices": 8,
         "triangles": 8,
         "material": 3,
         "textures": [
@@ -13969,7 +13969,7 @@
       },
       {
         "index": 19,
-        "vertices": 572,
+        "vertices": 546,
         "triangles": 340,
         "material": 15,
         "textures": [
@@ -14009,13 +14009,12 @@
         "triangles": 44,
         "material": 16,
         "textures": [
-          "Doodads\\BlackCitadel\\Props\\RuneArt\\Demon_Rune_Ribbon1Red.blp",
           "Doodads\\BlackCitadel\\Props\\RuneArt\\Demon_Rune_Ribbon1Red.blp"
         ]
       },
       {
         "index": 24,
-        "vertices": 190,
+        "vertices": 188,
         "triangles": 120,
         "material": 17,
         "textures": [
@@ -14064,17 +14063,17 @@
       "Stand - 1",
       "Stand - 2",
       "Walk",
+      "Stand Ready",
+      "Attack 1",
+      "Attack 2",
+      "Spell",
       "Death",
       "Decay Flesh",
       "Decay Bone",
       "Portrait",
-      "Portrait Talk",
-      "Stand Ready",
-      "Spell",
-      "Attack 1",
-      "Attack 2"
+      "Portrait Talk"
     ],
-    "bytes": 136998,
+    "bytes": 143194,
     "portraitBackdropGeosets": [
       2
     ],
@@ -14158,8 +14157,12 @@
         "url": "https://www.hiveworkshop.com/members/forgotten_warlord.182381/"
       }
     ],
-    "sha256": "ed8a78ee8d6bdf78890f135c418282af77b4f6cd9b6dab75e16ad99f19cb6b8c",
+    "sha256": "ae202f4d12e627a065f270b39a7eab9ce83cbe305f8a1328db6c9078a7021365",
     "changelog": [
+      {
+        "date": "31 October 2026",
+        "text": "fixed animations"
+      },
       {
         "date": "29 October 2026",
         "text": "Matched mouth-hole geometry to the Bruiser."
@@ -14169,7 +14172,7 @@
         "text": "Fixed corpse decay"
       }
     ],
-    "imageVersion": "20261029-berserker-mouth"
+    "imageVersion": "20261031-berserker-animations"
   },
   {
     "id": "warrior-of-khorne-cleaver",
