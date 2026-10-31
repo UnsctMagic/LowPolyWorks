@@ -522,8 +522,9 @@
       "publishedAt": "2026-10-31T19:48:44.673Z"
     },
     "warrior-of-khorne-basher": {
-      "sha256": "491bca59d88f5378a021580298cc3c959d83b9b952fee5607cb01e9784a3b0d2",
-      "publishedAt": "2026-10-31T22:01:46.816Z"
+      "sha256": "38b05131b01d97c24119c3af2e056806e6e2b9317e8a7bc7c0c577bdd78e271f",
+      "publishedAt": "2026-10-31T22:01:46.816Z",
+      "updatedAt": "2026-10-31T22:22:13.373Z"
     }
   }
 }

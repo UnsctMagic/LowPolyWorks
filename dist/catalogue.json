@@ -15067,7 +15067,7 @@
       },
       {
         "index": 13,
-        "vertices": 546,
+        "vertices": 337,
         "triangles": 340,
         "material": 15,
         "textures": [
@@ -15139,7 +15139,7 @@
       },
       {
         "index": 21,
-        "vertices": 1396,
+        "vertices": 1009,
         "triangles": 904,
         "material": 7,
         "textures": [
@@ -15179,7 +15179,7 @@
       "Portrait",
       "Portrait Talk"
     ],
-    "bytes": 158814,
+    "bytes": 139178,
     "portraitBackdropGeosets": [
       2
     ],
@@ -15251,8 +15251,8 @@
         "url": "https://www.lowpolyworks.com/mdlxl/"
       }
     ],
-    "sha256": "491bca59d88f5378a021580298cc3c959d83b9b952fee5607cb01e9784a3b0d2",
-    "imageVersion": "20261031-khorne-basher",
+    "sha256": "38b05131b01d97c24119c3af2e056806e6e2b9317e8a7bc7c0c577bdd78e271f",
+    "imageVersion": "20261031-basher02-as01",
     "publishedAt": "2026-10-31T22:01:26.436Z"
   },
   {
