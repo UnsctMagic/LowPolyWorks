@@ -34,6 +34,9 @@ function sampleBlobs(){
   add(`live/v3/${date}/shredder/nonsense/session/${visitor}/NL/${id(++n)}.json`,at);
   add(`live/v3/${date}/update/mdlxl/0.3${hour%3}.0/${hour%2?visitor:'anonymous'}/${country}/${id(++n)}.json`,at);
   add(`live/v3/${date}/update/mdlxl/latest/${visitor}/NL/${id(++n)}.json`,at);
+  add(`live/v3/${date}/tutorial/${['anchor','glow','library'][hour%3]}/${['en','ru'][hour%2]}/${hour%4?visitor:'anonymous'}/${country}/${id(++n)}.json`,at);
+  add(`testing/v3/${date}/tutorial/anchor/en/${visitor}/NL/${id(++n)}.json`,at);
+  add(`live/v3/${date}/tutorial/Bad..id/en/${visitor}/NL/${id(++n)}.json`,at);
  }
  return blobs;
 }

@@ -120,7 +120,7 @@ export async function renderMdlxl(app,isCurrent,recordUsage){
  const latestTask=latestPromise.then(release=>{if(!currentDownload())return;const url=downloadUrl(release);if(!url)throw Error('No application ZIP');button.href=url;button.removeAttribute('aria-disabled');button.textContent='Download '+release.tag_name+' ↗';app.querySelector('#mdlxl-version').textContent='Windows · Portable ZIP';const source=release.assets?.find(a=>/FFmpeg-corresponding-source.*\.zip$/i.test(a.name));if(source){const link=app.querySelector('#mdlxl-ffmpeg-source');link.href=source.browser_download_url;link.hidden=false;}}).catch(()=>{if(currentDownload()){button.textContent='Download unavailable';app.querySelector('#mdlxl-version').textContent='Please try again later.';}});
  const panel=app.querySelector('#mdlxl-content');
  if(section==='tutorials'){
-  try{const {renderTutorials}=await import('./mdlxl-tutorials.js?v=20261030-glow-approved');if(!isCurrent())return;await renderTutorials(panel,isCurrent,navigation.tutorial);}catch{if(isCurrent())panel.innerHTML='<p>Tutorials could not load. Please reload the page.</p>';}
+  try{const {renderTutorials}=await import('./mdlxl-tutorials.js?v=20261031-tutorial-views');if(!isCurrent())return;await renderTutorials(panel,isCurrent,navigation.tutorial);}catch{if(isCurrent())panel.innerHTML='<p>Tutorials could not load. Please reload the page.</p>';}
   await latestTask;return;
  }
  if(section!=='tutorials'){delete panel.dataset?.tutorialLanguage;panel.removeAttribute?.('lang');}

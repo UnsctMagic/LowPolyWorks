@@ -239,3 +239,22 @@ test('MDLxL sends a bare ping per installed update, kept apart from the site tot
  assert.equal(report.updates.downloads,3);
  assert.equal(report.totals.uniqueVisitors,0);assert.equal(report.totals.downloadClicks,0);
 });
+test('MDLxL tutorial opens are counted per tutorial and language, apart from the site totals',async()=>{
+ const blobs=[],collect=createEventsHandler({writeBlob:async(pathname,data)=>blobs.push({pathname,uploadedAt:JSON.parse(data).recordedAt})});
+ const send=async body=>{const res=response();await collect({method:'POST',headers:{origin:'https://www.lowpolyworks.com','x-vercel-ip-country':'NL'},body},res);return res.statusCode;};
+ const other='0b9c6a41-6a55-4f0e-9d0e-1f2a3b4c5d6e';
+ assert.equal(await send({id:randomUUID(),visitorId:id,kind:'tutorial',model:'anchor',format:'en'}),204);
+ assert.equal(await send({id:randomUUID(),visitorId:other,kind:'tutorial',model:'anchor',format:'ru'}),204);
+ assert.equal(await send({id:randomUUID(),visitorId:id,kind:'tutorial',model:'library',format:'en'}),204);
+ assert.equal(await send({id:randomUUID(),kind:'tutorial',model:'glow',format:'mordor'}),204);
+ assert.match(blobs[0].pathname,/^live\/v3\/\d{4}-\d{2}-\d{2}\/tutorial\/anchor\/en\//);
+ for(const [model,format] of [['../x','en'],['anchor','../x'],['anchor',''],['','en'],['Anchor','en']])
+  assert.equal(await send({id:randomUUID(),visitorId:id,kind:'tutorial',model,format}),400,model+'/'+format);
+ assert.equal(blobs.length,4);
+ const report=summarize([...blobs,{pathname:`testing/v3/2026-10-05/tutorial/anchor/en/${id}/NL/${randomUUID()}.json`,uploadedAt:blobs[0].uploadedAt}]);
+ assert.equal(report.tutorials.opens,4);assert.equal(report.tutorials.people,2);
+ assert.deepEqual(report.tutorials.tutorials[0],{id:'anchor',opens:2,languages:{en:1,ru:1},people:2});
+ assert.deepEqual(report.tutorials.tutorials.find(row=>row.id==='glow'),{id:'glow',opens:1,languages:{mordor:1},people:0});
+ assert.equal(report.totals.uniqueVisitors,0);assert.equal(report.totals.modelViews,0);
+ assert(!JSON.stringify(report.tutorials).includes(id),'no browser IDs leave the report');
+});

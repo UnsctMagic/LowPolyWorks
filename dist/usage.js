@@ -37,6 +37,11 @@ export async function recordUsage(kind,model,format){
  if(kind==='view'&&viewedToday(model))return;
  await send({kind,model,format});
 }
+// One MDLxL tutorial opening (or 'library' for the tutorial list), at most once per tutorial per browser per day.
+export async function recordTutorial(tutorial,language){
+ if(!usageAllowed()||viewedToday('tutorial:'+tutorial))return;
+ await send({kind:'tutorial',model:tutorial,format:language});
+}
 // One batched set of Shredder interaction counts, e.g. {peek:2, feed:1}.
 export async function recordShredder(counts){
  if(!usageAllowed())return false;
