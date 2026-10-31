@@ -520,6 +520,10 @@
     "warrior-of-slaanesh-slayer": {
       "sha256": "83b95e2541ff15c164402c0a0fd4e72366e77e9dbbdcbdbbd48136414205c594",
       "publishedAt": "2026-10-31T19:48:44.673Z"
+    },
+    "warrior-of-khorne-basher": {
+      "sha256": "491bca59d88f5378a021580298cc3c959d83b9b952fee5607cb01e9784a3b0d2",
+      "publishedAt": "2026-10-31T22:01:46.816Z"
     }
   }
 }
