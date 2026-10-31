@@ -135,7 +135,7 @@ export async function renderMdlxl(app,isCurrent,recordUsage){
   if(!isCurrent())return;
   const available=[latest,...recent.filter(r=>!r.draft&&!r.prerelease&&r.id!==latest.id)];
   // Same-day releases share one post: [shown card, releases folded beneath it, newest first].
-  const folds=new Map([['v0.32.1',['v0.32.0']],['v0.21.1',['v0.21.2']],['v0.25.1',['v0.25.0']],['v0.29.2',['v0.29.1','v0.29.0']],['v0.29.1',['v0.29.0']]].map(([shown,inner])=>[available.find(r=>r.tag_name===shown),inner.map(tag=>available.find(r=>r.tag_name===tag)).filter(Boolean)]).filter(([shown,inner])=>shown&&inner.length));
+  const folds=new Map([['v0.37.2',['v0.37.1','v0.37.0']],['v0.32.1',['v0.32.0']],['v0.21.1',['v0.21.2']],['v0.25.1',['v0.25.0']],['v0.29.2',['v0.29.1','v0.29.0']],['v0.29.1',['v0.29.0']]].map(([shown,inner])=>[available.find(r=>r.tag_name===shown),inner.map(tag=>available.find(r=>r.tag_name===tag)).filter(Boolean)]).filter(([shown,inner])=>shown&&inner.length));
   const folded=new Set([...folds.values()].flat()),plain=release=>release.tag_name.replace(/^v/,'');
   const releases=available.filter(r=>!folded.has(r)).slice(0,5);
   const query=new URLSearchParams(location.search),version=(query.get('version')||'').replace(/^v/,''),host=[...folds].find(([shown,inner])=>!folded.has(shown)&&inner.some(r=>plain(r)===version))?.[0],shownVersion=host?plain(host):version,chosen=releases.findIndex(r=>r.tag_name.replace(/^v/,'')===shownVersion),open=chosen<0?0:chosen,initialLanguage=Object.hasOwn(languages,query.get('lang'))?query.get('lang'):'en';
