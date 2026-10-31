@@ -1,0 +1,9 @@
+{
+  "version": "0.37.2",
+  "notes": {
+    "en": "# MDLxL 0.37.2\n\n- Sorry guys, I am patching rotation in the UV wrapper again as it got mixed up with the new rotation in the vertex editor and it was very unstable.\n- Next patch will be in a week.\n",
+    "es": "# MDLxL 0.37.2\n\n- Lo siento, chicos: vuelvo a corregir la rotación en el Editor UV, porque se mezcló con la nueva rotación del editor de vértices y era muy inestable.\n- El próximo parche llegará dentro de una semana.\n",
+    "ru": "# MDLxL 0.37.2\n\n- Простите, ребята: я снова исправляю вращение в UV-развёртке, потому что оно смешалось с новым вращением в редакторе вершин и работало очень нестабильно.\n- Следующий патч выйдет через неделю.\n",
+    "zh": "# MDLxL 0.37.2\n\n- 抱歉各位，我再次修复 UV 编辑器中的旋转，因为它和顶点编辑器中的新旋转混在了一起，非常不稳定。\n- 下一个补丁将在一周后发布。\n"
+  }
+}
