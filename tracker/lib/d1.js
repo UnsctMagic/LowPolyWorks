@@ -32,7 +32,7 @@ export function createD1Events(db){
  // Aggregates in SQL, so the CPU cost stays flat as events accumulate.
  async function summary({from='',to='',models=[]}={}){
   const where='WHERE valid=1 AND (?1=\'\' OR date>=?1) AND (?2=\'\' OR date<=?2)',q=sql=>db.prepare(sql).bind(from,to);
-  const [totalsRows,dailyRows,timelineRows,countryRows,shredderRows,updateRows]=(await db.batch([
+  const [totalsRows,dailyRows,timelineRows,countryRows,shredderRows,updateRows,tutorialRows]=(await db.batch([
    q(`SELECT SUM(kind='visit') pageLoads,SUM(kind='download') downloadClicks,SUM(kind='view') modelViews,COUNT(DISTINCT visitor) uniqueVisitors,SUM(kind='visit' AND visitor IS NOT NULL) identifiedPageLoads,SUM(kind='visit' AND visitor IS NULL) unidentifiedPageLoads,MAX(recorded_at) lastRecordedAt FROM events ${where}`),
    q(`SELECT date,SUM(kind='visit') pageLoads,SUM(kind='download') downloadClicks,COUNT(DISTINCT visitor) uniqueVisitors FROM events ${where} GROUP BY date ORDER BY date`),
    q(`SELECT date,kind,model,format,COUNT(*) count FROM events ${where} AND kind<>'visit' GROUP BY date,kind,model,format ORDER BY date,kind,model,format`),
@@ -43,6 +43,8 @@ export function createD1Events(db){
    // MDLxL updates are one per downloaded release, so they are read the same way.
    // The date column already limits both to the period; older pathnames carry UTC dates.
    q(`SELECT pathname,recorded_at uploadedAt FROM events WHERE kind='update' AND (?1='' OR date>=?1) AND (?2='' OR date<=?2)`),
+   // Tutorial opens are at most one per tutorial per browser a day.
+   q(`SELECT pathname,recorded_at uploadedAt FROM events WHERE kind='tutorial' AND (?1='' OR date>=?1) AND (?2='' OR date<=?2)`),
   ])).map(result=>result.results);
   const row=totalsRows[0]||{},totals={pageLoads:row.pageLoads||0,downloadClicks:row.downloadClicks||0,modelViews:row.modelViews||0,uniqueVisitors:row.uniqueVisitors||0};
   const applications=[{id:'mdlxl',name:'MDLxL',zipClicks:0,total:0}],byModel=new Map();
@@ -56,7 +58,7 @@ export function createD1Events(db){
   const known=countryRows.reduce((sum,row)=>sum+row.uniqueVisitors,0),countries=[...countryRows,...totals.uniqueVisitors>known?[{code:'ZZ',uniqueVisitors:totals.uniqueVisitors-known}]:[]]
    .map(({code,uniqueVisitors})=>({code,name:code==='ZZ'?'Unknown':regionNames.of(code),uniqueVisitors,share:uniqueVisitors/totals.uniqueVisitors}))
    .sort((a,b)=>(a.code==='ZZ')-(b.code==='ZZ')||b.uniqueVisitors-a.uniqueVisitors||a.name.localeCompare(b.name));
-  return {totals,coverage:{identifiedPageLoads:row.identifiedPageLoads||0,unidentifiedPageLoads:row.unidentifiedPageLoads||0},lastRecordedAt:row.lastRecordedAt||null,countries,shredder:summarize(shredderRows).shredder,updates:summarize(updateRows).updates,daily:dailyRows.map(({date,pageLoads,downloadClicks,uniqueVisitors})=>({date,pageLoads,downloadClicks,uniqueVisitors})),
+  return {totals,coverage:{identifiedPageLoads:row.identifiedPageLoads||0,unidentifiedPageLoads:row.unidentifiedPageLoads||0},lastRecordedAt:row.lastRecordedAt||null,countries,shredder:summarize(shredderRows).shredder,updates:summarize(updateRows).updates,tutorials:summarize(tutorialRows).tutorials,daily:dailyRows.map(({date,pageLoads,downloadClicks,uniqueVisitors})=>({date,pageLoads,downloadClicks,uniqueVisitors})),
    models:[...byModel.values()].sort((a,b)=>b.total-a.total||b.views-a.views||a.name.localeCompare(b.name)),applications,timeline:timelineRows.map(({date,kind,model,format,count})=>[date,kind,model,format,count]),measurement};
  }
  return {write,summary};

@@ -1,6 +1,7 @@
 import {mdlxlHref} from './mdlxl-routes.js?v=20261030-glow-approved';
 import {mountTutorialPlayers} from './mdlxl/tutorials/playback.js?v=20261030-tutorial-languages';
 import {startToolPings} from './mdlxl/tutorials/highlights.js?v=20261030-tutorial-languages';
+import {recordTutorial} from './usage.js?v=20261031-tutorial-views';
 import {tutorialLanguages,tutorialText} from './mdlxl/tutorials/languages.js?v=20261030-tutorial-languages';
 const version='20261030-glow-approved';
 const valid=language=>tutorialLanguages.some(item=>item.id===language);
@@ -15,6 +16,7 @@ function showTutorial(state) {
   state.body.querySelector('#tutorial-back').href=mdlxlHref('tutorials',undefined,search);
   const heading=selected?state.body.querySelector('#'+selected.getAttribute('aria-controls')+' h3'):state.title;
   if(document.activeElement!==state.select){heading.tabIndex=-1;heading.focus({preventScroll:true});}
+  recordTutorial(selected?selected.dataset.tutorial:'library',state.select.value);
   const rect=state.header.getBoundingClientRect();if(rect.top<0||rect.bottom>innerHeight)state.header.scrollIntoView({block:'start'});
 }
 export async function renderTutorials(panel,isCurrent,requested) {

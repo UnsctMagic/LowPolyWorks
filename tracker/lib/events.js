@@ -43,16 +43,19 @@ function parseShredderCounts(segment){
  for(const [index,kind] of shredderKinds.entries()){const match=new RegExp('^'+kind+'(\\d{1,3})$').exec(parts[index]);if(!match)return null;counts[kind]=Number(match[1]);}
  return counts;
 }
+// An MDLxL tutorial opening: the tutorial (or the library page) and the language it was read in.
+const tutorialId=/^[a-z0-9-]{1,40}$/,tutorialLanguage=/^[a-z]{2,10}$/;
 // The MDLxL app sends a bare ping per update it installs; its version is the event format.
 export const appVersion=/^\d{1,4}\.\d{1,4}\.\d{1,4}$/;
 export function validateEvent(input,models=[],{app=false}={}){
- if(!input||typeof input!=='object'||!['visit','download','view','shredder','update'].includes(input.kind)||!uuid.test(input.id||'')||input.visitorId!==undefined&&!uuid.test(input.visitorId))return null;
+ if(!input||typeof input!=='object'||!['visit','download','view','shredder','update','tutorial'].includes(input.kind)||!uuid.test(input.id||'')||input.visitorId!==undefined&&!uuid.test(input.visitorId))return null;
  const visitor=input.visitorId?{visitorId:input.visitorId.toLowerCase()}:{};
  // Update events come only from the app, and the app sends nothing else.
  if(app||input.kind==='update')return app&&input.kind==='update'&&appVersion.test(input.version||'')?{id:input.id,kind:'update',model:'mdlxl',format:input.version,testing:false}:null;
  if(input.kind==='visit')return {id:input.id,kind:'visit',model:'site',format:'none',testing:input.testing===true,...visitor};
  // A model view is one opening of a model page, counted per model.
  if(input.kind==='view')return models.some(model=>model.id===input.model)?{id:input.id,kind:'view',model:input.model,format:'none',testing:input.testing===true,...visitor}:null;
+ if(input.kind==='tutorial')return tutorialId.test(input.model||'')&&tutorialLanguage.test(input.format||'')?{id:input.id,kind:'tutorial',model:input.model,format:input.format,testing:input.testing===true,...visitor}:null;
  if(input.kind==='shredder'){const counts=shredderCounts(input.counts);return counts?{id:input.id,kind:'shredder',model:counts,format:'session',testing:input.testing===true,...visitor}:null;}
  if(input.model==='mdlxl')return input.format==='zip'?{id:input.id,kind:'download',model:'mdlxl',format:'zip',testing:input.testing===true,...visitor}:null;
  const model=models.find(model=>model.id===input.model);
@@ -65,7 +68,7 @@ export function eventPath(event,now=new Date()){
 }
 // Lists every live event blob page by page, then summarizes the listing.
 export const listSummary=listBlobs=>async options=>{const blobs=[];let cursor;do{const page=await listBlobs({prefix:'live/',limit:1000,cursor});blobs.push(...page.blobs);cursor=page.hasMore?page.cursor:undefined;}while(cursor);return summarize(blobs,options);};
-export const measurement='Unique visitors are anonymous browser IDs, not unique people. Earlier page loads without an ID are excluded from unique counts. Countries are estimated from network location; each browser uses its first known country in the reporting period. Earlier or unavailable locations are Unknown. Downloads are button clicks, not completed transfers. MDLxL counts cover the enabled LowPolyWorks application download button. Model views count a browser opening a model page, at most once per model per day.';
+export const measurement='Unique visitors are anonymous browser IDs, not unique people. Earlier page loads without an ID are excluded from unique counts. Countries are estimated from network location; each browser uses its first known country in the reporting period. Earlier or unavailable locations are Unknown. Downloads are button clicks, not completed transfers. MDLxL counts cover the enabled LowPolyWorks application download button. Model views count a browser opening a model page, at most once per model per day. Tutorial opens count a browser opening an MDLxL tutorial, at most once per tutorial per day.';
 export function summarize(blobs,{from='',to='',models=[]}={}){
  const totals={pageLoads:0,downloadClicks:0,modelViews:0,uniqueVisitors:0},timeline=new Map(),applications=[{id:'mdlxl',name:'MDLxL',zipClicks:0,total:0}],daily=new Map(),byModel=new Map(),visitors=new Set(),dailyVisitors=new Map(),visitorCountries=new Map(),coverage={identifiedPageLoads:0,unidentifiedPageLoads:0};let lastRecordedAt=null;
  // Every tracked model is listed, including new ones that have no downloads yet.
@@ -74,6 +77,8 @@ export function summarize(blobs,{from='',to='',models=[]}={}){
  const shredderTotals=Object.fromEntries(shredderKinds.map(kind=>[kind,0])),shredderPeople=Object.fromEntries(shredderKinds.map(kind=>[kind,new Set()])),shredderPlayers=new Set();let shredderLastAt=null;
  // MDLxL in-app updates are kept apart too, counted per version.
  const updateVersions=new Map();let updateDownloads=0,updateLastAt=null;
+ // MDLxL tutorial opens, per tutorial, with the browsers behind them.
+ const tutorialRows=new Map(),tutorialPeople=new Set();let tutorialOpens=0,tutorialLastAt=null;
  for(const blob of blobs){
   const [namespace,version,date,kind,model,format,visitorId,country]=blob.pathname.split('/');
   if(kind==='shredder'){
@@ -83,6 +88,14 @@ export function summarize(blobs,{from='',to='',models=[]}={}){
    for(const type of shredderKinds)if(counts[type]){shredderTotals[type]+=counts[type];if(id)shredderPeople[type].add(id);}
    if(id)shredderPlayers.add(id);
    if(!shredderLastAt||at>shredderLastAt)shredderLastAt=at;
+   continue;
+  }
+  if(kind==='tutorial'){
+   if(namespace!=='live'||version!=='v3'||!tutorialId.test(model)||!tutorialLanguage.test(format)||from&&date<from||to&&date>to||visitorId!=='anonymous'&&!uuid.test(visitorId))continue;
+   const at=new Date(blob.uploadedAt).toISOString(),entry=tutorialRows.get(model)||{id:model,opens:0,browsers:new Set(),languages:{}};
+   entry.opens++;entry.languages[format]=(entry.languages[format]||0)+1;if(uuid.test(visitorId)){entry.browsers.add(visitorId.toLowerCase());tutorialPeople.add(visitorId.toLowerCase());}
+   tutorialRows.set(model,entry);tutorialOpens++;
+   if(!tutorialLastAt||at>tutorialLastAt)tutorialLastAt=at;
    continue;
   }
   if(kind==='update'){
@@ -128,7 +141,8 @@ export function summarize(blobs,{from='',to='',models=[]}={}){
  const shredder={people:shredderPlayers.size,lastPlayedAt:shredderLastAt,interactions:Object.fromEntries(shredderKinds.map(kind=>[kind,{count:shredderTotals[kind],people:shredderPeople[kind].size}]))};
  const newest=(a,b)=>b.split('.').reduce((order,part,i)=>order||Number(part)-Number(a.split('.')[i]),0);
  const updates={downloads:updateDownloads,lastDownloadedAt:updateLastAt,versions:[...updateVersions.values()].sort((a,b)=>newest(a.version,b.version))};
- return {totals,coverage,lastRecordedAt,countries,shredder,updates,daily:[...daily.values()].sort((a,b)=>a.date.localeCompare(b.date)),models:[...byModel.values()].sort((a,b)=>b.total-a.total||b.views-a.views||a.name.localeCompare(b.name)),applications,
+ const tutorials={opens:tutorialOpens,people:tutorialPeople.size,lastOpenedAt:tutorialLastAt,tutorials:[...tutorialRows.values()].map(({browsers,...row})=>({...row,people:browsers.size})).sort((a,b)=>b.opens-a.opens||a.id.localeCompare(b.id))};
+ return {totals,coverage,lastRecordedAt,countries,shredder,updates,tutorials,daily:[...daily.values()].sort((a,b)=>a.date.localeCompare(b.date)),models:[...byModel.values()].sort((a,b)=>b.total-a.total||b.views-a.views||a.name.localeCompare(b.name)),applications,
   // Compact per-day counts, [date, kind, model, format, count], for charts at any granularity.
   timeline:[...timeline].map(([key,count])=>[...key.split('|'),count]).sort((a,b)=>a[0].localeCompare(b[0])),measurement};
 }
