@@ -516,6 +516,10 @@
     "chaos-warrior-of-nurgle-heavy-flail": {
       "sha256": "afe3b4908432d671d36e942daf23a2ecee7af106bbcfe138b8e5f8e84bb6a64b",
       "publishedAt": "2026-10-30T18:49:47.215Z"
+    },
+    "warrior-of-slaanesh-slayer": {
+      "sha256": "83b95e2541ff15c164402c0a0fd4e72366e77e9dbbdcbdbbd48136414205c594",
+      "publishedAt": "2026-10-31T19:48:44.673Z"
     }
   }
 }

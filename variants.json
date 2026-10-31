@@ -690,5 +690,19 @@
         "label": "Unit"
       }
     ]
+  },
+  {
+    "id": "warrior-of-slaanesh",
+    "name": "Warrior of Slaanesh",
+    "variants": [
+      {
+        "id": "warrior-of-slaanesh",
+        "label": "Great Weapon"
+      },
+      {
+        "id": "warrior-of-slaanesh-slayer",
+        "label": "Slayer"
+      }
+    ]
   }
 ]
