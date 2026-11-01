@@ -53,3 +53,14 @@
 .mdlxl-content a.tutorial-card,.mdlxl-content a.tutorial-back{text-decoration:none}
 
 #tutorial-glow .gif-player{box-sizing:content-box;width:944px;max-width:calc(100% - 12px)}
+
+/* EMTR ribbons and OptimizeXL guides */
+#tutorial-emtr .gif-player,#tutorial-optixl .gif-player{width:min(100%,1114px)}
+#tutorial-emtr .player-frame,#tutorial-optixl .player-frame{aspect-ratio:11/7}
+#tutorial-emtr .tool-shot,#tutorial-optixl .tool-shot{max-width:1100px}
+#tutorial-optixl .stage-block{margin:25px 0}#tutorial-optixl .stage-block h5{font-size:1.12rem;color:var(--bone);margin-bottom:10px}
+#tutorial-optixl .watch{border-left:3px solid #a99568;padding-left:16px;line-height:1.6}
+#tutorial-optixl .reference details{border-bottom:1px solid #75634466;padding:15px 0}#tutorial-optixl .reference summary{cursor:pointer;color:var(--bone)}
+#tutorial-optixl .reference dt{color:var(--bone);margin-top:16px}#tutorial-optixl .reference dd{margin:7px 0 20px;line-height:1.6}
+#tutorial-emtr .notes p,#tutorial-optixl .inspection p{line-height:1.6}
+[data-tutorial-language=mordor] #tutorial-optixl :is(h5,summary,dt,dd){font-family:MDLxL-Mordor,serif}
