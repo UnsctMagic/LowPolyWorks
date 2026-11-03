@@ -6248,6 +6248,556 @@
     ]
   },
   {
+    "id": "champion-of-slaanesh",
+    "file": "WH_WOC_KnightSlaaneshChampion01.mdx",
+    "name": "Champion of Slaanesh",
+    "army": "warriors-of-chaos",
+    "description": "How good of you to come all this way, just to watch me cut you apart.\r\n\r\nI see you struggle... I know this is difficult, to die... really, I do.\r\n\r\nBut if you would just hold still, this would be over so much sooner.\r\n\r\nYou might think I hate you but I don't.\r\n\r\nI take great pleasure in what we are doing together, you and I.\r\n\r\nThis little act of killing you is merely one scene in a much grander performance.\r\n\r\nYou, your friends, your people, these lands... you are all background players in my great presence, can't you feel it?\r\n\r\nYou should feel honored, my sword is inside you, after all.\r\n\r\nYou see, I WANT to be here.\r\n\r\nI want to take this from you.\r\n\r\nI want to look into your eyes while you grasp what you are losing.\r\n\r\nThat moment...\r\n\r\nThat is the pleasure.\r\n\r\nShort but so so good...\r\n\r\nI said hold still!\r\n\r\nYou know, I was like you once.\r\n\r\nI lived in these lands, I was a Knight of Bretonnia... I loved my Lady.\r\n\r\nLove...\r\n\r\nWhat a tedious thing.\r\n\r\nIt gives you nothing.\r\n\r\nLook what it gave you, holding your guts like that.\r\n\r\nYou weren't a knight for very long, were you?\r\n\r\n...\r\n\r\nYou really are having difficulty holding still.\r\n\r\nAnd why are you screaming?\r\n\r\nHmm...\r\n\r\nPerhaps I should cut out your tongue.\r\n\r\nIt would make it much easier for you to listen... you NEED to listen.\r\n\r\nNow...\r\n\r\nHold still...",
+    "credits": "Model Base - Vile Knight by HerrDave /  Slaanesh Knight by Stein123\r\n\r\nHelm Shape and Horns - Chaos Warrior of Slaanesh by Diazon, found on Warhammer Eternal Strife by Nightmare2077\r\n\r\nAdditional - Front Skull adapted from IronMaiden's Dawn of War Helms.\r\n\r\nShield-Woman/Demon - Guardian Matriarch by Greedy Martyrdom\r\n\r\nHorse Head and Tail - Headless Horseman by Johnwar\r\n\r\nHeroes Axe - Radiant Emerald Cleaver by @Sunchips\r\n\r\nHorns - Eredar Witch by FerSZ\r\n\r\nSkull - Necromancer (Re-Classic) by Johnwar\r\n\r\nHelm - Samurai Helmet by Kitabatake",
+    "geosets": [
+      {
+        "index": 0,
+        "vertices": 20,
+        "triangles": 16,
+        "material": 12,
+        "textures": [
+          "Units\\NightElf\\FaerieDragon\\FaerieDragon.blp"
+        ]
+      },
+      {
+        "index": 1,
+        "vertices": 132,
+        "triangles": 128,
+        "material": 0,
+        "textures": [
+          "Textures\\gutz.blp"
+        ]
+      },
+      {
+        "index": 2,
+        "vertices": 4,
+        "triangles": 2,
+        "material": 2,
+        "textures": [
+          "Team colour / glow"
+        ]
+      },
+      {
+        "index": 3,
+        "vertices": 106,
+        "triangles": 114,
+        "material": 3,
+        "textures": [
+          "Team colour / glow",
+          "Textures\\InfernalCannon.blp"
+        ]
+      },
+      {
+        "index": 4,
+        "vertices": 98,
+        "triangles": 59,
+        "material": 4,
+        "textures": [
+          "Units\\Demon\\EredarWarlockPurple\\EredarPurple.blp"
+        ]
+      },
+      {
+        "index": 5,
+        "vertices": 54,
+        "triangles": 60,
+        "material": 5,
+        "textures": [
+          "Textures\\Doodads0.blp"
+        ]
+      },
+      {
+        "index": 6,
+        "vertices": 40,
+        "triangles": 38,
+        "material": 6,
+        "textures": [
+          "Units\\Human\\Phoenix\\Phoenix2.blp"
+        ]
+      },
+      {
+        "index": 7,
+        "vertices": 84,
+        "triangles": 60,
+        "material": 7,
+        "textures": [
+          "Textures\\InfernalCannon.blp"
+        ]
+      },
+      {
+        "index": 8,
+        "vertices": 124,
+        "triangles": 208,
+        "material": 8,
+        "textures": [
+          "Units\\Demon\\ChaosWarlord\\ChaosWarlord.blp"
+        ]
+      },
+      {
+        "index": 9,
+        "vertices": 34,
+        "triangles": 37,
+        "material": 9,
+        "textures": [
+          "Units\\Creeps\\DireWolf\\DireWolf.blp"
+        ]
+      },
+      {
+        "index": 10,
+        "vertices": 20,
+        "triangles": 20,
+        "material": 23,
+        "textures": [
+          "Units\\Naga\\NagaMyrmidon\\NagaMyrmidon.blp"
+        ]
+      },
+      {
+        "index": 11,
+        "vertices": 192,
+        "triangles": 176,
+        "material": 24,
+        "textures": [
+          "Units\\Demon\\HeroPitLord\\HeroPitlord.blp"
+        ]
+      },
+      {
+        "index": 12,
+        "vertices": 18,
+        "triangles": 20,
+        "material": 25,
+        "textures": [
+          "Team colour / glow",
+          "Units\\Human\\Jaina\\Jaina.blp"
+        ]
+      },
+      {
+        "index": 13,
+        "vertices": 13,
+        "triangles": 12,
+        "material": 26,
+        "textures": [
+          "UI\\Glues\\SinglePlayer\\HumanCampaign3D\\HumanCampaignFootman.blp",
+          "Textures\\GOLDCoin.blp"
+        ]
+      },
+      {
+        "index": 14,
+        "vertices": 14,
+        "triangles": 10,
+        "material": 11,
+        "textures": [
+          "Doodads\\Cinematic\\ArthasIllidanFight\\IllidanCineStuff.blp"
+        ]
+      },
+      {
+        "index": 15,
+        "vertices": 10,
+        "triangles": 8,
+        "material": 27,
+        "textures": [
+          "Textures\\EredarRed.blp"
+        ]
+      },
+      {
+        "index": 16,
+        "vertices": 93,
+        "triangles": 140,
+        "material": 29,
+        "textures": [
+          "Units\\Demon\\ChaosWarlock\\ChaosWarlock.blp"
+        ]
+      },
+      {
+        "index": 17,
+        "vertices": 26,
+        "triangles": 44,
+        "material": 6,
+        "textures": [
+          "Units\\Human\\Phoenix\\Phoenix2.blp"
+        ]
+      },
+      {
+        "index": 18,
+        "vertices": 8,
+        "triangles": 32,
+        "material": 10,
+        "textures": [
+          "ReplaceableTextures\\TeamGlow\\TeamGlow07.blp"
+        ]
+      },
+      {
+        "index": 19,
+        "vertices": 76,
+        "triangles": 94,
+        "material": 30,
+        "textures": [
+          "Textures\\UndeadAirBarge.blp"
+        ]
+      },
+      {
+        "index": 20,
+        "vertices": 338,
+        "triangles": 428,
+        "material": 7,
+        "textures": [
+          "Textures\\InfernalCannon.blp"
+        ]
+      },
+      {
+        "index": 21,
+        "vertices": 38,
+        "triangles": 43,
+        "material": 26,
+        "textures": [
+          "UI\\Glues\\SinglePlayer\\HumanCampaign3D\\HumanCampaignFootman.blp",
+          "Textures\\GOLDCoin.blp"
+        ]
+      },
+      {
+        "index": 22,
+        "vertices": 90,
+        "triangles": 88,
+        "material": 31,
+        "textures": [
+          "Units\\Human\\Phoenix\\Phoenix2.blp"
+        ]
+      },
+      {
+        "index": 23,
+        "vertices": 44,
+        "triangles": 36,
+        "material": 24,
+        "textures": [
+          "Units\\Demon\\HeroPitLord\\HeroPitlord.blp"
+        ]
+      },
+      {
+        "index": 24,
+        "vertices": 193,
+        "triangles": 201,
+        "material": 11,
+        "textures": [
+          "Doodads\\Cinematic\\ArthasIllidanFight\\IllidanCineStuff.blp"
+        ]
+      },
+      {
+        "index": 25,
+        "vertices": 222,
+        "triangles": 168,
+        "material": 22,
+        "textures": [
+          "ReplaceableTextures\\WorldEditUI\\EditorGemAct.blp"
+        ]
+      },
+      {
+        "index": 26,
+        "vertices": 68,
+        "triangles": 60,
+        "material": 21,
+        "textures": [
+          "Units\\Demon\\Warlock\\Archemonde.blp"
+        ]
+      },
+      {
+        "index": 27,
+        "vertices": 166,
+        "triangles": 140,
+        "material": 20,
+        "textures": [
+          "Textures\\InfernalCannon.blp"
+        ]
+      },
+      {
+        "index": 28,
+        "vertices": 68,
+        "triangles": 64,
+        "material": 19,
+        "textures": [
+          "Team colour / glow",
+          "Buildings\\Other\\DalaranGuardTower\\DalaranGuardTower.blp"
+        ]
+      },
+      {
+        "index": 29,
+        "vertices": 170,
+        "triangles": 204,
+        "material": 3,
+        "textures": [
+          "Team colour / glow",
+          "Textures\\InfernalCannon.blp"
+        ]
+      },
+      {
+        "index": 30,
+        "vertices": 37,
+        "triangles": 60,
+        "material": 17,
+        "textures": [
+          "Units\\Creeps\\SeaGiantGreen\\SeaGiantGreen.blp"
+        ]
+      },
+      {
+        "index": 31,
+        "vertices": 10,
+        "triangles": 8,
+        "material": 18,
+        "textures": [
+          "Textures\\Meatwagon.blp"
+        ]
+      },
+      {
+        "index": 32,
+        "vertices": 171,
+        "triangles": 184,
+        "material": 24,
+        "textures": [
+          "Units\\Demon\\HeroPitLord\\HeroPitlord.blp"
+        ]
+      },
+      {
+        "index": 33,
+        "vertices": 72,
+        "triangles": 90,
+        "material": 16,
+        "textures": [
+          "Units\\Creeps\\HarpyWitch\\HarpyWitch.blp"
+        ]
+      },
+      {
+        "index": 34,
+        "vertices": 13,
+        "triangles": 9,
+        "material": 13,
+        "textures": [
+          "Units\\Undead\\SkeletonMage\\SkeletonMage.blp"
+        ]
+      },
+      {
+        "index": 35,
+        "vertices": 19,
+        "triangles": 18,
+        "material": 14,
+        "textures": [
+          "Textures\\MortarTeam.blp"
+        ]
+      },
+      {
+        "index": 36,
+        "vertices": 8,
+        "triangles": 4,
+        "material": 15,
+        "textures": [
+          "ReplaceableTextures\\TeamGlow\\TeamGlow15.blp",
+          "Textures\\LavaLump.blp"
+        ]
+      },
+      {
+        "index": 37,
+        "vertices": 7,
+        "triangles": 6,
+        "material": 12,
+        "textures": [
+          "Units\\NightElf\\FaerieDragon\\FaerieDragon.blp"
+        ]
+      },
+      {
+        "index": 38,
+        "vertices": 69,
+        "triangles": 90,
+        "material": 7,
+        "textures": [
+          "Textures\\InfernalCannon.blp"
+        ]
+      },
+      {
+        "index": 39,
+        "vertices": 18,
+        "triangles": 32,
+        "material": 32,
+        "textures": [
+          "Textures\\InfernalCannon.blp",
+          "Textures\\GOLDCoin.blp"
+        ]
+      },
+      {
+        "index": 40,
+        "vertices": 96,
+        "triangles": 172,
+        "material": 33,
+        "textures": [
+          "Textures\\Skeleton.blp"
+        ]
+      },
+      {
+        "index": 41,
+        "vertices": 18,
+        "triangles": 20,
+        "material": 28,
+        "textures": [
+          "Units\\Creeps\\MagnataurBlue\\MagnataurBlue.blp"
+        ]
+      },
+      {
+        "index": 42,
+        "vertices": 4,
+        "triangles": 2,
+        "material": 1,
+        "textures": [
+          "Units\\Human\\Phoenix\\TeleportTarget.blp"
+        ]
+      },
+      {
+        "index": 43,
+        "vertices": 28,
+        "triangles": 24,
+        "material": 11,
+        "textures": [
+          "Doodads\\Cinematic\\ArthasIllidanFight\\IllidanCineStuff.blp"
+        ]
+      },
+      {
+        "index": 44,
+        "vertices": 28,
+        "triangles": 24,
+        "material": 34,
+        "textures": [
+          "Doodads\\Cinematic\\ArthasIllidanFight\\IllidanCineStuff.blp"
+        ]
+      }
+    ],
+    "sequences": [
+      "Walk",
+      "Stand",
+      "Stand - 2",
+      "Stand Ready",
+      "Attack - 1",
+      "Attack - 2",
+      "Attack - 3",
+      "Attack Slam",
+      "Spell",
+      "Death",
+      "Decay Flesh",
+      "Decay Bone",
+      "Portrait - 1",
+      "Portrait Talk - 1",
+      "Dissipate"
+    ],
+    "bytes": 256133,
+    "portraitBackdropGeosets": [
+      2
+    ],
+    "authors": [
+      {
+        "name": "Unsanctioned Magic",
+        "url": "https://xgm.guru/user/UnsanctMagic"
+      },
+      {
+        "name": "Stein123",
+        "url": "https://www.hiveworkshop.com/members/stein123.196992/"
+      },
+      {
+        "name": "HerrDave",
+        "url": "https://www.hiveworkshop.com/members/herrdave.234820/"
+      }
+    ],
+    "creditLinks": [
+      {
+        "text": "Chaos Warrior of Slaanesh",
+        "url": "https://www.hiveworkshop.com/threads/warhammer-eternal-strife-melee.254808/"
+      },
+      {
+        "text": "Warhammer Eternal Strife",
+        "url": "https://www.hiveworkshop.com/threads/warhammer-eternal-strife-melee.254808/"
+      },
+      {
+        "text": "Radiant Emerald Cleaver",
+        "url": "https://www.hiveworkshop.com/threads/radiant-emerald-cleaver.265821/"
+      },
+      {
+        "text": "Guardian Matriarch",
+        "url": "https://www.hiveworkshop.com/threads/guardian-matriarch.353088/"
+      },
+      {
+        "text": "Headless Horseman",
+        "url": "https://www.hiveworkshop.com/threads/headless-horseman.373679/"
+      },
+      {
+        "text": "Dawn of War Helms",
+        "url": "https://wc3.ninja/models/3003042"
+      },
+      {
+        "text": "Greedy Martyrdom",
+        "url": "https://www.hiveworkshop.com/members/265154/"
+      },
+      {
+        "text": "Chaos Warrior",
+        "url": "https://www.hiveworkshop.com/threads/chaos-warrior.366159/"
+      },
+      {
+        "text": "Nightmare2077",
+        "url": "https://www.hiveworkshop.com/members/nightmare2077.204498/"
+      },
+      {
+        "text": "IronMaiden's",
+        "url": "https://www.hiveworkshop.com/members/ironmaiden.180550/"
+      },
+      {
+        "text": "Vile Knight",
+        "url": "https://www.hiveworkshop.com/threads/swan-knight-vile-knight.308843/"
+      },
+      {
+        "text": "Ironmaiden",
+        "url": "https://www.hiveworkshop.com/members/180550/"
+      },
+      {
+        "text": "@Sunchips",
+        "url": "https://www.hiveworkshop.com/members/176515/"
+      },
+      {
+        "text": "Stein123",
+        "url": "https://www.hiveworkshop.com/members/stein123.196992/"
+      },
+      {
+        "text": "HerrDave",
+        "url": "https://www.hiveworkshop.com/members/herrdave.234820/"
+      },
+      {
+        "text": "Sunchips",
+        "url": "https://www.hiveworkshop.com/members/176515/"
+      },
+      {
+        "text": "Johnwar",
+        "url": "https://www.hiveworkshop.com/members/johnwar.264426/"
+      },
+      {
+        "text": "Eredar Witch",
+        "url": "https://www.hiveworkshop.com/threads/eredar-witch.290652/"
+      },
+      {
+        "text": "FerSZ",
+        "url": "https://www.hiveworkshop.com/members/fersz.252357/"
+      },
+      {
+        "text": "Necromancer (Re-Classic)",
+        "url": "https://www.hiveworkshop.com/threads/necromancer-re-classic.371238/"
+      },
+      {
+        "text": "Samurai Helmet",
+        "url": "https://www.hiveworkshop.com/threads/samurai-helmet.121042/"
+      },
+      {
+        "text": "Kitabatake",
+        "url": "https://www.hiveworkshop.com/members/kitabatake.124756/"
+      }
+    ],
+    "searchDescription": "Preview and download Champion of Slaanesh for Warcraft 3. A Warhammer Fantasy champion for your Warriors of Chaos army.",
+    "sha256": "ca9be864e1153ce22be94da9a9bc5b0fd1307211e9fe904bbec59a56db309fb7"
+  },
+  {
     "id": "undivided-sword",
     "downloadPack": "downloads/knight-undivided.zip",
     "file": "WH_WOC_KnightUndividedSword07.mdx",

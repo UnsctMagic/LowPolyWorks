@@ -546,5 +546,9 @@
   {
     "file": "WH_WOC_WarriorKhorneBasher01.mdx",
     "sha256": "38b05131b01d97c24119c3af2e056806e6e2b9317e8a7bc7c0c577bdd78e271f"
+  },
+  {
+    "file": "WH_WOC_KnightSlaaneshChampion01.mdx",
+    "sha256": "ca9be864e1153ce22be94da9a9bc5b0fd1307211e9fe904bbec59a56db309fb7"
   }
 ]
