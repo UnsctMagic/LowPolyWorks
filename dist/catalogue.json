@@ -28403,7 +28403,7 @@
         "index": 38,
         "vertices": 16,
         "triangles": 8,
-        "material": 36,
+        "material": 35,
         "textures": [
           "Team colour / glow"
         ]
@@ -28426,7 +28426,7 @@
       "Portrait Talk - 1",
       "Dissipate"
     ],
-    "bytes": 254293,
+    "bytes": 254245,
     "portraitBackdropGeosets": [
       2
     ],
@@ -28535,7 +28535,7 @@
       }
     ],
     "searchDescription": "Preview and download Champion of Slaanesh (Hero) for Warcraft 3. A Warhammer Fantasy champion for your Warriors of Chaos army.",
-    "sha256": "4f175182de67142c0c13aa04699572c97a685a2c8bf7f1ed436a23a48fc2f422",
-    "imageVersion": "20261103-slaanesh-latest-variants"
+    "sha256": "9ed238ec81808c28b5287121fbfbba6976e16eacb22699247b4a41748828025a",
+    "imageVersion": "20261103-slaanesh-hero-update"
   }
 ]
