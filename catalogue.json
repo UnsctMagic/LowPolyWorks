@@ -28050,7 +28050,11 @@
     ],
     "searchDescription": "Preview and download Champion of Slaanesh (Unit) for Warcraft 3. A Warhammer Fantasy champion for your Warriors of Chaos army.",
     "sha256": "ce41ddcb02b73048df11f89ea411b56fba69bf206be8bb9af7ea0d8ab2ffd731",
-    "imageVersion": "fresh-ce41ddcb02b7"
+    "imageVersion": "20261104-hero-unit-framing",
+    "captureFitAlpha": 200,
+    "captureOrthographic": true,
+    "captureSequence": "Stand",
+    "captureTime": 0
   },
   {
     "id": "slaanesh-champion-hero",
@@ -28556,6 +28560,10 @@
     ],
     "searchDescription": "Preview and download Champion of Slaanesh (Hero) for Warcraft 3. A Warhammer Fantasy champion for your Warriors of Chaos army.",
     "sha256": "240876f64ed50a5802a72e993ee84c4aad98c599453b45acfd8ff7a1f44dc9de",
-    "imageVersion": "fresh-240876f64ed5"
+    "imageVersion": "20261104-hero-unit-framing",
+    "captureFitAlpha": 200,
+    "captureOrthographic": true,
+    "captureSequence": "Stand",
+    "captureTime": 0
   }
 ]
