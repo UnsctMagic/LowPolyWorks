@@ -11,6 +11,11 @@
 - Before publishing a new Warrior variant or changing a Warrior card, cycle **every** variant on the Warriors of Chaos army page at desktop and mobile widths. Match perceived occupied area against the existing cards, including bulky shields and thin weapons; equal PNG dimensions or equal head-to-foot height alone do not establish equal visual size. The current accepted set occupies roughly 25–38% of a 1024×1024 image in pixels with alpha above 8 after card scaling. Use that as a guide, then inspect the page for clipping, readable eyes, and full weapons.
 - Keep card-image changes separate from model-page thumbnails, the rotatable 3D preview, and MDX files.
 
+## Hero / Unit picture framing
+
+- For every Hero / Unit pair, match the existing Khorne and Nurgle Champion cards automatically: preserve the model's native proportions, use square 1024×1024 transparent pictures, and keep the same apparent body scale and framing when switching variants. Use the same capture pose, time and camera angle for both; frame on solid model pixels (`captureFitAlpha: 200` for both when a soft hero glow widens the crop). Use the existing orthographic capture option when glow geometry also changes perspective fitting; never stretch width or height independently. Preserve the authored glow in the resulting image.
+- Before publishing or replacing either picture, compare both variants with an accepted Hero / Unit pair on the actual army page at desktop and mobile widths. Confirm matching body proportions, scale and placement, full weapons, and no clipping; equal PNG dimensions alone are insufficient. Keep the standard shared card frame and the requested main variant.
+
 ## Model file additions
 
 - When adding a user-supplied model file to the catalogue, preserve the provided description or lore and credit every supplied source model. The `By:` list is for the finished model's authors; source-model authors belong under `Model Base` or the relevant parts credit, not automatically in `By:` on the card, page, or Credits tab. Only add a source author to `By:` when explicitly requested as a co-author of the finished model. In credits, show linked model titles and linked author names; never print raw source URLs.
