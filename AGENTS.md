@@ -13,8 +13,8 @@
 
 ## Hero / Unit picture framing
 
-- For every Hero / Unit pair, match the existing Khorne and Nurgle Champion cards automatically: preserve the model's native proportions, use square 1024×1024 transparent pictures, and keep the same apparent body scale and framing when switching variants. Use the same capture pose, time and camera angle for both; frame on solid model pixels (`captureFitAlpha: 200` for both when a soft hero glow widens the crop). Use the existing orthographic capture option when glow geometry also changes perspective fitting; never stretch width or height independently. Preserve the authored glow in the resulting image.
-- Before publishing or replacing either picture, compare both variants with an accepted Hero / Unit pair on the actual army page at desktop and mobile widths. Confirm matching body proportions, scale and placement, full weapons, and no clipping; equal PNG dimensions alone are insufficient. Keep the standard shared card frame and the requested main variant.
+- Every Hero / Unit pair must align pixel for pixel, automatically. Preserve native model proportions and use square 1024×1024 transparent pictures with the authored hero glow. The portrait studio must use the Unit as the reference and reuse its exact camera, lighting frame, pose, time and crop rectangle for both pictures, including Hero-only captures. Independently fitting both images with equal settings is insufficient; never stretch width or height independently.
+- Before publishing or replacing either picture, overlay/compare the body silhouettes at native resolution and require zero shifted silhouette or edge pixels, excluding the additional hero glow. Compare both variants with an accepted Hero / Unit pair on the actual army page at desktop and mobile widths for full weapons, glow and no clipping. Keep the standard shared card frame and the requested main variant.
 
 ## Model file additions
 
