@@ -525,6 +525,14 @@
       "sha256": "38b05131b01d97c24119c3af2e056806e6e2b9317e8a7bc7c0c577bdd78e271f",
       "publishedAt": "2026-10-31T22:01:46.816Z",
       "updatedAt": "2026-10-31T22:22:13.373Z"
+    },
+    "champion-of-slaanesh": {
+      "sha256": "4f4b0178b113c384534ed9059ad494bf9edb4dde172c7e885f200b2c29eb1451",
+      "publishedAt": "2026-11-03T19:27:13.376Z"
+    },
+    "champion-of-slaanesh-hero": {
+      "sha256": "4ad0defd3a8f5502d15eaba6722b8bf28b7867a20dddd2d332ac2bb3d85ccff9",
+      "publishedAt": "2026-11-03T19:27:13.376Z"
     }
   }
 }
