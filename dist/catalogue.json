@@ -2225,7 +2225,7 @@
   },
   {
     "id": "khorne-flail",
-    "file": "WH_WOC_KnightKhorneFlailHero01.mdx",
+    "file": "WH_WOC_KnightKhorneFlailHero02.mdx",
     "name": "Knight of Khorne · Champion",
     "army": "warriors-of-chaos",
     "description": "I have never seen men fight like that...\r\n\r\nI barely made it out alive, this was no victory.\r\n\r\nStatues of brass, massive, twice the size of the biggest man I've ever seen and then some.\r\n\r\nWalking, not charging... advancing like a great wall made of brass and blood red steel.\r\n\r\nI saw men throw down their weapons crying, screaming...\r\n\r\nMen crawled beneath one another to get away...\r\n\r\nIt made no difference, there was nowhere to run.\r\n\r\nI watched a man split from shoulder to hip as he was trying to hide.\r\n\r\nAnother crushed into nothing I could recognize...\r\n\r\nMen were knocked down, trampled, hacked apart and still they kept hacking at the corpses.\r\n\r\nLike a butcher at the block, hacking away piece by piece.\r\n\r\nIt made no difference, we had to fight.\r\n\r\nThey even killed each other.\r\n\r\nThe ones we managed to injure or stagger fighting back became obstacles for the others,\r\n\r\nSo they simply cut through those to reach us faster.\r\n\r\nBut I think they knew they would die that day.\r\n\r\nI heard they razed ten cities before they reached us.\r\n\r\nThat they had come down from the north on a path of destruction.\r\n\r\nThat they had fought their way south for weeks leaving behind only blood and ash.\r\n\r\nBy the time they reached us they were outnumbered fifty to one.\r\n\r\nWe had heard of them coming.\r\n\r\nWe had heard what they had done.\r\n\r\nRivers of blood.\r\n\r\nBut It made no difference... I wanted to fight... to kill.\r\n\r\nThey did not run or beg.\r\n\r\nThey knew they were going to die, I think they wanted to.\r\n\r\nMy city has lost everything defeating them and they got what they came for.\r\n\r\nYou call this victory...?\r\n\r\nSomehow... I envy them.\r\n\r\nI have spent all my life afraid... Afraid of pain... regret... death...\r\n\r\nAfraid of fear.\r\n\r\nThose men were afraid of nothing.\r\n\r\nWanted nothing.\r\n\r\nKept nothing...\r\n\r\nBut it made no difference... I killed them too.\r\n\r\nNorth...\r\n\r\nThat is where they came from.\r\n\r\nThat is where I will go.",
@@ -2260,8 +2260,8 @@
       },
       {
         "index": 3,
-        "vertices": 974,
-        "triangles": 1190,
+        "vertices": 634,
+        "triangles": 668,
         "material": 3,
         "textures": [
           "Textures\\UndeadAirBarge.blp"
@@ -2560,6 +2560,15 @@
         "textures": [
           "Team colour / glow"
         ]
+      },
+      {
+        "index": 36,
+        "vertices": 340,
+        "triangles": 522,
+        "material": 3,
+        "textures": [
+          "Textures\\UndeadAirBarge.blp"
+        ]
       }
     ],
     "sequences": [
@@ -2577,7 +2586,7 @@
       "Dissipate",
       "Attack - 2"
     ],
-    "bytes": 225952,
+    "bytes": 226544,
     "portraitBackdropGeosets": [
       32
     ],
@@ -2710,8 +2719,12 @@
       }
     ],
     "searchDescription": "Preview and download the Knight of Khorne Champion model for Warcraft 3. Add a Warhammer Fantasy Chaos champion to your custom army.",
-    "sha256": "7915398ad1c61ffb2b00e142a1262bf72ff94bf9f297090a36e5dacd1a04b13c",
+    "sha256": "f912a9f7331c190f0a7443af989b4447a56e781f8c6ecd6903b460eec08364df",
     "changelog": [
+      {
+        "date": "4 November 2026",
+        "text": "Fixed portrait shield visibility"
+      },
       {
         "date": "28 October 2026",
         "text": "Added Hero version and updated Unit version."
@@ -2725,7 +2738,7 @@
         "text": "Fixed flail fire particles"
       }
     ],
-    "imageVersion": "20261028-khorne-hero-emitters",
+    "imageVersion": "20261104-portrait-shield",
     "downloadPack": "downloads/khorne-champion.zip",
     "captureFitAlpha": 200,
     "captureSequence": "Stand",
@@ -2733,7 +2746,7 @@
   },
   {
     "id": "khorne-flail-unit",
-    "file": "WH_WOC_KnightKhorneFlailUnit03.mdx",
+    "file": "WH_WOC_KnightKhorneFlailUnit04.mdx",
     "name": "Knight of Khorne · Champion",
     "army": "warriors-of-chaos",
     "description": "I have never seen men fight like that...\r\n\r\nI barely made it out alive, this was no victory.\r\n\r\nStatues of brass, massive, twice the size of the biggest man I've ever seen and then some.\r\n\r\nWalking, not charging... advancing like a great wall made of brass and blood red steel.\r\n\r\nI saw men throw down their weapons crying, screaming...\r\n\r\nMen crawled beneath one another to get away...\r\n\r\nIt made no difference, there was nowhere to run.\r\n\r\nI watched a man split from shoulder to hip as he was trying to hide.\r\n\r\nAnother crushed into nothing I could recognize...\r\n\r\nMen were knocked down, trampled, hacked apart and still they kept hacking at the corpses.\r\n\r\nLike a butcher at the block, hacking away piece by piece.\r\n\r\nIt made no difference, we had to fight.\r\n\r\nThey even killed each other.\r\n\r\nThe ones we managed to injure or stagger fighting back became obstacles for the others,\r\n\r\nSo they simply cut through those to reach us faster.\r\n\r\nBut I think they knew they would die that day.\r\n\r\nI heard they razed ten cities before they reached us.\r\n\r\nThat they had come down from the north on a path of destruction.\r\n\r\nThat they had fought their way south for weeks leaving behind only blood and ash.\r\n\r\nBy the time they reached us they were outnumbered fifty to one.\r\n\r\nWe had heard of them coming.\r\n\r\nWe had heard what they had done.\r\n\r\nRivers of blood.\r\n\r\nBut It made no difference... I wanted to fight... to kill.\r\n\r\nThey did not run or beg.\r\n\r\nThey knew they were going to die, I think they wanted to.\r\n\r\nMy city has lost everything defeating them and they got what they came for.\r\n\r\nYou call this victory...?\r\n\r\nSomehow... I envy them.\r\n\r\nI have spent all my life afraid... Afraid of pain... regret... death...\r\n\r\nAfraid of fear.\r\n\r\nThose men were afraid of nothing.\r\n\r\nWanted nothing.\r\n\r\nKept nothing...\r\n\r\nBut it made no difference... I killed them too.\r\n\r\nNorth...\r\n\r\nThat is where they came from.\r\n\r\nThat is where I will go.",
@@ -2768,8 +2781,8 @@
       },
       {
         "index": 3,
-        "vertices": 974,
-        "triangles": 1190,
+        "vertices": 634,
+        "triangles": 668,
         "material": 3,
         "textures": [
           "Textures\\UndeadAirBarge.blp"
@@ -3050,6 +3063,15 @@
         "textures": [
           "Textures\\gutz.blp"
         ]
+      },
+      {
+        "index": 34,
+        "vertices": 340,
+        "triangles": 522,
+        "material": 3,
+        "textures": [
+          "Textures\\UndeadAirBarge.blp"
+        ]
       }
     ],
     "sequences": [
@@ -3067,7 +3089,7 @@
       "Dissipate",
       "Attack - 2"
     ],
-    "bytes": 222420,
+    "bytes": 223012,
     "portraitBackdropGeosets": [
       32
     ],
@@ -3200,8 +3222,12 @@
       }
     ],
     "searchDescription": "Preview and download the Knight of Khorne Champion model for Warcraft 3. Add a Warhammer Fantasy Chaos champion to your custom army.",
-    "sha256": "0cf0c041cb45997622e068f6632556d537832d737d0ecc25671df65ab7ccbf51",
+    "sha256": "531beb780e3de33f662d54a314839b15d1908de4ba363c09662b1b2b94444e4c",
     "changelog": [
+      {
+        "date": "4 November 2026",
+        "text": "Fixed portrait shield visibility"
+      },
       {
         "date": "28 October 2026",
         "text": "Added Hero version and updated Unit version."
@@ -3215,7 +3241,7 @@
         "text": "Fixed flail fire particles"
       }
     ],
-    "imageVersion": "20261028-khorne-unit-emitters",
+    "imageVersion": "20261104-portrait-shield",
     "downloadPack": "downloads/khorne-champion.zip",
     "captureFitAlpha": 200,
     "captureSequence": "Stand",
