@@ -1,12 +1,12 @@
 // Same FFmpeg 30 fps global-palette encoder as the prior tutorial pipeline.
 // Convert PNG screenshots to BMP as in the original encode.ps1; repeat held frames with local hardlinks.
-import fs from 'node:fs';import path from 'node:path';import{spawnSync}from'node:child_process';
+import fs from 'node:fs';import path from 'node:path';import crypto from 'node:crypto';import{spawnSync}from'node:child_process';
 const root='D:/Codex/french-german/captures',locale=process.argv[2],kind=process.argv[3];
 if(!['fr','de',...(process.env.LPW_PILOT==='1'?['en']:[])].includes(locale)||!['anchor','align','live','corpse','glow','ribbon','optixl'].includes(kind))throw Error('Expected locale and tutorial kind');
 const out=root+'/'+locale,manifest=JSON.parse(fs.readFileSync(out+'/'+kind+'-manifest.json','utf8')),target=process.env.LPW_PILOT==='1'?root+'/pilot/'+locale:'D:/Codex/french-german/LowPolyWorks/dist/mdlxl/tutorials/'+locale;
 fs.mkdirSync(target,{recursive:true});
 function delays(b){let p=13+((b[10]&128)?3*(2**((b[10]&7)+1)):0),delay=100,a=[];const blocks=()=>{while(b[p])p+=b[p]+1;p++};while(p<b.length){const token=b[p++];if(token===0x3b)break;if(token===0x21){const ext=b[p++];if(ext===0xf9){const n=b[p++];delay=b.readUInt16LE(p+1)*10;p+=n+1}else blocks()}else if(token===0x2c){const flags=b[p+8];p+=9;if(flags&128)p+=3*(2**((flags&7)+1));p++;blocks();a.push(delay)}else throw Error('GIF token '+token)}return a}
-const datafile=target+'/animation-data.js',data=fs.existsSync(datafile)?JSON.parse(fs.readFileSync(datafile,'utf8').replace(/^export default /,'').replace(/;\s*$/,'')):{};
+const datafile=target+'/animation-index.json',data=fs.existsSync(datafile)?JSON.parse(fs.readFileSync(datafile,'utf8')):{};
 const report=[];
 for(const[name,frames]of Object.entries(manifest)){
  if(!frames.length)throw Error('No frames: '+name);
@@ -31,13 +31,13 @@ for(const[name,frames]of Object.entries(manifest)){
   if(name==='live-action'){let prev='';for(const r of ranges){if(r.phase==='pick-result')cue(r.start,'A + LMB');if(r.phase==='expand-connected')cue(r.start,'Ctrl + E');if(r.phase==='separate-coordinates'&&prev!==r.phase)cue(r.start,'M');prev=r.phase}}
   for(let i=0;i<cues.length;i++){cues[i].endFrame=cues[i+1]?.startFrame??n;cues[i].startMs=durations.slice(0,cues[i].startFrame).reduce((a,b)=>a+b,0);cues[i].endMs=durations.slice(0,cues[i].endFrame).reduce((a,b)=>a+b,0);}
  }
- data[name]={gif:bytes.toString('base64'),durations,ranges,cues};fs.copyFileSync(out+'/'+name+'.gif',target+'/'+name+'.gif');report.push({name,width,height,frames:n,bytes:bytes.length,duration:durations.reduce((a,b)=>a+b,0),ranges,cues});
+ data[name]={durations,ranges,cues,url:'/mdlxl/tutorials/'+locale+'/'+name+'.gif?v='+crypto.createHash('sha256').update(bytes).digest('hex').slice(0,16)};fs.copyFileSync(out+'/'+name+'.gif',target+'/'+name+'.gif');report.push({name,width,height,frames:n,bytes:bytes.length,duration:durations.reduce((a,b)=>a+b,0),ranges,cues});
  const cards={'anchor-action':'anchor','align-action':'align','live-action':'live','corpse-finish':'corpse','glow-create':'glow'};
  if(cards[name]){const img=frames.at(-1).file;if(img.endsWith('.png'))fs.copyFileSync(img,target+'/tutorial-card-'+cards[name]+'.png');else {const shot=spawnSync('D:/Claude/MDLxL/electron/ffmpeg/ffmpeg.exe',['-hide_banner','-loglevel','error','-y','-i',img,'-frames:v','1',target+'/tutorial-card-'+cards[name]+'.png'],{encoding:'utf8',windowsHide:true});if(shot.status!==0)throw Error(shot.stderr)}}
  const safeEncode=path.resolve(encode);if(!safeEncode.startsWith(path.resolve(out,'encode')+path.sep))throw Error('Encoding cleanup outside task');fs.rmSync(safeEncode,{recursive:true});
  const raw=path.resolve(path.dirname(frames[0].file)),safe=path.resolve(out,'raw');if(!raw.startsWith(safe+path.sep))throw Error('Raw cleanup outside task');for(const entry of fs.readdirSync(raw,{withFileTypes:true}))if(entry.isSymbolicLink()||entry.isDirectory())throw Error('Unexpected link/directory in raw frames');fs.rmSync(raw,{recursive:true});
  console.log(locale+'/'+name+': '+n+' frames, '+Math.round(bytes.length/1024)+'KB');
 }
-fs.writeFileSync(datafile,'export default '+JSON.stringify(data)+';\n');fs.writeFileSync(out+'/'+kind+'-encoded.json',JSON.stringify({passed:true,pilot:process.env.LPW_PILOT==='1',locale,kind,clips:report},null,2));
+fs.writeFileSync(datafile,JSON.stringify(data)+'\n');fs.writeFileSync(out+'/'+kind+'-encoded.json',JSON.stringify({passed:true,pilot:process.env.LPW_PILOT==='1',locale,kind,clips:report},null,2));
 const names=kind==='anchor'?['anchor-tool.png']:kind==='align'?['align-tool.png']:kind==='live'?['live-tool.png']:kind==='corpse'?['corpse-tool.png']:kind==='glow'?['glow-tool.png','main-tool.png']:kind==='ribbon'?['ribbon-emtr-tool.png','ribbon-add-tool.png','ribbon-card.png']:['optixl-tool.png','optixl-finish-tool.png','optixl-card.png'];
 for(const name of names){if(!fs.existsSync(out+'/'+name))throw Error('Missing tool screenshot '+name);fs.copyFileSync(out+'/'+name,target+'/'+name)}
