@@ -2,7 +2,9 @@
 
 Source snapshot used to record the French/German tutorials. This is the existing native Electron/CDP → BMP → FFmpeg global-palette workflow, with localized control lookups. It does not generate translated screenshot overlays or mutate the application source.
 
-The seven guides produce 25 GIFs and 17 PNGs per language. Anchor/Align/Live/Corpse reuse `D:/Codex/lpw-tutorial-languages/captures/es/`; Glow Up reuses the accepted `D:/Codex/lpw-glow-up-revision/capture.cjs`. Ribbon and OptimizeXL reuse the same capture runtime/encoding from `D:/Codex/lpw-fx-tutorial-20261102/source/authoring/`; their action sequences were reconstructed from site commit `0c4126bb22f0ca98587241e7b275dadfe8668239`, the Spanish timeline metadata/content and `D:/Codex/lpw-ribbons-optixl-review/verification.json` because their original authoring scripts were no longer present.
+The original seven guides produce 25 GIFs and 17 PNGs per language. The [FX continuation](fx/README.md) adds four GIFs and one PNG per language: the current eight-guide inventory is 29 GIFs and 18 PNGs per locale. Anchor/Align/Live/Corpse reuse `D:/Codex/lpw-tutorial-languages/captures/es/`; Glow Up reuses the accepted `D:/Codex/lpw-glow-up-revision/capture.cjs`. Ribbon and OptimizeXL reuse the same capture runtime/encoding from `D:/Codex/lpw-fx-tutorial-20261102/source/authoring/`; their action sequences were reconstructed from site commit `0c4126bb22f0ca98587241e7b275dadfe8668239`, the Spanish timeline metadata/content and `D:/Codex/lpw-ribbons-optixl-review/verification.json` because their original authoring scripts were no longer present.
+
+The [FX continuation](fx/README.md) adds the eighth tutorial: current totals are29GIFs and18PNGs per language. Its4new embedded records use a statically imported companion module to stay below GitHub’s100MiB file limit; the existing player API and all previous payloads are preserved.
 
 ## Run on the authoring machine
 
