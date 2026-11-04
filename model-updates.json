@@ -527,12 +527,14 @@
       "updatedAt": "2026-10-31T22:22:13.373Z"
     },
     "slaanesh-champion": {
-      "sha256": "ce41ddcb02b73048df11f89ea411b56fba69bf206be8bb9af7ea0d8ab2ffd731",
-      "publishedAt": "2026-11-03T22:20:58.264Z"
+      "sha256": "af7eeda00e1857e888daacf20d8015ec5c4b086ae215a8b373051f7435ef2d1d",
+      "publishedAt": "2026-11-03T22:20:58.264Z",
+      "updatedAt": "2026-11-04T01:20:48.890Z"
     },
     "slaanesh-champion-hero": {
-      "sha256": "240876f64ed50a5802a72e993ee84c4aad98c599453b45acfd8ff7a1f44dc9de",
-      "publishedAt": "2026-11-03T22:20:58.264Z"
+      "sha256": "6228e88764052fd91051ae6e096be63d245bd6cea0a40cca09c0de47ce572a0e",
+      "publishedAt": "2026-11-03T22:20:58.264Z",
+      "updatedAt": "2026-11-04T01:20:48.890Z"
     }
   }
 }
