@@ -1,30 +1,43 @@
 <!doctype html><html><head><meta charset="utf-8"><script type="importmap">{"imports":{"three":"/vendor/three.module.js","three/addons/controls/OrbitControls.js":"/vendor/OrbitControls.js"}}</script></head><body style="background:#080d17;color:#cbb37d"><h1>Rendering unit cards</h1><div id="results" style="display:flex;flex-wrap:wrap;gap:12px"></div><canvas id="canvas" style="width:512px;height:512px"></canvas><script type="module">
 import {createViewer} from '/viewer.js';
-const rows=await fetch('/catalogue.json').then(r=>r.json()),armies=await fetch('/armies.json').then(r=>r.json());
+const rows=await fetch('/catalogue.json').then(r=>r.json()),armies=await fetch('/armies.json').then(r=>r.json()),groups=await fetch('/variants.json').then(r=>r.json());
 const selected=new URLSearchParams(location.search).get('models')?.split(',');
-let successes=0,failures=0;
-for(const row of rows.filter(row=>!selected||selected.includes(row.id))){let viewer;try{
+const frames=new Map();
+function referenceRow(row){
+ const pair=groups.find(group=>group.variants.some(v=>v.id===row.id)&&group.variants.some(v=>v.label==='Hero')&&group.variants.some(v=>v.label==='Unit'));
+ return rows.find(r=>r.id===pair?.variants.find(v=>v.label==='Unit')?.id)||row;
+}
+async function captureRow(row,reference,frame){let viewer;try{
  const canvas=document.querySelector('#canvas'),army=armies.find(army=>army.id===row.army);
- viewer=await createViewer(canvas,row,{thumbnail:true,formation:true,formationYaw:row.captureFormationYaw??.32,teamColor:army.teamColour||army.colour});if(row.captureSequence){viewer.sequence(row.sequences.indexOf(row.captureSequence));let remaining=row.captureTime??0;while(remaining>0){const step=Math.min(20,remaining);viewer.render(step);remaining-=step;}}else viewer.render(row.id==='aspiring'?600:0);
+ // A Hero / Unit pair uses one projection and pose, including when only the Hero is requested.
+ viewer=await createViewer(canvas,{...row,captureOrthographic:reference.captureOrthographic,captureCameraAngles:reference.captureCameraAngles,captureEmitters:reference.captureEmitters,captureRibbons:reference.captureRibbons},{thumbnail:true,formation:true,formationYaw:reference.captureFormationYaw??.32,teamColor:army.teamColour||army.colour});
+ if(reference.captureSequence){viewer.sequence(row.sequences.indexOf(reference.captureSequence));let remaining=reference.captureTime??0;while(remaining>0){const step=Math.min(20,remaining);viewer.render(step);remaining-=step;}}else viewer.render(reference.id==='aspiring'?600:0);
+ if(frame)viewer.useCaptureFrame(frame.view);
  const capture=document.createElement('canvas');capture.width=canvas.width;capture.height=canvas.height;
- const context=capture.getContext('2d');context.drawImage(canvas,0,0);const pixels=context.getImageData(0,0,capture.width,capture.height).data;
- // Frame on solid pixels only when a soft effect (e.g. a hero glow) would otherwise widen the crop.
- const fitAlpha=row.captureFitAlpha??8;
- let left=capture.width,top=capture.height,right=0,bottom=0;
- for(let y=0;y<capture.height;y++)for(let x=0;x<capture.width;x++)if(pixels[(y*capture.width+x)*4+3]>fitAlpha){left=Math.min(left,x);right=Math.max(right,x);top=Math.min(top,y);bottom=Math.max(bottom,y);}
- if(right<=left||bottom<=top)throw Error('Empty unit render');
- // Centre the body while retaining its full weapon and silhouette in a square card.
- const anchor=viewer.formationAnchor()*capture.width,side=Math.max(2*Math.max(anchor-left,right-anchor),bottom-top+1)*1.08;
- left=anchor-side/2;top=(top+bottom+1)/2-side/2;
+ const context=capture.getContext('2d');context.drawImage(canvas,0,0);
+ if(!frame){
+  const pixels=context.getImageData(0,0,capture.width,capture.height).data,fitAlpha=reference.captureFitAlpha??8;
+  let left=capture.width,top=capture.height,right=0,bottom=0;
+  for(let y=0;y<capture.height;y++)for(let x=0;x<capture.width;x++)if(pixels[(y*capture.width+x)*4+3]>fitAlpha){left=Math.min(left,x);right=Math.max(right,x);top=Math.min(top,y);bottom=Math.max(bottom,y);}
+  if(right<=left||bottom<=top)throw Error('Empty unit render');
+  const anchor=viewer.formationAnchor()*capture.width,side=Math.max(2*Math.max(anchor-left,right-anchor),bottom-top+1)*1.08;
+  frame={view:viewer.captureFrame(),left:anchor-side/2,top:(top+bottom+1)/2-side/2,side};
+ }
+ // Reuse the exact reference rectangle; independently rounded bounds shift body pixels.
  const image=document.createElement('canvas');image.width=image.height=1024;
- const out=image.getContext('2d');out.imageSmoothingEnabled=true;out.imageSmoothingQuality='high';out.drawImage(capture,left,top,side,side,0,0,1024,1024);
+ const out=image.getContext('2d');out.imageSmoothingEnabled=true;out.imageSmoothingQuality='high';out.drawImage(capture,frame.left,frame.top,frame.side,frame.side,0,0,1024,1024);
+ return {image,frame};
+}finally{viewer?.dispose();document.querySelector('#canvas').replaceWith(Object.assign(document.createElement('canvas'),{id:'canvas',style:'width:512px;height:512px'}));}}
+let successes=0,failures=0;
+for(const row of rows.filter(row=>!selected||selected.includes(row.id))){try{
+ const reference=referenceRow(row);
+ if(reference.id!==row.id&&!frames.has(reference.id))frames.set(reference.id,(await captureRow(reference,reference)).frame);
+ const {image,frame}=await captureRow(row,reference,frames.get(reference.id));frames.set(reference.id,frame);
  const png=await new Promise(resolve=>image.toBlob(resolve,'image/png'));
  const saved=await fetch('/__portrait?id=unit-'+row.id,{method:'POST',body:png});if(!saved.ok)throw Error('Card save failed');
- const card=document.createElement('div');card.style=`width:220px;text-align:center;background:radial-gradient(ellipse at 50% 62%,${army.colour},#080d17 83%)`;
+ const army=armies.find(army=>army.id===row.army),card=document.createElement('div');card.style=`width:220px;text-align:center;background:radial-gradient(ellipse at 50% 62%,${army.colour},#080d17 83%)`;
  const preview=document.createElement('img');preview.src=image.toDataURL();preview.style='width:220px;height:220px;object-fit:contain';
  const caption=document.createElement('p');caption.textContent=row.name;card.append(preview,caption);document.querySelector('#results').append(card);successes++;
-}catch(error){failures++;document.querySelector('#results').append(Object.assign(document.createElement('p'),{textContent:'ERROR '+row.id+': '+error.message}));console.error(error);
-}finally{viewer?.dispose();document.querySelector('#canvas').replaceWith(Object.assign(document.createElement('canvas'),{id:'canvas',style:'width:512px;height:512px'}));}}
+}catch(error){failures++;document.querySelector('#results').append(Object.assign(document.createElement('p'),{textContent:'ERROR '+row.id+': '+error.message}));console.error(error);}}
 document.querySelector('h1').textContent=`${successes} unit cards rendered${failures?' · '+failures+' failed':''}`;
 </script></body></html>
-

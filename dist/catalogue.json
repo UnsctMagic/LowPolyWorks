@@ -2225,7 +2225,7 @@
   },
   {
     "id": "khorne-flail",
-    "file": "WH_WOC_KnightKhorneFlailHero01.mdx",
+    "file": "WH_WOC_KnightKhorneFlailHero02.mdx",
     "name": "Knight of Khorne · Champion",
     "army": "warriors-of-chaos",
     "description": "I have never seen men fight like that...\r\n\r\nI barely made it out alive, this was no victory.\r\n\r\nStatues of brass, massive, twice the size of the biggest man I've ever seen and then some.\r\n\r\nWalking, not charging... advancing like a great wall made of brass and blood red steel.\r\n\r\nI saw men throw down their weapons crying, screaming...\r\n\r\nMen crawled beneath one another to get away...\r\n\r\nIt made no difference, there was nowhere to run.\r\n\r\nI watched a man split from shoulder to hip as he was trying to hide.\r\n\r\nAnother crushed into nothing I could recognize...\r\n\r\nMen were knocked down, trampled, hacked apart and still they kept hacking at the corpses.\r\n\r\nLike a butcher at the block, hacking away piece by piece.\r\n\r\nIt made no difference, we had to fight.\r\n\r\nThey even killed each other.\r\n\r\nThe ones we managed to injure or stagger fighting back became obstacles for the others,\r\n\r\nSo they simply cut through those to reach us faster.\r\n\r\nBut I think they knew they would die that day.\r\n\r\nI heard they razed ten cities before they reached us.\r\n\r\nThat they had come down from the north on a path of destruction.\r\n\r\nThat they had fought their way south for weeks leaving behind only blood and ash.\r\n\r\nBy the time they reached us they were outnumbered fifty to one.\r\n\r\nWe had heard of them coming.\r\n\r\nWe had heard what they had done.\r\n\r\nRivers of blood.\r\n\r\nBut It made no difference... I wanted to fight... to kill.\r\n\r\nThey did not run or beg.\r\n\r\nThey knew they were going to die, I think they wanted to.\r\n\r\nMy city has lost everything defeating them and they got what they came for.\r\n\r\nYou call this victory...?\r\n\r\nSomehow... I envy them.\r\n\r\nI have spent all my life afraid... Afraid of pain... regret... death...\r\n\r\nAfraid of fear.\r\n\r\nThose men were afraid of nothing.\r\n\r\nWanted nothing.\r\n\r\nKept nothing...\r\n\r\nBut it made no difference... I killed them too.\r\n\r\nNorth...\r\n\r\nThat is where they came from.\r\n\r\nThat is where I will go.",
@@ -2260,8 +2260,8 @@
       },
       {
         "index": 3,
-        "vertices": 974,
-        "triangles": 1190,
+        "vertices": 634,
+        "triangles": 668,
         "material": 3,
         "textures": [
           "Textures\\UndeadAirBarge.blp"
@@ -2560,6 +2560,15 @@
         "textures": [
           "Team colour / glow"
         ]
+      },
+      {
+        "index": 36,
+        "vertices": 340,
+        "triangles": 522,
+        "material": 3,
+        "textures": [
+          "Textures\\UndeadAirBarge.blp"
+        ]
       }
     ],
     "sequences": [
@@ -2577,7 +2586,7 @@
       "Dissipate",
       "Attack - 2"
     ],
-    "bytes": 225952,
+    "bytes": 226544,
     "portraitBackdropGeosets": [
       32
     ],
@@ -2710,8 +2719,12 @@
       }
     ],
     "searchDescription": "Preview and download the Knight of Khorne Champion model for Warcraft 3. Add a Warhammer Fantasy Chaos champion to your custom army.",
-    "sha256": "7915398ad1c61ffb2b00e142a1262bf72ff94bf9f297090a36e5dacd1a04b13c",
+    "sha256": "f912a9f7331c190f0a7443af989b4447a56e781f8c6ecd6903b460eec08364df",
     "changelog": [
+      {
+        "date": "4 November 2026",
+        "text": "Fixed portrait shield visibility"
+      },
       {
         "date": "28 October 2026",
         "text": "Added Hero version and updated Unit version."
@@ -2725,7 +2738,7 @@
         "text": "Fixed flail fire particles"
       }
     ],
-    "imageVersion": "20261028-khorne-hero-emitters",
+    "imageVersion": "20261104-portrait-shield",
     "downloadPack": "downloads/khorne-champion.zip",
     "captureFitAlpha": 200,
     "captureSequence": "Stand",
@@ -2733,7 +2746,7 @@
   },
   {
     "id": "khorne-flail-unit",
-    "file": "WH_WOC_KnightKhorneFlailUnit03.mdx",
+    "file": "WH_WOC_KnightKhorneFlailUnit04.mdx",
     "name": "Knight of Khorne · Champion",
     "army": "warriors-of-chaos",
     "description": "I have never seen men fight like that...\r\n\r\nI barely made it out alive, this was no victory.\r\n\r\nStatues of brass, massive, twice the size of the biggest man I've ever seen and then some.\r\n\r\nWalking, not charging... advancing like a great wall made of brass and blood red steel.\r\n\r\nI saw men throw down their weapons crying, screaming...\r\n\r\nMen crawled beneath one another to get away...\r\n\r\nIt made no difference, there was nowhere to run.\r\n\r\nI watched a man split from shoulder to hip as he was trying to hide.\r\n\r\nAnother crushed into nothing I could recognize...\r\n\r\nMen were knocked down, trampled, hacked apart and still they kept hacking at the corpses.\r\n\r\nLike a butcher at the block, hacking away piece by piece.\r\n\r\nIt made no difference, we had to fight.\r\n\r\nThey even killed each other.\r\n\r\nThe ones we managed to injure or stagger fighting back became obstacles for the others,\r\n\r\nSo they simply cut through those to reach us faster.\r\n\r\nBut I think they knew they would die that day.\r\n\r\nI heard they razed ten cities before they reached us.\r\n\r\nThat they had come down from the north on a path of destruction.\r\n\r\nThat they had fought their way south for weeks leaving behind only blood and ash.\r\n\r\nBy the time they reached us they were outnumbered fifty to one.\r\n\r\nWe had heard of them coming.\r\n\r\nWe had heard what they had done.\r\n\r\nRivers of blood.\r\n\r\nBut It made no difference... I wanted to fight... to kill.\r\n\r\nThey did not run or beg.\r\n\r\nThey knew they were going to die, I think they wanted to.\r\n\r\nMy city has lost everything defeating them and they got what they came for.\r\n\r\nYou call this victory...?\r\n\r\nSomehow... I envy them.\r\n\r\nI have spent all my life afraid... Afraid of pain... regret... death...\r\n\r\nAfraid of fear.\r\n\r\nThose men were afraid of nothing.\r\n\r\nWanted nothing.\r\n\r\nKept nothing...\r\n\r\nBut it made no difference... I killed them too.\r\n\r\nNorth...\r\n\r\nThat is where they came from.\r\n\r\nThat is where I will go.",
@@ -2768,8 +2781,8 @@
       },
       {
         "index": 3,
-        "vertices": 974,
-        "triangles": 1190,
+        "vertices": 634,
+        "triangles": 668,
         "material": 3,
         "textures": [
           "Textures\\UndeadAirBarge.blp"
@@ -3050,6 +3063,15 @@
         "textures": [
           "Textures\\gutz.blp"
         ]
+      },
+      {
+        "index": 34,
+        "vertices": 340,
+        "triangles": 522,
+        "material": 3,
+        "textures": [
+          "Textures\\UndeadAirBarge.blp"
+        ]
       }
     ],
     "sequences": [
@@ -3067,7 +3089,7 @@
       "Dissipate",
       "Attack - 2"
     ],
-    "bytes": 222420,
+    "bytes": 223012,
     "portraitBackdropGeosets": [
       32
     ],
@@ -3200,8 +3222,12 @@
       }
     ],
     "searchDescription": "Preview and download the Knight of Khorne Champion model for Warcraft 3. Add a Warhammer Fantasy Chaos champion to your custom army.",
-    "sha256": "0cf0c041cb45997622e068f6632556d537832d737d0ecc25671df65ab7ccbf51",
+    "sha256": "531beb780e3de33f662d54a314839b15d1908de4ba363c09662b1b2b94444e4c",
     "changelog": [
+      {
+        "date": "4 November 2026",
+        "text": "Fixed portrait shield visibility"
+      },
       {
         "date": "28 October 2026",
         "text": "Added Hero version and updated Unit version."
@@ -3215,7 +3241,7 @@
         "text": "Fixed flail fire particles"
       }
     ],
-    "imageVersion": "20261028-khorne-unit-emitters",
+    "imageVersion": "20261104-portrait-shield",
     "downloadPack": "downloads/khorne-champion.zip",
     "captureFitAlpha": 200,
     "captureSequence": "Stand",
@@ -27565,12 +27591,116 @@
     ]
   },
   {
-    "id": "champion-of-slaanesh",
+    "id": "slaanesh-champion",
     "file": "WH_WOC_KnightSlaaneshChampionUnit02.mdx",
     "name": "Champion of Slaanesh",
     "army": "warriors-of-chaos",
     "description": "How good of you to come all this way, just to watch me cut you apart.\r\n\r\nI see you struggle... I know this is difficult, to die... really, I do.\r\n\r\nBut if you would just hold still, this would be over so much sooner.\r\n\r\nYou might think I hate you but I don't.\r\n\r\nI take great pleasure in what we are doing together, you and I.\r\n\r\nThis little act of killing you is merely one scene in a much grander performance.\r\n\r\nYou, your friends, your people, these lands... you are all background players in my great presence, can't you feel it?\r\n\r\nYou should feel honored, my sword is inside you, after all.\r\n\r\nYou see, I WANT to be here.\r\n\r\nI want to take this from you.\r\n\r\nI want to look into your eyes while you grasp what you are losing.\r\n\r\nThat moment...\r\n\r\nThat is the pleasure.\r\n\r\nShort but so so good...\r\n\r\nI said hold still!\r\n\r\nYou know, I was like you once.\r\n\r\nI lived in these lands, I was a Knight of Bretonnia... I loved my Lady.\r\n\r\nLove...\r\n\r\nWhat a tedious thing.\r\n\r\nIt gives you nothing.\r\n\r\nLook what it gave you, holding your guts like that.\r\n\r\nYou weren't a knight for very long, were you?\r\n\r\n...\r\n\r\nYou really are having difficulty holding still.\r\n\r\nAnd why are you screaming?\r\n\r\nHmm...\r\n\r\nPerhaps I should cut out your tongue.\r\n\r\nIt would make it much easier for you to listen... you NEED to listen.\r\n\r\nNow...\r\n\r\nHold still...",
     "credits": "Model Base - Vile Knight by HerrDave /  Slaanesh Knight by Stein123\r\n\r\nHelm Shape and Horns - Chaos Warrior of Slaanesh by Diazon, found on Warhammer Eternal Strife by Nightmare2077\r\n\r\nAdditional - Front Skull adapted from IronMaiden's Dawn of War Helms.\r\n\r\nShield-Woman/Demon - Guardian Matriarch by Greedy Martyrdom\r\n\r\nHorse Head and Tail - Headless Horseman by Johnwar\r\n\r\nHeroes Axe - Radiant Emerald Cleaver by @Sunchips\r\n\r\nHorns - Eredar Witch by FerSZ\r\n\r\nSkull - Necromancer (Re-Classic) by Johnwar\r\n\r\nHelm - Samurai Helmet by Kitabatake",
+    "authors": [
+      {
+        "name": "Unsanctioned Magic",
+        "url": "https://xgm.guru/user/UnsanctMagic"
+      },
+      {
+        "name": "Stein123",
+        "url": "https://www.hiveworkshop.com/members/stein123.196992/"
+      },
+      {
+        "name": "HerrDave",
+        "url": "https://www.hiveworkshop.com/members/herrdave.234820/"
+      }
+    ],
+    "creditLinks": [
+      {
+        "text": "Chaos Warrior of Slaanesh",
+        "url": "https://www.hiveworkshop.com/threads/warhammer-eternal-strife-melee.254808/"
+      },
+      {
+        "text": "Warhammer Eternal Strife",
+        "url": "https://www.hiveworkshop.com/threads/warhammer-eternal-strife-melee.254808/"
+      },
+      {
+        "text": "Radiant Emerald Cleaver",
+        "url": "https://www.hiveworkshop.com/threads/radiant-emerald-cleaver.265821/"
+      },
+      {
+        "text": "Guardian Matriarch",
+        "url": "https://www.hiveworkshop.com/threads/guardian-matriarch.353088/"
+      },
+      {
+        "text": "Headless Horseman",
+        "url": "https://www.hiveworkshop.com/threads/headless-horseman.373679/"
+      },
+      {
+        "text": "Dawn of War Helms",
+        "url": "https://wc3.ninja/models/3003042"
+      },
+      {
+        "text": "Greedy Martyrdom",
+        "url": "https://www.hiveworkshop.com/members/265154/"
+      },
+      {
+        "text": "Chaos Warrior",
+        "url": "https://www.hiveworkshop.com/threads/chaos-warrior.366159/"
+      },
+      {
+        "text": "Nightmare2077",
+        "url": "https://www.hiveworkshop.com/members/nightmare2077.204498/"
+      },
+      {
+        "text": "IronMaiden's",
+        "url": "https://www.hiveworkshop.com/members/ironmaiden.180550/"
+      },
+      {
+        "text": "Vile Knight",
+        "url": "https://www.hiveworkshop.com/threads/swan-knight-vile-knight.308843/"
+      },
+      {
+        "text": "Ironmaiden",
+        "url": "https://www.hiveworkshop.com/members/180550/"
+      },
+      {
+        "text": "@Sunchips",
+        "url": "https://www.hiveworkshop.com/members/176515/"
+      },
+      {
+        "text": "Stein123",
+        "url": "https://www.hiveworkshop.com/members/stein123.196992/"
+      },
+      {
+        "text": "HerrDave",
+        "url": "https://www.hiveworkshop.com/members/herrdave.234820/"
+      },
+      {
+        "text": "Sunchips",
+        "url": "https://www.hiveworkshop.com/members/176515/"
+      },
+      {
+        "text": "Johnwar",
+        "url": "https://www.hiveworkshop.com/members/johnwar.264426/"
+      },
+      {
+        "text": "Eredar Witch",
+        "url": "https://www.hiveworkshop.com/threads/eredar-witch.290652/"
+      },
+      {
+        "text": "FerSZ",
+        "url": "https://www.hiveworkshop.com/members/fersz.252357/"
+      },
+      {
+        "text": "Necromancer (Re-Classic)",
+        "url": "https://www.hiveworkshop.com/threads/necromancer-re-classic.371238/"
+      },
+      {
+        "text": "Samurai Helmet",
+        "url": "https://www.hiveworkshop.com/threads/samurai-helmet.121042/"
+      },
+      {
+        "text": "Kitabatake",
+        "url": "https://www.hiveworkshop.com/members/kitabatake.124756/"
+      }
+    ],
     "geosets": [
       {
         "index": 0,
@@ -27601,8 +27731,8 @@
       },
       {
         "index": 3,
-        "vertices": 106,
-        "triangles": 114,
+        "vertices": 40,
+        "triangles": 38,
         "material": 3,
         "textures": [
           "Team colour / glow",
@@ -27911,6 +28041,16 @@
         "textures": [
           "Doodads\\Cinematic\\ArthasIllidanFight\\IllidanCineStuff.blp"
         ]
+      },
+      {
+        "index": 37,
+        "vertices": 66,
+        "triangles": 76,
+        "material": 3,
+        "textures": [
+          "Team colour / glow",
+          "Textures\\InfernalCannon.blp"
+        ]
       }
     ],
     "sequences": [
@@ -27930,10 +28070,25 @@
       "Portrait Talk - 1",
       "Dissipate"
     ],
-    "bytes": 258125,
+    "bytes": 259673,
     "portraitBackdropGeosets": [
       2
     ],
+    "searchDescription": "Preview and download Champion of Slaanesh (Unit) for Warcraft 3. A Warhammer Fantasy champion for your Warriors of Chaos army.",
+    "sha256": "ce41ddcb02b73048df11f89ea411b56fba69bf206be8bb9af7ea0d8ab2ffd731",
+    "imageVersion": "20261104-pixel-aligned",
+    "captureFitAlpha": 200,
+    "captureOrthographic": true,
+    "captureSequence": "Stand",
+    "captureTime": 0
+  },
+  {
+    "id": "slaanesh-champion-hero",
+    "file": "WH_WOC_KnightSlaaneshChampionHero01.mdx",
+    "name": "Champion of Slaanesh",
+    "army": "warriors-of-chaos",
+    "description": "How good of you to come all this way, just to watch me cut you apart.\r\n\r\nI see you struggle... I know this is difficult, to die... really, I do.\r\n\r\nBut if you would just hold still, this would be over so much sooner.\r\n\r\nYou might think I hate you but I don't.\r\n\r\nI take great pleasure in what we are doing together, you and I.\r\n\r\nThis little act of killing you is merely one scene in a much grander performance.\r\n\r\nYou, your friends, your people, these lands... you are all background players in my great presence, can't you feel it?\r\n\r\nYou should feel honored, my sword is inside you, after all.\r\n\r\nYou see, I WANT to be here.\r\n\r\nI want to take this from you.\r\n\r\nI want to look into your eyes while you grasp what you are losing.\r\n\r\nThat moment...\r\n\r\nThat is the pleasure.\r\n\r\nShort but so so good...\r\n\r\nI said hold still!\r\n\r\nYou know, I was like you once.\r\n\r\nI lived in these lands, I was a Knight of Bretonnia... I loved my Lady.\r\n\r\nLove...\r\n\r\nWhat a tedious thing.\r\n\r\nIt gives you nothing.\r\n\r\nLook what it gave you, holding your guts like that.\r\n\r\nYou weren't a knight for very long, were you?\r\n\r\n...\r\n\r\nYou really are having difficulty holding still.\r\n\r\nAnd why are you screaming?\r\n\r\nHmm...\r\n\r\nPerhaps I should cut out your tongue.\r\n\r\nIt would make it much easier for you to listen... you NEED to listen.\r\n\r\nNow...\r\n\r\nHold still...",
+    "credits": "Model Base - Vile Knight by HerrDave /  Slaanesh Knight by Stein123\r\n\r\nHelm Shape and Horns - Chaos Warrior of Slaanesh by Diazon, found on Warhammer Eternal Strife by Nightmare2077\r\n\r\nAdditional - Front Skull adapted from IronMaiden's Dawn of War Helms.\r\n\r\nShield-Woman/Demon - Guardian Matriarch by Greedy Martyrdom\r\n\r\nHorse Head and Tail - Headless Horseman by Johnwar\r\n\r\nHeroes Axe - Radiant Emerald Cleaver by @Sunchips\r\n\r\nHorns - Eredar Witch by FerSZ\r\n\r\nSkull - Necromancer (Re-Classic) by Johnwar\r\n\r\nHelm - Samurai Helmet by Kitabatake",
     "authors": [
       {
         "name": "Unsanctioned Magic",
@@ -28038,17 +28193,6 @@
         "url": "https://www.hiveworkshop.com/members/kitabatake.124756/"
       }
     ],
-    "searchDescription": "Preview and download Champion of Slaanesh (Unit) for Warcraft 3. A Warhammer Fantasy champion for your Warriors of Chaos army.",
-    "sha256": "5e1ab500a00145f70346a851c8dc2c75a131925ff712719cf033c2aab7bfeb00",
-    "imageVersion": "20261103-slaanesh-unit02-hero-sync"
-  },
-  {
-    "id": "champion-of-slaanesh-hero",
-    "file": "WH_WOC_KnightSlaaneshChampionHero01.mdx",
-    "name": "Champion of Slaanesh",
-    "army": "warriors-of-chaos",
-    "description": "How good of you to come all this way, just to watch me cut you apart.\r\n\r\nI see you struggle... I know this is difficult, to die... really, I do.\r\n\r\nBut if you would just hold still, this would be over so much sooner.\r\n\r\nYou might think I hate you but I don't.\r\n\r\nI take great pleasure in what we are doing together, you and I.\r\n\r\nThis little act of killing you is merely one scene in a much grander performance.\r\n\r\nYou, your friends, your people, these lands... you are all background players in my great presence, can't you feel it?\r\n\r\nYou should feel honored, my sword is inside you, after all.\r\n\r\nYou see, I WANT to be here.\r\n\r\nI want to take this from you.\r\n\r\nI want to look into your eyes while you grasp what you are losing.\r\n\r\nThat moment...\r\n\r\nThat is the pleasure.\r\n\r\nShort but so so good...\r\n\r\nI said hold still!\r\n\r\nYou know, I was like you once.\r\n\r\nI lived in these lands, I was a Knight of Bretonnia... I loved my Lady.\r\n\r\nLove...\r\n\r\nWhat a tedious thing.\r\n\r\nIt gives you nothing.\r\n\r\nLook what it gave you, holding your guts like that.\r\n\r\nYou weren't a knight for very long, were you?\r\n\r\n...\r\n\r\nYou really are having difficulty holding still.\r\n\r\nAnd why are you screaming?\r\n\r\nHmm...\r\n\r\nPerhaps I should cut out your tongue.\r\n\r\nIt would make it much easier for you to listen... you NEED to listen.\r\n\r\nNow...\r\n\r\nHold still...",
-    "credits": "Model Base - Vile Knight by HerrDave /  Slaanesh Knight by Stein123\r\n\r\nHelm Shape and Horns - Chaos Warrior of Slaanesh by Diazon, found on Warhammer Eternal Strife by Nightmare2077\r\n\r\nAdditional - Front Skull adapted from IronMaiden's Dawn of War Helms.\r\n\r\nShield-Woman/Demon - Guardian Matriarch by Greedy Martyrdom\r\n\r\nHorse Head and Tail - Headless Horseman by Johnwar\r\n\r\nHeroes Axe - Radiant Emerald Cleaver by @Sunchips\r\n\r\nHorns - Eredar Witch by FerSZ\r\n\r\nSkull - Necromancer (Re-Classic) by Johnwar\r\n\r\nHelm - Samurai Helmet by Kitabatake",
     "geosets": [
       {
         "index": 0,
@@ -28079,8 +28223,8 @@
       },
       {
         "index": 3,
-        "vertices": 106,
-        "triangles": 114,
+        "vertices": 40,
+        "triangles": 38,
         "material": 3,
         "textures": [
           "Team colour / glow",
@@ -28407,6 +28551,16 @@
         "textures": [
           "Team colour / glow"
         ]
+      },
+      {
+        "index": 39,
+        "vertices": 66,
+        "triangles": 76,
+        "material": 3,
+        "textures": [
+          "Team colour / glow",
+          "Textures\\InfernalCannon.blp"
+        ]
       }
     ],
     "sequences": [
@@ -28426,116 +28580,16 @@
       "Portrait Talk - 1",
       "Dissipate"
     ],
-    "bytes": 262069,
+    "bytes": 263617,
     "portraitBackdropGeosets": [
       2
     ],
-    "authors": [
-      {
-        "name": "Unsanctioned Magic",
-        "url": "https://xgm.guru/user/UnsanctMagic"
-      },
-      {
-        "name": "Stein123",
-        "url": "https://www.hiveworkshop.com/members/stein123.196992/"
-      },
-      {
-        "name": "HerrDave",
-        "url": "https://www.hiveworkshop.com/members/herrdave.234820/"
-      }
-    ],
-    "creditLinks": [
-      {
-        "text": "Chaos Warrior of Slaanesh",
-        "url": "https://www.hiveworkshop.com/threads/warhammer-eternal-strife-melee.254808/"
-      },
-      {
-        "text": "Warhammer Eternal Strife",
-        "url": "https://www.hiveworkshop.com/threads/warhammer-eternal-strife-melee.254808/"
-      },
-      {
-        "text": "Radiant Emerald Cleaver",
-        "url": "https://www.hiveworkshop.com/threads/radiant-emerald-cleaver.265821/"
-      },
-      {
-        "text": "Guardian Matriarch",
-        "url": "https://www.hiveworkshop.com/threads/guardian-matriarch.353088/"
-      },
-      {
-        "text": "Headless Horseman",
-        "url": "https://www.hiveworkshop.com/threads/headless-horseman.373679/"
-      },
-      {
-        "text": "Dawn of War Helms",
-        "url": "https://wc3.ninja/models/3003042"
-      },
-      {
-        "text": "Greedy Martyrdom",
-        "url": "https://www.hiveworkshop.com/members/265154/"
-      },
-      {
-        "text": "Chaos Warrior",
-        "url": "https://www.hiveworkshop.com/threads/chaos-warrior.366159/"
-      },
-      {
-        "text": "Nightmare2077",
-        "url": "https://www.hiveworkshop.com/members/nightmare2077.204498/"
-      },
-      {
-        "text": "IronMaiden's",
-        "url": "https://www.hiveworkshop.com/members/ironmaiden.180550/"
-      },
-      {
-        "text": "Vile Knight",
-        "url": "https://www.hiveworkshop.com/threads/swan-knight-vile-knight.308843/"
-      },
-      {
-        "text": "Ironmaiden",
-        "url": "https://www.hiveworkshop.com/members/180550/"
-      },
-      {
-        "text": "@Sunchips",
-        "url": "https://www.hiveworkshop.com/members/176515/"
-      },
-      {
-        "text": "Stein123",
-        "url": "https://www.hiveworkshop.com/members/stein123.196992/"
-      },
-      {
-        "text": "HerrDave",
-        "url": "https://www.hiveworkshop.com/members/herrdave.234820/"
-      },
-      {
-        "text": "Sunchips",
-        "url": "https://www.hiveworkshop.com/members/176515/"
-      },
-      {
-        "text": "Johnwar",
-        "url": "https://www.hiveworkshop.com/members/johnwar.264426/"
-      },
-      {
-        "text": "Eredar Witch",
-        "url": "https://www.hiveworkshop.com/threads/eredar-witch.290652/"
-      },
-      {
-        "text": "FerSZ",
-        "url": "https://www.hiveworkshop.com/members/fersz.252357/"
-      },
-      {
-        "text": "Necromancer (Re-Classic)",
-        "url": "https://www.hiveworkshop.com/threads/necromancer-re-classic.371238/"
-      },
-      {
-        "text": "Samurai Helmet",
-        "url": "https://www.hiveworkshop.com/threads/samurai-helmet.121042/"
-      },
-      {
-        "text": "Kitabatake",
-        "url": "https://www.hiveworkshop.com/members/kitabatake.124756/"
-      }
-    ],
     "searchDescription": "Preview and download Champion of Slaanesh (Hero) for Warcraft 3. A Warhammer Fantasy champion for your Warriors of Chaos army.",
-    "sha256": "3447105db8a3d844a495fee7f5476fa25c1e56d52d1ed5a4e25e80f15704be7b",
-    "imageVersion": "20261103-slaanesh-unit02-hero-sync"
+    "sha256": "240876f64ed50a5802a72e993ee84c4aad98c599453b45acfd8ff7a1f44dc9de",
+    "imageVersion": "20261104-pixel-aligned",
+    "captureFitAlpha": 200,
+    "captureOrthographic": true,
+    "captureSequence": "Stand",
+    "captureTime": 0
   }
 ]

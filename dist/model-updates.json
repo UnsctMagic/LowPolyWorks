@@ -23,8 +23,8 @@
       "updatedAt": "2026-10-17T21:16:31.505Z"
     },
     "khorne-flail": {
-      "sha256": "7915398ad1c61ffb2b00e142a1262bf72ff94bf9f297090a36e5dacd1a04b13c",
-      "updatedAt": "2026-10-28T04:50:59.633Z"
+      "sha256": "f912a9f7331c190f0a7443af989b4447a56e781f8c6ecd6903b460eec08364df",
+      "updatedAt": "2026-11-03T23:43:51.194Z"
     },
     "slaanesh-axe": {
       "sha256": "824aee61ee08439d4d284d6ab26cf6a72f384fe52e08a03be05ecadee04a83e3",
@@ -505,8 +505,8 @@
       "publishedAt": "2026-10-17T21:10:06.220Z"
     },
     "khorne-flail-unit": {
-      "sha256": "0cf0c041cb45997622e068f6632556d537832d737d0ecc25671df65ab7ccbf51",
-      "updatedAt": "2026-10-17T21:16:31.505Z"
+      "sha256": "531beb780e3de33f662d54a314839b15d1908de4ba363c09662b1b2b94444e4c",
+      "updatedAt": "2026-11-03T23:43:51.194Z"
     },
     "nurgle-champion-unit": {
       "sha256": "7e7ab64216961b2e340c3e1627e5a1559f17bd02051f779f164162577c1a9fa7",
@@ -526,15 +526,13 @@
       "publishedAt": "2026-10-31T22:01:46.816Z",
       "updatedAt": "2026-10-31T22:22:13.373Z"
     },
-    "champion-of-slaanesh": {
-      "sha256": "5e1ab500a00145f70346a851c8dc2c75a131925ff712719cf033c2aab7bfeb00",
-      "publishedAt": "2026-11-03T19:27:13.376Z",
-      "updatedAt": "2026-11-03T21:57:59.084Z"
+    "slaanesh-champion": {
+      "sha256": "ce41ddcb02b73048df11f89ea411b56fba69bf206be8bb9af7ea0d8ab2ffd731",
+      "publishedAt": "2026-11-03T22:20:58.264Z"
     },
-    "champion-of-slaanesh-hero": {
-      "sha256": "3447105db8a3d844a495fee7f5476fa25c1e56d52d1ed5a4e25e80f15704be7b",
-      "publishedAt": "2026-11-03T19:27:13.376Z",
-      "updatedAt": "2026-11-03T21:57:59.084Z"
+    "slaanesh-champion-hero": {
+      "sha256": "240876f64ed50a5802a72e993ee84c4aad98c599453b45acfd8ff7a1f44dc9de",
+      "publishedAt": "2026-11-03T22:20:58.264Z"
     }
   }
 }

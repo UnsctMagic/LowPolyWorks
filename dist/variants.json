@@ -710,15 +710,15 @@
     ]
   },
   {
-    "id": "champion-of-slaanesh",
+    "id": "slaanesh-champion",
     "name": "Champion of Slaanesh",
     "variants": [
       {
-        "id": "champion-of-slaanesh",
+        "id": "slaanesh-champion",
         "label": "Unit"
       },
       {
-        "id": "champion-of-slaanesh-hero",
+        "id": "slaanesh-champion-hero",
         "label": "Hero"
       }
     ]

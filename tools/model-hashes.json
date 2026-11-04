@@ -24,12 +24,12 @@
     "sha256": "7907efb9716f921644f347c0ae72729cef3f5287febd711f549161cbb9f403cc"
   },
   {
-    "file": "WH_WOC_KnightKhorneFlailHero01.mdx",
-    "sha256": "7915398ad1c61ffb2b00e142a1262bf72ff94bf9f297090a36e5dacd1a04b13c"
+    "file": "WH_WOC_KnightKhorneFlailHero02.mdx",
+    "sha256": "f912a9f7331c190f0a7443af989b4447a56e781f8c6ecd6903b460eec08364df"
   },
   {
-    "file": "WH_WOC_KnightKhorneFlailUnit03.mdx",
-    "sha256": "0cf0c041cb45997622e068f6632556d537832d737d0ecc25671df65ab7ccbf51"
+    "file": "WH_WOC_KnightKhorneFlailUnit04.mdx",
+    "sha256": "531beb780e3de33f662d54a314839b15d1908de4ba363c09662b1b2b94444e4c"
   },
   {
     "file": "WH_WOC_KnightNurgleHeavy06.mdx",
@@ -549,10 +549,10 @@
   },
   {
     "file": "WH_WOC_KnightSlaaneshChampionUnit02.mdx",
-    "sha256": "5e1ab500a00145f70346a851c8dc2c75a131925ff712719cf033c2aab7bfeb00"
+    "sha256": "ce41ddcb02b73048df11f89ea411b56fba69bf206be8bb9af7ea0d8ab2ffd731"
   },
   {
     "file": "WH_WOC_KnightSlaaneshChampionHero01.mdx",
-    "sha256": "3447105db8a3d844a495fee7f5476fa25c1e56d52d1ed5a4e25e80f15704be7b"
+    "sha256": "240876f64ed50a5802a72e993ee84c4aad98c599453b45acfd8ff7a1f44dc9de"
   }
 ]
