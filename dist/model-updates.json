@@ -19,12 +19,12 @@
       "sha256": "c15bd66ab015bce1a63838ccc4f6f0f6b784e3fa2b6a90bcccf7bdc5c774ca3a"
     },
     "khorne-axe": {
-      "sha256": "7907efb9716f921644f347c0ae72729cef3f5287febd711f549161cbb9f403cc",
-      "updatedAt": "2026-10-17T21:16:31.505Z"
+      "sha256": "2be6bcbf0151b9fe99a8131124e33b13106d778474e3c8fdd9d4a73d4633e0d5",
+      "updatedAt": "2026-11-04T00:05:56.152Z"
     },
     "khorne-flail": {
-      "sha256": "f912a9f7331c190f0a7443af989b4447a56e781f8c6ecd6903b460eec08364df",
-      "updatedAt": "2026-11-03T23:43:51.194Z"
+      "sha256": "3680f1a2a98f4f734ff757a57d482b1fe6fe7b5a7c9b355b32f0f2d91ac2fdc0",
+      "updatedAt": "2026-11-04T00:01:26.172Z"
     },
     "slaanesh-axe": {
       "sha256": "824aee61ee08439d4d284d6ab26cf6a72f384fe52e08a03be05ecadee04a83e3",
@@ -505,8 +505,8 @@
       "publishedAt": "2026-10-17T21:10:06.220Z"
     },
     "khorne-flail-unit": {
-      "sha256": "531beb780e3de33f662d54a314839b15d1908de4ba363c09662b1b2b94444e4c",
-      "updatedAt": "2026-11-03T23:43:51.194Z"
+      "sha256": "257ea602c03fcc9ff404f274f4992e7b3eb9a0b1e59bf97405217f99ca0d7be9",
+      "updatedAt": "2026-11-04T00:01:26.172Z"
     },
     "nurgle-champion-unit": {
       "sha256": "7e7ab64216961b2e340c3e1627e5a1559f17bd02051f779f164162577c1a9fa7",

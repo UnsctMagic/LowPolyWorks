@@ -1657,7 +1657,7 @@
   },
   {
     "id": "khorne-axe",
-    "file": "WH_WOC_KnightKhorneAxe03.mdx",
+    "file": "WH_WOC_KnightKhorneAxe04.mdx",
     "name": "Knight of Khorne · Axe",
     "army": "warriors-of-chaos",
     "description": "I have never seen men fight like that...\r\n\r\nI barely made it out alive, this was no victory.\r\n\r\nStatues of brass, massive, twice the size of the biggest man I've ever seen and then some.\r\n\r\nWalking, not charging... advancing like a great wall made of brass and blood red steel.\r\n\r\nI saw men throw down their weapons crying, screaming...\r\n\r\nMen crawled beneath one another to get away...\r\n\r\nIt made no difference, there was nowhere to run.\r\n\r\nI watched a man split from shoulder to hip as he was trying to hide.\r\n\r\nAnother crushed into nothing I could recognize...\r\n\r\nMen were knocked down, trampled, hacked apart and still they kept hacking at the corpses.\r\n\r\nLike a butcher at the block, hacking away piece by piece.\r\n\r\nIt made no difference, we had to fight.\r\n\r\nThey even killed each other.\r\n\r\nThe ones we managed to injure or stagger fighting back became obstacles for the others,\r\n\r\nSo they simply cut through those to reach us faster.\r\n\r\nBut I think they knew they would die that day.\r\n\r\nI heard they razed ten cities before they reached us.\r\n\r\nThat they had come down from the north on a path of destruction.\r\n\r\nThat they had fought their way south for weeks leaving behind only blood and ash.\r\n\r\nBy the time they reached us they were outnumbered fifty to one.\r\n\r\nWe had heard of them coming.\r\n\r\nWe had heard what they had done.\r\n\r\nRivers of blood.\r\n\r\nBut It made no difference... I wanted to fight... to kill.\r\n\r\nThey did not run or beg.\r\n\r\nThey knew they were going to die, I think they wanted to.\r\n\r\nMy city has lost everything defeating them and they got what they came for.\r\n\r\nYou call this victory...?\r\n\r\nSomehow... I envy them.\r\n\r\nI have spent all my life afraid... Afraid of pain... regret... death...\r\n\r\nAfraid of fear.\r\n\r\nThose men were afraid of nothing.\r\n\r\nWanted nothing.\r\n\r\nKept nothing...\r\n\r\nBut it made no difference... I killed them too.\r\n\r\nNorth...\r\n\r\nThat is where they came from.\r\n\r\nThat is where I will go.",
@@ -2069,18 +2069,18 @@
       "Walk",
       "Stand",
       "Stand - 2",
+      "Stand Ready",
       "Attack - 1",
+      "Attack - 2",
+      "Attack - Slam",
       "Death",
       "Decay Flesh",
-      "Stand Ready",
-      "Portrait - 1",
-      "Portrait Talk - 1",
-      "Attack - Slam",
       "Decay Bone",
       "Dissipate",
-      "Attack - 2"
+      "Portrait - 1",
+      "Portrait Talk - 1"
     ],
-    "bytes": 212350,
+    "bytes": 214642,
     "portraitBackdropGeosets": [
       40
     ],
@@ -2215,13 +2215,18 @@
     "formationSequence": "Stand Ready",
     "formationBodyHeight": 0.78,
     "searchDescription": "Download the axe variant of the Knight of Khorne for Warcraft 3. Preview this Warhammer Fantasy Warriors of Chaos model and its animations.",
-    "sha256": "7907efb9716f921644f347c0ae72729cef3f5287febd711f549161cbb9f403cc",
+    "sha256": "2be6bcbf0151b9fe99a8131124e33b13106d778474e3c8fdd9d4a73d4633e0d5",
     "changelog": [
+      {
+        "date": "4 November 2026",
+        "text": "fixed clippings and normals."
+      },
       {
         "date": "17 October 2026",
         "text": "Glowing eyes are now unshaded"
       }
-    ]
+    ],
+    "imageVersion": "20261104-axe04"
   },
   {
     "id": "khorne-flail",
@@ -2575,16 +2580,16 @@
       "Walk",
       "Stand",
       "Stand - 2",
+      "Stand Ready",
       "Attack - 1",
+      "Attack - 2",
+      "Attack - Slam",
       "Death",
       "Decay Flesh",
-      "Stand Ready",
-      "Portrait - 1",
-      "Portrait Talk - 1",
-      "Attack - Slam",
       "Decay Bone",
       "Dissipate",
-      "Attack - 2"
+      "Portrait - 1",
+      "Portrait Talk - 1"
     ],
     "bytes": 226544,
     "portraitBackdropGeosets": [
@@ -2719,11 +2724,11 @@
       }
     ],
     "searchDescription": "Preview and download the Knight of Khorne Champion model for Warcraft 3. Add a Warhammer Fantasy Chaos champion to your custom army.",
-    "sha256": "f912a9f7331c190f0a7443af989b4447a56e781f8c6ecd6903b460eec08364df",
+    "sha256": "3680f1a2a98f4f734ff757a57d482b1fe6fe7b5a7c9b355b32f0f2d91ac2fdc0",
     "changelog": [
       {
         "date": "4 November 2026",
-        "text": "Fixed portrait shield visibility"
+        "text": "Fixed portrait shield visibility and normals. Reorganized animations."
       },
       {
         "date": "28 October 2026",
@@ -2738,7 +2743,7 @@
         "text": "Fixed flail fire particles"
       }
     ],
-    "imageVersion": "20261104-portrait-shield",
+    "imageVersion": "20261104-flail-final",
     "downloadPack": "downloads/khorne-champion.zip",
     "captureFitAlpha": 200,
     "captureSequence": "Stand",
@@ -3078,16 +3083,16 @@
       "Walk",
       "Stand",
       "Stand - 2",
+      "Stand Ready",
       "Attack - 1",
+      "Attack - 2",
+      "Attack - Slam",
       "Death",
       "Decay Flesh",
-      "Stand Ready",
-      "Portrait - 1",
-      "Portrait Talk - 1",
-      "Attack - Slam",
       "Decay Bone",
       "Dissipate",
-      "Attack - 2"
+      "Portrait - 1",
+      "Portrait Talk - 1"
     ],
     "bytes": 223012,
     "portraitBackdropGeosets": [
@@ -3222,11 +3227,11 @@
       }
     ],
     "searchDescription": "Preview and download the Knight of Khorne Champion model for Warcraft 3. Add a Warhammer Fantasy Chaos champion to your custom army.",
-    "sha256": "531beb780e3de33f662d54a314839b15d1908de4ba363c09662b1b2b94444e4c",
+    "sha256": "257ea602c03fcc9ff404f274f4992e7b3eb9a0b1e59bf97405217f99ca0d7be9",
     "changelog": [
       {
         "date": "4 November 2026",
-        "text": "Fixed portrait shield visibility"
+        "text": "Fixed portrait shield visibility and normals. Reorganized animations."
       },
       {
         "date": "28 October 2026",
@@ -3241,7 +3246,7 @@
         "text": "Fixed flail fire particles"
       }
     ],
-    "imageVersion": "20261104-portrait-shield",
+    "imageVersion": "20261104-flail-final",
     "downloadPack": "downloads/khorne-champion.zip",
     "captureFitAlpha": 200,
     "captureSequence": "Stand",
