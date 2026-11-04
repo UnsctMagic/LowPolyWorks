@@ -722,5 +722,19 @@
         "label": "Hero"
       }
     ]
+  },
+  {
+    "id": "khorne-standard-bearer",
+    "name": "Knight of Khorne - Standard Bearer",
+    "variants": [
+      {
+        "id": "khorne-standard-bearer",
+        "label": "Unit"
+      },
+      {
+        "id": "khorne-standard-bearer-hero",
+        "label": "Hero"
+      }
+    ]
   }
 ]
