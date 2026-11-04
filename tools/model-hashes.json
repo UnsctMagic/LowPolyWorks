@@ -546,13 +546,5 @@
   {
     "file": "WH_WOC_WarriorKhorneBasher01.mdx",
     "sha256": "38b05131b01d97c24119c3af2e056806e6e2b9317e8a7bc7c0c577bdd78e271f"
-  },
-  {
-    "file": "WH_WOC_KnightSlaaneshChampionUnit02.mdx",
-    "sha256": "ce41ddcb02b73048df11f89ea411b56fba69bf206be8bb9af7ea0d8ab2ffd731"
-  },
-  {
-    "file": "WH_WOC_KnightSlaaneshChampionHero01.mdx",
-    "sha256": "240876f64ed50a5802a72e993ee84c4aad98c599453b45acfd8ff7a1f44dc9de"
   }
 ]

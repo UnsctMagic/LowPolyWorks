@@ -708,19 +708,5 @@
         "label": "Slayer"
       }
     ]
-  },
-  {
-    "id": "slaanesh-champion",
-    "name": "Knight of Slaanesh · Champion",
-    "variants": [
-      {
-        "id": "slaanesh-champion",
-        "label": "Unit"
-      },
-      {
-        "id": "slaanesh-champion-hero",
-        "label": "Hero"
-      }
-    ]
   }
 ]
