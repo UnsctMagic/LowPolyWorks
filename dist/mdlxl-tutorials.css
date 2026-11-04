@@ -64,3 +64,8 @@
 #tutorial-optixl .reference dt{color:var(--bone);margin-top:16px}#tutorial-optixl .reference dd{margin:7px 0 20px;line-height:1.6}
 #tutorial-emtr .notes p,#tutorial-optixl .inspection p{line-height:1.6}
 [data-tutorial-language=mordor] #tutorial-optixl :is(h5,summary,dt,dd){font-family:MDLxL-Mordor,serif}
+
+#tutorial-fx .gif-player{width:min(100%,1114px)}
+#tutorial-fx .player-frame{aspect-ratio:11/7}
+#tutorial-fx .reference details{border-bottom:1px solid #75634466;padding:15px 0}#tutorial-fx .reference summary{cursor:pointer;color:var(--bone)}#tutorial-fx .reference dt{color:var(--bone);margin-top:16px}#tutorial-fx .reference dd{margin:7px 0 20px;line-height:1.6}
+[data-tutorial-language=mordor] #tutorial-fx :is(summary,dt,dd){font-family:MDLxL-Mordor,serif}

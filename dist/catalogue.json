@@ -27601,7 +27601,7 @@
   },
   {
     "id": "slaanesh-champion",
-    "file": "WH_WOC_KnightSlaaneshChampionUnit02.mdx",
+    "file": "WH_WOC_KnightSlaaneshChampionUnit03.mdx",
     "name": "Champion of Slaanesh",
     "army": "warriors-of-chaos",
     "description": "How good of you to come all this way, just to watch me cut you apart.\r\n\r\nI see you struggle... I know this is difficult, to die... really, I do.\r\n\r\nBut if you would just hold still, this would be over so much sooner.\r\n\r\nYou might think I hate you but I don't.\r\n\r\nI take great pleasure in what we are doing together, you and I.\r\n\r\nThis little act of killing you is merely one scene in a much grander performance.\r\n\r\nYou, your friends, your people, these lands... you are all background players in my great presence, can't you feel it?\r\n\r\nYou should feel honored, my sword is inside you, after all.\r\n\r\nYou see, I WANT to be here.\r\n\r\nI want to take this from you.\r\n\r\nI want to look into your eyes while you grasp what you are losing.\r\n\r\nThat moment...\r\n\r\nThat is the pleasure.\r\n\r\nShort but so so good...\r\n\r\nI said hold still!\r\n\r\nYou know, I was like you once.\r\n\r\nI lived in these lands, I was a Knight of Bretonnia... I loved my Lady.\r\n\r\nLove...\r\n\r\nWhat a tedious thing.\r\n\r\nIt gives you nothing.\r\n\r\nLook what it gave you, holding your guts like that.\r\n\r\nYou weren't a knight for very long, were you?\r\n\r\n...\r\n\r\nYou really are having difficulty holding still.\r\n\r\nAnd why are you screaming?\r\n\r\nHmm...\r\n\r\nPerhaps I should cut out your tongue.\r\n\r\nIt would make it much easier for you to listen... you NEED to listen.\r\n\r\nNow...\r\n\r\nHold still...",
@@ -27878,7 +27878,7 @@
       },
       {
         "index": 18,
-        "vertices": 207,
+        "vertices": 206,
         "triangles": 211,
         "material": 11,
         "textures": [
@@ -28079,12 +28079,12 @@
       "Portrait Talk - 1",
       "Dissipate"
     ],
-    "bytes": 259673,
+    "bytes": 259364,
     "portraitBackdropGeosets": [
       2
     ],
     "searchDescription": "Preview and download Champion of Slaanesh (Unit) for Warcraft 3. A Warhammer Fantasy champion for your Warriors of Chaos army.",
-    "sha256": "ce41ddcb02b73048df11f89ea411b56fba69bf206be8bb9af7ea0d8ab2ffd731",
+    "sha256": "af7eeda00e1857e888daacf20d8015ec5c4b086ae215a8b373051f7435ef2d1d",
     "imageVersion": "20261104-pixel-aligned",
     "captureFitAlpha": 200,
     "captureOrthographic": true,
@@ -28093,7 +28093,7 @@
   },
   {
     "id": "slaanesh-champion-hero",
-    "file": "WH_WOC_KnightSlaaneshChampionHero01.mdx",
+    "file": "WH_WOC_KnightSlaaneshChampionHero03.mdx",
     "name": "Champion of Slaanesh",
     "army": "warriors-of-chaos",
     "description": "How good of you to come all this way, just to watch me cut you apart.\r\n\r\nI see you struggle... I know this is difficult, to die... really, I do.\r\n\r\nBut if you would just hold still, this would be over so much sooner.\r\n\r\nYou might think I hate you but I don't.\r\n\r\nI take great pleasure in what we are doing together, you and I.\r\n\r\nThis little act of killing you is merely one scene in a much grander performance.\r\n\r\nYou, your friends, your people, these lands... you are all background players in my great presence, can't you feel it?\r\n\r\nYou should feel honored, my sword is inside you, after all.\r\n\r\nYou see, I WANT to be here.\r\n\r\nI want to take this from you.\r\n\r\nI want to look into your eyes while you grasp what you are losing.\r\n\r\nThat moment...\r\n\r\nThat is the pleasure.\r\n\r\nShort but so so good...\r\n\r\nI said hold still!\r\n\r\nYou know, I was like you once.\r\n\r\nI lived in these lands, I was a Knight of Bretonnia... I loved my Lady.\r\n\r\nLove...\r\n\r\nWhat a tedious thing.\r\n\r\nIt gives you nothing.\r\n\r\nLook what it gave you, holding your guts like that.\r\n\r\nYou weren't a knight for very long, were you?\r\n\r\n...\r\n\r\nYou really are having difficulty holding still.\r\n\r\nAnd why are you screaming?\r\n\r\nHmm...\r\n\r\nPerhaps I should cut out your tongue.\r\n\r\nIt would make it much easier for you to listen... you NEED to listen.\r\n\r\nNow...\r\n\r\nHold still...",
@@ -28370,7 +28370,7 @@
       },
       {
         "index": 18,
-        "vertices": 207,
+        "vertices": 206,
         "triangles": 211,
         "material": 11,
         "textures": [
@@ -28589,12 +28589,12 @@
       "Portrait Talk - 1",
       "Dissipate"
     ],
-    "bytes": 263617,
+    "bytes": 263308,
     "portraitBackdropGeosets": [
       2
     ],
     "searchDescription": "Preview and download Champion of Slaanesh (Hero) for Warcraft 3. A Warhammer Fantasy champion for your Warriors of Chaos army.",
-    "sha256": "240876f64ed50a5802a72e993ee84c4aad98c599453b45acfd8ff7a1f44dc9de",
+    "sha256": "6228e88764052fd91051ae6e096be63d245bd6cea0a40cca09c0de47ce572a0e",
     "imageVersion": "20261104-pixel-aligned",
     "captureFitAlpha": 200,
     "captureOrthographic": true,

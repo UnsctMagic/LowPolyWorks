@@ -1,5 +1,5 @@
-import {mdlxlLanguages,mdlxlLanguage,mdlxlText,localizedMdlxlMarkup,applyMdlxlShellLanguage} from './mdlxl-languages.js?v=20261103-fr-de';
-import {readMdlxlRoute,mdlxlHref} from './mdlxl-routes.js?v=20261103-fr-de';
+import {mdlxlLanguages,mdlxlLanguage,mdlxlText,localizedMdlxlMarkup,applyMdlxlShellLanguage} from './mdlxl-languages.js?v=20261104-fr-de-fx';
+import {readMdlxlRoute,mdlxlHref} from './mdlxl-routes.js?v=20261104-fr-de-fx';
 import {mdlxlLogoMarkup,igniteMdlxlLogo} from './mdlxl-eyes.js?v=20261029-project-branding';
 const REPO='https://github.com/UnsctMagic/MDLxL';
 const API='https://api.github.com/repos/UnsctMagic/MDLxL';
@@ -129,12 +129,12 @@ export async function renderMdlxl(app,routeIsCurrent,recordUsage){
  const latestTask=latestPromise.then(release=>{if(!currentDownload())return;const url=downloadUrl(release);if(!url)throw Error('No application ZIP');button.href=url;button.removeAttribute('aria-disabled');app._mdlxlDownloadVersion=release.tag_name;app._mdlxlDownloadError=false;button.textContent=t('Download')+' '+release.tag_name+' ↗';app.querySelector('#mdlxl-version').textContent=t('Windows · Portable ZIP');const source=release.assets?.find(a=>/FFmpeg-corresponding-source.*\.zip$/i.test(a.name));if(source){const link=app.querySelector('#mdlxl-ffmpeg-source');link.href=source.browser_download_url;link.hidden=false;}}).catch(()=>{if(currentDownload()){app._mdlxlDownloadError=true;button.textContent=t('Download unavailable');app.querySelector('#mdlxl-version').textContent=t('Please try again later.');}});
  const panel=app.querySelector('#mdlxl-content');
  if(section==='tutorials'){
-  try{const {renderTutorials}=await import('./mdlxl-tutorials.js?v=20261103-fr-de');if(!isCurrent())return;await renderTutorials(panel,isCurrent,navigation.tutorial);}catch{if(isCurrent())panel.innerHTML=localize('<p>Tutorials could not load. Please reload the page.</p>');}
+  try{const {renderTutorials}=await import('./mdlxl-tutorials.js?v=20261104-fr-de-fx');if(!isCurrent())return;await renderTutorials(panel,isCurrent,navigation.tutorial);}catch{if(isCurrent())panel.innerHTML=localize('<p>Tutorials could not load. Please reload the page.</p>');}
   await latestTask;return;
  }
  if(section!=='tutorials'){delete panel.dataset?.tutorialLanguage;panel.removeAttribute?.('lang');}
  if(section!=='updates'){
-  try{const data=await json('mdlxl-content.json?v=20261103-fr-de');if(!isCurrent())return;panel.innerHTML=localize(contentSection(section,data.locales?.[language]||data));}catch{if(isCurrent())panel.innerHTML=localize('<p>This section could not load. Please reload the page.</p>');}
+  try{const data=await json('mdlxl-content.json?v=20261104-fr-de-fx');if(!isCurrent())return;panel.innerHTML=localize(contentSection(section,data.locales?.[language]||data));}catch{if(isCurrent())panel.innerHTML=localize('<p>This section could not load. Please reload the page.</p>');}
   await latestTask;return;
  }
  panel.innerHTML=localize(contentSection(section));

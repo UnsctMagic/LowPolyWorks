@@ -1,3 +1,4 @@
+import {readFileSync,readdirSync} from 'node:fs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {markdown,notesSource,downloadUrl,creditLine,officialNotes,renderMdlxl} from '../dist/mdlxl.js';
@@ -65,4 +66,17 @@ test('French and German have tutorial pickers and native release-note sources',(
 
 test('the next fixed-name portable release remains downloadable',()=>{
  assert.equal(downloadUrl({tag_name:'v0.39.0',assets:[{name:'MDLxL-win32-x64.zip',browser_download_url:'fixed-application'}]}),'fixed-application');
+});
+
+test('French and German cover every current Spanish tutorial and its native media',()=>{
+ const base=new URL('../dist/mdlxl/tutorials/',import.meta.url);
+ const html=locale=>readFileSync(new URL(locale+'/content.html',base),'utf8');
+ const ids=source=>[...source.matchAll(/<article\b[^>]*id="tutorial-([^"]+)"/g)].map(match=>match[1]);
+ const media=locale=>readdirSync(new URL(locale+'/',base)).filter(name=>/\.(?:gif|png)$/.test(name)).sort();
+ const expected=ids(html('es'));assert(expected.includes('fx'),'Spanish inventory includes published FX guide');
+ for(const locale of ['fr','de']){
+  assert.deepEqual(ids(html(locale)),expected,locale+' tutorial coverage');
+  assert.deepEqual(media(locale),media('es'),locale+' native media inventory');
+  assert(html(locale).includes('/mdlxl/tutorials/fx/?lang='+locale),locale+' FX route');
+ }
 });
