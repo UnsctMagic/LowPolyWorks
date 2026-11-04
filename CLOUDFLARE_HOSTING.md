@@ -27,7 +27,7 @@ GitHub Actions secrets:
 
 Credentials are read only from the environment. No values belong in source. R2 S3 credentials are derived in memory using Cloudflare's documented token-ID/SHA-256 mechanism; no additional S3 keys need to be stored. The existing `MODEL_NOTIFICATIONS_TOKEN` remains unchanged.
 
-Resources: Pages project `lowpolyworks`; R2 bucket `lowpolyworks-large-assets`; binding `LARGE_ASSETS`. The bucket has no public domain. Both Pages environments use this binding.
+Resources: Pages project `lowpolyworks`; R2 bucket `lowpolyworks-large-assets`; binding `LARGE_ASSETS`. The bucket has no public domain. Both Pages environments use this binding when a Function is required.
 
 ## Oversized assets and HTTP behavior
 
@@ -62,7 +62,7 @@ npm run cloudflare:verify
 
 `provision` is idempotent and does not attach domains or change DNS. `prepare` defaults to `dist` for explicit local source experiments; the production workflow always passes the published checkout. Re-running preparation replaces only its marked build directory.
 
-Verification hashes all nine oversized assets and representative complete sets of JavaScript, JSON, HTML, CSS, fonts, Wasm, MDX/MDL and ZIP files. It also checks oversized HEAD lengths, conditional 304s, byte ranges, unsatisfiable ranges and real 404s. CI preserves the source manifest, deployment ID/URL and verification record for 30 days. Browser QA additionally covers navigation, viewer rotation, textures, animations and desktop/mobile layout.
+Verification hashes every oversized asset and representative complete sets of JavaScript, JSON, HTML, CSS, fonts, Wasm, MDX/MDL and ZIP files. It also checks oversized HEAD lengths, conditional 304s, byte ranges, unsatisfiable ranges and real 404s. CI preserves the source manifest, deployment ID/URL and verification record for 30 days. Browser QA additionally covers navigation, viewer rotation, textures, animations and desktop/mobile layout.
 
 The untouched source baseline currently has stale generated-page equality failures and five existing test failures. Those are recorded in the migration report. They are not fixed by rewriting published pages as part of hosting migration; the hosting validator independently checks the actual published source and staged assets.
 
@@ -74,7 +74,7 @@ The untouched source baseline currently has stale generated-page equality failur
 4. Verify the resulting production Pages deployment before attaching either custom domain.
 5. In the Cloudflare Pages project, add `www.lowpolyworks.com`. Replace only the existing `www` website CNAME with `lowpolyworks.pages.dev` as instructed by Pages. Retain the existing intended apex-to-www behavior. If Pages also requires the apex domain, add it through Pages and redirect apex to `https://www.lowpolyworks.com`, preserving path and query.
 6. Preserve all MX, TXT/SPF, DKIM, DMARC, Resend and mail-forwarding records. No email-related DNS changes are part of this migration.
-7. Verify TLS, apex/www redirects, the real-domain API calls, viewer, downloads and all tutorial languages. Keep the GitHub Pages branch/configuration intact until the replacement is accepted.
+7. Verify TLS, apex/www redirects, the real-domain API calls, viewer, downloads and all supported tutorial languages. Keep the GitHub Pages branch/configuration intact until the replacement is accepted.
 
 The deployment token intentionally lacks DNS permissions. Domain changes should use the owner's Cloudflare dashboard or a separately authorized domain-scoped credential at cutover.
 
@@ -86,7 +86,7 @@ After cutover, choose a retained **production** deployment in Cloudflare Pages a
 
 ## Limits, cost and monitoring
 
-Current published payload: about 1.36 GiB in 7,128 public files; nine oversized assets total 599,034,056 bytes (571.28 MiB / 0.599 GB). Pages Free allows 20,000 files and 25 MiB per static asset; ordinary static requests/bandwidth are free. Pages Functions share the account's Workers Free allowance of 100,000 requests/day, including the existing backend. Only oversized/proxy routes consume Functions requests.
+The initial audit found 7,128 public files (1,461,460,937 source bytes before preview URL rewrites) and nine oversized files totaling 599,034,056 bytes (571.28 MiB / 0.599 GB). A concurrent approved UV-grid publication removed those duplicate embedded-GIF modules. The current published revision `1a9eed19a` has 7,149 public files totaling 894,775,194 bytes (about 0.83 GiB), with **zero oversized files**. The earlier nine R2 objects remain available to the initial preview for rollback verification; future oversized additions are detected automatically. A production build with no oversized files emits no Function or Function routes. Pages Free allows 20,000 files and 25 MiB per static asset; ordinary static requests/bandwidth are free. Pages Functions share the account's Workers Free allowance of 100,000 requests/day, including the existing backend. Only oversized/proxy routes consume Functions requests.
 
 R2 Standard includes 10 GB-month storage, 1 million Class A operations/month and 10 million Class B operations/month, with free Internet egress. Current asset storage is comfortably inside that allowance, so **estimated additional recurring cost is €0/year** at current usage. Beyond the allowance, published Standard prices are $0.015/GB-month, $4.50/million Class A and $0.36/million Class B. R2 is usage-billed and this is not a hard €30/year cap. No paid Pages/Workers upgrade is enabled by this setup.
 

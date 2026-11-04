@@ -91,10 +91,13 @@ export async function prepare({site, out = outputRoot, preview = false, revision
     manifest.files.push(entry);
   }
   const assets = Object.fromEntries(manifest.oversized.map(entry=>['/'+entry.path,entry]));
-  const worker = await fs.readFile(path.join(project,'cloudflare/asset-worker.mjs'),'utf8');
-  await fs.writeFile(path.join(stage,'_worker.js'),`${worker}\nexport default createAssetWorker(${JSON.stringify(assets)}, ${JSON.stringify(preview ? backend : null)});\n`);
   const routes = routeRules([...Object.keys(assets),...(preview?['/__preview-backend/api/publishing','/__preview-backend/api/events']:[])]);
-  await fs.writeFile(path.join(stage,'_routes.json'),JSON.stringify({version:1,include:routes.length?routes:['/__no_oversized_assets__'],exclude:[]},null,2)+'\n');
+  if (routes.length) {
+    const worker = await fs.readFile(path.join(project,'cloudflare/asset-worker.mjs'),'utf8');
+    await fs.writeFile(path.join(stage,'_worker.js'),`${worker}\nexport default createAssetWorker(${JSON.stringify(assets)}, ${JSON.stringify(preview ? backend : null)});\n`);
+    await fs.writeFile(path.join(stage,'_routes.json'),JSON.stringify({version:1,include:routes,exclude:[]},null,2)+'\n');
+    manifest.generated.push('_worker.js','_routes.json');
+  }
   if (!manifest.files.some(file=>file.path==='404.html')) {
     await fs.writeFile(path.join(stage,'404.html'),'<!doctype html><title>Not found</title><h1>Not found</h1>\n'); manifest.generated.push('404.html');
   }
@@ -218,9 +221,9 @@ export async function verify(manifest, base) {
   await mapLimit(selected,12,fetchAsset);
   const notFound=await fetch(base+'/__hosting_missing_asset__.js');
   if(notFound.status!==404)throw Error('Missing assets must return HTTP 404');
-  const result={url:base,revision:manifest.revision,verifiedFiles:checked.length,oversized:manifest.oversized.length,sha256:true,head:true,etag304:true,ranges:true,notFound404:true,checked};
+  const result={url:base,revision:manifest.revision,verifiedFiles:checked.length,oversized:manifest.oversized.length,sha256:true,head:manifest.oversized.length?true:null,etag304:manifest.oversized.length?true:null,ranges:manifest.oversized.length?true:null,notFound404:true,checked};
   await fs.writeFile(path.join(outputRoot,'verification.json'),JSON.stringify(result,null,2)+'\n');
-  console.log(`Verified ${checked.length} deployed files by SHA-256, including all ${manifest.oversized.length} oversized assets; HEAD, ETag/304, ranges and 404 passed.`);
+  console.log(`Verified ${checked.length} deployed files by SHA-256; ${manifest.oversized.length} oversized assets; 404 passed${manifest.oversized.length ? '; oversized HEAD, ETag/304 and ranges passed' : '; no oversized HTTP checks needed for this release'}.`);
   return result;
 }
 async function main() {

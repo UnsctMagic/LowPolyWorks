@@ -111,3 +111,8 @@ test('a replacement at the same URL gets a new immutable key while the old relea
   const replacement=await prepare({site,out});
   assert.notEqual(replacement.oversized[0].key,oldKey);assert.equal(oldRelease.oversized[0].key,oldKey);assert(oldKey.endsWith('/large.js'));assert(replacement.oversized[0].key.endsWith('/large.js'));
 });
+
+test('a production release with no oversized assets needs no Function or catch-all route',async t=>{
+  const {site,out}=await fixture(t);const manifest=await prepare({site,out});assert.equal(manifest.oversized.length,0);
+  await assert.rejects(fs.stat(path.join(out,'pages/_worker.js')),{code:'ENOENT'});await assert.rejects(fs.stat(path.join(out,'pages/_routes.json')),{code:'ENOENT'});
+});

@@ -1,6 +1,7 @@
 import fs from 'node:fs/promises';
 import {createReadStream} from 'node:fs';
 import path from 'node:path';
+import {pathToFileURL} from 'node:url';
 import assert from 'node:assert/strict';
 import {fingerprint,LIMIT} from './cloudflare-hosting.mjs';
 import {parseMDX} from '../dist/vendor/war3-model.mjs';
@@ -30,6 +31,7 @@ for(const row of rows){
   const bytes=await fs.readFile(path.join(root,file));const model=row.mdxCompatibility==='ribbon-color'?parseCompatibleMdx(bytes):parseMDX(bytes.buffer.slice(bytes.byteOffset,bytes.byteOffset+bytes.byteLength));
   for(const texture of model.Textures.filter(texture=>texture.Image&&![1,2].includes(texture.ReplaceableId))){const render=row.textureFiles?.[texture.Image.toLowerCase()]||textures[texture.Image.toLowerCase()];assert(render,`Unresolved texture: ${row.id}: ${texture.Image}`);exists(render);}
 }
-for(const language of ['','es/','ru/','zh/','fr/','de/']){exists('mdlxl/tutorials/'+language+'animation-index.json');exists('mdlxl/tutorials/'+language+'content.html');}
+const {tutorialLanguages}=await import(pathToFileURL(path.join(root,'mdlxl/tutorials/languages.js')));
+for(const {id} of tutorialLanguages){const language=id==='en'?'':id+'/';exists('mdlxl/tutorials/'+language+'animation-index.json');exists('mdlxl/tutorials/'+language+'content.html');}
 exists('whiteout/whiteout-paint-blp.wasm');exists('robots.txt');exists('sitemap.xml');
-console.log(`Validated ${manifest.files.length} source/staged SHA-256 hashes, ${rows.length} model files, native textures, downloads, share pages, all six tutorial languages, and Pages file-size limits.`);
+console.log(`Validated ${manifest.files.length} source/staged SHA-256 hashes, ${rows.length} model files, native textures, downloads, share pages, all ${tutorialLanguages.length} supported tutorial languages, and Pages file-size limits.`);
