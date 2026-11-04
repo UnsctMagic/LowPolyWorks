@@ -116,7 +116,9 @@ export function startMenuVisitor({onInteraction} = {}) {
   const costumeSize = flightSize + 80, costumePadding = 40;
   let directionalHats, disposed = false;
   const hatReady = import('./visitor-hats.js?v=20261030-seasonal-hats').then(async module => { if (disposed) return; const hats = await module.createDirectionalHatRenderer(); if (disposed) hats.dispose(); else directionalHats = hats; });
-  const costumeActive = () => costumeAt() !== 'none';
+  let mordor = false;
+  const currentCostume = () => mordor ? 'morgoth' : costumeAt();
+  const costumeActive = () => currentCostume() !== 'none';
   const layer = document.createElement('div');
   layer.className = 'menu-visitor-layer'; layer.setAttribute('aria-hidden', 'true');
   const bird = document.createElement('div'); bird.className = 'menu-visitor';
@@ -403,7 +405,7 @@ export function startMenuVisitor({onInteraction} = {}) {
     // Preserve the current published 25% find on either kind of visit.
     peanutRollAt = now + 1400;
     backOffUntil = 0;
-    deadline = now + between(16000, 22000);
+    deadline = mordor ? Infinity : now + between(16000, 22000);
     // Walking visits fly to the platform before showing the standing body.
     // A new peek starts with a visible crown, so the cooldown includes its entrance.
     exposure = fromExposure = perch.mode === 'walk' ? footOffset : -17 * bodyScale;
@@ -433,7 +435,7 @@ export function startMenuVisitor({onInteraction} = {}) {
     if (isFree(peanut)) peanut.contested = false;
     beakPeanut.style.display = 'none';
     // Draw a fresh cooldown only after this visit has disappeared. Food left lying around brings him back sooner.
-    next = follow || resumeFrom ? now : now + (isFree(peanut) ? between(2500, 4000) : between(8000, 12000));
+    next = mordor || follow || resumeFrom ? now : now + (isFree(peanut) ? between(2500, 4000) : between(8000, 12000));
   }
 
   function change(nextPhase, now) {
@@ -859,7 +861,7 @@ export function startMenuVisitor({onInteraction} = {}) {
         flightCell ? -101 * flightScale : -bodyHeight / 2,
         flightCell ? flightSize : bodyWidth, flightCell ? flightSize : bodyHeight);
     }
-    const costume = costumeAt();
+    const costume = currentCostume();
     bird.dataset.hat = costume;
     if (paintedCostume !== costume) {
       paintedSheet = null; joinStarted = -Infinity; paintedCostume = costume;
@@ -938,6 +940,14 @@ export function startMenuVisitor({onInteraction} = {}) {
 
   function tick(now) {
     const dt = Math.min(40, now - last); last = now;
+    // The tutorial panel owns the active language, including saved choices and in-page navigation.
+    const inMordor = !!document.querySelector('#mdlxl-content[data-tutorial-language="mordor"]');
+    if (inMordor !== mordor) {
+      mordor = inMordor;
+      next = mordor ? now : now + between(8000, 12000);
+      deadline = mordor ? Infinity : now + between(16000, 22000);
+      if (mordor && phase === 'peek-hidden') rest(now);
+    }
     tickPeanut(document.hidden ? 0 : dt);
     const canAppear = !document.hidden && now >= next && art.complete && art.naturalWidth && flightArt.complete && flightArt.naturalWidth;
     if (follow && !holding()) follow = null;
@@ -1060,7 +1070,7 @@ export function startMenuVisitor({onInteraction} = {}) {
           } else if (phase === 'duck') {
             exposure = mix(fromExposure, -72 * bodyScale, age / 180);
             if (exposure <= -36 * bodyScale || age >= 180) {
-              if (now >= deadline) rest(now);
+              if (mordor || now >= deadline) rest(now);
               else { exposure = -72 * bodyScale; change('peek-hidden', now); }
             }
           } else if (phase === 'peek-hidden' && !near && age >= 350) {

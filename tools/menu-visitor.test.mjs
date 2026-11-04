@@ -37,6 +37,7 @@ function fixture(testMode = true, random = .6, extras = {}) {
   const events = {addEventListener(type, callback){listeners.set(type, callback);},
     removeEventListener(type, callback){if (listeners.get(type) === callback) listeners.delete(type);}};
   const document = {...events, hidden:false, head:element(), body:element(), createElement:()=>element(),
+    querySelector:selector=>selector === '#mdlxl-content[data-tutorial-language="mordor"]' && slab.dataset.tutorialLanguage === 'mordor' ? slab : null,
     querySelectorAll:selector=>selector === '.masthead, .side-menu, .slab, .model-card, .post' ? [slab] : []};
   const math = Object.create(Math); math.random = () => random;
   const location = {href:'http://localhost/', origin:'http://localhost', pathname:'/', search:testMode ? '?peanut-test=1' : '',
@@ -770,4 +771,89 @@ test('a seasonal cutoff immediately clears an outgoing hat blend without reloadi
   now++;
   f.context.visitor.paint(500,400,0,0);
   assert.equal(picture.context.calls.filter(c=>c[0]==='drawImage').length-previous,1,'expired hat is not retained in the outgoing blend');
+});
+
+// Mordor follows the rendered tutorial panel, rather than a URL or saved preference alone.
+function mordorFixture() {
+  const f=fixture(false,.6,{Date:class extends Date {static now(){return Date.UTC(2026,10,4);}}});
+  f.panel=f.nodes.find(n=>n.className==='slab');
+  f.panel.dataset.tutorialLanguage='mordor'; f.step();
+  return f;
+}
+
+test('Mordor starts immediately, wears the existing crown on every sheet and has no visit expiry', () => {
+  const f=mordorFixture();
+  assert.notEqual(f.state().phase,'rest'); assert.equal(f.state().deadline,Infinity);
+  const incoming=f.nodes.filter(n=>n.context)[1];
+  for(const [row,column,flying,moveArt] of [[0,0,false,null],[2,3,false,null],[8,7,false,null],[0,1,true,null],[7,3,false,'moves'],[0,0,false,'dive']]) {
+    f.context.visitor.paint(500,400,row,column,0,flying,false,moveArt);
+    assert(incoming.context.calls.some(c=>c[0]==='drawImage'&&c[1].src==='morgoth.png'));
+  }
+  f.context.visitor.choose('peek'); f.advance(120000);
+  assert.equal(f.state().phase,'peek'); assert.equal(f.state().deadline,Infinity);
+});
+
+test('Mordor returns after repeated departures without a cooldown', () => {
+  const f=mordorFixture();
+  for(let i=0;i<5;i++) {
+    f.context.visitor.choose('walk'); f.advance(3000);
+    assert.equal(f.state().phase,'walk');
+    const point=f.state().point;
+    f.move(point.x,point.y); f.step();
+    assert.equal(f.state().phase,'fly');
+    f.move(-10000,-10000);
+    let frames=0; while(f.state().phase!=='rest'){f.step();assert(++frames<200);}
+    const due=f.state().next; f.step();
+    assert.notEqual(f.state().phase,'rest'); assert(f.state().next===due);
+  }
+  f.context.visitor.choose('walk'); f.advance(3000);
+  let sawDive=false,returned=false;
+  for(let i=0;i<6000;i++) {
+    f.step(); sawDive ||= f.state().phase==='dive';
+    if(sawDive&&f.state().phase==='rest'){f.step();returned=f.state().phase!=='rest';break;}
+  }
+  assert(sawDive&&returned,'a natural edge departure also returns on the next frame');
+});
+
+test('shooing a Mordor peek relocates him instead of leaving him hidden by the mouse', () => {
+  const f=mordorFixture(); f.context.visitor.choose('peek'); f.advance(1000);
+  const point=f.state().point,side=f.state().perch.side;
+  const normal={top:[0,-1],right:[1,0],bottom:[0,1],left:[-1,0]}[side];
+  f.move(point.x+normal[0]*20,point.y+normal[1]*20); f.step();
+  assert.equal(f.state().phase,'duck');
+  let frames=0; while(f.state().phase!=='rest'){f.step();assert(++frames<30);}
+  f.step(); assert.notEqual(f.state().phase,'rest'); assert.notEqual(f.state().phase,'peek-hidden');
+});
+
+test('leaving Mordor restores normal costume and timing; entering it cancels an existing wait', () => {
+  const f=mordorFixture();
+  for(const language of ['en','ru','es','zh','fr','de',undefined]) {
+    f.context.visitor.rest(0); f.panel.dataset.tutorialLanguage=language; f.step();
+    assert.equal(f.state().phase,'rest'); assert(Number.isFinite(f.state().deadline));
+    const incoming=f.nodes.filter(n=>n.context)[1];
+    f.context.visitor.paint(500,400,0,0);
+    assert(!incoming.context.calls.some(c=>c[0]==='drawImage'&&c[1].src==='morgoth.png'));
+    f.step(7000); assert.equal(f.state().phase,'rest');
+    f.panel.dataset.tutorialLanguage='mordor'; f.step();
+    assert.notEqual(f.state().phase,'rest'); assert.equal(f.state().deadline,Infinity);
+  }
+});
+
+test('Mordor overrides a saved cross-page wait', () => {
+  const saved={savedAt:Date.now(),phase:'rest',direction:1,point:null,peanut:null,restIn:12000};
+  const f=fixture(false,.6,{sessionStorage:{getItem:()=>JSON.stringify(saved),removeItem(){}}});
+  f.nodes.find(n=>n.className==='slab').dataset.tutorialLanguage='mordor'; f.step();
+  assert.notEqual(f.state().phase,'rest'); assert.equal(f.state().deadline,Infinity);
+});
+
+test('Mordor crown takes priority over seasonal hats and restores them on exit', () => {
+  for(const [now,season] of [[Date.UTC(2026,9,30),'halloween'],[Date.UTC(2026,11,20),'christmas']]) {
+    const f=fixture(false,.6,{Date:class extends Date {static now(){return now;}}});
+    const panel=f.nodes.find(n=>n.className==='slab');
+    panel.dataset.tutorialLanguage='mordor'; f.step();
+    const bird=f.nodes.find(n=>n.className==='menu-visitor');
+    assert.equal(bird.dataset.hat,'morgoth');
+    delete panel.dataset.tutorialLanguage; f.step();
+    assert.equal(bird.dataset.hat,season);
+  }
 });
