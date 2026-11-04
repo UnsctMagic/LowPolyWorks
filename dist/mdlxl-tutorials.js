@@ -1,9 +1,10 @@
-import {mdlxlHref} from './mdlxl-routes.js?v=20261101-emtr-optixl';
+import {applyMdlxlShellLanguage} from './mdlxl-languages.js?v=20261103-fr-de';
+import {mdlxlHref} from './mdlxl-routes.js?v=20261103-fr-de';
 import {mountTutorialPlayers} from './mdlxl/tutorials/playback.js?v=20261030-tutorial-languages';
 import {startToolPings} from './mdlxl/tutorials/highlights.js?v=20261030-tutorial-languages';
 import {recordTutorial} from './usage.js?v=20261031-tutorial-views';
-import {tutorialLanguages,tutorialText} from './mdlxl/tutorials/languages.js?v=20261030-tutorial-languages';
-const version='20261101-emtr-optixl';
+import {tutorialLanguages,tutorialText} from './mdlxl/tutorials/languages.js?v=20261103-fr-de';
+const version='20261103-fr-de';
 const valid=language=>tutorialLanguages.some(item=>item.id===language);
 function showTutorial(state) {
   const cards=[...state.body.querySelectorAll('.tutorial-card')];
@@ -21,7 +22,7 @@ function showTutorial(state) {
 }
 export async function renderTutorials(panel,isCurrent,requested) {
   if(!document.getElementById('mdlxl-tutorial-style')){
-    const style=document.createElement('link');style.id='mdlxl-tutorial-style';style.rel='stylesheet';style.href='/mdlxl-tutorials.css?v=20261101-emtr-optixl';document.head.append(style);
+    const style=document.createElement('link');style.id='mdlxl-tutorial-style';style.rel='stylesheet';style.href='/mdlxl-tutorials.css?v=20261103-fr-de';document.head.append(style);
   }
   let state=panel._tutorialController;
   if(!state||!state.header.isConnected){
@@ -32,6 +33,7 @@ export async function renderTutorials(panel,isCurrent,requested) {
   state.isCurrent=isCurrent;state.requested=requested;
   const query=new URLSearchParams(location.search).get('lang'),saved=localStorage.getItem('mdlxl-tutorial-language'),language=valid(query)?query:valid(saved)?saved:'en',text=tutorialText[language],generation=++state.generation;
   if(valid(query))localStorage.setItem('mdlxl-tutorial-language',language);
+  applyMdlxlShellLanguage(panel.closest('.mdlxl-layout')?.parentElement,language);
   state.select.value=language;state.select.setAttribute('aria-label',text.language);state.select.title=text.language;state.title.textContent=text.title;panel.querySelector('.tutorial-language-label').textContent=text.language;
   panel.dataset.tutorialLanguage=language;panel.lang=language;document.title=text.title+' — MDLxL — LowPolyWorks';
   if(state.loadedLanguage===language){showTutorial(state);return;}

@@ -53,3 +53,16 @@ test('credits distinguish creator profiles from the resources they made',()=>{
  button.onclick({preventDefault:()=>prevented++});assert.deepEqual(events,[['download','mdlxl','zip']]);
  assert.equal(prevented,1);assert.equal(button.href,'https://example.org/app.zip');assert.equal(source.onclick,undefined);
 });
+import {tutorialLanguages,tutorialText} from '../dist/mdlxl/tutorials/languages.js';
+test('French and German have tutorial pickers and native release-note sources',()=>{
+ for(const [language,label,suffix] of [['fr','Français','FR'],['de','Deutsch','DE']]){
+  assert(tutorialLanguages.some(item=>item.id===language&&item.label===label));
+  assert(tutorialText[language]?.loading);
+  const url='https://github.com/UnsctMagic/MDLxL/blob/v0.99.1/docs/RELEASE-0.99.1-'+suffix+'.md';
+  assert.equal(notesSource({body:'['+label+']('+url+')'},language),url.replace('github.com/UnsctMagic/MDLxL/blob/','raw.githubusercontent.com/UnsctMagic/MDLxL/'));
+ }
+});
+
+test('the next fixed-name portable release remains downloadable',()=>{
+ assert.equal(downloadUrl({tag_name:'v0.39.0',assets:[{name:'MDLxL-win32-x64.zip',browser_download_url:'fixed-application'}]}),'fixed-application');
+});
