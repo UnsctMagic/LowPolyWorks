@@ -9,6 +9,16 @@ export function modelUpdateTag(timestamp,now=Date.now(),isNew=false){
  return {label:isNew?'New!':'Updated '+dateFormat.format(time),colour:greens[day],day,nextAt:time+(day+1)*dayMs};
 }
 
+// A shared card reflects every live variant, including later additions.
+export function groupModelUpdate(ids,updates){
+ const record={};
+ for(const key of ['publishedAt','updatedAt'])for(const id of ids){
+  const timestamp=updates[id]?.[key];
+  if(Date.parse(timestamp)>(Date.parse(record[key])||0))record[key]=timestamp;
+ }
+ return record;
+}
+
 export function modelUpdateTagMarkup(id){
  const safe=String(id).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
  return `<span class="model-update-tag" data-model-updated="${safe}" hidden></span>`;
