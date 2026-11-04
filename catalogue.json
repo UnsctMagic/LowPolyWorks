@@ -14318,8 +14318,8 @@
       },
       {
         "index": 11,
-        "vertices": 24,
-        "triangles": 18,
+        "vertices": 28,
+        "triangles": 24,
         "material": 8,
         "textures": [
           "Textures\\chunktop.blp"
@@ -14327,8 +14327,8 @@
       },
       {
         "index": 12,
-        "vertices": 125,
-        "triangles": 147,
+        "vertices": 140,
+        "triangles": 180,
         "material": 9,
         "textures": [
           "Textures\\UndeadAirBarge.blp"
@@ -14527,7 +14527,7 @@
       "Portrait Talk",
       "Stand - 3"
     ],
-    "bytes": 106534,
+    "bytes": 107395,
     "portraitBackdropGeosets": [
       2
     ],
@@ -14615,9 +14615,13 @@
         "url": "https://www.hiveworkshop.com/members/forgotten_warlord.182381/"
       }
     ],
-    "sha256": "2cb28ecd61a1e1508f2281c7085b2d910610a7f878e87288943777ad6977b1cd",
-    "imageVersion": "20261021-cleaver-upload-01",
+    "sha256": "09cb16bc7447829b84f34218dad1f94dc79b7ab2b4123a4a457d1663d2e04c44",
+    "imageVersion": "20261104-cleaver-shoulder",
     "changelog": [
+      {
+        "date": "4 November 2026",
+        "text": "Fixed missing shoulder on Cleaver"
+      },
       {
         "date": "23 October 2026",
         "text": "Fixed corpse decay"
