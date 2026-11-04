@@ -9,7 +9,7 @@ import {wheelSelect} from './wheel-select.js?v=20261022-wheel-animations';
 import {TEAM_COLORS} from './vendor/mdlxl/src/team-colors.js';
 import {recordUsage} from './usage.js?v=20261012-shredder-cloudflare';
 import {renderJournal} from './journal.js?v=20261022-tzeentch-warrior';
-import {renderMdlxl} from './mdlxl.js?v=20261104-fr-de-fx';
+import {renderMdlxl} from './mdlxl.js?v=20261104-stable-hotkeys';
 import {readMdlxlRoute,mdlxlHref} from './mdlxl-routes.js?v=20261104-fr-de-fx';
 const initialMdlxl=readMdlxlRoute(location);if(initialMdlxl&&location.hash.startsWith('#project/mdlxl'))history.replaceState(null,'',mdlxlHref(initialMdlxl.section,initialMdlxl.tutorial,location.search));
 const app=document.querySelector('#app'),baseCatalogue=await fetch('catalogue.json?v=20261104-slaanesh-champion03').then(r=>r.json());
