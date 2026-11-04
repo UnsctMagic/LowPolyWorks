@@ -1,6 +1,6 @@
 import {applyMdlxlShellLanguage} from './mdlxl-languages.js?v=20261104-fr-de-fx';
 import {mdlxlHref} from './mdlxl-routes.js?v=20261104-fr-de-fx';
-import {mountTutorialPlayers} from './mdlxl/tutorials/playback.js?v=20261030-tutorial-languages';
+import {mountTutorialPlayers} from './mdlxl/tutorials/playback.js?v=20261104-stable-hotkeys';
 import {startToolPings} from './mdlxl/tutorials/highlights.js?v=20261030-tutorial-languages';
 import {recordTutorial} from './usage.js?v=20261031-tutorial-views';
 import {tutorialLanguages,tutorialText} from './mdlxl/tutorials/languages.js?v=20261104-fr-de-fx';

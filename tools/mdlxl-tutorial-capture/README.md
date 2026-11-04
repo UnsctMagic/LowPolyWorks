@@ -23,3 +23,9 @@ For a proven sidebar-only label change outside every GIF crop, `node captures/pr
 - Ribbon selects Footman geoset0 vertices295–308, retains bone19/native fit length78.612, enables animation index4 (`Attack - 1`) only, and verifies the actual0.8-second lifetime/12700 start. Native green tool/POSE indicators are recorded in the frames.
 - BMP conversion uses System.Drawing before FFmpeg because the established binary cannot decode PNG. Repeated frames are hardlinked only in task-owned disposable encoding directories. No recursive cleanup follows a junction.
 - No release assets, publication, installed app, real profile or original model are modified. Reports, source provenance and final media hashes are kept in the task's report folder; raw frames/profiles are disposable.
+
+## Shared hotkey playback
+
+`dist/mdlxl/tutorials/playback.js` owns the browser shortcut badge. Native GIF bytes and `animation-data.js` cue tracks are separate inputs; do not re-record them to repair a browser badge. Continuous cue tracks that cover the rest of a clip hold their first instructional shortcut through the opening pause, so repeats do not hide the badge. Partial-action cues (for example camera rotation) retain their explicit empty intervals. Update text only when the shortcut changes, and enforce the one-second readable hold across loop boundaries as well as within a loop.
+
+Run `node --test tools/tutorial-hotkeys.test.mjs` after player changes. For visible verification, observe at least two complete loops of every cue-bearing clip in every locale, including the repeat boundary. Count actual shortcut DOM changes and hidden intervals; frame counts and decoder success alone do not verify the badge. Record source revision, affected clip names/locales, loop count, and result in the task report. Keep screenshots at page display size and use a delayed near-end cue to verify the readable hold under skipped frames.
