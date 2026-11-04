@@ -554,5 +554,13 @@
   {
     "file": "WH_WOC_KnightSlaaneshChampionHero04.mdx",
     "sha256": "ff3025f3cdb1f5baa81206eded67e6e3fc8e8f96e1eff685db4dd16391b9e0b7"
+  },
+  {
+    "file": "WH_WOC_KnightKhroneBStandard02.mdx",
+    "sha256": "9c5d0b142a73a2eeafda7e16602e02016c223461117ad0d40f3db439a6dfa28c"
+  },
+  {
+    "file": "WH_WOC_KnightKhroneBStandardHero01.mdx",
+    "sha256": "aaded5ca3ff6e7321187f9a1da63fd90bbfcf343d2bce3854b6b4679e6ae086b"
   }
 ]
