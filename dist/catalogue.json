@@ -15762,7 +15762,7 @@
     "name": "Warrior of Nurgle · Heavy Flail",
     "army": "warriors-of-chaos",
     "description": "An unbearable stench always heralds the approach of the Plague Lord’s warriors. Their helmets often bear great, withered horns and they are clad in rust-tarnished armour which conceal vile conditions or mutations – perhaps a slimy tentacle, or translucent, jelly-like flesh that reveals their decaying inner organs, or simply a body riddled with leprosy. Sometimes the corpulent meat of their bodies spills from the cracks of their armour. Whatever the case, they are deadly fighters who are near-impervious to pain and fight on despite receiving the most horrendous wounds imaginable.\r\n\r\nSource: Chaos Warriors of Nurgle",
-    "credits": "Model Base - Chaos Warrior by azazeron\r\n\r\nMashed with - Chaos Warriors by Diazon, found on Warhammer Eternal Strife by Nightmare2077\r\n\r\nHelm - Tzeentch Pack Old Ver.2 by Grey Knight\r\n\r\nShoulders - Bandit Enforcer (Re-Classic) by johnwar\r\n\r\nAxe - Iron Raven by Blood Raven\r\n\r\nGuts - Abomination (Re-Classic) by johnwar\r\n\r\nHorns - Goats by bakr\r\n\r\nAdditional credits - Stein123\r\n\r\nHelm (Heavy Flail variation) - Bandit Enforcer/Black Knight by Direfury\r\n\r\nFlail head - Plague Monks by Diazon, found on Warhammer Eternal Strife by Nightmare2077",
+    "credits": "Model Base - Chaos Warrior by azazeron\r\n\r\nMashed with - Chaos Warriors by Diazon, found on Warhammer Eternal Strife by Nightmare2077\r\n\r\nHelm - Tzeentch Pack Old Ver.2 by Grey Knight\r\n\r\nShoulders - Bandit Enforcer (Re-Classic) by johnwar\r\n\r\nAxe - Iron Raven by Blood Raven\r\n\r\nGuts - Abomination (Re-Classic) by johnwar\r\n\r\nHorns - Goats by bakr\r\n\r\nAdditional credits - Stein123, HerrDave (Attack Slam animation help)\r\n\r\nHelm (Heavy Flail variation) - Bandit Enforcer/Black Knight by Direfury\r\n\r\nFlail head - Plague Monks by Diazon, found on Warhammer Eternal Strife by Nightmare2077",
     "geosets": [
       {
         "index": 0,
@@ -16077,6 +16077,10 @@
       {
         "text": "Plague Monks",
         "url": "https://www.hiveworkshop.com/threads/warhammer-eternal-strife-melee.254808/"
+      },
+      {
+        "text": "HerrDave",
+        "url": "https://www.hiveworkshop.com/members/herrdave.234820/"
       }
     ],
     "sha256": "afe3b4908432d671d36e942daf23a2ecee7af106bbcfe138b8e5f8e84bb6a64b",
