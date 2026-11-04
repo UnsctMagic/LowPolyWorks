@@ -2229,6 +2229,998 @@
     "imageVersion": "20261104-axe04"
   },
   {
+    "id": "khorne-standard-bearer",
+    "file": "WH_WOC_KnightKhroneBStandard02.mdx",
+    "name": "Knight of Khorne - Standard Bearer",
+    "army": "warriors-of-chaos",
+    "description": "I have never seen men fight like that...\r\n\r\nI barely made it out alive, this was no victory.\r\n\r\nStatues of brass, massive, twice the size of the biggest man I've ever seen and then some.\r\n\r\nWalking, not charging... advancing like a great wall made of brass and blood red steel.\r\n\r\nI saw men throw down their weapons crying, screaming...\r\n\r\nMen crawled beneath one another to get away...\r\n\r\nIt made no difference, there was nowhere to run.\r\n\r\nI watched a man split from shoulder to hip as he was trying to hide.\r\n\r\nAnother crushed into nothing I could recognize...\r\n\r\nMen were knocked down, trampled, hacked apart and still they kept hacking at the corpses.\r\n\r\nLike a butcher at the block, hacking away piece by piece.\r\n\r\nIt made no difference, we had to fight.\r\n\r\nThey even killed each other.\r\n\r\nThe ones we managed to injure or stagger fighting back became obstacles for the others,\r\n\r\nSo they simply cut through those to reach us faster.\r\n\r\nBut I think they knew they would die that day.\r\n\r\nI heard they razed ten cities before they reached us.\r\n\r\nThat they had come down from the north on a path of destruction.\r\n\r\nThat they had fought their way south for weeks leaving behind only blood and ash.\r\n\r\nBy the time they reached us they were outnumbered fifty to one.\r\n\r\nWe had heard of them coming.\r\n\r\nWe had heard what they had done.\r\n\r\nRivers of blood.\r\n\r\nBut It made no difference... I wanted to fight... to kill.\r\n\r\nThey did not run or beg.\r\n\r\nThey knew they were going to die, I think they wanted to.\r\n\r\nMy city has lost everything defeating them and they got what they came for.\r\n\r\nYou call this victory...?\r\n\r\nSomehow... I envy them.\r\n\r\nI have spent all my life afraid... Afraid of pain... regret... death...\r\n\r\nAfraid of fear.\r\n\r\nThose men were afraid of nothing.\r\n\r\nWanted nothing.\r\n\r\nKept nothing...\r\n\r\nBut it made no difference... I killed them too.\r\n\r\nNorth...\r\n\r\nThat is where they came from.\r\n\r\nThat is where I will go.",
+    "credits": "Model Base - Vile Knight by HerrDave / Further edited by Stein123\r\n\r\nHelm - Bandit Enforcer (Re-Classic) by johnwar\r\n\r\nSymbol of Khorne - Projected with MDLxL\r\n\r\nAxe - Double Axe by Blood Raven\r\n\r\nBanner - Replaceable Banner by Illidan(Evil)X\r\n\r\nHorse head and tail - Headless Horseman by Johnwar\r\n\r\nFur Cloak - Chaos Warrior by Azazeron\r\n\r\nShoulders - Diablo_3_Barbarian_Shoulders by Forgotten_Warlord",
+    "authors": [
+      {
+        "name": "Unsanctioned Magic",
+        "url": "https://xgm.guru/user/UnsanctMagic"
+      },
+      {
+        "name": "Stein123",
+        "url": "https://www.hiveworkshop.com/members/stein123.196992/"
+      },
+      {
+        "name": "HerrDave",
+        "url": "https://www.hiveworkshop.com/members/herrdave.234820/"
+      }
+    ],
+    "creditLinks": [
+      {
+        "text": "Headless Horseman",
+        "url": "https://www.hiveworkshop.com/threads/headless-horseman.373679/"
+      },
+      {
+        "text": "Chaos Warrior",
+        "url": "https://www.hiveworkshop.com/threads/chaos-warrior.366159/"
+      },
+      {
+        "text": "Vile Knight",
+        "url": "https://www.hiveworkshop.com/threads/swan-knight-vile-knight.308843/"
+      },
+      {
+        "text": "Stein123",
+        "url": "https://www.hiveworkshop.com/members/stein123.196992/"
+      },
+      {
+        "text": "HerrDave",
+        "url": "https://www.hiveworkshop.com/members/herrdave.234820/"
+      },
+      {
+        "text": "Azazeron",
+        "url": "https://www.hiveworkshop.com/members/azazeron.299156/"
+      },
+      {
+        "text": "Johnwar",
+        "url": "https://www.hiveworkshop.com/members/johnwar.264426/"
+      },
+      {
+        "text": "MDLxL",
+        "url": "https://www.lowpolyworks.com/mdlxl/"
+      },
+      {
+        "text": "Diablo_3_Barbarian_Shoulders",
+        "url": "https://www.hiveworkshop.com/threads/diablo_3_barbarian_shoulders-by-forgotten_warlord.157993/"
+      },
+      {
+        "text": "Forgotten_Warlord",
+        "url": "https://www.hiveworkshop.com/members/forgotten_warlord.182381/"
+      },
+      {
+        "text": "Bandit Enforcer (Re-Classic)",
+        "url": "https://www.hiveworkshop.com/threads/bandit-enforcer-re-classic.336169/"
+      },
+      {
+        "text": "Double Axe",
+        "url": "https://www.hiveworkshop.com/threads/double-axe.278626/"
+      },
+      {
+        "text": "Blood Raven",
+        "url": "https://www.hiveworkshop.com/members/blood-raven.194769/"
+      },
+      {
+        "text": "Replaceable Banner",
+        "url": "https://www.hiveworkshop.com/threads/replaceable-banner.278853/"
+      },
+      {
+        "text": "Illidan(Evil)X",
+        "url": "https://www.hiveworkshop.com/members/illidan-evil-x.114948/"
+      }
+    ],
+    "geosets": [
+      {
+        "index": 0,
+        "vertices": 20,
+        "triangles": 16,
+        "material": 0,
+        "textures": [
+          "Textures\\RedDragon.blp"
+        ]
+      },
+      {
+        "index": 1,
+        "vertices": 36,
+        "triangles": 20,
+        "material": 1,
+        "textures": [
+          "Units\\Undead\\SkeletonMage\\SkeletonMage.blp"
+        ]
+      },
+      {
+        "index": 2,
+        "vertices": 36,
+        "triangles": 32,
+        "material": 2,
+        "textures": [
+          "UI\\Glues\\SinglePlayer\\HumanCampaign3D\\HumanCampaignFootman.blp"
+        ]
+      },
+      {
+        "index": 3,
+        "vertices": 781,
+        "triangles": 862,
+        "material": 3,
+        "textures": [
+          "Textures\\UndeadAirBarge.blp"
+        ]
+      },
+      {
+        "index": 4,
+        "vertices": 125,
+        "triangles": 208,
+        "material": 4,
+        "textures": [
+          "Units\\Demon\\ChaosWarlord\\ChaosWarlord.blp"
+        ]
+      },
+      {
+        "index": 5,
+        "vertices": 22,
+        "triangles": 37,
+        "material": 5,
+        "textures": [
+          "Units\\Orc\\Spiritwolf\\FeralSpirit.blp"
+        ]
+      },
+      {
+        "index": 6,
+        "vertices": 32,
+        "triangles": 16,
+        "material": 6,
+        "textures": [
+          "Textures\\OutlandDoodads.blp"
+        ]
+      },
+      {
+        "index": 7,
+        "vertices": 26,
+        "triangles": 36,
+        "material": 7,
+        "textures": [
+          "Team colour / glow",
+          "Doodads\\Cityscape\\Structures\\Cathedral\\Cathedral.blp"
+        ]
+      },
+      {
+        "index": 8,
+        "vertices": 75,
+        "triangles": 96,
+        "material": 8,
+        "textures": [
+          "Textures\\OutlandDoodads.blp"
+        ]
+      },
+      {
+        "index": 9,
+        "vertices": 18,
+        "triangles": 20,
+        "material": 9,
+        "textures": [
+          "Units\\Creeps\\Magnataur\\Magnataur.blp"
+        ]
+      },
+      {
+        "index": 10,
+        "vertices": 42,
+        "triangles": 26,
+        "material": 10,
+        "textures": [
+          "Textures\\OutlandDoodads.blp"
+        ]
+      },
+      {
+        "index": 11,
+        "vertices": 102,
+        "triangles": 92,
+        "material": 11,
+        "textures": [
+          "Team colour / glow",
+          "Textures\\chunktop.blp"
+        ]
+      },
+      {
+        "index": 12,
+        "vertices": 32,
+        "triangles": 24,
+        "material": 12,
+        "textures": [
+          "Textures\\UndeadAirBarge.blp"
+        ]
+      },
+      {
+        "index": 13,
+        "vertices": 29,
+        "triangles": 28,
+        "material": 13,
+        "textures": [
+          "Team colour / glow",
+          "Textures\\Hero_BloodElf.blp"
+        ]
+      },
+      {
+        "index": 14,
+        "vertices": 10,
+        "triangles": 8,
+        "material": 14,
+        "textures": [
+          "Units\\Orc\\OrcWarlockGuldan\\OrcWarlockGuldan.blp"
+        ]
+      },
+      {
+        "index": 15,
+        "vertices": 8,
+        "triangles": 8,
+        "material": 15,
+        "textures": [
+          "Textures\\Red_Glow3.blp"
+        ]
+      },
+      {
+        "index": 16,
+        "vertices": 75,
+        "triangles": 76,
+        "material": 16,
+        "textures": [
+          "Textures\\OutlandDoodads.blp"
+        ]
+      },
+      {
+        "index": 17,
+        "vertices": 14,
+        "triangles": 10,
+        "material": 10,
+        "textures": [
+          "Textures\\OutlandDoodads.blp"
+        ]
+      },
+      {
+        "index": 18,
+        "vertices": 75,
+        "triangles": 76,
+        "material": 17,
+        "textures": [
+          "Textures\\TimberWolf.blp"
+        ]
+      },
+      {
+        "index": 19,
+        "vertices": 40,
+        "triangles": 40,
+        "material": 18,
+        "textures": [
+          "Units\\Creeps\\HeroTinker\\HeroTinkerTank.blp"
+        ]
+      },
+      {
+        "index": 20,
+        "vertices": 40,
+        "triangles": 40,
+        "material": 20,
+        "textures": [
+          "Buildings\\Other\\SacrificialAltar\\SacrificialAltar.blp"
+        ]
+      },
+      {
+        "index": 21,
+        "vertices": 148,
+        "triangles": 242,
+        "material": 24,
+        "textures": [
+          "Doodads\\Cinematic\\RockinArthas\\ArthasCloakCredits.blp"
+        ]
+      },
+      {
+        "index": 22,
+        "vertices": 96,
+        "triangles": 144,
+        "material": 24,
+        "textures": [
+          "Doodads\\Cinematic\\RockinArthas\\ArthasCloakCredits.blp"
+        ]
+      },
+      {
+        "index": 23,
+        "vertices": 72,
+        "triangles": 95,
+        "material": 24,
+        "textures": [
+          "Doodads\\Cinematic\\RockinArthas\\ArthasCloakCredits.blp"
+        ]
+      },
+      {
+        "index": 24,
+        "vertices": 6,
+        "triangles": 4,
+        "material": 24,
+        "textures": [
+          "Doodads\\Cinematic\\RockinArthas\\ArthasCloakCredits.blp"
+        ]
+      },
+      {
+        "index": 25,
+        "vertices": 25,
+        "triangles": 30,
+        "material": 21,
+        "textures": [
+          "Team colour / glow",
+          "Doodads\\Ashenvale\\Props\\ScorchedRemains\\Demonized.blp"
+        ]
+      },
+      {
+        "index": 26,
+        "vertices": 138,
+        "triangles": 166,
+        "material": 22,
+        "textures": [
+          "Textures\\Bandit.blp"
+        ]
+      },
+      {
+        "index": 27,
+        "vertices": 363,
+        "triangles": 326,
+        "material": 23,
+        "textures": [
+          "TerrainArt\\Dungeon\\Cave_LavaCracks.blp"
+        ]
+      },
+      {
+        "index": 28,
+        "vertices": 144,
+        "triangles": 116,
+        "material": 23,
+        "textures": [
+          "TerrainArt\\Dungeon\\Cave_LavaCracks.blp"
+        ]
+      },
+      {
+        "index": 29,
+        "vertices": 24,
+        "triangles": 16,
+        "material": 23,
+        "textures": [
+          "TerrainArt\\Dungeon\\Cave_LavaCracks.blp"
+        ]
+      },
+      {
+        "index": 30,
+        "vertices": 26,
+        "triangles": 24,
+        "material": 19,
+        "textures": [
+          "ReplaceableTextures\\DalaranRuinsTree\\DalaranRuinsTree.blp"
+        ]
+      },
+      {
+        "index": 31,
+        "vertices": 18,
+        "triangles": 16,
+        "material": 6,
+        "textures": [
+          "Textures\\OutlandDoodads.blp"
+        ]
+      },
+      {
+        "index": 32,
+        "vertices": 19,
+        "triangles": 30,
+        "material": 25,
+        "textures": [
+          "Abilities\\Weapons\\FlamingArrow\\Fire10022.blp"
+        ]
+      },
+      {
+        "index": 33,
+        "vertices": 40,
+        "triangles": 40,
+        "material": 26,
+        "textures": [
+          "Textures\\DemonRune3.blp",
+          "Textures\\DemonRune3.blp"
+        ]
+      },
+      {
+        "index": 34,
+        "vertices": 46,
+        "triangles": 72,
+        "material": 27,
+        "textures": [
+          "Team colour / glow",
+          "Textures\\InfernalCannon.blp"
+        ]
+      },
+      {
+        "index": 35,
+        "vertices": 112,
+        "triangles": 100,
+        "material": 28,
+        "textures": [
+          "Textures\\OutlandDoodads.blp"
+        ]
+      },
+      {
+        "index": 36,
+        "vertices": 23,
+        "triangles": 34,
+        "material": 29,
+        "textures": [
+          "Textures\\UndeadAirBarge.blp"
+        ]
+      },
+      {
+        "index": 37,
+        "vertices": 8,
+        "triangles": 8,
+        "material": 30,
+        "textures": [
+          "ReplaceableTextures\\DalaranRuinsTree\\DalaranRuinsTree.blp"
+        ]
+      },
+      {
+        "index": 38,
+        "vertices": 4,
+        "triangles": 2,
+        "material": 31,
+        "textures": [
+          "Team colour / glow"
+        ]
+      },
+      {
+        "index": 39,
+        "vertices": 16,
+        "triangles": 16,
+        "material": 6,
+        "textures": [
+          "Textures\\OutlandDoodads.blp"
+        ]
+      },
+      {
+        "index": 40,
+        "vertices": 86,
+        "triangles": 50,
+        "material": 32,
+        "textures": [
+          "Textures\\gutz.blp"
+        ]
+      }
+    ],
+    "sequences": [
+      "Walk",
+      "Stand",
+      "Stand - 2",
+      "Stand Ready",
+      "Attack - 1",
+      "Attack - 2",
+      "Spell",
+      "Death",
+      "Decay Flesh",
+      "Decay Bone",
+      "Dissipate",
+      "Portrait - 1",
+      "Portrait Talk - 1"
+    ],
+    "bytes": 258663,
+    "portraitBackdropGeosets": [
+      38
+    ],
+    "searchDescription": "Preview and download Knight of Khorne - Standard Bearer (Unit) for Warcraft 3. A Warhammer Fantasy standard bearer for your Warriors of Chaos army.",
+    "sha256": "9c5d0b142a73a2eeafda7e16602e02016c223461117ad0d40f3db439a6dfa28c",
+    "imageVersion": "20261104-standard-final",
+    "captureFitAlpha": 200,
+    "captureOrthographic": true,
+    "captureSequence": "Stand",
+    "captureTime": 0
+  },
+  {
+    "id": "khorne-standard-bearer-hero",
+    "file": "WH_WOC_KnightKhroneBStandardHero01.mdx",
+    "name": "Knight of Khorne - Standard Bearer",
+    "army": "warriors-of-chaos",
+    "description": "I have never seen men fight like that...\r\n\r\nI barely made it out alive, this was no victory.\r\n\r\nStatues of brass, massive, twice the size of the biggest man I've ever seen and then some.\r\n\r\nWalking, not charging... advancing like a great wall made of brass and blood red steel.\r\n\r\nI saw men throw down their weapons crying, screaming...\r\n\r\nMen crawled beneath one another to get away...\r\n\r\nIt made no difference, there was nowhere to run.\r\n\r\nI watched a man split from shoulder to hip as he was trying to hide.\r\n\r\nAnother crushed into nothing I could recognize...\r\n\r\nMen were knocked down, trampled, hacked apart and still they kept hacking at the corpses.\r\n\r\nLike a butcher at the block, hacking away piece by piece.\r\n\r\nIt made no difference, we had to fight.\r\n\r\nThey even killed each other.\r\n\r\nThe ones we managed to injure or stagger fighting back became obstacles for the others,\r\n\r\nSo they simply cut through those to reach us faster.\r\n\r\nBut I think they knew they would die that day.\r\n\r\nI heard they razed ten cities before they reached us.\r\n\r\nThat they had come down from the north on a path of destruction.\r\n\r\nThat they had fought their way south for weeks leaving behind only blood and ash.\r\n\r\nBy the time they reached us they were outnumbered fifty to one.\r\n\r\nWe had heard of them coming.\r\n\r\nWe had heard what they had done.\r\n\r\nRivers of blood.\r\n\r\nBut It made no difference... I wanted to fight... to kill.\r\n\r\nThey did not run or beg.\r\n\r\nThey knew they were going to die, I think they wanted to.\r\n\r\nMy city has lost everything defeating them and they got what they came for.\r\n\r\nYou call this victory...?\r\n\r\nSomehow... I envy them.\r\n\r\nI have spent all my life afraid... Afraid of pain... regret... death...\r\n\r\nAfraid of fear.\r\n\r\nThose men were afraid of nothing.\r\n\r\nWanted nothing.\r\n\r\nKept nothing...\r\n\r\nBut it made no difference... I killed them too.\r\n\r\nNorth...\r\n\r\nThat is where they came from.\r\n\r\nThat is where I will go.",
+    "credits": "Model Base - Vile Knight by HerrDave / Further edited by Stein123\r\n\r\nHelm - Bandit Enforcer (Re-Classic) by johnwar\r\n\r\nSymbol of Khorne - Projected with MDLxL\r\n\r\nAxe - Double Axe by Blood Raven\r\n\r\nBanner - Replaceable Banner by Illidan(Evil)X\r\n\r\nHorse head and tail - Headless Horseman by Johnwar\r\n\r\nFur Cloak - Chaos Warrior by Azazeron\r\n\r\nShoulders - Diablo_3_Barbarian_Shoulders by Forgotten_Warlord",
+    "authors": [
+      {
+        "name": "Unsanctioned Magic",
+        "url": "https://xgm.guru/user/UnsanctMagic"
+      },
+      {
+        "name": "Stein123",
+        "url": "https://www.hiveworkshop.com/members/stein123.196992/"
+      },
+      {
+        "name": "HerrDave",
+        "url": "https://www.hiveworkshop.com/members/herrdave.234820/"
+      }
+    ],
+    "creditLinks": [
+      {
+        "text": "Headless Horseman",
+        "url": "https://www.hiveworkshop.com/threads/headless-horseman.373679/"
+      },
+      {
+        "text": "Chaos Warrior",
+        "url": "https://www.hiveworkshop.com/threads/chaos-warrior.366159/"
+      },
+      {
+        "text": "Vile Knight",
+        "url": "https://www.hiveworkshop.com/threads/swan-knight-vile-knight.308843/"
+      },
+      {
+        "text": "Stein123",
+        "url": "https://www.hiveworkshop.com/members/stein123.196992/"
+      },
+      {
+        "text": "HerrDave",
+        "url": "https://www.hiveworkshop.com/members/herrdave.234820/"
+      },
+      {
+        "text": "Azazeron",
+        "url": "https://www.hiveworkshop.com/members/azazeron.299156/"
+      },
+      {
+        "text": "Johnwar",
+        "url": "https://www.hiveworkshop.com/members/johnwar.264426/"
+      },
+      {
+        "text": "MDLxL",
+        "url": "https://www.lowpolyworks.com/mdlxl/"
+      },
+      {
+        "text": "Diablo_3_Barbarian_Shoulders",
+        "url": "https://www.hiveworkshop.com/threads/diablo_3_barbarian_shoulders-by-forgotten_warlord.157993/"
+      },
+      {
+        "text": "Forgotten_Warlord",
+        "url": "https://www.hiveworkshop.com/members/forgotten_warlord.182381/"
+      },
+      {
+        "text": "Bandit Enforcer (Re-Classic)",
+        "url": "https://www.hiveworkshop.com/threads/bandit-enforcer-re-classic.336169/"
+      },
+      {
+        "text": "Double Axe",
+        "url": "https://www.hiveworkshop.com/threads/double-axe.278626/"
+      },
+      {
+        "text": "Blood Raven",
+        "url": "https://www.hiveworkshop.com/members/blood-raven.194769/"
+      },
+      {
+        "text": "Replaceable Banner",
+        "url": "https://www.hiveworkshop.com/threads/replaceable-banner.278853/"
+      },
+      {
+        "text": "Illidan(Evil)X",
+        "url": "https://www.hiveworkshop.com/members/illidan-evil-x.114948/"
+      }
+    ],
+    "geosets": [
+      {
+        "index": 0,
+        "vertices": 20,
+        "triangles": 16,
+        "material": 0,
+        "textures": [
+          "Textures\\RedDragon.blp"
+        ]
+      },
+      {
+        "index": 1,
+        "vertices": 36,
+        "triangles": 20,
+        "material": 1,
+        "textures": [
+          "Units\\Undead\\SkeletonMage\\SkeletonMage.blp"
+        ]
+      },
+      {
+        "index": 2,
+        "vertices": 36,
+        "triangles": 32,
+        "material": 2,
+        "textures": [
+          "UI\\Glues\\SinglePlayer\\HumanCampaign3D\\HumanCampaignFootman.blp"
+        ]
+      },
+      {
+        "index": 3,
+        "vertices": 781,
+        "triangles": 862,
+        "material": 3,
+        "textures": [
+          "Textures\\UndeadAirBarge.blp"
+        ]
+      },
+      {
+        "index": 4,
+        "vertices": 125,
+        "triangles": 208,
+        "material": 4,
+        "textures": [
+          "Units\\Demon\\ChaosWarlord\\ChaosWarlord.blp"
+        ]
+      },
+      {
+        "index": 5,
+        "vertices": 22,
+        "triangles": 37,
+        "material": 5,
+        "textures": [
+          "Units\\Orc\\Spiritwolf\\FeralSpirit.blp"
+        ]
+      },
+      {
+        "index": 6,
+        "vertices": 32,
+        "triangles": 16,
+        "material": 6,
+        "textures": [
+          "Textures\\OutlandDoodads.blp"
+        ]
+      },
+      {
+        "index": 7,
+        "vertices": 26,
+        "triangles": 36,
+        "material": 7,
+        "textures": [
+          "Team colour / glow",
+          "Doodads\\Cityscape\\Structures\\Cathedral\\Cathedral.blp"
+        ]
+      },
+      {
+        "index": 8,
+        "vertices": 75,
+        "triangles": 96,
+        "material": 8,
+        "textures": [
+          "Textures\\OutlandDoodads.blp"
+        ]
+      },
+      {
+        "index": 9,
+        "vertices": 18,
+        "triangles": 20,
+        "material": 9,
+        "textures": [
+          "Units\\Creeps\\Magnataur\\Magnataur.blp"
+        ]
+      },
+      {
+        "index": 10,
+        "vertices": 42,
+        "triangles": 26,
+        "material": 10,
+        "textures": [
+          "Textures\\OutlandDoodads.blp"
+        ]
+      },
+      {
+        "index": 11,
+        "vertices": 102,
+        "triangles": 92,
+        "material": 11,
+        "textures": [
+          "Team colour / glow",
+          "Textures\\chunktop.blp"
+        ]
+      },
+      {
+        "index": 12,
+        "vertices": 32,
+        "triangles": 24,
+        "material": 12,
+        "textures": [
+          "Textures\\UndeadAirBarge.blp"
+        ]
+      },
+      {
+        "index": 13,
+        "vertices": 29,
+        "triangles": 28,
+        "material": 13,
+        "textures": [
+          "Team colour / glow",
+          "Textures\\Hero_BloodElf.blp"
+        ]
+      },
+      {
+        "index": 14,
+        "vertices": 10,
+        "triangles": 8,
+        "material": 14,
+        "textures": [
+          "Units\\Orc\\OrcWarlockGuldan\\OrcWarlockGuldan.blp"
+        ]
+      },
+      {
+        "index": 15,
+        "vertices": 8,
+        "triangles": 8,
+        "material": 15,
+        "textures": [
+          "Textures\\Red_Glow3.blp"
+        ]
+      },
+      {
+        "index": 16,
+        "vertices": 75,
+        "triangles": 76,
+        "material": 16,
+        "textures": [
+          "Textures\\OutlandDoodads.blp"
+        ]
+      },
+      {
+        "index": 17,
+        "vertices": 14,
+        "triangles": 10,
+        "material": 10,
+        "textures": [
+          "Textures\\OutlandDoodads.blp"
+        ]
+      },
+      {
+        "index": 18,
+        "vertices": 75,
+        "triangles": 76,
+        "material": 17,
+        "textures": [
+          "Textures\\TimberWolf.blp"
+        ]
+      },
+      {
+        "index": 19,
+        "vertices": 40,
+        "triangles": 40,
+        "material": 18,
+        "textures": [
+          "Units\\Creeps\\HeroTinker\\HeroTinkerTank.blp"
+        ]
+      },
+      {
+        "index": 20,
+        "vertices": 40,
+        "triangles": 40,
+        "material": 20,
+        "textures": [
+          "Buildings\\Other\\SacrificialAltar\\SacrificialAltar.blp"
+        ]
+      },
+      {
+        "index": 21,
+        "vertices": 148,
+        "triangles": 242,
+        "material": 24,
+        "textures": [
+          "Doodads\\Cinematic\\RockinArthas\\ArthasCloakCredits.blp"
+        ]
+      },
+      {
+        "index": 22,
+        "vertices": 96,
+        "triangles": 144,
+        "material": 24,
+        "textures": [
+          "Doodads\\Cinematic\\RockinArthas\\ArthasCloakCredits.blp"
+        ]
+      },
+      {
+        "index": 23,
+        "vertices": 72,
+        "triangles": 95,
+        "material": 24,
+        "textures": [
+          "Doodads\\Cinematic\\RockinArthas\\ArthasCloakCredits.blp"
+        ]
+      },
+      {
+        "index": 24,
+        "vertices": 6,
+        "triangles": 4,
+        "material": 24,
+        "textures": [
+          "Doodads\\Cinematic\\RockinArthas\\ArthasCloakCredits.blp"
+        ]
+      },
+      {
+        "index": 25,
+        "vertices": 25,
+        "triangles": 30,
+        "material": 21,
+        "textures": [
+          "Team colour / glow",
+          "Doodads\\Ashenvale\\Props\\ScorchedRemains\\Demonized.blp"
+        ]
+      },
+      {
+        "index": 26,
+        "vertices": 138,
+        "triangles": 166,
+        "material": 22,
+        "textures": [
+          "Textures\\Bandit.blp"
+        ]
+      },
+      {
+        "index": 27,
+        "vertices": 363,
+        "triangles": 326,
+        "material": 23,
+        "textures": [
+          "TerrainArt\\Dungeon\\Cave_LavaCracks.blp"
+        ]
+      },
+      {
+        "index": 28,
+        "vertices": 144,
+        "triangles": 116,
+        "material": 23,
+        "textures": [
+          "TerrainArt\\Dungeon\\Cave_LavaCracks.blp"
+        ]
+      },
+      {
+        "index": 29,
+        "vertices": 24,
+        "triangles": 16,
+        "material": 23,
+        "textures": [
+          "TerrainArt\\Dungeon\\Cave_LavaCracks.blp"
+        ]
+      },
+      {
+        "index": 30,
+        "vertices": 26,
+        "triangles": 24,
+        "material": 19,
+        "textures": [
+          "ReplaceableTextures\\DalaranRuinsTree\\DalaranRuinsTree.blp"
+        ]
+      },
+      {
+        "index": 31,
+        "vertices": 18,
+        "triangles": 16,
+        "material": 6,
+        "textures": [
+          "Textures\\OutlandDoodads.blp"
+        ]
+      },
+      {
+        "index": 32,
+        "vertices": 19,
+        "triangles": 30,
+        "material": 25,
+        "textures": [
+          "Abilities\\Weapons\\FlamingArrow\\Fire10022.blp"
+        ]
+      },
+      {
+        "index": 33,
+        "vertices": 40,
+        "triangles": 40,
+        "material": 26,
+        "textures": [
+          "Textures\\DemonRune3.blp",
+          "Textures\\DemonRune3.blp"
+        ]
+      },
+      {
+        "index": 34,
+        "vertices": 46,
+        "triangles": 72,
+        "material": 27,
+        "textures": [
+          "Team colour / glow",
+          "Textures\\InfernalCannon.blp"
+        ]
+      },
+      {
+        "index": 35,
+        "vertices": 112,
+        "triangles": 100,
+        "material": 28,
+        "textures": [
+          "Textures\\OutlandDoodads.blp"
+        ]
+      },
+      {
+        "index": 36,
+        "vertices": 23,
+        "triangles": 34,
+        "material": 29,
+        "textures": [
+          "Textures\\UndeadAirBarge.blp"
+        ]
+      },
+      {
+        "index": 37,
+        "vertices": 8,
+        "triangles": 8,
+        "material": 30,
+        "textures": [
+          "ReplaceableTextures\\DalaranRuinsTree\\DalaranRuinsTree.blp"
+        ]
+      },
+      {
+        "index": 38,
+        "vertices": 4,
+        "triangles": 2,
+        "material": 31,
+        "textures": [
+          "Team colour / glow"
+        ]
+      },
+      {
+        "index": 39,
+        "vertices": 16,
+        "triangles": 16,
+        "material": 6,
+        "textures": [
+          "Textures\\OutlandDoodads.blp"
+        ]
+      },
+      {
+        "index": 40,
+        "vertices": 86,
+        "triangles": 50,
+        "material": 32,
+        "textures": [
+          "Textures\\gutz.blp"
+        ]
+      },
+      {
+        "index": 41,
+        "vertices": 12,
+        "triangles": 6,
+        "material": 33,
+        "textures": [
+          "Team colour / glow"
+        ]
+      },
+      {
+        "index": 42,
+        "vertices": 12,
+        "triangles": 6,
+        "material": 33,
+        "textures": [
+          "Team colour / glow"
+        ]
+      }
+    ],
+    "sequences": [
+      "Walk",
+      "Stand",
+      "Stand - 2",
+      "Stand Ready",
+      "Attack - 1",
+      "Attack - 2",
+      "Spell",
+      "Death",
+      "Decay Flesh",
+      "Decay Bone",
+      "Dissipate",
+      "Portrait - 1",
+      "Portrait Talk - 1"
+    ],
+    "bytes": 262191,
+    "portraitBackdropGeosets": [
+      38
+    ],
+    "searchDescription": "Preview and download Knight of Khorne - Standard Bearer (Hero) for Warcraft 3. A Warhammer Fantasy standard bearer for your Warriors of Chaos army.",
+    "sha256": "aaded5ca3ff6e7321187f9a1da63fd90bbfcf343d2bce3854b6b4679e6ae086b",
+    "imageVersion": "20261104-standard-final",
+    "captureFitAlpha": 200,
+    "captureOrthographic": true,
+    "captureSequence": "Stand",
+    "captureTime": 0
+  },
+  {
     "id": "khorne-flail",
     "file": "WH_WOC_KnightKhorneFlailHero02.mdx",
     "name": "Knight of Khorne · Champion",
