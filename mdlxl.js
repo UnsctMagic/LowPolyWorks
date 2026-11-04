@@ -1,4 +1,5 @@
-import {readMdlxlRoute,mdlxlHref} from './mdlxl-routes.js?v=20261104-fx';
+import {mdlxlLanguages,mdlxlLanguage,mdlxlText,localizedMdlxlMarkup,applyMdlxlShellLanguage} from './mdlxl-languages.js?v=20261104-fr-de-fx';
+import {readMdlxlRoute,mdlxlHref} from './mdlxl-routes.js?v=20261104-fr-de-fx';
 import {mdlxlLogoMarkup,igniteMdlxlLogo} from './mdlxl-eyes.js?v=20261029-project-branding';
 const REPO='https://github.com/UnsctMagic/MDLxL';
 const API='https://api.github.com/repos/UnsctMagic/MDLxL';
@@ -86,18 +87,18 @@ export function markdown(text){
  }
  flush();if(code!==null)html+=`<pre><code>${escape(code.join('\n'))}</code></pre>`;return html;
 }
-const languages={en:'English',ru:'Русский',es:'Español',zh:'简体中文'};
+const languages=mdlxlLanguages;
 export function officialNotes(release){return /\[English\]\(https:\/\/www\.lowpolyworks\.com\/mdlxl(?:[/?][^\s)]*)?\)/.test(release.body||'');}
 export function notesSource(release,language='en'){
  const label=languages[language]||languages.en;
  const match=[...String(release.body||'').matchAll(/\[([^\]]+)\]\((https:\/\/github\.com\/UnsctMagic\/MDLxL\/blob\/[^\s)]+)\)/g)].find(item=>item[1]===label);
  return match?match[2].replace('https://github.com/UnsctMagic/MDLxL/blob/','https://raw.githubusercontent.com/UnsctMagic/MDLxL/'):null;
 }
-export function downloadUrl(release){return release.assets?.find(a=>a.name===`MDLxL-${release.tag_name.replace(/^v/,'')}-win32-x64.zip`)?.browser_download_url||null;}
+export function downloadUrl(release){return (release.assets?.find(a=>a.name===`MDLxL-${release.tag_name.replace(/^v/,'')}-win32-x64.zip`)||release.assets?.find(a=>a.name==='MDLxL-win32-x64.zip'))?.browser_download_url||null;}
 async function json(url){const response=await fetch(url,{cache:'no-store'});if(!response.ok)throw Error('GitHub is temporarily unavailable.');return response.json();}
 async function notes(release,language){
- if(officialNotes(release)){const post=await json(`/mdlxl/releases/${release.tag_name.replace(/^v/,'')}.json`);if(post.version!==release.tag_name.replace(/^v/,'')||typeof post.notes[language]!=='string')throw Error('Patch notes could not be loaded.');return post.notes[language];}
- const url=notesSource(release,language);if(!url)return release.body||'No patch notes were included with this release.';const response=await fetch(url,{cache:'no-store'});if(!response.ok)throw Error('Patch notes could not be loaded.');return response.text();
+ if(officialNotes(release)){const post=await json(`/mdlxl/releases/${release.tag_name.replace(/^v/,'')}.json`);if(post.version!==release.tag_name.replace(/^v/,'')||typeof (post.notes?.[language]?.trim()?post.notes[language]:post.notes?.en)!=='string')throw Error('Patch notes could not be loaded.');return post.notes[language]?.trim()?post.notes[language]:post.notes.en;}
+ const url=notesSource(release,language)||notesSource(release,'en');if(!url)return release.body||'No patch notes were included with this release.';const response=await fetch(url,{cache:'no-store'});if(!response.ok)throw Error('Patch notes could not be loaded.');return response.text();
 }
 const prose=lines=>lines.map(line=>`<p>${escape(line.replace(/^- /,''))}</p>`).join('');
 const creditProse=lines=>lines.map(line=>`<p>${creditLine(line.replace(/^- /,''))}</p>`).join('');
@@ -107,28 +108,36 @@ function contentSection(section,data){
  if(section==='about')return `<h2>A dream for more CTRL+Z.</h2>${prose(data.intro)}<img class="mdlxl-author-image" src="ui/author-space-dog.gif" alt="A dog in a space station with the caption: I have no idea what I'm doing.">${prose(data.story)}<h2 class="mdlxl-features-heading">Inside the workshop</h2>${data.features.map(group=>`<section class="mdlxl-text-group"><h3>${escape(group.title)}</h3>${prose(group.lines)}</section>`).join('')}${prose(data.closing)}`;
  return '<div class="mdlxl-section-heading"><h2><a href="https://discord.gg/CDXrQHsj2" target="_blank" rel="noopener noreferrer">Find us on Discord at HerrDave&#39;s Workshop</a></h2></div><div id="mdlxl-releases" aria-live="polite"><p>Loading patch notes…</p></div>';
 }
-export async function renderMdlxl(app,isCurrent,recordUsage){
+export async function renderMdlxl(app,routeIsCurrent,recordUsage){
+ const generation=(app._mdlxlGeneration||0)+1;app._mdlxlGeneration=generation;
+ const isCurrent=()=>routeIsCurrent()&&app._mdlxlGeneration===generation;
+ const language=mdlxlLanguage(location.search),t=value=>mdlxlText(value,app._mdlxlLanguage||language),localize=markup=>localizedMdlxlMarkup(markup,language);
+ app._mdlxlLanguage=language;
  const navigation=readMdlxlRoute(location)||{section:'updates'},section=navigation.section;
- document.title=`${sections[section]} — MDLxL — LowPolyWorks`;
+ document.title=`${t(sections[section])} — MDLxL — LowPolyWorks`;
  const hasShell=!!app.querySelector('.mdlxl-hero');
- if(!hasShell){app.innerHTML=`<section class="mdlxl-hero slab">${mdlxlLogoMarkup('MDLxL helmet: half wireframe, half textured')}<div class="mdlxl-identity"><p class="kicker">THE WARCRAFT III MODEL WORKSHOP</p><h1 class="mdlxl-wordmark">MDL<span>x</span>L</h1><p>You wanted more CTRL Z?</p><small>Built for Warcraft III SD models.</small></div><div class="mdlxl-download"><a id="mdlxl-download" class="iron-button primary" aria-disabled="true" href="/mdlxl">Loading download…</a><span id="mdlxl-version">Windows · Portable ZIP</span></div></section><div class="mdlxl-layout"><aside class="mdlxl-menu side-menu"><p class="mdlxl-menu-label">THE WORKSHOP</p><nav aria-label="MDLxL sections">${Object.entries(sections).map(([key,label])=>`<a href="${mdlxlHref(key,undefined,location.search)}" ${key===section?'aria-current="page"':''}>${label}</a>`).join('')}</nav><a class="mdlxl-source" href="${REPO}" target="_blank" rel="noopener noreferrer">MDLxL source code ↗</a></aside><section class="mdlxl-content slab" id="mdlxl-content"><p>Loading…</p></section></div>`;
- igniteMdlxlLogo(app.querySelector('.mdlxl-logo'));app._mdlxlLatestRelease=json(API+'/releases/latest');}
+ app._mdlxlLanguage=language;app.lang=language;
+ if(!hasShell){app.innerHTML=`<section class="mdlxl-hero slab">${mdlxlLogoMarkup('MDLxL helmet: half wireframe, half textured')}<div class="mdlxl-identity"><p class="kicker">THE WARCRAFT III MODEL WORKSHOP</p><h1 class="mdlxl-wordmark">MDL<span>x</span>L</h1><p>You wanted more CTRL Z?</p><small>Built for Warcraft III SD models.</small></div><div class="mdlxl-download"><a id="mdlxl-download" class="iron-button primary" aria-disabled="true" href="/mdlxl">Loading download…</a><span id="mdlxl-version">Windows · Portable ZIP</span></div></section><div class="mdlxl-layout"><aside class="mdlxl-menu side-menu"><p class="mdlxl-menu-label">THE WORKSHOP</p><label class="mdlxl-language"><span>Language</span><select aria-label="Language">${Object.entries(languages).map(([id,label])=>`<option value="${id}" ${id===language?'selected':''}>${label}</option>`).join('')}</select></label><nav aria-label="MDLxL sections">${Object.entries(sections).map(([key,label])=>`<a href="${mdlxlHref(key,undefined,location.search)}" ${key===section?'aria-current="page"':''}>${label}</a>`).join('')}</nav><a class="mdlxl-source" href="${REPO}" target="_blank" rel="noopener noreferrer">MDLxL source code ↗</a></aside><section class="mdlxl-content slab" id="mdlxl-content"><p>Loading…</p></section></div>`;
+ app._mdlxlDownloadVersion=null;app._mdlxlDownloadError=false;igniteMdlxlLogo(app.querySelector('.mdlxl-logo'));app._mdlxlLatestRelease=json(API+'/releases/latest');}
  if(hasShell)for(const link of app.querySelectorAll('.mdlxl-menu nav a')){const selected=readMdlxlRoute(new URL(link.href))?.section===section;selected?link.setAttribute('aria-current','page'):link.removeAttribute('aria-current');}
+ applyMdlxlShellLanguage(app,language);
+ const picker=app.querySelector('.mdlxl-language select');
+ if(picker)picker.onchange=()=>{const url=new URL(location.href);url.searchParams.set('lang',picker.value);history.pushState(null,'',url);renderMdlxl(app,routeIsCurrent,recordUsage);};
  const latestPromise=app._mdlxlLatestRelease;
  const button=app.querySelector('#mdlxl-download');button.onclick=event=>{if(button.getAttribute('aria-disabled')==='true')event.preventDefault();else recordUsage('download','mdlxl','zip');};
  const currentDownload=()=>isCurrent()||(button.isConnected&&app.querySelector('#mdlxl-download')===button);
- const latestTask=latestPromise.then(release=>{if(!currentDownload())return;const url=downloadUrl(release);if(!url)throw Error('No application ZIP');button.href=url;button.removeAttribute('aria-disabled');button.textContent='Download '+release.tag_name+' ↗';app.querySelector('#mdlxl-version').textContent='Windows · Portable ZIP';}).catch(()=>{if(currentDownload()){button.textContent='Download unavailable';app.querySelector('#mdlxl-version').textContent='Please try again later.';}});
+ const latestTask=latestPromise.then(release=>{if(!currentDownload())return;const url=downloadUrl(release);if(!url)throw Error('No application ZIP');button.href=url;button.removeAttribute('aria-disabled');app._mdlxlDownloadVersion=release.tag_name;app._mdlxlDownloadError=false;button.textContent=t('Download')+' '+release.tag_name+' ↗';app.querySelector('#mdlxl-version').textContent=t('Windows · Portable ZIP');}).catch(()=>{if(currentDownload()){app._mdlxlDownloadError=true;button.textContent=t('Download unavailable');app.querySelector('#mdlxl-version').textContent=t('Please try again later.');}});
  const panel=app.querySelector('#mdlxl-content');
  if(section==='tutorials'){
-  try{const {renderTutorials}=await import('./mdlxl-tutorials.js?v=20261104-fx');if(!isCurrent())return;await renderTutorials(panel,isCurrent,navigation.tutorial);}catch{if(isCurrent())panel.innerHTML='<p>Tutorials could not load. Please reload the page.</p>';}
+  try{const {renderTutorials}=await import('./mdlxl-tutorials.js?v=20261104-fr-de-fx');if(!isCurrent())return;await renderTutorials(panel,isCurrent,navigation.tutorial);}catch{if(isCurrent())panel.innerHTML=localize('<p>Tutorials could not load. Please reload the page.</p>');}
   await latestTask;return;
  }
  if(section!=='tutorials'){delete panel.dataset?.tutorialLanguage;panel.removeAttribute?.('lang');}
  if(section!=='updates'){
-  try{const data=await json('mdlxl-content.json');if(!isCurrent())return;panel.innerHTML=contentSection(section,data);}catch{if(isCurrent())panel.innerHTML='<p>This section could not load. Please reload the page.</p>';}
+  try{const data=await json('mdlxl-content.json?v=20261104-fr-de-fx');if(!isCurrent())return;panel.innerHTML=localize(contentSection(section,data.locales?.[language]||data));}catch{if(isCurrent())panel.innerHTML=localize('<p>This section could not load. Please reload the page.</p>');}
   await latestTask;return;
  }
- panel.innerHTML=contentSection(section);
+ panel.innerHTML=localize(contentSection(section));
  const feed=app.querySelector('#mdlxl-releases');
  try{
   const [latest,recent]=await Promise.all([latestPromise,json(API+'/releases?per_page=8')]);
@@ -139,11 +148,11 @@ export async function renderMdlxl(app,isCurrent,recordUsage){
   const folded=new Set([...folds.values()].flat()),plain=release=>release.tag_name.replace(/^v/,'');
   const releases=available.filter(r=>!folded.has(r)).slice(0,5);
   const query=new URLSearchParams(location.search),version=(query.get('version')||'').replace(/^v/,''),host=[...folds].find(([shown,inner])=>!folded.has(shown)&&inner.some(r=>plain(r)===version))?.[0],shownVersion=host?plain(host):version,chosen=releases.findIndex(r=>r.tag_name.replace(/^v/,'')===shownVersion),open=chosen<0?0:chosen,initialLanguage=Object.hasOwn(languages,query.get('lang'))?query.get('lang'):'en';
-  feed.innerHTML=releases.map((r,index)=>`<details class="mdlxl-release" ${index===open?'open':''}><summary><span>${index===0?'<small>LATEST RELEASE</small>':''}${escape(r.name||r.tag_name)}</span><time datetime="${escape(r.published_at)}">${escape(new Date(r.published_at).toLocaleDateString(undefined,{year:'numeric',month:'short',day:'numeric'}))}</time></summary><div class="mdlxl-release-body"><nav class="mdlxl-note-languages" aria-label="Update post language">${Object.entries(languages).filter(([key])=>officialNotes(r)||notesSource(r,key)).map(([key,label])=>`<button type="button" class="iron-button" data-note-language="${key}" aria-pressed="${key===initialLanguage}">${label}</button>`).join('')}</nav><div class="mdlxl-notes" lang="${initialLanguage==='zh'?'zh-CN':initialLanguage}">Loading patch notes…</div></div></details>`).join('');
+  feed.innerHTML=localize(releases.map((r,index)=>`<details class="mdlxl-release" ${index===open?'open':''}><summary><span>${index===0?'<small>LATEST RELEASE</small>':''}${escape(r.name||r.tag_name)}</span><time datetime="${escape(r.published_at)}">${escape(new Date(r.published_at).toLocaleDateString(language,{year:'numeric',month:'short',day:'numeric'}))}</time></summary><div class="mdlxl-release-body"><nav class="mdlxl-note-languages" aria-label="Update post language">${Object.entries(languages).filter(([key])=>officialNotes(r)||notesSource(r,key)).map(([key,label])=>`<button type="button" class="iron-button" data-note-language="${key}" aria-pressed="${key===initialLanguage}">${label}</button>`).join('')}</nav><div class="mdlxl-notes" lang="${initialLanguage==='zh'?'zh-CN':initialLanguage}">Loading patch notes…</div></div></details>`).join(''));
   const cards=[...feed.querySelectorAll('details')];
-  const load=async(card,release,language=initialLanguage)=>{if(card.dataset.loaded===language)return;card.dataset.loaded=language;const panel=card.querySelector('.mdlxl-notes');panel.textContent='Loading patch notes…';card.querySelectorAll('[data-note-language]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.noteLanguage===language)));try{const body=await notes(release,language);const addition=folds.has(release)?(await Promise.all(folds.get(release).map(inner=>notes(inner,language)))).map(text=>text.trimEnd()).join(`\n\n`):'';if(isCurrent()&&card.dataset.loaded===language){panel.lang=language==='zh'?'zh-CN':language;panel.innerHTML=markdown(addition?`${body.trimEnd()}\n\n${addition.replace(/^(#{1,5}) /gm,'#$1 ')}`:body);}}catch{if(isCurrent()&&card.dataset.loaded===language){delete card.dataset.loaded;panel.textContent='Patch notes could not load. Please try again.';}}};
-  cards.forEach((card,index)=>{const release=releases[index];card.ontoggle=()=>{if(card.open&&!card.dataset.loaded)load(card,release);};card.querySelectorAll('[data-note-language]').forEach(button=>{button.onclick=()=>{const next=new URL(location.href);next.searchParams.set('version',release.tag_name.replace(/^v/,''));next.searchParams.set('lang',button.dataset.noteLanguage);history.replaceState(null,'',next);load(card,release,button.dataset.noteLanguage);};});});
+  const load=async(card,release,language=mdlxlLanguage(location.search))=>{if(card.dataset.loaded===language)return;card.dataset.loaded=language;const panel=card.querySelector('.mdlxl-notes');panel.textContent=t('Loading patch notes…');card.querySelectorAll('[data-note-language]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.noteLanguage===language)));try{const body=await notes(release,language);const addition=folds.has(release)?(await Promise.all(folds.get(release).map(inner=>notes(inner,language)))).map(text=>text.trimEnd()).join(`\n\n`):'';if(isCurrent()&&card.dataset.loaded===language){panel.lang=language==='zh'?'zh-CN':language;panel.innerHTML=markdown(addition?`${body.trimEnd()}\n\n${addition.replace(/^(#{1,5}) /gm,'#$1 ')}`:body);}}catch{if(isCurrent()&&card.dataset.loaded===language){delete card.dataset.loaded;panel.textContent=t('Patch notes could not load. Please try again.');}}};
+  cards.forEach((card,index)=>{const release=releases[index];card.ontoggle=()=>{if(card.open&&!card.dataset.loaded)load(card,release);};card.querySelectorAll('[data-note-language]').forEach(button=>{button.onclick=()=>{const next=new URL(location.href);next.searchParams.set('version',release.tag_name.replace(/^v/,''));next.searchParams.set('lang',button.dataset.noteLanguage);history.replaceState(null,'',next);applyMdlxlShellLanguage(app,button.dataset.noteLanguage);document.title=t(sections[section])+' — MDLxL — LowPolyWorks';load(card,release,button.dataset.noteLanguage);};});});
   await load(cards[open],releases[open]);
- }catch{if(isCurrent())feed.innerHTML='<p>Updates could not load right now. Please try again later.</p>';}
+ }catch{if(isCurrent())feed.innerHTML=localize('<p>Updates could not load right now. Please try again later.</p>');}
  await latestTask;
 }

@@ -32,3 +32,5 @@
  .mdlxl-logo{width:56px;height:56px}
  .journal .mdlxl-identity h1{font-size:2rem}
 }
+
+.mdlxl-language{display:flex;flex-direction:column;gap:4px;margin:0 0 16px;color:var(--muted);font-size:12px}.mdlxl-language select{min-width:0;max-width:100%;background:#13171a;color:inherit;border:1px solid #555;padding:5px;font:inherit}
