@@ -2,9 +2,9 @@
 
 Source snapshot used to record the French/German tutorials. This is the existing native Electron/CDP → BMP → FFmpeg global-palette workflow, with localized control lookups. It does not generate translated screenshot overlays or mutate the application source.
 
-The original seven guides produce 25 GIFs and 17 PNGs per language. The [FX continuation](fx/README.md) adds four GIFs and one PNG per language: the current eight-guide inventory is 29 GIFs and 18 PNGs per locale. Anchor/Align/Live/Corpse reuse `D:/Codex/lpw-tutorial-languages/captures/es/`; Glow Up reuses the accepted `D:/Codex/lpw-glow-up-revision/capture.cjs`. Ribbon and OptimizeXL reuse the same capture runtime/encoding from `D:/Codex/lpw-fx-tutorial-20261102/source/authoring/`; their action sequences were reconstructed from site commit `0c4126bb22f0ca98587241e7b275dadfe8668239`, the Spanish timeline metadata/content and `D:/Codex/lpw-ribbons-optixl-review/verification.json` because their original authoring scripts were no longer present.
+The original seven guides produce 25 GIFs and 17 PNGs per language. The [FX continuation](fx/README.md) adds four GIFs and one PNG per language: the eight-guide inventory was 29 GIFs and 18 PNGs per locale. Anchor/Align/Live/Corpse reuse `D:/Codex/lpw-tutorial-languages/captures/es/`; Glow Up reuses the accepted `D:/Codex/lpw-glow-up-revision/capture.cjs`. Ribbon and OptimizeXL reuse the same capture runtime/encoding from `D:/Codex/lpw-fx-tutorial-20261102/source/authoring/`; their action sequences were reconstructed from site commit `0c4126bb22f0ca98587241e7b275dadfe8668239`, the Spanish timeline metadata/content and `D:/Codex/lpw-ribbons-optixl-review/verification.json` because their original authoring scripts were no longer present.
 
-The [FX continuation](fx/README.md) adds the eighth tutorial: current totals are29GIFs and18PNGs per language. Its4new embedded records use a statically imported companion module to stay below GitHub’s100MiB file limit; the existing player API and all previous payloads are preserved.
+The [FX continuation](fx/README.md) adds the eighth tutorial. The [UV grid continuation](uv-grid/README.md) adds three GIFs and one PNG per locale; current nine-guide totals are 32 GIFs and 19 PNGs per language. FX’s four embedded records use a statically imported companion module to stay below GitHub’s100MiB file limit; the existing player API and all previous payloads are preserved.
 
 ## Run on the authoring machine
 
@@ -32,4 +32,4 @@ Run `node --test tools/tutorial-hotkeys.test.mjs` after player changes. For visi
 
 ## Web animation delivery
 
-After changing accepted GIFs or animation cue data, run `node tools/tutorial-animation-index.mjs`. It verifies each standalone GIF against the embedded source and generates the six small `animation-index.json` files used by the website. The tutorial library loads no animation data; individual visible clips fetch their original GIFs on demand. Run `node --test tools/tutorial-hotkeys.test.mjs tools/tutorial-loading.test.mjs` after delivery changes.
+After changing accepted GIFs or animation cue data, run `node tools/tutorial-animation-index.mjs`. It verifies each standalone GIF against the embedded source and generates the seven small `animation-index.json` files used by the website. The tutorial library loads no animation data; individual visible clips fetch their original GIFs on demand. Run `node --test tools/tutorial-hotkeys.test.mjs tools/tutorial-loading.test.mjs` after delivery changes.
