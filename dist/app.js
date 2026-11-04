@@ -21,7 +21,7 @@ for(let i=armyCardOrder.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1)
 armyCardOrder.unshift(...pinnedArmyIds.map(id=>armies.find(army=>army.id===id)));
 armyCardOrder.push(armies.find(army=>army.id==='dwarfs'));
 // Variant groups: near-identical models share one army card and switch through tabs on the model page.
-const variantGroups=await fetch('variants.json?v=20261104-pixel-aligned').then(r=>r.json()).catch(()=>[]);
+const variantGroups=await fetch('variants.json?v=20261104-slaanesh-champion-card-name').then(r=>r.json()).catch(()=>[]);
 const descriptionParagraphs=(text,links=[])=>text.trim().split(/\r?\n\s*\r?\n/).map(paragraph=>`<p>${creditText({creditLinks:links},paragraph.trim()).replace(/\r?\n/g,'<br>')}</p>`).join('');
 const escape=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const neutralTextColor=hex=>{const rgb=[1,3,5].map(offset=>Number.parseInt(hex.slice(offset,offset+2),16)/255),luminance=rgb.map(value=>value<=.04045?value/12.92:((value+.055)/1.055)**2.4).reduce((sum,value,index)=>sum+value*[.2126,.7152,.0722][index],0);return luminance>.36?'#111111':'#ffffff';};
