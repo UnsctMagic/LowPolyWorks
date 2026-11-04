@@ -14211,7 +14211,7 @@
   },
   {
     "id": "warrior-of-khorne-cleaver",
-    "file": "WH_WOC_WarriorKhorneGW02.mdx",
+    "file": "WH_WOC_WarriorKhorneGW03.mdx",
     "name": "Warrior of Khorne · Cleaver",
     "army": "warriors-of-chaos",
     "description": "The Warriors of Chaos that follow the Blood God, as with all servants of the Ruinous Powers, are not limited to the primitive tribes of the north. His grasp can reach the heart of every soldier, every warrior, every life-taker. When a noble Knight of Bretonnia or a Templar of the Empire falls to His worship it is because they forget why they kill. To change from killing for the common good to killing only because one wants to – because the act is pleasing – is when the righteous have fallen from their path. These are the warriors Khorne embraces, never to release. These are the converts that He savours.",
@@ -14372,7 +14372,7 @@
       },
       {
         "index": 17,
-        "vertices": 129,
+        "vertices": 104,
         "triangles": 78,
         "material": 4,
         "textures": [
@@ -14390,7 +14390,7 @@
       },
       {
         "index": 19,
-        "vertices": 17,
+        "vertices": 15,
         "triangles": 15,
         "material": 16,
         "textures": [
@@ -14409,7 +14409,7 @@
       },
       {
         "index": 21,
-        "vertices": 21,
+        "vertices": 20,
         "triangles": 26,
         "material": 17,
         "textures": [
@@ -14511,6 +14511,15 @@
         "textures": [
           "Units\\Creeps\\Magnataur\\Magnataur.blp"
         ]
+      },
+      {
+        "index": 32,
+        "vertices": 18,
+        "triangles": 14,
+        "material": 22,
+        "textures": [
+          "Abilities\\Weapons\\FlamingArrow\\Fire10022.blp"
+        ]
       }
     ],
     "sequences": [
@@ -14527,7 +14536,7 @@
       "Portrait Talk",
       "Stand - 3"
     ],
-    "bytes": 107395,
+    "bytes": 104205,
     "portraitBackdropGeosets": [
       2
     ],
@@ -14615,9 +14624,13 @@
         "url": "https://www.hiveworkshop.com/members/forgotten_warlord.182381/"
       }
     ],
-    "sha256": "09cb16bc7447829b84f34218dad1f94dc79b7ab2b4123a4a457d1663d2e04c44",
-    "imageVersion": "20261104-cleaver-shoulder",
+    "sha256": "b1cf7aea4b4205e2099e3b987dc2db83ff4e9f4c8b8f9c36d8cc90d928079b71",
+    "imageVersion": "20261104-cleaver-gw03",
     "changelog": [
+      {
+        "date": "4 November 2026",
+        "text": "Optimized, added ember to the sword."
+      },
       {
         "date": "4 November 2026",
         "text": "Fixed missing shoulder on Cleaver"
