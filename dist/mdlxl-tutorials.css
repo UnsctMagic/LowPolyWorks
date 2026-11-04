@@ -69,3 +69,7 @@
 #tutorial-fx .player-frame{aspect-ratio:11/7}
 #tutorial-fx .reference details{border-bottom:1px solid #75634466;padding:15px 0}#tutorial-fx .reference summary{cursor:pointer;color:var(--bone)}#tutorial-fx .reference dt{color:var(--bone);margin-top:16px}#tutorial-fx .reference dd{margin:7px 0 20px;line-height:1.6}
 [data-tutorial-language=mordor] #tutorial-fx :is(summary,dt,dd){font-family:MDLxL-Mordor,serif}
+
+#tutorial-uvgrid .gif-player{width:min(100%,1158px)}
+#tutorial-uvgrid .player-frame{aspect-ratio:1144/774}
+#tutorial-uvgrid .uv-keypad{display:grid;grid-template-columns:repeat(3,64px);gap:6px;width:max-content;margin:12px auto;font:18px/1.5 ui-monospace,monospace;text-align:center}#tutorial-uvgrid .uv-keypad kbd{border:1px solid #756344;background:#121b28;padding:7px;color:var(--bone)}
