@@ -17,7 +17,7 @@ test('Vault country analytics remains owner-only and returns no browser identifi
   {pathname:`live/v3/2026-10-11/visit/site/none/${visitor}/NL/${randomUUID()}.json`,uploadedAt:'2026-10-11T10:00:00.000Z'},
   {pathname:`live/v2/2026-10-08/download/graveguard/mdx/${visitor}/${randomUUID()}.json`,uploadedAt:'2026-10-08T10:00:00.000Z'},
  ];
- const handler=createHandler(f,{listBlobs:async()=>({blobs,hasMore:false}),loadModels:async()=>[{id:'graveguard',name:'Graveguard'}],env:{}});
+ const handler=createHandler(f,{loadReleases:async()=>[],listBlobs:async()=>({blobs,hasMore:false}),loadModels:async()=>[{id:'graveguard',name:'Graveguard'}],env:{}});
  async function call(session){const res={setHeader(){},status(code){this.statusCode=code;return this;},json(value){this.body=value;},end(){}};await handler({url:'/api/publishing?action=analytics',method:'GET',headers:session?{cookie:'lpw_session='+session}:{}},res);return res;}
  assert.equal((await call()).statusCode,401);assert.equal((await call(other.session)).statusCode,403);
  const result=await call(request.session);assert.equal(result.statusCode,200);assert.deepEqual(result.body.totals,{pageLoads:1,downloadClicks:1,modelViews:0,uniqueVisitors:1});assert.deepEqual(result.body.countries,[{code:'NL',name:'Netherlands',uniqueVisitors:1,share:1}]);assert(!JSON.stringify(result.body).includes(visitor));

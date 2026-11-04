@@ -206,7 +206,6 @@ async function stash(){
  panel.innerHTML=`<h2>Shredder's Stash</h2><div class="metrics">${metric(stats.people,'People who played with him')}${metric(stats.interactions.feed.count,'Peanuts fed')}${metric(stats.interactions.feed.people,'People who fed him')}</div><table><thead><tr><th scope="col">What they did</th><th scope="col">People</th><th scope="col">Times</th></tr></thead><tbody>${rows.map(([kind,label,detail])=>`<tr><td>${label}<br><span class="hint">${detail}</span></td><td>${number(stats.interactions[kind].people)}</td><td>${number(stats.interactions[kind].count)}</td></tr>`).join('')}</tbody></table><p class="hint" style="margin-top:12px">People are anonymous browsers. Your own play is never counted: browsers that opened the site with the opt-out link, the peanut test view and localhost send nothing. ${optOutSaved===false?'<strong>This browser blocks site storage, so it could not be excluded automatically.</strong> ':'This browser is excluded again every time you log in to the Vault. '}On a device where you don\'t open the Vault, use <a href="https://www.lowpolyworks.com/?tracking-opt-out" target="_blank" rel="noopener">Exclude this browser</a>. ${stats.lastPlayedAt?'Last play recorded '+escape(new Date(stats.lastPlayedAt).toLocaleString())+'.':'No play recorded yet.'} Updated ${escape(new Date(report.asOf).toLocaleString())}.</p>`;
 }
 // MDLxL in-app updates, beside GitHub's count of every release ZIP download (the website button and the updater together).
-const releaseDownloads=fetch('https://api.github.com/repos/UnsctMagic/MDLxL/releases?per_page=100',{headers:{Accept:'application/vnd.github+json'}}).then(r=>r.ok?r.json():null).then(list=>list&&new Map(list.filter(r=>!r.draft).map(r=>{const version=r.tag_name.replace(/^v/,'');return [version,r.assets.find(a=>a.name===`MDLxL-${version}-win32-x64.zip`)?.download_count||0];}))).catch(()=>null);
 // MDLxL tutorial opens. Titles come from the published tutorial page, so a new tutorial needs no Vault change.
 const tutorialTitles=fetch(SITE+'/mdlxl/tutorials/content.html?vault='+Date.now(),{cache:'no-store'}).then(r=>r.ok?r.text():'').then(html=>{const page=new DOMParser().parseFromString(html,'text/html');return new Map([...page.querySelectorAll('.tutorial-card[data-tutorial]')].map(card=>[card.dataset.tutorial,page.getElementById(card.getAttribute('aria-controls'))?.querySelector('h3')?.textContent.trim()||card.dataset.tutorial]));}).catch(()=>new Map());
 const tutorialLanguageNames={en:'English',ru:'Russian',es:'Spanish',zh:'Chinese',fr:'French',de:'German',mordor:'Mordor'};
@@ -221,11 +220,11 @@ async function fillMdlxlTutorials(panel,stats){
 function mdlxlUpdates(updates){
  return `<details class="country-activity" id="mdlxl-updates" open><summary>MDLxL in-app updates · <span id="update-count">${number(updates.downloads)}</span></summary><div class="metrics"><div class="metric"><strong id="update-total">${number(updates.downloads)}</strong><span>Updates installed in the app</span></div><div class="metric"><strong id="zip-total">…</strong><span>All release ZIP downloads (GitHub)</span></div></div><table><thead><tr><th scope="col">Version</th><th scope="col" class="num">In-app updates</th><th scope="col" class="num">All ZIP downloads</th></tr></thead><tbody></tbody></table><p class="hint">In-app updates count each update MDLxL installs through its own updater, starting with updates to MDLxL 0.31.0; versions without a published GitHub release, such as test builds, are left out. All ZIP downloads come from GitHub and include the website button, the updater and direct downloads. The table lists the five newest versions; the totals above cover every version. ${updates.lastDownloadedAt?'Last update recorded '+escape(new Date(updates.lastDownloadedAt).toLocaleString())+'.':'No in-app update recorded yet.'}</p></details>`;
 }
-async function fillMdlxlUpdates(panel,updates){
+function fillMdlxlUpdates(panel,updates,releases){
  const section=panel.querySelector('#mdlxl-updates'),body=section.querySelector('tbody'),own=new Map(updates.versions.map(row=>[row.version,row])),row=(version,zips)=>`<tr><td>${escape(version)}</td><td class="num">${number(own.get(version)?.downloads)}</td><td class="num">${zips===undefined?'…':zips===null?'—':number(zips)}</td></tr>`;
  const newest=(a,b)=>b.split('.').reduce((order,part,i)=>order||Number(part)-Number(a.split('.')[i]),0);
  body.innerHTML=updates.versions.slice(0,5).map(r=>row(r.version)).join('');
- const github=await releaseDownloads;if(!section.isConnected)return;
+ const github=releases?new Map(releases):null;
  section.querySelector('#zip-total').textContent=github?number([...github.values()].reduce((a,b)=>a+b,0)):'—';
  // Only published releases count: the updater installs nothing else, so any other version is a test build.
  if(github){const total=number([...own].reduce((sum,[version,r])=>sum+(github.has(version)?r.downloads||0:0),0));section.querySelector('#update-total').textContent=section.querySelector('#update-count').textContent=total;}
@@ -248,7 +247,7 @@ async function activity(){
 ${mdlxlUpdates(report.updates||{downloads:0,versions:[]})}
 ${mdlxlTutorials(report.tutorials||{opens:0,people:0,tutorials:[]})}
 <p class="hint">Downloads are download-button clicks. Model views count a browser opening a model page, at most once per model per day; ${firstView?'recorded since '+escape(bucketLabel(firstView,'day',true)):'not recorded yet'}. Days follow Amsterdam time.</p>`;
- fillMdlxlUpdates(panel,report.updates||{downloads:0,versions:[]});fillMdlxlTutorials(panel,report.tutorials||{opens:0,people:0,tutorials:[]});
+ fillMdlxlUpdates(panel,report.updates||{downloads:0,versions:[]},report.mdlxlReleaseDownloads);fillMdlxlTutorials(panel,report.tutorials||{opens:0,people:0,tutorials:[]});
  const $=selector=>panel.querySelector(selector),tables=new Set();let picked='';
  $('#unit-table').ontoggle=event=>{state.unitsOpen=event.target.open;saveActivity();};
  $('#pick-army').value=state.army;$('#pick-search').value=state.query;

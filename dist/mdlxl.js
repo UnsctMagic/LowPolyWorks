@@ -1,5 +1,5 @@
 import {mdlxlLanguages,mdlxlLanguage,mdlxlText,localizedMdlxlMarkup,applyMdlxlShellLanguage} from './mdlxl-languages.js?v=20261104-fr-de-fx';
-import {readMdlxlRoute,mdlxlHref} from './mdlxl-routes.js?v=20261104-fr-de-fx';
+import {readMdlxlRoute,mdlxlHref} from './mdlxl-routes.js?v=20261105-uv-grid';
 import {mdlxlLogoMarkup,igniteMdlxlLogo} from './mdlxl-eyes.js?v=20261029-project-branding';
 const REPO='https://github.com/UnsctMagic/MDLxL';
 const API='https://api.github.com/repos/UnsctMagic/MDLxL';
@@ -94,7 +94,7 @@ export function notesSource(release,language='en'){
  const match=[...String(release.body||'').matchAll(/\[([^\]]+)\]\((https:\/\/github\.com\/UnsctMagic\/MDLxL\/blob\/[^\s)]+)\)/g)].find(item=>item[1]===label);
  return match?match[2].replace('https://github.com/UnsctMagic/MDLxL/blob/','https://raw.githubusercontent.com/UnsctMagic/MDLxL/'):null;
 }
-export function downloadUrl(release){return (release.assets?.find(a=>a.name===`MDLxL-${release.tag_name.replace(/^v/,'')}-win32-x64.zip`)||release.assets?.find(a=>a.name==='MDLxL-win32-x64.zip'))?.browser_download_url||null;}
+export function downloadUrl(release){return release.assets?.some(a=>a.name==='MDLxL-win32-x64.zip')?REPO+'/releases/latest/download/MDLxL-win32-x64.zip':release.assets?.find(a=>a.name===`MDLxL-${release.tag_name.replace(/^v/,'')}-win32-x64.zip`)?.browser_download_url||null;}
 async function json(url){const response=await fetch(url,{cache:'no-store'});if(!response.ok)throw Error('GitHub is temporarily unavailable.');return response.json();}
 async function notes(release,language){
  if(officialNotes(release)){const post=await json(`/mdlxl/releases/${release.tag_name.replace(/^v/,'')}.json`);if(post.version!==release.tag_name.replace(/^v/,'')||typeof (post.notes?.[language]?.trim()?post.notes[language]:post.notes?.en)!=='string')throw Error('Patch notes could not be loaded.');return post.notes[language]?.trim()?post.notes[language]:post.notes.en;}
@@ -129,7 +129,7 @@ export async function renderMdlxl(app,routeIsCurrent,recordUsage){
  const latestTask=latestPromise.then(release=>{if(!currentDownload())return;const url=downloadUrl(release);if(!url)throw Error('No application ZIP');button.href=url;button.removeAttribute('aria-disabled');app._mdlxlDownloadVersion=release.tag_name;app._mdlxlDownloadError=false;button.textContent=t('Download')+' '+release.tag_name+' ↗';app.querySelector('#mdlxl-version').textContent=t('Windows · Portable ZIP');const source=release.assets?.find(a=>/FFmpeg-corresponding-source.*\.zip$/i.test(a.name));if(source){const link=app.querySelector('#mdlxl-ffmpeg-source');link.href=source.browser_download_url;link.hidden=false;}}).catch(()=>{if(currentDownload()){app._mdlxlDownloadError=true;button.textContent=t('Download unavailable');app.querySelector('#mdlxl-version').textContent=t('Please try again later.');}});
  const panel=app.querySelector('#mdlxl-content');
  if(section==='tutorials'){
-  try{const {renderTutorials}=await import('./mdlxl-tutorials.js?v=20261104-lazy-media');if(!isCurrent())return;await renderTutorials(panel,isCurrent,navigation.tutorial);}catch{if(isCurrent())panel.innerHTML=localize('<p>Tutorials could not load. Please reload the page.</p>');}
+  try{const {renderTutorials}=await import('./mdlxl-tutorials.js?v=20261105-uv-grid');if(!isCurrent())return;await renderTutorials(panel,isCurrent,navigation.tutorial);}catch{if(isCurrent())panel.innerHTML=localize('<p>Tutorials could not load. Please reload the page.</p>');}
   await latestTask;return;
  }
  if(section!=='tutorials'){delete panel.dataset?.tutorialLanguage;panel.removeAttribute?.('lang');}
@@ -144,7 +144,7 @@ export async function renderMdlxl(app,routeIsCurrent,recordUsage){
   if(!isCurrent())return;
   const available=[latest,...recent.filter(r=>!r.draft&&!r.prerelease&&r.id!==latest.id)];
   // Same-day releases share one post: [shown card, releases folded beneath it, newest first].
-  const folds=new Map([['v0.38.0',['v0.38.1']],['v0.37.2',['v0.37.1','v0.37.0']],['v0.32.1',['v0.32.0']],['v0.21.1',['v0.21.2']],['v0.25.1',['v0.25.0']],['v0.29.2',['v0.29.1','v0.29.0']],['v0.29.1',['v0.29.0']]].map(([shown,inner])=>[available.find(r=>r.tag_name===shown),inner.map(tag=>available.find(r=>r.tag_name===tag)).filter(Boolean)]).filter(([shown,inner])=>shown&&inner.length));
+  const folds=new Map([['v0.38.0',['v0.38.2']],['v0.37.2',['v0.37.1','v0.37.0']],['v0.32.1',['v0.32.0']],['v0.21.1',['v0.21.2']],['v0.25.1',['v0.25.0']],['v0.29.2',['v0.29.1','v0.29.0']],['v0.29.1',['v0.29.0']]].map(([shown,inner])=>[available.find(r=>r.tag_name===shown),inner.map(tag=>available.find(r=>r.tag_name===tag)).filter(Boolean)]).filter(([shown,inner])=>shown&&inner.length));
   const folded=new Set([...folds.values()].flat()),plain=release=>release.tag_name.replace(/^v/,'');
   const releases=available.filter(r=>!folded.has(r)).slice(0,5);
   const query=new URLSearchParams(location.search),version=(query.get('version')||'').replace(/^v/,''),host=[...folds].find(([shown,inner])=>!folded.has(shown)&&inner.some(r=>plain(r)===version))?.[0],shownVersion=host?plain(host):version,chosen=releases.findIndex(r=>r.tag_name.replace(/^v/,'')===shownVersion),open=chosen<0?0:chosen,initialLanguage=Object.hasOwn(languages,query.get('lang'))?query.get('lang'):'en';
