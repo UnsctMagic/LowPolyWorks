@@ -40,7 +40,7 @@ test('country shares preserve old totals, deduplicate browsers and use the first
 });
 test('private country reports keep authentication and aggregate across listing pages',async()=>{
  const blob=(visitorId,country)=>({pathname:eventPath({id:randomUUID(),kind:'visit',model:'site',format:'none',visitorId,country},now),uploadedAt:now});
- const pages=[[blob(id,'US')],[blob(randomUUID(),'NL')]],handler=createReportHandler({loadModels:async()=>models,listBlobs:async({cursor})=>({blobs:pages[cursor?1:0],hasMore:!cursor,cursor:'next'}),env:{USAGE_READ_TOKEN:'secret'}});
+ const pages=[[blob(id,'US')],[blob(randomUUID(),'NL')]],handler=createReportHandler({loadReleases:async()=>[],loadModels:async()=>models,listBlobs:async({cursor})=>({blobs:pages[cursor?1:0],hasMore:!cursor,cursor:'next'}),env:{USAGE_READ_TOKEN:'secret'}});
  const denied=response();await handler({method:'GET',url:'/api/report',headers:{}},denied);assert.equal(denied.statusCode,401);
  const res=response();await handler({method:'GET',url:'/api/report',headers:{authorization:'Bearer secret'}},res);
  assert.equal(res.statusCode,200);assert.equal(res.body.totals.uniqueVisitors,2);assert.equal(res.body.countries.length,2);assert(res.body.countries.every(row=>row.share===0.5));assert(!JSON.stringify(res.body).includes(id));
@@ -56,7 +56,7 @@ test('newly published models are accepted and reported without restarting the tr
  const collect=createEventsHandler({loadModels:()=>trackedModels({loadUnits:async()=>[]}),writeBlob:async(pathname,data)=>{
   const event=JSON.parse(data);blobs.push({pathname,uploadedAt:event.recordedAt});
  }});
- const read=createReportHandler({loadModels:()=>trackedModels({loadUnits:async()=>[]}),listBlobs:async()=>({blobs,hasMore:false}),env:{USAGE_READ_TOKEN:'secret'}});
+ const read=createReportHandler({loadReleases:async()=>[],loadModels:()=>trackedModels({loadUnits:async()=>[]}),listBlobs:async()=>({blobs,hasMore:false}),env:{USAGE_READ_TOKEN:'secret'}});
  async function download(model,format){
   const res=response();
   await collect({method:'POST',headers:{origin:'https://www.lowpolyworks.com'},body:JSON.stringify({id:randomUUID(),kind:'download',model,format})},res);
@@ -88,7 +88,7 @@ test('catalogue outages are explicit and do not prevent visits or application tr
   assert.equal(res.statusCode,status);
  }
  assert.equal(written.length,2);
- const read=createReportHandler({listBlobs:async()=>({blobs:[],hasMore:false}),env:{USAGE_READ_TOKEN:'secret'}}),res=response();
+ const read=createReportHandler({loadReleases:async()=>[],listBlobs:async()=>({blobs:[],hasMore:false}),env:{USAGE_READ_TOKEN:'secret'}}),res=response();
  await read({method:'GET',url:'/api/report',headers:{authorization:'Bearer secret'}},res);
  assert.equal(res.statusCode,503);
 });
