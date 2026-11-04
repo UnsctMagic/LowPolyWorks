@@ -1,0 +1,50 @@
+const electronCapture=require('electron'),CaptureModule=require('module'),captureLoad=CaptureModule._load;
+const HiddenCaptureWindow=new Proxy(electronCapture.BrowserWindow,{construct(Target,[options]){return new Target({...options,show:false,webPreferences:{...options.webPreferences,offscreen:true}})}});
+const hiddenElectron=new Proxy(electronCapture,{get(target,key){return key==='BrowserWindow'?HiddenCaptureWindow:Reflect.get(target,key)}});
+CaptureModule._load=function(name,...args){return name==='electron'?hiddenElectron:captureLoad.call(this,name,...args)};
+(async()=>{const {translate}=await import('file:///D:/Codex/french-german/MDLxL/src/localization.js');const locale="de";const localizeCode=code=>code.replace(/\[aria-label(\^?=)(\\?["'])(.*?)\2\]/g,(_,op,q,text)=>{let value=text;if(op==='^='&&text==='Select geoset ')value=translate('Select geoset 0',locale).replace(/0$/,'');else value=translate(text,locale);return '[aria-label'+op+q+value+q+']'}).replaceAll("startsWith('Grabthrough')",'startsWith('+JSON.stringify(translate('Grabthrough',locale))+')');
+const fs=require('fs'),{app}=require('electron');
+const root='D:/Codex/french-german/MDLxL',out='D:/Codex/french-german/captures/de',front=[0,7,1,6,2];
+process.env.MDLVIS_HEADLESS='1';process.env.MDLXL_TEST_HOOK='1';process.env.MDLXL_PROFILE=out+'/profile-live-'+Date.now();process.env.MDLVIS_GAME_DATA='D:/Warcraft III';fs.mkdirSync(process.env.MDLXL_PROFILE,{recursive:true});fs.writeFileSync(process.env.MDLXL_PROFILE+'/settings.json',JSON.stringify({preferences:{language:locale}}));process.argv.push(out+'/Live_Select.mdx');
+const sleep=ms=>new Promise(r=>setTimeout(r,ms));let started=false;
+app.on('browser-window-created',(_,win)=>{if(started)return;started=true;win.setBounds({x:-3000,y:0,width:1200,height:900});win.webContents.on('did-finish-load',async()=>{const wc=win.webContents;const run=async(code)=>{try{return await wc.executeJavaScript(code)}catch(e){throw Error(code.slice(0,400)+'\n'+e.stack)}};wc.on('console-message',(_,level,message)=>fs.appendFileSync(out+'/live-console.txt',String(message)+'\n'));try{
+const nativeExecute=wc.executeJavaScript.bind(wc);wc.executeJavaScript=(code,...args)=>nativeExecute(localizeCode(code),...args);win.hide();wc.setBackgroundThrottling(false);for(let n=0;n<100;n++){if(await wc.executeJavaScript('document.documentElement.lang')===locale)break;await sleep(50)}if(await wc.executeJavaScript('document.documentElement.lang')!==locale)throw Error('Wrong native language');await wc.executeJavaScript('document.fonts.ready.then(()=>true)');await sleep(1300);await run(require(root+'/test/helpers/fiber-probe.cjs').PROBE_SOURCE);
+await run(`(()=>{for(const el of document.querySelectorAll('input[aria-label^="Select geoset "]'))if(el.checked)el.click();document.querySelector('[aria-label="Select geoset 25"]').click();for(const l of document.querySelectorAll('label'))if(l.textContent.trim().startsWith('Grabthrough')&&l.textContent.length<50){const i=l.querySelector('input');if(i?.checked)i.click()}})()`);await sleep(100);
+await run(`findFiberProps('[aria-label="3D model viewport"]',p=>p.onSelectionChange&&p.selectionByGeoset).onSelectionChange({25:${JSON.stringify(front.flatMap(r=>Array.from({length:9},(_,i)=>r*9+i)))}})`);
+await sleep(120);await run("document.querySelector('[data-hotkey=uv]').click()");await sleep(1800);
+await run(`(()=>{const el=document.querySelector('[aria-label="Standard projection view"]');el.value='front';el.dispatchEvent(new Event('change',{bubbles:true}));const b=document.querySelector('button[aria-label="Live Select"]');if(b.getAttribute('aria-pressed')!=='true')b.click();})()`);await sleep(50);
+
+await run(`(()=>{const i=document.querySelector('button[aria-label="Grabthrough"]');if(i.getAttribute('aria-pressed')==='true')i.click()})()`);await sleep(50);
+await run(`(()=>{const s=findFiberState('.uv-tab-window .game-preview-root',v=>v?.native&&v?.controls),c=s.controls.object,old=s.controls.target.clone(),at=old.clone().set(8,0,93);c.position.add(at.clone().sub(old));s.controls.target.copy(at);c.zoom=16.5;c.updateProjectionMatrix();s.controls.update();s.redraw();const el=document.querySelector('.uv-map-pane canvas'),u=findFiberState(el,v=>v?.uv&&v?.draw&&Number.isFinite(v.zoom)),r=el.getBoundingClientRect(),im=u.image,aspect=(im.naturalWidth||im.width)/(im.naturalHeight||im.height),base=Math.max(20,Math.min((r.width-40)/2.7,(r.height-40)/2.3));u.zoom=6;const sx=base*(aspect>=1?aspect:1)*u.zoom,sy=base*(aspect>=1?1:1/aspect)*u.zoom;u.panX=(.5-.28)*sx;u.panY=(.5-.93)*sy;u.draw();document.querySelector('.uv-side-controls').scrollTop=140})()`);await sleep(160);
+const keys=await require(out+'/capture-keys.cjs')(wc,win,out),{down,up,mouse,pulse,manifest}=keys;
+const props=()=>run(`(()=>{const p=findFiberProps('.uv-tab-window .game-preview-root',p=>p.previewSelectionMode&&p.previewOverlay);return{grab:p.previewOverlay.grabThrough,ids:p.selectionByGeoset[25]||[],eligible:p.previewEligibleByGeoset[25]}})()`);
+const shot=async(clip,ms,phase)=>{const p=await props();if(p.grab!==false)throw Error('Grabthrough must remain off');await keys.shot(clip,ms,phase);manifest[clip].at(-1).grabThrough=false};
+const project=idx=>run(`(()=>{const s=findFiberState('.uv-tab-window .game-preview-root',v=>v?.native&&v?.controls),c=s.controls.object,r=s.controls.domElement.getBoundingClientRect(),a=s.particleSourceModel.Geosets[25].Vertices,p=s.controls.target.clone().fromArray(a,${idx}*3).project(c);return{x:r.x+(p.x+1)*r.width/2,y:r.y+(1-p.y)*r.height/2}})()`);
+const uvPoint=(u,v)=>run(`(()=>{const el=document.querySelector('.uv-map-pane canvas'),s=findFiberState(el,v=>v?.uv&&v?.draw&&Number.isFinite(v.zoom)),r=el.getBoundingClientRect(),im=s.image,aspect=(im.naturalWidth||im.width)/(im.naturalHeight||im.height),base=Math.max(20,Math.min((r.width-40)/2.7,(r.height-40)/2.3)),sx=base*(aspect>=1?aspect:1)*s.zoom,sy=base*(aspect>=1?1:1/aspect)*s.zoom;return{x:r.x+(r.width-sx)/2+s.panX+${u}*sx,y:r.y+(r.height-sy)/2+s.panY+${v}*sy}})()`);
+const empty=await run(`(()=>{const r=document.querySelector('.uv-tab-window .game-preview-root canvas').getBoundingClientRect();return{x:r.right-8,y:r.top+8}})()`);
+mouse('mouseMove',empty.x,empty.y);down('a');mouse('mouseDown',empty.x,empty.y);mouse('mouseUp',empty.x,empty.y);up('a');await sleep(70);
+await shot('live-selection',850,'ready');
+const ring=await Promise.all(Array.from({length:9},(_,i)=>project(i))),a={x:Math.min(...ring.map(p=>p.x))-3,y:Math.min(...ring.map(p=>p.y))-3},b={x:Math.max(...ring.map(p=>p.x))+3,y:Math.max(...ring.map(p=>p.y))+3};
+mouse('mouseMove',a.x,a.y);down('a');await shot('live-selection',150,'select-key');mouse('mouseDown',a.x,a.y);
+for(let i=0;i<=36;i++){mouse('mouseMove',a.x+(b.x-a.x)*i/36,a.y+(b.y-a.y)*i/36,['leftButtonDown']);await shot('live-selection',1000/30,'front-marquee')}
+mouse('mouseUp',b.x,b.y);up('a');await sleep(80);await shot('live-selection',1100,'front-selected');
+const first=await props();if(first.ids.length!==9||first.ids.some(i=>Math.floor(i/9)!==0))throw Error('Main selection must be the front center group: '+JSON.stringify(first));
+await run(`document.querySelector('button[aria-label="Live Select"]').style.outline='';document.querySelector('.uv-toolbox [data-hotkey=translate]').style.outline=''`);await sleep(40);
+{const pic=await win.capturePage({stayHidden:true,stayAwake:true}),size=pic.getSize();fs.writeFileSync(out+'/'+'live'+'-tool.png',pic.toPNG());const targets=await wc.executeJavaScript('('+"()=>[\"button[aria-label=\\\"Live Select\\\"]\",\".uv-toolbox [data-hotkey=translate]\"].map(selector=>{const r=document.querySelector(selector).getBoundingClientRect();return{selector,x:r.x+r.width/2,y:r.y+r.height/2}})"+')()');fs.writeFileSync(out+'/'+'live'+'-targets.json',JSON.stringify({size,targets,language:locale}));}if(process.env.LPW_TOOL_ONLY==='1'){app.exit(0);return;}
+await run(`document.querySelector('button[aria-label="Live Select"]').style.outline='';document.querySelector('.uv-toolbox [data-hotkey=translate]').style.outline=''`);
+const targets=[[.1579593271,.9573460817],[.3020715415,.9558552504],[.3363603055,.9011920094],[.3701521456,.9563521743],[.3969868422,.9056644440],[.2652980983,.9021858573],[.1982113719,.9011920094],[.2310093194,.9563521743]],groups=[];
+await shot('live-action',700,'ready');
+for(let n=0;n<front.length;n++){
+ const r=front[n];
+ if(n){const p=await project(r*9+8);mouse('mouseMove',p.x,p.y);down('a');mouse('mouseDown',p.x,p.y);await shot('live-action',1000/30,'pick-front-coordinate');mouse('mouseUp',p.x,p.y);up('a');await shot('live-action',1200,'pick-result');await pulse('live-action','e',['control'],1200,'expand-connected');}
+ const p=await props();if(p.ids.length!==9||p.ids.some(i=>Math.floor(i/9)!==r))throw Error('Expected front group '+r+': '+JSON.stringify(p.ids));groups.push({group:r,ids:p.ids,grabThrough:p.grab});
+ await pulse('live-action','m',[],150,'move-tool');await shot('live-action',150,'release');
+ const start=await uvPoint(.28,.95),end=await uvPoint(...targets[r]);mouse('mouseMove',start.x,start.y);mouse('mouseDown',start.x,start.y);
+ for(let j=1;j<=30;j++){mouse('mouseMove',start.x+(end.x-start.x)*j/30,start.y+(end.y-start.y)*j/30,['leftButtonDown']);await shot('live-action',1000/30,'separate-coordinates')}
+ mouse('mouseUp',end.x,end.y);await shot('live-action',450,'coordinates-separated');
+}
+await shot('live-action',1300,'five-front-groups-separated');fs.writeFileSync(out+'/live-manifest.json',JSON.stringify(manifest));fs.writeFileSync(out+'/live-groups.json',JSON.stringify(groups));fs.writeFileSync(out+'/live-last.png',(await win.capturePage({stayHidden:true,stayAwake:true})).toPNG());
+}catch(e){fs.writeFileSync(out+'/live-error.txt',e.stack||String(e))}finally{app.exit(0)}})});require(root+'/electron/main.cjs');
+
+
+})().catch(e=>{require("fs").writeFileSync("D:/Codex/french-german/captures/de/live-setup-error.txt",e.stack||String(e));require("electron").app.exit(1)});

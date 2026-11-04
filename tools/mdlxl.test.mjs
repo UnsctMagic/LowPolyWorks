@@ -1,3 +1,4 @@
+import {readFileSync,readdirSync} from 'node:fs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {markdown,notesSource,downloadUrl,creditLine,officialNotes,renderMdlxl} from '../dist/mdlxl.js';
@@ -52,4 +53,30 @@ test('credits distinguish creator profiles from the resources they made',()=>{
  resolveRelease({ok:true,json:async()=>({tag_name:'v0.99.1',assets:[{name:'MDLxL-0.99.1-win32-x64.zip',browser_download_url:'https://example.org/app.zip'},{name:'MDLxL-FFmpeg-corresponding-source.zip',browser_download_url:'https://example.org/source.zip'}]})});await rendering;
  button.onclick({preventDefault:()=>prevented++});assert.deepEqual(events,[['download','mdlxl','zip']]);
  assert.equal(prevented,1);assert.equal(button.href,'https://example.org/app.zip');assert.equal(source.onclick,undefined);
+});
+import {tutorialLanguages,tutorialText} from '../dist/mdlxl/tutorials/languages.js';
+test('French and German have tutorial pickers and native release-note sources',()=>{
+ for(const [language,label,suffix] of [['fr','Français','FR'],['de','Deutsch','DE']]){
+  assert(tutorialLanguages.some(item=>item.id===language&&item.label===label));
+  assert(tutorialText[language]?.loading);
+  const url='https://github.com/UnsctMagic/MDLxL/blob/v0.99.1/docs/RELEASE-0.99.1-'+suffix+'.md';
+  assert.equal(notesSource({body:'['+label+']('+url+')'},language),url.replace('github.com/UnsctMagic/MDLxL/blob/','raw.githubusercontent.com/UnsctMagic/MDLxL/'));
+ }
+});
+
+test('the next fixed-name portable release remains downloadable',()=>{
+ assert.equal(downloadUrl({tag_name:'v0.39.0',assets:[{name:'MDLxL-win32-x64.zip',browser_download_url:'fixed-application'}]}),'fixed-application');
+});
+
+test('French and German cover every current Spanish tutorial and its native media',()=>{
+ const base=new URL('../dist/mdlxl/tutorials/',import.meta.url);
+ const html=locale=>readFileSync(new URL(locale+'/content.html',base),'utf8');
+ const ids=source=>[...source.matchAll(/<article\b[^>]*id="tutorial-([^"]+)"/g)].map(match=>match[1]);
+ const media=locale=>readdirSync(new URL(locale+'/',base)).filter(name=>/\.(?:gif|png)$/.test(name)).sort();
+ const expected=ids(html('es'));assert(expected.includes('fx'),'Spanish inventory includes published FX guide');
+ for(const locale of ['fr','de']){
+  assert.deepEqual(ids(html(locale)),expected,locale+' tutorial coverage');
+  assert.deepEqual(media(locale),media('es'),locale+' native media inventory');
+  assert(html(locale).includes('/mdlxl/tutorials/fx/?lang='+locale),locale+' FX route');
+ }
 });

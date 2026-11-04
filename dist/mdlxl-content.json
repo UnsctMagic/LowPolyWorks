@@ -211,5 +211,437 @@
         "The Hive Workshop and XGM - Tutorials, tool documentation, maintainer explanations and community research that informed MDLxL's workflows and compatibility work. The complete source list is available in the community research bibliography."
       ]
     }
-  ]
+  ],
+  "locales": {
+    "fr": {
+      "intro": [
+        "Bienvenue dans MDLxL... l’héritier spirituel de MDLVis, abandonné mais toujours très apprécié.",
+        "Avant de continuer... MDLxL est actuellement conçu uniquement pour les modèles SD. Peut-être ira-t-il plus loin à l’avenir !",
+        "Depuis 2 000 ans, MDLVis plaît aux débutants comme aux modélistes expérimentés grâce à sa simplicité et sa facilité d’utilisation.",
+        "Depuis 2013, cette relique n’a reçu aucune mise à jour. Hélas, ses bugs provoquent encore parfois des envies de fracasser le clavier.",
+        "MDLxL est, au fond, né du manque de CTRL+Z dans mon logiciel de modélisation préféré.",
+        "J’ai essayé d’autres logiciels. J’ai essayé Blender... et pourtant, je revenais toujours à MDLVis. Mais avec si peu de CTRL+Z, je perdais vite la tête.",
+        "Heureusement, juste avant que le monde ne s’effondre sous un Skynet sorti des entrailles d’OpenAI, nous vivons à une époque où parler de ce que l’on veut créer est presque une façon de le créer...",
+        "Je n’avais que Codex et un rêve...",
+        "Le rêve de plus de CTRL+Z...."
+      ],
+      "story": [
+        "Alors, petite mise au point !",
+        "J’utilisais Codex pour coder ma carte quand l’idée m’est venue de redonner vie à MDLVis.",
+        "Je ne suis pas programmeur. Ce logiciel rassemble les fonctions dont j’avais besoin et que j’utilise, les retours d’autres utilisateurs, et de nombreuses heures à fixer un écran et à poser des questions.",
+        "Je n’ai pas écrit le code, mais je n’utilise plus que ce logiciel pour mes modèles, en l’ajustant au fil des bugs et des besoins.",
+        "Il repose surtout sur le travail d’Alexey2005 et de MagosX, avec certaines méthodes d’éditeurs plus récents et bien d’autres fonctions, tout en cherchant à rester simple à comprendre visuellement.",
+        "Mon but était simplement de réunir tout mon travail dans un seul logiciel et de le rendre aussi accessible et simple que possible pour moi et les autres, autant que Codex me le permet.",
+        "J’ai un bon TDAH... et je refuse de faire résumer mon logiciel d’IA par une IA ! Ce n’est hélas pas un Chevalier du Chaos à raconter... alors, soyez patients."
+      ],
+      "features": [
+        {
+          "title": "Un éditeur de modèles complet, à l’esprit classique de MDLVis et avec une vue à quatre panneaux.",
+          "lines": [
+            "- Des fonctions comme l’ancrage pendant le zoom pour travailler plus vite et plus précisément",
+            "- Courber et déformer les objets",
+            "- Séparer rapidement les objets, même par séparation nucléaire, puis les fusionner à nouveau",
+            "- Corriger rapidement les normales d’un clic"
+          ]
+        },
+        {
+          "title": "Un puissant éditeur UV",
+          "lines": [
+            "- Voir le modèle en direct à côté de sa carte UV",
+            "- Changer les textures à tout moment",
+            "- Sélectionner les coordonnées UV directement dans l’aperçu, même hors de la sélection principale, et séparer facilement les coordonnées superposées",
+            "- Appliquer rapidement la couleur d’équipe et d’autres filtres",
+            "- Pliage rapide et projection depuis la vue",
+            "- Activer la grille et l’alignement sur la grille",
+            "- Et bien plus encore !"
+          ]
+        },
+        {
+          "title": "De puissants éditeurs d’os, de mouvement et d’animation",
+          "lines": [
+            "- Bien plus précis et moins sujet aux bugs que MDLVis",
+            "- Copier-coller rapidement des chaînes de clés avec Surligner la chaîne (vers le bas !)",
+            "- Vue et éditeur de portrait, avec placement du modèle par les os, car certaines rotations de caméra ne sont pas valides en jeu",
+            "- Régler rapidement visibilité et RGB sur toutes les pistes et les nœuds, comme pour les géosets",
+            "- Parcourir rapidement les animations en faisant glisser sur la piste des clés."
+          ]
+        },
+        {
+          "title": "De puissants gestionnaires de textures, matériaux, nœuds et géosets",
+          "lines": [
+            "- Tous ont un mode simplifié et un mode normal ; le mode simplifié explique les nombreux noms et nombres obscurs de WC3",
+            "- Retrouver et trier facilement ses éléments, sans anciens codes numériques",
+            "- Visuel : tout est FACILE à voir et à trouver"
+          ]
+        },
+        {
+          "title": "Le tout nouvel EMTR, un éditeur visuel de particules",
+          "lines": [
+            "- Un éditeur visuel de particules dans l’esprit de MDLVis",
+            "- Une bibliothèque de toutes les particules natives de WC3",
+            "- Modifier visuellement les particules en mode simplifié, en les faisant glisser et en réglant les curseurs, et s’amuser enfin",
+            "- Créer facilement de nouvelles particules !",
+            "- DES RUBANS FACILES ! Sélectionnez les sommets, cliquez sur EMTR puis Créer un ruban : il est immédiatement fixé au bon endroit ! Réglez ensuite facilement la visibilité par animation."
+          ]
+        },
+        {
+          "title": "Forge",
+          "lines": [
+            "Un projecteur 2D vers 3D pour les formes simples, utilisable avec la bibliothèque native de WC3 ou toute image (c’est ainsi que j’ai créé les symboles de Slaanesh et Tzeentch et tous mes boucliers !)",
+            "Ajoutez une bordure, puis courbez et déformez vos créations. Les curseurs règlent le nombre de polygones et la complexité."
+          ]
+        },
+        {
+          "title": "Bitz",
+          "lines": [
+            "Conservez vos pièces préférées avec plusieurs profils RGB par animation et importez-les rapidement, pour les adeptes du kitbash comme moi."
+          ]
+        },
+        {
+          "title": "Citadel Paint",
+          "lines": [
+            "Un éditeur de textures en direct adapté à WC3 : accédez à la bibliothèque native, découpez des textures et utilisez-les comme tampons, pour les éclaircies ou pour texturer votre peinture.",
+            "Créez vite de nouvelles textures ou retravaillez les anciennes."
+          ]
+        },
+        {
+          "title": "Showcase",
+          "lines": [
+            "Un aperçu en direct du modèle avec enregistreur, pour créer des séquences et faire tourner le modèle.",
+            "Enregistrez en qualité adaptée à Hive, en qualité moyenne avec envoi automatique sur Catbox et liens prêts à publier, ou créez pour vous des GIFs de très haute qualité de 100 Mo, tout doux comme du beurre."
+          ]
+        },
+        {
+          "title": "OptimizeXL!",
+          "lines": [
+            "Un travail en cours, qui s’améliorera à mesure de mon utilisation. En gros, j’entraîne Codex à écrire du code corrigeant autant d’erreurs de modèles que possible.",
+            "Comme je ne sais pas vraiment ce que je fais la plupart du temps, je donne des modèles défectueux à Codex, nous cherchons ensemble des solutions, puis nous les intégrons au code.",
+            "Ce n’est pas parfait, mais c’est un début :)"
+          ]
+        }
+      ],
+      "closing": [
+        "Petite note : j’ai créé cet outil par amour et par besoin de modéliser, et je le partage :)",
+        "Je corrigerai les bugs, ajouterai des fonctions et l’améliorerai au fil de mes besoins et du temps disponible !"
+      ],
+      "creditIntro": [
+        "Avant tout, je ne prétends pas avoir créé tout cela. Je suis un chien dans l’espace qui demande les fonctions dont il a besoin et les assemble.",
+        "MDLxL bénéficie du travail des développeurs d’outils Warcraft III, auteurs de bibliothèques, artistes, créateurs de polices et de la communauté du modding. Merci aux personnes et projets suivants."
+      ],
+      "credits": [
+        {
+          "title": "Crédits et contributions",
+          "lines": [
+            "Unsanctioned Magic - Direction du projet, demandes de fonctions, méthodes de modélisation et tests pratiques.",
+            "Réalisé avec Codex Astra and Sol et Anthropic Claude."
+          ]
+        },
+        {
+          "title": "Aide et tests",
+          "lines": [
+            "HerrDave - Un grand merci pour son aide à adapter et affiner l’expérience MDLVis.",
+            "POMEXI - Retours généraux"
+          ]
+        },
+        {
+          "title": "Outils, bibliothèques et références techniques",
+          "lines": [
+            "Alexey / Алексей - Créateur de MDLVis. Crédits pour les méthodes d’édition d’origine, la disposition de l’interface, les raccourcis, les graphismes des barres d’outils et l’icône du logiciel.",
+            "4eb0da - Créateur de war3-model, utilisé pour lire et écrire les MDL/MDX, afficher Warcraft III et décoder le BLP1.",
+            "GhostWolf - Créateur de mdx-m3-viewer et de son vérificateur de modèles, utilisé par OptimizeXL. Autres références pour les objets d’événement, séquences globales et particules.",
+            "Fernando Sahmkow - Créateur de WhiteoutLib, utilisé par Citadel Paint pour le décodage des textures et l’export BLP/DDS, et comme référence de formats de modèles. Licence BSD 3-Clause.",
+            "Ladislav Zezula / Ladik - Créateur de CascLib, utilisé pour lire les installations locales de Warcraft III, et de StormLib, consulté pour le format MPQ.",
+            "Darithos - Auteur de W3ModelViewer, source du binaire Windows CascLib épinglé utilisé par MDLxL.",
+            "Retera - Créateur de Retera Model Studio et Warsmash Mod Engine. RMS a servi aux tests de compatibilité et aux références de formats ; la reconstitution de l’éclairage de Warsmash a guidé les formules d’atténuation de Citadel Paint.",
+            "Magos - Créateur de War3 Model Editor, référence importante pour l’édition de modèles Warcraft III.",
+            "Kanma / Philip Abbet - Créateur de BLPConverter, consulté pour le format BLP2.",
+            "Pillow contributors - Auteurs et mainteneurs du module BLP de Pillow, consulté pour le format BLP2.",
+            "Dominic Szablewski / phoboslab - Créateur de QOI, le format d’image utilisé pour stocker sans perte les images enregistrées."
+          ]
+        },
+        {
+          "title": "Bibliothèques du logiciel et enregistrement",
+          "lines": [
+            "- Three.js authors and contributors — Three.js, utilisé pour l’affichage, les caméras, les mathématiques et les textures. Licence MIT.",
+            "- Arseny Kapoulkine et contributeurs — meshoptimizer, utilisé pour simplifier les maillages dans OptimizeXL. Licence MIT.",
+            "- Angus Johnson et Timo — Clipper / clipper-lib, utilisé pour les opérations géométriques de Forge. Boost Software License 1.0. Inclut JSBN de Tom Wu, selon sa licence permissive d’origine.",
+            "- Brandon Jones, Colin MacKenzie IV et contributeurs — gl-matrix, mathématiques des vecteurs et matrices. Licence MIT.",
+            "- Meta Platforms et React contributors — React, React DOM et Scheduler, utilisés pour l’interface du logiciel. Licence MIT.",
+            "- Electron contributors — Electron, le framework de bureau, avec ses bases Chromium et Node.js et leurs auteurs. Electron est sous licence MIT ; les composants inclus gardent leurs licences.",
+            "- Lucide contributors et Cole Bemis — Icônes Lucide, dont les graphismes hérités de Feather. Licences ISC et MIT respectivement.",
+            "- Feross Aboukhadijeh et contributeurs — buffer. Jameson Little — base64-js. Fair Oaks Labs et contributeurs — ieee754. Bibliothèques de données binaires, sous licences MIT / BSD 3-Clause.",
+            "- FFmpeg developers — FFmpeg, utilisé pour l’export GIF de bureau. La version choisie utilise les termes LGPL 2.1.",
+            "- serversideup — ffmpeg-lgpl-builds, fournit la version Windows de FFmpeg. Ses dépendances et composants comprennent Intel oneVPL, Cisco OpenH264, mingw-w64/winpthreads, les bibliothèques GCC, les en-têtes NVIDIA et AMD AMF, chacun sous sa licence.",
+            "- Matt DesLauriers — gifenc, utilisé pour l’encodage GIF dans la version navigateur/de développement. Licence MIT."
+          ]
+        },
+        {
+          "title": "Graphismes, pinceaux et ressources de textures",
+          "lines": [
+            "- Blizzard Entertainment — Warcraft III et ses graphismes d’origine, dont les icônes d’interface, cadres de portraits humains et images sources des découpes de textures Paint incluses. Les modèles et textures chargés depuis le jeu de l’utilisateur restent l’œuvre de Blizzard.",
+            "- The original MDLVis authors — Anciens graphismes de l’interface MDLVis, comme indiqué plus haut.",
+            "- rubberduck — 60 Free GIMP / Krita Brushes. Masques adaptés pour six pinceaux de Citadel Paint. CC0 1.0.",
+            "- ElDuderino — Scratch / Damaged Paint Brush. Masques adaptés pour les pinceaux de peinture écaillée et usée. CC0 1.0.",
+            "- Graphismes générés par IA — Des graphismes de barre d’outils supplémentaires ont été générés pour MDLxL. OpenAI ImageGen a créé les arrière-plans d’aperçu et les éléments graphiques MDLxL documentés."
+          ]
+        },
+        {
+          "title": "Polices",
+          "lines": [
+            "Les polices Showcase suivantes proviennent de Google Fonts et sont distribuées sous la SIL Open Font License 1.1 :",
+            "- Cinzel Decorative — Natanael Gama.",
+            "- MedievalSharp — wmk69.",
+            "- Uncial Antiqua — Brian J. Bonislawsky / Astigmatic.",
+            "- Pirata One — Rodrigo Fuenzalida and Nicolas Massi.",
+            "- Almendra — Ana Sanfelippo.",
+            "- IM Fell English — Igino Marini.",
+            "- Lato — Łukasz Dziedzic / tyPoland.",
+            "- Lora — The Lora Project Authors.",
+            "- Open Sans — The Open Sans Project Authors.",
+            "- Orbitron — The Orbitron Project Authors.",
+            "- Oxanium — The Oxanium Project Authors.",
+            "- Rajdhani — Indian Type Foundry.",
+            "- Cormorant SC — The Cormorant Project Authors.",
+            "- Grenze Gotisch — The Grenze Gotisch Project Authors.",
+            "- Marcellus — Brian J. Bonislawsky / Astigmatic.",
+            "Tengwar Annatar — Johan Winge. Utilisée pour le mode Mordor facultatif selon sa licence freeware conditionnelle d’origine. La famille de polices, sa documentation et sa licence sont incluses ensemble."
+          ]
+        },
+        {
+          "title": "Outils de développement, services et recherches communautaires",
+          "lines": [
+            "Vite contributors - Développement du logiciel et création des bundles.",
+            "Rollup contributors - Création des bundles du logiciel.",
+            "esbuild contributors - Création rapide et optimisation des bundles.",
+            "Electron Packager contributors - Création des paquets de bureau.",
+            "Emscripten contributors - Outils de compilation des codecs natifs/WebAssembly.",
+            "CMake contributors - Outils de compilation native.",
+            "Ninja contributors - Outils de compilation native.",
+            "Kwah - Auteur de Basic Animations, consulté pour les conventions d’animation de Warcraft III.",
+            "Vinz - Auteur de Particle Emitters 2, consulté pour le comportement des particules et les différences entre éditeurs.",
+            "Hermit - Recherche sur Filter Mode citée dans Particle Emitters 2 de Vinz.",
+            "tillinghast - Recherche sur Animated Gravity citée dans Particle Emitters 2 de Vinz.",
+            "GhostWolf - Recherches sur la synchronisation des particules, Sort Primitives Far Z et Alpha Key citées dans Particle Emitters 2 de Vinz.",
+            "doom_sheep - Recherche sur l’interaction entre Squirt et Visibility citée dans Particle Emitters 2 de Vinz.",
+            "The Hive Workshop et XGM - Tutoriels, documentations, explications des mainteneurs et recherches communautaires qui ont guidé les méthodes et la compatibilité de MDLxL. La liste complète des sources figure dans la community research bibliography."
+          ]
+        }
+      ]
+    },
+    "de": {
+      "intro": [
+        "Willkommen bei MDLxL ... dem geistigen Nachfolger des eingestellten, aber noch immer beliebten MDLVis.",
+        "Bevor es losgeht ... MDLxL ist derzeit nur für SD-Modelle gedacht. Vielleicht kommt später mehr dazu!",
+        "Seit 2000 Jahren ist MDLVis dank seiner Einfachheit und Bedienbarkeit bei Einsteigern wie erfahrenen Modellierern beliebt.",
+        "Seit 2013 hat dieses alte Relikt kein Update mehr erhalten. Leider stecken noch immer Fehler darin, die einen gelegentlich auf die Tastatur einschlagen lassen.",
+        "MDLxL entstand im Grunde, weil mein Lieblingsprogramm zum Modellieren zu wenig CTRL+Z hatte.",
+        "Ich habe andere Programme ausprobiert. Auch Blender ... und am Ende landete ich doch wieder bei MDLVis. Aber mit so wenig CTRL+Z verlor ich langsam den Verstand.",
+        "Zum Glück leben wir, kurz bevor Skynet aus den Tiefen von OpenAI steigt und die Welt beendet, in einer Zeit, in der man etwas gewissermaßen schon erschaffen kann, indem man beschreibt, was man machen möchte ...",
+        "Ich hatte nur Codex und einen Traum ...",
+        "Den Traum von mehr CTRL+Z ..."
+      ],
+      "story": [
+        "Also, ein kurzer Hinweis!",
+        "Ich nutzte Codex zum Programmieren meiner Karte. Dabei kam die Idee auf, MDLVis wiederzubeleben.",
+        "Ich bin kein Programmierer. Hier stecken Funktionen, die ich brauche und nutze, Rückmeldungen anderer Nutzer und viele Stunden vor dem Bildschirm voller Fragen und Antworten drin.",
+        "Ich habe den Code nicht geschrieben. Inzwischen erstelle ich meine Modelle aber ausschließlich mit diesem Programm und passe es an, wenn Fehler oder neue Bedürfnisse auftauchen.",
+        "Die Grundlage stammt vor allem von Alexey2005 und MagosX, ergänzt um Arbeitsabläufe neuerer Editoren und viele weitere Funktionen. Dabei soll alles visuell leicht verständlich bleiben.",
+        "Mein Ziel war einfach, meine gesamte Arbeit in einem Programm zu bündeln und es für mich und andere so zugänglich und einfach zu machen, wie Codex es zulässt.",
+        "Ich habe ziemlich viel ADHS ... und weigere mich, mein KI-Programm von einer KI zusammenfassen zu lassen! Leider schreibe ich hier über keinen Chaosritter ... also habt etwas Geduld."
+      ],
+      "features": [
+        {
+          "title": "Vollständiger Modelleditor mit klassischem MDLVis-Gefühl und Vierfachansicht.",
+          "lines": [
+            "- Zusatzfunktionen wie Verankern beim Zoomen für schnelleres und genaueres Bearbeiten",
+            "- Objekte biegen und formen",
+            "- Objekte schnell trennen, auch nuklear, und rasch wieder zusammenführen",
+            "- Normalenprobleme mit einem Klick beheben"
+          ]
+        },
+        {
+          "title": "Leistungsfähiger UV-Editor",
+          "lines": [
+            "- Modell und UV-Karte direkt nebeneinander sehen",
+            "- Texturen während der Arbeit wechseln",
+            "- UV-Koordinaten direkt in der Vorschau auswählen, auch außerhalb der Hauptauswahl, und gefaltete Koordinaten leicht auseinanderziehen",
+            "- Teamfarbe und andere Filter schnell anwenden",
+            "- Schnell falten und aus der Ansicht projizieren",
+            "- Raster und Einrasten am Raster umschalten",
+            "- Und vieles mehr!"
+          ]
+        },
+        {
+          "title": "Leistungsfähige Editoren für Knochen, Bewegung und Animation",
+          "lines": [
+            "- Viel genauer und weniger fehleranfällig als MDLVis",
+            "- Keyframe-Ketten mit Kette hervorheben schnell kopieren und einfügen (nach unten!)",
+            "- Porträtansicht und Porträteditor samt Positionierung über Knochen, da bestimmte Kameradrehungen im Spiel ungültig sind",
+            "- Sichtbarkeit und RGB für alle Spuren und Knoten schnell einstellen, wie bei Geosets",
+            "- Durch Ziehen auf der Keyframe-Spur schnell durch Animationen gehen."
+          ]
+        },
+        {
+          "title": "Leistungsfähige Verwaltung für Texturen, Materialien, Knoten und Geosets",
+          "lines": [
+            "- Alle bieten einen einfachen und einen normalen Modus; der einfache erklärt viele rätselhafte WC3-Zahlen und Namen",
+            "- Inhalte einfach finden und sortieren, ohne uralte Zahlencodes",
+            "- Visuell: Alles ist LEICHT zu sehen und zu finden"
+          ]
+        },
+        {
+          "title": "Das neue EMTR, ein visueller Partikeleditor",
+          "lines": [
+            "- Visueller Partikeleditor im Geist von MDLVis",
+            "- Bibliothek aller nativen WC3-Partikel",
+            "- Partikel im einfachen Modus durch Ziehen und Regler visuell bearbeiten und endlich Spaß dabei haben",
+            "- Neue Partikel einfach erstellen!",
+            "- EINFACHE BÄNDER! Vertices auswählen, EMTR und Band erstellen anklicken: Schon sitzt das Band an der richtigen Stelle! Die Sichtbarkeit später einfach je Animation bearbeiten."
+          ]
+        },
+        {
+          "title": "Forge",
+          "lines": [
+            "Ein 2D-zu-3D-Projektor für einfache Formen. Nutzbar mit der nativen WC3-Bibliothek oder beliebigen Bildern (so entstanden etwa meine Slaanesh- und Tzeentch-Symbole und alle meine Schilde!).",
+            "Auch eine Einfassung lässt sich hinzufügen. Danach kann man alles biegen und formen. Regler bestimmen Polygonzahl und Komplexität."
+          ]
+        },
+        {
+          "title": "Bitz",
+          "lines": [
+            "Lieblingsteile mit mehreren RGB-Profilen über Animationen speichern und schnell importieren – für Kitbasher wie mich."
+          ]
+        },
+        {
+          "title": "Citadel Paint",
+          "lines": [
+            "Ein Texturmalprogramm für WC3: Auf die native Bibliothek zugreifen, Texturausschnitte als Stempel verwenden oder die eigene Bemalung damit aufhellen und texturieren.",
+            "Schnell neue Texturen erstellen oder vorhandene neu texturieren."
+          ]
+        },
+        {
+          "title": "Showcase",
+          "lines": [
+            "Live-Vorschau des Modells mit Aufnahmefunktion, um Sequenzen zu erstellen und das Modell zu drehen.",
+            "Aufnahmen in Hive-tauglicher Qualität, mittlerer Qualität mit automatischem Catbox-Upload und Links zum Posten oder richtig hochwertige GIFs für euch selbst – ungefähr 100 MB groß und butterweeeeeich."
+          ]
+        },
+        {
+          "title": "OptimizeXL!",
+          "lines": [
+            "Noch in Arbeit. Mit zunehmender Nutzung wird es besser. Im Grunde bringe ich Codex bei, Code zu schreiben, der möglichst viele Modellfehler behebt.",
+            "Da ich meist keine Ahnung habe, was ich tue, gebe ich Codex fehlerhafte Modelle. Wir suchen gemeinsam Lösungen und bringen sie dann in den Code.",
+            "Nicht perfekt, aber ein Anfang :)"
+          ]
+        }
+      ],
+      "closing": [
+        "Noch ein Hinweis: Ich habe dieses Werkzeug aus Liebe zum Modellieren und aus Bedarf gebaut und teile es mit euch :)",
+        "Ich werde Fehler beheben, Funktionen ergänzen und es verbessern, soweit mein Bedarf wächst und die Zeit reicht!"
+      ],
+      "creditIntro": [
+        "Vorweg: Ich behaupte nicht, all das geschaffen zu haben. Ich bin ein Hund im All, der benötigte Funktionen anfragt und zusammensetzt.",
+        "MDLxL profitiert von Werkzeugentwicklern für Warcraft III, Bibliotheksautoren, Künstlern, Schriftdesignern und der Modding-Community. Danke an die folgenden Personen und Projekte."
+      ],
+      "credits": [
+        {
+          "title": "Mitwirkende und Beiträge",
+          "lines": [
+            "Unsanctioned Magic - Projektleitung, Funktionswünsche, Modellierungsabläufe und praktische Tests.",
+            "Erstellt mit Codex Astra and Sol und Anthropic Claude."
+          ]
+        },
+        {
+          "title": "Hilfe und Tests",
+          "lines": [
+            "HerrDave - Besonderer Dank für die Hilfe beim Anpassen und Verfeinern des MDLVis-Erlebnisses.",
+            "POMEXI - Allgemeine Rückmeldungen"
+          ]
+        },
+        {
+          "title": "Werkzeuge, Bibliotheken und technische Referenzen",
+          "lines": [
+            "Alexey / Алексей - Schöpfer von MDLVis. Urheber der ursprünglichen Bearbeitungsabläufe, Oberflächenanordnung, Tastenkürzel, Werkzeugleistengrafiken und des Anwendungssymbols.",
+            "4eb0da - Schöpfer von war3-model, verwendet zum Lesen und Schreiben von MDL/MDX, zur Warcraft-III-Darstellung und zur BLP1-Dekodierung.",
+            "GhostWolf - Schöpfer von mdx-m3-viewer und dessen von OptimizeXL genutzter Modellprüfung. Weitere Referenzen für Ereignisobjekte, globale Sequenzen und Partikelverhalten.",
+            "Fernando Sahmkow - Schöpfer von WhiteoutLib für Citadel-Paint-Texturdekodierung und BLP/DDS-Export sowie weitere Modellformatreferenzen. BSD 3-Clause License.",
+            "Ladislav Zezula / Ladik - Schöpfer von CascLib zum Lesen lokaler Warcraft-III-Installationen und von StormLib, als Referenz zum MPQ-Format genutzt.",
+            "Darithos - Autor von W3ModelViewer, der Quelle der festgelegten CascLib-Windows-Binärdatei in MDLxL.",
+            "Retera - Schöpfer von Retera Model Studio und Warsmash Mod Engine. RMS diente für Kompatibilitätstests und Modellformatreferenzen; Warsmashs Lichtrekonstruktion floss in die Lichtabschwächungsformeln von Citadel Paint ein.",
+            "Magos - Schöpfer von War3 Model Editor, einer wichtigen Referenz für Warcraft-III-Modellbearbeitung.",
+            "Kanma / Philip Abbet - Schöpfer von BLPConverter, als Referenz für das BLP2-Format genutzt.",
+            "Pillow contributors - Autoren und Betreuer des BLP-Plugins von Pillow, als Referenz für das BLP2-Format genutzt.",
+            "Dominic Szablewski / phoboslab - Schöpfer von QOI, der Bildformatspezifikation für verlustlos gespeicherte Aufnahmeframes."
+          ]
+        },
+        {
+          "title": "Anwendungsbibliotheken und Aufnahme",
+          "lines": [
+            "- Three.js authors and contributors — Three.js für Ansichten, Kameras, Mathematik und Texturen. MIT License.",
+            "- Arseny Kapoulkine und Mitwirkende — meshoptimizer zur Mesh-Vereinfachung in OptimizeXL. MIT License.",
+            "- Angus Johnson und Timo — Clipper / clipper-lib für Geometrieoperationen in Forge. Boost Software License 1.0. Enthält Tom Wus JSBN unter dessen ursprünglicher freizügiger Lizenz.",
+            "- Brandon Jones, Colin MacKenzie IV und Mitwirkende — gl-matrix für Vektor- und Matrixmathematik. MIT License.",
+            "- Meta Platforms und React contributors — React, React DOM und Scheduler für die Bedienoberfläche. MIT License.",
+            "- Electron contributors — Electron als Desktop-Framework samt Chromium- und Node.js-Grundlagen und deren Komponentenautoren. Electron ist MIT-lizenziert; gebündelte Komponenten behalten ihre eigenen Lizenzen.",
+            "- Lucide contributors und Cole Bemis — Lucide-Oberflächensymbole einschließlich übernommener Feather-Grafiken. ISC- bzw. MIT-Lizenz.",
+            "- Feross Aboukhadijeh und Mitwirkende — buffer. Jameson Little — base64-js. Fair Oaks Labs und Mitwirkende — ieee754. Hilfsbibliotheken für Binärdaten unter MIT / BSD 3-Clause.",
+            "- FFmpeg developers — FFmpeg für den GIF-Export auf dem Desktop. Der gewählte Build steht unter LGPL 2.1.",
+            "- serversideup — ffmpeg-lgpl-builds stellt den Windows-Build von FFmpeg bereit. Zu Abhängigkeiten und Build-Komponenten gehören Intel oneVPL, Cisco OpenH264, mingw-w64/winpthreads, GCC-Laufzeitbibliotheken, NVIDIA-Codec-Header und AMD AMF, jeweils unter eigener Lizenz.",
+            "- Matt DesLauriers — gifenc für GIF-Kodierung in der Browser-/Entwicklungsversion. MIT License."
+          ]
+        },
+        {
+          "title": "Grafiken, Pinsel und Texturquellen",
+          "lines": [
+            "- Blizzard Entertainment — Warcraft III und dessen Originalgrafiken, darunter Oberflächensymbole, Menschen-Porträtrahmen und Vorlagen für mitgelieferte Paint-Texturausschnitte. Modelle und Texturen aus einer Spielinstallation bleiben Blizzards Werke.",
+            "- The original MDLVis authors — Frühere MDLVis-Oberflächengrafiken, wie oben genannt.",
+            "- rubberduck — 60 Free GIMP / Krita Brushes. Quellmasken für sechs Citadel-Paint-Pinsel angepasst. CC0 1.0.",
+            "- ElDuderino — Scratch / Damaged Paint Brush. Quellmasken für Pinsel mit abgeplatzter und abgeriebener Farbe angepasst. CC0 1.0.",
+            "- KI-generierte Grafiken — Zusätzliche Werkzeugleistengrafiken wurden für MDLxL erzeugt. OpenAI ImageGen erstellte die dokumentierten Vorschauhintergründe und MDLxL-Markengrafiken."
+          ]
+        },
+        {
+          "title": "Schriftarten",
+          "lines": [
+            "Die folgenden Showcase-Schriften stammen von Google Fonts und werden unter der SIL Open Font License 1.1 verteilt:",
+            "- Cinzel Decorative — Natanael Gama.",
+            "- MedievalSharp — wmk69.",
+            "- Uncial Antiqua — Brian J. Bonislawsky / Astigmatic.",
+            "- Pirata One — Rodrigo Fuenzalida and Nicolas Massi.",
+            "- Almendra — Ana Sanfelippo.",
+            "- IM Fell English — Igino Marini.",
+            "- Lato — Łukasz Dziedzic / tyPoland.",
+            "- Lora — The Lora Project Authors.",
+            "- Open Sans — The Open Sans Project Authors.",
+            "- Orbitron — The Orbitron Project Authors.",
+            "- Oxanium — The Oxanium Project Authors.",
+            "- Rajdhani — Indian Type Foundry.",
+            "- Cormorant SC — The Cormorant Project Authors.",
+            "- Grenze Gotisch — The Grenze Gotisch Project Authors.",
+            "- Marcellus — Brian J. Bonislawsky / Astigmatic.",
+            "Tengwar Annatar — Johan Winge. Für den optionalen Mordor-Oberflächenmodus unter der ursprünglichen bedingten Freeware-Lizenz verwendet. Schriftfamilie, Dokumentation und Lizenz werden zusammen mitgeliefert."
+          ]
+        },
+        {
+          "title": "Entwicklungswerkzeuge, Dienste und Community-Forschung",
+          "lines": [
+            "Vite contributors - Anwendungsentwicklung und Bündelung.",
+            "Rollup contributors - Anwendungsbündelung.",
+            "esbuild contributors - Schnelle Anwendungsbündelung und Optimierung.",
+            "Electron Packager contributors - Desktop-Paketierung.",
+            "Emscripten contributors - Build-Werkzeuge für native/WebAssembly-Codecs.",
+            "CMake contributors - Native Build-Werkzeuge.",
+            "Ninja contributors - Native Build-Werkzeuge.",
+            "Kwah - Autor von Basic Animations, als Referenz für Warcraft-III-Animationskonventionen genutzt.",
+            "Vinz - Autor von Particle Emitters 2, als Referenz für Partikelverhalten und Editorunterschiede genutzt.",
+            "Hermit - Filter-Mode-Forschung, genannt in Vinz’ Particle Emitters 2.",
+            "tillinghast - Forschung zu Animated Gravity, genannt in Vinz’ Particle Emitters 2.",
+            "GhostWolf - Forschung zu Partikelzeiten, Sort Primitives Far Z und Alpha Key, genannt in Vinz’ Particle Emitters 2.",
+            "doom_sheep - Forschung zum Zusammenspiel von Squirt und Visibility, genannt in Vinz’ Particle Emitters 2.",
+            "The Hive Workshop und XGM - Tutorials, Werkzeugdokumentation, Erklärungen der Betreuer und Community-Forschung als Grundlagen für Abläufe und Kompatibilität von MDLxL. Die vollständigen Quellen stehen in der community research bibliography."
+          ]
+        }
+      ]
+    }
+  }
 }
