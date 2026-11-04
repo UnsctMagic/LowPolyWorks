@@ -535,6 +535,14 @@
       "sha256": "ff3025f3cdb1f5baa81206eded67e6e3fc8e8f96e1eff685db4dd16391b9e0b7",
       "publishedAt": "2026-11-03T22:20:58.264Z",
       "updatedAt": "2026-11-04T13:08:05.072Z"
+    },
+    "khorne-standard-bearer": {
+      "sha256": "9c5d0b142a73a2eeafda7e16602e02016c223461117ad0d40f3db439a6dfa28c",
+      "publishedAt": "2026-11-04T22:41:35.390Z"
+    },
+    "khorne-standard-bearer-hero": {
+      "sha256": "aaded5ca3ff6e7321187f9a1da63fd90bbfcf343d2bce3854b6b4679e6ae086b",
+      "publishedAt": "2026-11-04T22:41:35.390Z"
     }
   }
 }
