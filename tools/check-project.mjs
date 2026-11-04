@@ -4,6 +4,7 @@ import crypto from 'node:crypto';
 import assert from 'node:assert/strict';
 import {execFileSync} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
+import {tutorialLanguages} from '../dist/mdlxl/tutorials/languages.js';
 import {TEAM_COLORS} from '../dist/vendor/mdlxl/src/team-colors.js';
 import {modelPage,mdlxlPage} from './model-pages.mjs';
 import {parseMDX} from '../dist/vendor/war3-model.mjs';
@@ -11,6 +12,10 @@ import {parseCompatibleMdx} from '../dist/warcraft-mdx-compatibility.js';
 
 const project = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const root = path.join(project, 'dist');
+for (const {id} of tutorialLanguages) {
+  const directory=path.join(root,'mdlxl/tutorials',id==='en'?'':id);
+  assert(!fs.readdirSync(directory).some(name=>/(?:^|-)animation-data\.js$/.test(name)), 'Do not publish duplicate tutorial GIF payloads: '+id);
+}
 const read = name => JSON.parse(fs.readFileSync(path.join(root, name), 'utf8'));
 const exists = name => assert(fs.existsSync(path.join(root, name)), `Missing ${name}`);
 const rows = read('catalogue.json');

@@ -1,10 +1,10 @@
 import {applyMdlxlShellLanguage} from './mdlxl-languages.js?v=20261104-fr-de-fx';
-import {mdlxlHref} from './mdlxl-routes.js?v=20261104-fr-de-fx';
+import {mdlxlHref} from './mdlxl-routes.js?v=20261105-uv-grid';
 import {mountTutorialPlayers} from './mdlxl/tutorials/playback.js?v=20261104-lazy-media';
 import {startToolPings} from './mdlxl/tutorials/highlights.js?v=20261030-tutorial-languages';
 import {recordTutorial} from './usage.js?v=20261031-tutorial-views';
 import {tutorialLanguages,tutorialText} from './mdlxl/tutorials/languages.js?v=20261104-fr-de-fx';
-const version='20261104-lazy-media';
+const version='20261105-uv-grid';
 const valid=language=>tutorialLanguages.some(item=>item.id===language);
 function loadPlayers(state) {
   const content=state.body.firstElementChild;
@@ -35,7 +35,7 @@ function showTutorial(state) {
 }
 export async function renderTutorials(panel,isCurrent,requested) {
   if(!document.getElementById('mdlxl-tutorial-style')){
-    const style=document.createElement('link');style.id='mdlxl-tutorial-style';style.rel='stylesheet';style.href='/mdlxl-tutorials.css?v=20261104-fr-de-fx';document.head.append(style);
+    const style=document.createElement('link');style.id='mdlxl-tutorial-style';style.rel='stylesheet';style.href='/mdlxl-tutorials.css?v=20261105-uv-grid';document.head.append(style);
   }
   let state=panel._tutorialController;
   if(!state||!state.header.isConnected){
