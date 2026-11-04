@@ -65,7 +65,7 @@ test('French and German have tutorial pickers and native release-note sources',(
 });
 
 test('the next fixed-name portable release remains downloadable',()=>{
- assert.equal(downloadUrl({tag_name:'v0.39.0',assets:[{name:'MDLxL-win32-x64.zip',browser_download_url:'fixed-application'}]}),'fixed-application');
+ assert.equal(downloadUrl({tag_name:'v0.39.0',assets:[{name:'MDLxL-win32-x64.zip',browser_download_url:'fixed-application'}]}),'https://github.com/UnsctMagic/MDLxL/releases/latest/download/MDLxL-win32-x64.zip');
 });
 
 test('French and German cover every current Spanish tutorial and its native media',()=>{
@@ -79,4 +79,9 @@ test('French and German cover every current Spanish tutorial and its native medi
   assert.deepEqual(media(locale),media('es'),locale+' native media inventory');
   assert(html(locale).includes('/mdlxl/tutorials/fx/?lang='+locale),locale+' FX route');
  }
+});
+
+test('the fixed application asset uses the permanent latest-download URL',()=>{
+ const assets=[{name:'MDLxL-FFmpeg-corresponding-source.zip',browser_download_url:'source'},{name:'MDLxL-win32-x64.zip.sha256',browser_download_url:'checksum'},{name:'MDLxL-win32-x64.zip',browser_download_url:'https://github.com/UnsctMagic/MDLxL/releases/download/v0.38.2/MDLxL-win32-x64.zip'}];
+ assert.equal(downloadUrl({tag_name:'v0.38.2',assets}),'https://github.com/UnsctMagic/MDLxL/releases/latest/download/MDLxL-win32-x64.zip');
 });
