@@ -12,7 +12,7 @@ process.on('unhandledRejection',e=>{fs.writeFileSync(out+'/tutorial-qa-'+locale+
  async function click(selector){const r=await wheelTo(selector);const x=r.x+r.width/2,y=r.y+r.height/2;if(!(x>0&&x<W&&y>0&&y<H))throw Error('Click outside page '+selector);await wc.debugger.sendCommand('Input.dispatchMouseEvent',{type:'mouseMoved',x,y,button:'none'});await wc.debugger.sendCommand('Input.dispatchMouseEvent',{type:'mousePressed',x,y,button:'left',buttons:1,clickCount:1});await wc.debugger.sendCommand('Input.dispatchMouseEvent',{type:'mouseReleased',x,y,button:'left',buttons:0,clickCount:1})}
  try{
   const targets=JSON.parse(fs.readFileSync(out+'/tutorial-tool-targets.json')).languages[locale],media=JSON.parse(fs.readFileSync(out+'/tutorial-media-verification.json')).clips.filter(c=>c.locale===locale);
-  
+
   mark('loading');await win.loadURL(base+'/mdlxl/tutorials/?lang='+locale);mark('loaded');wc.debugger.attach('1.3');await wc.debugger.sendCommand('Emulation.setFocusEmulationEnabled',{enabled:true});await wait("document.querySelectorAll('.tutorial-card').length===7 && [...document.querySelectorAll('.tutorial-card-media img')].every(i=>i.complete&&i.naturalWidth)");
   if(await js('document.documentElement.scrollWidth>innerWidth+1'))throw Error('Desktop horizontal overflow');
   if(locale==='fr'&&!loopsOnly){await wheelTo('#tutorial-header');const file='site-fr-tutorials-desktop.png';fs.writeFileSync(out+'/'+file,await screenshot());screenshots.push(file)}

@@ -12,4 +12,3 @@ const shot=async(clip,ms,phase='')=>{await new Promise(r=>setTimeout(r,40));cons
 const pulse=async(clip,k,m,ms,phase)=>{down(k,m);await shot(clip,ms,phase);up(k,m)};
 return {down,up,mouse,shot,pulse,manifest,label,clear:()=>{held.clear();mouseDown=false;mouseMods=[]}};
 };
-
