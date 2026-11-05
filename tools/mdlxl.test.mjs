@@ -41,18 +41,16 @@ test('credits distinguish creator profiles from the resources they made',()=>{
  assert(!creditLine('<script>alert("HerrDave")</script>').includes('<script>'));
 });
 
- test('only enabled MDLxL application downloads are tracked',async t=>{
+test('the permanent download stays usable and tracked while release metadata is unavailable',async t=>{
  globalThis.location={hash:'#project/mdlxl/preview'};globalThis.document={title:''};
  t.after(()=>{delete globalThis.location;delete globalThis.document;});
- let disabled=true,prevented=0,resolveRelease;
- const button={getAttribute:()=>disabled?'true':null,removeAttribute:()=>disabled=false},panel={},version={},source={};
- const app={innerHTML:'',querySelector:selector=>({'#mdlxl-download':button,'#mdlxl-content':panel,'#mdlxl-version':version,'#mdlxl-ffmpeg-source':source}[selector])};
- t.mock.method(globalThis,'fetch',url=>url.endsWith('/releases/latest')?new Promise(resolve=>resolveRelease=resolve):Promise.resolve({ok:true,json:async()=>({})}));
- const events=[],rendering=renderMdlxl(app,()=>true,(...args)=>events.push(args));
- button.onclick({preventDefault:()=>prevented++});assert.equal(prevented,1);assert.equal(events.length,0);
- resolveRelease({ok:true,json:async()=>({tag_name:'v0.99.1',assets:[{name:'MDLxL-0.99.1-win32-x64.zip',browser_download_url:'https://example.org/app.zip'},{name:'MDLxL-FFmpeg-corresponding-source.zip',browser_download_url:'https://example.org/source.zip'}]})});await rendering;
- button.onclick({preventDefault:()=>prevented++});assert.deepEqual(events,[['download','mdlxl','zip']]);
- assert.equal(prevented,1);assert.equal(button.href,'https://example.org/app.zip');assert.equal(source.onclick,undefined);
+ const button={},panel={},version={},source={};let markup='';
+ const app={get innerHTML(){return markup;},set innerHTML(value){markup=value;},querySelector:selector=>({'#mdlxl-download':button,'#mdlxl-content':panel,'#mdlxl-version':version,'#mdlxl-ffmpeg-source':source}[selector])};
+ t.mock.method(globalThis,'fetch',async()=>({ok:false,status:403}));
+ const events=[];await renderMdlxl(app,()=>true,(...args)=>events.push(args));
+ assert(markup.includes('href="https://github.com/UnsctMagic/MDLxL/releases/latest/download/MDLxL-win32-x64.zip"'));
+ assert(!markup.includes('aria-disabled="true"'));assert.equal(button.href,'https://github.com/UnsctMagic/MDLxL/releases/latest/download/MDLxL-win32-x64.zip');
+ button.onclick();assert.deepEqual(events,[['download','mdlxl','zip']]);assert.equal(source.onclick,undefined);
 });
 import {tutorialLanguages,tutorialText} from '../dist/mdlxl/tutorials/languages.js';
 test('French and German have tutorial pickers and native release-note sources',()=>{
