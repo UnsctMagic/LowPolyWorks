@@ -1,95 +1,66 @@
 # Cloudflare hosting
 
-LowPolyWorks uses Cloudflare Pages Direct Upload for static files and a private R2 Standard bucket for files larger than 25 MiB. GitHub remains the source. The existing backend at `lowpolyworks-vault.lowpolyworks-internal-tracker.workers.dev` and the Vercel fallback are unchanged.
+The website is deployed to Cloudflare Pages; files over 25 MiB use private R2 Standard storage. The existing Cloudflare publishing/usage backend and Vercel fallback are unchanged. GitHub remains the source.
 
-## Sources and deployment
+## Source and automatic deployment
 
-The live site is the **root of `gh-pages`**, not `main/dist`. These trees currently differ, so deploying `main/dist` would change unrelated published content. Hosting tools live on `main`. The same workflow file must be installed on both branches: a `gh-pages` run checks out the tools from `main` and the website from `gh-pages`.
+Deploy the **root of `gh-pages`**, which is the published website. Do not substitute `main/dist`: those trees differ. Hosting tools live on `main`; the workflow-only companion PR installs the trigger on `gh-pages`. Merge the tooling PR first.
 
-`Deploy Cloudflare Pages` runs on relevant pushes, and can be dispatched with a previous published commit as `source_ref`. It performs:
+`Deploy Cloudflare Pages` validates source/staged SHA-256 hashes, models and texture references; synchronizes required R2 objects; deploys with pinned Wrangler; then verifies the deployment over HTTPS. It runs on relevant pushes and after the existing model-tag refresh job, including tag commits made with `GITHUB_TOKEN`. One concurrency group serializes releases. Upload, validation and verification failures fail the run. Existing notification/tag jobs are preserved.
 
-1. Hosting tests and a separate checkout of the published source.
-2. SHA-256 inventory and staging; all original source assets remain untouched.
-3. Validation of staged bytes, 141 model hashes, native texture dependencies, downloads and tutorial languages.
-4. Synchronization of required immutable R2 objects, skipping existing matching objects. Each new upload is read back and SHA-256 checked.
-5. Wrangler Direct Upload, followed by HTTP/SHA-256 checks against the resulting deployment URL.
+The workflow also accepts a published commit as `source_ref` for reproducible rollback. Node 24 and `npm ci` use the pinned lockfile. Direct Upload is required because R2 synchronization must finish before deployment. CI retains manifests and verification records for 30 days.
 
-One concurrency group serializes all deployments. Required upload, asset-validation or post-deployment verification failures fail the workflow. A failed post-deployment check is visible as a failed run; it does not silently claim success or overwrite R2 rollback assets.
+## Credentials and resources
 
-Native Git integration is deliberately unused: this repository needs oversized-file synchronization before Pages deployment. Wrangler and the AWS S3 SDK are pinned in `package-lock.json`; CI uses Node 24 and `npm ci`.
+Actions secrets: `CLOUDFLARE_ACCOUNT_ID` and `CLOUDFLARE_API_TOKEN`. Scope the token to this account with **Cloudflare Pages / Edit**, **Workers R2 Storage / Edit**, and **Account Settings / Read**. No DNS, billing, Vercel or backend secrets are needed for deployment. Token values stay out of source; Cloudflare's documented token-ID/SHA-256 mechanism derives S3 credentials in memory.
 
-## Credentials
+Pages project: `lowpolyworks`. Private bucket: `lowpolyworks-large-assets`. Function binding: `LARGE_ASSETS`. `provision` creates missing resources idempotently and never attaches domains or changes DNS.
 
-GitHub Actions secrets:
+## Oversized assets and previews
 
-- `CLOUDFLARE_ACCOUNT_ID`: the existing account ID.
-- `CLOUDFLARE_API_TOKEN`: account-scoped token with **Cloudflare Pages / Edit**, **Workers R2 Storage / Edit**, and **Account Settings / Read**. The workflow never needs DNS, billing, email, Vercel or backend secrets.
+Every build scans all files. Assets larger than 26,214,400 bytes go to immutable `sha256/<hash>/<original-relative-path>` keys. Existing matching objects are skipped; new streamed multipart uploads are read back and SHA-256 checked. Original repository assets are never rewritten. The per-release manifest preserves public URLs and prevents later uploads from altering earlier releases.
 
-Credentials are read only from the environment. No values belong in source. R2 S3 credentials are derived in memory using Cloudflare's documented token-ID/SHA-256 mechanism; no additional S3 keys need to be stored. The existing `MODEL_NOTIFICATIONS_TOKEN` remains unchanged.
+Generated Function routes cover oversized paths only; long/many paths are compacted into narrow directory routes. A catch-all `/*` route or a Pages limit violation aborts preparation. R2 responses stream with correct MIME, HEAD, ETag/conditional requests, revalidation caching and single/open/suffix byte ranges. Unsupported multiple ranges return the full representation. Retain keys used by rollback deployments.
 
-Resources: Pages project `lowpolyworks`; R2 bucket `lowpolyworks-large-assets`; binding `LARGE_ASSETS`. The bucket has no public domain. Both Pages environments use this binding when a Function is required.
+Preview copies replace public backend API URLs with a same-origin proxy because the existing backend allows only the real public domain. Only publishing/events endpoints are proxied; author credentials/cookies are not forwarded. Preview responses are `noindex`, and existing usage code disables automatic tracking outside the real domain. Production builds retain original frontend bytes and direct backend calls. When there are no oversized files, production emits no Function or Function routes.
 
-## Oversized assets and HTTP behavior
+## Commands
 
-The preparer scans every deployment rather than keeping a hard-coded file list. Files over 26,214,400 bytes go to `sha256/<content-hash>/<original-relative-path>` in R2. Other files are copied into `.cloudflare-build/pages`. The per-deployment Function manifest maps the original public URL to its immutable R2 key. This preserves URLs and makes old deployments independent of later asset replacements.
-
-Generated `_routes.json` invokes the Function only for oversized paths. If necessary, many/long paths are compacted into narrow directory routes; unrelated requests use static Pages delivery. The build refuses a catch-all `/*` rule or a Pages limit violation. The Function streams R2 bodies and supports MIME types, HEAD, ETags, conditional requests, single byte ranges, suffix ranges and HTTP 416. Unsupported/multiple ranges are served as full responses, as HTTP permits. Mutable public URLs use revalidation caching.
-
-Multipart uploads are streamed with bounded buffers. Changed source bytes between preparation and upload abort the deployment. Old immutable objects are retained for rollback; do not remove keys used by retained deployments.
-
-## Preview and production gate
-
-**Production cutover requires Avner's approval.** While `CLOUDFLARE_PRODUCTION_ENABLED` is absent or not `true`, every automatic run deploys only branch `migration-preview`. The existing GitHub Pages domain is unaffected. The Pages production branch is `gh-pages`.
-
-The backend only permits browser calls from the real public domain. Preview generation therefore changes API URLs in copied frontend files to a same-origin `/__preview-backend/api/` proxy. Only the existing public publishing/events endpoints are proxied, using the real public Origin; author cookies/credentials are never forwarded. Author login still opens the existing author site. Preview responses are marked `noindex`. Existing usage code already disables automatic tracking outside the real domain.
-
-Production staging omits the preview proxy and URL rewrites, preserving the original frontend bytes and direct backend calls. Unit tests verify this difference. No backend CORS configuration or secret changes are necessary.
-
-## Local commands
-
-Use Node 24. First check out the tooling and a separate copy of the desired `gh-pages` revision. Set the two credential environment variables securely, then run from the tooling checkout:
+Check out the tools and a separate copy of the desired published revision. Set the credential environment variables securely, then run:
 
 ```sh
 npm ci
 npm run test:hosting
 node tools/cloudflare-hosting.mjs provision
-node tools/cloudflare-hosting.mjs prepare --site /path/to/published-site --preview --revision <published-commit>
+node tools/cloudflare-hosting.mjs prepare --site /path/to/published-site --preview --revision <commit>
 node tools/cloudflare-validate.mjs
 npm run cloudflare:sync
 npm run cloudflare:deploy
 npm run cloudflare:verify
 ```
 
-`provision` is idempotent and does not attach domains or change DNS. `prepare` defaults to `dist` for explicit local source experiments; the production workflow always passes the published checkout. Re-running preparation replaces only its marked build directory.
+For an approved production build omit `--preview` and deploy with `--branch gh-pages`. Normal automatic runs remain previews until repository variable `CLOUDFLARE_PRODUCTION_ENABLED=true`; a manual production dispatch additionally requires `production=true`. **Do not enable this gate before Avner approves cutover.**
 
-Verification hashes every oversized asset and representative complete sets of JavaScript, JSON, HTML, CSS, fonts, Wasm, MDX/MDL and ZIP files. It also checks oversized HEAD lengths, conditional 304s, byte ranges, unsatisfiable ranges and real 404s. CI preserves the source manifest, deployment ID/URL and verification record for 30 days. Browser QA additionally covers navigation, viewer rotation, textures, animations and desktop/mobile layout.
-
-The refreshed project check passes with LF text reads, matching Linux CI. The existing full tool-test run has five baseline failures: three catalogue/order assertions and two Node browser-module environment errors. The separate hosting suite passes all 12 tests, and the backend suite passes all 113 tests. Details and the headless Chrome download limitation are recorded in the migration report; no unrelated website or test expectations were rewritten.
+Verification hashes every oversized file and complete relevant sets of JS, JSON, HTML, CSS, fonts, Wasm, MDX/MDL and ZIP assets. Oversized HEAD, conditional 304 and range behavior is checked when those assets exist. Browser QA covers rendering, mouse rotation, downloads, API behavior, navigation and all seven tutorial languages. The existing full tool-test suite has five baseline failures; the separate hosting suite passes 12 tests and backend suite passes 113. The project check passes with LF text reads. See the migration report for evidence and test limitations.
 
 ## Cutover after approval
 
-1. Merge the tooling PR into `main`, then the workflow-only PR into `gh-pages`. Both still deploy previews while the gate is off.
-2. Recheck that the preview uses the current `gh-pages` revision and passes verification.
-3. Set repository variable `CLOUDFLARE_PRODUCTION_ENABLED=true`, then dispatch `Deploy Cloudflare Pages` with `source_ref=gh-pages` and `production=true`.
-4. Verify the resulting production Pages deployment before attaching either custom domain.
-5. Record the current website DNS records for rollback. In the Pages project add both `www.lowpolyworks.com` and `lowpolyworks.com`, then replace only their website A/AAAA/CNAME records with the Pages targets (`lowpolyworks.pages.dev`, with apex CNAME flattening). Move the apex-to-www redirect into Cloudflare so neither hostname depends on GitHub hosting: match host `lowpolyworks.com`, target `concat("https://www.lowpolyworks.com", http.request.uri.path)`, status 301, preserve query string. Preserve existing HTTPS enforcement.
-6. Preserve all MX, TXT/SPF, DKIM, DMARC, Resend and mail-forwarding records. No email-related DNS changes are part of this migration.
-7. Verify TLS, apex/www redirects, the real-domain API calls, viewer, downloads and all supported tutorial languages. Keep the GitHub Pages branch/configuration intact until the replacement is accepted.
+1. Merge the tooling PR into `main`, then the workflow-only PR into `gh-pages`. Recheck the newest preview.
+2. Enable the production gate and dispatch with `source_ref=gh-pages`, `production=true`. Verify the resulting Pages deployment before domain changes.
+3. Record current website DNS for rollback. Add both `www.lowpolyworks.com` and `lowpolyworks.com` through Pages, then replace only their website A/AAAA/CNAME records with the Pages targets (`lowpolyworks.pages.dev`, with apex CNAME flattening).
+4. Move apex-to-www redirection into Cloudflare: host `lowpolyworks.com`, target `concat("https://www.lowpolyworks.com", http.request.uri.path)`, status 301, preserve query string. Preserve HTTPS enforcement. Neither hostname should continue depending on GitHub hosting.
+5. Preserve every MX, TXT/SPF, DKIM, DMARC, Resend and mail-forwarding record. Verify TLS, redirects and full functionality on the real domain. Keep GitHub Pages configuration until acceptance.
 
-The deployment token intentionally lacks DNS permissions. Domain changes should use the owner's Cloudflare dashboard or a separately authorized domain-scoped credential at cutover.
+The deployment token lacks DNS/rule permissions. Use the owner's dashboard or separately authorized domain-scoped credentials for cutover.
 
-## Rollback
+## Rollback, cost and monitoring
 
-Before cutover, any failed preview leaves production untouched. To return a preview to an earlier release, dispatch the workflow with that `gh-pages` commit as `source_ref` and `production=false`; it regenerates the exact Function-to-R2 mapping. Re-run verification. Re-running the same release must upload zero matching R2 objects.
+Before cutover, preview failures leave production untouched. Dispatch an earlier published commit with `production=false` to rebuild its preview and immutable asset mapping. After cutover, roll back to a retained **production** deployment in Pages, or rebuild the previous published commit with `production=true`. Pages cannot promote a preview using its production-rollback API. To return hosting to GitHub, restore the recorded website DNS and turn the production gate off; email records stay unchanged.
 
-After cutover, choose a retained **production** deployment in Cloudflare Pages and use Rollback (or dispatch the workflow with the prior published commit and `production=true`). Preview deployments cannot be promoted using the Pages production-rollback API; rebuild the chosen commit without `--preview` for production. Immutable R2 keys keep old large-file bytes available. To return hosting to GitHub Pages, restore the recorded pre-cutover website DNS records and turn the Cloudflare production gate off; email records stay unchanged. Do not delete retained rollback objects.
+Audit on 2026-11-05: approximately 0.83 GiB / 7,150 public files, with no oversized assets after a separately approved duplicate-GIF cleanup. The initial nine oversized files totaled 599,034,056 bytes; they were uploaded and tested, and remain in R2 for the earlier preview/rollback. Future oversized additions are handled automatically.
 
-## Limits, cost and monitoring
+Expected additional recurring cost is **€0/year within free allowances**. Pages Free allows 20,000 files, 25 MiB per asset and free static requests/bandwidth. Functions share the account's 100,000 Workers Free requests/day with the existing backend. R2 Standard includes 10 GB-month, 1 million Class A and 10 million Class B operations/month, with free egress. Beyond that: $0.015/GB-month, $4.50/million Class A and $0.36/million Class B. R2 is usage-billed; this is not a hard €30/year cap. No paid Pages/Workers upgrade is enabled.
 
-The initial audit found 7,128 public files (1,461,460,937 source bytes before preview URL rewrites) and nine oversized files totaling 599,034,056 bytes (571.28 MiB / 0.599 GB). A concurrent approved UV-grid publication removed those duplicate embedded-GIF modules. The current published revision `1a9eed19a` has 7,149 public files totaling 894,775,194 bytes (about 0.83 GiB), with **zero oversized files**. The earlier nine R2 objects remain available to the initial preview for rollback verification; future oversized additions are detected automatically. A production build with no oversized files emits no Function or Function routes. Pages Free allows 20,000 files and 25 MiB per static asset; ordinary static requests/bandwidth are free. Pages Functions share the account's Workers Free allowance of 100,000 requests/day, including the existing backend. Only oversized/proxy routes consume Functions requests.
+Monitor R2 Metrics, Workers & Pages Metrics, and Billing Usage. Watch retained-version storage and the shared daily Functions allowance. Billing alerts do not cap charges. Never prune keys referenced by retained deployment manifests; preserve current and previous accepted releases. The deployment never deletes R2 objects automatically.
 
-R2 Standard includes 10 GB-month storage, 1 million Class A operations/month and 10 million Class B operations/month, with free Internet egress. Current asset storage is comfortably inside that allowance, so **estimated additional recurring cost is €0/year** at current usage. Beyond the allowance, published Standard prices are $0.015/GB-month, $4.50/million Class A and $0.36/million Class B. R2 is usage-billed and this is not a hard €30/year cap. No paid Pages/Workers upgrade is enabled by this setup.
-
-Monitor Cloudflare **R2 → Metrics**, **Workers & Pages → Metrics**, and **Billing → Usage**. Watch storage growth from retained object versions and the shared daily Functions allowance. Configure owner billing notifications in the dashboard if desired; alerts do not cap spending. Before pruning R2, compare keys with every retained deployment manifest and preserve the current and previous accepted releases. The deployment never deletes bucket objects automatically.
-
-Official references: [Direct Upload CI](https://developers.cloudflare.com/pages/how-to/use-direct-upload-with-continuous-integration/), [Pages limits](https://developers.cloudflare.com/pages/platform/limits/), [Function routes](https://developers.cloudflare.com/pages/functions/routing/), [R2 binding API](https://developers.cloudflare.com/r2/api/workers/workers-api-reference/), [token-derived S3 credentials](https://developers.cloudflare.com/r2/api/tokens/#get-s3-api-credentials-from-an-api-token), [R2 pricing](https://developers.cloudflare.com/r2/pricing/), [Pages rollbacks](https://developers.cloudflare.com/pages/configuration/rollbacks/), [apex-to-www redirects](https://developers.cloudflare.com/rules/url-forwarding/examples/redirect-root-to-www/).
+References: [Direct Upload CI](https://developers.cloudflare.com/pages/how-to/use-direct-upload-with-continuous-integration/), [Pages limits](https://developers.cloudflare.com/pages/platform/limits/), [Function routes](https://developers.cloudflare.com/pages/functions/routing/), [R2 API](https://developers.cloudflare.com/r2/api/workers/workers-api-reference/), [S3 credentials](https://developers.cloudflare.com/r2/api/tokens/#get-s3-api-credentials-from-an-api-token), [pricing](https://developers.cloudflare.com/r2/pricing/), [rollback](https://developers.cloudflare.com/pages/configuration/rollbacks/), [apex-to-www](https://developers.cloudflare.com/rules/url-forwarding/examples/redirect-root-to-www/).
