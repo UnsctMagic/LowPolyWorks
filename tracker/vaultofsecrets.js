@@ -6,7 +6,7 @@ const escape=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&
 const plain=value=>String(value||'').replace(/\[url=[^\]]*\]([^[]*)\[\/url\]/gi,'$1').replace(/\[([^\]]*)\]\([^)]*\)/g,'$1').replace(/\[\/?[a-z]+[^\]]*\]|[*_`]/gi,'').replace(/\s+/g,' ').trim();
 const number=value=>new Intl.NumberFormat().format(value||0);
 let account,csrf='',files=[],ready=null,cardId='',editing=null,busy=false,controller,coverUrl='',requestId='',completed=new Map(),coverUpload=null,postsLoaded=false;
-let catalogueRows=null,reports={},loading={},countdown;
+let catalogueRows=null,variantLabels=new Map(),reports={},loading={},countdown;
 const prefs=(()=>{try{return {query:'',army:'',status:'',source:'',sort:'army',...JSON.parse(localStorage.getItem(PREFS)||'{}')};}catch{return {query:'',army:'',status:'',source:'',sort:'army'};}})();
 const savePrefs=()=>{try{localStorage.setItem(PREFS,JSON.stringify(prefs));}catch{}};
 const activation=new URLSearchParams(location.hash.slice(1));if(location.hash)history.replaceState(null,'',location.pathname);
@@ -58,7 +58,17 @@ function openTab(tab){
  run().catch(error=>app.querySelector('#'+panel+'-panel').append(Object.assign(document.createElement('p'),{className:'status',textContent:error.message})));
 }
 const status=(selector,message)=>{const node=app.querySelector(selector);if(node)node.textContent=message;};
-async function loadCatalogue(){if(!catalogueRows){const response=await fetch(SITE+'/catalogue.json',{cache:'no-store'});if(!response.ok)throw Error('The original catalogue is unavailable right now.');catalogueRows=await response.json();}return catalogueRows;}
+async function loadCatalogue(){
+ if(!catalogueRows){
+  const [response,variants]=await Promise.all([fetch(SITE+'/catalogue.json',{cache:'no-store'}),fetch(SITE+'/variants.json',{cache:'no-store'})]);
+  if(!response.ok)throw Error('The original catalogue is unavailable right now.');
+  if(!variants.ok)throw Error('The model variants are unavailable right now.');
+  const [rows,groups]=await Promise.all([response.json(),variants.json()]);
+  variantLabels=new Map(groups.flatMap(group=>group.variants.filter(variant=>['Hero','Unit'].includes(variant.label)).map(variant=>[variant.id,variant.label])));
+  catalogueRows=rows;
+ }
+ return catalogueRows;
+}
 // Each report lists the private event store, so it is fetched once per period and reused.
 function loadReport(days=''){return loading[days]??=api('analytics'+(days?'&days='+days:'')).then(result=>reports[days]=result,error=>{delete loading[days];throw error;});}
 const armyName=id=>account.unitArmies.find(a=>a.id===id)?.name||'';
@@ -193,8 +203,9 @@ function niceScale(max){if(max<=0)return {top:1,step:1};const rough=max/3,power=
 const activity_state=(()=>({army:'',unit:'',format:'',grain:'day',sort:'total',query:'',unitsOpen:false,...(prefs.activity||{})}))();
 const saveActivity=()=>{prefs.activity=activity_state;savePrefs();};
 function unitIndex(report){
- const index=new Map(units().map(row=>[row.id,{id:row.id,name:row.id==='nurgle'?'Knight of Nurgle - Old':row.name,army:row.army,group:row.group||'Other projects',tag:row.removeAt?'Removing':row.hidden?'Hidden':row.kind==='vault'?'Vault':''}])),removed=new Set(account.removedModels||[]);
- for(const row of report.models)if(!index.has(row.id))index.set(row.id,{id:row.id,name:row.name,army:'',group:'Removed or unlisted',tag:removed.has(row.id)||row.id.startsWith('unit-')?'Removed':'Unlisted'});
+ const name=(row,title=row.name)=>{const label=variantLabels.get(row.id);return label?title+' · '+label:title;};
+ const index=new Map(units().map(row=>[row.id,{id:row.id,name:name(row,row.id==='nurgle'?'Knight of Nurgle - Old':row.name),army:row.army,group:row.group||'Other projects',tag:row.removeAt?'Removing':row.hidden?'Hidden':row.kind==='vault'?'Vault':''}])),removed=new Set(account.removedModels||[]);
+ for(const row of report.models)if(!index.has(row.id))index.set(row.id,{id:row.id,name:name(row),army:'',group:'Removed or unlisted',tag:removed.has(row.id)||row.id.startsWith('unit-')?'Removed':'Unlisted'});
  return index;
 }
 // Shredder's Stash: how other people play with Shredder. Counts come batched from the site and never include opted-out browsers.
