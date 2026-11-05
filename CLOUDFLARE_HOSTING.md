@@ -41,7 +41,7 @@ npm run cloudflare:verify
 
 For an approved production build omit `--preview` and deploy with `--branch gh-pages`. Normal automatic runs remain previews until repository variable `CLOUDFLARE_PRODUCTION_ENABLED=true`; a manual production dispatch additionally requires `production=true`. **Do not enable this gate before Avner approves cutover.**
 
-Verification hashes every oversized file and complete relevant sets of JS, JSON, HTML, CSS, fonts, Wasm, MDX/MDL and ZIP assets. Oversized HEAD, conditional 304 and range behavior is checked when those assets exist. Browser QA covers rendering, mouse rotation, downloads, API behavior, navigation and all seven tutorial languages. The existing full tool-test suite has five baseline failures; the separate hosting suite passes 12 tests and backend suite passes 113. The project check passes with LF text reads. See the migration report for evidence and test limitations.
+Verification hashes every oversized file and complete relevant sets of JS, JSON, HTML, CSS, fonts, Wasm, MDX/MDL and ZIP assets. Oversized HEAD, conditional 304 and range behavior is checked when those assets exist. Browser QA covers rendering, mouse rotation, downloads, API behavior, navigation and all seven tutorial languages. The existing full tool-test suite has five baseline failures; the separate hosting suite passes 13 tests and backend suite passes 113. The project check passes with LF text reads. See the migration report for evidence and test limitations.
 
 ## Cutover after approval
 

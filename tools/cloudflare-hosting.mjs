@@ -22,7 +22,7 @@ export async function fingerprint(input) {
 async function filesIn(root, prefix = '') {
   const files = [];
   for (const entry of (await fs.readdir(path.join(root, prefix), {withFileTypes: true})).sort((a,b)=>a.name.localeCompare(b.name, 'en'))) {
-    if (['.git','.github','node_modules','.wrangler','.cloudflare-build','.cloudflare-source'].includes(entry.name) || (!prefix && entry.name === 'tools')) continue;
+    if (['.git','.github','node_modules','.wrangler','.cloudflare-build','.cloudflare-source'].includes(entry.name)) continue;
     const name = prefix ? `${prefix}/${entry.name}` : entry.name;
     if (entry.isSymbolicLink()) throw Error(`Site assets must be regular files: ${name}`);
     if (entry.isDirectory()) files.push(...await filesIn(root, name));
@@ -102,7 +102,8 @@ export async function prepare({site, out = outputRoot, preview = false, revision
     await fs.writeFile(path.join(stage,'404.html'),'<!doctype html><title>Not found</title><h1>Not found</h1>\n'); manifest.generated.push('404.html');
   }
   if (preview) {await fs.appendFile(path.join(stage,'_headers'),'\n/*\n  X-Robots-Tag: noindex\n'); manifest.generated.push('_headers');}
-  if (manifest.files.length - manifest.oversized.length + 4 > 20000) throw Error('Pages Free 20,000-file limit exceeded');
+  const publicFiles = (await filesIn(stage)).filter(name=>!['_worker.js','_routes.json','_headers','_redirects'].includes(name));
+  if (publicFiles.length > 20000) throw Error('Pages Free 20,000-file limit exceeded');
   await fs.writeFile(path.join(out,'manifest.json'),JSON.stringify(manifest,null,2)+'\n');
   console.log(`Prepared ${manifest.files.length} source files (${manifest.files.reduce((n,f)=>n+f.size,0)} bytes); ${manifest.oversized.length} oversized assets (${manifest.oversized.reduce((n,f)=>n+f.size,0)} bytes); ${routes.length} Function routes.`);
   return manifest;

@@ -116,3 +116,8 @@ test('a production release with no oversized assets needs no Function or catch-a
   const {site,out}=await fixture(t);const manifest=await prepare({site,out});assert.equal(manifest.oversized.length,0);
   await assert.rejects(fs.stat(path.join(out,'pages/_worker.js')),{code:'ENOENT'});await assert.rejects(fs.stat(path.join(out,'pages/_routes.json')),{code:'ENOENT'});
 });
+
+test('existing public tools URLs are copied as static assets',async t=>{
+  const {site,out}=await fixture(t);await fs.mkdir(path.join(site,'tools'));await fs.writeFile(path.join(site,'tools/model-updates.mjs'),'export const published=true;');
+  const manifest=await prepare({site,out});assert(manifest.files.some(file=>file.path==='tools/model-updates.mjs'));assert.equal(await fs.readFile(path.join(out,'pages/tools/model-updates.mjs'),'utf8'),'export const published=true;');
+});
