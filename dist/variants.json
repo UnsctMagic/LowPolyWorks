@@ -190,16 +190,16 @@
         "label": "Cleaver"
       },
       {
-        "id": "warrior-of-khorne-cleaver-hero",
-        "label": "Cleaver Hero"
-      },
-      {
         "id": "warrior-of-khorne",
         "label": "Bruiser"
       },
       {
         "id": "warrior-of-khorne-basher",
         "label": "Basher"
+      },
+      {
+        "id": "warrior-of-khorne-cleaver-hero",
+        "label": "Cleaver Hero"
       }
     ]
   },
