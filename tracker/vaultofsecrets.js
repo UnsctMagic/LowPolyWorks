@@ -220,10 +220,13 @@ async function fillMdlxlTutorials(panel,stats){
 function mdlxlUpdates(updates){
  return `<details class="country-activity" id="mdlxl-updates" open><summary>MDLxL in-app updates · <span id="update-count">${number(updates.downloads)}</span></summary><div class="metrics"><div class="metric"><strong id="update-total">${number(updates.downloads)}</strong><span>Updates installed in the app</span></div><div class="metric"><strong id="zip-total">…</strong><span>All release ZIP downloads (GitHub)</span></div></div><table><thead><tr><th scope="col">Version</th><th scope="col" class="num">In-app updates</th><th scope="col" class="num">All ZIP downloads</th></tr></thead><tbody></tbody></table><p class="hint">In-app updates count each update MDLxL installs through its own updater, starting with updates to MDLxL 0.31.0; versions without a published GitHub release, such as test builds, are left out. All ZIP downloads come from GitHub and include the website button, the updater and direct downloads. The table lists the five newest versions; the totals above cover every version. ${updates.lastDownloadedAt?'Last update recorded '+escape(new Date(updates.lastDownloadedAt).toLocaleString())+'.':'No in-app update recorded yet.'}</p></details>`;
 }
-function fillMdlxlUpdates(panel,updates,releases){
+// GitHub rate-limits Cloudflare's shared addresses, so when the server gets no counts this browser asks GitHub itself, counting the same app ZIPs.
+const browserReleaseDownloads=()=>fetch('https://api.github.com/repos/UnsctMagic/MDLxL/releases?per_page=100',{cache:'no-store',headers:{Accept:'application/vnd.github+json'}}).then(r=>r.ok?r.json():null).then(list=>list&&list.filter(r=>!r.draft&&/^v?\d+\.\d+\.\d+$/.test(r.tag_name)).map(r=>{const version=r.tag_name.replace(/^v/,'');return [version,r.assets.filter(a=>a.name==='MDLxL-win32-x64.zip'||a.name===`MDLxL-${version}-win32-x64.zip`).reduce((sum,a)=>sum+a.download_count,0)];})).catch(()=>null);
+async function fillMdlxlUpdates(panel,updates,releases){
  const section=panel.querySelector('#mdlxl-updates'),body=section.querySelector('tbody'),own=new Map(updates.versions.map(row=>[row.version,row])),row=(version,zips)=>`<tr><td>${escape(version)}</td><td class="num">${number(own.get(version)?.downloads)}</td><td class="num">${zips===undefined?'…':zips===null?'—':number(zips)}</td></tr>`;
  const newest=(a,b)=>b.split('.').reduce((order,part,i)=>order||Number(part)-Number(a.split('.')[i]),0);
  body.innerHTML=updates.versions.slice(0,5).map(r=>row(r.version)).join('');
+ if(!releases){releases=await browserReleaseDownloads();if(!section.isConnected)return;}
  const github=releases?new Map(releases):null;
  section.querySelector('#zip-total').textContent=github?number([...github.values()].reduce((a,b)=>a+b,0)):'—';
  // Only published releases count: the updater installs nothing else, so any other version is a test build.
