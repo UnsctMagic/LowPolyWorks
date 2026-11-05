@@ -2,9 +2,11 @@
 
 The website is deployed to Cloudflare Pages; files over 25 MiB use private R2 Standard storage. The existing Cloudflare publishing/usage backend and Vercel fallback are unchanged. GitHub remains the source.
 
+Production cutover completed on 2026-11-05: `www.lowpolyworks.com` serves this Pages project; the apex redirects to HTTPS www with its path and query preserved. Both custom domains are active. The production gate is enabled. All nine email and other nonwebsite DNS records were compared before/after and are exactly unchanged; backend code, secrets and configuration were not changed. GitHub Pages remains available for rollback.
+
 ## Source and automatic deployment
 
-Deploy the **root of `gh-pages`**, which is the published website. Do not substitute `main/dist`: those trees differ. Hosting tools live on `main`; the workflow-only companion PR installs the trigger on `gh-pages`. Merge the tooling PR first.
+Deploy the **root of `gh-pages`**, which is the published website. Do not substitute `main/dist`: those trees differ. Hosting tools live on `main`; the deployment workflow is installed on both `main` and `gh-pages`.
 
 `Deploy Cloudflare Pages` validates source/staged SHA-256 hashes, models and texture references; synchronizes required R2 objects; deploys with pinned Wrangler; then verifies the deployment over HTTPS. It runs on relevant pushes and after the existing model-tag refresh job, including tag commits made with `GITHUB_TOKEN`. One concurrency group serializes releases. Upload, validation and verification failures fail the run. Existing notification/tag jobs are preserved.
 
@@ -51,11 +53,11 @@ Verification hashes every oversized file and complete relevant sets of JS, JSON,
 4. Move apex-to-www redirection into Cloudflare: host `lowpolyworks.com`, target `concat("https://www.lowpolyworks.com", http.request.uri.path)`, status 301, preserve query string. Preserve HTTPS enforcement. Neither hostname should continue depending on GitHub hosting.
 5. Preserve every MX, TXT/SPF, DKIM, DMARC, Resend and mail-forwarding record. Verify TLS, redirects and full functionality on the real domain. Keep GitHub Pages configuration until acceptance.
 
-The deployment token lacks DNS/rule permissions. Use the owner's dashboard or separately authorized domain-scoped credentials for cutover.
+Domain setup additionally requires **Zone / Read**, **DNS / Edit**, and **Single Redirect / Edit**, restricted to `lowpolyworks.com`. Avner added these permissions for the approved cutover. Automatic site deployments need only the account permissions listed above.
 
 ## Rollback, cost and monitoring
 
-Before cutover, preview failures leave production untouched. Dispatch an earlier published commit with `production=false` to rebuild its preview and immutable asset mapping. After cutover, roll back to a retained **production** deployment in Pages, or rebuild the previous published commit with `production=true`. Pages cannot promote a preview using its production-rollback API. To return hosting to GitHub, restore the recorded website DNS and turn the production gate off; email records stay unchanged.
+Before cutover, preview failures leave production untouched. Dispatch an earlier published commit with `production=false` to rebuild its preview and immutable asset mapping. After cutover, roll back to a retained **production** deployment in Pages, or rebuild the previous published commit with `production=true`. Pages cannot promote a preview using its production-rollback API. To return hosting to GitHub, turn the production gate off, restore the recorded website DNS, and remove or disable the migration's apex redirect if restoring the original DNS-only GitHub behavior; email records stay unchanged. The original website records were four DNS-only apex A records (`185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`) and DNS-only `www` CNAME `unsctmagic.github.io`, all with automatic TTL. Current website records are proxied apex/www CNAMEs to `lowpolyworks.pages.dev`. The migration Single Redirect has ref `lowpolyworks_apex_to_www`.
 
 Audit on 2026-11-05: approximately 0.83 GiB / 7,150 public files, with no oversized assets after a separately approved duplicate-GIF cleanup. The initial nine oversized files totaled 599,034,056 bytes; they were uploaded and tested, and remain in R2 for the earlier preview/rollback. Future oversized additions are handled automatically.
 
