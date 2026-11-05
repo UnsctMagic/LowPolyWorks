@@ -15523,8 +15523,8 @@
       "Attack - 1",
       "Attack - 2",
       "Attack - Slam",
-      "Death",
       "Spell - Slam",
+      "Death",
       "Decay Flesh",
       "Decay Bone",
       "Portrait",
@@ -15626,7 +15626,7 @@
         "url": "https://www.hiveworkshop.com/members/herrdave.234820/"
       }
     ],
-    "sha256": "bf58a09965959361bfca4c2e4364959fcf89584eb86a685133036c8035aeb22a",
+    "sha256": "cd9ce210a479d47b081f3d50e40a1bb9989523f9617251d465ccabbf7eacb4ab",
     "imageVersion": "20261106-cleaver-unit-hero",
     "changelog": [
       {
@@ -15987,8 +15987,8 @@
       "Attack - 1",
       "Attack - 2",
       "Attack Slam",
-      "Death",
       "Spell - Slam",
+      "Death",
       "Decay Flesh",
       "Decay Bone",
       "Dissipate",
@@ -16091,7 +16091,7 @@
         "url": "https://www.hiveworkshop.com/members/herrdave.234820/"
       }
     ],
-    "sha256": "d97cfa4221f926094ab868d62276f098b70bb189ac02192ef327c674473c1f8d",
+    "sha256": "c0e5558533a6754f85df2eb067026186376a65e3408dfba1b709ae5bb44ea5cf",
     "imageVersion": "20261106-cleaver-unit-hero",
     "changelog": [
       {
