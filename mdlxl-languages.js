@@ -105,7 +105,7 @@ export function applyMdlxlShellLanguage(root,language){
  for(const link of root.querySelectorAll('.mdlxl-menu nav a')){const url=new URL(link.href);url.searchParams.set('lang',language);link.href=url.href;}
  const picker=root.querySelector('.mdlxl-language select');if(picker)picker.value=Object.hasOwn(mdlxlLanguages,language)?language:'en';
  const button=root.querySelector('#mdlxl-download');
- if(button&&!root._mdlxlDownloadVersion&&!root._mdlxlDownloadError)button.textContent=t('Loading download…');
+ if(button&&!root._mdlxlDownloadVersion&&!root._mdlxlDownloadError)button.textContent=t('Download')+' ↗';
  for(const time of root.querySelectorAll('.mdlxl-release time'))time.textContent=new Date(time.dateTime).toLocaleDateString(Object.hasOwn(mdlxlLanguages,language)?language:'en',{year:'numeric',month:'short',day:'numeric'});
  if(button&&root._mdlxlDownloadVersion)button.textContent=t('Download')+' '+root._mdlxlDownloadVersion+' ↗';
  if(root._mdlxlDownloadError){if(button)button.textContent=t('Download unavailable');const status=root.querySelector('#mdlxl-version');if(status)status.textContent=t('Please try again later.');}
