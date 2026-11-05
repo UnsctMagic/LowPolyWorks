@@ -8,7 +8,12 @@
     "start": "node server.mjs",
     "build:model-pages": "node tools/model-pages.mjs",
     "check": "node tools/check-project.mjs",
-    "build:unit-upload": "node tools/build-unit-upload.mjs"
+    "build:unit-upload": "node tools/build-unit-upload.mjs",
+    "cloudflare:prepare": "node tools/cloudflare-hosting.mjs prepare",
+    "cloudflare:sync": "node tools/cloudflare-hosting.mjs sync",
+    "cloudflare:deploy": "node tools/cloudflare-hosting.mjs deploy",
+    "cloudflare:verify": "node tools/cloudflare-hosting.mjs verify",
+    "test:hosting": "node --test tools/cloudflare-hosting.test.mjs"
   },
   "engines": {
     "node": ">=20"
@@ -16,5 +21,10 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/UnsctMagic/LowPolyWorks.git"
+  },
+  "devDependencies": {
+    "wrangler": "4.157.0",
+    "@aws-sdk/lib-storage": "3.1162.0",
+    "@aws-sdk/client-s3": "3.1162.0"
   }
 }

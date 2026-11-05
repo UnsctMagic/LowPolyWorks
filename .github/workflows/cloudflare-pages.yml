@@ -1,0 +1,92 @@
+name: Deploy Cloudflare Pages
+
+on:
+  push:
+    branches: [main, gh-pages, codex/cloudflare-pages-r2]
+    paths-ignore:
+      - '**.md'
+      - 'source-archives/**'
+      - 'tracker/**'
+  workflow_run:
+    workflows: [Refresh model update tags]
+    types: [completed]
+  workflow_dispatch:
+    inputs:
+      source_ref:
+        description: Published site revision to deploy (gh-pages or a prior gh-pages commit for rollback)
+        default: gh-pages
+        required: true
+      production:
+        description: Deploy to the Cloudflare production branch (also requires the repository cutover gate)
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cloudflare-pages-deployment
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    if: github.event_name != 'workflow_run' || (github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'gh-pages')
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    env:
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      WRANGLER_SEND_METRICS: 'false'
+      DEPLOY_PRODUCTION: ${{ vars.CLOUDFLARE_PRODUCTION_ENABLED == 'true' && (github.ref_name == 'main' || github.ref_name == 'gh-pages') && (github.event_name != 'workflow_dispatch' || inputs.production) }}
+    steps:
+      - name: Check out hosting tools
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: ${{ github.ref_name == 'gh-pages' && 'main' || github.ref }}
+      - name: Check out the published site
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: ${{ inputs.source_ref || 'gh-pages' }}
+          path: .cloudflare-source
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci --no-audit --no-fund
+      - name: Test hosting behavior
+        run: npm run test:hosting
+      - name: Prepare an isolated deployment directory
+        shell: bash
+        run: |
+          revision=$(git -C .cloudflare-source rev-parse HEAD)
+          options=()
+          if [ "$DEPLOY_PRODUCTION" != 'true' ]; then options+=(--preview); fi
+          node tools/cloudflare-hosting.mjs prepare --site .cloudflare-source --revision "$revision" "${options[@]}"
+      - name: Validate source bytes, staged assets, model hashes and texture dependencies
+        run: node tools/cloudflare-validate.mjs
+      - name: Synchronize and verify required R2 objects
+        run: npm run cloudflare:sync
+      - name: Deploy with Wrangler
+        id: deployment
+        shell: bash
+        run: |
+          branch=migration-preview
+          if [ "$DEPLOY_PRODUCTION" = 'true' ]; then branch=gh-pages; fi
+          node tools/cloudflare-hosting.mjs deploy --branch "$branch"
+      - name: Verify deployed bytes and HTTP behavior
+        run: npm run cloudflare:verify
+      - name: Keep the deployment and verification records
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cloudflare-verification-${{ github.run_id }}
+          path: |
+            .cloudflare-build/manifest.json
+            .cloudflare-build/deployment.json
+            .cloudflare-build/verification.json
+          retention-days: 30
+      - name: Report preview/deployment URL
+        if: success()
+        env:
+          DEPLOYMENT_URL: ${{ steps.deployment.outputs.url }}
+        run: echo "Verified Cloudflare deployment — $DEPLOYMENT_URL" >> "$GITHUB_STEP_SUMMARY"

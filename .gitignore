@@ -6,3 +6,7 @@ node_modules/
 tracker/.vercel/
 tracker/.wrangler/
 tracker/.dev.vars*
+
+.cloudflare-build/
+.cloudflare-source/
+.wrangler/
