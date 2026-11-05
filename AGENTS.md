@@ -16,6 +16,11 @@
 - Every Hero / Unit pair must align pixel for pixel, automatically. Preserve native model proportions and use square 1024×1024 transparent pictures with the authored hero glow. The portrait studio must use the Unit as the reference and reuse its exact camera, lighting frame, pose, time and crop rectangle for both pictures, including Hero-only captures. Independently fitting both images with equal settings is insufficient; never stretch width or height independently.
 - Before publishing or replacing either picture, overlay/compare the body silhouettes at native resolution and require zero shifted silhouette or edge pixels, excluding the additional hero glow. Compare both variants with an accepted Hero / Unit pair on the actual army page at desktop and mobile widths for full weapons, glow and no clipping. Keep the standard shared card frame and the requested main variant.
 
+## Model card ordering
+
+- On every army page, updated models move up automatically: sort cards newest first by the latest model publication or update timestamp across all live variants. Fixed army placements must not override this order. Preserve group membership, variant selection and relative order when dates are equal or missing.
+- For every model update, refresh the byte-derived update metadata and verify the affected card moves up on the actual army page at desktop and mobile widths.
+
 ## Model file additions
 
 - When adding a user-supplied model file to the catalogue, preserve the provided description or lore and credit every supplied source model. The `By:` list is for the finished model's authors; source-model authors belong under `Model Base` or the relevant parts credit, not automatically in `By:` on the card, page, or Credits tab. Only add a source author to `By:` when explicitly requested as a co-author of the finished model. In credits, show linked model titles and linked author names; never print raw source URLs.
