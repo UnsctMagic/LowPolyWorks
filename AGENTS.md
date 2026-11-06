@@ -13,6 +13,7 @@
 
 ## Hero / Unit picture framing
 
+- This is a site-wide rule for every army and every existing or future Unit/Hero pair, including named subvariants (Axe, Flail, Swimless) and the Warboss/Hero pair. Hero glow must never reduce the body size or change its position: derive the camera and body framing from the corresponding Unit, retain the authored glow, and never fit or crop the Hero independently. Any extra canvas room needed for glow must use one identical crop for both pictures. Regenerate legacy mismatched pictures rather than treating them as exceptions.
 - Every Hero / Unit pair must align pixel for pixel, automatically. Preserve native model proportions and use square 1024×1024 transparent pictures with the authored hero glow. The portrait studio must use the Unit as the reference and reuse its exact camera, lighting frame, pose, time and crop rectangle for both pictures, including Hero-only captures. Independently fitting both images with equal settings is insufficient; never stretch width or height independently.
 - Before publishing or replacing either picture, overlay/compare the body silhouettes at native resolution and require zero shifted silhouette or edge pixels, excluding the additional hero glow. Compare both variants with an accepted Hero / Unit pair on the actual army page at desktop and mobile widths for full weapons, glow and no clipping. Keep the standard shared card frame and the requested main variant.
 

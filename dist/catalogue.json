@@ -9434,7 +9434,8 @@
       }
     ],
     "slug": "greenskin-black-orc-warboss",
-    "searchDescription": "Download the Black Orc Warboss model for Warcraft 3 Warhammer maps. Preview this Greenskin commander and its animations for Orcs and Goblins armies."
+    "searchDescription": "Download the Black Orc Warboss model for Warcraft 3 Warhammer maps. Preview this Greenskin commander and its animations for Orcs and Goblins armies.",
+    "imageVersion": "974d2e8864a3"
   },
   {
     "id": "herrdave-104264",
@@ -9581,7 +9582,8 @@
     ],
     "formationBodyHeight": 0.86,
     "slug": "greenskin-black-orc-warboss-hero",
-    "searchDescription": "Preview and download the hero variant of the Black Orc Warboss for Warcraft 3. A Warhammer Fantasy Greenskin hero for Orcs and Goblins armies."
+    "searchDescription": "Preview and download the hero variant of the Black Orc Warboss for Warcraft 3. A Warhammer Fantasy Greenskin hero for Orcs and Goblins armies.",
+    "imageVersion": "b7ec441e837d"
   },
   {
     "id": "herrdave-87375",
@@ -18718,7 +18720,8 @@
       "Portrait - 3",
       "Dissipate",
       "Spell"
-    ]
+    ],
+    "imageVersion": "47306b2ef465"
   },
   {
     "id": "gluma-127546",
@@ -18857,7 +18860,8 @@
       "Portrait - 3",
       "Dissipate",
       "Spell"
-    ]
+    ],
+    "imageVersion": "b58b6c149094"
   },
   {
     "id": "gluma-123574",
@@ -19026,7 +19030,8 @@
       "Spell",
       "Stand Channel",
       "Stand - 3"
-    ]
+    ],
+    "imageVersion": "0e58b93a6467"
   },
   {
     "id": "gluma-123571",
@@ -19204,7 +19209,8 @@
       "Spell",
       "Stand Channel",
       "Stand - 3"
-    ]
+    ],
+    "imageVersion": "7d47fdceed91"
   },
   {
     "id": "gluma-123553",
@@ -19374,7 +19380,8 @@
       "Portrait Talk - 2",
       "Portrait - 3",
       "Dissipate"
-    ]
+    ],
+    "imageVersion": "82f11f3b5ccf"
   },
   {
     "id": "gluma-123554",
@@ -19535,7 +19542,8 @@
       "Portrait Talk - 2",
       "Portrait - 3",
       "Dissipate"
-    ]
+    ],
+    "imageVersion": "115306b0ea93"
   },
   {
     "id": "gluma-123551",
@@ -19705,7 +19713,8 @@
       "Portrait Talk - 2",
       "Portrait - 3",
       "Dissipate"
-    ]
+    ],
+    "imageVersion": "61f3fa669077"
   },
   {
     "id": "gluma-123552",
@@ -19866,7 +19875,8 @@
       "Portrait Talk - 2",
       "Portrait - 3",
       "Dissipate"
-    ]
+    ],
+    "imageVersion": "c8e02eb82d0c"
   },
   {
     "id": "gluma-82702",
@@ -20057,7 +20067,8 @@
       "Stand Channel 2",
       "Attack Slam",
       "Dissipate"
-    ]
+    ],
+    "imageVersion": "87bc124f999f"
   },
   {
     "id": "gluma-82705",
@@ -20241,7 +20252,8 @@
       "Stand Channel 2",
       "Attack Slam",
       "Stand Ready"
-    ]
+    ],
+    "imageVersion": "8e873294e264"
   },
   {
     "id": "gluma-80903",
@@ -21184,7 +21196,8 @@
       "Portrait Talk - 2",
       "Portrait Talk - 3",
       "Attack Walk Stand Spin"
-    ]
+    ],
+    "imageVersion": "1eb34a587011"
   },
   {
     "id": "gluma-159912",
@@ -21299,7 +21312,8 @@
       "Portrait Talk - 2",
       "Portrait Talk - 3",
       "Attack Walk Stand Spin"
-    ]
+    ],
+    "imageVersion": "62b33bd3d754"
   },
   {
     "id": "gluma-160458",
@@ -21421,7 +21435,8 @@
       "Portrait Talk - 2",
       "Portrait Talk - 3"
     ],
-    "mdxCompatibility": "ribbon-color"
+    "mdxCompatibility": "ribbon-color",
+    "imageVersion": "13f59cb9ff42"
   },
   {
     "id": "gluma-160459",
@@ -21542,7 +21557,8 @@
       "Portrait Talk - 2",
       "Portrait Talk - 3"
     ],
-    "mdxCompatibility": "ribbon-color"
+    "mdxCompatibility": "ribbon-color",
+    "imageVersion": "741fe66d2b70"
   },
   {
     "id": "gluma-160461",
@@ -21653,7 +21669,8 @@
       "Portrait Talk - 2",
       "Portrait Talk - 3"
     ],
-    "mdxCompatibility": "ribbon-color"
+    "mdxCompatibility": "ribbon-color",
+    "imageVersion": "e88645468e7c"
   },
   {
     "id": "gluma-160460",
@@ -21765,7 +21782,8 @@
       "Portrait Talk - 2",
       "Portrait Talk - 3"
     ],
-    "mdxCompatibility": "ribbon-color"
+    "mdxCompatibility": "ribbon-color",
+    "imageVersion": "340d45d0a7b1"
   },
   {
     "id": "gluma-143397",
@@ -21877,7 +21895,8 @@
       "Portrait - 2",
       "Portrait Talk - 1",
       "Portrait Talk - 2"
-    ]
+    ],
+    "imageVersion": "8ecfec5ea806"
   },
   {
     "id": "gluma-143396",
@@ -21990,7 +22009,8 @@
       "Portrait - 2",
       "Portrait Talk - 1",
       "Portrait Talk - 2"
-    ]
+    ],
+    "imageVersion": "4e3940ff8cb2"
   },
   {
     "id": "gluma-143398",
@@ -22206,7 +22226,8 @@
       "Spell",
       "Stand Channel",
       "Dissipate"
-    ]
+    ],
+    "imageVersion": "5c307dac1fe4"
   },
   {
     "id": "gluma-137407",
@@ -22334,7 +22355,8 @@
       "Stand Channel",
       "Decay Flesh",
       "Decay Bone"
-    ]
+    ],
+    "imageVersion": "9c054a9aa511"
   },
   {
     "id": "gluma-144692",
@@ -22432,7 +22454,8 @@
       "Spell",
       "Stand Channel",
       "Dissipate"
-    ]
+    ],
+    "imageVersion": "a3186ec3630e"
   },
   {
     "id": "gluma-144691",
@@ -22522,7 +22545,8 @@
       "Stand Channel",
       "Decay Flesh",
       "Decay Bone"
-    ]
+    ],
+    "imageVersion": "5e5d171faf1c"
   },
   {
     "id": "gluma-137328",
@@ -22618,7 +22642,8 @@
       "Decay Flesh",
       "Decay Bone",
       "Walk Fast"
-    ]
+    ],
+    "imageVersion": "c1177d375fc8"
   },
   {
     "id": "gluma-137329",
@@ -22713,7 +22738,8 @@
       "Portrait Talk - 2",
       "Dissipate",
       "Walk Fast"
-    ]
+    ],
+    "imageVersion": "0489fa8c8549"
   },
   {
     "id": "gluma-145021",
@@ -22935,7 +22961,8 @@
       "Portrait Talk - 1",
       "Portrait Talk - 2",
       "Dissipate"
-    ]
+    ],
+    "imageVersion": "84fc88524d57"
   },
   {
     "id": "gluma-140896",
@@ -23040,7 +23067,8 @@
       "Portrait Talk - 2",
       "Decay Flesh",
       "Decay Bone"
-    ]
+    ],
+    "imageVersion": "f2947680a0d8"
   },
   {
     "id": "gluma-146392",
@@ -23145,7 +23173,8 @@
       "Portrait - 3",
       "Decay Flesh",
       "Decay Bone"
-    ]
+    ],
+    "imageVersion": "215fba610661"
   },
   {
     "id": "gluma-146393",
@@ -23258,7 +23287,8 @@
       "Portrait - 2",
       "Portrait - 3",
       "Dissipate"
-    ]
+    ],
+    "imageVersion": "dcc78b64b0d0"
   },
   {
     "id": "gluma-146394",
@@ -23354,7 +23384,8 @@
       "Portrait - 3",
       "Decay Flesh",
       "Decay Bone"
-    ]
+    ],
+    "imageVersion": "dffcb52a2e7e"
   },
   {
     "id": "gluma-146395",
@@ -23458,7 +23489,8 @@
       "Portrait - 2",
       "Portrait - 3",
       "Dissipate"
-    ]
+    ],
+    "imageVersion": "77a547e1e6aa"
   },
   {
     "id": "gluma-135399",
@@ -23582,7 +23614,8 @@
       "Portrait - 2",
       "Portrait Talk",
       "Portrait Talk - 2"
-    ]
+    ],
+    "imageVersion": "a4a4a4348d50"
   },
   {
     "id": "gluma-135400",
@@ -23700,7 +23733,8 @@
       "Portrait - 2",
       "Portrait Talk",
       "Portrait Talk - 2"
-    ]
+    ],
+    "imageVersion": "bda358ea785a"
   },
   {
     "id": "gluma-135401",
@@ -23835,7 +23869,8 @@
       "Decay Flesh",
       "Decay Bone",
       "Decay Swim"
-    ]
+    ],
+    "imageVersion": "8ff6bd610302"
   },
   {
     "id": "gluma-135402",
@@ -23963,7 +23998,8 @@
       "Portrait Talk - 2",
       "Decay Flesh",
       "Decay Bone"
-    ]
+    ],
+    "imageVersion": "8ff6bd610302"
   },
   {
     "id": "gluma-134840",
@@ -24395,7 +24431,8 @@
       "Spell Throw Swim",
       "Death",
       "Dissipate"
-    ]
+    ],
+    "imageVersion": "eb6cdae9791f"
   },
   {
     "id": "gluma-134635",
@@ -24540,7 +24577,8 @@
       "Spell Swim",
       "Spell Throw Swim",
       "Death"
-    ]
+    ],
+    "imageVersion": "49d4961eb37f"
   },
   {
     "id": "gluma-134398",

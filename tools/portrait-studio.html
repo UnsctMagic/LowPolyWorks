@@ -6,14 +6,19 @@ const frames=new Map();
 function referenceRow(row){
  const unit=row.id.endsWith('-hero')&&rows.find(r=>r.id===row.id.slice(0,-5));
  if(unit)return unit;
- const pair=groups.find(group=>group.variants.some(v=>v.id===row.id)&&group.variants.some(v=>v.label==='Hero')&&group.variants.some(v=>v.label==='Unit'));
- return rows.find(r=>r.id===pair?.variants.find(v=>v.label==='Unit')?.id)||row;
+ const group=groups.find(group=>group.variants.some(v=>v.id===row.id)),variant=group?.variants.find(v=>v.id===row.id);
+ if(!variant||!/\bHero\b/i.test(variant.label))return row;
+ const unitLabel=variant.label.replace(/\bHero\b/i,'Unit').toLowerCase(),baseLabel=variant.label.replace(/\s*\bHero\b\s*/i,' ').trim().toLowerCase();
+ const matching=group.variants.find(v=>v.label.toLowerCase()===unitLabel||v.label.toLowerCase()===baseLabel),units=group.variants.filter(v=>!/\bHero\b/i.test(v.label));
+ return rows.find(r=>r.id===(matching||(units.length===1?units[0]:null))?.id)||row;
 }
 async function captureRow(row,reference,frame){let viewer;try{
  const canvas=document.querySelector('#canvas'),army=armies.find(army=>army.id===row.army);
  // A Hero / Unit pair uses one projection and pose, including when only the Hero is requested.
  viewer=await createViewer(canvas,{...row,captureOrthographic:reference.captureOrthographic,captureCameraAngles:reference.captureCameraAngles,captureEmitters:reference.captureEmitters,captureRibbons:reference.captureRibbons},{thumbnail:true,formation:true,formationYaw:reference.captureFormationYaw??.32,teamColor:army.teamColour||army.colour});
- if(reference.captureSequence){viewer.sequence(row.sequences.indexOf(reference.captureSequence));let remaining=reference.captureTime??0;while(remaining>0){const step=Math.min(20,remaining);viewer.render(step);remaining-=step;}}else viewer.render(reference.id==='aspiring'?600:0);
+ const sequence=reference.captureSequence??reference.sequences.find(name=>name==='Stand'||name==='Stand - 1')??reference.sequences[0],sequenceIndex=row.sequences.indexOf(sequence);
+ if(sequenceIndex<0)throw Error('Missing reference sequence: '+sequence);
+ viewer.sequence(sequenceIndex);let remaining=reference.captureTime??(reference.id==='aspiring'?600:0);while(remaining>0){const step=Math.min(20,remaining);viewer.render(step);remaining-=step;}
  if(frame)viewer.useCaptureFrame(frame.view);
  const capture=document.createElement('canvas');capture.width=canvas.width;capture.height=canvas.height;
  const context=capture.getContext('2d');context.drawImage(canvas,0,0);
@@ -28,12 +33,23 @@ async function captureRow(row,reference,frame){let viewer;try{
  // Reuse the exact reference rectangle; independently rounded bounds shift body pixels.
  const image=document.createElement('canvas');image.width=image.height=1024;
  const out=image.getContext('2d');out.imageSmoothingEnabled=true;out.imageSmoothingQuality='high';out.drawImage(capture,frame.left,frame.top,frame.side,frame.side,0,0,1024,1024);
- return {image,frame};
+ return {image,frame,capture};
 }finally{viewer?.dispose();document.querySelector('#canvas').replaceWith(Object.assign(document.createElement('canvas'),{id:'canvas',style:'width:512px;height:512px'}));}}
+async function referenceFrame(reference){
+ const {frame}=await captureRow(reference,reference);
+ let left=frame.left,top=frame.top,right=left+frame.side,bottom=top+frame.side;
+ // Keep one Unit camera and body scale. Any extra room for glow belongs to both pictures.
+ for(const hero of rows.filter(row=>row.id!==reference.id&&referenceRow(row).id===reference.id)){
+  const {capture}=await captureRow(hero,reference,frame),pixels=capture.getContext('2d').getImageData(0,0,capture.width,capture.height).data;
+  for(let y=0;y<capture.height;y++)for(let x=0;x<capture.width;x++)if(pixels[(y*capture.width+x)*4+3]>8){left=Math.min(left,x-8);right=Math.max(right,x+9);top=Math.min(top,y-8);bottom=Math.max(bottom,y+9);}
+ }
+ const side=Math.max(right-left,bottom-top);
+ return {...frame,left:(left+right-side)/2,top:(top+bottom-side)/2,side};
+}
 let successes=0,failures=0;
 for(const row of rows.filter(row=>!selected||selected.includes(row.id))){try{
  const reference=referenceRow(row);
- if(reference.id!==row.id&&!frames.has(reference.id))frames.set(reference.id,(await captureRow(reference,reference)).frame);
+ if(!frames.has(reference.id)&&rows.some(other=>other.id!==reference.id&&referenceRow(other).id===reference.id))frames.set(reference.id,await referenceFrame(reference));
  const {image,frame}=await captureRow(row,reference,frames.get(reference.id));frames.set(reference.id,frame);
  const png=await new Promise(resolve=>image.toBlob(resolve,'image/png'));
  const saved=await fetch('/__portrait?id=unit-'+row.id,{method:'POST',body:png});if(!saved.ok)throw Error('Card save failed');
