@@ -549,8 +549,9 @@
       "updatedAt": "2026-11-05T23:48:45.364Z"
     },
     "greenskin-orc-boy-native-reskin": {
-      "sha256": "2206f1382fd8f3546a640e865229451e2f947f17f0d05ee86fcf895f2e3738ee",
-      "publishedAt": "2026-11-07T22:23:31.048Z"
+      "sha256": "8fa997c36e42d4b22f4d4ed43a6d53bef5ecdf1e628baf197d021850af924d8e",
+      "publishedAt": "2026-11-07T22:23:31.048Z",
+      "updatedAt": "2026-11-07T22:55:26.379Z"
     }
   }
 }
