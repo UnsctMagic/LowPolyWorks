@@ -13,7 +13,8 @@ export function costumeAt(now = Date.now()) {
   if (now >= Date.UTC(year, 11, 10, 23) && now < Date.UTC(year, 11, 26, 23)) return 'christmas';
   return 'none';
 }
-// Now and then, while he flies under the Morgoth crown (and in Mordor), Shredder says a line in the Black Speech.
+// Now and then, while he stands idle under the Morgoth crown (and in Mordor), Shredder says a line in the Black Speech.
+// He finishes the line before anything shoos him away.
 // Lines are built from Tolkien's Black Speech words: [line, meaning].
 const BLACK_SPEECH = [
   ['Ghâsh agh burzum!', 'Fire and darkness!'],
@@ -25,8 +26,7 @@ const BLACK_SPEECH = [
   ['Olog-ûk thrak ghâsh.', 'The trolls bring fire.'],
   ['Pushdug tark-glob!', 'Filthy Gondor fool!'],
 ];
-const SPEECH_CHANCE = .35, SPEECH_TIME = 3200, SPEECH_GAP = [18000, 35000]; // per flight, ms, ms
-const SPEECH_PHASES = ['arrive', 'fly', 'chase', 'attack'];
+const SPEECH_CHANCE = .4, SPEECH_TIME = 3200, SPEECH_GAP = [18000, 35000]; // per idle stop, ms, ms
 const between = (low, high) => low + Math.random() * (high - low);
 const ease = value => { const t = Math.max(0, Math.min(1, value)); return t * t * (3 - 2 * t); };
 const mix = (a, b, t) => a + (b - a) * ease(t);
@@ -157,9 +157,11 @@ export function startMenuVisitor({onInteraction} = {}) {
   const speechLayer = document.createElement('div'); speechLayer.className = 'menu-visitor-speech-layer';
   speechLayer.setAttribute('aria-hidden', 'true');
   const speech = document.createElement('div'); speech.className = 'menu-visitor-speech';
-  const speechLine = document.createElement('span'), speechMeaning = document.createElement('small');
-  speech.append(speechLine, speechMeaning); speechLayer.append(speech); document.body.append(speechLayer);
-  let speakingUntil = 0, nextSpeech = performance.now() + between(4000, 9000), speechFlight = null, lastLine = -1;
+  speechLayer.append(speech); document.body.append(speechLayer);
+  if (costumeAt() === 'morgoth') document.fonts?.load('700 18px MDLxL-Mordor')?.catch?.(() => {});
+  // idleStop names the current standing stop (null while he moves); each stop gets one roll.
+  let speakingUntil = 0, nextSpeech = performance.now() + between(4000, 9000), idleStop = null, rolledStop = null, lastLine = -1;
+  const talking = now => now < speakingUntil;
   const peanutTest = new URLSearchParams(location.search).has('peanut-test');
   // The test view is the owner's own playground, so it never counts.
   const played = kind => { if (!peanutTest) onInteraction?.(kind); };
@@ -958,26 +960,25 @@ export function startMenuVisitor({onInteraction} = {}) {
     direction = walkDirection;
   }
 
-  // One roll per flight; the bubble follows him, and stays briefly after he lands.
+  // One roll per idle stop. The line stays put above him; moving on ends it.
   function speak(now) {
-    if (SPEECH_PHASES.includes(phase) && currentCostume() === 'morgoth' && started !== speechFlight &&
-      now >= nextSpeech && now >= speakingUntil) {
-      speechFlight = started;
+    if (idleStop && idleStop !== rolledStop && currentCostume() === 'morgoth' && now >= nextSpeech && !talking(now)) {
+      rolledStop = idleStop;
       if (Math.random() < SPEECH_CHANCE) {
         let pick = Math.floor(Math.random() * BLACK_SPEECH.length);
         if (pick === lastLine) pick = (pick + 1) % BLACK_SPEECH.length;
-        lastLine = pick; [speechLine.textContent, speechMeaning.textContent] = BLACK_SPEECH[pick];
+        lastLine = pick; speech.textContent = BLACK_SPEECH[pick][0];
         speakingUntil = now + SPEECH_TIME; nextSpeech = speakingUntil + between(...SPEECH_GAP);
+        deadline = Math.max(deadline, speakingUntil + 2500);
+        if (phase === 'walk') pauseUntil = Math.max(pauseUntil, speakingUntil);
       }
     }
-    const hidden = ['rest', 'peek-hidden', 'duck'].includes(phase);
-    if (hidden) speakingUntil = Math.min(speakingUntil, now);
-    if (now >= speakingUntil || !paintedPoint || bird.style.visibility !== 'visible') { speech.classList.remove('shown'); return; }
+    if (!idleStop) speakingUntil = Math.min(speakingUntil, now);
+    if (!talking(now) || !paintedPoint || bird.style.visibility !== 'visible') { speech.classList.remove('shown'); return; }
     speech.classList.add('shown');
     const width = speech.offsetWidth, height = speech.offsetHeight;
     const x = clamp(paintedPoint.x - width / 2, 8, speechLayer.clientWidth - width - 8);
-    const y = clamp(paintedPoint.y - bodyHeight * .55 - height, 8, speechLayer.clientHeight - height - 8);
-    speech.style.setProperty('--tail', `${clamp(paintedPoint.x - x, 14, width - 14)}px`);
+    const y = clamp(paintedPoint.y - bodyHeight * .4 - height, 8, speechLayer.clientHeight - height - 8);
     speech.style.transform = `translate(${Math.round(x)}px, ${Math.round(y)}px)`;
   }
 
@@ -992,6 +993,7 @@ export function startMenuVisitor({onInteraction} = {}) {
       if (mordor && phase === 'peek-hidden') rest(now);
     }
     tickPeanut(document.hidden ? 0 : dt);
+    idleStop = null;
     const canAppear = !document.hidden && now >= next && art.complete && art.naturalWidth && flightArt.complete && flightArt.naturalWidth;
     if (follow && !holding()) follow = null;
     // Following food into a new view: fly there from wherever he is, retrying until it has a perch.
@@ -1059,13 +1061,14 @@ export function startMenuVisitor({onInteraction} = {}) {
             if (Math.abs(speed) > 4) { row = speed < 0 ? 2 : 1; column = Math.floor(steps / 6) % 8; }
             else { const look = peanutLook({x:point.x, y:point.y - footOffset}, 0); row = look.row; column = look.column; mirroredLook = look.mirrored; }
           } else {
-            if (walkingNear && !freePeanut) {
+            const speaking = talking(now);
+            if (walkingNear && !freePeanut && !speaking) {
               direction = pointer.x < point.x ? 1 : -1;
               escapeSpeed = Math.max(420, Math.min(1200, pointerSpeed * 1.35 + 260));
               if (speed * direction < 360) speed = direction * 420;
               chasedUntil = now + 2000; hurryUntil = chasedUntil; pauseUntil = 0; pauseAt = now + 4000;
             }
-            if (now >= deadline - 2500) {
+            if (now >= deadline - 2500 && !speaking) {
               pauseUntil = 0; pauseAt = Infinity;
               if (!walkingNear) direction = offset - perch.min < perch.max - offset ? -1 : 1;
               const remaining = direction < 0 ? offset - perch.min : perch.max - offset;
@@ -1084,20 +1087,21 @@ export function startMenuVisitor({onInteraction} = {}) {
             offset = clamp(offset + movement, perch.min, perch.max); steps += Math.abs(movement);
             point = pointFor(perch, rect, offset);
             if (pauseUntil && Math.abs(speed) < 4) {
+              if (!freePeanut && !heldPeanut) idleStop = `walk:${pauseStarted}`;
               if (leanCycles) { row = 8; column = leanColumn(now - pauseStarted); }
               else { row = 5; column = Math.floor((now - pauseStarted) / 150) % 8; }
             }
             else { row = speed < 0 ? 2 : 1; column = Math.floor(steps / 6) % 8; }
             const atEnd = offset <= perch.min || offset >= perch.max;
-            if ((!freePeanut && walkingDistance < 62) || atEnd) {
+            if (!speaking && ((!freePeanut && walkingDistance < 62) || atEnd)) {
               const chased = (!freePeanut && walkingNear) || now < chasedUntil;
               if (atEnd && !chased) startDive(point, now);
               else takeOff(point, now, walkingDistance < 62);
             }
           }
         } else {
-          if (phase === 'peek' && near && !heldPeanut) { change('duck', now); played('peek'); }
-          if (now >= deadline && phase !== 'duck' && !freePeanut) change('duck', now);
+          if (phase === 'peek' && near && !heldPeanut && !talking(now)) { change('duck', now); played('peek'); }
+          if (now >= deadline && phase !== 'duck' && !freePeanut && !talking(now)) change('duck', now);
           const age = now - started;
           if (phase === 'peek') {
             exposure = mix(fromExposure, 10 * bodyScale, age / 900);
@@ -1107,6 +1111,8 @@ export function startMenuVisitor({onInteraction} = {}) {
             const action = holding() || isFree(peanut) ?
               {...peanutLook({x:point.x + perch.nx * exposure, y:point.y + perch.ny * exposure}, turn, perch.side), dip:0} : pose(actionAge);
             row = action.row; column = action.column;
+            // Only an upright peek has room for words above him.
+            if (perch.side === 'top' && !heldPeanut && !isFree(peanut) && age >= 900) idleStop = `peek:${started}`;
             mirroredLook = action.mirrored || false;
             turn += action.dip * 5;
             point.x -= perch.nx * action.dip * 4 * scale; point.y -= perch.ny * action.dip * 4 * scale;

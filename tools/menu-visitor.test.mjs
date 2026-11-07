@@ -211,7 +211,8 @@ function walkingStops(f, ms) {
 const LEAN_ONCE=[0,5,4,5,0,6,7,6];
 
 test('a walking stop can be the head lean, one way and then the other', () => {
-  const f=fixture(true,.3); f.context.visitor.choose('walk');
+  // Outside the Morgoth crown dates, so no Black Speech line holds the stop.
+  const f=fixture(true,.3,{Date:class extends Date {static now(){return Date.UTC(2026,10,20);}}}); f.context.visitor.choose('walk');
   const stops=walkingStops(f,12000);
   assert(stops.length>=1);
   assert.deepEqual(stops[0],LEAN_ONCE);
@@ -860,25 +861,33 @@ test('Mordor crown takes priority over seasonal hats and restores them on exit',
   }
 });
 
-test('under the Morgoth crown he now and then says a Black Speech line while flying, and never otherwise', () => {
+test('under the Morgoth crown he says a Black Speech line only while standing idle, and finishes it before fleeing', () => {
   const at=time=>({Date:class extends Date {static now(){return time;}}});
-  const bubble=f=>f.nodes.find(n=>n.className==='menu-visitor-speech');
-  const line=f=>bubble(f).children[0].textContent;
-  // Crowned, a low roll speaks on the flight in and the bubble rides with him.
-  const f=fixture(false,.1,at(Date.UTC(2026,10,9)));
-  f.advance(10000); f.context.visitor.choose('peek');
+  const words=f=>f.nodes.find(n=>n.className==='menu-visitor-speech');
+  const shown=f=>words(f).classList.contains('shown');
+  // Low rolls, except the peanut and special-move rolls, so his visit stays a plain walk.
+  // The first visit stays silent (a high speech roll), so the walk below is the first line.
+  let speechRoll=.9;
+  const quietRolls=f=>{f.context.Math.random=()=>{const stack=new Error().stack; return /rollFor(Peanut|Special)/.test(stack) ? .9 : /speak/.test(stack) ? speechRoll : .1;};};
+  const f=fixture(false,.1,at(Date.UTC(2026,10,9))); quietRolls(f);
+  f.advance(10000); speechRoll=.1; f.context.visitor.choose('walk');
   let spoke=false;
-  for(let i=0;i<200 && !spoke;i++) { f.step(); spoke=bubble(f).classList.contains('shown'); }
-  assert(spoke); assert(line(f).length>0); assert(bubble(f).children[1].textContent.length>0);
-  assert.match(bubble(f).style.transform,/translate\(/);
-  // The line fades after a few seconds and he waits before speaking again.
-  f.advance(4000); assert(!bubble(f).classList.contains('shown'));
-  // Without a costume the same flights stay silent.
-  const plain=fixture(false,.1,at(Date.UTC(2026,10,20)));
-  plain.advance(10000); plain.context.visitor.choose('peek');
-  for(let i=0;i<200;i++) { plain.step(); assert(!bubble(plain).classList.contains('shown')); }
-  // A high roll keeps a crowned flight silent too.
-  const quiet=fixture(false,.9,at(Date.UTC(2026,10,9)));
-  quiet.advance(10000); quiet.context.visitor.choose('peek');
-  for(let i=0;i<200;i++) { quiet.step(); assert(!bubble(quiet).classList.contains('shown')); }
+  for(let i=0;i<1500 && !spoke;i++) {
+    f.step();
+    spoke=shown(f);
+    // Never while he flies in or walks.
+    if(!spoke) continue;
+    assert.equal(f.state().phase,'walk');
+  }
+  assert(spoke); assert(words(f).textContent.length>0); assert.match(words(f).style.transform,/translate\(/);
+  // A pointer right on him does not shoo him while he talks.
+  const point=f.state().point; f.move(point.x,point.y);
+  const startedAt=f.state().point.x;
+  for(let i=0;i<150 && shown(f);i++) { f.move(point.x,point.y); f.step(); assert.equal(f.state().phase,'walk'); assert(Math.abs(f.state().point.x-startedAt)<1); }
+  // Once the line is done, the same pointer sends him off.
+  f.advance(2000); assert(!shown(f)); assert.notEqual(f.state().phase,'walk');
+  // Without a costume he stays silent.
+  const plain=fixture(false,.1,at(Date.UTC(2026,10,20))); quietRolls(plain);
+  plain.advance(10000); plain.context.visitor.choose('walk');
+  for(let i=0;i<1500;i++) { plain.step(); assert(!shown(plain)); }
 });
