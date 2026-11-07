@@ -26,9 +26,7 @@ function fixture(testMode = true, random = .6, extras = {}) {
   const nodes = [], listeners = new Map();
   const rect = {left:240, right:860, top:220, bottom:550, width:620, height:330};
   const element = (className = '') => {
-    const classes = new Set();
-    const node = {className, style:{setProperty(name, value){this[name] = value;}}, dataset:{}, isConnected:true, clientWidth:1100, clientHeight:800,
-      offsetWidth:180, offsetHeight:44, classList:{add:c => classes.add(c), remove:c => classes.delete(c), contains:c => classes.has(c)},
+    const node = {className, style:{}, dataset:{}, isConnected:true, clientWidth:1100, clientHeight:800,
       children:[], getContext(){return this.context ||= {calls:[], setTransform(...v){this.calls=[];this.calls.push(['setTransform',...v]);}, clearRect(){}, save(){}, restore(){}, translate(...v){this.calls.push(['translate',...v]);}, scale(...v){this.calls.push(['scale',...v]);}, rotate(...v){this.calls.push(['rotate',...v]);}, drawImage(...v){this.calls.push(['drawImage',...v]);}};}, setAttribute(){}, append(...children){this.children.push(...children);},
       remove(){this.isConnected = false;}, querySelector(){return null;}, closest(){return null;},
       matches(selector){return selector.split(',').some(s => s.trim() === '.' + this.className);},
@@ -211,8 +209,7 @@ function walkingStops(f, ms) {
 const LEAN_ONCE=[0,5,4,5,0,6,7,6];
 
 test('a walking stop can be the head lean, one way and then the other', () => {
-  // Outside the Morgoth crown dates, so no Black Speech line holds the stop.
-  const f=fixture(true,.3,{Date:class extends Date {static now(){return Date.UTC(2026,10,20);}}}); f.context.visitor.choose('walk');
+  const f=fixture(true,.3); f.context.visitor.choose('walk');
   const stops=walkingStops(f,12000);
   assert(stops.length>=1);
   assert.deepEqual(stops[0],LEAN_ONCE);
@@ -220,8 +217,8 @@ test('a walking stop can be the head lean, one way and then the other', () => {
 
 test('walking stops mix his usual look around with leans played twice through', () => {
   const f=fixture(true,.6); let flip=false;
-  // The visit's peanut, special-move and speech rolls keep out of the alternation, so it only drives the stops.
-  f.context.Math.random=()=>/rollFor(Peanut|Special)|speak/.test(new Error().stack) ? .9 : (flip=!flip) ? .3 : .7;
+  // The visit's peanut and special-move rolls keep out of the alternation, so it only drives the stops.
+  f.context.Math.random=()=>/rollFor(Peanut|Special)/.test(new Error().stack) ? .9 : (flip=!flip) ? .3 : .7;
   const seen=new Set();
   for(let visit=0;visit<6;visit++) {
     f.context.visitor.choose('walk');
@@ -859,35 +856,4 @@ test('Mordor crown takes priority over seasonal hats and restores them on exit',
     delete panel.dataset.tutorialLanguage; f.step();
     assert.equal(bird.dataset.hat,season);
   }
-});
-
-test('under the Morgoth crown he says a Black Speech line only while standing idle, and finishes it before fleeing', () => {
-  const at=time=>({Date:class extends Date {static now(){return time;}}});
-  const words=f=>f.nodes.find(n=>n.className==='menu-visitor-speech');
-  const shown=f=>words(f).classList.contains('shown');
-  // Low rolls, except the peanut and special-move rolls, so his visit stays a plain walk.
-  // The first visit stays silent (a high speech roll), so the walk below is the first line.
-  let speechRoll=.9;
-  const quietRolls=f=>{f.context.Math.random=()=>{const stack=new Error().stack; return /rollFor(Peanut|Special)/.test(stack) ? .9 : /speak/.test(stack) ? speechRoll : .1;};};
-  const f=fixture(false,.1,at(Date.UTC(2026,10,9))); quietRolls(f);
-  f.advance(10000); speechRoll=.1; f.context.visitor.choose('walk');
-  let spoke=false;
-  for(let i=0;i<1500 && !spoke;i++) {
-    f.step();
-    spoke=shown(f);
-    // Never while he flies in or walks.
-    if(!spoke) continue;
-    assert.equal(f.state().phase,'walk');
-  }
-  assert(spoke); assert(words(f).textContent.length>0); assert.match(words(f).style.transform,/translate\(/);
-  // A pointer right on him does not shoo him while he talks.
-  const point=f.state().point; f.move(point.x,point.y);
-  const startedAt=f.state().point.x;
-  for(let i=0;i<150 && shown(f);i++) { f.move(point.x,point.y); f.step(); assert.equal(f.state().phase,'walk'); assert(Math.abs(f.state().point.x-startedAt)<1); }
-  // Once the line is done, the same pointer sends him off.
-  f.advance(2000); assert(!shown(f)); assert.notEqual(f.state().phase,'walk');
-  // Without a costume he stays silent.
-  const plain=fixture(false,.1,at(Date.UTC(2026,10,20))); quietRolls(plain);
-  plain.advance(10000); plain.context.visitor.choose('walk');
-  for(let i=0;i<1500;i++) { plain.step(); assert(!shown(plain)); }
 });
