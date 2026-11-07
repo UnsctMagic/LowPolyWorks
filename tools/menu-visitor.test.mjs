@@ -26,7 +26,9 @@ function fixture(testMode = true, random = .6, extras = {}) {
   const nodes = [], listeners = new Map();
   const rect = {left:240, right:860, top:220, bottom:550, width:620, height:330};
   const element = (className = '') => {
-    const node = {className, style:{}, dataset:{}, isConnected:true, clientWidth:1100, clientHeight:800,
+    const classes = new Set();
+    const node = {className, style:{setProperty(name, value){this[name] = value;}}, dataset:{}, isConnected:true, clientWidth:1100, clientHeight:800,
+      offsetWidth:180, offsetHeight:44, classList:{add:c => classes.add(c), remove:c => classes.delete(c), contains:c => classes.has(c)},
       children:[], getContext(){return this.context ||= {calls:[], setTransform(...v){this.calls=[];this.calls.push(['setTransform',...v]);}, clearRect(){}, save(){}, restore(){}, translate(...v){this.calls.push(['translate',...v]);}, scale(...v){this.calls.push(['scale',...v]);}, rotate(...v){this.calls.push(['rotate',...v]);}, drawImage(...v){this.calls.push(['drawImage',...v]);}};}, setAttribute(){}, append(...children){this.children.push(...children);},
       remove(){this.isConnected = false;}, querySelector(){return null;}, closest(){return null;},
       matches(selector){return selector.split(',').some(s => s.trim() === '.' + this.className);},
@@ -217,8 +219,8 @@ test('a walking stop can be the head lean, one way and then the other', () => {
 
 test('walking stops mix his usual look around with leans played twice through', () => {
   const f=fixture(true,.6); let flip=false;
-  // The visit's peanut and special-move rolls keep out of the alternation, so it only drives the stops.
-  f.context.Math.random=()=>/rollFor(Peanut|Special)/.test(new Error().stack) ? .9 : (flip=!flip) ? .3 : .7;
+  // The visit's peanut, special-move and speech rolls keep out of the alternation, so it only drives the stops.
+  f.context.Math.random=()=>/rollFor(Peanut|Special)|speak/.test(new Error().stack) ? .9 : (flip=!flip) ? .3 : .7;
   const seen=new Set();
   for(let visit=0;visit<6;visit++) {
     f.context.visitor.choose('walk');
@@ -856,4 +858,27 @@ test('Mordor crown takes priority over seasonal hats and restores them on exit',
     delete panel.dataset.tutorialLanguage; f.step();
     assert.equal(bird.dataset.hat,season);
   }
+});
+
+test('under the Morgoth crown he now and then says a Black Speech line while flying, and never otherwise', () => {
+  const at=time=>({Date:class extends Date {static now(){return time;}}});
+  const bubble=f=>f.nodes.find(n=>n.className==='menu-visitor-speech');
+  const line=f=>bubble(f).children[0].textContent;
+  // Crowned, a low roll speaks on the flight in and the bubble rides with him.
+  const f=fixture(false,.1,at(Date.UTC(2026,10,9)));
+  f.advance(10000); f.context.visitor.choose('peek');
+  let spoke=false;
+  for(let i=0;i<200 && !spoke;i++) { f.step(); spoke=bubble(f).classList.contains('shown'); }
+  assert(spoke); assert(line(f).length>0); assert(bubble(f).children[1].textContent.length>0);
+  assert.match(bubble(f).style.transform,/translate\(/);
+  // The line fades after a few seconds and he waits before speaking again.
+  f.advance(4000); assert(!bubble(f).classList.contains('shown'));
+  // Without a costume the same flights stay silent.
+  const plain=fixture(false,.1,at(Date.UTC(2026,10,20)));
+  plain.advance(10000); plain.context.visitor.choose('peek');
+  for(let i=0;i<200;i++) { plain.step(); assert(!bubble(plain).classList.contains('shown')); }
+  // A high roll keeps a crowned flight silent too.
+  const quiet=fixture(false,.9,at(Date.UTC(2026,10,9)));
+  quiet.advance(10000); quiet.context.visitor.choose('peek');
+  for(let i=0;i<200;i++) { quiet.step(); assert(!bubble(quiet).classList.contains('shown')); }
 });

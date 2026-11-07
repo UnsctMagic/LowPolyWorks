@@ -13,6 +13,20 @@ export function costumeAt(now = Date.now()) {
   if (now >= Date.UTC(year, 11, 10, 23) && now < Date.UTC(year, 11, 26, 23)) return 'christmas';
   return 'none';
 }
+// Now and then, while he flies under the Morgoth crown (and in Mordor), Shredder says a line in the Black Speech.
+// Lines are built from Tolkien's Black Speech words: [line, meaning].
+const BLACK_SPEECH = [
+  ['Ghâsh agh burzum!', 'Fire and darkness!'],
+  ['Lugbúrz durbat-ûk.', 'The Dark Tower rules all.'],
+  ['Gûl-ûk gimbat-ûl.', 'The wraiths will find them.'],
+  ['Tark-ûk ghâsh-ishi!', 'All men into the fire!'],
+  ['Burzum krimpat-ûk.', 'Darkness binds all.'],
+  ['Snaga, thrak tark!', 'Slave, bring me the man!'],
+  ['Olog-ûk thrak ghâsh.', 'The trolls bring fire.'],
+  ['Pushdug tark-glob!', 'Filthy Gondor fool!'],
+];
+const SPEECH_CHANCE = .35, SPEECH_TIME = 3200, SPEECH_GAP = [18000, 35000]; // per flight, ms, ms
+const SPEECH_PHASES = ['arrive', 'fly', 'chase', 'attack'];
 const between = (low, high) => low + Math.random() * (high - low);
 const ease = value => { const t = Math.max(0, Math.min(1, value)); return t * t * (3 - 2 * t); };
 const mix = (a, b, t) => a + (b - a) * ease(t);
@@ -140,6 +154,12 @@ export function startMenuVisitor({onInteraction} = {}) {
   foodLayer.setAttribute('aria-hidden', 'true');
   const food = document.createElement('div'); food.className = 'menu-peanut';
   foodLayer.append(food); document.body.append(foodLayer);
+  const speechLayer = document.createElement('div'); speechLayer.className = 'menu-visitor-speech-layer';
+  speechLayer.setAttribute('aria-hidden', 'true');
+  const speech = document.createElement('div'); speech.className = 'menu-visitor-speech';
+  const speechLine = document.createElement('span'), speechMeaning = document.createElement('small');
+  speech.append(speechLine, speechMeaning); speechLayer.append(speech); document.body.append(speechLayer);
+  let speakingUntil = 0, nextSpeech = performance.now() + between(4000, 9000), speechFlight = null, lastLine = -1;
   const peanutTest = new URLSearchParams(location.search).has('peanut-test');
   // The test view is the owner's own playground, so it never counts.
   const played = kind => { if (!peanutTest) onInteraction?.(kind); };
@@ -938,6 +958,29 @@ export function startMenuVisitor({onInteraction} = {}) {
     direction = walkDirection;
   }
 
+  // One roll per flight; the bubble follows him, and stays briefly after he lands.
+  function speak(now) {
+    if (SPEECH_PHASES.includes(phase) && currentCostume() === 'morgoth' && started !== speechFlight &&
+      now >= nextSpeech && now >= speakingUntil) {
+      speechFlight = started;
+      if (Math.random() < SPEECH_CHANCE) {
+        let pick = Math.floor(Math.random() * BLACK_SPEECH.length);
+        if (pick === lastLine) pick = (pick + 1) % BLACK_SPEECH.length;
+        lastLine = pick; [speechLine.textContent, speechMeaning.textContent] = BLACK_SPEECH[pick];
+        speakingUntil = now + SPEECH_TIME; nextSpeech = speakingUntil + between(...SPEECH_GAP);
+      }
+    }
+    const hidden = ['rest', 'peek-hidden', 'duck'].includes(phase);
+    if (hidden) speakingUntil = Math.min(speakingUntil, now);
+    if (now >= speakingUntil || !paintedPoint || bird.style.visibility !== 'visible') { speech.classList.remove('shown'); return; }
+    speech.classList.add('shown');
+    const width = speech.offsetWidth, height = speech.offsetHeight;
+    const x = clamp(paintedPoint.x - width / 2, 8, speechLayer.clientWidth - width - 8);
+    const y = clamp(paintedPoint.y - bodyHeight * .55 - height, 8, speechLayer.clientHeight - height - 8);
+    speech.style.setProperty('--tail', `${clamp(paintedPoint.x - x, 14, width - 14)}px`);
+    speech.style.transform = `translate(${Math.round(x)}px, ${Math.round(y)}px)`;
+  }
+
   function tick(now) {
     const dt = Math.min(40, now - last); last = now;
     // The tutorial panel owns the active language, including saved choices and in-page navigation.
@@ -1110,6 +1153,7 @@ export function startMenuVisitor({onInteraction} = {}) {
         }
       }
     }
+    speak(now);
     bird.dataset.phase = phase;
     bird.dataset.mode = perch?.mode || '';
     frame = requestAnimationFrame(tick);
@@ -1164,6 +1208,6 @@ export function startMenuVisitor({onInteraction} = {}) {
     window.removeEventListener('lowpolyworks:bird-attack', birdAttack);
     window.removeEventListener('keydown', testPeanut);
     document.removeEventListener('pointerleave', leave);
-    disposed = true; directionalHats?.dispose(); layer.remove(); foodLayer.remove(); css.remove();
+    disposed = true; directionalHats?.dispose(); layer.remove(); foodLayer.remove(); speechLayer.remove(); css.remove();
   };
 }
