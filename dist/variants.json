@@ -740,5 +740,19 @@
         "label": "Hero"
       }
     ]
+  },
+  {
+    "id": "greenskin-orc-boy",
+    "name": "Greenskin - Orc Boy",
+    "variants": [
+      {
+        "id": "herrdave-87375",
+        "label": "Original"
+      },
+      {
+        "id": "greenskin-orc-boy-native-reskin",
+        "label": "Native Reskin"
+      }
+    ]
   }
 ]
