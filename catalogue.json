@@ -9184,7 +9184,7 @@
     "credits": "Model - HerrDave\n\nOriginal resource - Warhammer - Greenskins (1H)",
     "sourceUrl": "https://www.hiveworkshop.com/threads/warhammer-greenskins-1h.321022/#resource-87376",
     "sourcePack": "Warhammer - Greenskins (1H)",
-    "downloadPack": null,
+    "downloadPack": "downloads/herrdave/greenskin-black-orc.zip",
     "textureFiles": {
       "greenskin_blackorc.blp": "textures/herrdave/42/Warhammer - Greenskins (1H)/Greenskin - Black Orc/Greenskin_BlackOrc.blp"
     },
@@ -9298,7 +9298,8 @@
     ],
     "formationBodyHeight": 0.82,
     "slug": "greenskin-black-orc",
-    "searchDescription": "Preview and download the Black Orc model for Warcraft 3. Add Warhammer Fantasy Greenskin infantry to your Orcs and Goblins army."
+    "searchDescription": "Preview and download the Black Orc model for Warcraft 3. Add Warhammer Fantasy Greenskin infantry to your Orcs and Goblins army.",
+    "downloadPackOnly": true
   },
   {
     "id": "herrdave-87377",
@@ -9435,7 +9436,8 @@
     ],
     "slug": "greenskin-black-orc-warboss",
     "searchDescription": "Download the Black Orc Warboss model for Warcraft 3 Warhammer maps. Preview this Greenskin commander and its animations for Orcs and Goblins armies.",
-    "imageVersion": "974d2e8864a3"
+    "imageVersion": "974d2e8864a3",
+    "downloadPackOnly": true
   },
   {
     "id": "herrdave-104264",
@@ -9583,7 +9585,8 @@
     "formationBodyHeight": 0.86,
     "slug": "greenskin-black-orc-warboss-hero",
     "searchDescription": "Preview and download the hero variant of the Black Orc Warboss for Warcraft 3. A Warhammer Fantasy Greenskin hero for Orcs and Goblins armies.",
-    "imageVersion": "b7ec441e837d"
+    "imageVersion": "b7ec441e837d",
+    "downloadPackOnly": true
   },
   {
     "id": "herrdave-87375",
@@ -9595,7 +9598,7 @@
     "credits": "Model - HerrDave\n\nOriginal resource - Warhammer - Greenskins (1H)",
     "sourceUrl": "https://www.hiveworkshop.com/threads/warhammer-greenskins-1h.321022/#resource-87375",
     "sourcePack": "Warhammer - Greenskins (1H)",
-    "downloadPack": null,
+    "downloadPack": "downloads/herrdave/greenskin-orc-boy.zip",
     "textureFiles": {
       "greenskin_blackorc.blp": "textures/herrdave/42/Warhammer - Greenskins (1H)/Greenskin - Orc Boy/Greenskin_BlackOrc.blp"
     },
@@ -9724,7 +9727,8 @@
         "date": "7 November 2026",
         "text": "Added a native texture reskin by UnsanctionedMagic"
       }
-    ]
+    ],
+    "downloadPackOnly": true
   },
   {
     "id": "greenskin-orc-boy-native-reskin",
@@ -9732,7 +9736,7 @@
     "name": "Greenskin - Orc Boy",
     "army": "orcs-and-goblins",
     "description": "MerRy ChrisTMas, ya Zoggin Sn0TT GITZ!\n\nWAAAAAAAAAAAGH!!\n\n- Ugslap, Da Singin' Orc\n\nThis variation uses native Warcraft III textures.",
-    "credits": "Model Base - Greenskin - Orc Boy by HerrDave\n\nReskin by UnsacntionedMagic",
+    "credits": "Model - HerrDave\n\nOriginal resource - Warhammer - Greenskins (1H)\n\nReskin by UnsacntionedMagic",
     "sha256": "8fa997c36e42d4b22f4d4ed43a6d53bef5ecdf1e628baf197d021850af924d8e",
     "geosets": [
       {
@@ -9893,7 +9897,7 @@
     ],
     "creditLinks": [
       {
-        "text": "Greenskin - Orc Boy",
+        "text": "Warhammer - Greenskins (1H)",
         "url": "https://www.hiveworkshop.com/threads/warhammer-greenskins-1h.321022/#resource-87375"
       },
       {
@@ -9913,7 +9917,11 @@
     ],
     "slug": "greenskin-orc-boy-native-reskin",
     "searchDescription": "Download the native texture reskin of the Orc Boy Warcraft 3 model. Preview animated Warhammer Fantasy Greenskin infantry for Orcs and Goblins armies.",
-    "imageVersion": "5940ff2c515a"
+    "imageVersion": "5940ff2c515a",
+    "author": "HerrDave",
+    "sourceUrl": "https://www.hiveworkshop.com/threads/warhammer-greenskins-1h.321022/#resource-87375",
+    "sourcePack": "Warhammer - Greenskins (1H)",
+    "creditPolicy": "Model by HerrDave. Reproduced with permission. Credit the original author when using this model."
   },
   {
     "id": "herrdave-103868",
@@ -11113,7 +11121,8 @@
       }
     ],
     "slug": "elite-steam-tank",
-    "searchDescription": "Preview and download the Elite Steam Tank model for Warcraft 3. Add the elite variant of this Warhammer Fantasy Empire war machine to your maps."
+    "searchDescription": "Preview and download the Elite Steam Tank model for Warcraft 3. Add the elite variant of this Warhammer Fantasy Empire war machine to your maps.",
+    "downloadPackOnly": true
   },
   {
     "id": "herrdave-87245",
@@ -11251,7 +11260,8 @@
       }
     ],
     "slug": "standard-steam-tank",
-    "searchDescription": "Download the Standard Steam Tank model for Warcraft 3. Preview the standard variant of this Warhammer Fantasy Empire war machine and its animations."
+    "searchDescription": "Download the Standard Steam Tank model for Warcraft 3. Preview the standard variant of this Warhammer Fantasy Empire war machine and its animations.",
+    "downloadPackOnly": true
   },
   {
     "id": "herrdave-86780",
@@ -12299,7 +12309,7 @@
     "credits": "Model - HerrDave\n\nOriginal resource - Warhammer Witch Hunter",
     "sourceUrl": "https://www.hiveworkshop.com/threads/warhammer-witch-hunter.299608/#resource-75064",
     "sourcePack": "Warhammer Witch Hunter",
-    "downloadPack": null,
+    "downloadPack": "downloads/herrdave/warhammer-witch-hunter.zip",
     "textureFiles": {
       "warhammerwitchhunter.blp": "textures/herrdave/125/Warhammer Witch Hunter/WarhammerWitchHunter.blp"
     },
@@ -12387,7 +12397,8 @@
       }
     ],
     "slug": "warhammer-witch-hunter",
-    "searchDescription": "Preview and download the Warhammer Witch Hunter model for Warcraft 3. Add an animated Empire character to Warhammer Fantasy custom maps."
+    "searchDescription": "Preview and download the Warhammer Witch Hunter model for Warcraft 3. Add an animated Empire character to Warhammer Fantasy custom maps.",
+    "downloadPackOnly": true
   },
   {
     "id": "tzeentch-sword",
@@ -18916,7 +18927,8 @@
       "Dissipate",
       "Spell"
     ],
-    "imageVersion": "47306b2ef465"
+    "imageVersion": "47306b2ef465",
+    "downloadPackOnly": true
   },
   {
     "id": "gluma-127546",
@@ -19056,7 +19068,8 @@
       "Dissipate",
       "Spell"
     ],
-    "imageVersion": "b58b6c149094"
+    "imageVersion": "b58b6c149094",
+    "downloadPackOnly": true
   },
   {
     "id": "gluma-123574",
@@ -19226,7 +19239,8 @@
       "Stand Channel",
       "Stand - 3"
     ],
-    "imageVersion": "0e58b93a6467"
+    "imageVersion": "0e58b93a6467",
+    "downloadPackOnly": true
   },
   {
     "id": "gluma-123571",
@@ -19405,7 +19419,8 @@
       "Stand Channel",
       "Stand - 3"
     ],
-    "imageVersion": "7d47fdceed91"
+    "imageVersion": "7d47fdceed91",
+    "downloadPackOnly": true
   },
   {
     "id": "gluma-123553",
@@ -19576,7 +19591,8 @@
       "Portrait - 3",
       "Dissipate"
     ],
-    "imageVersion": "82f11f3b5ccf"
+    "imageVersion": "82f11f3b5ccf",
+    "downloadPackOnly": true
   },
   {
     "id": "gluma-123554",
@@ -19738,7 +19754,8 @@
       "Portrait - 3",
       "Dissipate"
     ],
-    "imageVersion": "115306b0ea93"
+    "imageVersion": "115306b0ea93",
+    "downloadPackOnly": true
   },
   {
     "id": "gluma-123551",
@@ -19909,7 +19926,8 @@
       "Portrait - 3",
       "Dissipate"
     ],
-    "imageVersion": "61f3fa669077"
+    "imageVersion": "61f3fa669077",
+    "downloadPackOnly": true
   },
   {
     "id": "gluma-123552",
@@ -20071,7 +20089,8 @@
       "Portrait - 3",
       "Dissipate"
     ],
-    "imageVersion": "c8e02eb82d0c"
+    "imageVersion": "c8e02eb82d0c",
+    "downloadPackOnly": true
   },
   {
     "id": "gluma-82702",
@@ -20263,7 +20282,8 @@
       "Attack Slam",
       "Dissipate"
     ],
-    "imageVersion": "87bc124f999f"
+    "imageVersion": "87bc124f999f",
+    "downloadPackOnly": true
   },
   {
     "id": "gluma-82705",
@@ -20448,7 +20468,8 @@
       "Attack Slam",
       "Stand Ready"
     ],
-    "imageVersion": "8e873294e264"
+    "imageVersion": "8e873294e264",
+    "downloadPackOnly": true
   },
   {
     "id": "gluma-80903",
@@ -20573,7 +20594,8 @@
       "Portrait Talk",
       "Stand Ready",
       "Portrait 2"
-    ]
+    ],
+    "downloadPackOnly": true
   },
   {
     "id": "gluma-82593",
@@ -20699,7 +20721,8 @@
       "Portrait Talk 2",
       "Spell",
       "Attack Slam"
-    ]
+    ],
+    "downloadPackOnly": true
   },
   {
     "id": "gluma-80783",
@@ -20833,7 +20856,8 @@
       "Portrait Talk",
       "Portrait 2",
       "Stand Channel"
-    ]
+    ],
+    "downloadPackOnly": true
   },
   {
     "id": "gluma-164659",
@@ -20941,7 +20965,8 @@
       "Portrait - 3",
       "Portrait Talk - 1",
       "Portrait Talk - 2"
-    ]
+    ],
+    "downloadPackOnly": true
   },
   {
     "id": "gluma-164660",
@@ -21049,7 +21074,8 @@
       "Portrait - 3",
       "Portrait Talk - 1",
       "Portrait Talk - 2"
-    ]
+    ],
+    "downloadPackOnly": true
   },
   {
     "id": "gluma-164663",
@@ -21157,7 +21183,8 @@
       "Portrait - 3",
       "Portrait Talk - 1",
       "Portrait Talk - 2"
-    ]
+    ],
+    "downloadPackOnly": true
   },
   {
     "id": "gluma-164662",
@@ -21268,7 +21295,8 @@
       "Portrait Talk - 1",
       "Portrait Talk - 2"
     ],
-    "formationBodyHeight": 0.9
+    "formationBodyHeight": 0.9,
+    "downloadPackOnly": true
   },
   {
     "id": "gluma-159913",
@@ -21392,7 +21420,8 @@
       "Portrait Talk - 3",
       "Attack Walk Stand Spin"
     ],
-    "imageVersion": "1eb34a587011"
+    "imageVersion": "1eb34a587011",
+    "downloadPackOnly": true
   },
   {
     "id": "gluma-159912",
@@ -21508,7 +21537,8 @@
       "Portrait Talk - 3",
       "Attack Walk Stand Spin"
     ],
-    "imageVersion": "62b33bd3d754"
+    "imageVersion": "62b33bd3d754",
+    "downloadPackOnly": true
   },
   {
     "id": "gluma-160458",
@@ -21631,7 +21661,8 @@
       "Portrait Talk - 3"
     ],
     "mdxCompatibility": "ribbon-color",
-    "imageVersion": "13f59cb9ff42"
+    "imageVersion": "13f59cb9ff42",
+    "downloadPackOnly": true
   },
   {
     "id": "gluma-160459",
@@ -21753,7 +21784,8 @@
       "Portrait Talk - 3"
     ],
     "mdxCompatibility": "ribbon-color",
-    "imageVersion": "741fe66d2b70"
+    "imageVersion": "741fe66d2b70",
+    "downloadPackOnly": true
   },
   {
     "id": "gluma-160461",
@@ -21865,7 +21897,8 @@
       "Portrait Talk - 3"
     ],
     "mdxCompatibility": "ribbon-color",
-    "imageVersion": "e88645468e7c"
+    "imageVersion": "e88645468e7c",
+    "downloadPackOnly": true
   },
   {
     "id": "gluma-160460",
@@ -21978,7 +22011,8 @@
       "Portrait Talk - 3"
     ],
     "mdxCompatibility": "ribbon-color",
-    "imageVersion": "340d45d0a7b1"
+    "imageVersion": "340d45d0a7b1",
+    "downloadPackOnly": true
   },
   {
     "id": "gluma-143397",
@@ -22091,7 +22125,8 @@
       "Portrait Talk - 1",
       "Portrait Talk - 2"
     ],
-    "imageVersion": "8ecfec5ea806"
+    "imageVersion": "8ecfec5ea806",
+    "downloadPackOnly": true
   },
   {
     "id": "gluma-143396",
@@ -22205,7 +22240,8 @@
       "Portrait Talk - 1",
       "Portrait Talk - 2"
     ],
-    "imageVersion": "4e3940ff8cb2"
+    "imageVersion": "4e3940ff8cb2",
+    "downloadPackOnly": true
   },
   {
     "id": "gluma-143398",
@@ -22294,7 +22330,8 @@
       "Portrait Talk - 2",
       "Attack - 1",
       "Attack - 2"
-    ]
+    ],
+    "downloadPackOnly": true
   },
   {
     "id": "gluma-137406",
@@ -22422,7 +22459,8 @@
       "Stand Channel",
       "Dissipate"
     ],
-    "imageVersion": "5c307dac1fe4"
+    "imageVersion": "5c307dac1fe4",
+    "downloadPackOnly": true
   },
   {
     "id": "gluma-137407",
@@ -22551,7 +22589,8 @@
       "Decay Flesh",
       "Decay Bone"
     ],
-    "imageVersion": "9c054a9aa511"
+    "imageVersion": "9c054a9aa511",
+    "downloadPackOnly": true
   },
   {
     "id": "gluma-144692",
@@ -22650,7 +22689,8 @@
       "Stand Channel",
       "Dissipate"
     ],
-    "imageVersion": "a3186ec3630e"
+    "imageVersion": "a3186ec3630e",
+    "downloadPackOnly": true
   },
   {
     "id": "gluma-144691",
@@ -22741,7 +22781,8 @@
       "Decay Flesh",
       "Decay Bone"
     ],
-    "imageVersion": "5e5d171faf1c"
+    "imageVersion": "5e5d171faf1c",
+    "downloadPackOnly": true
   },
   {
     "id": "gluma-137328",
@@ -22838,7 +22879,8 @@
       "Decay Bone",
       "Walk Fast"
     ],
-    "imageVersion": "c1177d375fc8"
+    "imageVersion": "c1177d375fc8",
+    "downloadPackOnly": true
   },
   {
     "id": "gluma-137329",
@@ -22934,7 +22976,8 @@
       "Dissipate",
       "Walk Fast"
     ],
-    "imageVersion": "0489fa8c8549"
+    "imageVersion": "0489fa8c8549",
+    "downloadPackOnly": true
   },
   {
     "id": "gluma-145021",
@@ -23052,7 +23095,8 @@
       "Decay",
       "Portrait",
       "Portrait Talk"
-    ]
+    ],
+    "downloadPackOnly": true
   },
   {
     "id": "gluma-140895",
@@ -23157,7 +23201,8 @@
       "Portrait Talk - 2",
       "Dissipate"
     ],
-    "imageVersion": "84fc88524d57"
+    "imageVersion": "84fc88524d57",
+    "downloadPackOnly": true
   },
   {
     "id": "gluma-140896",
@@ -23263,7 +23308,8 @@
       "Decay Flesh",
       "Decay Bone"
     ],
-    "imageVersion": "f2947680a0d8"
+    "imageVersion": "f2947680a0d8",
+    "downloadPackOnly": true
   },
   {
     "id": "gluma-146392",
@@ -23369,7 +23415,8 @@
       "Decay Flesh",
       "Decay Bone"
     ],
-    "imageVersion": "215fba610661"
+    "imageVersion": "215fba610661",
+    "downloadPackOnly": true
   },
   {
     "id": "gluma-146393",
@@ -23483,7 +23530,8 @@
       "Portrait - 3",
       "Dissipate"
     ],
-    "imageVersion": "dcc78b64b0d0"
+    "imageVersion": "dcc78b64b0d0",
+    "downloadPackOnly": true
   },
   {
     "id": "gluma-146394",
@@ -23580,7 +23628,8 @@
       "Decay Flesh",
       "Decay Bone"
     ],
-    "imageVersion": "dffcb52a2e7e"
+    "imageVersion": "dffcb52a2e7e",
+    "downloadPackOnly": true
   },
   {
     "id": "gluma-146395",
@@ -23685,7 +23734,8 @@
       "Portrait - 3",
       "Dissipate"
     ],
-    "imageVersion": "77a547e1e6aa"
+    "imageVersion": "77a547e1e6aa",
+    "downloadPackOnly": true
   },
   {
     "id": "gluma-135399",
@@ -23810,7 +23860,8 @@
       "Portrait Talk",
       "Portrait Talk - 2"
     ],
-    "imageVersion": "a4a4a4348d50"
+    "imageVersion": "a4a4a4348d50",
+    "downloadPackOnly": true
   },
   {
     "id": "gluma-135400",
@@ -23929,7 +23980,8 @@
       "Portrait Talk",
       "Portrait Talk - 2"
     ],
-    "imageVersion": "bda358ea785a"
+    "imageVersion": "bda358ea785a",
+    "downloadPackOnly": true
   },
   {
     "id": "gluma-135401",
@@ -24065,7 +24117,8 @@
       "Decay Bone",
       "Decay Swim"
     ],
-    "imageVersion": "8ff6bd610302"
+    "imageVersion": "8ff6bd610302",
+    "downloadPackOnly": true
   },
   {
     "id": "gluma-135402",
@@ -24194,7 +24247,8 @@
       "Decay Flesh",
       "Decay Bone"
     ],
-    "imageVersion": "8ff6bd610302"
+    "imageVersion": "8ff6bd610302",
+    "downloadPackOnly": true
   },
   {
     "id": "gluma-134840",
@@ -24344,7 +24398,8 @@
       "Stand Swim Lumber",
       "Attack Swim Gold",
       "Attack Swim Lumber"
-    ]
+    ],
+    "downloadPackOnly": true
   },
   {
     "id": "gluma-134841",
@@ -24483,7 +24538,8 @@
       "Stand Ready Lumber",
       "Attack Gold",
       "Attack Lumber"
-    ]
+    ],
+    "downloadPackOnly": true
   },
   {
     "id": "gluma-134634",
@@ -24627,7 +24683,8 @@
       "Death",
       "Dissipate"
     ],
-    "imageVersion": "eb6cdae9791f"
+    "imageVersion": "eb6cdae9791f",
+    "downloadPackOnly": true
   },
   {
     "id": "gluma-134635",
@@ -24773,7 +24830,8 @@
       "Spell Throw Swim",
       "Death"
     ],
-    "imageVersion": "49d4961eb37f"
+    "imageVersion": "49d4961eb37f",
+    "downloadPackOnly": true
   },
   {
     "id": "gluma-134398",
@@ -24907,7 +24965,8 @@
       "Decay Flesh",
       "Decay Bone",
       "Spell Throw"
-    ]
+    ],
+    "downloadPackOnly": true
   },
   {
     "id": "gluma-134399",
@@ -25039,7 +25098,8 @@
       "Decay Flesh",
       "Decay Bone",
       "Spell Throw"
-    ]
+    ],
+    "downloadPackOnly": true
   },
   {
     "id": "gluma-134400",
@@ -25191,7 +25251,8 @@
       "Decay Flesh",
       "Decay Bone",
       "Spell Throw"
-    ]
+    ],
+    "downloadPackOnly": true
   },
   {
     "id": "gluma-134401",
@@ -25325,7 +25386,8 @@
       "Decay Flesh",
       "Decay Bone",
       "Spell Throw"
-    ]
+    ],
+    "downloadPackOnly": true
   },
   {
     "id": "gluma-134404",
@@ -25457,7 +25519,8 @@
       "Decay Flesh",
       "Decay Bone",
       "Spell Throw"
-    ]
+    ],
+    "downloadPackOnly": true
   },
   {
     "id": "gluma-134402",
@@ -25609,7 +25672,8 @@
       "Decay Flesh",
       "Decay Bone",
       "Spell Throw"
-    ]
+    ],
+    "downloadPackOnly": true
   },
   {
     "id": "gluma-134405",
@@ -25732,7 +25796,8 @@
       "Decay Flesh",
       "Decay Bone",
       "Spell Throw"
-    ]
+    ],
+    "downloadPackOnly": true
   },
   {
     "id": "gluma-133845",
@@ -25892,7 +25957,8 @@
       "Portrait Talk - 2",
       "Portrait - 3",
       "Attack - 1"
-    ]
+    ],
+    "downloadPackOnly": true
   },
   {
     "id": "gluma-133854",
@@ -26057,7 +26123,8 @@
       "Spell",
       "Spell Gold",
       "Spell Lumber"
-    ]
+    ],
+    "downloadPackOnly": true
   },
   {
     "id": "gluma-99740",
@@ -26239,7 +26306,8 @@
       "Portrait",
       "Portrait Talk",
       "Portrait Talk 2"
-    ]
+    ],
+    "downloadPackOnly": true
   },
   {
     "id": "gluma-90822",
@@ -26414,7 +26482,8 @@
       "Spell",
       "Portrait Talk",
       "Portrait Talk 2"
-    ]
+    ],
+    "downloadPackOnly": true
   },
   {
     "id": "gluma-123406",
@@ -26579,7 +26648,8 @@
       "Portrait - 2",
       "Portrait Talk - 2"
     ],
-    "formationBodyHeight": 0.9
+    "formationBodyHeight": 0.9,
+    "downloadPackOnly": true
   },
   {
     "id": "gluma-160790",
@@ -26706,7 +26776,8 @@
       "Death",
       "Decay",
       "Portrait"
-    ]
+    ],
+    "downloadPackOnly": true
   },
   {
     "id": "gluma-160791",
@@ -26860,7 +26931,8 @@
       "Death",
       "Decay",
       "Portrait"
-    ]
+    ],
+    "downloadPackOnly": true
   },
   {
     "id": "gluma-160792",
@@ -26996,7 +27068,8 @@
       "Death",
       "Decay",
       "Portrait"
-    ]
+    ],
+    "downloadPackOnly": true
   },
   {
     "id": "gluma-160793",
@@ -27159,7 +27232,8 @@
       "Death",
       "Decay",
       "Portrait"
-    ]
+    ],
+    "downloadPackOnly": true
   },
   {
     "id": "gluma-145290",
@@ -27316,7 +27390,8 @@
       "Death",
       "Decay",
       "Portrait"
-    ]
+    ],
+    "downloadPackOnly": true
   },
   {
     "id": "gluma-146044",
@@ -27411,7 +27486,8 @@
       "Decay",
       "Portrait",
       "Portrait Talk"
-    ]
+    ],
+    "downloadPackOnly": true
   },
   {
     "id": "gluma-146046",
@@ -27506,7 +27582,8 @@
       "Decay",
       "Portrait",
       "Portrait Talk"
-    ]
+    ],
+    "downloadPackOnly": true
   },
   {
     "id": "gluma-146045",
@@ -27602,7 +27679,8 @@
       "Decay",
       "Portrait",
       "Portrait Talk"
-    ]
+    ],
+    "downloadPackOnly": true
   },
   {
     "id": "gluma-146047",
@@ -27698,7 +27776,8 @@
       "Decay",
       "Portrait",
       "Portrait Talk"
-    ]
+    ],
+    "downloadPackOnly": true
   },
   {
     "id": "gluma-145231",
@@ -27879,7 +27958,8 @@
       "Portrait Talk",
       "Attack Slam - 9",
       "Attack Slam - 10"
-    ]
+    ],
+    "downloadPackOnly": true
   },
   {
     "id": "gluma-145232",
@@ -28052,7 +28132,8 @@
       "Decay",
       "Portrait",
       "Portrait Talk"
-    ]
+    ],
+    "downloadPackOnly": true
   },
   {
     "id": "gluma-145233",
@@ -28227,7 +28308,8 @@
       "Decay",
       "Portrait",
       "Portrait Talk"
-    ]
+    ],
+    "downloadPackOnly": true
   },
   {
     "id": "gluma-145234",
@@ -28402,7 +28484,8 @@
       "Portrait Talk",
       "Attack - 3",
       "Attack - 4"
-    ]
+    ],
+    "downloadPackOnly": true
   },
   {
     "id": "maximal-144834",
