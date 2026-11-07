@@ -11,7 +11,3 @@
 .menu-peanut-shell-fragment{position:absolute;left:0;top:0;width:32px;height:20px;background:url('./ui/visitor/peanut-shell.svg') center/contain no-repeat;pointer-events:none}
 .menu-peanut-shell-fragment.shell-left{clip-path:inset(0 50% 0 0)}
 .menu-peanut-shell-fragment.shell-right{clip-path:inset(0 0 0 50%)}
-@font-face{font-family:MDLxL-Mordor;src:url('/mdlxl/tutorials/fonts/tengwar-annatar/tnganb.ttf') format('truetype');font-weight:700;font-display:swap}
-.menu-visitor-speech-layer{position:fixed;inset:0;z-index:22;overflow:hidden;pointer-events:none}
-.menu-visitor-speech{position:absolute;left:0;top:0;white-space:nowrap;color:#bfbfb0;font:700 19px/1.2 MDLxL-Mordor,serif;letter-spacing:.035em;text-shadow:1px 1px 0 #000,-1px 1px 0 #000;opacity:0;transition:opacity .25s}
-.menu-visitor-speech.shown{opacity:1}
