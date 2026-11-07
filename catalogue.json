@@ -9733,7 +9733,7 @@
     "army": "orcs-and-goblins",
     "description": "MerRy ChrisTMas, ya Zoggin Sn0TT GITZ!\n\nWAAAAAAAAAAAGH!!\n\n- Ugslap, Da Singin' Orc\n\nThis variation uses native Warcraft III textures.",
     "credits": "Model Base - Greenskin - Orc Boy by HerrDave\n\nReskin by UnsacntionedMagic",
-    "sha256": "2206f1382fd8f3546a640e865229451e2f947f17f0d05ee86fcf895f2e3738ee",
+    "sha256": "8fa997c36e42d4b22f4d4ed43a6d53bef5ecdf1e628baf197d021850af924d8e",
     "geosets": [
       {
         "index": 0,
@@ -9791,8 +9791,8 @@
       },
       {
         "index": 6,
-        "vertices": 209,
-        "triangles": 287,
+        "vertices": 123,
+        "triangles": 196,
         "material": 6,
         "textures": [
           "Team colour / glow",
@@ -9844,6 +9844,16 @@
         "textures": [
           "ReplaceableTextures\\CommandButtons\\BTNLeatherUpgradeOne.blp"
         ]
+      },
+      {
+        "index": 12,
+        "vertices": 86,
+        "triangles": 91,
+        "material": 12,
+        "textures": [
+          "Team colour / glow",
+          "Units\\Orc\\Grunt\\Grunt.blp"
+        ]
       }
     ],
     "sequences": [
@@ -9867,11 +9877,15 @@
       "Portrait Talk - 1",
       "Portrait Talk - 2"
     ],
-    "bytes": 109157,
+    "bytes": 110249,
     "portraitBackdropGeosets": [
       2
     ],
     "authors": [
+      {
+        "name": "HerrDave",
+        "url": "https://www.hiveworkshop.com/members/herrdave.234820/"
+      },
       {
         "name": "Unsanctioned Magic",
         "url": "https://xgm.guru/user/UnsanctMagic"
@@ -9899,7 +9913,7 @@
     ],
     "slug": "greenskin-orc-boy-native-reskin",
     "searchDescription": "Download the native texture reskin of the Orc Boy Warcraft 3 model. Preview animated Warhammer Fantasy Greenskin infantry for Orcs and Goblins armies.",
-    "imageVersion": "bc5945069114"
+    "imageVersion": "5940ff2c515a"
   },
   {
     "id": "herrdave-103868",
