@@ -753,6 +753,7 @@
         "id": "greenskin-orc-boy-native-reskin",
         "label": "Native Reskin"
       }
-    ]
+    ],
+    "cardFirst": "greenskin-orc-boy-native-reskin"
   }
 ]
