@@ -9718,7 +9718,188 @@
     ],
     "formationBodyHeight": 0.9,
     "slug": "greenskin-orc-boy",
-    "searchDescription": "Download the Orc Boy model for Warcraft 3. Preview animated Warhammer Fantasy Greenskin infantry for Orcs and Goblins armies and custom maps."
+    "searchDescription": "Download the Orc Boy model for Warcraft 3. Preview animated Warhammer Fantasy Greenskin infantry for Orcs and Goblins armies and custom maps.",
+    "changelog": [
+      {
+        "date": "7 November 2026",
+        "text": "Added a native texture reskin by UnsanctionedMagic"
+      }
+    ]
+  },
+  {
+    "id": "greenskin-orc-boy-native-reskin",
+    "file": "WH_OG_OrcBoy01.mdx",
+    "name": "Greenskin - Orc Boy",
+    "army": "orcs-and-goblins",
+    "description": "MerRy ChrisTMas, ya Zoggin Sn0TT GITZ!\n\nWAAAAAAAAAAAGH!!\n\n- Ugslap, Da Singin' Orc\n\nThis variation uses native Warcraft III textures.",
+    "credits": "Model Base - Greenskin - Orc Boy by HerrDave\n\nReskin by UnsacntionedMagic",
+    "sha256": "2206f1382fd8f3546a640e865229451e2f947f17f0d05ee86fcf895f2e3738ee",
+    "geosets": [
+      {
+        "index": 0,
+        "vertices": 127,
+        "triangles": 157,
+        "material": 0,
+        "textures": [
+          "Units\\Orc\\Peon\\peon.blp"
+        ]
+      },
+      {
+        "index": 1,
+        "vertices": 62,
+        "triangles": 62,
+        "material": 1,
+        "textures": [
+          "Textures\\gutz.blp"
+        ]
+      },
+      {
+        "index": 2,
+        "vertices": 4,
+        "triangles": 2,
+        "material": 2,
+        "textures": [
+          "Team colour / glow"
+        ]
+      },
+      {
+        "index": 3,
+        "vertices": 140,
+        "triangles": 222,
+        "material": 3,
+        "textures": [
+          "Units\\Orc\\Hellscream\\Hellscream.blp"
+        ]
+      },
+      {
+        "index": 4,
+        "vertices": 24,
+        "triangles": 12,
+        "material": 4,
+        "textures": [
+          "Textures\\Red_Glow3.blp"
+        ]
+      },
+      {
+        "index": 5,
+        "vertices": 109,
+        "triangles": 134,
+        "material": 5,
+        "textures": [
+          "UI\\Glues\\SinglePlayer\\HumanCampaign3D\\HumanCampaignFootman.blp"
+        ]
+      },
+      {
+        "index": 6,
+        "vertices": 209,
+        "triangles": 287,
+        "material": 6,
+        "textures": [
+          "Team colour / glow",
+          "Units\\Orc\\Grunt\\Grunt.blp"
+        ]
+      },
+      {
+        "index": 7,
+        "vertices": 24,
+        "triangles": 20,
+        "material": 7,
+        "textures": [
+          "UI\\Glues\\SinglePlayer\\UndeadCampaign3D\\ArmorSkeletonSkinlich.blp"
+        ]
+      },
+      {
+        "index": 8,
+        "vertices": 12,
+        "triangles": 8,
+        "material": 8,
+        "textures": [
+          "Team colour / glow",
+          "Textures\\BloodElf-SpellThief.blp"
+        ]
+      },
+      {
+        "index": 9,
+        "vertices": 57,
+        "triangles": 72,
+        "material": 9,
+        "textures": [
+          "Textures\\Base.blp"
+        ]
+      },
+      {
+        "index": 10,
+        "vertices": 36,
+        "triangles": 18,
+        "material": 10,
+        "textures": [
+          "Textures\\BansheeRanger.blp"
+        ]
+      },
+      {
+        "index": 11,
+        "vertices": 29,
+        "triangles": 34,
+        "material": 11,
+        "textures": [
+          "ReplaceableTextures\\CommandButtons\\BTNLeatherUpgradeOne.blp"
+        ]
+      }
+    ],
+    "sequences": [
+      "Walk",
+      "Stand - 1",
+      "Stand - 2",
+      "Stand - 3",
+      "Stand Ready",
+      "Attack - 1",
+      "Attack - 2",
+      "Attack - 3",
+      "Spell",
+      "Walk Defend",
+      "Stand Defend",
+      "Attack Defend",
+      "Death",
+      "Decay Flesh",
+      "Decay Bone",
+      "Portrait - 1",
+      "Portrait - 2",
+      "Portrait Talk - 1",
+      "Portrait Talk - 2"
+    ],
+    "bytes": 109157,
+    "portraitBackdropGeosets": [
+      2
+    ],
+    "authors": [
+      {
+        "name": "Unsanctioned Magic",
+        "url": "https://xgm.guru/user/UnsanctMagic"
+      }
+    ],
+    "creditLinks": [
+      {
+        "text": "Greenskin - Orc Boy",
+        "url": "https://www.hiveworkshop.com/threads/warhammer-greenskins-1h.321022/#resource-87375"
+      },
+      {
+        "text": "HerrDave",
+        "url": "https://www.hiveworkshop.com/members/herrdave.234820/"
+      },
+      {
+        "text": "UnsacntionedMagic",
+        "url": "https://xgm.guru/user/UnsanctMagic"
+      }
+    ],
+    "changelog": [
+      {
+        "date": "7 November 2026",
+        "text": "Added a native texture reskin by UnsanctionedMagic"
+      }
+    ],
+    "slug": "greenskin-orc-boy-native-reskin",
+    "searchDescription": "Download the native texture reskin of the Orc Boy Warcraft 3 model. Preview animated Warhammer Fantasy Greenskin infantry for Orcs and Goblins armies.",
+    "imageVersion": "bc5945069114"
   },
   {
     "id": "herrdave-103868",
