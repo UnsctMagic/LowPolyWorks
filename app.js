@@ -12,7 +12,7 @@ import {renderJournal} from './journal.js?v=20261022-tzeentch-warrior';
 import {renderMdlxl} from './mdlxl.js?v=20261105-permanent-download';
 import {readMdlxlRoute,mdlxlHref} from './mdlxl-routes.js?v=20261105-uv-grid';
 const initialMdlxl=readMdlxlRoute(location);if(initialMdlxl&&location.hash.startsWith('#project/mdlxl'))history.replaceState(null,'',mdlxlHref(initialMdlxl.section,initialMdlxl.tutorial,location.search));
-const app=document.querySelector('#app'),baseCatalogue=await fetch('catalogue.json?v=20261108-unsanctionedmagic').then(r=>r.json());
+const app=document.querySelector('#app'),baseCatalogue=await fetch('catalogue.json?v=20261108-black-orc-native').then(r=>r.json());
 const armies=await fetch('armies.json?v=20261020-army-sizes-approved').then(r=>r.json());
 // Shuffle the middle army cards once per load; keep Chaos and Vampire Counts first and Dwarfs last.
 const pinnedArmyIds=['warriors-of-chaos','vampire-counts'];
@@ -21,7 +21,7 @@ for(let i=armyCardOrder.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1)
 armyCardOrder.unshift(...pinnedArmyIds.map(id=>armies.find(army=>army.id===id)));
 armyCardOrder.push(armies.find(army=>army.id==='dwarfs'));
 // Variant groups: near-identical models share one army card and switch through tabs on the model page.
-const variantGroups=await fetch('variants.json?v=20261108-orc-boy-card-default').then(r=>r.json()).catch(()=>[]);
+const variantGroups=await fetch('variants.json?v=20261108-black-orc-native').then(r=>r.json()).catch(()=>[]);
 const descriptionParagraphs=(text,links=[])=>text.trim().split(/\r?\n\s*\r?\n/).map(paragraph=>`<p>${creditText({creditLinks:links},paragraph.trim()).replace(/\r?\n/g,'<br>')}</p>`).join('');
 const escape=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const neutralTextColor=hex=>{const rgb=[1,3,5].map(offset=>Number.parseInt(hex.slice(offset,offset+2),16)/255),luminance=rgb.map(value=>value<=.04045?value/12.92:((value+.055)/1.055)**2.4).reduce((sum,value,index)=>sum+value*[.2126,.7152,.0722][index],0);return luminance>.36?'#111111':'#ffffff';};
