@@ -9314,7 +9314,7 @@
     "army": "orcs-and-goblins",
     "description": "MerRy ChrisTMas, ya Zoggin Sn0TT GITZ!\n\nWAAAAAAAAAAAGH!!\n\n- Ugslap, Da Singin' Orc\n\nThis variation uses native Warcraft III textures.",
     "credits": "Model - HerrDave\n\nOriginal resource - Warhammer - Greenskins (1H)\n\nReskin by UnsanctionedMagic",
-    "sha256": "aa419fbe8a6b82eac6b4d40bd38feb4627301fbad5f3566becd0c11aed5b6d77",
+    "sha256": "040d415fd72953961016ce590ef0d02eddcd42752a3e14a9cca6c2c1df8062ff",
     "geosets": [
       {
         "index": 0,
@@ -9336,8 +9336,8 @@
       },
       {
         "index": 2,
-        "vertices": 369,
-        "triangles": 405,
+        "vertices": 375,
+        "triangles": 419,
         "material": 2,
         "textures": [
           "Team colour / glow",
@@ -9356,7 +9356,7 @@
       {
         "index": 4,
         "vertices": 709,
-        "triangles": 707,
+        "triangles": 723,
         "material": 4,
         "textures": [
           "UI\\Glues\\SinglePlayer\\HumanCampaign3D\\HumanCampaignFootman.blp"
@@ -9402,7 +9402,7 @@
       {
         "index": 9,
         "vertices": 35,
-        "triangles": 28,
+        "triangles": 32,
         "material": 9,
         "textures": [
           "Units\\Creeps\\FacelessOne\\FacelessOne.blp"
@@ -9438,7 +9438,7 @@
       {
         "index": 13,
         "vertices": 71,
-        "triangles": 55,
+        "triangles": 58,
         "material": 14,
         "textures": [
           "Textures\\Shield_Round_A_01Black.blp"
@@ -9503,7 +9503,7 @@
       "Attack Defend",
       "Walk Defend"
     ],
-    "bytes": 139078,
+    "bytes": 139074,
     "portraitBackdropGeosets": [
       1
     ],
@@ -9547,7 +9547,7 @@
     "sourceUrl": "https://www.hiveworkshop.com/threads/warhammer-greenskins-1h.321022/#resource-87376",
     "sourcePack": "Warhammer - Greenskins (1H)",
     "creditPolicy": "Model by HerrDave. Reproduced with permission. Credit the original author when using this model.",
-    "imageVersion": "27ee6d5fe292"
+    "imageVersion": "df3425ed994d"
   },
   {
     "id": "herrdave-87377",
