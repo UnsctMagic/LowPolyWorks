@@ -560,6 +560,10 @@
     "aspiring-champion-of-tzeentch-hero": {
       "sha256": "75878946076783825763fbb06dabaf83f54e3a8bfa573fc7db44a08d1f3d6e5f",
       "publishedAt": "2026-11-08T00:49:56.075Z"
+    },
+    "zombie-dragon-von-carstein": {
+      "sha256": "0513a213749b9336c298bb78215856240a74f81b06dd63faf1f7efa162fb31c7",
+      "publishedAt": "2026-11-08T00:59:56.634Z"
     }
   }
 }

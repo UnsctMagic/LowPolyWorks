@@ -578,5 +578,9 @@
   {
     "file": "WH_WOC_AspiringChampionTzeentchHero01.mdx",
     "sha256": "75878946076783825763fbb06dabaf83f54e3a8bfa573fc7db44a08d1f3d6e5f"
+  },
+  {
+    "file": "WH_VC_ZombieDragonVCarstein01.mdx",
+    "sha256": "0513a213749b9336c298bb78215856240a74f81b06dd63faf1f7efa162fb31c7"
   }
 ]
