@@ -31142,7 +31142,7 @@
     "name": "Zombie Dragon - Von Carstein",
     "army": "vampire-counts",
     "description": "The Plain of Bones is a harsh and lifeless landscape of multicoloured sand and tainted rock located to the east of the Worlds Edge Mountains, from which protrude huge rib cages of ancient primeval Dragons. This is the place where Dragons of ancient times once came to die, to rest their bones amongst those of their ancestors as they had done for millions of years, before any other sentient beings walked the world.\n\nHere lies the bones of the great ancestral Dragons: skulls the size of castle towers lie mingled with leg bones larger than the mast of an Imperial warship. These bones date from the ancients days of the draconic race. Though today's Dragons are of a lesser breed, they are still incomparably mightier than other races of the world. However, following the arrival of Chaos, the Plain of Bones has since become saturated with large amounts of Dark Magic. This magic eventually contaminated the remains of these Dragons, forcing them to rise once more as the first Zombie Dragons.\n\nEver since then, Vampires and powerful Necromancers of all kinds have been known to take a pilgrimage to this ancient landscape where they pick through one amongst many Dragon remains. Once he finds a suitable corpse, the Vampire or Necromancer who use the excess Dark Magic that contaminates the land to resurrect the Dragon back to life as his eternal combat mount. These once majestic creatures stagger upright once more with a great despairing roar before stooping to allow their new master to ride atop their powerful shoulders.\n\n— Warhammer Armies: Vampire Counts (8th Edition), p. 49",
-    "credits": "Model Base - Gnome Dragonrider by Direfury (Animations) / Lindormr Dragon by olofmoleman (Dragon Body) / Skeletal Dragon / Frostwyrm Remake by Mister_Haudrauf and olofmoleman (Dragon Body) / Dread Knight/Death Knight by Direfury (Rider Body)\n\nChains around dragon neck - Abomination (Re-Classic) by johnwar\n\nSword - Undead Dark Sword by Uncle Fester / Undead Sword by Perfjert\n\nShoulders - Hero Geist by Direfury\n\nFace - Modified from Vampyr by Dionesiist\n\nAttitude - The Elder Gods vampiric curse, a lifelong of duty neglected and a sword that doesn't want to be there.\n\nThrone - Throne by maynhe\n\nStaff - Orcish Staff by Sunchips / Staff of Demonic Entities by Usedwell",
+    "credits": "Model Base - Gnome Dragonrider by Direfury (Animations) / Lindormr Dragon by olofmoleman (Dragon Body) / Dread Knight/Death Knight by Direfury (Rider Body)\n\nOriginal Dragon Reskin - Skeletal Dragon / Frostwyrm Remake by Mister_Haudrauf, based on Lindormr Dragon by olofmoleman\n\nChains around dragon neck - Abomination (Re-Classic) by johnwar\n\nSword - Undead Dark Sword by Uncle Fester / Undead Sword by Perfjert\n\nShoulders - Hero Geist by Direfury\n\nFace - Modified from Vampyr by Dionesiist\n\nAttitude - The Elder Gods vampiric curse, a lifelong of duty neglected and a sword that doesn't want to be there.\n\nThrone - Throne by maynhe\n\nStaff - Orcish Staff by Sunchips / Staff of Demonic Entities by Usedwell",
     "geosets": [
       {
         "index": 0,
@@ -31722,10 +31722,6 @@
       {
         "name": "olofmoleman",
         "url": "https://www.hiveworkshop.com/members/olofmoleman.115820/"
-      },
-      {
-        "name": "Mister_Haudrauf",
-        "url": "https://www.hiveworkshop.com/members/mister_haudrauf.236714/"
       }
     ],
     "creditLinks": [
