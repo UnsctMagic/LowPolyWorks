@@ -570,5 +570,13 @@
   {
     "file": "WH_WOC_KnightKhroneBStandardHero01.mdx",
     "sha256": "aaded5ca3ff6e7321187f9a1da63fd90bbfcf343d2bce3854b6b4679e6ae086b"
+  },
+  {
+    "file": "WH_WOC_AspiringChampionTzeentch01.mdx",
+    "sha256": "544fffd8b1baff161afd2e3825669206b161ab37834f8cfc092005c972805a7b"
+  },
+  {
+    "file": "WH_WOC_AspiringChampionTzeentchHero01.mdx",
+    "sha256": "75878946076783825763fbb06dabaf83f54e3a8bfa573fc7db44a08d1f3d6e5f"
   }
 ]
