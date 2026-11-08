@@ -9314,7 +9314,7 @@
     "army": "orcs-and-goblins",
     "description": "MerRy ChrisTMas, ya Zoggin Sn0TT GITZ!\n\nWAAAAAAAAAAAGH!!\n\n- Ugslap, Da Singin' Orc\n\nThis variation uses native Warcraft III textures.",
     "credits": "Model - HerrDave\n\nOriginal resource - Warhammer - Greenskins (1H)\n\nReskin by UnsanctionedMagic",
-    "sha256": "fa78fe527abe43440eb91d832dacf37beec6f3a3602b4ee1ed885108e4716cc2",
+    "sha256": "aa419fbe8a6b82eac6b4d40bd38feb4627301fbad5f3566becd0c11aed5b6d77",
     "geosets": [
       {
         "index": 0,
@@ -9355,8 +9355,8 @@
       },
       {
         "index": 4,
-        "vertices": 766,
-        "triangles": 763,
+        "vertices": 709,
+        "triangles": 707,
         "material": 4,
         "textures": [
           "UI\\Glues\\SinglePlayer\\HumanCampaign3D\\HumanCampaignFootman.blp"
@@ -9462,6 +9462,24 @@
           "Units\\Creeps\\Magnataur\\Magnataur.blp",
           "Units\\Creeps\\Magnataur\\Magnataur.blp"
         ]
+      },
+      {
+        "index": 16,
+        "vertices": 34,
+        "triangles": 32,
+        "material": 4,
+        "textures": [
+          "UI\\Glues\\SinglePlayer\\HumanCampaign3D\\HumanCampaignFootman.blp"
+        ]
+      },
+      {
+        "index": 17,
+        "vertices": 23,
+        "triangles": 24,
+        "material": 7,
+        "textures": [
+          "Textures\\Bandit.blp"
+        ]
       }
     ],
     "sequences": [
@@ -9485,7 +9503,7 @@
       "Attack Defend",
       "Walk Defend"
     ],
-    "bytes": 137182,
+    "bytes": 139078,
     "portraitBackdropGeosets": [
       1
     ],
@@ -9514,6 +9532,10 @@
       }
     ],
     "changelog": [
+      {
+        "date": "8 November 2026",
+        "text": "Updated the mesh and geoset animations."
+      },
       {
         "date": "8 November 2026",
         "text": "Added a native texture reskin by UnsanctionedMagic"
