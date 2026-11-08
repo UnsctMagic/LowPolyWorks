@@ -1353,7 +1353,7 @@
     "name": "Necrarch Vampire",
     "army": "vampire-counts",
     "description": "\"Forever there shall be cold under the sun,\nRivers will run dry and the forests wither,\nThe stars shall grow dim, flicker and die,\nAnd death shall reign from forever to forever.\"\n\n— From The Black Curse of the Necrarch, Night’s Dark Masters, The Bloodlines, p. 60.",
-    "credits": "Model Base - Inquisitor by FerSZ\n\nNecromancer (Re-Classic) - johnwar\n\nVampire (HoMM 3) - Maximal.",
+    "credits": "Model Base - Inquisitor by FerSZ\n\nNecromancer (Re-Classic) - Johnwar\n\nVampire (HoMM 3) - Maximal.",
     "geosets": [
       {
         "index": 0,
@@ -1641,7 +1641,7 @@
         "url": "https://www.hiveworkshop.com/threads/necromancer-re-classic.371238/"
       },
       {
-        "text": "johnwar",
+        "text": "Johnwar",
         "url": "https://www.hiveworkshop.com/members/johnwar.264426/"
       },
       {
@@ -1661,7 +1661,7 @@
     "name": "Knight of Khorne · Axe",
     "army": "warriors-of-chaos",
     "description": "I have never seen men fight like that...\r\n\r\nI barely made it out alive, this was no victory.\r\n\r\nStatues of brass, massive, twice the size of the biggest man I've ever seen and then some.\r\n\r\nWalking, not charging... advancing like a great wall made of brass and blood red steel.\r\n\r\nI saw men throw down their weapons crying, screaming...\r\n\r\nMen crawled beneath one another to get away...\r\n\r\nIt made no difference, there was nowhere to run.\r\n\r\nI watched a man split from shoulder to hip as he was trying to hide.\r\n\r\nAnother crushed into nothing I could recognize...\r\n\r\nMen were knocked down, trampled, hacked apart and still they kept hacking at the corpses.\r\n\r\nLike a butcher at the block, hacking away piece by piece.\r\n\r\nIt made no difference, we had to fight.\r\n\r\nThey even killed each other.\r\n\r\nThe ones we managed to injure or stagger fighting back became obstacles for the others,\r\n\r\nSo they simply cut through those to reach us faster.\r\n\r\nBut I think they knew they would die that day.\r\n\r\nI heard they razed ten cities before they reached us.\r\n\r\nThat they had come down from the north on a path of destruction.\r\n\r\nThat they had fought their way south for weeks leaving behind only blood and ash.\r\n\r\nBy the time they reached us they were outnumbered fifty to one.\r\n\r\nWe had heard of them coming.\r\n\r\nWe had heard what they had done.\r\n\r\nRivers of blood.\r\n\r\nBut It made no difference... I wanted to fight... to kill.\r\n\r\nThey did not run or beg.\r\n\r\nThey knew they were going to die, I think they wanted to.\r\n\r\nMy city has lost everything defeating them and they got what they came for.\r\n\r\nYou call this victory...?\r\n\r\nSomehow... I envy them.\r\n\r\nI have spent all my life afraid... Afraid of pain... regret... death...\r\n\r\nAfraid of fear.\r\n\r\nThose men were afraid of nothing.\r\n\r\nWanted nothing.\r\n\r\nKept nothing...\r\n\r\nBut it made no difference... I killed them too.\r\n\r\nNorth...\r\n\r\nThat is where they came from.\r\n\r\nThat is where I will go.",
-    "credits": "Model Base - Vile Knight by HerrDave / Further edited by Stein123\r\n\r\nFlail Animations - Knight, Bandit Lord & Riderless Horse by loktar\r\n\r\nBloodied Khorne Symbol - Blood Letter by Ironmaiden\r\n\r\nHelm 1 Base - Black Knight by Direfury\r\n\r\nHelm 2 Base - Advanced White Helm by Astaroth Zion\r\n\r\nHelm Horehair Crest - Blackorder Assassin by Rhapsodie\r\n\r\nFlail Knight Face - adapted from IronMaiden's Dawn of War Helms\r\n\r\nHelm Khorne Bunny Ears - adapted and reshaped from World Eaters Helm by Ironmaiden\r\n\r\nShield Base - Projected and shaped using the forge feature of MDLxL\r\n\r\nSkull Jaw - reshaped World of Warcraft: Legion - Drogbar asset\r\n\r\nKhorne Symbol - Adept of Khorne by WebSter\r\n\r\nAxe - Traitor Knightess by Greedy Martyrdom\r\n\r\nHorse head and tail - Headless Horseman by Johnwar\r\n\r\nFur Cloak - Chaos Warrior by Azazeron\r\n\r\nShoulders - Diablo_3_Barbarian_Shoulders by Forgotten_Warlord",
+    "credits": "Model Base - Vile Knight by HerrDave / Further edited by Stein123\r\n\r\nFlail Animations - Knight, Bandit Lord & Riderless Horse by Loktar\r\n\r\nBloodied Khorne Symbol - Blood Letter by Ironmaiden\r\n\r\nHelm 1 Base - Black Knight by Direfury\r\n\r\nHelm 2 Base - Advanced White Helm by Astaroth Zion\r\n\r\nHelm Horehair Crest - Blackorder Assassin by Rhapsodie\r\n\r\nFlail Knight Face - adapted from IronMaiden's Dawn of War Helms\r\n\r\nHelm Khorne Bunny Ears - adapted and reshaped from World Eaters Helm by Ironmaiden\r\n\r\nShield Base - Projected and shaped using the forge feature of MDLxL\r\n\r\nSkull Jaw - reshaped World of Warcraft: Legion - Drogbar asset\r\n\r\nKhorne Symbol - Adept of Khorne by WebSter\r\n\r\nAxe - Traitor Knightess by Greedy Martyrdom\r\n\r\nHorse head and tail - Headless Horseman by Johnwar\r\n\r\nFur Cloak - Chaos Warrior by Azazeron\r\n\r\nShoulders - Diablo_3_Barbarian_Shoulders by Forgotten_Warlord",
     "geosets": [
       {
         "index": 0,
@@ -2196,7 +2196,7 @@
         "url": "https://www.hiveworkshop.com/members/johnwar.264426/"
       },
       {
-        "text": "loktar",
+        "text": "Loktar",
         "url": "https://www.hiveworkshop.com/members/115150/"
       },
       {
@@ -2238,7 +2238,7 @@
     "name": "Knight of Khorne - Standard Bearer",
     "army": "warriors-of-chaos",
     "description": "I have never seen men fight like that...\r\n\r\nI barely made it out alive, this was no victory.\r\n\r\nStatues of brass, massive, twice the size of the biggest man I've ever seen and then some.\r\n\r\nWalking, not charging... advancing like a great wall made of brass and blood red steel.\r\n\r\nI saw men throw down their weapons crying, screaming...\r\n\r\nMen crawled beneath one another to get away...\r\n\r\nIt made no difference, there was nowhere to run.\r\n\r\nI watched a man split from shoulder to hip as he was trying to hide.\r\n\r\nAnother crushed into nothing I could recognize...\r\n\r\nMen were knocked down, trampled, hacked apart and still they kept hacking at the corpses.\r\n\r\nLike a butcher at the block, hacking away piece by piece.\r\n\r\nIt made no difference, we had to fight.\r\n\r\nThey even killed each other.\r\n\r\nThe ones we managed to injure or stagger fighting back became obstacles for the others,\r\n\r\nSo they simply cut through those to reach us faster.\r\n\r\nBut I think they knew they would die that day.\r\n\r\nI heard they razed ten cities before they reached us.\r\n\r\nThat they had come down from the north on a path of destruction.\r\n\r\nThat they had fought their way south for weeks leaving behind only blood and ash.\r\n\r\nBy the time they reached us they were outnumbered fifty to one.\r\n\r\nWe had heard of them coming.\r\n\r\nWe had heard what they had done.\r\n\r\nRivers of blood.\r\n\r\nBut It made no difference... I wanted to fight... to kill.\r\n\r\nThey did not run or beg.\r\n\r\nThey knew they were going to die, I think they wanted to.\r\n\r\nMy city has lost everything defeating them and they got what they came for.\r\n\r\nYou call this victory...?\r\n\r\nSomehow... I envy them.\r\n\r\nI have spent all my life afraid... Afraid of pain... regret... death...\r\n\r\nAfraid of fear.\r\n\r\nThose men were afraid of nothing.\r\n\r\nWanted nothing.\r\n\r\nKept nothing...\r\n\r\nBut it made no difference... I killed them too.\r\n\r\nNorth...\r\n\r\nThat is where they came from.\r\n\r\nThat is where I will go.",
-    "credits": "Model Base - Vile Knight by HerrDave / Further edited by Stein123\r\n\r\nHelm - Bandit Enforcer (Re-Classic) by johnwar\r\n\r\nSymbol of Khorne - Projected with MDLxL\r\n\r\nAxe - Double Axe by Blood Raven\r\n\r\nBanner - Replaceable Banner by Illidan(Evil)X\r\n\r\nHorse head and tail - Headless Horseman by Johnwar\r\n\r\nFur Cloak - Chaos Warrior by Azazeron\r\n\r\nShoulders - Diablo_3_Barbarian_Shoulders by Forgotten_Warlord",
+    "credits": "Model Base - Vile Knight by HerrDave / Further edited by Stein123\r\n\r\nHelm - Bandit Enforcer (Re-Classic) by Johnwar\r\n\r\nSymbol of Khorne - Projected with MDLxL\r\n\r\nAxe - Double Axe by Blood Raven\r\n\r\nBanner - Replaceable Banner by Illidan(Evil)X\r\n\r\nHorse head and tail - Headless Horseman by Johnwar\r\n\r\nFur Cloak - Chaos Warrior by Azazeron\r\n\r\nShoulders - Diablo_3_Barbarian_Shoulders by Forgotten_Warlord",
     "authors": [
       {
         "name": "Unsanctioned Magic",
@@ -2725,7 +2725,7 @@
     "name": "Knight of Khorne - Standard Bearer",
     "army": "warriors-of-chaos",
     "description": "I have never seen men fight like that...\r\n\r\nI barely made it out alive, this was no victory.\r\n\r\nStatues of brass, massive, twice the size of the biggest man I've ever seen and then some.\r\n\r\nWalking, not charging... advancing like a great wall made of brass and blood red steel.\r\n\r\nI saw men throw down their weapons crying, screaming...\r\n\r\nMen crawled beneath one another to get away...\r\n\r\nIt made no difference, there was nowhere to run.\r\n\r\nI watched a man split from shoulder to hip as he was trying to hide.\r\n\r\nAnother crushed into nothing I could recognize...\r\n\r\nMen were knocked down, trampled, hacked apart and still they kept hacking at the corpses.\r\n\r\nLike a butcher at the block, hacking away piece by piece.\r\n\r\nIt made no difference, we had to fight.\r\n\r\nThey even killed each other.\r\n\r\nThe ones we managed to injure or stagger fighting back became obstacles for the others,\r\n\r\nSo they simply cut through those to reach us faster.\r\n\r\nBut I think they knew they would die that day.\r\n\r\nI heard they razed ten cities before they reached us.\r\n\r\nThat they had come down from the north on a path of destruction.\r\n\r\nThat they had fought their way south for weeks leaving behind only blood and ash.\r\n\r\nBy the time they reached us they were outnumbered fifty to one.\r\n\r\nWe had heard of them coming.\r\n\r\nWe had heard what they had done.\r\n\r\nRivers of blood.\r\n\r\nBut It made no difference... I wanted to fight... to kill.\r\n\r\nThey did not run or beg.\r\n\r\nThey knew they were going to die, I think they wanted to.\r\n\r\nMy city has lost everything defeating them and they got what they came for.\r\n\r\nYou call this victory...?\r\n\r\nSomehow... I envy them.\r\n\r\nI have spent all my life afraid... Afraid of pain... regret... death...\r\n\r\nAfraid of fear.\r\n\r\nThose men were afraid of nothing.\r\n\r\nWanted nothing.\r\n\r\nKept nothing...\r\n\r\nBut it made no difference... I killed them too.\r\n\r\nNorth...\r\n\r\nThat is where they came from.\r\n\r\nThat is where I will go.",
-    "credits": "Model Base - Vile Knight by HerrDave / Further edited by Stein123\r\n\r\nHelm - Bandit Enforcer (Re-Classic) by johnwar\r\n\r\nSymbol of Khorne - Projected with MDLxL\r\n\r\nAxe - Double Axe by Blood Raven\r\n\r\nBanner - Replaceable Banner by Illidan(Evil)X\r\n\r\nHorse head and tail - Headless Horseman by Johnwar\r\n\r\nFur Cloak - Chaos Warrior by Azazeron\r\n\r\nShoulders - Diablo_3_Barbarian_Shoulders by Forgotten_Warlord",
+    "credits": "Model Base - Vile Knight by HerrDave / Further edited by Stein123\r\n\r\nHelm - Bandit Enforcer (Re-Classic) by Johnwar\r\n\r\nSymbol of Khorne - Projected with MDLxL\r\n\r\nAxe - Double Axe by Blood Raven\r\n\r\nBanner - Replaceable Banner by Illidan(Evil)X\r\n\r\nHorse head and tail - Headless Horseman by Johnwar\r\n\r\nFur Cloak - Chaos Warrior by Azazeron\r\n\r\nShoulders - Diablo_3_Barbarian_Shoulders by Forgotten_Warlord",
     "authors": [
       {
         "name": "Unsanctioned Magic",
@@ -3230,7 +3230,7 @@
     "name": "Knight of Khorne · Champion",
     "army": "warriors-of-chaos",
     "description": "I have never seen men fight like that...\r\n\r\nI barely made it out alive, this was no victory.\r\n\r\nStatues of brass, massive, twice the size of the biggest man I've ever seen and then some.\r\n\r\nWalking, not charging... advancing like a great wall made of brass and blood red steel.\r\n\r\nI saw men throw down their weapons crying, screaming...\r\n\r\nMen crawled beneath one another to get away...\r\n\r\nIt made no difference, there was nowhere to run.\r\n\r\nI watched a man split from shoulder to hip as he was trying to hide.\r\n\r\nAnother crushed into nothing I could recognize...\r\n\r\nMen were knocked down, trampled, hacked apart and still they kept hacking at the corpses.\r\n\r\nLike a butcher at the block, hacking away piece by piece.\r\n\r\nIt made no difference, we had to fight.\r\n\r\nThey even killed each other.\r\n\r\nThe ones we managed to injure or stagger fighting back became obstacles for the others,\r\n\r\nSo they simply cut through those to reach us faster.\r\n\r\nBut I think they knew they would die that day.\r\n\r\nI heard they razed ten cities before they reached us.\r\n\r\nThat they had come down from the north on a path of destruction.\r\n\r\nThat they had fought their way south for weeks leaving behind only blood and ash.\r\n\r\nBy the time they reached us they were outnumbered fifty to one.\r\n\r\nWe had heard of them coming.\r\n\r\nWe had heard what they had done.\r\n\r\nRivers of blood.\r\n\r\nBut It made no difference... I wanted to fight... to kill.\r\n\r\nThey did not run or beg.\r\n\r\nThey knew they were going to die, I think they wanted to.\r\n\r\nMy city has lost everything defeating them and they got what they came for.\r\n\r\nYou call this victory...?\r\n\r\nSomehow... I envy them.\r\n\r\nI have spent all my life afraid... Afraid of pain... regret... death...\r\n\r\nAfraid of fear.\r\n\r\nThose men were afraid of nothing.\r\n\r\nWanted nothing.\r\n\r\nKept nothing...\r\n\r\nBut it made no difference... I killed them too.\r\n\r\nNorth...\r\n\r\nThat is where they came from.\r\n\r\nThat is where I will go.",
-    "credits": "Model Base - Vile Knight by HerrDave / Further edited by Stein123\r\n\r\nFlail Animations - Knight, Bandit Lord & Riderless Horse by loktar\r\n\r\nBloodied Khorne Symbol - Blood Letter by Ironmaiden\r\n\r\nHelm 1 Base - Black Knight by Direfury\r\n\r\nHelm 2 Base - Advanced White Helm by Astaroth Zion\r\n\r\nHelm Horehair Crest - Blackorder Assassin by Rhapsodie\r\n\r\nFlail Knight Face - adapted from IronMaiden's Dawn of War Helms\r\n\r\nHelm Khorne Bunny Ears - adapted and reshaped from World Eaters Helm by Ironmaiden\r\n\r\nShield Base - Projected and shaped using the forge feature of MDLxL\r\n\r\nSkull Jaw - reshaped World of Warcraft: Legion - Drogbar asset\r\n\r\nKhorne Symbol - Adept of Khorne by WebSter\r\n\r\nAxe - Traitor Knightess by Greedy Martyrdom\r\n\r\nHorse head and tail - Headless Horseman by Johnwar\r\n\r\nFur Cloak - Chaos Warrior by Azazeron\r\n\r\nShoulders - Diablo_3_Barbarian_Shoulders by Forgotten_Warlord",
+    "credits": "Model Base - Vile Knight by HerrDave / Further edited by Stein123\r\n\r\nFlail Animations - Knight, Bandit Lord & Riderless Horse by Loktar\r\n\r\nBloodied Khorne Symbol - Blood Letter by Ironmaiden\r\n\r\nHelm 1 Base - Black Knight by Direfury\r\n\r\nHelm 2 Base - Advanced White Helm by Astaroth Zion\r\n\r\nHelm Horehair Crest - Blackorder Assassin by Rhapsodie\r\n\r\nFlail Knight Face - adapted from IronMaiden's Dawn of War Helms\r\n\r\nHelm Khorne Bunny Ears - adapted and reshaped from World Eaters Helm by Ironmaiden\r\n\r\nShield Base - Projected and shaped using the forge feature of MDLxL\r\n\r\nSkull Jaw - reshaped World of Warcraft: Legion - Drogbar asset\r\n\r\nKhorne Symbol - Adept of Khorne by WebSter\r\n\r\nAxe - Traitor Knightess by Greedy Martyrdom\r\n\r\nHorse head and tail - Headless Horseman by Johnwar\r\n\r\nFur Cloak - Chaos Warrior by Azazeron\r\n\r\nShoulders - Diablo_3_Barbarian_Shoulders by Forgotten_Warlord",
     "geosets": [
       {
         "index": 0,
@@ -3703,7 +3703,7 @@
         "url": "https://www.hiveworkshop.com/members/johnwar.264426/"
       },
       {
-        "text": "loktar",
+        "text": "Loktar",
         "url": "https://www.hiveworkshop.com/members/115150/"
       },
       {
@@ -3751,7 +3751,7 @@
     "name": "Knight of Khorne · Champion",
     "army": "warriors-of-chaos",
     "description": "I have never seen men fight like that...\r\n\r\nI barely made it out alive, this was no victory.\r\n\r\nStatues of brass, massive, twice the size of the biggest man I've ever seen and then some.\r\n\r\nWalking, not charging... advancing like a great wall made of brass and blood red steel.\r\n\r\nI saw men throw down their weapons crying, screaming...\r\n\r\nMen crawled beneath one another to get away...\r\n\r\nIt made no difference, there was nowhere to run.\r\n\r\nI watched a man split from shoulder to hip as he was trying to hide.\r\n\r\nAnother crushed into nothing I could recognize...\r\n\r\nMen were knocked down, trampled, hacked apart and still they kept hacking at the corpses.\r\n\r\nLike a butcher at the block, hacking away piece by piece.\r\n\r\nIt made no difference, we had to fight.\r\n\r\nThey even killed each other.\r\n\r\nThe ones we managed to injure or stagger fighting back became obstacles for the others,\r\n\r\nSo they simply cut through those to reach us faster.\r\n\r\nBut I think they knew they would die that day.\r\n\r\nI heard they razed ten cities before they reached us.\r\n\r\nThat they had come down from the north on a path of destruction.\r\n\r\nThat they had fought their way south for weeks leaving behind only blood and ash.\r\n\r\nBy the time they reached us they were outnumbered fifty to one.\r\n\r\nWe had heard of them coming.\r\n\r\nWe had heard what they had done.\r\n\r\nRivers of blood.\r\n\r\nBut It made no difference... I wanted to fight... to kill.\r\n\r\nThey did not run or beg.\r\n\r\nThey knew they were going to die, I think they wanted to.\r\n\r\nMy city has lost everything defeating them and they got what they came for.\r\n\r\nYou call this victory...?\r\n\r\nSomehow... I envy them.\r\n\r\nI have spent all my life afraid... Afraid of pain... regret... death...\r\n\r\nAfraid of fear.\r\n\r\nThose men were afraid of nothing.\r\n\r\nWanted nothing.\r\n\r\nKept nothing...\r\n\r\nBut it made no difference... I killed them too.\r\n\r\nNorth...\r\n\r\nThat is where they came from.\r\n\r\nThat is where I will go.",
-    "credits": "Model Base - Vile Knight by HerrDave / Further edited by Stein123\r\n\r\nFlail Animations - Knight, Bandit Lord & Riderless Horse by loktar\r\n\r\nBloodied Khorne Symbol - Blood Letter by Ironmaiden\r\n\r\nHelm 1 Base - Black Knight by Direfury\r\n\r\nHelm 2 Base - Advanced White Helm by Astaroth Zion\r\n\r\nHelm Horehair Crest - Blackorder Assassin by Rhapsodie\r\n\r\nFlail Knight Face - adapted from IronMaiden's Dawn of War Helms\r\n\r\nHelm Khorne Bunny Ears - adapted and reshaped from World Eaters Helm by Ironmaiden\r\n\r\nShield Base - Projected and shaped using the forge feature of MDLxL\r\n\r\nSkull Jaw - reshaped World of Warcraft: Legion - Drogbar asset\r\n\r\nKhorne Symbol - Adept of Khorne by WebSter\r\n\r\nAxe - Traitor Knightess by Greedy Martyrdom\r\n\r\nHorse head and tail - Headless Horseman by Johnwar\r\n\r\nFur Cloak - Chaos Warrior by Azazeron\r\n\r\nShoulders - Diablo_3_Barbarian_Shoulders by Forgotten_Warlord",
+    "credits": "Model Base - Vile Knight by HerrDave / Further edited by Stein123\r\n\r\nFlail Animations - Knight, Bandit Lord & Riderless Horse by Loktar\r\n\r\nBloodied Khorne Symbol - Blood Letter by Ironmaiden\r\n\r\nHelm 1 Base - Black Knight by Direfury\r\n\r\nHelm 2 Base - Advanced White Helm by Astaroth Zion\r\n\r\nHelm Horehair Crest - Blackorder Assassin by Rhapsodie\r\n\r\nFlail Knight Face - adapted from IronMaiden's Dawn of War Helms\r\n\r\nHelm Khorne Bunny Ears - adapted and reshaped from World Eaters Helm by Ironmaiden\r\n\r\nShield Base - Projected and shaped using the forge feature of MDLxL\r\n\r\nSkull Jaw - reshaped World of Warcraft: Legion - Drogbar asset\r\n\r\nKhorne Symbol - Adept of Khorne by WebSter\r\n\r\nAxe - Traitor Knightess by Greedy Martyrdom\r\n\r\nHorse head and tail - Headless Horseman by Johnwar\r\n\r\nFur Cloak - Chaos Warrior by Azazeron\r\n\r\nShoulders - Diablo_3_Barbarian_Shoulders by Forgotten_Warlord",
     "geosets": [
       {
         "index": 0,
@@ -4206,7 +4206,7 @@
         "url": "https://www.hiveworkshop.com/members/johnwar.264426/"
       },
       {
-        "text": "loktar",
+        "text": "Loktar",
         "url": "https://www.hiveworkshop.com/members/115150/"
       },
       {
@@ -4254,7 +4254,7 @@
     "name": "Knight of Nurgle · Heavy",
     "army": "warriors-of-chaos",
     "description": "There are many strange places to end up in the Old World...\r\n\r\nSome would claim the strangest is tucked within the comforting embrace of the Urfather.\r\n\r\nBut why? What could drive mortal men to seek out something so wrong?\r\n\r\nTell me, what would a knight who has lost his family to war continue fighting for? What is left to endure for those whose martial strength proved meaningless against the plights of life?\r\n\r\nThe strongest men are not broken with swords... I can tell you that much.\r\n\r\nIt is there, in those dark corners of the mind you will hear him whisper to you.\r\n\r\nHis embrace, his promises...\r\n\r\nNo more restless nights. No more seeing faces long buried. No more graves to dig... no more watching those you once loved fade and turn to dust... no more fearing the years that seem to pass faster and faster.\r\n\r\nHe would take all the pain away.\r\n\r\nHe would tuck those memories gently to sleep, still the passing of time, and silence every wound that steel could never mend...\r\n\r\nSuch a watchful father.\r\n\r\nA good father.\r\n\r\nHe does keep his promises.\r\n\r\nThe pain fades...\r\n\r\nThen the feelings.\r\n\r\nThen the memories.\r\n\r\nThen flesh swells, old wounds open and blossom yet ache no more, flies gather beneath a rusted visor and the body slowly rots... but somehow refuses to die.\r\n\r\nBut from that warm, rotten embrace do those knights rise once again...\r\n\r\nPerhaps to you they are disgusting abominations, bringers of death and decay, swollen, corpse-like and clad in rusted steel.\r\n\r\nBut in truth?\r\n\r\nThey have purpose.\r\n\r\nThey are at peace.\r\n\r\nThey are happy.\r\n\r\nAre you?...",
-    "credits": "Model Base - Vile Knight by HerrDave /  Nurgle Knight by Stein123\r\n\r\nHelm - Bandit Enforcer by Johnwar\r\n\r\nHorns - Dire Maul Stone Deer Statue - WoW model\r\n\r\nFace/Shield Face/Tongue - Ghoul Re-Classic and Abomination Re-Classic by johnwar\r\n\r\nHorse head and tail - Headless Horseman by Johnwar\r\n\r\nFur Cloak - Chaos Warrior by Azazeron\r\n\r\nScythe Top  - Reaper Ghost by Cinos",
+    "credits": "Model Base - Vile Knight by HerrDave /  Nurgle Knight by Stein123\r\n\r\nHelm - Bandit Enforcer by Johnwar\r\n\r\nHorns - Dire Maul Stone Deer Statue - WoW model\r\n\r\nFace/Shield Face/Tongue - Ghoul Re-Classic and Abomination Re-Classic by Johnwar\r\n\r\nHorse head and tail - Headless Horseman by Johnwar\r\n\r\nFur Cloak - Chaos Warrior by Azazeron\r\n\r\nScythe Top  - Reaper Ghost by Cinos",
     "geosets": [
       {
         "index": 0,
@@ -4815,7 +4815,7 @@
     "name": "Knight of Nurgle",
     "army": "warriors-of-chaos",
     "description": "There are many strange places to end up in the Old World...\r\n\r\nSome would claim the strangest is tucked within the comforting embrace of the Urfather.\r\n\r\nBut why? What could drive mortal men to seek out something so wrong?\r\n\r\nTell me, what would a knight who has lost his family to war continue fighting for? What is left to endure for those whose martial strength proved meaningless against the plights of life?\r\n\r\nThe strongest men are not broken with swords... I can tell you that much.\r\n\r\nIt is there, in those dark corners of the mind you will hear him whisper to you.\r\n\r\nHis embrace, his promises...\r\n\r\nNo more restless nights. No more seeing faces long buried. No more graves to dig... no more watching those you once loved fade and turn to dust... no more fearing the years that seem to pass faster and faster.\r\n\r\nHe would take all the pain away.\r\n\r\nHe would tuck those memories gently to sleep, still the passing of time, and silence every wound that steel could never mend...\r\n\r\nSuch a watchful father.\r\n\r\nA good father.\r\n\r\nHe does keep his promises.\r\n\r\nThe pain fades...\r\n\r\nThen the feelings.\r\n\r\nThen the memories.\r\n\r\nThen flesh swells, old wounds open and blossom yet ache no more, flies gather beneath a rusted visor and the body slowly rots... but somehow refuses to die.\r\n\r\nBut from that warm, rotten embrace do those knights rise once again...\r\n\r\nPerhaps to you they are disgusting abominations, bringers of death and decay, swollen, corpse-like and clad in rusted steel.\r\n\r\nBut in truth?\r\n\r\nThey have purpose.\r\n\r\nThey are at peace.\r\n\r\nThey are happy.\r\n\r\nAre you?...",
-    "credits": "Model Base - Vile Knight by HerrDave /  Nurgle Knight by Stein123\r\n\r\nHelm - Bandit Enforcer by Johnwar\r\n\r\nHorns - Dire Maul Stone Deer Statue - WoW model\r\n\r\nFace/Shield Face/Tongue - Ghoul Re-Classic and Abomination Re-Classic by johnwar\r\n\r\nHorse head and tail - Headless Horseman by Johnwar\r\n\r\nFur Cloak - Chaos Warrior by Azazeron\r\n\r\nScythe Top  - Reaper Ghost by Cinos",
+    "credits": "Model Base - Vile Knight by HerrDave /  Nurgle Knight by Stein123\r\n\r\nHelm - Bandit Enforcer by Johnwar\r\n\r\nHorns - Dire Maul Stone Deer Statue - WoW model\r\n\r\nFace/Shield Face/Tongue - Ghoul Re-Classic and Abomination Re-Classic by Johnwar\r\n\r\nHorse head and tail - Headless Horseman by Johnwar\r\n\r\nFur Cloak - Chaos Warrior by Azazeron\r\n\r\nScythe Top  - Reaper Ghost by Cinos",
     "geosets": [
       {
         "index": 0,
@@ -5264,7 +5264,7 @@
     "name": "Knight of Nurgle · Champion",
     "army": "warriors-of-chaos",
     "description": "There are many strange places to end up in the Old World...\r\n\r\nSome would claim the strangest is tucked within the comforting embrace of the Urfather.\r\n\r\nBut why? What could drive mortal men to seek out something so wrong?\r\n\r\nTell me, what would a knight who has lost his family to war continue fighting for? What is left to endure for those whose martial strength proved meaningless against the plights of life?\r\n\r\nThe strongest men are not broken with swords... I can tell you that much.\r\n\r\nIt is there, in those dark corners of the mind you will hear him whisper to you.\r\n\r\nHis embrace, his promises...\r\n\r\nNo more restless nights. No more seeing faces long buried. No more graves to dig... no more watching those you once loved fade and turn to dust... no more fearing the years that seem to pass faster and faster.\r\n\r\nHe would take all the pain away.\r\n\r\nHe would tuck those memories gently to sleep, still the passing of time, and silence every wound that steel could never mend...\r\n\r\nSuch a watchful father.\r\n\r\nA good father.\r\n\r\nHe does keep his promises.\r\n\r\nThe pain fades...\r\n\r\nThen the feelings.\r\n\r\nThen the memories.\r\n\r\nThen flesh swells, old wounds open and blossom yet ache no more, flies gather beneath a rusted visor and the body slowly rots... but somehow refuses to die.\r\n\r\nBut from that warm, rotten embrace do those knights rise once again...\r\n\r\nPerhaps to you they are disgusting abominations, bringers of death and decay, swollen, corpse-like and clad in rusted steel.\r\n\r\nBut in truth?\r\n\r\nThey have purpose.\r\n\r\nThey are at peace.\r\n\r\nThey are happy.\r\n\r\nAre you?...",
-    "credits": "Model Base - Vile Knight by HerrDave /  Nurgle Knight by Stein123\r\n\r\nHelm - Gladiator's Helmet by Deolrin / Bandit Enforcer by Johnwar\r\n\r\nHelm Horns - Goats by bakr\r\n\r\nHorns - Dire Maul Stone Deer Statue - WoW model\r\n\r\nFace/Shield Face/Tongue - Ghoul Re-Classic and Abomination Re-Classic by johnwar\r\n\r\nHorse head and tail - Headless Horseman by Johnwar\r\n\r\nFur Cloak - Chaos Warrior by Azazeron\r\n\r\nAxe Blade - Igneous Cleaver by Solu9 / Further edited by Epimetheus\r\n\r\nWeapon Shaft - Orcish Staff by Sunchips",
+    "credits": "Model Base - Vile Knight by HerrDave /  Nurgle Knight by Stein123\r\n\r\nHelm - Gladiator's Helmet by Deolrin / Bandit Enforcer by Johnwar\r\n\r\nHelm Horns - Goats by Bakr\r\n\r\nHorns - Dire Maul Stone Deer Statue - WoW model\r\n\r\nFace/Shield Face/Tongue - Ghoul Re-Classic and Abomination Re-Classic by Johnwar\r\n\r\nHorse head and tail - Headless Horseman by Johnwar\r\n\r\nFur Cloak - Chaos Warrior by Azazeron\r\n\r\nAxe Blade - Igneous Cleaver by Solu9 / Further edited by Epimetheus\r\n\r\nWeapon Shaft - Orcish Staff by Sunchips",
     "geosets": [
       {
         "index": 0,
@@ -5799,7 +5799,7 @@
         "url": "https://www.hiveworkshop.com/threads/goats.371456/"
       },
       {
-        "text": "bakr",
+        "text": "Bakr",
         "url": "https://www.hiveworkshop.com/members/bakr.284239/"
       }
     ],
@@ -5836,7 +5836,7 @@
     "name": "Knight of Nurgle · Champion",
     "army": "warriors-of-chaos",
     "description": "There are many strange places to end up in the Old World...\r\n\r\nSome would claim the strangest is tucked within the comforting embrace of the Urfather.\r\n\r\nBut why? What could drive mortal men to seek out something so wrong?\r\n\r\nTell me, what would a knight who has lost his family to war continue fighting for? What is left to endure for those whose martial strength proved meaningless against the plights of life?\r\n\r\nThe strongest men are not broken with swords... I can tell you that much.\r\n\r\nIt is there, in those dark corners of the mind you will hear him whisper to you.\r\n\r\nHis embrace, his promises...\r\n\r\nNo more restless nights. No more seeing faces long buried. No more graves to dig... no more watching those you once loved fade and turn to dust... no more fearing the years that seem to pass faster and faster.\r\n\r\nHe would take all the pain away.\r\n\r\nHe would tuck those memories gently to sleep, still the passing of time, and silence every wound that steel could never mend...\r\n\r\nSuch a watchful father.\r\n\r\nA good father.\r\n\r\nHe does keep his promises.\r\n\r\nThe pain fades...\r\n\r\nThen the feelings.\r\n\r\nThen the memories.\r\n\r\nThen flesh swells, old wounds open and blossom yet ache no more, flies gather beneath a rusted visor and the body slowly rots... but somehow refuses to die.\r\n\r\nBut from that warm, rotten embrace do those knights rise once again...\r\n\r\nPerhaps to you they are disgusting abominations, bringers of death and decay, swollen, corpse-like and clad in rusted steel.\r\n\r\nBut in truth?\r\n\r\nThey have purpose.\r\n\r\nThey are at peace.\r\n\r\nThey are happy.\r\n\r\nAre you?...",
-    "credits": "Model Base - Vile Knight by HerrDave /  Nurgle Knight by Stein123\r\n\r\nHelm - Gladiator's Helmet by Deolrin / Bandit Enforcer by Johnwar\r\n\r\nHelm Horns - Goats by bakr\r\n\r\nHorns - Dire Maul Stone Deer Statue - WoW model\r\n\r\nFace/Shield Face/Tongue - Ghoul Re-Classic and Abomination Re-Classic by johnwar\r\n\r\nHorse head and tail - Headless Horseman by Johnwar\r\n\r\nFur Cloak - Chaos Warrior by Azazeron\r\n\r\nAxe Blade - Igneous Cleaver by Solu9 / Further edited by Epimetheus\r\n\r\nWeapon Shaft - Orcish Staff by Sunchips",
+    "credits": "Model Base - Vile Knight by HerrDave /  Nurgle Knight by Stein123\r\n\r\nHelm - Gladiator's Helmet by Deolrin / Bandit Enforcer by Johnwar\r\n\r\nHelm Horns - Goats by Bakr\r\n\r\nHorns - Dire Maul Stone Deer Statue - WoW model\r\n\r\nFace/Shield Face/Tongue - Ghoul Re-Classic and Abomination Re-Classic by Johnwar\r\n\r\nHorse head and tail - Headless Horseman by Johnwar\r\n\r\nFur Cloak - Chaos Warrior by Azazeron\r\n\r\nAxe Blade - Igneous Cleaver by Solu9 / Further edited by Epimetheus\r\n\r\nWeapon Shaft - Orcish Staff by Sunchips",
     "geosets": [
       {
         "index": 0,
@@ -6335,7 +6335,7 @@
         "url": "https://www.hiveworkshop.com/threads/goats.371456/"
       },
       {
-        "text": "bakr",
+        "text": "Bakr",
         "url": "https://www.hiveworkshop.com/members/bakr.284239/"
       }
     ],
@@ -8786,7 +8786,7 @@
     ],
     "authors": [
       {
-        "name": "azazeron",
+        "name": "Azazeron",
         "url": "https://www.hiveworkshop.com/members/azazeron.299156/"
       },
       {
@@ -8975,7 +8975,7 @@
     ],
     "authors": [
       {
-        "name": "azazeron",
+        "name": "Azazeron",
         "url": "https://www.hiveworkshop.com/members/azazeron.299156/"
       },
       {
@@ -9152,7 +9152,7 @@
     ],
     "authors": [
       {
-        "name": "azazeron",
+        "name": "Azazeron",
         "url": "https://www.hiveworkshop.com/members/azazeron.299156/"
       },
       {
@@ -9725,7 +9725,7 @@
     "changelog": [
       {
         "date": "7 November 2026",
-        "text": "Added a native texture reskin by UnsanctionedMagic"
+        "text": "Added a native texture reskin by Unsanctioned Magic"
       }
     ],
     "downloadPackOnly": true
@@ -9736,7 +9736,7 @@
     "name": "Greenskin - Orc Boy",
     "army": "orcs-and-goblins",
     "description": "MerRy ChrisTMas, ya Zoggin Sn0TT GITZ!\n\nWAAAAAAAAAAAGH!!\n\n- Ugslap, Da Singin' Orc\n\nThis variation uses native Warcraft III textures.",
-    "credits": "Model - HerrDave\n\nOriginal resource - Warhammer - Greenskins (1H)\n\nReskin by UnsacntionedMagic",
+    "credits": "Model - HerrDave\n\nOriginal resource - Warhammer - Greenskins (1H)\n\nReskin by Unsanctioned Magic",
     "sha256": "8fa997c36e42d4b22f4d4ed43a6d53bef5ecdf1e628baf197d021850af924d8e",
     "geosets": [
       {
@@ -9905,14 +9905,14 @@
         "url": "https://www.hiveworkshop.com/members/herrdave.234820/"
       },
       {
-        "text": "UnsacntionedMagic",
+        "text": "Unsanctioned Magic",
         "url": "https://xgm.guru/user/UnsanctMagic"
       }
     ],
     "changelog": [
       {
         "date": "7 November 2026",
-        "text": "Added a native texture reskin by UnsanctionedMagic"
+        "text": "Added a native texture reskin by Unsanctioned Magic"
       }
     ],
     "slug": "greenskin-orc-boy-native-reskin",
@@ -12407,7 +12407,7 @@
     "name": "Knight of Tzeentch · Sword",
     "army": "warriors-of-chaos",
     "description": "This has been my company for a thousand wars, a thousand roads, a thousand years.\r\n\r\nMy brothers, that is what we call each other.\r\n\r\nWe have ridden beneath this banner for centuries... and yet I cannot recall their names nor their faces.\r\n\r\nDid they ever have faces?...\r\n\r\nWe hail from every corner of the world, or so we remember.\r\n\r\nWorlds I see when we close our eyes, cities beneath violet skies and fields without horizons...\r\n\r\nAnd always above it all a great burning eye, watching, above as the sun.\r\n\r\nWe had different lives once, different faces, different banners... I recall, sometimes.\r\n\r\nPerhaps that was a thousand years ago, perhaps it was yesterday...\r\n\r\nOr, perhaps, was it another man's dream?\r\n\r\nWe cannot tell, it does not matter.\r\n\r\nAs we ride, days stretch into years and years collapse into moments, time has no meaning.\r\n\r\nRoads unfold never ending, the ground beneath us breathes and lives and trees bend and whisper to us secrets men do not wish to hear.\r\n\r\nThe ravens herald our coming.\r\n\r\nWe can recall a thousand battles,\r\n\r\nkingdoms we have brought to ashes, kings slain, gods destroyed.\r\n\r\nBut I do not remember arriving at any of them, only leaving.\r\n\r\nHow did we end up here?\r\n\r\nA voice...\r\n\r\nA will...\r\n\r\nbut whose?...\r\n\r\nIn war we see it clearly, we feel alive... and for a moment, I wake up...\r\n\r\nThe trees stand still, the ravens fall silent and the skies are no longer violet when the ground runs red with blood...\r\n\r\nFor a moment...\r\n\r\nFor another thousand years....\r\n\r\nBut always... When we shut our eyes... A burning eye, staring, reaching deep into my soul.",
-    "credits": "Model Base - Vile Knight by HerrDave / Further edited by Stein123 \r\nChaos Stars, Bitz and bobs - Chaos Warriors by Diazon, found on Warhammer Eternal Strife by Nightmare2077 \r\nAnimated Eyes - Hatchet Eye Drranosh by ratamahatta (Added many frames to make it smoother)\r\n\r\nBlade - Devouring Blade by Blood Raven \r\nTzeentchian Symbol - projected from 2D image using MDLxL \r\nTzeentchian Style Weapon Guard - Tzeentch Hero Pack by Grey Knight \r\nBlue Horror on Shield -Tzeentch Horror converted from DoW by biridius , Edited heavily by Stein123 and me.\r\n\r\nHorse head and tail - Headless Horseman by Johnwar \r\nFur Cloak, Helm base - Chaos Warrior by Azazeron \r\nHelmet Horn - adapted from IronMaiden's Dawn of War Helms .\r\n\r\nGem on Sword - Radiant Emerald Cleaver by Sunchips",
+    "credits": "Model Base - Vile Knight by HerrDave / Further edited by Stein123 \r\nChaos Stars, Bitz and bobs - Chaos Warriors by Diazon, found on Warhammer Eternal Strife by Nightmare2077 \r\nAnimated Eyes - Hatchet Eye Drranosh by Ratamahatta (Added many frames to make it smoother)\r\n\r\nBlade - Devouring Blade by Blood Raven \r\nTzeentchian Symbol - projected from 2D image using MDLxL \r\nTzeentchian Style Weapon Guard - Tzeentch Hero Pack by Grey Knight \r\nBlue Horror on Shield -Tzeentch Horror converted from DoW by Biridius , Edited heavily by Stein123 and me.\r\n\r\nHorse head and tail - Headless Horseman by Johnwar \r\nFur Cloak, Helm base - Chaos Warrior by Azazeron \r\nHelmet Horn - adapted from IronMaiden's Dawn of War Helms .\r\n\r\nGem on Sword - Radiant Emerald Cleaver by Sunchips",
     "geosets": [
       {
         "index": 0,
@@ -12952,7 +12952,7 @@
         "url": "https://www.hiveworkshop.com/threads/swan-knight-vile-knight.308843/"
       },
       {
-        "text": "ratamahatta",
+        "text": "Ratamahatta",
         "url": "https://www.hiveworkshop.com/members/206351/"
       },
       {
@@ -12984,7 +12984,7 @@
         "url": "https://www.hiveworkshop.com/members/176515/"
       },
       {
-        "text": "biridius",
+        "text": "Biridius",
         "url": "https://xgm.guru/user/biridius"
       },
       {
@@ -13014,7 +13014,7 @@
     "name": "Knight of Tzeentch · Lance",
     "army": "warriors-of-chaos",
     "description": "This has been my company for a thousand wars, a thousand roads, a thousand years.\r\n\r\nMy brothers, that is what we call each other.\r\n\r\nWe have ridden beneath this banner for centuries... and yet I cannot recall their names nor their faces.\r\n\r\nDid they ever have faces?...\r\n\r\nWe hail from every corner of the world, or so we remember.\r\n\r\nWorlds I see when we close our eyes, cities beneath violet skies and fields without horizons...\r\n\r\nAnd always above it all a great burning eye, watching, above as the sun.\r\n\r\nWe had different lives once, different faces, different banners... I recall, sometimes.\r\n\r\nPerhaps that was a thousand years ago, perhaps it was yesterday...\r\n\r\nOr, perhaps, was it another man's dream?\r\n\r\nWe cannot tell, it does not matter.\r\n\r\nAs we ride, days stretch into years and years collapse into moments, time has no meaning.\r\n\r\nRoads unfold never ending, the ground beneath us breathes and lives and trees bend and whisper to us secrets men do not wish to hear.\r\n\r\nThe ravens herald our coming.\r\n\r\nWe can recall a thousand battles,\r\n\r\nkingdoms we have brought to ashes, kings slain, gods destroyed.\r\n\r\nBut I do not remember arriving at any of them, only leaving.\r\n\r\nHow did we end up here?\r\n\r\nA voice...\r\n\r\nA will...\r\n\r\nbut whose?...\r\n\r\nIn war we see it clearly, we feel alive... and for a moment, I wake up...\r\n\r\nThe trees stand still, the ravens fall silent and the skies are no longer violet when the ground runs red with blood...\r\n\r\nFor a moment...\r\n\r\nFor another thousand years....\r\n\r\nBut always... When we shut our eyes... A burning eye, staring, reaching deep into my soul.",
-    "credits": "Model Base - Vile Knight by HerrDave / Further edited by Stein123 \r\nChaos Stars, Bitz and bobs - Chaos Warriors by Diazon, found on Warhammer Eternal Strife by Nightmare2077 \r\nAnimated Eyes - Hatchet Eye Drranosh by ratamahatta (Added many frames to make it smoother)\r\n\r\nBlade - Devouring Blade by Blood Raven \r\nTzeentchian Symbol - projected from 2D image using MDLxL \r\nTzeentchian Style Weapon Guard - Tzeentch Hero Pack by Grey Knight \r\nBlue Horror on Shield -Tzeentch Horror converted from DoW by biridius , Edited heavily by Stein123 and me.\r\n\r\nHorse head and tail - Headless Horseman by Johnwar \r\nFur Cloak, Helm base - Chaos Warrior by Azazeron \r\nHelmet Horn - adapted from IronMaiden's Dawn of War Helms .\r\n\r\nGem on Sword - Radiant Emerald Cleaver by Sunchips",
+    "credits": "Model Base - Vile Knight by HerrDave / Further edited by Stein123 \r\nChaos Stars, Bitz and bobs - Chaos Warriors by Diazon, found on Warhammer Eternal Strife by Nightmare2077 \r\nAnimated Eyes - Hatchet Eye Drranosh by Ratamahatta (Added many frames to make it smoother)\r\n\r\nBlade - Devouring Blade by Blood Raven \r\nTzeentchian Symbol - projected from 2D image using MDLxL \r\nTzeentchian Style Weapon Guard - Tzeentch Hero Pack by Grey Knight \r\nBlue Horror on Shield -Tzeentch Horror converted from DoW by Biridius , Edited heavily by Stein123 and me.\r\n\r\nHorse head and tail - Headless Horseman by Johnwar \r\nFur Cloak, Helm base - Chaos Warrior by Azazeron \r\nHelmet Horn - adapted from IronMaiden's Dawn of War Helms .\r\n\r\nGem on Sword - Radiant Emerald Cleaver by Sunchips",
     "geosets": [
       {
         "index": 0,
@@ -13541,7 +13541,7 @@
         "url": "https://www.hiveworkshop.com/threads/swan-knight-vile-knight.308843/"
       },
       {
-        "text": "ratamahatta",
+        "text": "Ratamahatta",
         "url": "https://www.hiveworkshop.com/members/206351/"
       },
       {
@@ -13573,7 +13573,7 @@
         "url": "https://www.hiveworkshop.com/members/176515/"
       },
       {
-        "text": "biridius",
+        "text": "Biridius",
         "url": "https://xgm.guru/user/biridius"
       },
       {
@@ -13599,7 +13599,7 @@
     "name": "Chaos Ogre",
     "army": "warriors-of-chaos",
     "description": "A Chaos Ogre from Warhammer Fantasy, kitbashed for Warcraft III Classic.",
-    "credits": "Model Base - Ogre Legion Models (Re-Classic Pack) by Johnwar\n\nBased on - Ogre (One-Headed) by Ujimasa Hojo\n\nAxe - Traitor Knightess by Greedy Martyrdom\n\nHelmet - Uruk-hai Pack by HerrDave\n\nSkull Belt Buckle - Vrykul Death Knight by JesusHipster\n\nAdditional Parts - stein123’s collection",
+    "credits": "Model Base - Ogre Legion Models (Re-Classic Pack) by Johnwar\n\nBased on - Ogre (One-Headed) by Ujimasa Hojo\n\nAxe - Traitor Knightess by Greedy Martyrdom\n\nHelmet - Uruk-hai Pack by HerrDave\n\nSkull Belt Buckle - Vrykul Death Knight by JesusHipster\n\nAdditional Parts - Stein123’s collection",
     "geosets": [
       {
         "index": 0,
@@ -13813,7 +13813,7 @@
         "url": "https://www.hiveworkshop.com/members/jesushipster.210592/"
       },
       {
-        "text": "stein123",
+        "text": "Stein123",
         "url": "https://www.hiveworkshop.com/members/stein123.196992/"
       }
     ],
@@ -13827,7 +13827,7 @@
     "name": "Warrior of Tzeentch",
     "army": "warriors-of-chaos",
     "description": "Chaos Warriors of Tzeentch tend to be subtly individual, with many small differences between them. Typically their plate armour and shield will be engraved with intricately patterned sigils that radiate with raw power, or flow with blinking eyes or gibbering mouths, or are perhaps inscribed with a minute arcane text making the wearer literally a walking grimoire. Though it is not immediately visible, many will have mutated flesh, their Chaos armour melting and reforming around the warped appendages of their bodies. They are deadly and unpredictable; they are warriors who have the favour of the God of Magic.",
-    "credits": "Model Base - Chaos Warrior by azazeron\r\n\r\nMashed with - Chaos Warriors by Diazon, found on Warhammer Eternal Strife by Nightmare2077\r\n\r\nAnimated Eyes - Hatchet Eye Drranosh by ratamahatta (Added many frames to make it smoother)\r\n\r\nTzeentchian Symbol - projected from 2D image using MDLxL\r\n\r\nWeapon - Infernal Gladiator Trident by Blood Raven\r\n\r\nHelm front - adapted from Vyrkul Male/Blizzard WoW Asset - Found Here\r\n\r\nHelmet backside - CrownHelmetbySunchips by Sunchips\r\n\r\nAdditional credits - Stein123\r\n\r\nShoulders - Diablo_3_Barbarian_Shoulders by Forgotten_Warlord",
+    "credits": "Model Base - Chaos Warrior by Azazeron\r\n\r\nMashed with - Chaos Warriors by Diazon, found on Warhammer Eternal Strife by Nightmare2077\r\n\r\nAnimated Eyes - Hatchet Eye Drranosh by Ratamahatta (Added many frames to make it smoother)\r\n\r\nTzeentchian Symbol - projected from 2D image using MDLxL\r\n\r\nWeapon - Infernal Gladiator Trident by Blood Raven\r\n\r\nHelm front - adapted from Vyrkul Male/Blizzard WoW Asset - Found Here\r\n\r\nHelmet backside - CrownHelmetbySunchips by Sunchips\r\n\r\nAdditional credits - Stein123\r\n\r\nShoulders - Diablo_3_Barbarian_Shoulders by Forgotten_Warlord",
     "authors": [
       {
         "name": "Unsanctioned Magic",
@@ -13844,7 +13844,7 @@
         "url": "https://www.hiveworkshop.com/threads/chaos-warrior.366159/"
       },
       {
-        "text": "azazeron",
+        "text": "Azazeron",
         "url": "https://www.hiveworkshop.com/members/azazeron.299156/"
       },
       {
@@ -13872,7 +13872,7 @@
         "url": "https://www.hiveworkshop.com/threads/hatchet-eye-dranosh.202230/"
       },
       {
-        "text": "ratamahatta",
+        "text": "Ratamahatta",
         "url": "https://www.hiveworkshop.com/members/206351/"
       },
       {
@@ -14242,7 +14242,7 @@
     "name": "Warrior of Slaanesh",
     "army": "warriors-of-chaos",
     "description": "Chaos Warriors dedicated to the Dark Prince of Chaos are regarded by His lesser warriors as walking avatars of their God. They truly walk the path of damnation and excess, the strongest fated to become His chosen or mighty champions if they survive their ordeals. Although armour-clad, many leave portions of pale flesh bare as if to titillate opponents with the illusion of weakness, inviting them to attempt to strike at imagined weak spots. Consumed by their own dark passions, they appear distant and something other than human. Their followers bathe in this otherworldly glory, driven by the need for the great warriors’ approval to commit further atrocities.",
-    "credits": "Model Base - Chaos Warrior by azazeron\r\n\r\nMashed with - Chaos Warriors by Diazon, found on Warhammer Eternal Strife by Nightmare2077\r\n\r\nWeapon - The Grand Marshal by Blood Raven\r\n\r\nHelm - Swan Knight & Vile Knight by HerrDave\r\n\r\nHorns - Eredar Witch by FerSZ\r\n\r\nAdditional credits - Stein123\r\n\r\nShoulders - Diablo_3_Barbarian_Shoulders by Forgotten_Warlord",
+    "credits": "Model Base - Chaos Warrior by Azazeron\r\n\r\nMashed with - Chaos Warriors by Diazon, found on Warhammer Eternal Strife by Nightmare2077\r\n\r\nWeapon - The Grand Marshal by Blood Raven\r\n\r\nHelm - Swan Knight & Vile Knight by HerrDave\r\n\r\nHorns - Eredar Witch by FerSZ\r\n\r\nAdditional credits - Stein123\r\n\r\nShoulders - Diablo_3_Barbarian_Shoulders by Forgotten_Warlord",
     "authors": [
       {
         "name": "Unsanctioned Magic",
@@ -14259,7 +14259,7 @@
         "url": "https://www.hiveworkshop.com/threads/chaos-warrior.366159/"
       },
       {
-        "text": "azazeron",
+        "text": "Azazeron",
         "url": "https://www.hiveworkshop.com/members/azazeron.299156/"
       },
       {
@@ -14635,7 +14635,7 @@
     "name": "Warrior of Slaanesh · Slayer",
     "army": "warriors-of-chaos",
     "description": "Chaos Warriors dedicated to the Dark Prince of Chaos are regarded by His lesser warriors as walking avatars of their God. They truly walk the path of damnation and excess, the strongest fated to become His chosen or mighty champions if they survive their ordeals. Although armour-clad, many leave portions of pale flesh bare as if to titillate opponents with the illusion of weakness, inviting them to attempt to strike at imagined weak spots. Consumed by their own dark passions, they appear distant and something other than human. Their followers bathe in this otherworldly glory, driven by the need for the great warriors’ approval to commit further atrocities.",
-    "credits": "Model Base - Chaos Warrior by azazeron\r\n\r\nMashed with - Chaos Warriors by Diazon, found on Warhammer Eternal Strife by Nightmare2077\r\n\r\nSword - Arcane Runeblade by Blood Raven\r\n\r\nGem - Radiant Emerald Cleaver by Sunchips\r\n\r\nHelm - Swan Knight & Vile Knight by HerrDave\r\n\r\nHorns - Eredar Witch by FerSZ\r\n\r\nAdditional credits - Stein123\r\n\r\nShoulders - Diablo_3_Barbarian_Shoulders by Forgotten_Warlord",
+    "credits": "Model Base - Chaos Warrior by Azazeron\r\n\r\nMashed with - Chaos Warriors by Diazon, found on Warhammer Eternal Strife by Nightmare2077\r\n\r\nSword - Arcane Runeblade by Blood Raven\r\n\r\nGem - Radiant Emerald Cleaver by Sunchips\r\n\r\nHelm - Swan Knight & Vile Knight by HerrDave\r\n\r\nHorns - Eredar Witch by FerSZ\r\n\r\nAdditional credits - Stein123\r\n\r\nShoulders - Diablo_3_Barbarian_Shoulders by Forgotten_Warlord",
     "authors": [
       {
         "name": "Unsanctioned Magic",
@@ -14652,7 +14652,7 @@
         "url": "https://www.hiveworkshop.com/threads/chaos-warrior.366159/"
       },
       {
-        "text": "azazeron",
+        "text": "Azazeron",
         "url": "https://www.hiveworkshop.com/members/azazeron.299156/"
       },
       {
@@ -15029,7 +15029,7 @@
     "name": "Warrior of Khorne · Berserker",
     "army": "warriors-of-chaos",
     "description": "The Warriors of Chaos that follow the Blood God, as with all servants of the Ruinous Powers, are not limited to the primitive tribes of the north. His grasp can reach the heart of every soldier, every warrior, every life-taker. When a noble Knight of Bretonnia or a Templar of the Empire falls to His worship it is because they forget why they kill. To change from killing for the common good to killing only because one wants to – because the act is pleasing – is when the righteous have fallen from their path. These are the warriors Khorne embraces, never to release. These are the converts that He savours.",
-    "credits": "Model Base - Chaos Warrior by azazeron\r\n\r\nMashed with - Chaos Warriors by Diazon, found on Warhammer Eternal Strife by Nightmare2077\r\n\r\nHammer - Brute Hammer by Sunchips\r\n\r\nClub - Faceless Ones Club by Midnighters\r\n\r\nHelm - Bandit Enforcer by Johnwar\r\n\r\nAxe - Felsteel Ravager by Blood Raven\r\n\r\nAdditional credits - Stein123\r\n\r\nShoulders - Diablo_3_Barbarian_Shoulders by Forgotten_Warlord",
+    "credits": "Model Base - Chaos Warrior by Azazeron\r\n\r\nMashed with - Chaos Warriors by Diazon, found on Warhammer Eternal Strife by Nightmare2077\r\n\r\nHammer - Brute Hammer by Sunchips\r\n\r\nClub - Faceless Ones Club by Midnighters\r\n\r\nHelm - Bandit Enforcer by Johnwar\r\n\r\nAxe - Felsteel Ravager by Blood Raven\r\n\r\nAdditional credits - Stein123\r\n\r\nShoulders - Diablo_3_Barbarian_Shoulders by Forgotten_Warlord",
     "geosets": [
       {
         "index": 0,
@@ -15328,7 +15328,7 @@
         "url": "https://www.hiveworkshop.com/threads/chaos-warrior.366159/"
       },
       {
-        "text": "azazeron",
+        "text": "Azazeron",
         "url": "https://www.hiveworkshop.com/members/azazeron.299156/"
       },
       {
@@ -15419,7 +15419,7 @@
     "name": "Warrior of Khorne · Cleaver",
     "army": "warriors-of-chaos",
     "description": "The Warriors of Chaos that follow the Blood God, as with all servants of the Ruinous Powers, are not limited to the primitive tribes of the north. His grasp can reach the heart of every soldier, every warrior, every life-taker. When a noble Knight of Bretonnia or a Templar of the Empire falls to His worship it is because they forget why they kill. To change from killing for the common good to killing only because one wants to – because the act is pleasing – is when the righteous have fallen from their path. These are the warriors Khorne embraces, never to release. These are the converts that He savours.",
-    "credits": "Model Base - Chaos Warrior by azazeron\r\n\r\nMashed with - Chaos Warriors by Diazon, found on Warhammer Eternal Strife by Nightmare2077\r\n\r\nHammer - Brute Hammer by Sunchips\r\n\r\nClub - Faceless Ones Club by Midnighters\r\n\r\nHelm - Bandit Enforcer by Johnwar\r\n\r\nAxe - Felsteel Ravager by Blood Raven\r\n\r\nAdditional credits - Stein123\r\n\r\nGreat Weapon - Death Sword by Blood Raven\r\n\r\nShoulders - Diablo_3_Barbarian_Shoulders by Forgotten_Warlord\r\n\r\nAttack Slam, Spell - Uruk-hai Pack by HerrDave",
+    "credits": "Model Base - Chaos Warrior by Azazeron\r\n\r\nMashed with - Chaos Warriors by Diazon, found on Warhammer Eternal Strife by Nightmare2077\r\n\r\nHammer - Brute Hammer by Sunchips\r\n\r\nClub - Faceless Ones Club by Midnighters\r\n\r\nHelm - Bandit Enforcer by Johnwar\r\n\r\nAxe - Felsteel Ravager by Blood Raven\r\n\r\nAdditional credits - Stein123\r\n\r\nGreat Weapon - Death Sword by Blood Raven\r\n\r\nShoulders - Diablo_3_Barbarian_Shoulders by Forgotten_Warlord\r\n\r\nAttack Slam, Spell - Uruk-hai Pack by HerrDave",
     "geosets": [
       {
         "index": 0,
@@ -15758,7 +15758,7 @@
         "url": "https://www.hiveworkshop.com/threads/chaos-warrior.366159/"
       },
       {
-        "text": "azazeron",
+        "text": "Azazeron",
         "url": "https://www.hiveworkshop.com/members/azazeron.299156/"
       },
       {
@@ -15865,7 +15865,7 @@
     "name": "Warrior of Khorne · Cleaver Hero",
     "army": "warriors-of-chaos",
     "description": "The Warriors of Chaos that follow the Blood God, as with all servants of the Ruinous Powers, are not limited to the primitive tribes of the north. His grasp can reach the heart of every soldier, every warrior, every life-taker. When a noble Knight of Bretonnia or a Templar of the Empire falls to His worship it is because they forget why they kill. To change from killing for the common good to killing only because one wants to – because the act is pleasing – is when the righteous have fallen from their path. These are the warriors Khorne embraces, never to release. These are the converts that He savours.",
-    "credits": "Model Base - Chaos Warrior by azazeron\r\n\r\nMashed with - Chaos Warriors by Diazon, found on Warhammer Eternal Strife by Nightmare2077\r\n\r\nHammer - Brute Hammer by Sunchips\r\n\r\nClub - Faceless Ones Club by Midnighters\r\n\r\nHelm - Bandit Enforcer by Johnwar\r\n\r\nAxe - Felsteel Ravager by Blood Raven\r\n\r\nAdditional credits - Stein123\r\n\r\nGreat Weapon - Death Sword by Blood Raven\r\n\r\nShoulders - Diablo_3_Barbarian_Shoulders by Forgotten_Warlord\r\n\r\nAttack Slam, Spell - Uruk-hai Pack by HerrDave",
+    "credits": "Model Base - Chaos Warrior by Azazeron\r\n\r\nMashed with - Chaos Warriors by Diazon, found on Warhammer Eternal Strife by Nightmare2077\r\n\r\nHammer - Brute Hammer by Sunchips\r\n\r\nClub - Faceless Ones Club by Midnighters\r\n\r\nHelm - Bandit Enforcer by Johnwar\r\n\r\nAxe - Felsteel Ravager by Blood Raven\r\n\r\nAdditional credits - Stein123\r\n\r\nGreat Weapon - Death Sword by Blood Raven\r\n\r\nShoulders - Diablo_3_Barbarian_Shoulders by Forgotten_Warlord\r\n\r\nAttack Slam, Spell - Uruk-hai Pack by HerrDave",
     "geosets": [
       {
         "index": 0,
@@ -16223,7 +16223,7 @@
         "url": "https://www.hiveworkshop.com/threads/chaos-warrior.366159/"
       },
       {
-        "text": "azazeron",
+        "text": "Azazeron",
         "url": "https://www.hiveworkshop.com/members/azazeron.299156/"
       },
       {
@@ -16330,7 +16330,7 @@
     "name": "Warrior of Khorne · Bruiser",
     "army": "warriors-of-chaos",
     "description": "The Warriors of Chaos that follow the Blood God, as with all servants of the Ruinous Powers, are not limited to the primitive tribes of the north. His grasp can reach the heart of every soldier, every warrior, every life-taker. When a noble Knight of Bretonnia or a Templar of the Empire falls to His worship it is because they forget why they kill. To change from killing for the common good to killing only because one wants to – because the act is pleasing – is when the righteous have fallen from their path. These are the warriors Khorne embraces, never to release. These are the converts that He savours.",
-    "credits": "Model Base - Chaos Warrior by azazeron\r\n\r\nMashed with - Chaos Warriors by Diazon, found on Warhammer Eternal Strife by Nightmare2077\r\n\r\nHammer - Brute Hammer by Sunchips\r\n\r\nHelm - Bandit Enforcer by Johnwar\r\n\r\nAdditional credits - Stein123\r\n\r\nShoulders - Diablo_3_Barbarian_Shoulders by Forgotten_Warlord",
+    "credits": "Model Base - Chaos Warrior by Azazeron\r\n\r\nMashed with - Chaos Warriors by Diazon, found on Warhammer Eternal Strife by Nightmare2077\r\n\r\nHammer - Brute Hammer by Sunchips\r\n\r\nHelm - Bandit Enforcer by Johnwar\r\n\r\nAdditional credits - Stein123\r\n\r\nShoulders - Diablo_3_Barbarian_Shoulders by Forgotten_Warlord",
     "geosets": [
       {
         "index": 0,
@@ -16610,7 +16610,7 @@
         "url": "https://www.hiveworkshop.com/threads/chaos-warrior.366159/"
       },
       {
-        "text": "azazeron",
+        "text": "Azazeron",
         "url": "https://www.hiveworkshop.com/members/azazeron.299156/"
       },
       {
@@ -16681,7 +16681,7 @@
     "name": "Warrior of Khorne · Basher",
     "army": "warriors-of-chaos",
     "description": "The Warriors of Chaos that follow the Blood God, as with all servants of the Ruinous Powers, are not limited to the primitive tribes of the north. His grasp can reach the heart of every soldier, every warrior, every life-taker. When a noble Knight of Bretonnia or a Templar of the Empire falls to His worship it is because they forget why they kill. To change from killing for the common good to killing only because one wants to – because the act is pleasing – is when the righteous have fallen from their path. These are the warriors Khorne embraces, never to release. These are the converts that He savours.",
-    "credits": "Model Base - Chaos Warrior by azazeron\r\n\r\nMashed with - Chaos Warriors by Diazon, found on Warhammer Eternal Strife by Nightmare2077\r\n\r\nWeapon - Faceless Ones Club by Midnighters\r\n\r\nHelm - Bandit Enforcer by Johnwar\r\n\r\nAdditional credits - Stein123\r\n\r\nShoulders - Diablo_3_Barbarian_Shoulders by Forgotten_Warlord\r\n\r\nSymbol - Projected with MDLxL Forge",
+    "credits": "Model Base - Chaos Warrior by Azazeron\r\n\r\nMashed with - Chaos Warriors by Diazon, found on Warhammer Eternal Strife by Nightmare2077\r\n\r\nWeapon - Faceless Ones Club by Midnighters\r\n\r\nHelm - Bandit Enforcer by Johnwar\r\n\r\nAdditional credits - Stein123\r\n\r\nShoulders - Diablo_3_Barbarian_Shoulders by Forgotten_Warlord\r\n\r\nSymbol - Projected with MDLxL Forge",
     "geosets": [
       {
         "index": 0,
@@ -16934,7 +16934,7 @@
         "url": "https://www.hiveworkshop.com/threads/chaos-warrior.366159/"
       },
       {
-        "text": "azazeron",
+        "text": "Azazeron",
         "url": "https://www.hiveworkshop.com/members/azazeron.299156/"
       },
       {
@@ -16996,7 +16996,7 @@
     "name": "Warrior of Nurgle",
     "army": "warriors-of-chaos",
     "description": "An unbearable stench always heralds the approach of the Plague Lord’s warriors. Their helmets often bear great, withered horns and they are clad in rust-tarnished armour which conceal vile conditions or mutations – perhaps a slimy tentacle, or translucent, jelly-like flesh that reveals their decaying inner organs, or simply a body riddled with leprosy. Sometimes the corpulent meat of their bodies spills from the cracks of their armour. Whatever the case, they are deadly fighters who are near-impervious to pain and fight on despite receiving the most horrendous wounds imaginable.\r\n\r\nSource: Chaos Warriors of Nurgle",
-    "credits": "Model Base - Chaos Warrior by azazeron\r\n\r\nMashed with - Chaos Warriors by Diazon, found on Warhammer Eternal Strife by Nightmare2077\r\n\r\nHelm - Tzeentch Pack Old Ver.2 by Grey Knight\r\n\r\nShoulders - Bandit Enforcer (Re-Classic) by johnwar\r\n\r\nAxe - Iron Raven by Blood Raven\r\n\r\nGuts - Abomination (Re-Classic) by johnwar\r\n\r\nHorns - Goats by bakr\r\n\r\nAdditional credits - Stein123",
+    "credits": "Model Base - Chaos Warrior by Azazeron\r\n\r\nMashed with - Chaos Warriors by Diazon, found on Warhammer Eternal Strife by Nightmare2077\r\n\r\nHelm - Tzeentch Pack Old Ver.2 by Grey Knight\r\n\r\nShoulders - Bandit Enforcer (Re-Classic) by Johnwar\r\n\r\nAxe - Iron Raven by Blood Raven\r\n\r\nGuts - Abomination (Re-Classic) by Johnwar\r\n\r\nHorns - Goats by Bakr\r\n\r\nAdditional credits - Stein123",
     "geosets": [
       {
         "index": 0,
@@ -17362,7 +17362,7 @@
         "url": "https://www.hiveworkshop.com/threads/chaos-warrior.366159/"
       },
       {
-        "text": "azazeron",
+        "text": "Azazeron",
         "url": "https://www.hiveworkshop.com/members/azazeron.299156/"
       },
       {
@@ -17394,7 +17394,7 @@
         "url": "https://www.hiveworkshop.com/threads/bandit-enforcer-re-classic.336169/"
       },
       {
-        "text": "johnwar",
+        "text": "Johnwar",
         "url": "https://www.hiveworkshop.com/members/johnwar.264426/"
       },
       {
@@ -17414,7 +17414,7 @@
         "url": "https://www.hiveworkshop.com/threads/goats.371456/"
       },
       {
-        "text": "bakr",
+        "text": "Bakr",
         "url": "https://www.hiveworkshop.com/members/bakr.284239/"
       },
       {
@@ -17445,7 +17445,7 @@
     "name": "Warrior of Nurgle · Heavy Flail",
     "army": "warriors-of-chaos",
     "description": "An unbearable stench always heralds the approach of the Plague Lord’s warriors. Their helmets often bear great, withered horns and they are clad in rust-tarnished armour which conceal vile conditions or mutations – perhaps a slimy tentacle, or translucent, jelly-like flesh that reveals their decaying inner organs, or simply a body riddled with leprosy. Sometimes the corpulent meat of their bodies spills from the cracks of their armour. Whatever the case, they are deadly fighters who are near-impervious to pain and fight on despite receiving the most horrendous wounds imaginable.\r\n\r\nSource: Chaos Warriors of Nurgle",
-    "credits": "Model Base - Chaos Warrior by azazeron\r\n\r\nMashed with - Chaos Warriors by Diazon, found on Warhammer Eternal Strife by Nightmare2077\r\n\r\nHelm - Tzeentch Pack Old Ver.2 by Grey Knight\r\n\r\nShoulders - Bandit Enforcer (Re-Classic) by johnwar\r\n\r\nAxe - Iron Raven by Blood Raven\r\n\r\nGuts - Abomination (Re-Classic) by johnwar\r\n\r\nHorns - Goats by bakr\r\n\r\nAdditional credits - Stein123, HerrDave (Attack Slam animation help)\r\n\r\nHelm (Heavy Flail variation) - Bandit Enforcer/Black Knight by Direfury\r\n\r\nFlail head - Plague Monks by Diazon, found on Warhammer Eternal Strife by Nightmare2077",
+    "credits": "Model Base - Chaos Warrior by Azazeron\r\n\r\nMashed with - Chaos Warriors by Diazon, found on Warhammer Eternal Strife by Nightmare2077\r\n\r\nHelm - Tzeentch Pack Old Ver.2 by Grey Knight\r\n\r\nShoulders - Bandit Enforcer (Re-Classic) by Johnwar\r\n\r\nAxe - Iron Raven by Blood Raven\r\n\r\nGuts - Abomination (Re-Classic) by Johnwar\r\n\r\nHorns - Goats by Bakr\r\n\r\nAdditional credits - Stein123, HerrDave (Attack Slam animation help)\r\n\r\nHelm (Heavy Flail variation) - Bandit Enforcer/Black Knight by Direfury\r\n\r\nFlail head - Plague Monks by Diazon, found on Warhammer Eternal Strife by Nightmare2077",
     "geosets": [
       {
         "index": 0,
@@ -17690,7 +17690,7 @@
         "url": "https://www.hiveworkshop.com/threads/chaos-warrior.366159/"
       },
       {
-        "text": "azazeron",
+        "text": "Azazeron",
         "url": "https://www.hiveworkshop.com/members/azazeron.299156/"
       },
       {
@@ -17722,7 +17722,7 @@
         "url": "https://www.hiveworkshop.com/threads/bandit-enforcer-re-classic.336169/"
       },
       {
-        "text": "johnwar",
+        "text": "Johnwar",
         "url": "https://www.hiveworkshop.com/members/johnwar.264426/"
       },
       {
@@ -17742,7 +17742,7 @@
         "url": "https://www.hiveworkshop.com/threads/goats.371456/"
       },
       {
-        "text": "bakr",
+        "text": "Bakr",
         "url": "https://www.hiveworkshop.com/members/bakr.284239/"
       },
       {
@@ -18300,7 +18300,7 @@
     "name": "Kurgan Warlord",
     "army": "warriors-of-chaos",
     "description": "\"Why do we raid your lands? It is the will of the Gods...\"\n—Zar Seizask, Kurgan Chieftain.\n\nWarhammer Fantasy Roleplay 2nd Edition: Tome of Corruption   pg 152",
-    "credits": "Model Base - Pale Emperor by Direfury + Chaos Chosen by Stein123\n\nWeapon - BadassHammer by Sin'dorei300\n\nHelm - Chaos Warrior by azazeron\n\nShoulder - Vrykul Death Knight by JesusHipster\n\nArm - OgreDeathKnight by Sin'dorei300",
+    "credits": "Model Base - Pale Emperor by Direfury + Chaos Chosen by Stein123\n\nWeapon - BadassHammer by Sin'dorei300\n\nHelm - Chaos Warrior by Azazeron\n\nShoulder - Vrykul Death Knight by JesusHipster\n\nArm - OgreDeathKnight by Sin'dorei300",
     "geosets": [
       {
         "index": 0,
@@ -18513,7 +18513,7 @@
         "url": "https://www.hiveworkshop.com/threads/chaos-warrior.366159/"
       },
       {
-        "text": "azazeron",
+        "text": "Azazeron",
         "url": "https://www.hiveworkshop.com/members/azazeron.299156/"
       },
       {
@@ -18552,7 +18552,7 @@
     "name": "Kurgan Warlord",
     "army": "warriors-of-chaos",
     "description": "\"Why do we raid your lands? It is the will of the Gods...\"\n—Zar Seizask, Kurgan Chieftain.\n\nWarhammer Fantasy Roleplay 2nd Edition: Tome of Corruption   pg 152",
-    "credits": "Model Base - Pale Emperor by Direfury + Chaos Chosen by Stein123\n\nWeapon - BadassHammer by Sin'dorei300\n\nHelm - Chaos Warrior by azazeron\n\nShoulder - Vrykul Death Knight by JesusHipster\n\nArm - OgreDeathKnight by Sin'dorei300",
+    "credits": "Model Base - Pale Emperor by Direfury + Chaos Chosen by Stein123\n\nWeapon - BadassHammer by Sin'dorei300\n\nHelm - Chaos Warrior by Azazeron\n\nShoulder - Vrykul Death Knight by JesusHipster\n\nArm - OgreDeathKnight by Sin'dorei300",
     "geosets": [
       {
         "index": 0,
@@ -18747,7 +18747,7 @@
         "url": "https://www.hiveworkshop.com/threads/chaos-warrior.366159/"
       },
       {
-        "text": "azazeron",
+        "text": "Azazeron",
         "url": "https://www.hiveworkshop.com/members/azazeron.299156/"
       },
       {
@@ -30415,7 +30415,7 @@
     "name": "Aspiring Champion of Tzeentch",
     "army": "warriors-of-chaos",
     "description": "\"Heed my words, all you that read this, for I have walked into the abyss and my eyes have been changed. All that was hidden is now revealed to me. I have seen all worlds, and the secrets that scheming gods and lesser men would keep from us are now the bread and wine of my heart. No longer shall I labour under the shallow misconception of received wisdom. Truth shall be my companion from this day on, for the scale have been lifted from eyes and I have seen the hope of salvation. At last I can be forgiven... for at last, I can see that I have sinned...\"\n\n—\"The Thousand Faces of Chaos,\" from the Liber Chaotica by Richter Kless, declared insane.\nLiber Chaotica: Nurgle (Volume III) (Background Book)\npg. 2",
-    "credits": "Model Base - Lord Nemesis by Direfury\n\nHelm - Tzeentch Pack Old Ver.2 by Grey Knight\n\nSword - DragonBlade by HappyTauren\n\nLegs/Skirt - Necron Unit Guard by Rhapsodie\n\nShoulder - WoW Asset by Blizzard Entertainment\n\nFeet - Skeletons (Re-Classic Pack) by johnwar\n\nAttack Walk Spin Animation - Dark Knight - Highlord Inquisitor by Greedy Martyrdom\n\nAdditional credits: Stein123",
+    "credits": "Model Base - Lord Nemesis by Direfury\n\nHelm - Tzeentch Pack Old Ver.2 by Grey Knight\n\nSword - DragonBlade by HappyTauren\n\nLegs/Skirt - Necron Unit Guard by Rhapsodie\n\nShoulder - WoW Asset by Blizzard Entertainment\n\nFeet - Skeletons (Re-Classic Pack) by Johnwar\n\nAttack Walk Spin Animation - Dark Knight - Highlord Inquisitor by Greedy Martyrdom\n\nAdditional credits: Stein123",
     "geosets": [
       {
         "index": 0,
@@ -30772,7 +30772,7 @@
         "url": "https://www.hiveworkshop.com/threads/skeletons-re-classic-pack.371459/"
       },
       {
-        "text": "johnwar",
+        "text": "Johnwar",
         "url": "https://www.hiveworkshop.com/members/johnwar.264426/"
       },
       {
@@ -31150,7 +31150,7 @@
     "name": "Zombie Dragon - Von Carstein",
     "army": "vampire-counts",
     "description": "The Plain of Bones is a harsh and lifeless landscape of multicoloured sand and tainted rock located to the east of the Worlds Edge Mountains, from which protrude huge rib cages of ancient primeval Dragons. This is the place where Dragons of ancient times once came to die, to rest their bones amongst those of their ancestors as they had done for millions of years, before any other sentient beings walked the world.\n\nHere lies the bones of the great ancestral Dragons: skulls the size of castle towers lie mingled with leg bones larger than the mast of an Imperial warship. These bones date from the ancients days of the draconic race. Though today's Dragons are of a lesser breed, they are still incomparably mightier than other races of the world. However, following the arrival of Chaos, the Plain of Bones has since become saturated with large amounts of Dark Magic. This magic eventually contaminated the remains of these Dragons, forcing them to rise once more as the first Zombie Dragons.\n\nEver since then, Vampires and powerful Necromancers of all kinds have been known to take a pilgrimage to this ancient landscape where they pick through one amongst many Dragon remains. Once he finds a suitable corpse, the Vampire or Necromancer who use the excess Dark Magic that contaminates the land to resurrect the Dragon back to life as his eternal combat mount. These once majestic creatures stagger upright once more with a great despairing roar before stooping to allow their new master to ride atop their powerful shoulders.\n\n— Warhammer Armies: Vampire Counts (8th Edition), p. 49",
-    "credits": "Model Base - Gnome Dragonrider by Direfury (Animations) / Lindormr Dragon by olofmoleman (Dragon Body) / Dread Knight/Death Knight by Direfury (Rider Body)\n\nOriginal Dragon Reskin - Skeletal Dragon / Frostwyrm Remake by Mister_Haudrauf, based on Lindormr Dragon by olofmoleman\n\nChains around dragon neck - Abomination (Re-Classic) by johnwar\n\nShoulders - Hero Geist by Direfury\n\nFace - Modified from Vampyr by Dionesiist\n\nThrone - Throne by maynhe\n\nStaff - Orcish Staff by Sunchips / Staff of Demonic Entities by Usedwell",
+    "credits": "Model Base - Gnome Dragonrider by Direfury (Animations) / Lindormr Dragon by Olofmoleman (Dragon Body) / Dread Knight/Death Knight by Direfury (Rider Body)\n\nOriginal Dragon Reskin - Skeletal Dragon / Frostwyrm Remake by Mister_Haudrauf, based on Lindormr Dragon by Olofmoleman\n\nChains around dragon neck - Abomination (Re-Classic) by Johnwar\n\nShoulders - Hero Geist by Direfury\n\nFace - Modified from Vampyr by Dionesiist\n\nThrone - Throne by Maynhe\n\nStaff - Orcish Staff by Sunchips / Staff of Demonic Entities by Usedwell",
     "geosets": [
       {
         "index": 0,
@@ -31728,7 +31728,7 @@
         "url": "https://www.hiveworkshop.com/members/direfury.188037/"
       },
       {
-        "name": "olofmoleman",
+        "name": "Olofmoleman",
         "url": "https://www.hiveworkshop.com/members/olofmoleman.115820/"
       }
     ],
@@ -31782,7 +31782,7 @@
         "url": "https://www.hiveworkshop.com/threads/staff-of-demonic-entities.190067/"
       },
       {
-        "text": "olofmoleman",
+        "text": "Olofmoleman",
         "url": "https://www.hiveworkshop.com/members/olofmoleman.115820/"
       },
       {
@@ -31790,11 +31790,11 @@
         "url": "https://www.hiveworkshop.com/members/mister_haudrauf.236714/"
       },
       {
-        "text": "johnwar",
+        "text": "Johnwar",
         "url": "https://www.hiveworkshop.com/members/johnwar.264426/"
       },
       {
-        "text": "maynhe",
+        "text": "Maynhe",
         "url": "https://www.hiveworkshop.com/members/maynhe.197966/"
       },
       {
