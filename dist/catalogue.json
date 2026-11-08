@@ -9299,7 +9299,233 @@
     "formationBodyHeight": 0.82,
     "slug": "greenskin-black-orc",
     "searchDescription": "Preview and download the Black Orc model for Warcraft 3. Add Warhammer Fantasy Greenskin infantry to your Orcs and Goblins army.",
-    "downloadPackOnly": true
+    "downloadPackOnly": true,
+    "changelog": [
+      {
+        "date": "8 November 2026",
+        "text": "Added a native texture reskin by UnsanctionedMagic"
+      }
+    ]
+  },
+  {
+    "id": "greenskin-black-orc-native-reskin",
+    "file": "WH_GS_BlackOrc01.mdx",
+    "name": "Greenskin - Black Orc",
+    "army": "orcs-and-goblins",
+    "description": "MerRy ChrisTMas, ya Zoggin Sn0TT GITZ!\n\nWAAAAAAAAAAAGH!!\n\n- Ugslap, Da Singin' Orc\n\nThis variation uses native Warcraft III textures.",
+    "credits": "Model - HerrDave\n\nOriginal resource - Warhammer - Greenskins (1H)\n\nReskin by UnsanctionedMagic",
+    "sha256": "fa78fe527abe43440eb91d832dacf37beec6f3a3602b4ee1ed885108e4716cc2",
+    "geosets": [
+      {
+        "index": 0,
+        "vertices": 62,
+        "triangles": 62,
+        "material": 0,
+        "textures": [
+          "Textures\\gutz.blp"
+        ]
+      },
+      {
+        "index": 1,
+        "vertices": 4,
+        "triangles": 2,
+        "material": 1,
+        "textures": [
+          "Team colour / glow"
+        ]
+      },
+      {
+        "index": 2,
+        "vertices": 369,
+        "triangles": 405,
+        "material": 2,
+        "textures": [
+          "Team colour / glow",
+          "Units\\Orc\\Hellscream\\Hellscream.blp"
+        ]
+      },
+      {
+        "index": 3,
+        "vertices": 114,
+        "triangles": 115,
+        "material": 7,
+        "textures": [
+          "Textures\\Bandit.blp"
+        ]
+      },
+      {
+        "index": 4,
+        "vertices": 766,
+        "triangles": 763,
+        "material": 4,
+        "textures": [
+          "UI\\Glues\\SinglePlayer\\HumanCampaign3D\\HumanCampaignFootman.blp"
+        ]
+      },
+      {
+        "index": 5,
+        "vertices": 48,
+        "triangles": 69,
+        "material": 3,
+        "textures": [
+          "Units\\Undead\\Necromancer\\Necromancer.blp"
+        ]
+      },
+      {
+        "index": 6,
+        "vertices": 35,
+        "triangles": 17,
+        "material": 5,
+        "textures": [
+          "Textures\\Ranger.blp"
+        ]
+      },
+      {
+        "index": 7,
+        "vertices": 109,
+        "triangles": 131,
+        "material": 6,
+        "textures": [
+          "Textures\\InfernalCannon.blp"
+        ]
+      },
+      {
+        "index": 8,
+        "vertices": 75,
+        "triangles": 73,
+        "material": 8,
+        "textures": [
+          "Team colour / glow",
+          "Textures\\BloodElf-SpellThief.blp"
+        ]
+      },
+      {
+        "index": 9,
+        "vertices": 35,
+        "triangles": 28,
+        "material": 9,
+        "textures": [
+          "Units\\Creeps\\FacelessOne\\FacelessOne.blp"
+        ]
+      },
+      {
+        "index": 10,
+        "vertices": 11,
+        "triangles": 9,
+        "material": 15,
+        "textures": [
+          "Textures\\Base.blp"
+        ]
+      },
+      {
+        "index": 11,
+        "vertices": 29,
+        "triangles": 25,
+        "material": 10,
+        "textures": [
+          "UI\\Glues\\SinglePlayer\\OrcCampaign3D\\CampaignOrcSash.blp"
+        ]
+      },
+      {
+        "index": 12,
+        "vertices": 20,
+        "triangles": 20,
+        "material": 12,
+        "textures": [
+          "Textures\\furboots2.blp"
+        ]
+      },
+      {
+        "index": 13,
+        "vertices": 71,
+        "triangles": 55,
+        "material": 14,
+        "textures": [
+          "Textures\\Shield_Round_A_01Black.blp"
+        ]
+      },
+      {
+        "index": 14,
+        "vertices": 24,
+        "triangles": 28,
+        "material": 11,
+        "textures": [
+          "Textures\\Knight.blp"
+        ]
+      },
+      {
+        "index": 15,
+        "vertices": 22,
+        "triangles": 26,
+        "material": 13,
+        "textures": [
+          "Units\\Creeps\\Magnataur\\Magnataur.blp",
+          "Units\\Creeps\\Magnataur\\Magnataur.blp"
+        ]
+      }
+    ],
+    "sequences": [
+      "Walk",
+      "Stand - 1",
+      "Attack - 1",
+      "Death",
+      "Decay Flesh",
+      "Attack - 2",
+      "Stand - 2",
+      "Attack - 3",
+      "Stand - 3",
+      "Spell",
+      "Stand Ready",
+      "Portrait - 1",
+      "Portrait - 2",
+      "Portrait Talk - 1",
+      "Portrait Talk - 2",
+      "Decay Bone",
+      "Stand Defend",
+      "Attack Defend",
+      "Walk Defend"
+    ],
+    "bytes": 137182,
+    "portraitBackdropGeosets": [
+      1
+    ],
+    "authors": [
+      {
+        "name": "HerrDave",
+        "url": "https://www.hiveworkshop.com/members/herrdave.234820/"
+      },
+      {
+        "name": "Unsanctioned Magic",
+        "url": "https://xgm.guru/user/UnsanctMagic"
+      }
+    ],
+    "creditLinks": [
+      {
+        "text": "Warhammer - Greenskins (1H)",
+        "url": "https://www.hiveworkshop.com/threads/warhammer-greenskins-1h.321022/#resource-87376"
+      },
+      {
+        "text": "HerrDave",
+        "url": "https://www.hiveworkshop.com/members/herrdave.234820/"
+      },
+      {
+        "text": "UnsanctionedMagic",
+        "url": "https://xgm.guru/user/UnsanctMagic"
+      }
+    ],
+    "changelog": [
+      {
+        "date": "8 November 2026",
+        "text": "Added a native texture reskin by UnsanctionedMagic"
+      }
+    ],
+    "slug": "greenskin-black-orc-native-reskin",
+    "searchDescription": "Download the native texture reskin of the Black Orc Warcraft 3 model. Preview animated Warhammer Fantasy Greenskin infantry for Orcs and Goblins armies.",
+    "author": "HerrDave",
+    "sourceUrl": "https://www.hiveworkshop.com/threads/warhammer-greenskins-1h.321022/#resource-87376",
+    "sourcePack": "Warhammer - Greenskins (1H)",
+    "creditPolicy": "Model by HerrDave. Reproduced with permission. Credit the original author when using this model.",
+    "imageVersion": "27ee6d5fe292"
   },
   {
     "id": "herrdave-87377",

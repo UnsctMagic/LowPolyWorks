@@ -757,6 +757,21 @@
     "cardFirst": "greenskin-orc-boy-native-reskin"
   },
   {
+    "id": "greenskin-black-orc",
+    "name": "Greenskin - Black Orc",
+    "variants": [
+      {
+        "id": "herrdave-87376",
+        "label": "Original"
+      },
+      {
+        "id": "greenskin-black-orc-native-reskin",
+        "label": "Native Reskin"
+      }
+    ],
+    "cardFirst": "greenskin-black-orc-native-reskin"
+  },
+  {
     "id": "aspiring-champion-of-tzeentch",
     "name": "Aspiring Champion of Tzeentch",
     "variants": [
