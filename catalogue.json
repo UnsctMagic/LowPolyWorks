@@ -30415,7 +30415,7 @@
     "name": "Aspiring Champion of Tzeentch",
     "army": "warriors-of-chaos",
     "description": "\"Heed my words, all you that read this, for I have walked into the abyss and my eyes have been changed. All that was hidden is now revealed to me. I have seen all worlds, and the secrets that scheming gods and lesser men would keep from us are now the bread and wine of my heart. No longer shall I labour under the shallow misconception of received wisdom. Truth shall be my companion from this day on, for the scale have been lifted from eyes and I have seen the hope of salvation. At last I can be forgiven... for at last, I can see that I have sinned...\"\n\n—\"The Thousand Faces of Chaos,\" from the Liber Chaotica by Richter Kless, declared insane.\nLiber Chaotica: Nurgle (Volume III) (Background Book)\npg. 2",
-    "credits": "Model Base - Lord Nemesis by Direfury\n\nHelm - Tzeentch Pack Old Ver.2 by Grey Knight\n\nSword - DragonBlade by HappyTauren\n\nLegs/Skirt - Necron Unit Guard by Rhapsodie\n\nShoulder - WoW Asset by Blizzard Entertainment\n\nFeet - Skeletons (Re-Classic Pack) by johnwar\n\nAttack Walk Spin Animation - Dark Knight - Highlord Inquisitor by Greedy Martyrdom",
+    "credits": "Model Base - Lord Nemesis by Direfury\n\nHelm - Tzeentch Pack Old Ver.2 by Grey Knight\n\nSword - DragonBlade by HappyTauren\n\nLegs/Skirt - Necron Unit Guard by Rhapsodie\n\nShoulder - WoW Asset by Blizzard Entertainment\n\nFeet - Skeletons (Re-Classic Pack) by johnwar\n\nAttack Walk Spin Animation - Dark Knight - Highlord Inquisitor by Greedy Martyrdom\n\nAdditional credits: Stein123",
     "geosets": [
       {
         "index": 0,
@@ -30790,6 +30790,10 @@
       {
         "text": "Blizzard Entertainment",
         "url": "https://worldofwarcraft.blizzard.com/"
+      },
+      {
+        "text": "Stein123",
+        "url": "https://www.hiveworkshop.com/members/stein123.196992/"
       }
     ],
     "captureSequence": "Stand Ready",
