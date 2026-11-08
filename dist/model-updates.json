@@ -567,8 +567,9 @@
       "updatedAt": "2026-11-08T01:11:44.025Z"
     },
     "greenskin-black-orc-native-reskin": {
-      "sha256": "fa78fe527abe43440eb91d832dacf37beec6f3a3602b4ee1ed885108e4716cc2",
-      "publishedAt": "2026-11-08T19:04:34.742Z"
+      "sha256": "040d415fd72953961016ce590ef0d02eddcd42752a3e14a9cca6c2c1df8062ff",
+      "publishedAt": "2026-11-08T19:04:34.742Z",
+      "updatedAt": "2026-11-08T20:45:32.528Z"
     }
   }
 }
