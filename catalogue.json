@@ -9725,7 +9725,7 @@
     "changelog": [
       {
         "date": "7 November 2026",
-        "text": "Added a native texture reskin by Unsanctioned Magic"
+        "text": "Added a native texture reskin by UnsanctionedMagic"
       }
     ],
     "downloadPackOnly": true
@@ -9736,7 +9736,7 @@
     "name": "Greenskin - Orc Boy",
     "army": "orcs-and-goblins",
     "description": "MerRy ChrisTMas, ya Zoggin Sn0TT GITZ!\n\nWAAAAAAAAAAAGH!!\n\n- Ugslap, Da Singin' Orc\n\nThis variation uses native Warcraft III textures.",
-    "credits": "Model - HerrDave\n\nOriginal resource - Warhammer - Greenskins (1H)\n\nReskin by Unsanctioned Magic",
+    "credits": "Model - HerrDave\n\nOriginal resource - Warhammer - Greenskins (1H)\n\nReskin by UnsanctionedMagic",
     "sha256": "8fa997c36e42d4b22f4d4ed43a6d53bef5ecdf1e628baf197d021850af924d8e",
     "geosets": [
       {
@@ -9905,14 +9905,14 @@
         "url": "https://www.hiveworkshop.com/members/herrdave.234820/"
       },
       {
-        "text": "Unsanctioned Magic",
+        "text": "UnsanctionedMagic",
         "url": "https://xgm.guru/user/UnsanctMagic"
       }
     ],
     "changelog": [
       {
         "date": "7 November 2026",
-        "text": "Added a native texture reskin by Unsanctioned Magic"
+        "text": "Added a native texture reskin by UnsanctionedMagic"
       }
     ],
     "slug": "greenskin-orc-boy-native-reskin",
