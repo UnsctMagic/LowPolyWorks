@@ -30408,5 +30408,732 @@
     "captureOrthographic": true,
     "captureSequence": "Stand",
     "captureTime": 0
+  },
+  {
+    "id": "aspiring-champion-of-tzeentch",
+    "file": "WH_WOC_AspiringChampionTzeentch01.mdx",
+    "name": "Aspiring Champion of Tzeentch",
+    "army": "warriors-of-chaos",
+    "description": "\"Heed my words, all you that read this, for I have walked into the abyss and my eyes have been changed. All that was hidden is now revealed to me. I have seen all worlds, and the secrets that scheming gods and lesser men would keep from us are now the bread and wine of my heart. No longer shall I labour under the shallow misconception of received wisdom. Truth shall be my companion from this day on, for the scale have been lifted from eyes and I have seen the hope of salvation. At last I can be forgiven... for at last, I can see that I have sinned...\"\n\n—\"The Thousand Faces of Chaos,\" from the Liber Chaotica by Richter Kless, declared insane.\nLiber Chaotica: Nurgle (Volume III) (Background Book)\npg. 2",
+    "credits": "Model Base - Lord Nemesis by Direfury\n\nHelm - Tzeentch Pack Old Ver.2 by Grey Knight\n\nSword - DragonBlade by HappyTauren\n\nLegs/Skirt - Necron Unit Guard by Rhapsodie\n\nShoulder - WoW Asset by Blizzard Entertainment\n\nFeet - Skeletons (Re-Classic Pack) by johnwar\n\nAttack Walk Spin Animation - Dark Knight - Highlord Inquisitor by Greedy Martyrdom",
+    "geosets": [
+      {
+        "index": 0,
+        "vertices": 182,
+        "triangles": 320,
+        "material": 11,
+        "textures": [
+          "Textures\\UndeadAirBarge.blp"
+        ]
+      },
+      {
+        "index": 1,
+        "vertices": 136,
+        "triangles": 186,
+        "material": 6,
+        "textures": [
+          "Textures\\UndeadAirBarge.blp"
+        ]
+      },
+      {
+        "index": 2,
+        "vertices": 95,
+        "triangles": 102,
+        "material": 16,
+        "textures": [
+          "Doodads\\Icecrown\\Structures\\Icecrown_Rubble\\Ice_Strucures.blp"
+        ]
+      },
+      {
+        "index": 3,
+        "vertices": 111,
+        "triangles": 120,
+        "material": 16,
+        "textures": [
+          "Doodads\\Icecrown\\Structures\\Icecrown_Rubble\\Ice_Strucures.blp"
+        ]
+      },
+      {
+        "index": 4,
+        "vertices": 58,
+        "triangles": 74,
+        "material": 5,
+        "textures": [
+          "Team colour / glow",
+          "Doodads\\Cinematic\\RockinArthas\\ArthasCloakCredits.blp"
+        ]
+      },
+      {
+        "index": 5,
+        "vertices": 21,
+        "triangles": 24,
+        "material": 10,
+        "textures": [
+          "UI\\Glues\\SinglePlayer\\HumanCampaign3D\\HumanCampaignFootman.blp"
+        ]
+      },
+      {
+        "index": 6,
+        "vertices": 10,
+        "triangles": 15,
+        "material": 0,
+        "textures": [
+          "Units\\Undead\\EvilArthas\\UndeadArthas.blp"
+        ]
+      },
+      {
+        "index": 7,
+        "vertices": 103,
+        "triangles": 136,
+        "material": 8,
+        "textures": [
+          "Textures\\Kiljaeden.blp"
+        ]
+      },
+      {
+        "index": 8,
+        "vertices": 27,
+        "triangles": 24,
+        "material": 9,
+        "textures": [
+          "ReplaceableTextures\\PassiveButtons\\PASBTNMagicalSentry.blp"
+        ]
+      },
+      {
+        "index": 9,
+        "vertices": 147,
+        "triangles": 148,
+        "material": 1,
+        "textures": [
+          "Textures\\BlackDragon.blp"
+        ]
+      },
+      {
+        "index": 10,
+        "vertices": 32,
+        "triangles": 32,
+        "material": 7,
+        "textures": [
+          "Doodads\\Cinematic\\ArthasIllidanFight\\ArthasCloakFight.blp"
+        ]
+      },
+      {
+        "index": 11,
+        "vertices": 33,
+        "triangles": 50,
+        "material": 2,
+        "textures": [
+          "Units\\Creeps\\SkeletonOrc\\SkeletonOrc.blp"
+        ]
+      },
+      {
+        "index": 12,
+        "vertices": 15,
+        "triangles": 18,
+        "material": 3,
+        "textures": [
+          "Units\\Critters\\Vulture\\Carrionswarm.blp"
+        ]
+      },
+      {
+        "index": 13,
+        "vertices": 115,
+        "triangles": 116,
+        "material": 10,
+        "textures": [
+          "UI\\Glues\\SinglePlayer\\HumanCampaign3D\\HumanCampaignFootman.blp"
+        ]
+      },
+      {
+        "index": 14,
+        "vertices": 117,
+        "triangles": 64,
+        "material": 12,
+        "textures": [
+          "TerrainArt\\Icecrown\\Ice_TiledBricks.blp"
+        ]
+      },
+      {
+        "index": 15,
+        "vertices": 153,
+        "triangles": 64,
+        "material": 13,
+        "textures": [
+          "Textures\\MoonCrescentGlow.blp"
+        ]
+      },
+      {
+        "index": 16,
+        "vertices": 49,
+        "triangles": 36,
+        "material": 14,
+        "textures": [
+          "Doodads\\Cinematic\\IcecrownObelisk\\glow_runes.blp"
+        ]
+      },
+      {
+        "index": 17,
+        "vertices": 4,
+        "triangles": 2,
+        "material": 15,
+        "textures": [
+          "Team colour / glow"
+        ]
+      },
+      {
+        "index": 18,
+        "vertices": 81,
+        "triangles": 74,
+        "material": 16,
+        "textures": [
+          "Doodads\\Icecrown\\Structures\\Icecrown_Rubble\\Ice_Strucures.blp"
+        ]
+      },
+      {
+        "index": 19,
+        "vertices": 92,
+        "triangles": 120,
+        "material": 17,
+        "textures": [
+          "Team colour / glow",
+          "Textures\\UndeadAirBarge.blp"
+        ]
+      },
+      {
+        "index": 20,
+        "vertices": 167,
+        "triangles": 246,
+        "material": 18,
+        "textures": [
+          "Team colour / glow",
+          "Textures\\InfernalCannon.blp"
+        ]
+      },
+      {
+        "index": 21,
+        "vertices": 30,
+        "triangles": 26,
+        "material": 17,
+        "textures": [
+          "Team colour / glow",
+          "Textures\\UndeadAirBarge.blp"
+        ]
+      },
+      {
+        "index": 22,
+        "vertices": 8,
+        "triangles": 4,
+        "material": 19,
+        "textures": [
+          "Textures\\GenericGlow64.blp"
+        ]
+      },
+      {
+        "index": 23,
+        "vertices": 53,
+        "triangles": 59,
+        "material": 20,
+        "textures": [
+          "Doodads\\Icecrown\\Structures\\Icecrown_Rubble\\Ice_Strucures.blp"
+        ]
+      },
+      {
+        "index": 24,
+        "vertices": 102,
+        "triangles": 165,
+        "material": 21,
+        "textures": [
+          "Textures\\UndeadAirBarge.blp"
+        ]
+      },
+      {
+        "index": 25,
+        "vertices": 88,
+        "triangles": 135,
+        "material": 22,
+        "textures": [
+          "Units\\Orc\\Spiritwolf\\FeralSpirit.blp"
+        ]
+      },
+      {
+        "index": 26,
+        "vertices": 100,
+        "triangles": 164,
+        "material": 23,
+        "textures": [
+          "Units\\Creeps\\Magnataur\\Magnataur.blp"
+        ]
+      },
+      {
+        "index": 27,
+        "vertices": 27,
+        "triangles": 26,
+        "material": 24,
+        "textures": [
+          "Team colour / glow",
+          "Textures\\OutlandDoodads.blp"
+        ]
+      },
+      {
+        "index": 28,
+        "vertices": 110,
+        "triangles": 162,
+        "material": 25,
+        "textures": [
+          "Doodads\\Cinematic\\IcecrownObelisk\\glow_runes.blp"
+        ]
+      },
+      {
+        "index": 29,
+        "vertices": 730,
+        "triangles": 851,
+        "material": 26,
+        "textures": [
+          "Units\\Orc\\Spiritwolf\\FeralSpirit.blp"
+        ]
+      },
+      {
+        "index": 30,
+        "vertices": 4,
+        "triangles": 2,
+        "material": 27,
+        "textures": [
+          "Abilities\\Spells\\Undead\\VampiricAura\\AuraRune6.blp"
+        ]
+      }
+    ],
+    "sequences": [
+      "Stand",
+      "Stand Ready",
+      "Attack - 1",
+      "Attack - 2",
+      "Attack Slam",
+      "Attack Walk Stand Spin",
+      "Spell",
+      "Spell Slam",
+      "Stand Channel",
+      "Walk",
+      "Death",
+      "Dissipate",
+      "Portrait",
+      "Portrait Talk 1",
+      "Portrait Talk 2"
+    ],
+    "bytes": 223307,
+    "sha256": "544fffd8b1baff161afd2e3825669206b161ab37834f8cfc092005c972805a7b",
+    "portraitBackdropGeosets": [
+      17
+    ],
+    "authors": [
+      {
+        "name": "Unsanctioned Magic",
+        "url": "https://xgm.guru/user/UnsanctMagic"
+      }
+    ],
+    "creditLinks": [
+      {
+        "text": "Lord Nemesis",
+        "url": "https://www.hiveworkshop.com/threads/lord-nemesis.257233/"
+      },
+      {
+        "text": "Direfury",
+        "url": "https://www.hiveworkshop.com/members/direfury.188037/"
+      },
+      {
+        "text": "Tzeentch Pack Old Ver.2",
+        "url": "https://www.hiveworkshop.com/threads/tzeentch-pack-old-ver-2.325501/"
+      },
+      {
+        "text": "Grey Knight",
+        "url": "https://www.hiveworkshop.com/members/grey-knight.245238/"
+      },
+      {
+        "text": "DragonBlade",
+        "url": "https://www.hiveworkshop.com/threads/dragonblade.133231/"
+      },
+      {
+        "text": "HappyTauren",
+        "url": "https://www.hiveworkshop.com/members/happytauren.10087/"
+      },
+      {
+        "text": "Necron Unit Guard",
+        "url": "https://www.hiveworkshop.com/threads/necron-unit-guard.360637/"
+      },
+      {
+        "text": "Rhapsodie",
+        "url": "https://www.hiveworkshop.com/members/rhapsodie.273952/"
+      },
+      {
+        "text": "Skeletons (Re-Classic Pack)",
+        "url": "https://www.hiveworkshop.com/threads/skeletons-re-classic-pack.371459/"
+      },
+      {
+        "text": "johnwar",
+        "url": "https://www.hiveworkshop.com/members/johnwar.264426/"
+      },
+      {
+        "text": "Dark Knight - Highlord Inquisitor",
+        "url": "https://www.hiveworkshop.com/threads/dark-knight-highlord-inquisitor.364248/"
+      },
+      {
+        "text": "Greedy Martyrdom",
+        "url": "https://www.hiveworkshop.com/members/greedy-martyrdom.265154/"
+      },
+      {
+        "text": "WoW Asset",
+        "url": "https://wc3.ninja/models/1667445#d=99.5&y=0.280&p=0.132&tx=0.0&ty=0.0&tz=0.4"
+      },
+      {
+        "text": "Blizzard Entertainment",
+        "url": "https://worldofwarcraft.blizzard.com/"
+      }
+    ],
+    "captureSequence": "Stand Ready",
+    "captureTime": 0,
+    "captureFormationYaw": -0.42,
+    "imageVersion": "20261108-tzeentch-champion01",
+    "searchDescription": "Preview and download the Aspiring Champion of Tzeentch Unit model for Warcraft III and WarhammerCraft."
+  },
+  {
+    "id": "aspiring-champion-of-tzeentch-hero",
+    "file": "WH_WOC_AspiringChampionTzeentchHero01.mdx",
+    "name": "Aspiring Champion of Tzeentch",
+    "army": "warriors-of-chaos",
+    "description": "\"Heed my words, all you that read this, for I have walked into the abyss and my eyes have been changed. All that was hidden is now revealed to me. I have seen all worlds, and the secrets that scheming gods and lesser men would keep from us are now the bread and wine of my heart. No longer shall I labour under the shallow misconception of received wisdom. Truth shall be my companion from this day on, for the scale have been lifted from eyes and I have seen the hope of salvation. At last I can be forgiven... for at last, I can see that I have sinned...\"\n\n—\"The Thousand Faces of Chaos,\" from the Liber Chaotica by Richter Kless, declared insane.\nLiber Chaotica: Nurgle (Volume III) (Background Book)\npg. 2",
+    "credits": "Shared Credits - Aspiring Champion of Tzeentch (Unit)",
+    "geosets": [
+      {
+        "index": 0,
+        "vertices": 182,
+        "triangles": 320,
+        "material": 11,
+        "textures": [
+          "Textures\\UndeadAirBarge.blp"
+        ]
+      },
+      {
+        "index": 1,
+        "vertices": 136,
+        "triangles": 186,
+        "material": 6,
+        "textures": [
+          "Textures\\UndeadAirBarge.blp"
+        ]
+      },
+      {
+        "index": 2,
+        "vertices": 95,
+        "triangles": 102,
+        "material": 16,
+        "textures": [
+          "Doodads\\Icecrown\\Structures\\Icecrown_Rubble\\Ice_Strucures.blp"
+        ]
+      },
+      {
+        "index": 3,
+        "vertices": 111,
+        "triangles": 120,
+        "material": 16,
+        "textures": [
+          "Doodads\\Icecrown\\Structures\\Icecrown_Rubble\\Ice_Strucures.blp"
+        ]
+      },
+      {
+        "index": 4,
+        "vertices": 58,
+        "triangles": 74,
+        "material": 5,
+        "textures": [
+          "Team colour / glow",
+          "Doodads\\Cinematic\\RockinArthas\\ArthasCloakCredits.blp"
+        ]
+      },
+      {
+        "index": 5,
+        "vertices": 21,
+        "triangles": 24,
+        "material": 10,
+        "textures": [
+          "UI\\Glues\\SinglePlayer\\HumanCampaign3D\\HumanCampaignFootman.blp"
+        ]
+      },
+      {
+        "index": 6,
+        "vertices": 10,
+        "triangles": 15,
+        "material": 0,
+        "textures": [
+          "Units\\Undead\\EvilArthas\\UndeadArthas.blp"
+        ]
+      },
+      {
+        "index": 7,
+        "vertices": 103,
+        "triangles": 136,
+        "material": 8,
+        "textures": [
+          "Textures\\Kiljaeden.blp"
+        ]
+      },
+      {
+        "index": 8,
+        "vertices": 27,
+        "triangles": 24,
+        "material": 9,
+        "textures": [
+          "ReplaceableTextures\\PassiveButtons\\PASBTNMagicalSentry.blp"
+        ]
+      },
+      {
+        "index": 9,
+        "vertices": 147,
+        "triangles": 148,
+        "material": 1,
+        "textures": [
+          "Textures\\BlackDragon.blp"
+        ]
+      },
+      {
+        "index": 10,
+        "vertices": 32,
+        "triangles": 32,
+        "material": 7,
+        "textures": [
+          "Doodads\\Cinematic\\ArthasIllidanFight\\ArthasCloakFight.blp"
+        ]
+      },
+      {
+        "index": 11,
+        "vertices": 33,
+        "triangles": 50,
+        "material": 2,
+        "textures": [
+          "Units\\Creeps\\SkeletonOrc\\SkeletonOrc.blp"
+        ]
+      },
+      {
+        "index": 12,
+        "vertices": 15,
+        "triangles": 18,
+        "material": 3,
+        "textures": [
+          "Units\\Critters\\Vulture\\Carrionswarm.blp"
+        ]
+      },
+      {
+        "index": 13,
+        "vertices": 115,
+        "triangles": 116,
+        "material": 10,
+        "textures": [
+          "UI\\Glues\\SinglePlayer\\HumanCampaign3D\\HumanCampaignFootman.blp"
+        ]
+      },
+      {
+        "index": 14,
+        "vertices": 117,
+        "triangles": 64,
+        "material": 12,
+        "textures": [
+          "TerrainArt\\Icecrown\\Ice_TiledBricks.blp"
+        ]
+      },
+      {
+        "index": 15,
+        "vertices": 153,
+        "triangles": 64,
+        "material": 13,
+        "textures": [
+          "Textures\\MoonCrescentGlow.blp"
+        ]
+      },
+      {
+        "index": 16,
+        "vertices": 49,
+        "triangles": 36,
+        "material": 14,
+        "textures": [
+          "Doodads\\Cinematic\\IcecrownObelisk\\glow_runes.blp"
+        ]
+      },
+      {
+        "index": 17,
+        "vertices": 4,
+        "triangles": 2,
+        "material": 15,
+        "textures": [
+          "Team colour / glow"
+        ]
+      },
+      {
+        "index": 18,
+        "vertices": 81,
+        "triangles": 74,
+        "material": 16,
+        "textures": [
+          "Doodads\\Icecrown\\Structures\\Icecrown_Rubble\\Ice_Strucures.blp"
+        ]
+      },
+      {
+        "index": 19,
+        "vertices": 92,
+        "triangles": 120,
+        "material": 17,
+        "textures": [
+          "Team colour / glow",
+          "Textures\\UndeadAirBarge.blp"
+        ]
+      },
+      {
+        "index": 20,
+        "vertices": 167,
+        "triangles": 246,
+        "material": 18,
+        "textures": [
+          "Team colour / glow",
+          "Textures\\InfernalCannon.blp"
+        ]
+      },
+      {
+        "index": 21,
+        "vertices": 30,
+        "triangles": 26,
+        "material": 17,
+        "textures": [
+          "Team colour / glow",
+          "Textures\\UndeadAirBarge.blp"
+        ]
+      },
+      {
+        "index": 22,
+        "vertices": 8,
+        "triangles": 4,
+        "material": 19,
+        "textures": [
+          "Textures\\GenericGlow64.blp"
+        ]
+      },
+      {
+        "index": 23,
+        "vertices": 53,
+        "triangles": 59,
+        "material": 20,
+        "textures": [
+          "Doodads\\Icecrown\\Structures\\Icecrown_Rubble\\Ice_Strucures.blp"
+        ]
+      },
+      {
+        "index": 24,
+        "vertices": 102,
+        "triangles": 165,
+        "material": 21,
+        "textures": [
+          "Textures\\UndeadAirBarge.blp"
+        ]
+      },
+      {
+        "index": 25,
+        "vertices": 88,
+        "triangles": 135,
+        "material": 22,
+        "textures": [
+          "Units\\Orc\\Spiritwolf\\FeralSpirit.blp"
+        ]
+      },
+      {
+        "index": 26,
+        "vertices": 100,
+        "triangles": 164,
+        "material": 23,
+        "textures": [
+          "Units\\Creeps\\Magnataur\\Magnataur.blp"
+        ]
+      },
+      {
+        "index": 27,
+        "vertices": 27,
+        "triangles": 26,
+        "material": 24,
+        "textures": [
+          "Team colour / glow",
+          "Textures\\OutlandDoodads.blp"
+        ]
+      },
+      {
+        "index": 28,
+        "vertices": 110,
+        "triangles": 162,
+        "material": 25,
+        "textures": [
+          "Doodads\\Cinematic\\IcecrownObelisk\\glow_runes.blp"
+        ]
+      },
+      {
+        "index": 29,
+        "vertices": 730,
+        "triangles": 851,
+        "material": 26,
+        "textures": [
+          "Units\\Orc\\Spiritwolf\\FeralSpirit.blp"
+        ]
+      },
+      {
+        "index": 30,
+        "vertices": 4,
+        "triangles": 2,
+        "material": 27,
+        "textures": [
+          "Abilities\\Spells\\Undead\\VampiricAura\\AuraRune6.blp"
+        ]
+      },
+      {
+        "index": 31,
+        "vertices": 12,
+        "triangles": 6,
+        "material": 28,
+        "textures": [
+          "Team colour / glow"
+        ]
+      }
+    ],
+    "sequences": [
+      "Stand",
+      "Stand Ready",
+      "Attack - 1",
+      "Attack - 2",
+      "Attack Slam",
+      "Attack Walk Stand Spin",
+      "Spell",
+      "Spell Slam",
+      "Stand Channel",
+      "Walk",
+      "Death",
+      "Dissipate",
+      "Portrait",
+      "Portrait Talk 1",
+      "Portrait Talk 2"
+    ],
+    "bytes": 225435,
+    "sha256": "75878946076783825763fbb06dabaf83f54e3a8bfa573fc7db44a08d1f3d6e5f",
+    "portraitBackdropGeosets": [
+      17
+    ],
+    "authors": [
+      {
+        "name": "Unsanctioned Magic",
+        "url": "https://xgm.guru/user/UnsanctMagic"
+      }
+    ],
+    "creditLinks": [
+      {
+        "text": "Aspiring Champion of Tzeentch (Unit)",
+        "url": "https://www.lowpolyworks.com/model/aspiring-champion-of-tzeentch/"
+      }
+    ],
+    "captureSequence": "Stand Ready",
+    "captureTime": 0,
+    "captureFormationYaw": -0.42,
+    "imageVersion": "20261108-tzeentch-champion01",
+    "searchDescription": "Preview and download the Aspiring Champion of Tzeentch Hero model for Warcraft III and WarhammerCraft."
   }
 ]

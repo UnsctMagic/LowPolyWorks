@@ -755,5 +755,19 @@
       }
     ],
     "cardFirst": "greenskin-orc-boy-native-reskin"
+  },
+  {
+    "id": "aspiring-champion-of-tzeentch",
+    "name": "Aspiring Champion of Tzeentch",
+    "variants": [
+      {
+        "id": "aspiring-champion-of-tzeentch",
+        "label": "Unit"
+      },
+      {
+        "id": "aspiring-champion-of-tzeentch-hero",
+        "label": "Hero"
+      }
+    ]
   }
 ]
