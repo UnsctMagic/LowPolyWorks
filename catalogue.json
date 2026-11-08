@@ -3739,7 +3739,7 @@
         "text": "Fixed flail fire particles"
       }
     ],
-    "imageVersion": "20261104-flail-final",
+    "imageVersion": "20261108-champion-emitters",
     "downloadPack": "downloads/khorne-champion.zip",
     "captureFitAlpha": 200,
     "captureSequence": "Stand",
@@ -4242,7 +4242,7 @@
         "text": "Fixed flail fire particles"
       }
     ],
-    "imageVersion": "20261104-flail-final",
+    "imageVersion": "20261108-champion-emitters",
     "downloadPack": "downloads/khorne-champion.zip",
     "captureFitAlpha": 200,
     "captureSequence": "Stand",
@@ -31047,7 +31047,7 @@
     "captureSequence": "Stand Ready",
     "captureTime": 0,
     "captureFormationYaw": -0.42,
-    "imageVersion": "20261108-tzeentch-champion01",
+    "imageVersion": "20261108-champion-emitters",
     "searchDescription": "Preview and download the Aspiring Champion of Tzeentch Unit model for Warcraft III and WarhammerCraft."
   },
   {
@@ -31389,7 +31389,7 @@
     "captureSequence": "Stand Ready",
     "captureTime": 0,
     "captureFormationYaw": -0.42,
-    "imageVersion": "20261108-tzeentch-champion01",
+    "imageVersion": "20261108-champion-emitters",
     "searchDescription": "Preview and download the Aspiring Champion of Tzeentch Hero model for Warcraft III and WarhammerCraft."
   },
   {
