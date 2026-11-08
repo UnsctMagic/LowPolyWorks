@@ -6269,5 +6269,7 @@
   "units\\undead\\frostwyrm\\frostwyrm.blp": "textures/native-bank/9ab49a806d639a0521166917a72cd22ccd6403176d8bdb31c7f1b64feccd9d41.blp",
   "units\\undead\\frostwyrm\\starfield.blp": "textures/native-bank/966f399340668711cebe60c6dd094d47f167f3a0e4ffc0fc1586d09ded1c206f.blp",
   "textures\\goldcoin.blp": "textures/native-51e69fbacc4ade8f.png",
-  "textures\\mooncrescentglow.blp": "textures/native-6e10f50e22d8a739.png"
+  "textures\\mooncrescentglow.blp": "textures/native-6e10f50e22d8a739.png",
+  "textures\\eyes.blp": "textures/native-1014c3d0b6ebe98b.png",
+  "textures\\creepynecropolis.blp": "textures/native-fbdb9d2a8a1c03d8.png"
 }
