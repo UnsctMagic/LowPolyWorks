@@ -562,8 +562,9 @@
       "publishedAt": "2026-11-08T00:49:56.075Z"
     },
     "zombie-dragon-von-carstein": {
-      "sha256": "0513a213749b9336c298bb78215856240a74f81b06dd63faf1f7efa162fb31c7",
-      "publishedAt": "2026-11-08T00:59:56.634Z"
+      "sha256": "ddac092264b4488bac2bbea0c1f830686017bc320e52df73b9149bd59a8927d5",
+      "publishedAt": "2026-11-08T00:59:56.634Z",
+      "updatedAt": "2026-11-08T01:11:44.025Z"
     }
   }
 }
