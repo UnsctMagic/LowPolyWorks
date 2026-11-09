@@ -584,8 +584,12 @@
     "sha256": "2fefe8ff55d559a7e5d7c3a78f45f247fcc9500d87e04125fc071bf8f372be92"
   },
   {
-    "file": "WH_VC_ZombieDragonVCarstein01.mdx",
-    "sha256": "ddac092264b4488bac2bbea0c1f830686017bc320e52df73b9149bd59a8927d5"
+    "file": "WH_VC_ZombieDragonVCarstein02.mdx",
+    "sha256": "c7aac65434a82067664f11288db0d852e41cdd6ffa07a867dc47b22cea1ba3d5"
+  },
+  {
+    "file": "WH_VC_ZombieDragonVCarsteinHero01.mdx",
+    "sha256": "854904f4a6f2b3eefb955a26f020666be163260d8d6731a61a2d7a269e64a9db"
   },
   {
     "file": "WH_VC_ZombieDragon01.mdx",

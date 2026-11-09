@@ -784,5 +784,19 @@
         "label": "Hero"
       }
     ]
+  },
+  {
+    "id": "zombie-dragon-von-carstein",
+    "name": "Zombie Dragon - Von Carstein",
+    "variants": [
+      {
+        "id": "zombie-dragon-von-carstein",
+        "label": "Unit"
+      },
+      {
+        "id": "zombie-dragon-von-carstein-hero",
+        "label": "Hero"
+      }
+    ]
   }
 ]
