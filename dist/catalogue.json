@@ -32077,7 +32077,7 @@
     "changelog": [
       {
         "date": "9 November 2026",
-        "text": "Added hero variation, fixed emitter colors on morph animations and removed unused materials. Improved bone bindings and adjusted geosets."
+        "text": "Added hero variation, fixed emitter colors on morph animations and removed unused materials. Improved bone bindings and adjusted geosets. Removed non-native texture."
       }
     ]
   },
@@ -32772,7 +32772,7 @@
     "changelog": [
       {
         "date": "9 November 2026",
-        "text": "Added hero variation, fixed emitter colors on morph animations and removed unused materials. Improved bone bindings and adjusted geosets."
+        "text": "Added hero variation, fixed emitter colors on morph animations and removed unused materials. Improved bone bindings and adjusted geosets. Removed non-native texture."
       }
     ]
   },
