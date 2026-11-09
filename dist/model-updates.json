@@ -572,6 +572,10 @@
       "sha256": "040d415fd72953961016ce590ef0d02eddcd42752a3e14a9cca6c2c1df8062ff",
       "publishedAt": "2026-11-08T19:04:34.742Z",
       "updatedAt": "2026-11-08T20:45:32.528Z"
+    },
+    "zombie-dragon-riderless": {
+      "sha256": "b8cd6c8e38a742085e0f345bf2fc931d44cd7552ff2e722f4b36fce92c5bb20f",
+      "publishedAt": "2026-11-09T20:15:55.695Z"
     }
   }
 }
