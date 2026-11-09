@@ -73,3 +73,11 @@
 #tutorial-uvgrid .gif-player{width:min(100%,1158px)}
 #tutorial-uvgrid .player-frame{aspect-ratio:1144/774}
 #tutorial-uvgrid .uv-keypad{display:grid;grid-template-columns:repeat(3,64px);gap:6px;width:max-content;margin:12px auto;font:18px/1.5 ui-monospace,monospace;text-align:center}#tutorial-uvgrid .uv-keypad kbd{border:1px solid #756344;background:#121b28;padding:7px;color:var(--bone)}
+
+#tutorial-spread .gif-player{width:min(100%,1000px)}
+#tutorial-spread .player-frame{aspect-ratio:1264/752}
+#tutorial-spread kbd{font:600 .88em ui-monospace,monospace;white-space:nowrap;border:1px solid #796646;border-radius:4px;padding:.1em .35em;background:#182131;color:#f8e0a7}
+#tutorial-spread .recording-note{max-width:70ch;font:.85rem/1.5 Georgia,serif;color:var(--muted);margin-top:22px}
+[data-tutorial-language=mordor] .tutorial-body #tutorial-spread[lang=en] :is(p,h3,h4,span,strong),
+[data-tutorial-language=mordor] .tutorial-body .tutorial-card[data-tutorial=spread][lang=en] span{font-family:Georgia,serif;letter-spacing:normal}
+@media(max-width:650px){#tutorial-spread .gif-player{padding:3px}}

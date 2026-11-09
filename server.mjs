@@ -13,7 +13,7 @@ const studios = {
 const mime = {
   '.html': 'text/html', '.js': 'text/javascript', '.mjs': 'text/javascript',
   '.css': 'text/css', '.json': 'application/json', '.png': 'image/png', '.svg': 'image/svg+xml',
-  '.txt': 'text/plain', '.wasm': 'application/wasm', '.zip': 'application/zip',
+  '.txt': 'text/plain', '.wasm': 'application/wasm', '.zip': 'application/zip', '.mp4': 'video/mp4',
 };
 
 http.createServer(async (req, res) => {

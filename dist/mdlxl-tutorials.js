@@ -1,10 +1,10 @@
 import {applyMdlxlShellLanguage} from './mdlxl-languages.js?v=20261104-fr-de-fx';
-import {mdlxlHref} from './mdlxl-routes.js?v=20261105-uv-grid';
+import {mdlxlHref} from './mdlxl-routes.js?v=20261109-spread-pieces';
 import {mountTutorialPlayers} from './mdlxl/tutorials/playback.js?v=20261104-lazy-media';
 import {startToolPings} from './mdlxl/tutorials/highlights.js?v=20261030-tutorial-languages';
 import {recordTutorial} from './usage.js?v=20261031-tutorial-views';
 import {tutorialLanguages,tutorialText} from './mdlxl/tutorials/languages.js?v=20261104-fr-de-fx';
-const version='20261105-uv-grid';
+const version='20261109-spread-pieces';
 const valid=language=>tutorialLanguages.some(item=>item.id===language);
 function loadPlayers(state) {
   const content=state.body.firstElementChild;
@@ -18,6 +18,22 @@ function loadPlayers(state) {
     content._playersPending=false;if(content.isConnected)console.error('Tutorial animations',error);
   });
 }
+function observeTutorialVideos(article) {
+  const videos=[...(article?.querySelectorAll('video[data-tutorial-video]')??[])];
+  if(!videos.length)return;
+  const autoplay=!matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const stop=()=>{observer.disconnect();for(const video of videos)video.pause();};
+  const observer=new IntersectionObserver(entries=>{
+    if(!article.isConnected){stop();return;}
+    for(const {target:video,isIntersecting} of entries){
+      if(!isIntersecting){video.pause();continue;}
+      if(!video.hasAttribute('src'))video.src=video.dataset.tutorialVideo;
+      if(autoplay)video.play().catch(()=>{});
+    }
+  });
+  for(const video of videos){video.poster=video.dataset.poster;observer.observe(video);}
+  return stop;
+}
 function showTutorial(state) {
   const cards=[...state.body.querySelectorAll('.tutorial-card')];
   const selected=cards.find(card=>card.dataset.tutorial===state.requested);
@@ -26,7 +42,10 @@ function showTutorial(state) {
   const search=new URLSearchParams(location.search);search.set('lang',state.select.value);
   for(const link of state.panel.closest('.mdlxl-layout').querySelectorAll('.mdlxl-menu nav a')){const url=new URL(link.href);url.searchParams.set('lang',state.select.value);link.href=url;}
   for(const card of cards){state.body.querySelector('#'+card.getAttribute('aria-controls')).hidden=card!==selected;card.href=mdlxlHref('tutorials',card.dataset.tutorial,search);}
-  if(selected)loadPlayers(state);
+  state.stopVideos?.();
+  const article=selected?state.body.querySelector('#'+selected.getAttribute('aria-controls')):null;
+  state.stopVideos=observeTutorialVideos(article);
+  if(article?.querySelector('[data-animation]'))loadPlayers(state);
   state.body.querySelector('#tutorial-back').href=mdlxlHref('tutorials',undefined,search);
   const heading=selected?state.body.querySelector('#'+selected.getAttribute('aria-controls')+' h3'):state.title;
   if(document.activeElement!==state.select){heading.tabIndex=-1;heading.focus({preventScroll:true});}
@@ -35,7 +54,7 @@ function showTutorial(state) {
 }
 export async function renderTutorials(panel,isCurrent,requested) {
   if(!document.getElementById('mdlxl-tutorial-style')){
-    const style=document.createElement('link');style.id='mdlxl-tutorial-style';style.rel='stylesheet';style.href='/mdlxl-tutorials.css?v=20261105-uv-grid';document.head.append(style);
+    const style=document.createElement('link');style.id='mdlxl-tutorial-style';style.rel='stylesheet';style.href='/mdlxl-tutorials.css?v=20261109-spread-pieces';document.head.append(style);
   }
   let state=panel._tutorialController;
   if(!state||!state.header.isConnected){
@@ -50,6 +69,7 @@ export async function renderTutorials(panel,isCurrent,requested) {
   state.select.value=language;state.select.setAttribute('aria-label',text.language);state.select.title=text.language;state.title.textContent=text.title;panel.querySelector('.tutorial-language-label').textContent=text.language;
   panel.dataset.tutorialLanguage=language;panel.lang=language;document.title=text.title+' — MDLxL — LowPolyWorks';
   if(state.loadedLanguage===language){showTutorial(state);return;}
+  state.stopVideos?.();state.stopVideos=null;
   state.loadedLanguage=null;state.body.textContent=text.loading;
   const prefix=language==='en'?'':language+'/';
   try{
