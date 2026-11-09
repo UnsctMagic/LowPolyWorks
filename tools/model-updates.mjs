@@ -5,7 +5,7 @@ import {fileURLToPath} from 'node:url';
 
 // The stored byte fingerprint makes a model replacement refresh its tag while
 // page, artwork, credit and changelog edits keep the existing update time.
-// A New! badge is tied to first publication, independently of later replacements.
+// Keep first-publication and revision timestamps separate for card badges.
 export function syncModelUpdates(root,now=Date.now()){
  const file=path.join(root,'model-updates.json');
  const previous=fs.existsSync(file)?fs.readFileSync(file,'utf8'):null;

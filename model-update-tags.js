@@ -9,12 +9,17 @@ export function modelUpdateTag(timestamp,now=Date.now(),isNew=false){
  return {label:isNew?'New!':'Updated '+dateFormat.format(time),colour:greens[day],day,nextAt:time+(day+1)*dayMs};
 }
 
-// A shared card reflects every live variant, including later additions.
+// Variants published together are one launch. Later publications update that card.
 export function groupModelUpdate(ids,updates){
+ const variants=ids.map(id=>updates[id]).filter(Boolean);
+ // A legacy record without a publication date already existed before a new variant.
+ const firstPublication=Math.min(...variants.map(variant=>Date.parse(variant.publishedAt)||0));
  const record={};
- for(const key of ['publishedAt','updatedAt'])for(const id of ids){
-  const timestamp=updates[id]?.[key];
-  if(Date.parse(timestamp)>(Date.parse(record[key])||0))record[key]=timestamp;
+ for(const {publishedAt,updatedAt} of variants){
+  const publication=Date.parse(publishedAt);
+  if(publication===firstPublication)record.publishedAt=publishedAt;
+  const change=publication>firstPublication&&publication>(Date.parse(updatedAt)||0)?publishedAt:updatedAt;
+  if(Date.parse(change)>(Date.parse(record.updatedAt)||0))record.updatedAt=change;
  }
  return record;
 }
@@ -31,7 +36,7 @@ export function mountModelUpdateTags(root,updates,{now=()=>Date.now(),setTimer=s
   const time=now();let next=Infinity;
   for(const element of root.querySelectorAll('[data-model-updated]')){
    const record=updates[element.dataset.modelUpdated];
-   const info=modelUpdateTag(record?.publishedAt,time,true)||modelUpdateTag(record?.updatedAt,time);
+   const info=modelUpdateTag(record?.updatedAt,time)||modelUpdateTag(record?.publishedAt,time,true);
    element.hidden=!info;
    if(info){element.textContent=info.label;element.style.color=info.colour;element.dataset.day=String(info.day);next=Math.min(next,info.nextAt);}
   }
