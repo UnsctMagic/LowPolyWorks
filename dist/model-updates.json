@@ -554,12 +554,14 @@
       "updatedAt": "2026-11-07T22:55:26.379Z"
     },
     "aspiring-champion-of-tzeentch": {
-      "sha256": "544fffd8b1baff161afd2e3825669206b161ab37834f8cfc092005c972805a7b",
-      "publishedAt": "2026-11-08T00:49:56.075Z"
+      "sha256": "b2e39cd63c8650e9673749292a2451206771f2bc1745526f4e67a95be7412261",
+      "publishedAt": "2026-11-08T00:49:56.075Z",
+      "updatedAt": "2026-11-09T20:06:58.168Z"
     },
     "aspiring-champion-of-tzeentch-hero": {
-      "sha256": "75878946076783825763fbb06dabaf83f54e3a8bfa573fc7db44a08d1f3d6e5f",
-      "publishedAt": "2026-11-08T00:49:56.075Z"
+      "sha256": "2fefe8ff55d559a7e5d7c3a78f45f247fcc9500d87e04125fc071bf8f372be92",
+      "publishedAt": "2026-11-08T00:49:56.075Z",
+      "updatedAt": "2026-11-09T20:06:58.168Z"
     },
     "zombie-dragon-von-carstein": {
       "sha256": "ddac092264b4488bac2bbea0c1f830686017bc320e52df73b9149bd59a8927d5",

@@ -12,7 +12,7 @@ import {renderJournal} from './journal.js?v=20261022-tzeentch-warrior';
 import {renderMdlxl} from './mdlxl.js?v=20261105-permanent-download';
 import {readMdlxlRoute,mdlxlHref} from './mdlxl-routes.js?v=20261105-uv-grid';
 const initialMdlxl=readMdlxlRoute(location);if(initialMdlxl&&location.hash.startsWith('#project/mdlxl'))history.replaceState(null,'',mdlxlHref(initialMdlxl.section,initialMdlxl.tutorial,location.search));
-const app=document.querySelector('#app'),baseCatalogue=await fetch('catalogue.json?v=20261108-black-orc-native-r2').then(r=>r.json());
+const app=document.querySelector('#app'),baseCatalogue=await fetch('catalogue.json?v=20261109-tzeentch-aspiring-02').then(r=>r.json());
 const armies=await fetch('armies.json?v=20261020-army-sizes-approved').then(r=>r.json());
 // Shuffle the middle army cards once per load; keep Chaos and Vampire Counts first and Dwarfs last.
 const pinnedArmyIds=['warriors-of-chaos','vampire-counts'];
