@@ -32778,8 +32778,9 @@
   },
   {
     "id": "zombie-dragon-riderless",
-    "file": "WH_VC_ZombieDragon01.mdx",
+    "file": "WH_VC_ZombieDragon02.mdx",
     "name": "Zombie Dragon Riderless",
+    "imageVersion": "76f1ab7c8df4",
     "army": "vampire-counts",
     "description": "The Plain of Bones is a harsh and lifeless landscape of multicoloured sand and tainted rock located to the east of the Worlds Edge Mountains, from which protrude huge rib cages of ancient primeval Dragons. This is the place where Dragons of ancient times once came to die, to rest their bones amongst those of their ancestors as they had done for millions of years, before any other sentient beings walked the world.\n\nHere lies the bones of the great ancestral Dragons: skulls the size of castle towers lie mingled with leg bones larger than the mast of an Imperial warship. These bones date from the ancients days of the draconic race. Though today's Dragons are of a lesser breed, they are still incomparably mightier than other races of the world. However, following the arrival of Chaos, the Plain of Bones has since become saturated with large amounts of Dark Magic. This magic eventually contaminated the remains of these Dragons, forcing them to rise once more as the first Zombie Dragons.",
     "credits": "Model Base - Gnome Dragonrider by Direfury (Animations) / Lindormr Dragon by Olofmoleman (Dragon Body) / Dread Knight/Death Knight by Direfury (Rider Body)\n\nOriginal Dragon Reskin - Skeletal Dragon / Frostwyrm Remake by Mister_Haudrauf, based on Lindormr Dragon by Olofmoleman",
@@ -33032,8 +33033,8 @@
       "Portrait",
       "Portrait Talk"
     ],
-    "bytes": 275411,
-    "sha256": "b8cd6c8e38a742085e0f345bf2fc931d44cd7552ff2e722f4b36fce92c5bb20f",
+    "bytes": 275635,
+    "sha256": "ce5006cfac8ebb5b211798c0cba4439acd7d0381f4d88a4aded2112cdcb46a4a",
     "authors": [
       {
         "name": "Unsanctioned Magic",
@@ -33081,6 +33082,12 @@
     "captureSequence": "Stand - 1",
     "captureTime": 400,
     "captureFormationYaw": 0.65,
-    "searchDescription": "Preview and download Zombie Dragon Riderless, a Vampire Counts model for Warcraft III and WarhammerCraft."
+    "searchDescription": "Preview and download Zombie Dragon Riderless, a Vampire Counts model for Warcraft III and WarhammerCraft.",
+    "changelog": [
+      {
+        "date": "9 November 2026",
+        "text": "Updated geometry and vertex bindings across five geosets."
+      }
+    ]
   }
 ]
