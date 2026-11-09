@@ -70,7 +70,7 @@ test('French and German cover every current Spanish tutorial and its native medi
  const base=new URL('../dist/mdlxl/tutorials/',import.meta.url);
  const html=locale=>readFileSync(new URL(locale+'/content.html',base),'utf8');
  const ids=source=>[...source.matchAll(/<article\b[^>]*id="tutorial-([^"]+)"/g)].map(match=>match[1]);
- const media=locale=>readdirSync(new URL(locale+'/',base)).filter(name=>/\.(?:gif|png)$/.test(name)).sort();
+ const media=locale=>readdirSync(new URL(locale+'/',base)).filter(name=>/\.(?:mp4|png)$/.test(name)).sort();
  const expected=ids(html('es'));assert(expected.includes('fx'),'Spanish inventory includes published FX guide');
  for(const locale of ['fr','de']){
   assert.deepEqual(ids(html(locale)),expected,locale+' tutorial coverage');

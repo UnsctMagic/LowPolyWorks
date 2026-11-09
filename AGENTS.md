@@ -6,7 +6,10 @@
 
 ## MDLxL tutorial design
 
-- Use the standard animated green ring and crosshair to mark each demonstrated control on the recording when the lesson introduces it. Before publishing, review playback at desktop and mobile page size and check that each ping is present, readable, and centered on the actual control.
+- Use the existing MDLxL tutorial cards, header, language picker and back navigation. Keep the guide focused on the named controls and show authentic editor footage.
+- Publish recordings as standalone, muted, looping MP4s with native playback controls. Preserve frame timing and synchronize localized keyboard cues as video captions. Load clips as they come into view.
+- Use the standard animated green ring and crosshair to mark each demonstrated control when the lesson introduces it. Center the ping on the actual control in the recording or annotated image.
+- Match annotated image and video widths within each guide and preserve their aspect ratios. Check the live-sized layout, green pings, captions, and at least two playback loops at desktop and mobile widths before publishing.
 
 ## Warriors of Chaos card sizing
 
