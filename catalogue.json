@@ -31406,7 +31406,7 @@
   },
   {
     "id": "zombie-dragon-von-carstein",
-    "file": "WH_VC_ZombieDragonVCarstein01.mdx",
+    "file": "WH_VC_ZombieDragonVCarstein02.mdx",
     "name": "Zombie Dragon - Von Carstein",
     "army": "vampire-counts",
     "description": "The Plain of Bones is a harsh and lifeless landscape of multicoloured sand and tainted rock located to the east of the Worlds Edge Mountains, from which protrude huge rib cages of ancient primeval Dragons. This is the place where Dragons of ancient times once came to die, to rest their bones amongst those of their ancestors as they had done for millions of years, before any other sentient beings walked the world.\n\nHere lies the bones of the great ancestral Dragons: skulls the size of castle towers lie mingled with leg bones larger than the mast of an Imperial warship. These bones date from the ancients days of the draconic race. Though today's Dragons are of a lesser breed, they are still incomparably mightier than other races of the world. However, following the arrival of Chaos, the Plain of Bones has since become saturated with large amounts of Dark Magic. This magic eventually contaminated the remains of these Dragons, forcing them to rise once more as the first Zombie Dragons.\n\nEver since then, Vampires and powerful Necromancers of all kinds have been known to take a pilgrimage to this ancient landscape where they pick through one amongst many Dragon remains. Once he finds a suitable corpse, the Vampire or Necromancer who use the excess Dark Magic that contaminates the land to resurrect the Dragon back to life as his eternal combat mount. These once majestic creatures stagger upright once more with a great despairing roar before stooping to allow their new master to ride atop their powerful shoulders.\n\n— Warhammer Armies: Vampire Counts (8th Edition), p. 49",
@@ -31527,8 +31527,7 @@
         "triangles": 14,
         "material": 24,
         "textures": [
-          "Buildings\\Undead\\AltarOfDarkness\\CreepyAltarOfDark.blp",
-          "VampireDragonFade\\SaddleTrim.tga"
+          "Buildings\\Undead\\AltarOfDarkness\\CreepyAltarOfDark.blp"
         ]
       },
       {
@@ -31555,8 +31554,7 @@
         "triangles": 12,
         "material": 5,
         "textures": [
-          "Textures\\Abomination.blp",
-          "VampireDragonFade\\Flesh.tga"
+          "Textures\\Abomination.blp"
         ]
       },
       {
@@ -31886,8 +31884,7 @@
         "triangles": 24,
         "material": 38,
         "textures": [
-          "UI\\Console\\Undead\\UndeadUITile-InventoryCover.blp",
-          "VampireDragonFade\\ThroneTrim.tga"
+          "UI\\Console\\Undead\\UndeadUITile-InventoryCover.blp"
         ]
       },
       {
@@ -31954,7 +31951,7 @@
       "Stand Ready",
       "Attack - 1",
       "Attack - 2",
-      "Devour",
+      "Attack Slam",
       "Spell",
       "Spell Channel",
       "Spell Throw",
@@ -31970,14 +31967,14 @@
       "Stand Ready Alternate",
       "Spell Attack Alternate",
       "Spell Throw Alternate",
-      "Channel Alternate",
+      "Spell Channel Alternate",
       "Morph Alternate",
       "Death Alternate",
       "Portrait",
       "Portrait Talk"
     ],
-    "bytes": 532234,
-    "sha256": "ddac092264b4488bac2bbea0c1f830686017bc320e52df73b9149bd59a8927d5",
+    "bytes": 531430,
+    "sha256": "c7aac65434a82067664f11288db0d852e41cdd6ffa07a867dc47b22cea1ba3d5",
     "authors": [
       {
         "name": "Unsanctioned Magic",
@@ -32071,12 +32068,713 @@
       "vampiredragonfade\\saddletrim.tga": "textures/VampireDragonFade/SaddleTrim.tga",
       "vampiredragonfade\\thronetrim.tga": "textures/VampireDragonFade/ThroneTrim.tga"
     },
-    "downloadPack": "downloads/zombie-dragon-von-carstein-ddac0922/WH_VC_ZombieDragonVCarstein01.zip",
+    "downloadPack": "downloads/zombie-dragon-von-carstein-c7aac654/WH_VC_ZombieDragonVCarstein02.zip",
     "captureSequence": "Stand - 1",
     "captureTime": 400,
     "captureFormationYaw": 0.65,
-    "imageVersion": "20261108-von-carstein-dragon01",
-    "searchDescription": "Preview and download Zombie Dragon - Von Carstein, a Vampire Counts model for Warcraft III and WarhammerCraft."
+    "imageVersion": "20261109-zombie-dragon-variants",
+    "searchDescription": "Preview and download Zombie Dragon - Von Carstein, a Vampire Counts model for Warcraft III and WarhammerCraft.",
+    "changelog": [
+      {
+        "date": "9 November 2026",
+        "text": "Added hero variation, fixed emitter colors on morph animations and removed unused materials."
+      }
+    ]
+  },
+  {
+    "id": "zombie-dragon-von-carstein-hero",
+    "file": "WH_VC_ZombieDragonVCarsteinHero01.mdx",
+    "name": "Zombie Dragon - Von Carstein",
+    "army": "vampire-counts",
+    "description": "The Plain of Bones is a harsh and lifeless landscape of multicoloured sand and tainted rock located to the east of the Worlds Edge Mountains, from which protrude huge rib cages of ancient primeval Dragons. This is the place where Dragons of ancient times once came to die, to rest their bones amongst those of their ancestors as they had done for millions of years, before any other sentient beings walked the world.\n\nHere lies the bones of the great ancestral Dragons: skulls the size of castle towers lie mingled with leg bones larger than the mast of an Imperial warship. These bones date from the ancients days of the draconic race. Though today's Dragons are of a lesser breed, they are still incomparably mightier than other races of the world. However, following the arrival of Chaos, the Plain of Bones has since become saturated with large amounts of Dark Magic. This magic eventually contaminated the remains of these Dragons, forcing them to rise once more as the first Zombie Dragons.\n\nEver since then, Vampires and powerful Necromancers of all kinds have been known to take a pilgrimage to this ancient landscape where they pick through one amongst many Dragon remains. Once he finds a suitable corpse, the Vampire or Necromancer who use the excess Dark Magic that contaminates the land to resurrect the Dragon back to life as his eternal combat mount. These once majestic creatures stagger upright once more with a great despairing roar before stooping to allow their new master to ride atop their powerful shoulders.\n\n— Warhammer Armies: Vampire Counts (8th Edition), p. 49",
+    "credits": "Model Base - Gnome Dragonrider by Direfury (Animations) / Lindormr Dragon by Olofmoleman (Dragon Body) / Dread Knight/Death Knight by Direfury (Rider Body)\n\nOriginal Dragon Reskin - Skeletal Dragon / Frostwyrm Remake by Mister_Haudrauf, based on Lindormr Dragon by Olofmoleman\n\nChains around dragon neck - Abomination (Re-Classic) by Johnwar\n\nShoulders - Hero Geist by Direfury\n\nFace - Modified from Vampyr by Dionesiist\n\nThrone - Throne by Maynhe\n\nStaff - Orcish Staff by Sunchips / Staff of Demonic Entities by Usedwell",
+    "geosets": [
+      {
+        "index": 0,
+        "vertices": 34,
+        "triangles": 57,
+        "material": 4,
+        "textures": [
+          "Buildings\\Other\\DragonBuildingBlack\\DragonRoostBlack.blp"
+        ]
+      },
+      {
+        "index": 1,
+        "vertices": 56,
+        "triangles": 48,
+        "material": 10,
+        "textures": [
+          "UI\\Glues\\SinglePlayer\\HumanCampaign3D\\HumanCampaignTree.blp"
+        ]
+      },
+      {
+        "index": 2,
+        "vertices": 160,
+        "triangles": 234,
+        "material": 1,
+        "textures": [
+          "Textures\\Skeleton.blp"
+        ]
+      },
+      {
+        "index": 3,
+        "vertices": 156,
+        "triangles": 190,
+        "material": 34,
+        "textures": [
+          "Units\\Other\\DalaranMutant\\ZombieB.blp"
+        ]
+      },
+      {
+        "index": 4,
+        "vertices": 20,
+        "triangles": 18,
+        "material": 0,
+        "textures": [
+          "Units\\Undead\\FrostWyrm\\FrostWyrm.blp"
+        ]
+      },
+      {
+        "index": 5,
+        "vertices": 24,
+        "triangles": 12,
+        "material": 7,
+        "textures": [
+          "Units\\Undead\\FrostWyrm\\FrostWyrm.blp"
+        ]
+      },
+      {
+        "index": 6,
+        "vertices": 45,
+        "triangles": 28,
+        "material": 0,
+        "textures": [
+          "Units\\Undead\\FrostWyrm\\FrostWyrm.blp"
+        ]
+      },
+      {
+        "index": 7,
+        "vertices": 24,
+        "triangles": 22,
+        "material": 12,
+        "textures": [
+          "Textures\\BlackDragon.blp"
+        ]
+      },
+      {
+        "index": 8,
+        "vertices": 92,
+        "triangles": 104,
+        "material": 0,
+        "textures": [
+          "Units\\Undead\\FrostWyrm\\FrostWyrm.blp"
+        ]
+      },
+      {
+        "index": 9,
+        "vertices": 68,
+        "triangles": 48,
+        "material": 6,
+        "textures": [
+          "Doodads\\Ashenvale\\Props\\ScorchedRemains\\Demonized.blp"
+        ]
+      },
+      {
+        "index": 10,
+        "vertices": 28,
+        "triangles": 38,
+        "material": 33,
+        "textures": [
+          "Team colour",
+          "Units\\Other\\DalaranMutant\\ZombieB.blp"
+        ]
+      },
+      {
+        "index": 11,
+        "vertices": 17,
+        "triangles": 20,
+        "material": 2,
+        "textures": [
+          "Buildings\\Undead\\UndeadShipyard\\UndeadShipyard.blp"
+        ]
+      },
+      {
+        "index": 12,
+        "vertices": 16,
+        "triangles": 14,
+        "material": 24,
+        "textures": [
+          "Buildings\\Undead\\AltarOfDarkness\\CreepyAltarOfDark.blp"
+        ]
+      },
+      {
+        "index": 13,
+        "vertices": 32,
+        "triangles": 16,
+        "material": 25,
+        "textures": [
+          "Textures\\Abomination.blp"
+        ]
+      },
+      {
+        "index": 14,
+        "vertices": 6,
+        "triangles": 4,
+        "material": 3,
+        "textures": [
+          "Textures\\UndeadTransportShip.blp"
+        ]
+      },
+      {
+        "index": 15,
+        "vertices": 9,
+        "triangles": 12,
+        "material": 5,
+        "textures": [
+          "Textures\\Abomination.blp"
+        ]
+      },
+      {
+        "index": 16,
+        "vertices": 42,
+        "triangles": 44,
+        "material": 8,
+        "textures": [
+          "Textures\\GiantSeaTurtle.blp"
+        ]
+      },
+      {
+        "index": 17,
+        "vertices": 47,
+        "triangles": 72,
+        "material": 12,
+        "textures": [
+          "Textures\\BlackDragon.blp"
+        ]
+      },
+      {
+        "index": 18,
+        "vertices": 17,
+        "triangles": 16,
+        "material": 9,
+        "textures": [
+          "Team colour",
+          "Units\\Undead\\Ghoul\\Ghoul.blp"
+        ]
+      },
+      {
+        "index": 19,
+        "vertices": 8,
+        "triangles": 4,
+        "material": 11,
+        "textures": [
+          "Textures\\purple_glow.blp"
+        ]
+      },
+      {
+        "index": 20,
+        "vertices": 28,
+        "triangles": 24,
+        "material": 32,
+        "textures": [
+          "Textures\\DeathScream.blp"
+        ]
+      },
+      {
+        "index": 21,
+        "vertices": 7,
+        "triangles": 6,
+        "material": 13,
+        "textures": [
+          "Textures\\GiantSeaTurtle.blp"
+        ]
+      },
+      {
+        "index": 22,
+        "vertices": 140,
+        "triangles": 120,
+        "material": 32,
+        "textures": [
+          "Textures\\DeathScream.blp"
+        ]
+      },
+      {
+        "index": 23,
+        "vertices": 34,
+        "triangles": 63,
+        "material": 14,
+        "textures": [
+          "Textures\\BoneYardCreepy.blp"
+        ]
+      },
+      {
+        "index": 24,
+        "vertices": 61,
+        "triangles": 81,
+        "material": 15,
+        "textures": [
+          "Units\\Human\\HeroArchMage\\HeroArchmage.blp"
+        ]
+      },
+      {
+        "index": 25,
+        "vertices": 40,
+        "triangles": 40,
+        "material": 16,
+        "textures": [
+          "Team colour",
+          "Units\\Creeps\\Revenant\\Revenant.blp"
+        ]
+      },
+      {
+        "index": 26,
+        "vertices": 117,
+        "triangles": 136,
+        "material": 17,
+        "textures": [
+          "Abilities\\Spells\\Undead\\CarrionSwarm\\HeroDreadlord.blp"
+        ]
+      },
+      {
+        "index": 27,
+        "vertices": 89,
+        "triangles": 144,
+        "material": 31,
+        "textures": [
+          "Textures\\CreepyNecropolis.blp"
+        ]
+      },
+      {
+        "index": 28,
+        "vertices": 61,
+        "triangles": 52,
+        "material": 28,
+        "textures": [
+          "Buildings\\Undead\\AltarOfDarkness\\CreepyAltarOfDark.blp"
+        ]
+      },
+      {
+        "index": 29,
+        "vertices": 12,
+        "triangles": 12,
+        "material": 27,
+        "textures": [
+          "Textures\\FrostmMourne.blp"
+        ]
+      },
+      {
+        "index": 30,
+        "vertices": 48,
+        "triangles": 24,
+        "material": 29,
+        "textures": [
+          "UI\\Glues\\SpriteLayers\\Expansion\\GlueScreen-Panel-MetalPieces-Expansion.blp"
+        ]
+      },
+      {
+        "index": 31,
+        "vertices": 12,
+        "triangles": 8,
+        "material": 30,
+        "textures": [
+          "Textures\\Eyes.blp"
+        ]
+      },
+      {
+        "index": 32,
+        "vertices": 131,
+        "triangles": 252,
+        "material": 26,
+        "textures": [
+          "Doodads\\Ashenvale\\Props\\ScorchedRemains\\Demonized.blp"
+        ]
+      },
+      {
+        "index": 33,
+        "vertices": 50,
+        "triangles": 68,
+        "material": 18,
+        "textures": [
+          "Team colour",
+          "Buildings\\Undead\\TempleOfTheDamned\\NewTempleOfTheDamned.blp"
+        ]
+      },
+      {
+        "index": 34,
+        "vertices": 48,
+        "triangles": 52,
+        "material": 19,
+        "textures": [
+          "Units\\NightElf\\MalFurion\\NewStag.blp"
+        ]
+      },
+      {
+        "index": 35,
+        "vertices": 10,
+        "triangles": 8,
+        "material": 21,
+        "textures": [
+          "Team colour",
+          "Units\\Undead\\Tichondrius\\Tichondrius.blp"
+        ]
+      },
+      {
+        "index": 36,
+        "vertices": 15,
+        "triangles": 12,
+        "material": 43,
+        "textures": [
+          "Team colour",
+          "Units\\Creeps\\Revenant\\Revenant.blp"
+        ]
+      },
+      {
+        "index": 37,
+        "vertices": 10,
+        "triangles": 8,
+        "material": 22,
+        "textures": [
+          "Units\\Undead\\Tichondrius\\Tichondrius.blp"
+        ]
+      },
+      {
+        "index": 38,
+        "vertices": 62,
+        "triangles": 48,
+        "material": 35,
+        "textures": [
+          "Textures\\Arthas1.blp"
+        ]
+      },
+      {
+        "index": 39,
+        "vertices": 24,
+        "triangles": 24,
+        "material": 37,
+        "textures": [
+          "UI\\Glues\\SinglePlayer\\Undead3D_Exp\\furboots2.blp"
+        ]
+      },
+      {
+        "index": 40,
+        "vertices": 18,
+        "triangles": 16,
+        "material": 3,
+        "textures": [
+          "Textures\\UndeadTransportShip.blp"
+        ]
+      },
+      {
+        "index": 41,
+        "vertices": 84,
+        "triangles": 64,
+        "material": 23,
+        "textures": [
+          "Units\\Undead\\HeroDreadLord\\HeroDreadlord.blp"
+        ]
+      },
+      {
+        "index": 42,
+        "vertices": 22,
+        "triangles": 16,
+        "material": 23,
+        "textures": [
+          "Units\\Undead\\HeroDreadLord\\HeroDreadlord.blp"
+        ]
+      },
+      {
+        "index": 43,
+        "vertices": 22,
+        "triangles": 16,
+        "material": 23,
+        "textures": [
+          "Units\\Undead\\HeroDreadLord\\HeroDreadlord.blp"
+        ]
+      },
+      {
+        "index": 44,
+        "vertices": 129,
+        "triangles": 98,
+        "material": 23,
+        "textures": [
+          "Units\\Undead\\HeroDreadLord\\HeroDreadlord.blp"
+        ]
+      },
+      {
+        "index": 45,
+        "vertices": 41,
+        "triangles": 32,
+        "material": 23,
+        "textures": [
+          "Units\\Undead\\HeroDreadLord\\HeroDreadlord.blp"
+        ]
+      },
+      {
+        "index": 46,
+        "vertices": 22,
+        "triangles": 16,
+        "material": 23,
+        "textures": [
+          "Units\\Undead\\HeroDreadLord\\HeroDreadlord.blp"
+        ]
+      },
+      {
+        "index": 47,
+        "vertices": 20,
+        "triangles": 16,
+        "material": 23,
+        "textures": [
+          "Units\\Undead\\HeroDreadLord\\HeroDreadlord.blp"
+        ]
+      },
+      {
+        "index": 48,
+        "vertices": 96,
+        "triangles": 48,
+        "material": 25,
+        "textures": [
+          "Textures\\Abomination.blp"
+        ]
+      },
+      {
+        "index": 49,
+        "vertices": 96,
+        "triangles": 128,
+        "material": 36,
+        "textures": [
+          "Textures\\UndeadAirBarge.blp"
+        ]
+      },
+      {
+        "index": 50,
+        "vertices": 27,
+        "triangles": 24,
+        "material": 38,
+        "textures": [
+          "UI\\Console\\Undead\\UndeadUITile-InventoryCover.blp"
+        ]
+      },
+      {
+        "index": 51,
+        "vertices": 65,
+        "triangles": 78,
+        "material": 39,
+        "textures": [
+          "UI\\Glues\\SinglePlayer\\HumanCampaign3D\\HumanCampaignFootman.blp"
+        ]
+      },
+      {
+        "index": 52,
+        "vertices": 77,
+        "triangles": 78,
+        "material": 40,
+        "textures": [
+          "Textures\\UndeadAirBarge.blp"
+        ]
+      },
+      {
+        "index": 53,
+        "vertices": 74,
+        "triangles": 84,
+        "material": 41,
+        "textures": [
+          "Team colour",
+          "Textures\\UndeadAirBarge.blp"
+        ]
+      },
+      {
+        "index": 54,
+        "vertices": 24,
+        "triangles": 32,
+        "material": 42,
+        "textures": [
+          "Team colour",
+          "Textures\\UndeadTransportShip.blp"
+        ]
+      },
+      {
+        "index": 55,
+        "vertices": 4,
+        "triangles": 2,
+        "material": 44,
+        "textures": [
+          "Team glow"
+        ]
+      },
+      {
+        "index": 56,
+        "vertices": 208,
+        "triangles": 168,
+        "material": 45,
+        "textures": [
+          "Textures\\gutz.blp"
+        ]
+      },
+      {
+        "index": 57,
+        "vertices": 12,
+        "triangles": 6,
+        "material": 47,
+        "textures": [
+          "Team glow"
+        ]
+      },
+      {
+        "index": 58,
+        "vertices": 4,
+        "triangles": 2,
+        "material": 48,
+        "textures": [
+          "Team glow"
+        ]
+      },
+      {
+        "index": 59,
+        "vertices": 8,
+        "triangles": 4,
+        "material": 20,
+        "textures": [
+          "Textures\\purple_glow.blp",
+          "Team glow"
+        ]
+      }
+    ],
+    "sequences": [
+      "Walk",
+      "Stand - 1",
+      "Stand - 2",
+      "Stand Ready",
+      "Attack - 1",
+      "Attack - 2",
+      "Attack Slam",
+      "Spell",
+      "Spell Channel",
+      "Spell Throw",
+      "Spell Slam",
+      "Death",
+      "Decay Flesh",
+      "Decay Bone",
+      "Morph",
+      "Stand Alternate",
+      "Stand Alternate - 2",
+      "Walk Alternate",
+      "Walk Alternate - 2",
+      "Stand Ready Alternate",
+      "Spell Attack Alternate",
+      "Spell Throw Alternate",
+      "Spell Channel Alternate",
+      "Morph Alternate",
+      "Death Alternate",
+      "Portrait",
+      "Portrait Talk"
+    ],
+    "bytes": 535482,
+    "sha256": "854904f4a6f2b3eefb955a26f020666be163260d8d6731a61a2d7a269e64a9db",
+    "authors": [
+      {
+        "name": "Unsanctioned Magic",
+        "url": "https://xgm.guru/user/UnsanctMagic"
+      },
+      {
+        "name": "Direfury",
+        "url": "https://www.hiveworkshop.com/members/direfury.188037/"
+      },
+      {
+        "name": "Olofmoleman",
+        "url": "https://www.hiveworkshop.com/members/olofmoleman.115820/"
+      }
+    ],
+    "creditLinks": [
+      {
+        "text": "Dread Knight/Death Knight",
+        "url": "https://www.hiveworkshop.com/threads/dread-knight-death-knight.252328/"
+      },
+      {
+        "text": "Hero Geist",
+        "url": "https://www.hiveworkshop.com/threads/hero-geist.272611/"
+      },
+      {
+        "text": "Dionesiist",
+        "url": "https://www.hiveworkshop.com/members/124382/"
+      },
+      {
+        "text": "Direfury",
+        "url": "https://www.hiveworkshop.com/members/direfury.188037/"
+      },
+      {
+        "text": "Vampyr",
+        "url": "https://www.hiveworkshop.com/threads/vampyr.193210/"
+      },
+      {
+        "text": "Gnome Dragonrider",
+        "url": "https://www.hiveworkshop.com/threads/gnome-dragonrider.324793/"
+      },
+      {
+        "text": "Lindormr Dragon",
+        "url": "https://www.hiveworkshop.com/threads/lindormr-dragon.52050/"
+      },
+      {
+        "text": "Skeletal Dragon / Frostwyrm Remake",
+        "url": "https://www.hiveworkshop.com/threads/skeletal-dragon-frostwyrm-remake.294139/"
+      },
+      {
+        "text": "Abomination (Re-Classic)",
+        "url": "https://www.hiveworkshop.com/threads/abomination-re-classic.357166/"
+      },
+      {
+        "text": "Throne",
+        "url": "https://www.hiveworkshop.com/threads/throne.181954/"
+      },
+      {
+        "text": "Orcish Staff",
+        "url": "https://www.hiveworkshop.com/threads/orcish-staff.237603/"
+      },
+      {
+        "text": "Staff of Demonic Entities",
+        "url": "https://www.hiveworkshop.com/threads/staff-of-demonic-entities.190067/"
+      },
+      {
+        "text": "Olofmoleman",
+        "url": "https://www.hiveworkshop.com/members/olofmoleman.115820/"
+      },
+      {
+        "text": "Mister_Haudrauf",
+        "url": "https://www.hiveworkshop.com/members/mister_haudrauf.236714/"
+      },
+      {
+        "text": "Johnwar",
+        "url": "https://www.hiveworkshop.com/members/johnwar.264426/"
+      },
+      {
+        "text": "Maynhe",
+        "url": "https://www.hiveworkshop.com/members/maynhe.197966/"
+      },
+      {
+        "text": "Sunchips",
+        "url": "https://www.hiveworkshop.com/members/sunchips.176515/"
+      },
+      {
+        "text": "Usedwell",
+        "url": "https://www.hiveworkshop.com/members/usedwell.166726/"
+      }
+    ],
+    "textureFiles": {
+      "vampiredragonfade\\flesh.tga": "textures/VampireDragonFade/Flesh.tga",
+      "vampiredragonfade\\saddletrim.tga": "textures/VampireDragonFade/SaddleTrim.tga",
+      "vampiredragonfade\\thronetrim.tga": "textures/VampireDragonFade/ThroneTrim.tga"
+    },
+    "downloadPack": "downloads/zombie-dragon-von-carstein-hero-854904f4/WH_VC_ZombieDragonVCarsteinHero01.zip",
+    "captureSequence": "Stand - 1",
+    "captureTime": 400,
+    "captureFormationYaw": 0.65,
+    "imageVersion": "20261109-zombie-dragon-variants",
+    "searchDescription": "Preview and download the Zombie Dragon - Von Carstein Hero model for Warcraft III and WarhammerCraft.",
+    "changelog": [
+      {
+        "date": "9 November 2026",
+        "text": "Added hero variation, fixed emitter colors on morph animations and removed unused materials."
+      }
+    ]
   },
   {
     "id": "zombie-dragon-riderless",
