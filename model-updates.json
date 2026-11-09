@@ -565,7 +565,6 @@
     },
     "zombie-dragon-von-carstein": {
       "sha256": "8217695478c1f4d8aa03a835eec6eb66061260c64e7d6ea4fd2c024b42ffe67c",
-      "publishedAt": "2026-11-08T00:59:56.634Z",
       "updatedAt": "2026-11-09T20:50:35.382Z"
     },
     "greenskin-black-orc-native-reskin": {
@@ -580,7 +579,6 @@
     },
     "zombie-dragon-von-carstein-hero": {
       "sha256": "69feb1f49e952db1eba575331dd95da73ef55911c2c072b644b6995991b3ec81",
-      "publishedAt": "2026-11-09T20:20:22.694Z",
       "updatedAt": "2026-11-09T20:50:35.382Z"
     }
   }
