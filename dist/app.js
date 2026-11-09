@@ -1,5 +1,5 @@
 import {prepareMobileLayout} from './mobile-layout.js?v=20261018-mobile-layout';
-import {groupModelUpdate,modelUpdateTagMarkup,mountModelUpdateTags} from './model-update-tags.js?v=20261104-auto-variant-tags';
+import {groupModelUpdate,modelUpdateTagMarkup,mountModelUpdateTags} from './model-update-tags.js?v=20261109-update-badge-priority';
 import {modelFollowMarkup,mountModelFollow} from './model-follows.js?v=20261012-cloudflare';
 import {uploadedModelCard,renderUnitCard} from './unit-card.js?v=20261022-wheel-animations';
 import {startMenuVisitor} from './menu-visitor.js?v=20261108-hat-only';

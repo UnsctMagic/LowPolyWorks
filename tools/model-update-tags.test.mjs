@@ -63,15 +63,15 @@ test('revised models keep their original dated Updated badges and expiry',()=>{
  assert.equal(element.hidden,false);assert.equal(element.textContent,'Updated 10/10');dispose();
 });
 
-test('New wins over Updated during first publication and later revisions still show Updated',()=>{
+test('a first release is New until a revision takes priority during the New window',()=>{
  let time=start;const element={dataset:{modelUpdated:'knight'},style:{},hidden:true};
  const root={querySelectorAll:()=>[element],ownerDocument:{addEventListener(){},removeEventListener(){}}};
- const record={publishedAt:new Date(start).toISOString(),updatedAt:new Date(start).toISOString()};
+ const record={publishedAt:new Date(start).toISOString()};
  let dispose=mountModelUpdateTags(root,{knight:record},{now:()=>time,setTimer:()=>1,clearTimer(){}});
  assert.equal(element.textContent,'New!');dispose();
- time=start+4*day;record.updatedAt=new Date(time).toISOString();
+ time=start+day;record.updatedAt=new Date(time).toISOString();
  dispose=mountModelUpdateTags(root,{knight:record},{now:()=>time,setTimer:()=>1,clearTimer(){}});
- assert.equal(element.textContent,'Updated 14/10');dispose();
+ assert.equal(element.textContent,'Updated 11/10');dispose();
 });
 
 test('the live catalogue has three Updated cards and two New cards without resetting timestamps',()=>{
