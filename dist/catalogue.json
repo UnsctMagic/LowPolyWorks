@@ -31973,8 +31973,8 @@
       "Portrait",
       "Portrait Talk"
     ],
-    "bytes": 531430,
-    "sha256": "c7aac65434a82067664f11288db0d852e41cdd6ffa07a867dc47b22cea1ba3d5",
+    "bytes": 531802,
+    "sha256": "8217695478c1f4d8aa03a835eec6eb66061260c64e7d6ea4fd2c024b42ffe67c",
     "authors": [
       {
         "name": "Unsanctioned Magic",
@@ -32068,22 +32068,22 @@
       "vampiredragonfade\\saddletrim.tga": "textures/VampireDragonFade/SaddleTrim.tga",
       "vampiredragonfade\\thronetrim.tga": "textures/VampireDragonFade/ThroneTrim.tga"
     },
-    "downloadPack": "downloads/zombie-dragon-von-carstein-c7aac654/WH_VC_ZombieDragonVCarstein02.zip",
+    "downloadPack": "downloads/zombie-dragon-von-carstein-82176954/WH_VC_ZombieDragonVCarstein02.zip",
     "captureSequence": "Stand - 1",
     "captureTime": 400,
     "captureFormationYaw": 0.65,
-    "imageVersion": "20261109-zombie-dragon-variants",
+    "imageVersion": "20261109-von-carstein-bindings",
     "searchDescription": "Preview and download Zombie Dragon - Von Carstein, a Vampire Counts model for Warcraft III and WarhammerCraft.",
     "changelog": [
       {
         "date": "9 November 2026",
-        "text": "Added hero variation, fixed emitter colors on morph animations and removed unused materials."
+        "text": "Added hero variation, fixed emitter colors on morph animations and removed unused materials. Improved bone bindings and adjusted geosets."
       }
     ]
   },
   {
     "id": "zombie-dragon-von-carstein-hero",
-    "file": "WH_VC_ZombieDragonVCarsteinHero01.mdx",
+    "file": "WH_VC_ZombieDragonVCarsteinHero02.mdx",
     "name": "Zombie Dragon - Von Carstein",
     "army": "vampire-counts",
     "description": "The Plain of Bones is a harsh and lifeless landscape of multicoloured sand and tainted rock located to the east of the Worlds Edge Mountains, from which protrude huge rib cages of ancient primeval Dragons. This is the place where Dragons of ancient times once came to die, to rest their bones amongst those of their ancestors as they had done for millions of years, before any other sentient beings walked the world.\n\nHere lies the bones of the great ancestral Dragons: skulls the size of castle towers lie mingled with leg bones larger than the mast of an Imperial warship. These bones date from the ancients days of the draconic race. Though today's Dragons are of a lesser breed, they are still incomparably mightier than other races of the world. However, following the arrival of Chaos, the Plain of Bones has since become saturated with large amounts of Dark Magic. This magic eventually contaminated the remains of these Dragons, forcing them to rise once more as the first Zombie Dragons.\n\nEver since then, Vampires and powerful Necromancers of all kinds have been known to take a pilgrimage to this ancient landscape where they pick through one amongst many Dragon remains. Once he finds a suitable corpse, the Vampire or Necromancer who use the excess Dark Magic that contaminates the land to resurrect the Dragon back to life as his eternal combat mount. These once majestic creatures stagger upright once more with a great despairing roar before stooping to allow their new master to ride atop their powerful shoulders.\n\n— Warhammer Armies: Vampire Counts (8th Edition), p. 49",
@@ -32668,8 +32668,8 @@
       "Portrait",
       "Portrait Talk"
     ],
-    "bytes": 535482,
-    "sha256": "854904f4a6f2b3eefb955a26f020666be163260d8d6731a61a2d7a269e64a9db",
+    "bytes": 535854,
+    "sha256": "69feb1f49e952db1eba575331dd95da73ef55911c2c072b644b6995991b3ec81",
     "authors": [
       {
         "name": "Unsanctioned Magic",
@@ -32763,16 +32763,16 @@
       "vampiredragonfade\\saddletrim.tga": "textures/VampireDragonFade/SaddleTrim.tga",
       "vampiredragonfade\\thronetrim.tga": "textures/VampireDragonFade/ThroneTrim.tga"
     },
-    "downloadPack": "downloads/zombie-dragon-von-carstein-hero-854904f4/WH_VC_ZombieDragonVCarsteinHero01.zip",
+    "downloadPack": "downloads/zombie-dragon-von-carstein-hero-69feb1f4/WH_VC_ZombieDragonVCarsteinHero02.zip",
     "captureSequence": "Stand - 1",
     "captureTime": 400,
     "captureFormationYaw": 0.65,
-    "imageVersion": "20261109-zombie-dragon-variants",
+    "imageVersion": "20261109-von-carstein-bindings",
     "searchDescription": "Preview and download the Zombie Dragon - Von Carstein Hero model for Warcraft III and WarhammerCraft.",
     "changelog": [
       {
         "date": "9 November 2026",
-        "text": "Added hero variation, fixed emitter colors on morph animations and removed unused materials."
+        "text": "Added hero variation, fixed emitter colors on morph animations and removed unused materials. Improved bone bindings and adjusted geosets."
       }
     ]
   },
