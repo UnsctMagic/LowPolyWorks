@@ -1,5 +1,7 @@
 # MDLxL tutorial capture sources
 
+These scripts reproduce historical recordings. For current tutorials, follow the [MDLxL tutorial design rules](../../AGENTS.md#mdlxl-tutorial-design).
+
 Source snapshot used to record the French/German tutorials. This is the existing native Electron/CDP → BMP → FFmpeg global-palette workflow, with localized control lookups. It does not generate translated screenshot overlays or mutate the application source.
 
 The original seven guides produce 25 GIFs and 17 PNGs per language. The [FX continuation](fx/README.md) adds four GIFs and one PNG per language: the eight-guide inventory was 29 GIFs and 18 PNGs per locale. Anchor/Align/Live/Corpse reuse `D:/Codex/lpw-tutorial-languages/captures/es/`; Glow Up reuses the accepted `D:/Codex/lpw-glow-up-revision/capture.cjs`. Ribbon and OptimizeXL reuse the same capture runtime/encoding from `D:/Codex/lpw-fx-tutorial-20261102/source/authoring/`; their action sequences were reconstructed from site commit `0c4126bb22f0ca98587241e7b275dadfe8668239`, the Spanish timeline metadata/content and `D:/Codex/lpw-ribbons-optixl-review/verification.json` because their original authoring scripts were no longer present.
@@ -24,12 +26,8 @@ For a proven sidebar-only label change outside every GIF crop, `node captures/pr
 - BMP conversion uses System.Drawing before FFmpeg because the established binary cannot decode PNG. Repeated frames are hardlinked only in task-owned disposable encoding directories. No recursive cleanup follows a junction.
 - No release assets, publication, installed app, real profile or original model are modified. Reports, source provenance and final media hashes are kept in the task's report folder; raw frames/profiles are disposable.
 
-## Shared hotkey playback
+## Current web delivery
 
-`dist/mdlxl/tutorials/playback.js` owns the browser shortcut badge. Native GIF bytes and `animation-index.json` cue tracks are separate inputs; do not re-record them to repair a browser badge. Continuous cue tracks that cover the rest of a clip hold their first instructional shortcut through the opening pause, so repeats do not hide the badge. Partial-action cues (for example camera rotation) retain their explicit empty intervals. Update text only when the shortcut changes, and enforce the one-second readable hold across loop boundaries as well as within a loop.
+The tutorial library serves standalone MP4 clips. The seven language indexes provide frame timing and localized keyboard cues for the native video player. Keep the MP4 hash in each content URL in sync with the published bytes.
 
-Run `node --test tools/tutorial-hotkeys.test.mjs` after player changes. For visible verification, observe at least two complete loops of every cue-bearing clip in every locale, including the repeat boundary. Count actual shortcut DOM changes and hidden intervals; frame counts and decoder success alone do not verify the badge. Record source revision, affected clip names/locales, loop count, and result in the task report. Keep screenshots at page display size and use a delayed near-end cue to verify the readable hold under skipped frames.
-
-## Web animation delivery
-
-The seven small `animation-index.json` files are the timing/key-cue source used by the website and capture tools. Encoders write standalone GIFs and metadata only. After changing accepted GIFs or cue data, run `node tools/tutorial-animation-index.mjs` to refresh the content-hashed GIF URLs. No `animation-data.js` or companion Base64 payload module belongs in `dist/`; the project check rejects them. Offline file-open reviews may keep embedded payloads outside the published tree. The tutorial library loads no animation data; individual visible clips fetch their original GIFs on demand. Run `node --test tools/tutorial-hotkeys.test.mjs tools/tutorial-loading.test.mjs` after delivery changes.
+Run the tutorial-hotkeys and tutorial-loading tests after changing delivery. Check actual looping playback, cue readability and green ping placement at desktop and mobile page sizes.

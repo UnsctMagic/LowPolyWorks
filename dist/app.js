@@ -9,7 +9,7 @@ import {wheelSelect} from './wheel-select.js?v=20261022-wheel-animations';
 import {TEAM_COLORS} from './vendor/mdlxl/src/team-colors.js';
 import {recordUsage} from './usage.js?v=20261012-shredder-cloudflare';
 import {renderJournal} from './journal.js?v=20261022-tzeentch-warrior';
-import {renderMdlxl} from './mdlxl.js?v=20261109-spread-pieces';
+import {renderMdlxl} from './mdlxl.js?v=20261109-tutorial-mp4';
 import {readMdlxlRoute,mdlxlHref} from './mdlxl-routes.js?v=20261109-spread-pieces';
 const initialMdlxl=readMdlxlRoute(location);if(initialMdlxl&&location.hash.startsWith('#project/mdlxl'))history.replaceState(null,'',mdlxlHref(initialMdlxl.section,initialMdlxl.tutorial,location.search));
 const app=document.querySelector('#app'),baseCatalogue=await fetch('catalogue.json?v=20261109-von-carstein-update-note').then(r=>r.json());

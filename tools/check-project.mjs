@@ -14,7 +14,7 @@ const project = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const root = path.join(project, 'dist');
 for (const {id} of tutorialLanguages) {
   const directory=path.join(root,'mdlxl/tutorials',id==='en'?'':id);
-  assert(!fs.readdirSync(directory).some(name=>/(?:^|-)animation-data\.js$/.test(name)), 'Do not publish duplicate tutorial GIF payloads: '+id);
+  assert(!fs.readdirSync(directory,{recursive:true}).some(name=>/\.gif$|(?:^|-)animation-data\.js$/i.test(name)), 'Publish standalone MP4s for tutorials: '+id);
 }
 const read = name => JSON.parse(fs.readFileSync(path.join(root, name), 'utf8'));
 const exists = name => assert(fs.existsSync(path.join(root, name)), `Missing ${name}`);

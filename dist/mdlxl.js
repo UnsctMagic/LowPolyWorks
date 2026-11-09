@@ -130,7 +130,7 @@ export async function renderMdlxl(app,routeIsCurrent,recordUsage){
  const latestTask=latestPromise.then(release=>{if(!currentDownload())return;const url=downloadUrl(release);if(!url)throw Error('No application ZIP');button.href=url;button.removeAttribute('aria-disabled');app._mdlxlDownloadVersion=release.tag_name;app._mdlxlDownloadError=false;button.textContent=t('Download')+' '+release.tag_name+' ↗';app.querySelector('#mdlxl-version').textContent=t('Windows · Portable ZIP');const source=release.assets?.find(a=>/FFmpeg-corresponding-source.*\.zip$/i.test(a.name));if(source){const link=app.querySelector('#mdlxl-ffmpeg-source');link.href=source.browser_download_url;link.hidden=false;}}).catch(()=>{if(currentDownload()){button.href=PERMANENT_DOWNLOAD;button.textContent=t('Download')+' ↗';app.querySelector('#mdlxl-version').textContent=t('Windows · Portable ZIP');}});
  const panel=app.querySelector('#mdlxl-content');
  if(section==='tutorials'){
-  try{const {renderTutorials}=await import('./mdlxl-tutorials.js?v=20261109-spread-pieces');if(!isCurrent())return;await renderTutorials(panel,isCurrent,navigation.tutorial);}catch{if(isCurrent())panel.innerHTML=localize('<p>Tutorials could not load. Please reload the page.</p>');}
+  try{const {renderTutorials}=await import('./mdlxl-tutorials.js?v=20261109-tutorial-mp4');if(!isCurrent())return;await renderTutorials(panel,isCurrent,navigation.tutorial);}catch{if(isCurrent())panel.innerHTML=localize('<p>Tutorials could not load. Please reload the page.</p>');}
   await latestTask;return;
  }
  if(section!=='tutorials'){delete panel.dataset?.tutorialLanguage;panel.removeAttribute?.('lang');}

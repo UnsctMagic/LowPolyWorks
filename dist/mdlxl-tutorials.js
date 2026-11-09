@@ -1,38 +1,30 @@
 import {applyMdlxlShellLanguage} from './mdlxl-languages.js?v=20261104-fr-de-fx';
 import {mdlxlHref} from './mdlxl-routes.js?v=20261109-spread-pieces';
-import {mountTutorialPlayers} from './mdlxl/tutorials/playback.js?v=20261104-lazy-media';
+import {mountTutorialPlayers} from './mdlxl/tutorials/playback.js?v=20261109-tutorial-mp4';
 import {startToolPings} from './mdlxl/tutorials/highlights.js?v=20261030-tutorial-languages';
 import {recordTutorial} from './usage.js?v=20261031-tutorial-views';
 import {tutorialLanguages,tutorialText} from './mdlxl/tutorials/languages.js?v=20261104-fr-de-fx';
-const version='20261109-spread-pieces';
+const version='20261109-tutorial-mp4';
 const valid=language=>tutorialLanguages.some(item=>item.id===language);
-function loadPlayers(state) {
+async function loadPlayers(state,article) {
   const content=state.body.firstElementChild;
-  if(content._playersPending)return;
-  content._playersPending=true;
-  const prefix=content.dataset.tutorialLocale==='en'?'':content.dataset.tutorialLocale+'/';
-  fetch('/mdlxl/tutorials/'+prefix+'animation-index.json?v='+version).then(response=>{
-    if(!response.ok)throw Error('Tutorial animation metadata could not load');
-    return response.json();
-  }).then(animations=>{if(content.isConnected)mountTutorialPlayers(content,animations);}).catch(error=>{
-    content._playersPending=false;if(content.isConnected)console.error('Tutorial animations',error);
-  });
-}
-function observeTutorialVideos(article) {
-  const videos=[...(article?.querySelectorAll('video[data-tutorial-video]')??[])];
-  if(!videos.length)return;
-  const autoplay=!matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const stop=()=>{observer.disconnect();for(const video of videos)video.pause();};
-  const observer=new IntersectionObserver(entries=>{
-    if(!article.isConnected){stop();return;}
-    for(const {target:video,isIntersecting} of entries){
-      if(!isIntersecting){video.pause();continue;}
-      if(!video.hasAttribute('src'))video.src=video.dataset.tutorialVideo;
-      if(autoplay)video.play().catch(()=>{});
+  const generation=state.generation;
+  const current=()=>generation===state.generation&&state.isCurrent()&&article.isConnected&&!article.hidden;
+  try {
+    let animations={};
+    if(article.querySelector('[data-animation]')){
+      const prefix=content.dataset.tutorialLocale==='en'?'':content.dataset.tutorialLocale+'/';
+      content._tutorialAnimations??=fetch('/mdlxl/tutorials/'+prefix+'animation-index.json?v='+version).then(response=>{
+        if(!response.ok)throw Error('Tutorial video metadata could not load');
+        return response.json();
+      });
+      animations=await content._tutorialAnimations;
     }
-  });
-  for(const video of videos){video.poster=video.dataset.poster;observer.observe(video);}
-  return stop;
+    if(current())state.stopVideos=mountTutorialPlayers(article,animations);
+  }catch(error){
+    delete content._tutorialAnimations;
+    if(current())console.error('Tutorial video metadata',error);
+  }
 }
 function showTutorial(state) {
   const cards=[...state.body.querySelectorAll('.tutorial-card')];
@@ -44,8 +36,8 @@ function showTutorial(state) {
   for(const card of cards){state.body.querySelector('#'+card.getAttribute('aria-controls')).hidden=card!==selected;card.href=mdlxlHref('tutorials',card.dataset.tutorial,search);}
   state.stopVideos?.();
   const article=selected?state.body.querySelector('#'+selected.getAttribute('aria-controls')):null;
-  state.stopVideos=observeTutorialVideos(article);
-  if(article?.querySelector('[data-animation]'))loadPlayers(state);
+  state.stopVideos=null;
+  if(article)loadPlayers(state,article);
   state.body.querySelector('#tutorial-back').href=mdlxlHref('tutorials',undefined,search);
   const heading=selected?state.body.querySelector('#'+selected.getAttribute('aria-controls')+' h3'):state.title;
   if(document.activeElement!==state.select){heading.tabIndex=-1;heading.focus({preventScroll:true});}
@@ -54,7 +46,7 @@ function showTutorial(state) {
 }
 export async function renderTutorials(panel,isCurrent,requested) {
   if(!document.getElementById('mdlxl-tutorial-style')){
-    const style=document.createElement('link');style.id='mdlxl-tutorial-style';style.rel='stylesheet';style.href='/mdlxl-tutorials.css?v=20261109-spread-pieces';document.head.append(style);
+    const style=document.createElement('link');style.id='mdlxl-tutorial-style';style.rel='stylesheet';style.href='/mdlxl-tutorials.css?v=20261109-tutorial-mp4';document.head.append(style);
   }
   let state=panel._tutorialController;
   if(!state||!state.header.isConnected){
@@ -77,7 +69,6 @@ export async function renderTutorials(panel,isCurrent,requested) {
     if(!response.ok)throw Error('Tutorial language could not load');
     const markup=await response.text();if(generation!==state.generation||!state.isCurrent()||!panel.isConnected)return;
     const content=document.createElement('div');content.className='tutorial-language-body';content.dataset.tutorialLocale=language;content.innerHTML=markup;for(const image of content.querySelectorAll('img'))image.loading='lazy';state.body.replaceChildren(content);
-    for(const host of content.querySelectorAll('[data-animation]'))host.dataset.language=language;
     state.loadedLanguage=language;startToolPings(content);showTutorial(state);
   }catch(error){if(generation===state.generation&&state.isCurrent()&&panel.isConnected)state.body.textContent=text.error;}
 }
