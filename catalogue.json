@@ -32077,5 +32077,312 @@
     "captureFormationYaw": 0.65,
     "imageVersion": "20261108-von-carstein-dragon01",
     "searchDescription": "Preview and download Zombie Dragon - Von Carstein, a Vampire Counts model for Warcraft III and WarhammerCraft."
+  },
+  {
+    "id": "zombie-dragon-riderless",
+    "file": "WH_VC_ZombieDragon01.mdx",
+    "name": "Zombie Dragon Riderless",
+    "army": "vampire-counts",
+    "description": "The Plain of Bones is a harsh and lifeless landscape of multicoloured sand and tainted rock located to the east of the Worlds Edge Mountains, from which protrude huge rib cages of ancient primeval Dragons. This is the place where Dragons of ancient times once came to die, to rest their bones amongst those of their ancestors as they had done for millions of years, before any other sentient beings walked the world.\n\nHere lies the bones of the great ancestral Dragons: skulls the size of castle towers lie mingled with leg bones larger than the mast of an Imperial warship. These bones date from the ancients days of the draconic race. Though today's Dragons are of a lesser breed, they are still incomparably mightier than other races of the world. However, following the arrival of Chaos, the Plain of Bones has since become saturated with large amounts of Dark Magic. This magic eventually contaminated the remains of these Dragons, forcing them to rise once more as the first Zombie Dragons.",
+    "credits": "Model Base - Gnome Dragonrider by Direfury (Animations) / Lindormr Dragon by Olofmoleman (Dragon Body) / Dread Knight/Death Knight by Direfury (Rider Body)\n\nOriginal Dragon Reskin - Skeletal Dragon / Frostwyrm Remake by Mister_Haudrauf, based on Lindormr Dragon by Olofmoleman",
+    "geosets": [
+      {
+        "index": 0,
+        "vertices": 34,
+        "triangles": 57,
+        "material": 2,
+        "textures": [
+          "Buildings\\Other\\DragonBuildingBlack\\DragonRoostBlack.blp",
+          "Buildings\\Other\\DragonBuildingBlack\\DragonRoostBlack.blp"
+        ]
+      },
+      {
+        "index": 1,
+        "vertices": 56,
+        "triangles": 48,
+        "material": 8,
+        "textures": [
+          "UI\\Glues\\SinglePlayer\\HumanCampaign3D\\HumanCampaignTree.blp",
+          "UI\\Glues\\SinglePlayer\\HumanCampaign3D\\HumanCampaignTree.blp"
+        ]
+      },
+      {
+        "index": 2,
+        "vertices": 160,
+        "triangles": 234,
+        "material": 1,
+        "textures": [
+          "Textures\\Skeleton.blp",
+          "Textures\\Skeleton.blp"
+        ]
+      },
+      {
+        "index": 3,
+        "vertices": 156,
+        "triangles": 190,
+        "material": 15,
+        "textures": [
+          "Units\\Other\\DalaranMutant\\ZombieB.blp",
+          "Units\\Other\\DalaranMutant\\ZombieB.blp"
+        ]
+      },
+      {
+        "index": 4,
+        "vertices": 20,
+        "triangles": 18,
+        "material": 0,
+        "textures": [
+          "Units\\Undead\\FrostWyrm\\FrostWyrm.blp",
+          "Units\\Undead\\FrostWyrm\\FrostWyrm.blp"
+        ]
+      },
+      {
+        "index": 5,
+        "vertices": 24,
+        "triangles": 12,
+        "material": 5,
+        "textures": [
+          "Units\\Undead\\FrostWyrm\\FrostWyrm.blp",
+          "Units\\Undead\\FrostWyrm\\FrostWyrm.blp"
+        ]
+      },
+      {
+        "index": 6,
+        "vertices": 49,
+        "triangles": 40,
+        "material": 0,
+        "textures": [
+          "Units\\Undead\\FrostWyrm\\FrostWyrm.blp",
+          "Units\\Undead\\FrostWyrm\\FrostWyrm.blp"
+        ]
+      },
+      {
+        "index": 7,
+        "vertices": 92,
+        "triangles": 104,
+        "material": 0,
+        "textures": [
+          "Units\\Undead\\FrostWyrm\\FrostWyrm.blp",
+          "Units\\Undead\\FrostWyrm\\FrostWyrm.blp"
+        ]
+      },
+      {
+        "index": 8,
+        "vertices": 68,
+        "triangles": 48,
+        "material": 4,
+        "textures": [
+          "Doodads\\Ashenvale\\Props\\ScorchedRemains\\Demonized.blp",
+          "Doodads\\Ashenvale\\Props\\ScorchedRemains\\Demonized.blp"
+        ]
+      },
+      {
+        "index": 9,
+        "vertices": 28,
+        "triangles": 38,
+        "material": 14,
+        "textures": [
+          "Team colour",
+          "Team colour",
+          "Units\\Other\\DalaranMutant\\ZombieB.blp",
+          "Units\\Other\\DalaranMutant\\ZombieB.blp"
+        ]
+      },
+      {
+        "index": 10,
+        "vertices": 9,
+        "triangles": 12,
+        "material": 3,
+        "textures": [
+          "Textures\\Abomination.blp",
+          "Textures\\Abomination.blp"
+        ]
+      },
+      {
+        "index": 11,
+        "vertices": 42,
+        "triangles": 44,
+        "material": 6,
+        "textures": [
+          "Textures\\GiantSeaTurtle.blp",
+          "Textures\\GiantSeaTurtle.blp"
+        ]
+      },
+      {
+        "index": 12,
+        "vertices": 47,
+        "triangles": 72,
+        "material": 10,
+        "textures": [
+          "Textures\\BlackDragon.blp",
+          "Textures\\BlackDragon.blp"
+        ]
+      },
+      {
+        "index": 13,
+        "vertices": 17,
+        "triangles": 16,
+        "material": 7,
+        "textures": [
+          "Team colour",
+          "Team colour",
+          "Units\\Undead\\Ghoul\\Ghoul.blp",
+          "Units\\Undead\\Ghoul\\Ghoul.blp"
+        ]
+      },
+      {
+        "index": 14,
+        "vertices": 8,
+        "triangles": 4,
+        "material": 9,
+        "textures": [
+          "Textures\\purple_glow.blp",
+          "Textures\\purple_glow.blp"
+        ]
+      },
+      {
+        "index": 15,
+        "vertices": 28,
+        "triangles": 24,
+        "material": 13,
+        "textures": [
+          "Textures\\DeathScream.blp",
+          "Textures\\DeathScream.blp"
+        ]
+      },
+      {
+        "index": 16,
+        "vertices": 7,
+        "triangles": 6,
+        "material": 11,
+        "textures": [
+          "Textures\\GiantSeaTurtle.blp",
+          "Textures\\GiantSeaTurtle.blp"
+        ]
+      },
+      {
+        "index": 17,
+        "vertices": 140,
+        "triangles": 120,
+        "material": 13,
+        "textures": [
+          "Textures\\DeathScream.blp",
+          "Textures\\DeathScream.blp"
+        ]
+      },
+      {
+        "index": 18,
+        "vertices": 34,
+        "triangles": 63,
+        "material": 12,
+        "textures": [
+          "Textures\\BoneYardCreepy.blp",
+          "Textures\\BoneYardCreepy.blp"
+        ]
+      },
+      {
+        "index": 19,
+        "vertices": 4,
+        "triangles": 2,
+        "material": 16,
+        "textures": [
+          "Team glow"
+        ]
+      },
+      {
+        "index": 20,
+        "vertices": 208,
+        "triangles": 168,
+        "material": 17,
+        "textures": [
+          "Textures\\gutz.blp"
+        ]
+      },
+      {
+        "index": 21,
+        "vertices": 120,
+        "triangles": 60,
+        "material": 19,
+        "textures": [
+          "Textures\\Abomination.blp",
+          "Textures\\Abomination.blp"
+        ]
+      }
+    ],
+    "sequences": [
+      "Walk",
+      "Stand - 1",
+      "Stand - 2",
+      "Stand Ready",
+      "Attack - 1",
+      "Attack - 2",
+      "Attack Slam",
+      "Spell",
+      "Spell Slam",
+      "Death",
+      "Decay Flesh",
+      "Decay Bone",
+      "Morph",
+      "Stand Alternate",
+      "Stand Alternate - 2",
+      "Walk Alternate",
+      "Walk Alternate - 2",
+      "Stand Ready Alternate",
+      "Spell Attack Alternate",
+      "Morph Alternate",
+      "Death Alternate",
+      "Portrait",
+      "Portrait Talk"
+    ],
+    "bytes": 275411,
+    "sha256": "b8cd6c8e38a742085e0f345bf2fc931d44cd7552ff2e722f4b36fce92c5bb20f",
+    "authors": [
+      {
+        "name": "Unsanctioned Magic",
+        "url": "https://xgm.guru/user/UnsanctMagic"
+      },
+      {
+        "name": "Direfury",
+        "url": "https://www.hiveworkshop.com/members/direfury.188037/"
+      },
+      {
+        "name": "Olofmoleman",
+        "url": "https://www.hiveworkshop.com/members/olofmoleman.115820/"
+      }
+    ],
+    "creditLinks": [
+      {
+        "text": "Gnome Dragonrider",
+        "url": "https://www.hiveworkshop.com/threads/gnome-dragonrider.324793/"
+      },
+      {
+        "text": "Direfury",
+        "url": "https://www.hiveworkshop.com/members/direfury.188037/"
+      },
+      {
+        "text": "Lindormr Dragon",
+        "url": "https://www.hiveworkshop.com/threads/lindormr-dragon.52050/"
+      },
+      {
+        "text": "Olofmoleman",
+        "url": "https://www.hiveworkshop.com/members/olofmoleman.115820/"
+      },
+      {
+        "text": "Dread Knight/Death Knight",
+        "url": "https://www.hiveworkshop.com/threads/dread-knight-death-knight.252328/"
+      },
+      {
+        "text": "Skeletal Dragon / Frostwyrm Remake",
+        "url": "https://www.hiveworkshop.com/threads/skeletal-dragon-frostwyrm-remake.294139/"
+      },
+      {
+        "text": "Mister_Haudrauf",
+        "url": "https://www.hiveworkshop.com/members/mister_haudrauf.236714/"
+      }
+    ],
+    "captureSequence": "Stand - 1",
+    "captureTime": 400,
+    "captureFormationYaw": 0.65,
+    "searchDescription": "Preview and download Zombie Dragon Riderless, a Vampire Counts model for Warcraft III and WarhammerCraft."
   }
 ]
