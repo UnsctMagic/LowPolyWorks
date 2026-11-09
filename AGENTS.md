@@ -4,6 +4,10 @@
 - Preserve authored team-glow geometry and effects in live previews and captured model images. Transparent captures must retain the glow without an opaque background rectangle.
 - Verify colour changes on the model itself before publishing; changing a card background does not verify a team-colour change.
 
+## MDLxL tutorial design
+
+- Use the standard animated green ring and crosshair to mark each demonstrated control on the recording when the lesson introduces it. Before publishing, review playback at desktop and mobile page size and check that each ping is present, readable, and centered on the actual control.
+
 ## Warriors of Chaos card sizing
 
 - Every grouped Warriors of Chaos card must cycle through all its live variants on successive page loads, using the variant list automatically. Keep the chosen picture stable during navigation within a load; do not use a timer or a hard-coded subset.
