@@ -29,6 +29,8 @@ export async function createViewer(canvas,row,{thumbnail=false,portrait=false,fo
  if(portrait&&firstPortraitSequenceIndex(model)>=0)sequence=firstPortraitSequenceIndex(model);
  let looping=!model.Sequences[sequence].NonLooping;
  let portraitActive=portrait,portraitDetached=false,worldView=null;
+ let turntableYaw=0,turntableSpeed=1,navigating=false;
+ const turntableAxis=new THREE.Vector3(0,0,1),inverseTurntable=new THREE.Quaternion();
  // Lighting is In game, Portrait or None. Portrait views select Portrait lighting and
  // restore the previous choice on leaving; the viewer can override either.
  let lightingMode=portrait?'portrait':'game',viewLighting='game';
@@ -38,7 +40,7 @@ export async function createViewer(canvas,row,{thumbnail=false,portrait=false,fo
  // Match MDLxL's MDX load boundary: animated KGAC is BGR; static GEOA is already RGB.
  if(!/\.mdl$/i.test(row.file||row.name||''))model.GeosetAnims=convertMdxGeosetColorTracks(model.GeosetAnims);
  const displayLight=()=>new THREE.Vector3(-.65,.55,1);
- const native=new ModelRenderer(model),adapter=installWarcraftPreviewAdapter(gl,model,()=>({frame:native.getFrame(),sequenceIndex:sequence,globalTime:clock,lighting:lightingMode!=='none'&&preferences.graphics.lighting,portrait:lightingMode==='portrait',hiddenGeosets:formation?scenery:undefined,preferences,lightDirection:lightingMode==='portrait'?[.3,-.3,.25]:displayLight().toArray(),viewDirection:camera.getWorldDirection(new THREE.Vector3()).negate().toArray()}));if(thumbnail&&row.captureRibbons===false)native.ribbonsController.emitters.length=0;if(thumbnail&&row.captureEmitters===false){native.particlesController.emitters.length=0;native.ribbonsController.emitters.length=0;}installParticleNativeCompatibility(native);initializeWarcraftRenderer(native,gl);adapter.ready(native);gl.depthFunc(gl.LEQUAL);
+ const native=new ModelRenderer(model),adapter=installWarcraftPreviewAdapter(gl,model,()=>({frame:native.getFrame(),sequenceIndex:sequence,globalTime:clock,lighting:lightingMode!=='none'&&preferences.graphics.lighting,portrait:lightingMode==='portrait',hiddenGeosets:formation?scenery:undefined,preferences,lightDirection:(lightingMode==='portrait'?new THREE.Vector3(.3,-.3,.25):displayLight()).applyQuaternion(inverseTurntable).toArray(),viewDirection:renderCamera.getWorldDirection(new THREE.Vector3()).negate().toArray()}));if(thumbnail&&row.captureRibbons===false)native.ribbonsController.emitters.length=0;if(thumbnail&&row.captureEmitters===false){native.particlesController.emitters.length=0;native.ribbonsController.emitters.length=0;}installParticleNativeCompatibility(native);initializeWarcraftRenderer(native,gl);adapter.ready(native);gl.depthFunc(gl.LEQUAL);
  // The Champion's skin and bracer overlap at their differently weighted elbow seam.
  // Bias only the bracer's opaque layer so depth rounding cannot stripe that edge.
  if(row.id==='aspiring'){
@@ -50,6 +52,8 @@ export async function createViewer(canvas,row,{thumbnail=false,portrait=false,fo
  await Promise.all([teamTextures.colour(native,teamColor),...model.Textures.filter(t=>t.Image&&!teamTextures.textures.has(t)).map(async t=>{native.setTextureImageData(t.Image,[await textureData(t.Image,row)]);improveNativeTexture(gl,native,t.Image,graphics);})]);
  const captureOrthographic=thumbnail&&row.captureOrthographic;
  const camera=captureOrthographic?new THREE.OrthographicCamera(-200,200,200,-200,.1,3000):new THREE.PerspectiveCamera(32,1,.1,3000);camera.up.set(0,0,1);
+ const turntableCamera=thumbnail?null:camera.clone();
+ let renderCamera=camera;
  native.setSequence(sequence);native.setLightColor([1,1,1]);
  previous=advanceShowcaseModel(native,model,{frame:model.Sequences[sequence].Interval[0],sequenceIndex:sequence,globalTime:0,revision,segment:sequence},previous);
  // Frame the drawn pose, excluding portrait scenery and invisible variants.
@@ -81,7 +85,6 @@ export async function createViewer(canvas,row,{thumbnail=false,portrait=false,fo
  }
  let clipRadius=sequenceClipRadius(sequence);
  const navigation=!thumbnail?bindVertexCamera(camera,canvas):null,controls=navigation?.controls;
- if(controls)controls.autoRotateSpeed=1.2;
  // The live view faces the model head-on, centred on its body, and frames the drawn pose
  // tightly, so every model fills the same share of the viewport.
  function frontView(aspect){
@@ -101,25 +104,55 @@ export async function createViewer(canvas,row,{thumbnail=false,portrait=false,fo
  if(thumbnail&&row.captureCameraAngles){setEditorCameraAngles(camera,center,row.captureCameraAngles);if(captureOrthographic){camera.left=-radius;camera.right=radius;camera.top=radius;camera.bottom=-radius;camera.updateProjectionMatrix();}}
  const portraitControls={target:new THREE.Vector3(),object:camera,update(){}};
  const detachPortrait=()=>{if(portraitActive)portraitDetached=true;};
- controls?.addEventListener('start',detachPortrait);
+ const startNavigation=()=>{navigating=true;detachPortrait();};
+ const endNavigation=()=>{navigating=false;};
+ controls?.addEventListener('start',startNavigation);
+ controls?.addEventListener('end',endNavigation);
  function setLivePortrait(active){
-  if(active&&!portraitActive){worldView={camera:camera.clone(),target:controls.target.clone(),minDistance:controls.minDistance,maxDistance:controls.maxDistance};controls.minDistance=.001;controls.maxDistance=Infinity;}
-  if(!active&&portraitActive&&worldView){camera.copy(worldView.camera);controls.target.copy(worldView.target);controls.minDistance=worldView.minDistance;controls.maxDistance=worldView.maxDistance;controls.update();worldView=null;}
+  if(active&&!portraitActive){worldView={camera:camera.clone(),target:controls.target.clone(),minDistance:controls.minDistance,maxDistance:controls.maxDistance,turntableYaw};controls.minDistance=.001;controls.maxDistance=Infinity;}
+  if(!active&&portraitActive&&worldView){camera.copy(worldView.camera);controls.target.copy(worldView.target);controls.minDistance=worldView.minDistance;controls.maxDistance=worldView.maxDistance;turntableYaw=worldView.turntableYaw;controls.update();worldView=null;}
   if(active!==portraitActive){if(active)viewLighting=lightingMode;lightingMode=active?'portrait':viewLighting;onLightingChange?.(lightingMode);}
+  if(active)turntableYaw=0;
   portraitActive=active;portraitDetached=false;onPortraitModeChange?.(active);
  }
  const maxSize=Math.min(gl.getParameter(gl.MAX_RENDERBUFFER_SIZE),...gl.getParameter(gl.MAX_VIEWPORT_DIMS)),msaaSamples=gl.getParameter(gl.SAMPLES);
  function render(delta=0){if(disposed)return;const w=Math.max(1,canvas.clientWidth||480),h=Math.max(1,canvas.clientHeight||480),scale=Math.min(graphics.pixelRatio,maxSize/Math.max(w,h));const width=Math.round(w*scale),height=Math.round(h*scale);if(canvas.width!==width||canvas.height!==height){canvas.width=width;canvas.height=height;canvas.dataset.renderScale=String(scale);canvas.dataset.msaaSamples=String(msaaSamples);}// Preserve the current orbit and pan while keeping the same framing on resize.
  if(!thumbnail&&!portraitActive&&camera.aspect!==w/h)camera.zoom*=Math.min(1,w/h)/Math.min(1,camera.aspect);
- camera.aspect=w/h;camera.updateProjectionMatrix();camera.updateMatrixWorld();native.setLightPosition(displayLight().normalize().multiplyScalar(radius*10).add(center).toArray());
+ camera.aspect=w/h;camera.updateProjectionMatrix();camera.updateMatrixWorld();
  clock+=delta*speed;const sample=viewerPlaybackSample(model,sequence,clock,revision,looping),frame=sample.frame;
  if(portraitActive&&!portraitDetached){const evaluated=evaluateModelCamera(model,model.Cameras[0],frame,sequence,clock);if(!applyEvaluatedModelCamera(camera,controls||portraitControls,evaluated,w/h))throw Error('Portrait camera unavailable.');}
+ // Apply the inverse of a ground-plane model spin to the render camera so
+ // the authored origin stays fixed, even after the navigation camera pans.
+ renderCamera=camera;
+ inverseTurntable.identity();
+ if((!portraitActive||portraitDetached)&&turntableYaw){
+  inverseTurntable.setFromAxisAngle(turntableAxis,-turntableYaw);
+  renderCamera=turntableCamera.copy(camera);
+  renderCamera.position.applyQuaternion(inverseTurntable);
+  renderCamera.quaternion.premultiply(inverseTurntable);
+  renderCamera.updateMatrixWorld();
+ }
+ native.setLightPosition(displayLight().normalize().multiplyScalar(radius*10).add(center).applyQuaternion(inverseTurntable).toArray());
  // Keep depth precision around the model as playback and mouse navigation change the view.
- if(!portraitActive||portraitDetached)updateDepthClipping(camera,center,radius,clipRadius);
+ if(!portraitActive||portraitDetached)updateDepthClipping(renderCamera,center,radius,clipRadius);
  // Warcraft particle planes and billboard nodes use +X as forward and +Z as up.
- setWarcraftCamera(native,camera);previous=advanceShowcaseModel(native,model,sample,previous);
- gl.viewport(0,0,canvas.width,canvas.height);gl.clearColor(...(portraitActive||transparent?[0,0,0]:[16/255,24/255,39/255]),transparent?0:1);gl.clearDepth(1);gl.depthMask(true);gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT);native.render(camera.matrixWorldInverse.elements,camera.projectionMatrix.elements,{wireframe:false,useEnvironmentMap:true});}
- let last=performance.now(),raf;function tick(now){if(disposed)return;const delta=Math.min(70,now-last);last=now;controls?.update(delta/1000);render(playing?delta:0);if(playing&&!looping&&clock>=model.Sequences[sequence].Interval[1]-model.Sequences[sequence].Interval[0]){playing=false;onPlayingChange?.(playing);}raf=requestAnimationFrame(tick);}render();
+ setWarcraftCamera(native,renderCamera);previous=advanceShowcaseModel(native,model,sample,previous);
+ gl.viewport(0,0,canvas.width,canvas.height);gl.clearColor(...(portraitActive||transparent?[0,0,0]:[16/255,24/255,39/255]),transparent?0:1);gl.clearDepth(1);gl.depthMask(true);gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT);native.render(renderCamera.matrixWorldInverse.elements,renderCamera.projectionMatrix.elements,{wireframe:false,useEnvironmentMap:true});}
+ let last=performance.now(),raf;
+ function tick(now){
+  if(disposed)return;
+  const delta=Math.min(70,now-last);
+  last=now;
+  // Match the previous 50-second revolution at the default 1× orbit speed.
+  if(rotate&&!navigating&&(!portraitActive||portraitDetached))turntableYaw=(turntableYaw+delta*turntableSpeed*(2*Math.PI/50000))%(2*Math.PI);
+  controls?.update();
+  render(playing?delta:0);
+  if(playing&&!looping&&clock>=model.Sequences[sequence].Interval[1]-model.Sequences[sequence].Interval[0]){
+   playing=false;onPlayingChange?.(playing);
+  }
+  raf=requestAnimationFrame(tick);
+ }
+ render();
  if(!thumbnail)raf=requestAnimationFrame(tick);
- return {model,render,...(thumbnail?{captureFrame:()=>({center:center.clone(),radius,clipRadius,camera:camera.clone()}),useCaptureFrame(frame){center.copy(frame.center);radius=frame.radius;clipRadius=frame.clipRadius;camera.copy(frame.camera);revision++;previous=null;render();}}:{}),formationAnchor:()=>new THREE.Vector3(0,0,center.z).project(camera).x/2+.5,snapshot:()=>canvas.toDataURL('image/png'),sequence(i){sequence=i;clipRadius=sequenceClipRadius(i);looping=!model.Sequences[i].NonLooping;clock=0;revision++;previous=null;native.setSequence(i);if(!thumbnail)setLivePortrait(/portrait/i.test(model.Sequences[i].Name));render();return looping;},play(){if(!playing){playing=true;onPlayingChange?.(playing);}},loop(v){looping=v;clock=0;revision++;previous=null;render();},looping:()=>looping,pause(){playing=!playing;if(playing&&!looping&&clock>=model.Sequences[sequence].Interval[1]-model.Sequences[sequence].Interval[0]){clock=0;revision++;previous=null;render();}onPlayingChange?.(playing);return playing;},speed(v){speed=v;},orbitSpeed(v){if(controls)controls.autoRotateSpeed=1.2*v;},lighting(mode){if(['game','portrait','none'].includes(mode)){lightingMode=mode;render();}return lightingMode;},async colour(hex){await teamTextures.colour(native,hex);if(!disposed)render();},rotate(){rotate=!rotate;if(controls){controls.autoRotate=rotate;if(rotate)detachPortrait();}return rotate;},reset(){if(portraitActive)portraitDetached=false;else fit();render();},dispose(){disposed=true;cancelAnimationFrame(raf);controls?.removeEventListener('start',detachPortrait);navigation?.dispose();adapter.dispose();gl.getExtension('WEBGL_lose_context')?.loseContext();}};
+ return {model,render,...(thumbnail?{captureFrame:()=>({center:center.clone(),radius,clipRadius,camera:camera.clone()}),useCaptureFrame(frame){center.copy(frame.center);radius=frame.radius;clipRadius=frame.clipRadius;camera.copy(frame.camera);revision++;previous=null;render();}}:{}),formationAnchor:()=>new THREE.Vector3(0,0,center.z).project(camera).x/2+.5,snapshot:()=>canvas.toDataURL('image/png'),sequence(i){sequence=i;clipRadius=sequenceClipRadius(i);looping=!model.Sequences[i].NonLooping;clock=0;revision++;previous=null;native.setSequence(i);if(!thumbnail)setLivePortrait(/portrait/i.test(model.Sequences[i].Name));render();return looping;},play(){if(!playing){playing=true;onPlayingChange?.(playing);}},loop(v){looping=v;clock=0;revision++;previous=null;render();},looping:()=>looping,pause(){playing=!playing;if(playing&&!looping&&clock>=model.Sequences[sequence].Interval[1]-model.Sequences[sequence].Interval[0]){clock=0;revision++;previous=null;render();}onPlayingChange?.(playing);return playing;},speed(v){speed=v;},orbitSpeed(v){turntableSpeed=v;},lighting(mode){if(['game','portrait','none'].includes(mode)){lightingMode=mode;render();}return lightingMode;},async colour(hex){await teamTextures.colour(native,hex);if(!disposed)render();},rotate(){rotate=!rotate;if(rotate)detachPortrait();return rotate;},reset(){turntableYaw=0;if(portraitActive)portraitDetached=false;else fit();render();},dispose(){disposed=true;cancelAnimationFrame(raf);controls?.removeEventListener('start',startNavigation);controls?.removeEventListener('end',endNavigation);navigation?.dispose();adapter.dispose();gl.getExtension('WEBGL_lose_context')?.loseContext();}};
 }
