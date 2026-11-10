@@ -92,8 +92,10 @@ footer{max-width:1740px;padding:20px 24px}
 .controls .control-row{display:grid;gap:8px 10px;align-items:center;min-width:0}
 .controls .control-row+.control-row{margin-top:10px}
 .controls .control-sequence{grid-template-columns:92px minmax(0,1fr) 104px}
+.controls .model-playback{grid-template-columns:92px minmax(0,1fr) 104px 104px}
 .controls .control-fields{grid-template-columns:92px minmax(0,1fr) 92px minmax(0,1fr);padding:10px 0;border-top:1px solid #c9b17a1f;border-bottom:1px solid #c9b17a1f}
 .controls .control-actions{grid-template-columns:minmax(0,1fr) 104px 104px 104px}
+.controls .model-actions{grid-template-columns:repeat(3,104px);justify-content:end}
 .controls .control-range{display:grid;grid-template-columns:minmax(0,1fr) 30px;gap:8px;align-items:center;min-width:0}
 .controls .control-row select{width:100%;height:36px;padding:4px 8px}
 .controls .control-row select.team-input{width:100%}
@@ -101,7 +103,7 @@ footer{max-width:1740px;padding:20px 24px}
 .controls .control-row label{font-size:.8rem;white-space:nowrap}
 .controls .range{width:100%;min-width:0}
 .controls output{text-align:right;font-size:.8rem;font-variant-numeric:tabular-nums}
-.controls .loop-option{display:flex;align-items:center;gap:7px;cursor:pointer}
+.controls #loop-animation[aria-pressed=true]{background-image:linear-gradient(#524124e8,#211910ee),var(--stone);color:#ffe2a0}
 /* Baldur's Gate style fields: stone-framed recessed boxes, carved slider grooves with brass knobs. */
 .controls .control-row select{appearance:none;-webkit-appearance:none;height:36px;padding:0 30px 0 10px;border:7px solid transparent;border-image:url('ui/slate-frame-v2.png') 180 stretch;border-radius:0;background-color:#05080f;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%23000' stroke-width='3.6'/%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%23e3c77f' stroke-width='2'/%3E%3C/svg%3E"),linear-gradient(#020409f2,#0a1122ee),var(--stone);background-repeat:no-repeat,no-repeat,repeat;background-position:right 8px center,0 0,0 0;background-size:12px 8px,auto,250px 250px;box-shadow:inset 0 2px 7px #000,0 2px 0 #020409;color:#e3c77f;font-family:'IM Fell English',Georgia,serif;font-size:.95rem;text-shadow:1px 1px 0 #000;cursor:pointer}
 /* Keep fills, including the team colour, inside the stone frame. */
@@ -117,12 +119,10 @@ footer{max-width:1740px;padding:20px 24px}
 .controls .range:hover::-webkit-slider-thumb{filter:brightness(1.15)}.controls .range:hover::-moz-range-thumb{filter:brightness(1.15)}
 .controls .range:disabled{cursor:default;opacity:.6}
 .controls output{font-size:.88rem;color:#e3c77f;font-family:'IM Fell English',Georgia,serif;text-shadow:1px 1px 0 #000}
-.controls .loop-option input{appearance:none;-webkit-appearance:none;flex:none;margin:0;width:18px;height:18px;border:2px solid;border-color:#000 #5c6b88 #5c6b88 #000;border-radius:1px;background:linear-gradient(#020409,#0e1526);box-shadow:inset 0 2px 3px #000;cursor:pointer}
-.controls .loop-option input:checked{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6.5l3 3 5-7' fill='none' stroke='%23e3c77f' stroke-width='2.2'/%3E%3C/svg%3E") center/13px no-repeat,linear-gradient(#020409,#0e1526)}
 /* The controls follow the viewer panel width, which narrows before the window does. */
 .controls{container-type:inline-size}
-@container (max-width:519px){.controls .control-row{gap:7px 8px}.controls .control-sequence{grid-template-columns:84px minmax(0,1fr) 88px}.controls .control-fields{grid-template-columns:84px minmax(0,1fr)}.controls .control-actions{grid-template-columns:minmax(0,1fr) 88px 88px 88px}.controls .control-row label{font-size:.76rem}}
-@container (max-width:299px){.controls .control-sequence{grid-template-columns:minmax(0,1fr) 84px}.controls .control-sequence label{grid-column:1/-1}.controls .control-fields{grid-template-columns:minmax(0,1fr)}.controls .control-actions{grid-template-columns:1fr 1fr}.controls .control-actions .loop-option{grid-column:1/-1}}
+@container (max-width:519px){.controls .control-row{gap:7px 8px}.controls .control-sequence{grid-template-columns:84px minmax(0,1fr) 88px}.controls .model-playback{grid-template-columns:84px minmax(0,1fr) 88px 88px}.controls .control-fields{grid-template-columns:84px minmax(0,1fr)}.controls .control-actions{grid-template-columns:minmax(0,1fr) 88px 88px 88px}.controls .model-actions{grid-template-columns:repeat(3,88px)}.controls .control-row label{font-size:.76rem}}
+@container (max-width:299px){.controls .control-sequence{grid-template-columns:minmax(0,1fr) 84px}.controls .model-playback{grid-template-columns:minmax(0,1fr) 80px 66px;column-gap:6px}.controls .control-sequence label{grid-column:1/-1}.controls .model-playback select{padding-inline:6px 24px;background-position:right 6px center,0 0,0 0}.controls .control-fields{grid-template-columns:minmax(0,1fr)}.controls .control-actions{grid-template-columns:1fr 1fr}}
 @media(max-width:560px){.controls{padding:8px}}
 
 /* Vampire Counts: looming Strigoi behind two outward-facing guards. */
@@ -216,8 +216,8 @@ body a[href]:any-link:hover,body #mdlxl-ffmpeg-source[href]:any-link:hover{color
  .viewport-hint .touch-hint{display:inline}
  .controls .control-row select,.controls .control-row .iron-button{height:44px;font-size:1rem}
  .controls .range{height:44px}
- .controls .loop-option,.side-menu nav a,.model-follow-label,.variant-tabs a,.tabs button{min-height:44px}
- .controls .loop-option input,.model-follow input[type=checkbox]{width:22px;height:22px}
+ .side-menu nav a,.model-follow-label,.variant-tabs a,.tabs button{min-height:44px}
+ .model-follow input[type=checkbox]{width:22px;height:22px}
  .model-follow input[type=email]{font-size:1rem;min-height:44px}
  .model-follow .iron-button,.side-downloads .iron-button{min-height:44px}
  .variant-arrow{width:44px;min-height:44px}
@@ -255,15 +255,16 @@ body a[href]:any-link:hover,body #mdlxl-ffmpeg-source[href]:any-link:hover{color
  .viewport-hint{font-size:.68rem;bottom:8px}
  .controls{padding:8px 10px}
  .controls .control-sequence{grid-template-columns:minmax(0,1fr) 78px;gap:4px 8px}
+ .controls .model-playback{grid-template-columns:minmax(0,1fr) 80px 66px;column-gap:6px}
  .controls .control-sequence>label{grid-column:1/-1;font-size:.8rem}
  .controls .control-sequence:has(#unit-model){grid-template-columns:minmax(0,1fr)}
  .controls .control-sequence:has(#unit-model)>span{display:none}
  .controls .control-row select,.controls .control-row .iron-button{height:44px;font-size:1rem}
+ .controls .model-playback .iron-button{padding-inline:2px;font-size:.9rem}
  .viewer-settings{margin-top:8px;border-top:1px solid #a68b5445}
  .viewer-settings>summary{font-size:.95rem;min-height:44px}
  .controls .viewer-settings .control-fields{grid-template-columns:96px minmax(0,1fr);margin:0;padding:8px 0 12px;border-top:0}
  .controls .viewer-settings .control-actions{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:10px}
- .controls .viewer-settings .loop-option{grid-column:1/-1;min-height:44px}
  .controls .viewer-settings .control-actions>span{display:none}
  .controls .range{height:44px}
  .variant-tabs{flex-wrap:nowrap;overflow-x:auto;max-width:100%;gap:6px;margin:0 0 12px;padding-bottom:5px;scrollbar-width:thin}
