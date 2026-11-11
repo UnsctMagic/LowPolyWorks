@@ -30659,7 +30659,7 @@
   },
   {
     "id": "aspiring-champion-of-tzeentch",
-    "file": "WH_WOC_AspiringChampionTzeentch02.mdx",
+    "file": "WH_WOC_AspiringChampionTzeentch03.mdx",
     "name": "Aspiring Champion of Tzeentch",
     "army": "warriors-of-chaos",
     "description": "\"Heed my words, all you that read this, for I have walked into the abyss and my eyes have been changed. All that was hidden is now revealed to me. I have seen all worlds, and the secrets that scheming gods and lesser men would keep from us are now the bread and wine of my heart. No longer shall I labour under the shallow misconception of received wisdom. Truth shall be my companion from this day on, for the scale have been lifted from eyes and I have seen the hope of salvation. At last I can be forgiven... for at last, I can see that I have sinned...\"\n\n—\"The Thousand Faces of Chaos,\" from the Liber Chaotica by Richter Kless, declared insane.\nLiber Chaotica: Nurgle (Volume III) (Background Book)\npg. 2",
@@ -30967,8 +30967,8 @@
       "Portrait Talk 1",
       "Portrait Talk 2"
     ],
-    "bytes": 222955,
-    "sha256": "b2e39cd63c8650e9673749292a2451206771f2bc1745526f4e67a95be7412261",
+    "bytes": 223079,
+    "sha256": "464e1531e474cc24ad0aa418ed154637ef24ba14b4d88ca757b1f23a74a0bbfe",
     "portraitBackdropGeosets": [
       17
     ],
@@ -31051,6 +31051,10 @@
     "searchDescription": "Preview and download the Aspiring Champion of Tzeentch Unit model for Warcraft III and WarhammerCraft.",
     "changelog": [
       {
+        "date": "11 November 2026",
+        "text": "Fixed whirlwind sword path better."
+      },
+      {
         "date": "9 November 2026",
         "text": "Fixed unwanted emitter visibility during slam, made the eye on chest unshaded."
       }
@@ -31058,7 +31062,7 @@
   },
   {
     "id": "aspiring-champion-of-tzeentch-hero",
-    "file": "WH_WOC_AspiringChampionTzeentchHero02.mdx",
+    "file": "WH_WOC_AspiringChampionTzeentchHero03.mdx",
     "name": "Aspiring Champion of Tzeentch",
     "army": "warriors-of-chaos",
     "description": "\"Heed my words, all you that read this, for I have walked into the abyss and my eyes have been changed. All that was hidden is now revealed to me. I have seen all worlds, and the secrets that scheming gods and lesser men would keep from us are now the bread and wine of my heart. No longer shall I labour under the shallow misconception of received wisdom. Truth shall be my companion from this day on, for the scale have been lifted from eyes and I have seen the hope of salvation. At last I can be forgiven... for at last, I can see that I have sinned...\"\n\n—\"The Thousand Faces of Chaos,\" from the Liber Chaotica by Richter Kless, declared insane.\nLiber Chaotica: Nurgle (Volume III) (Background Book)\npg. 2",
@@ -31375,8 +31379,8 @@
       "Portrait Talk 1",
       "Portrait Talk 2"
     ],
-    "bytes": 225083,
-    "sha256": "2fefe8ff55d559a7e5d7c3a78f45f247fcc9500d87e04125fc071bf8f372be92",
+    "bytes": 225207,
+    "sha256": "ee19c433e85759a034fc654c3ef7249dafcba734d65408517792265cf15b13d6",
     "portraitBackdropGeosets": [
       17
     ],
@@ -31398,6 +31402,10 @@
     "imageVersion": "20261108-champion-emitters",
     "searchDescription": "Preview and download the Aspiring Champion of Tzeentch Hero model for Warcraft III and WarhammerCraft.",
     "changelog": [
+      {
+        "date": "11 November 2026",
+        "text": "Fixed whirlwind sword path better."
+      },
       {
         "date": "9 November 2026",
         "text": "Fixed unwanted emitter visibility during slam, made the eye on chest unshaded."
