@@ -308,9 +308,9 @@ ${mdlxlTutorials(report.tutorials||{opens:0,people:0,tutorials:[]})}
  function drawPicker(perUnit,mdlxlTotal){
   const query=state.query.trim().toLowerCase(),armyUnits=[...index.values()].filter(row=>inArmy(row.id)&&(!query||(row.name+' '+row.group).toLowerCase().includes(query)));
   armyUnits.sort((a,b)=>(perUnit.get(b.id)?.total||0)-(perUnit.get(a.id)?.total||0)||a.name.localeCompare(b.name));
-  const all={total:0,views:0};for(const [id,row] of perUnit)if(inArmy(id)){all.total+=row.total;all.views+=row.views;}
-  const item=(id,name,counts,extra='',views=true)=>`<li><button type="button" data-unit="${escape(id)}" aria-pressed="${state.unit===id}"><span>${escape(name)}${extra}</span><small title="${views?'Downloads · views':'Downloads'} in range">${number(counts?.total)}${views?' · '+number(counts?.views):''}</small></button></li>`;
-  $('#pick-list').innerHTML=state.army==='mdlxl'?item('mdlxl','MDLxL application',{total:mdlxlTotal},'',false):item('','All '+(state.army?scopeNameForArmy():'units'),all)+armyUnits.map(row=>item(row.id,row.name,perUnit.get(row.id),row.tag?` <em>${row.tag}</em>`:'')).join('')+(armyUnits.length?'':'<li class="empty">No units match.</li>');
+  let allDownloads=0;for(const [id,row] of perUnit)if(inArmy(id))allDownloads+=row.total;
+  const item=(id,name,downloads,extra='')=>`<li><button type="button" data-unit="${escape(id)}" aria-pressed="${state.unit===id}"><span>${escape(name)}${extra}</span><small title="Downloads in range">${number(downloads)}</small></button></li>`;
+  $('#pick-list').innerHTML=state.army==='mdlxl'?item('mdlxl','MDLxL application',mdlxlTotal):item('','All '+(state.army?scopeNameForArmy():'units'),allDownloads)+armyUnits.map(row=>item(row.id,row.name,perUnit.get(row.id)?.total,row.tag?` <em>${row.tag}</em>`:'')).join('')+(armyUnits.length?'':'<li class="empty">No units match.</li>');
  }
  const scopeNameForArmy=()=>state.army==='other'?'other projects':'in '+(account.unitArmies.find(a=>a.id===state.army)?.name||'army');
  function drawUnits(perUnit,range){
