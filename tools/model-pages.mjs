@@ -5,10 +5,41 @@ import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 
 const site = 'https://www.lowpolyworks.com';
+const cataloguePath = '/warhammercraft/';
+const catalogueTitle = 'Warhammer Fantasy Models for Warcraft III — WarhammerCraft';
+const catalogueDescription = 'Browse Warhammer Fantasy armies, preview animated models in 3D, and download models for Warcraft III Classic.';
+const armyPath = army => `/army/${army.id}/`;
+const modelPath = row => `/model/${row.slug || row.id}/`;
 const escape = value => String(value).replace(/[&<>"']/g, char => ({'&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;'}[char]));
 
-export function modelPage(template, row, thumbnail) {
-  const url = `${site}/model/${row.slug || row.id}/`;
+function pageHead(template, title, description, metadata) {
+  return template.replace(/<link rel="canonical" href="[^"]*">/, '')
+    .replace(/<title>.*?<\/title>/, () => `<title>${escape(title)}</title>`)
+    .replace(/<meta name="description" content="[^"]*">/, () => `<meta name="description" content="${escape(description)}">`)
+    .replace('</head>', () => `${metadata}\n</head>`);
+}
+
+function pageContent(template, content) {
+  return template.replace(/(<main id="app"[^>]*>)[\s\S]*?(<\/main>)/, (_, open, close) => `${open}${content}${close}`);
+}
+
+export function cataloguePage(template, armies, rows, army) {
+  const title = army ? `${army.name} Models for Warcraft III — LowPolyWorks` : catalogueTitle;
+  const heading = army ? army.name : 'Warhammer Fantasy Models for Warcraft III';
+  const description = army
+    ? `Preview and download ${army.name} models for Warcraft III Classic from the WarhammerCraft catalogue.`
+    : catalogueDescription;
+  const url = site + (army ? armyPath(army) : cataloguePath);
+  const links = army
+    ? rows.filter(row => row.army === army.id).map(row => `<li><a href="${modelPath(row)}">${escape(row.name)}</a></li>`)
+    : armies.map(entry => `<li><a href="${armyPath(entry)}">${escape(entry.name)}</a></li>`);
+  const back = army ? `<p><a href="${cataloguePath}">All WarhammerCraft armies</a></p>` : '';
+  const content = `<section class="project-heading"><h1>${escape(heading)}</h1><p>${escape(description)}</p>${back}<ul>\n${links.join('\n')}\n</ul></section>`;
+  return pageContent(pageHead(template, title, description, `<link rel="canonical" href="${url}">`), content);
+}
+
+export function modelPage(template, row, thumbnail, army) {
+  const url = site + modelPath(row);
   const image = `${site}/thumbs/unit-${row.id}.png${row.imageVersion ? '?v=' + encodeURIComponent(row.imageVersion) : ''}`;
   const description = (row.searchDescription ?? row.description).replace(/\s+/g, ' ').trim();
   const width = thumbnail.readUInt32BE(16), height = thumbnail.readUInt32BE(20);
@@ -29,9 +60,16 @@ export function modelPage(template, row, thumbnail) {
     `<meta name="twitter:description" content="${escape(description)}">`,
     `<meta name="twitter:image" content="${image}">`,
   ].join('\n');
-  return template.replace(/<title>.*?<\/title>/, `<title>${escape(row.name)} — LowPolyWorks</title>`)
-    .replace(/<meta name="description" content="[^"]*">/, `<meta name="description" content="${escape(description)}">`)
-    .replace('</head>', `${metadata}\n</head>`);
+  const title = `${row.name} — Warcraft III Model — LowPolyWorks`;
+  const summary = row.searchDescription ?? `Preview and download ${row.name}, a Warhammer Fantasy model for Warcraft III Classic.`;
+  const content = [
+    `<section class="project-heading"><h1>${escape(row.name)}</h1>`,
+    `<p>${escape(summary)} <a href="${armyPath(army)}">${escape(army.name)}</a></p>`,
+    `<img src="${image.slice(site.length)}" alt="${escape(row.name)}" width="${width}" height="${height}" style="max-width:100%;height:auto">`,
+    ...row.description.trim().split(/\r?\n\s*\r?\n/).filter(text => text !== summary).map(text => `<p>${escape(text).replace(/\r?\n/g, '<br>')}</p>`),
+    '</section>',
+  ].join('\n');
+  return pageContent(pageHead(template, title, summary, metadata), content);
 }
 
 export function previewTemplate(html) {
@@ -48,8 +86,8 @@ export function previewApp(app) {
     .replace("const army=armies.find(a=>a.id===row.army);document.title=", "history.replaceState(null,'','/model/'+row.id+'/'+location.search);const army=armies.find(a=>a.id===row.army);document.title=");
 }
 
-export function generateSearchFiles(root, rows) {
-  const urls = [`${site}/`, `${site}/mdlxl/`, ...rows.map(row => `${site}/model/${row.slug || row.id}/`)];
+export function generateSearchFiles(root, rows, armies) {
+  const urls = ['/', '/mdlxl/', cataloguePath, ...armies.map(armyPath), ...rows.map(modelPath)].map(route => site + route);
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map(url => `  <url><loc>${escape(url)}</loc></url>`).join('\n')}\n</urlset>\n`;
   fs.writeFileSync(path.join(root, 'sitemap.xml'), sitemap);
   fs.writeFileSync(path.join(root, 'robots.txt'), `User-agent: *\nAllow: /\n\nSitemap: ${site}/sitemap.xml\n`);
@@ -71,25 +109,31 @@ export function mdlxlPage(template, section='updates', tutorial) {
     `<meta property="og:image" content="${site}/ui/mdlxl-icon.png">`,
     `<meta name="twitter:card" content="summary">`,
   ].join('\n');
-  return template.replace(/<title>.*?<\/title>/, `<title>${escape(title)}</title>`)
-    .replace(/<meta name="description" content="[^"]*">/, `<meta name="description" content="${escape(description)}">`)
-    .replace('</head>', `${metadata}\n</head>`);
+  return pageContent(pageHead(template, title, description, metadata), '<p class="loading">Loading…</p>');
 }
 
 export function generateModelPages(root) {
   syncModelUpdates(root);
   const template = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
   const rows = JSON.parse(fs.readFileSync(path.join(root, 'catalogue.json'), 'utf8'));
-  for (const row of rows) {
-    const directory = path.join(root, 'model', row.slug || row.id);
+  const armies = JSON.parse(fs.readFileSync(path.join(root, 'armies.json'), 'utf8'));
+  const writePage = (route, html) => {
+    const directory = path.join(root, route);
     fs.mkdirSync(directory, {recursive:true});
-    fs.writeFileSync(path.join(directory, 'index.html'), modelPage(template, row, fs.readFileSync(path.join(root, 'thumbs', `unit-${row.id}.png`))));
+    fs.writeFileSync(path.join(directory, 'index.html'), html);
+  };
+  writePage(cataloguePath, cataloguePage(template, armies, rows));
+  for (const army of armies) writePage(armyPath(army), cataloguePage(template, armies, rows, army));
+  for (const row of rows) {
+    const army = armies.find(entry => entry.id === row.army);
+    const thumbnail = fs.readFileSync(path.join(root, 'thumbs', `unit-${row.id}.png`));
+    writePage(modelPath(row), modelPage(template, row, thumbnail, army));
   }
   fs.mkdirSync(path.join(root, 'mdlxl'), {recursive:true});
   fs.writeFileSync(path.join(root, 'mdlxl', 'index.html'), mdlxlPage(template));
   for(const section of mdlxlSections.filter(section=>section!=='updates')){const directory=path.join(root,'mdlxl',section);fs.mkdirSync(directory,{recursive:true});fs.writeFileSync(path.join(directory,'index.html'),mdlxlPage(template,section));}
   for(const tutorial of Object.keys(tutorialSlugs)){const directory=path.join(root,'mdlxl','tutorials',tutorialSlugs[tutorial]);fs.mkdirSync(directory,{recursive:true});fs.writeFileSync(path.join(directory,'index.html'),mdlxlPage(template,'tutorials',tutorial));}
-  generateSearchFiles(root, rows);
+  generateSearchFiles(root, rows, armies);
   return rows.length;
 }
 

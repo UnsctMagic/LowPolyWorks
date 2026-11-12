@@ -6,7 +6,7 @@ import {execFileSync} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
 import {tutorialLanguages} from '../dist/mdlxl/tutorials/languages.js';
 import {TEAM_COLORS} from '../dist/vendor/mdlxl/src/team-colors.js';
-import {modelPage,mdlxlPage} from './model-pages.mjs';
+import {cataloguePage,modelPage,mdlxlPage} from './model-pages.mjs';
 import {parseMDX} from '../dist/vendor/war3-model.mjs';
 import {parseCompatibleMdx} from '../dist/warcraft-mdx-compatibility.js';
 
@@ -18,13 +18,18 @@ for (const {id} of tutorialLanguages) {
 }
 const read = name => JSON.parse(fs.readFileSync(path.join(root, name), 'utf8'));
 const exists = name => assert(fs.existsSync(path.join(root, name)), `Missing ${name}`);
+const template = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
 const rows = read('catalogue.json');
 const armies = read('armies.json');
 const textures = read('textures.json');
 const ids = new Set(rows.map(row => row.id));
 const slugs = new Set(rows.map(row => row.slug || row.id));
 const modelHashes = JSON.parse(fs.readFileSync(path.join(project, 'tools/model-hashes.json'), 'utf8'));
-assert.equal(fs.readFileSync(path.join(root, 'mdlxl/index.html'), 'utf8'), mdlxlPage(fs.readFileSync(path.join(root, 'index.html'), 'utf8')), 'Stale MDLxL page. Run npm run build:model-pages.');
+assert.equal(fs.readFileSync(path.join(root, 'mdlxl/index.html'), 'utf8'), mdlxlPage(template), 'Stale MDLxL page. Run npm run build:model-pages.');
+assert.equal(fs.readFileSync(path.join(root, 'warhammercraft/index.html'), 'utf8'), cataloguePage(template, armies, rows), 'Stale WarhammerCraft page. Run npm run build:model-pages.');
+const publicPaths = ['/', '/mdlxl/', '/warhammercraft/', ...armies.map(army => `/army/${army.id}/`), ...rows.map(row => `/model/${row.slug || row.id}/`)];
+const sitemap = fs.readFileSync(path.join(root, 'sitemap.xml'), 'utf8');
+assert.deepEqual([...sitemap.matchAll(/<loc>https:\/\/www\.lowpolyworks\.com([^<]+)<\/loc>/g)].map(match => match[1]), publicPaths, 'Stale sitemap. Run npm run build:model-pages.');
 assert.equal(modelHashes.length, rows.length, 'Model hash inventory size');
 for (const entry of modelHashes) {
   assert.equal(crypto.createHash('sha256').update(fs.readFileSync(path.join(root, 'models', entry.file))).digest('hex'), entry.sha256, `Model changed: ${entry.file}`);
@@ -36,7 +41,8 @@ for (const file of ['server.mjs', 'tools/check-project.mjs', 'dist/app.js', 'dis
 }
 for (const file of Object.values(textures)) exists(file);
 for (const row of rows) {
-  assert(armies.some(army => army.id === row.army), `Unknown army for ${row.id}`);
+  const army = armies.find(army => army.id === row.army);
+  assert(army, `Unknown army for ${row.id}`);
   exists('models/' + row.file);
   const modelBytes = fs.readFileSync(path.join(root, 'models', row.file));
   const model = row.mdxCompatibility==='ribbon-color'?parseCompatibleMdx(modelBytes):parseMDX(modelBytes.buffer.slice(modelBytes.byteOffset, modelBytes.byteOffset + modelBytes.byteLength));
@@ -48,13 +54,14 @@ for (const row of rows) {
   exists('thumbs/unit-' + row.id + '.png');
   const page = `model/${row.slug || row.id}/index.html`;
   exists(page);
-  assert.equal(fs.readFileSync(path.join(root, page), 'utf8'), modelPage(fs.readFileSync(path.join(root, 'index.html'), 'utf8'), row, fs.readFileSync(path.join(root, 'thumbs', `unit-${row.id}.png`))), `Stale model preview page: ${row.id}. Run npm run build:model-pages.`);
+  assert.equal(fs.readFileSync(path.join(root, page), 'utf8'), modelPage(template, row, fs.readFileSync(path.join(root, 'thumbs', `unit-${row.id}.png`)), army), `Stale model preview page: ${row.id}. Run npm run build:model-pages.`);
   for (const file of Object.values(row.textureFiles || {})) exists(file);
   if (row.downloadPack) exists(row.downloadPack);
   const expected = row.sha256 || row.sourceModelSha256;
   if (expected) assert.equal(crypto.createHash('sha256').update(fs.readFileSync(path.join(root, 'models', row.file))).digest('hex').toLowerCase(), expected.toLowerCase(), `${row.id} model hash`);
 }
 for (const army of armies) {
+  assert.equal(fs.readFileSync(path.join(root, 'army', army.id, 'index.html'), 'utf8'), cataloguePage(template, armies, rows, army), `Stale army page: ${army.id}. Run npm run build:model-pages.`);
   assert(TEAM_COLORS.some(colour => colour.rgbHex === army.colour), `Non-WC3 army colour: ${army.id}`);
   if (army.image) {
     exists(army.image);
