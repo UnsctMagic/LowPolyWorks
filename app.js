@@ -13,7 +13,7 @@ import {renderMdlxl} from './mdlxl.js?v=20261113-public-credit-name';
 import {readMdlxlRoute,mdlxlHref} from './mdlxl-routes.js?v=20261109-spread-pieces';
 const initialMdlxl=readMdlxlRoute(location);if(initialMdlxl&&location.hash.startsWith('#project/mdlxl'))history.replaceState(null,'',mdlxlHref(initialMdlxl.section,initialMdlxl.tutorial,location.search));
 const app=document.querySelector('#app'),baseCatalogue=await fetch('catalogue.json?v=20261113-great-unclean-one-tongue-colour').then(r=>r.json());
-const armies=await fetch('armies.json?v=20261113-demons-of-chaos').then(r=>r.json());
+const armies=await fetch('armies.json?v=20261113-daemons-spelling').then(r=>r.json());
 // Keep the first three army cards fixed and shuffle the remaining cards once per load.
 const pinnedArmyIds=['warriors-of-chaos','vampire-counts','demons-of-chaos'];
 const armyCardOrder=armies.filter(army=>!pinnedArmyIds.includes(army.id));

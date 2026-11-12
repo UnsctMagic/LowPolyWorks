@@ -24,10 +24,10 @@
   },
   {
     "id": "demons-of-chaos",
-    "name": "Demons of Chaos",
+    "name": "Daemons of Chaos",
     "colour": "#4f5055",
     "teamColour": "#9c0000",
-    "label": "DEMONS OF CHAOS",
+    "label": "DAEMONS OF CHAOS",
     "models": [
       "great-unclean-one-of-nurgle"
     ],
