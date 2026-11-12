@@ -11,11 +11,15 @@
 - Use the standard animated green ring and crosshair to mark each demonstrated control when the lesson introduces it. Center the ping on the actual control in the recording or annotated image.
 - Match annotated image and video widths within each guide and preserve their aspect ratios. Check the live-sized layout, green pings, captions, and at least two playback loops at desktop and mobile widths before publishing.
 
+## Model card rotation
+
+- On every army page, a Unit/Hero pair shows its main Unit or non-Hero version. Keep Hero versions, including named Hero subvariants, in the model-page variant tabs. Only distinct non-Hero Unit variations may appear in page-load cycling, arrows or dots. Hide the rotation controls when the card has only one eligible version.
+
 ## Warriors of Chaos card sizing
 
-- Every grouped Warriors of Chaos card must cycle through all its live variants on successive page loads, using the variant list automatically. Keep the chosen picture stable during navigation within a load; do not use a timer or a hard-coded subset.
+- Grouped Warriors of Chaos cards with multiple eligible Unit variations cycle through those variations on successive page loads, subject to any explicit non-Hero card default, using the variant list automatically. Keep the chosen picture stable during navigation within a load; do not use a timer or a hard-coded subset.
 - Treat every Warrior of Khorne, Nurgle, Slaanesh, and Tzeentch variant as one visual card family. Use the shared army-card frame (square on desktop, 4:5 on mobile) and a square 1024×1024 transparent card image. Preserve model proportions; any size correction must be uniform and limited to the army card.
-- Before publishing a new Warrior variant or changing a Warrior card, cycle **every** variant on the Warriors of Chaos army page at desktop and mobile widths. Match perceived occupied area against the existing cards, including bulky shields and thin weapons; equal PNG dimensions or equal head-to-foot height alone do not establish equal visual size. The current accepted set occupies roughly 25–38% of a 1024×1024 image in pixels with alpha above 8 after card scaling. Use that as a guide, then inspect the page for clipping, readable eyes, and full weapons.
+- Before publishing a new Warrior variant or changing a Warrior card, cycle **every eligible non-Hero** variant on the Warriors of Chaos army page at desktop and mobile widths. Match perceived occupied area against the existing cards, including bulky shields and thin weapons; equal PNG dimensions or equal head-to-foot height alone do not establish equal visual size. The current accepted set occupies roughly 25–38% of a 1024×1024 image in pixels with alpha above 8 after card scaling. Use that as a guide, then inspect the page for clipping, readable eyes, and full weapons.
 - Keep card-image changes separate from model-page thumbnails, the rotatable 3D preview, and MDX files.
 
 ## Hero / Unit picture framing
