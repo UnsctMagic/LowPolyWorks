@@ -96,7 +96,7 @@ test('permanent removal hides a Vault card at once, can be undone for 24 hours, 
 });
 test('the admin edits, hides and permanently removes existing catalogue cards with a 24-hour undo',async()=>{
  const f=fixture();let owner=await account(f);const author=await account(f,'contributor',owner);
- const edit={id:'graveguard',name:'Grave Guard',army:'vampire-counts',description:'New lore.',credits:'Model Base - Necron Guard by Rhapsodie',authors:[{name:'Unsanctioned Magic',url:'https://example.test/um'}],creditLinks:[{text:'Rhapsodie',url:'https://example.test/r'}]};
+ const edit={id:'graveguard',name:'Grave Guard',army:'vampire-counts',description:'New lore.',credits:'Model Base - Necron Guard by Rhapsodie',authors:[{name:'UnsanctionedMagic',url:'https://example.test/um'}],creditLinks:[{text:'Rhapsodie',url:'https://example.test/r'}]};
  await assert.rejects(f.execute('edit-model',edit,author),{status:403});
  await assert.rejects(f.execute('edit-model',{...edit,army:'dwarfs'},owner),{status:400});
  await assert.rejects(f.execute('edit-model',{...edit,authors:[{name:'Bad',url:'javascript:alert(1)'}]},owner),{status:400});

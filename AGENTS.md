@@ -1,3 +1,7 @@
+# LowPolyWorks public credit name
+
+- Always use `UnsanctionedMagic` (one word) as the exact spelling of the public name for Avner everywhere on LowPolyWorks, including model bylines and credits, project and tutorial content, acknowledgements, posts, and metadata. Use this spelling in both source and published content.
+
 # Warcraft model rendering
 
 - Render team colour and team glow with the actual Warcraft III `TeamColorNN` and `TeamGlowNN` textures for the selected player colour. Do not substitute flat RGB fills or procedural glow approximations.

@@ -38,7 +38,7 @@ The local capture pages are available at `/__thumbnails.html` for army formation
 
 ## Credits
 
-Models are by Unsanctioned Magic, HerrDave, and the collaborators listed on each model page. HerrDave's models were included with the owner's permission. Credits and links are preserved in the catalogue.
+Models are by UnsanctionedMagic, HerrDave, and the collaborators listed on each model page. HerrDave's models were included with the owner's permission. Credits and links are preserved in the catalogue.
 
 The live viewer uses MDLxL's Showcase rendering components, war3-model, Three.js, and WhiteoutLib. Third-party licenses and provenance are included under `dist/vendor/`, `dist/whiteout/`, and `dist/THIRD_PARTY_NOTICES.txt`. Native Warcraft III assets remain owned by Blizzard Entertainment. This repository does not grant ownership or a new license to those assets or the contributed models.
 
