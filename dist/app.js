@@ -14,11 +14,11 @@ import {readMdlxlRoute,mdlxlHref} from './mdlxl-routes.js?v=20261109-spread-piec
 const initialMdlxl=readMdlxlRoute(location);if(initialMdlxl&&location.hash.startsWith('#project/mdlxl'))history.replaceState(null,'',mdlxlHref(initialMdlxl.section,initialMdlxl.tutorial,location.search));
 const app=document.querySelector('#app'),baseCatalogue=await fetch('catalogue.json?v=20261113-demons-of-chaos').then(r=>r.json());
 const armies=await fetch('armies.json?v=20261113-demons-of-chaos').then(r=>r.json());
-// Shuffle the other army cards once per load. Demons of Chaos always occupies the third slot.
-const demonsOfChaos=armies.find(army=>army.id==='demons-of-chaos');
-const armyCardOrder=armies.filter(army=>army!==demonsOfChaos);
+// Keep the first three army cards fixed and shuffle the remaining cards once per load.
+const pinnedArmyIds=['warriors-of-chaos','vampire-counts','demons-of-chaos'];
+const armyCardOrder=armies.filter(army=>!pinnedArmyIds.includes(army.id));
 for(let i=armyCardOrder.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[armyCardOrder[i],armyCardOrder[j]]=[armyCardOrder[j],armyCardOrder[i]];}
-armyCardOrder.splice(2,0,demonsOfChaos);
+armyCardOrder.unshift(...pinnedArmyIds.map(id=>armies.find(army=>army.id===id)));
 // Variant groups: near-identical models share one army card and switch through tabs on the model page.
 const variantGroups=await fetch('variants.json?v=20261113-demons-of-chaos').then(r=>r.json()).catch(()=>[]);
 const descriptionParagraphs=(text,links=[])=>text.trim().split(/\r?\n\s*\r?\n/).map(paragraph=>`<p>${creditText({creditLinks:links},paragraph.trim()).replace(/\r?\n/g,'<br>')}</p>`).join('');
