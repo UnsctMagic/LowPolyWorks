@@ -33097,5 +33097,1014 @@
         "text": "Updated geometry and vertex bindings across five geosets."
       }
     ]
+  },
+  {
+    "id": "great-unclean-one-of-nurgle",
+    "name": "Great Unclean One of Nurgle",
+    "army": "demons-of-chaos",
+    "description": "The Great Unclean Ones, known also as Fly Masters, Stench Lords, Nurgle's Plaguefathers, Plague Lords, and the Decayed Ones, are the massive Greater Daemons of Nurgle, embodiments of plague and disease that can lay low entire armies and can endure the greatest and most horrific punishments that can fell even the mightiest of Daemonkind.\n\nEach Great Unclean One is more or less a smaller and less powerful facsimile of Nurgle himself, both physically in their appearance and in terms of their jovial and ironically good-natured personality. Indeed, a Great Unclean One is sometimes referred to as Nurgle or Father Nurgle by his underlings, although of course each also has their own daemonic name.\n\nA Great Unclean One is invariably a gigantic, bloated green figure swollen with disease and every form of physical corruption or decay possible in flesh. The Daemon's skin is a necrotic and leathery surface covered with pockmarks, sores and other signs of loathsome infestation. Its inner organs, rank with rotten flesh, spill through the ruptured skin and hang like rotting drapes about its immense girth. From these organs burst tiny pustulant creatures called Nurglings, which chew and suck upon the nauseating juices within. Such foulness echoes the fundamental truth of the mortal world and the teachings of Nurgle himself: whilst there is life, there will be ruin and decay, even unto the end of all things.\n\nIn perverse contrast to its horrific appearance, the Great Unclean One is neither morbid nor consumed with despair — if anything the opposite is true. Great Unclean Ones are downright exuberant in the pursuit of their enthusiasms. Great Unclean Ones are invariably ebullient and obstreperous, full of a natural will to organise and achieve. Indeed, it is not uncommon for Great Unclean Ones to compete amongst themselves to see which can better spread Nurgle's plague-riddled \"gifts\" across the world.\n\nGregarious and curiously sentimental, Great Unclean Ones hold their mortal and daemonic followers dear and even refer to them as their \"children.\" They take great patriarchal pride in the achievements of their servants and allies, proclaiming vociferously the splendours of the poxes and sores evinced by those around them, and bellow with hearty laughter in response to the destruction wrought in Nurgle's name.\n\n— Warhammer Armies: Daemons of Chaos (8th Edition), p. 44",
+    "credits": "Model Base - Abomination (Re-Classic) by johnwar\n\nBased on - Abomination and Derivatives by Ujimasa Hojo\n\nSword - Haunted Sword by JesusHipster / Sword of Supreme by Fang\n\nBelt Buckle - Skeleton-Pack by DREADMAN / Chaos Warriors by Diazon, found on Warhammer Eternal Strife by Nightmare2077\n\nHorns - World of Warcraft asset by Blizzard Entertainment\n\nSkirt - Necromancer by Ustanak",
+    "authors": [
+      {
+        "name": "Unsanctioned Magic",
+        "url": "https://xgm.guru/user/UnsanctMagic"
+      },
+      {
+        "name": "Johnwar",
+        "url": "https://www.hiveworkshop.com/members/johnwar.264426/"
+      }
+    ],
+    "creditLinks": [
+      {
+        "text": "Abomination (Re-Classic)",
+        "url": "https://www.hiveworkshop.com/threads/abomination-re-classic.357166/"
+      },
+      {
+        "text": "johnwar",
+        "url": "https://www.hiveworkshop.com/members/johnwar.264426/"
+      },
+      {
+        "text": "Abomination and Derivatives",
+        "url": "https://www.hiveworkshop.com/threads/abomination-and-derivatives.237374/"
+      },
+      {
+        "text": "Ujimasa Hojo",
+        "url": "https://www.hiveworkshop.com/members/142431/"
+      },
+      {
+        "text": "Haunted Sword",
+        "url": "https://www.hiveworkshop.com/threads/haunted-sword.219759/"
+      },
+      {
+        "text": "JesusHipster",
+        "url": "https://www.hiveworkshop.com/members/jesushipster.210592/"
+      },
+      {
+        "text": "Sword of Supreme",
+        "url": "https://www.hiveworkshop.com/threads/sword-of-supreme.312430/"
+      },
+      {
+        "text": "Fang",
+        "url": "https://www.hiveworkshop.com/members/fang.241028/"
+      },
+      {
+        "text": "Skeleton-Pack",
+        "url": "https://www.hiveworkshop.com/threads/skeleton-pack.368580/"
+      },
+      {
+        "text": "DREADMAN",
+        "url": "https://www.hiveworkshop.com/members/306575/"
+      },
+      {
+        "text": "World of Warcraft asset",
+        "url": "https://wc3.ninja/models/2265392#d=638.1&y=6.350&p=0.163&tx=0.0&ty=0.0&tz=93.8"
+      },
+      {
+        "text": "Blizzard Entertainment",
+        "url": "https://www.blizzard.com/"
+      },
+      {
+        "text": "Necromancer",
+        "url": "https://www.hiveworkshop.com/threads/necromancer.305771/"
+      },
+      {
+        "text": "Ustanak",
+        "url": "https://www.hiveworkshop.com/members/ustanak.242792/"
+      },
+      {
+        "text": "Warhammer Eternal Strife",
+        "url": "https://www.hiveworkshop.com/threads/warhammer-eternal-strife-melee.254808/"
+      },
+      {
+        "text": "Chaos Warriors",
+        "url": "https://www.hiveworkshop.com/threads/warhammer-eternal-strife-melee.254808/"
+      },
+      {
+        "text": "Nightmare2077",
+        "url": "https://www.hiveworkshop.com/members/nightmare2077.204498/"
+      }
+    ],
+    "searchDescription": "Great Unclean One of Nurgle, a Warhammer Fantasy model for Warcraft III Classic.",
+    "imageVersion": "20261113-great-unclean-one-braced-red-left",
+    "file": "WH_DOC_GreatUncleanOneUnit01.mdx",
+    "geosets": [
+      {
+        "index": 0,
+        "vertices": 20,
+        "triangles": 10,
+        "material": 0,
+        "textures": [
+          "Textures\\Abomination.blp"
+        ]
+      },
+      {
+        "index": 1,
+        "vertices": 45,
+        "triangles": 26,
+        "material": 1,
+        "textures": [
+          "Textures\\gutz.blp"
+        ]
+      },
+      {
+        "index": 2,
+        "vertices": 26,
+        "triangles": 44,
+        "material": 2,
+        "textures": [
+          "Textures\\Abomination.blp"
+        ]
+      },
+      {
+        "index": 3,
+        "vertices": 40,
+        "triangles": 54,
+        "material": 3,
+        "textures": [
+          "Team colour / glow",
+          "Textures\\UndeadAirBarge.blp"
+        ]
+      },
+      {
+        "index": 4,
+        "vertices": 24,
+        "triangles": 36,
+        "material": 4,
+        "textures": [
+          "Textures\\Skeleton.blp"
+        ]
+      },
+      {
+        "index": 5,
+        "vertices": 491,
+        "triangles": 874,
+        "material": 5,
+        "textures": [
+          "UI\\Glues\\SinglePlayer\\OrcCampaign3D\\CampaignOrc.blp"
+        ]
+      },
+      {
+        "index": 6,
+        "vertices": 4,
+        "triangles": 2,
+        "material": 0,
+        "textures": [
+          "Textures\\Abomination.blp"
+        ]
+      },
+      {
+        "index": 7,
+        "vertices": 264,
+        "triangles": 132,
+        "material": 0,
+        "textures": [
+          "Textures\\Abomination.blp"
+        ]
+      },
+      {
+        "index": 8,
+        "vertices": 137,
+        "triangles": 234,
+        "material": 6,
+        "textures": [
+          "Textures\\Skeleton.blp"
+        ]
+      },
+      {
+        "index": 9,
+        "vertices": 126,
+        "triangles": 124,
+        "material": 7,
+        "textures": [
+          "Textures\\SlaughterHouse.blp"
+        ]
+      },
+      {
+        "index": 10,
+        "vertices": 63,
+        "triangles": 80,
+        "material": 8,
+        "textures": [
+          "Units\\Creeps\\HeroTinker\\HeroTinkerTank.blp"
+        ]
+      },
+      {
+        "index": 11,
+        "vertices": 14,
+        "triangles": 12,
+        "material": 9,
+        "textures": [
+          "Doodads\\Ruins\\Water\\FishSchool\\FishBlue.blp"
+        ]
+      },
+      {
+        "index": 12,
+        "vertices": 18,
+        "triangles": 20,
+        "material": 10,
+        "textures": [
+          "Units\\Undead\\Ghoul\\Ghoul.blp"
+        ]
+      },
+      {
+        "index": 13,
+        "vertices": 32,
+        "triangles": 48,
+        "material": 4,
+        "textures": [
+          "Textures\\Skeleton.blp"
+        ]
+      },
+      {
+        "index": 14,
+        "vertices": 6,
+        "triangles": 4,
+        "material": 2,
+        "textures": [
+          "Textures\\Abomination.blp"
+        ]
+      },
+      {
+        "index": 15,
+        "vertices": 4,
+        "triangles": 2,
+        "material": 2,
+        "textures": [
+          "Textures\\Abomination.blp"
+        ]
+      },
+      {
+        "index": 16,
+        "vertices": 34,
+        "triangles": 44,
+        "material": 11,
+        "textures": [
+          "Team colour / glow",
+          "Doodads\\Ashenvale\\Props\\KeeperStatue\\KeeperStatue.blp"
+        ]
+      },
+      {
+        "index": 17,
+        "vertices": 13,
+        "triangles": 22,
+        "material": 3,
+        "textures": [
+          "Team colour / glow",
+          "Textures\\UndeadAirBarge.blp"
+        ]
+      },
+      {
+        "index": 18,
+        "vertices": 45,
+        "triangles": 55,
+        "material": 12,
+        "textures": [
+          "Textures\\HeroBladeMaster.blp"
+        ]
+      },
+      {
+        "index": 19,
+        "vertices": 80,
+        "triangles": 48,
+        "material": 13,
+        "textures": [
+          "Units\\Orc\\Grunt\\Grunt.blp"
+        ]
+      },
+      {
+        "index": 20,
+        "vertices": 50,
+        "triangles": 86,
+        "material": 14,
+        "textures": [
+          "Buildings\\Undead\\GargoyleSpire\\GargoyleSpire.blp"
+        ]
+      },
+      {
+        "index": 21,
+        "vertices": 44,
+        "triangles": 44,
+        "material": 15,
+        "textures": [
+          "doodads\\cinematic\\eyeofsargeras\\green_glow3.dds"
+        ]
+      },
+      {
+        "index": 22,
+        "vertices": 8,
+        "triangles": 8,
+        "material": 16,
+        "textures": [
+          "Textures\\CryptFiend.blp"
+        ]
+      },
+      {
+        "index": 23,
+        "vertices": 16,
+        "triangles": 16,
+        "material": 17,
+        "textures": [
+          "Buildings\\Undead\\AltarOfDarkness\\CreepyAltarOfDark.blp"
+        ]
+      },
+      {
+        "index": 24,
+        "vertices": 220,
+        "triangles": 291,
+        "material": 5,
+        "textures": [
+          "UI\\Glues\\SinglePlayer\\OrcCampaign3D\\CampaignOrc.blp"
+        ]
+      },
+      {
+        "index": 25,
+        "vertices": 26,
+        "triangles": 36,
+        "material": 5,
+        "textures": [
+          "UI\\Glues\\SinglePlayer\\OrcCampaign3D\\CampaignOrc.blp"
+        ]
+      },
+      {
+        "index": 26,
+        "vertices": 64,
+        "triangles": 74,
+        "material": 18,
+        "textures": [
+          "Units\\Undead\\SkeletonMage\\SkeletonMage.blp"
+        ]
+      },
+      {
+        "index": 27,
+        "vertices": 16,
+        "triangles": 24,
+        "material": 2,
+        "textures": [
+          "Textures\\Abomination.blp"
+        ]
+      },
+      {
+        "index": 28,
+        "vertices": 8,
+        "triangles": 12,
+        "material": 4,
+        "textures": [
+          "Textures\\Skeleton.blp"
+        ]
+      },
+      {
+        "index": 29,
+        "vertices": 10,
+        "triangles": 11,
+        "material": 19,
+        "textures": [
+          "Units\\Other\\FleshGolem\\FleshGolem.blp"
+        ]
+      },
+      {
+        "index": 30,
+        "vertices": 225,
+        "triangles": 184,
+        "material": 20,
+        "textures": [
+          "Units\\Creeps\\HeroTinker\\HeroTinkerTank.blp"
+        ]
+      },
+      {
+        "index": 31,
+        "vertices": 45,
+        "triangles": 48,
+        "material": 22,
+        "textures": [
+          "Textures\\CreepyNecropolis.blp"
+        ]
+      },
+      {
+        "index": 32,
+        "vertices": 45,
+        "triangles": 48,
+        "material": 21,
+        "textures": [
+          "Textures\\UndeadAirBarge.blp"
+        ]
+      },
+      {
+        "index": 33,
+        "vertices": 6,
+        "triangles": 2,
+        "material": 23,
+        "textures": [
+          "Textures\\Black32.blp"
+        ]
+      },
+      {
+        "index": 34,
+        "vertices": 130,
+        "triangles": 80,
+        "material": 24,
+        "textures": [
+          "TerrainArt\\Felwood\\Felwood_Poison.blp"
+        ]
+      },
+      {
+        "index": 35,
+        "vertices": 34,
+        "triangles": 44,
+        "material": 25,
+        "textures": [
+          "Textures\\AcidSplash1.blp"
+        ]
+      },
+      {
+        "index": 36,
+        "vertices": 45,
+        "triangles": 48,
+        "material": 26,
+        "textures": [
+          "Textures\\DemonRune4.blp"
+        ]
+      },
+      {
+        "index": 37,
+        "vertices": 48,
+        "triangles": 40,
+        "material": 27,
+        "textures": [
+          "Textures\\Skeleton.blp"
+        ]
+      },
+      {
+        "index": 38,
+        "vertices": 45,
+        "triangles": 26,
+        "material": 30,
+        "textures": [
+          "Textures\\gutz.blp"
+        ]
+      },
+      {
+        "index": 39,
+        "vertices": 4,
+        "triangles": 2,
+        "material": 31,
+        "textures": [
+          "Team colour / glow"
+        ]
+      },
+      {
+        "index": 40,
+        "vertices": 14,
+        "triangles": 12,
+        "material": 32,
+        "textures": [
+          "TerrainArt\\Felwood\\Felwood_Poison.blp"
+        ]
+      },
+      {
+        "index": 41,
+        "vertices": 14,
+        "triangles": 12,
+        "material": 33,
+        "textures": [
+          "Textures\\DemonRune5.blp"
+        ]
+      }
+    ],
+    "sequences": [
+      "Walk",
+      "Stand - 1",
+      "Stand - 2",
+      "Attack - 1",
+      "Attack - 2",
+      "Spell Slam",
+      "Stand Channel",
+      "Death",
+      "Decay Flesh",
+      "Decay Bone",
+      "Dissipate",
+      "Portrait - 1",
+      "Portrait Talk - 1",
+      "Portrait Talk - 2"
+    ],
+    "bytes": 246848,
+    "portraitBackdropGeosets": [
+      39
+    ],
+    "sha256": "195bdf1f8847e51fdc56c7a9462b29c1ad7138ce9e56f641e45ab37b35b29798",
+    "textureFiles": {
+      "doodads\\cinematic\\eyeofsargeras\\green_glow3.dds": "textures/eyeofsargeras-green-glow3.png"
+    },
+    "captureSequence": "Stand - 2",
+    "captureTime": 500,
+    "captureFormationYaw": -0.33
+  },
+  {
+    "id": "great-unclean-one-of-nurgle-hero",
+    "name": "Great Unclean One of Nurgle",
+    "army": "demons-of-chaos",
+    "description": "The Great Unclean Ones, known also as Fly Masters, Stench Lords, Nurgle's Plaguefathers, Plague Lords, and the Decayed Ones, are the massive Greater Daemons of Nurgle, embodiments of plague and disease that can lay low entire armies and can endure the greatest and most horrific punishments that can fell even the mightiest of Daemonkind.\n\nEach Great Unclean One is more or less a smaller and less powerful facsimile of Nurgle himself, both physically in their appearance and in terms of their jovial and ironically good-natured personality. Indeed, a Great Unclean One is sometimes referred to as Nurgle or Father Nurgle by his underlings, although of course each also has their own daemonic name.\n\nA Great Unclean One is invariably a gigantic, bloated green figure swollen with disease and every form of physical corruption or decay possible in flesh. The Daemon's skin is a necrotic and leathery surface covered with pockmarks, sores and other signs of loathsome infestation. Its inner organs, rank with rotten flesh, spill through the ruptured skin and hang like rotting drapes about its immense girth. From these organs burst tiny pustulant creatures called Nurglings, which chew and suck upon the nauseating juices within. Such foulness echoes the fundamental truth of the mortal world and the teachings of Nurgle himself: whilst there is life, there will be ruin and decay, even unto the end of all things.\n\nIn perverse contrast to its horrific appearance, the Great Unclean One is neither morbid nor consumed with despair — if anything the opposite is true. Great Unclean Ones are downright exuberant in the pursuit of their enthusiasms. Great Unclean Ones are invariably ebullient and obstreperous, full of a natural will to organise and achieve. Indeed, it is not uncommon for Great Unclean Ones to compete amongst themselves to see which can better spread Nurgle's plague-riddled \"gifts\" across the world.\n\nGregarious and curiously sentimental, Great Unclean Ones hold their mortal and daemonic followers dear and even refer to them as their \"children.\" They take great patriarchal pride in the achievements of their servants and allies, proclaiming vociferously the splendours of the poxes and sores evinced by those around them, and bellow with hearty laughter in response to the destruction wrought in Nurgle's name.\n\n— Warhammer Armies: Daemons of Chaos (8th Edition), p. 44",
+    "credits": "Model Base - Abomination (Re-Classic) by johnwar\n\nBased on - Abomination and Derivatives by Ujimasa Hojo\n\nSword - Haunted Sword by JesusHipster / Sword of Supreme by Fang\n\nBelt Buckle - Skeleton-Pack by DREADMAN / Chaos Warriors by Diazon, found on Warhammer Eternal Strife by Nightmare2077\n\nHorns - World of Warcraft asset by Blizzard Entertainment\n\nSkirt - Necromancer by Ustanak",
+    "authors": [
+      {
+        "name": "Unsanctioned Magic",
+        "url": "https://xgm.guru/user/UnsanctMagic"
+      },
+      {
+        "name": "Johnwar",
+        "url": "https://www.hiveworkshop.com/members/johnwar.264426/"
+      }
+    ],
+    "creditLinks": [
+      {
+        "text": "Abomination (Re-Classic)",
+        "url": "https://www.hiveworkshop.com/threads/abomination-re-classic.357166/"
+      },
+      {
+        "text": "johnwar",
+        "url": "https://www.hiveworkshop.com/members/johnwar.264426/"
+      },
+      {
+        "text": "Abomination and Derivatives",
+        "url": "https://www.hiveworkshop.com/threads/abomination-and-derivatives.237374/"
+      },
+      {
+        "text": "Ujimasa Hojo",
+        "url": "https://www.hiveworkshop.com/members/142431/"
+      },
+      {
+        "text": "Haunted Sword",
+        "url": "https://www.hiveworkshop.com/threads/haunted-sword.219759/"
+      },
+      {
+        "text": "JesusHipster",
+        "url": "https://www.hiveworkshop.com/members/jesushipster.210592/"
+      },
+      {
+        "text": "Sword of Supreme",
+        "url": "https://www.hiveworkshop.com/threads/sword-of-supreme.312430/"
+      },
+      {
+        "text": "Fang",
+        "url": "https://www.hiveworkshop.com/members/fang.241028/"
+      },
+      {
+        "text": "Skeleton-Pack",
+        "url": "https://www.hiveworkshop.com/threads/skeleton-pack.368580/"
+      },
+      {
+        "text": "DREADMAN",
+        "url": "https://www.hiveworkshop.com/members/306575/"
+      },
+      {
+        "text": "World of Warcraft asset",
+        "url": "https://wc3.ninja/models/2265392#d=638.1&y=6.350&p=0.163&tx=0.0&ty=0.0&tz=93.8"
+      },
+      {
+        "text": "Blizzard Entertainment",
+        "url": "https://www.blizzard.com/"
+      },
+      {
+        "text": "Necromancer",
+        "url": "https://www.hiveworkshop.com/threads/necromancer.305771/"
+      },
+      {
+        "text": "Ustanak",
+        "url": "https://www.hiveworkshop.com/members/ustanak.242792/"
+      },
+      {
+        "text": "Warhammer Eternal Strife",
+        "url": "https://www.hiveworkshop.com/threads/warhammer-eternal-strife-melee.254808/"
+      },
+      {
+        "text": "Chaos Warriors",
+        "url": "https://www.hiveworkshop.com/threads/warhammer-eternal-strife-melee.254808/"
+      },
+      {
+        "text": "Nightmare2077",
+        "url": "https://www.hiveworkshop.com/members/nightmare2077.204498/"
+      }
+    ],
+    "searchDescription": "Great Unclean One of Nurgle, a Warhammer Fantasy model for Warcraft III Classic.",
+    "imageVersion": "20261113-great-unclean-one-braced-red-left",
+    "file": "WH_DOC_GreatUncleanOneHero01.mdx",
+    "geosets": [
+      {
+        "index": 0,
+        "vertices": 20,
+        "triangles": 10,
+        "material": 0,
+        "textures": [
+          "Textures\\Abomination.blp"
+        ]
+      },
+      {
+        "index": 1,
+        "vertices": 45,
+        "triangles": 26,
+        "material": 1,
+        "textures": [
+          "Textures\\gutz.blp"
+        ]
+      },
+      {
+        "index": 2,
+        "vertices": 26,
+        "triangles": 44,
+        "material": 2,
+        "textures": [
+          "Textures\\Abomination.blp"
+        ]
+      },
+      {
+        "index": 3,
+        "vertices": 40,
+        "triangles": 54,
+        "material": 3,
+        "textures": [
+          "Team colour / glow",
+          "Textures\\UndeadAirBarge.blp"
+        ]
+      },
+      {
+        "index": 4,
+        "vertices": 24,
+        "triangles": 36,
+        "material": 4,
+        "textures": [
+          "Textures\\Skeleton.blp"
+        ]
+      },
+      {
+        "index": 5,
+        "vertices": 491,
+        "triangles": 874,
+        "material": 5,
+        "textures": [
+          "UI\\Glues\\SinglePlayer\\OrcCampaign3D\\CampaignOrc.blp"
+        ]
+      },
+      {
+        "index": 6,
+        "vertices": 4,
+        "triangles": 2,
+        "material": 0,
+        "textures": [
+          "Textures\\Abomination.blp"
+        ]
+      },
+      {
+        "index": 7,
+        "vertices": 264,
+        "triangles": 132,
+        "material": 0,
+        "textures": [
+          "Textures\\Abomination.blp"
+        ]
+      },
+      {
+        "index": 8,
+        "vertices": 137,
+        "triangles": 234,
+        "material": 6,
+        "textures": [
+          "Textures\\Skeleton.blp"
+        ]
+      },
+      {
+        "index": 9,
+        "vertices": 126,
+        "triangles": 124,
+        "material": 7,
+        "textures": [
+          "Textures\\SlaughterHouse.blp"
+        ]
+      },
+      {
+        "index": 10,
+        "vertices": 63,
+        "triangles": 80,
+        "material": 8,
+        "textures": [
+          "Units\\Creeps\\HeroTinker\\HeroTinkerTank.blp"
+        ]
+      },
+      {
+        "index": 11,
+        "vertices": 14,
+        "triangles": 12,
+        "material": 9,
+        "textures": [
+          "Doodads\\Ruins\\Water\\FishSchool\\FishBlue.blp"
+        ]
+      },
+      {
+        "index": 12,
+        "vertices": 18,
+        "triangles": 20,
+        "material": 10,
+        "textures": [
+          "Units\\Undead\\Ghoul\\Ghoul.blp"
+        ]
+      },
+      {
+        "index": 13,
+        "vertices": 32,
+        "triangles": 48,
+        "material": 4,
+        "textures": [
+          "Textures\\Skeleton.blp"
+        ]
+      },
+      {
+        "index": 14,
+        "vertices": 6,
+        "triangles": 4,
+        "material": 2,
+        "textures": [
+          "Textures\\Abomination.blp"
+        ]
+      },
+      {
+        "index": 15,
+        "vertices": 4,
+        "triangles": 2,
+        "material": 2,
+        "textures": [
+          "Textures\\Abomination.blp"
+        ]
+      },
+      {
+        "index": 16,
+        "vertices": 34,
+        "triangles": 44,
+        "material": 11,
+        "textures": [
+          "Team colour / glow",
+          "Doodads\\Ashenvale\\Props\\KeeperStatue\\KeeperStatue.blp"
+        ]
+      },
+      {
+        "index": 17,
+        "vertices": 13,
+        "triangles": 22,
+        "material": 3,
+        "textures": [
+          "Team colour / glow",
+          "Textures\\UndeadAirBarge.blp"
+        ]
+      },
+      {
+        "index": 18,
+        "vertices": 45,
+        "triangles": 55,
+        "material": 12,
+        "textures": [
+          "Textures\\HeroBladeMaster.blp"
+        ]
+      },
+      {
+        "index": 19,
+        "vertices": 80,
+        "triangles": 48,
+        "material": 13,
+        "textures": [
+          "Units\\Orc\\Grunt\\Grunt.blp"
+        ]
+      },
+      {
+        "index": 20,
+        "vertices": 50,
+        "triangles": 86,
+        "material": 14,
+        "textures": [
+          "Buildings\\Undead\\GargoyleSpire\\GargoyleSpire.blp"
+        ]
+      },
+      {
+        "index": 21,
+        "vertices": 44,
+        "triangles": 44,
+        "material": 15,
+        "textures": [
+          "doodads\\cinematic\\eyeofsargeras\\green_glow3.dds"
+        ]
+      },
+      {
+        "index": 22,
+        "vertices": 8,
+        "triangles": 8,
+        "material": 16,
+        "textures": [
+          "Textures\\CryptFiend.blp"
+        ]
+      },
+      {
+        "index": 23,
+        "vertices": 16,
+        "triangles": 16,
+        "material": 17,
+        "textures": [
+          "Buildings\\Undead\\AltarOfDarkness\\CreepyAltarOfDark.blp"
+        ]
+      },
+      {
+        "index": 24,
+        "vertices": 220,
+        "triangles": 291,
+        "material": 5,
+        "textures": [
+          "UI\\Glues\\SinglePlayer\\OrcCampaign3D\\CampaignOrc.blp"
+        ]
+      },
+      {
+        "index": 25,
+        "vertices": 26,
+        "triangles": 36,
+        "material": 5,
+        "textures": [
+          "UI\\Glues\\SinglePlayer\\OrcCampaign3D\\CampaignOrc.blp"
+        ]
+      },
+      {
+        "index": 26,
+        "vertices": 64,
+        "triangles": 74,
+        "material": 18,
+        "textures": [
+          "Units\\Undead\\SkeletonMage\\SkeletonMage.blp"
+        ]
+      },
+      {
+        "index": 27,
+        "vertices": 16,
+        "triangles": 24,
+        "material": 2,
+        "textures": [
+          "Textures\\Abomination.blp"
+        ]
+      },
+      {
+        "index": 28,
+        "vertices": 8,
+        "triangles": 12,
+        "material": 4,
+        "textures": [
+          "Textures\\Skeleton.blp"
+        ]
+      },
+      {
+        "index": 29,
+        "vertices": 10,
+        "triangles": 11,
+        "material": 19,
+        "textures": [
+          "Units\\Other\\FleshGolem\\FleshGolem.blp"
+        ]
+      },
+      {
+        "index": 30,
+        "vertices": 225,
+        "triangles": 184,
+        "material": 20,
+        "textures": [
+          "Units\\Creeps\\HeroTinker\\HeroTinkerTank.blp"
+        ]
+      },
+      {
+        "index": 31,
+        "vertices": 45,
+        "triangles": 48,
+        "material": 22,
+        "textures": [
+          "Textures\\CreepyNecropolis.blp"
+        ]
+      },
+      {
+        "index": 32,
+        "vertices": 45,
+        "triangles": 48,
+        "material": 21,
+        "textures": [
+          "Textures\\UndeadAirBarge.blp"
+        ]
+      },
+      {
+        "index": 33,
+        "vertices": 6,
+        "triangles": 2,
+        "material": 23,
+        "textures": [
+          "Textures\\Black32.blp"
+        ]
+      },
+      {
+        "index": 34,
+        "vertices": 130,
+        "triangles": 80,
+        "material": 24,
+        "textures": [
+          "TerrainArt\\Felwood\\Felwood_Poison.blp"
+        ]
+      },
+      {
+        "index": 35,
+        "vertices": 34,
+        "triangles": 44,
+        "material": 25,
+        "textures": [
+          "Textures\\AcidSplash1.blp"
+        ]
+      },
+      {
+        "index": 36,
+        "vertices": 45,
+        "triangles": 48,
+        "material": 26,
+        "textures": [
+          "Textures\\DemonRune4.blp"
+        ]
+      },
+      {
+        "index": 37,
+        "vertices": 48,
+        "triangles": 40,
+        "material": 27,
+        "textures": [
+          "Textures\\Skeleton.blp"
+        ]
+      },
+      {
+        "index": 38,
+        "vertices": 45,
+        "triangles": 26,
+        "material": 30,
+        "textures": [
+          "Textures\\gutz.blp"
+        ]
+      },
+      {
+        "index": 39,
+        "vertices": 4,
+        "triangles": 2,
+        "material": 31,
+        "textures": [
+          "Team colour / glow"
+        ]
+      },
+      {
+        "index": 40,
+        "vertices": 14,
+        "triangles": 12,
+        "material": 32,
+        "textures": [
+          "TerrainArt\\Felwood\\Felwood_Poison.blp"
+        ]
+      },
+      {
+        "index": 41,
+        "vertices": 14,
+        "triangles": 12,
+        "material": 33,
+        "textures": [
+          "Textures\\DemonRune5.blp"
+        ]
+      },
+      {
+        "index": 42,
+        "vertices": 12,
+        "triangles": 6,
+        "material": 34,
+        "textures": [
+          "Team colour / glow"
+        ]
+      }
+    ],
+    "sequences": [
+      "Walk",
+      "Stand - 1",
+      "Stand - 2",
+      "Attack - 1",
+      "Attack - 2",
+      "Spell Slam",
+      "Stand Channel",
+      "Death",
+      "Decay Flesh",
+      "Decay Bone",
+      "Dissipate",
+      "Portrait - 1",
+      "Portrait Talk - 1",
+      "Portrait Talk - 2"
+    ],
+    "bytes": 248964,
+    "portraitBackdropGeosets": [
+      39
+    ],
+    "sha256": "ddcf4de5102ad3edaa17ca8fc383bbe0084dde72db93ef77d89206c67f44f9a3",
+    "textureFiles": {
+      "doodads\\cinematic\\eyeofsargeras\\green_glow3.dds": "textures/eyeofsargeras-green-glow3.png"
+    },
+    "captureSequence": "Stand - 2",
+    "captureTime": 500,
+    "captureFormationYaw": -0.33
   }
 ]

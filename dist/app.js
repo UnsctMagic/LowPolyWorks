@@ -12,16 +12,15 @@ import {renderJournal} from './journal.js?v=20261022-tzeentch-warrior';
 import {renderMdlxl} from './mdlxl.js?v=20261109-tutorial-mp4';
 import {readMdlxlRoute,mdlxlHref} from './mdlxl-routes.js?v=20261109-spread-pieces';
 const initialMdlxl=readMdlxlRoute(location);if(initialMdlxl&&location.hash.startsWith('#project/mdlxl'))history.replaceState(null,'',mdlxlHref(initialMdlxl.section,initialMdlxl.tutorial,location.search));
-const app=document.querySelector('#app'),baseCatalogue=await fetch('catalogue.json?v=20261111-tzeentch-aspiring-03').then(r=>r.json());
-const armies=await fetch('armies.json?v=20261020-army-sizes-approved').then(r=>r.json());
-// Shuffle the middle army cards once per load; keep Chaos and Vampire Counts first and Dwarfs last.
-const pinnedArmyIds=['warriors-of-chaos','vampire-counts'];
-const armyCardOrder=armies.filter(army=>!pinnedArmyIds.includes(army.id)&&army.id!=='dwarfs');
+const app=document.querySelector('#app'),baseCatalogue=await fetch('catalogue.json?v=20261113-demons-of-chaos').then(r=>r.json());
+const armies=await fetch('armies.json?v=20261113-demons-of-chaos').then(r=>r.json());
+// Shuffle the other army cards once per load. Demons of Chaos always occupies the third slot.
+const demonsOfChaos=armies.find(army=>army.id==='demons-of-chaos');
+const armyCardOrder=armies.filter(army=>army!==demonsOfChaos);
 for(let i=armyCardOrder.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[armyCardOrder[i],armyCardOrder[j]]=[armyCardOrder[j],armyCardOrder[i]];}
-armyCardOrder.unshift(...pinnedArmyIds.map(id=>armies.find(army=>army.id===id)));
-armyCardOrder.push(armies.find(army=>army.id==='dwarfs'));
+armyCardOrder.splice(2,0,demonsOfChaos);
 // Variant groups: near-identical models share one army card and switch through tabs on the model page.
-const variantGroups=await fetch('variants.json?v=20261109-zombie-dragon-variants').then(r=>r.json()).catch(()=>[]);
+const variantGroups=await fetch('variants.json?v=20261113-demons-of-chaos').then(r=>r.json()).catch(()=>[]);
 const descriptionParagraphs=(text,links=[])=>text.trim().split(/\r?\n\s*\r?\n/).map(paragraph=>`<p>${creditText({creditLinks:links},paragraph.trim()).replace(/\r?\n/g,'<br>')}</p>`).join('');
 const escape=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const neutralTextColor=hex=>{const rgb=[1,3,5].map(offset=>Number.parseInt(hex.slice(offset,offset+2),16)/255),luminance=rgb.map(value=>value<=.04045?value/12.92:((value+.055)/1.055)**2.4).reduce((sum,value,index)=>sum+value*[.2126,.7152,.0722][index],0);return luminance>.36?'#111111':'#ffffff';};
@@ -60,7 +59,7 @@ function creditText(row,text){
 }
 // Vault edits replace a catalogue card's text and credits; files and pictures stay as published.
 const edited=(row,edit)=>edit?{...row,name:edit.name,army:edit.army,description:edit.description,credits:edit.credits,authors:edit.authors,creditLinks:edit.creditLinks}:row;
-function modelCard(row){if(row.models)return uploadedModelCard(row,armies.find(a=>a.id===row.army)?.colour);const group=groupOf(row.id);if(group&&liveVariants(group).length>1)return groupCard(group,row);return `<article class="model-card slab"><a class="model-open" href="/model/${row.slug || row.id}/" aria-label="Open ${escape(row.name)}"><div class="card-portrait" style="--aura:${armies.find(a=>a.id===row.army).colour}"><img src="${thumbnail(row.id)}" alt="${escape(row.name)}">${modelUpdateTagMarkup(row.id)}</div></a><div class="card-text"><a class="card-name" href="/model/${row.slug || row.id}/">${escape(row.name)}</a><small class="card-author">By: ${authorLinks(row)}</small></div></article>`;}
+function modelCard(row){if(row.models)return uploadedModelCard(row,armies.find(a=>a.id===row.army)?.colour);const group=groupOf(row.id);if(group&&group.showCardVariants!==false&&liveVariants(group).length>1)return groupCard(group,row);return `<article class="model-card slab"><a class="model-open" href="/model/${row.slug || row.id}/" aria-label="Open ${escape(row.name)}"><div class="card-portrait" style="--aura:${armies.find(a=>a.id===row.army).colour}"><img src="${thumbnail(row.id)}" alt="${escape(row.name)}">${modelUpdateTagMarkup(row.id)}</div></a><div class="card-text"><a class="card-name" href="/model/${row.slug || row.id}/">${escape(row.name)}</a><small class="card-author">By: ${authorLinks(row)}</small></div></article>`;}
 function sideMenus(army,row,confirmation=''){
  document.querySelector('#army-menu-title').textContent=army?.name||'Browse armies';
  document.querySelector('#army-navigation').innerHTML='<a class="all-armies" href="/warhammercraft/"'+(!army?' aria-current="page"':'')+'>Armies</a>'+armies.map(a=>`<a href="/army/${a.id}/" ${army?.id===a.id?'aria-current="page"':''}>${escape(a.name)}</a>`).join('');

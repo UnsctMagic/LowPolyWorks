@@ -594,5 +594,13 @@
   {
     "file": "WH_VC_ZombieDragon02.mdx",
     "sha256": "ce5006cfac8ebb5b211798c0cba4439acd7d0381f4d88a4aded2112cdcb46a4a"
+  },
+  {
+    "file": "WH_DOC_GreatUncleanOneUnit01.mdx",
+    "sha256": "195bdf1f8847e51fdc56c7a9462b29c1ad7138ce9e56f641e45ab37b35b29798"
+  },
+  {
+    "file": "WH_DOC_GreatUncleanOneHero01.mdx",
+    "sha256": "ddcf4de5102ad3edaa17ca8fc383bbe0084dde72db93ef77d89206c67f44f9a3"
   }
 ]

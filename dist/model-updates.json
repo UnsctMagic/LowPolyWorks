@@ -580,6 +580,14 @@
     "zombie-dragon-von-carstein-hero": {
       "sha256": "69feb1f49e952db1eba575331dd95da73ef55911c2c072b644b6995991b3ec81",
       "updatedAt": "2026-11-09T20:50:35.382Z"
+    },
+    "great-unclean-one-of-nurgle": {
+      "sha256": "195bdf1f8847e51fdc56c7a9462b29c1ad7138ce9e56f641e45ab37b35b29798",
+      "publishedAt": "2026-11-12T23:31:40.597Z"
+    },
+    "great-unclean-one-of-nurgle-hero": {
+      "sha256": "ddcf4de5102ad3edaa17ca8fc383bbe0084dde72db93ef77d89206c67f44f9a3",
+      "publishedAt": "2026-11-12T23:31:40.597Z"
     }
   }
 }

@@ -23,6 +23,18 @@
     ]
   },
   {
+    "id": "demons-of-chaos",
+    "name": "Demons of Chaos",
+    "colour": "#4f5055",
+    "teamColour": "#9c0000",
+    "label": "DEMONS OF CHAOS",
+    "models": [
+      "great-unclean-one-of-nurgle"
+    ],
+    "image": "thumbs/army-demons-of-chaos.png",
+    "imageVersion": "20261113-demons-unit-sweeping-slash"
+  },
+  {
     "id": "the-empire",
     "name": "The Empire",
     "colour": "#ff0303",
