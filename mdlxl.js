@@ -9,7 +9,7 @@ const sections={updates:'Patch updates',about:'About MDLxL',preview:'Preview',tu
 const creditLinks={
  'Codex Astra and Sol':'https://openai.com/codex/',
  'Anthropic Claude':'https://claude.ai/',
- 'Unsanctioned Magic':'https://xgm.guru/user/UnsanctMagic',
+ 'UnsanctionedMagic':'https://xgm.guru/user/UnsanctMagic',
  'HerrDave':'https://www.hiveworkshop.com/members/herrdave.234820/',
  'POMEXI':'https://www.hiveworkshop.com/members/pomexi.326199/',
  'Alexey / Алексей':'https://xgm.guru/user/%D0%90%D0%BB%D0%B5%D0%BA%D1%81%D0%B5%D0%B9',
@@ -135,7 +135,7 @@ export async function renderMdlxl(app,routeIsCurrent,recordUsage){
  }
  if(section!=='tutorials'){delete panel.dataset?.tutorialLanguage;panel.removeAttribute?.('lang');}
  if(section!=='updates'){
-  try{const data=await json('mdlxl-content.json?v=20261104-fr-de-fx');if(!isCurrent())return;panel.innerHTML=localize(contentSection(section,data.locales?.[language]||data));}catch{if(isCurrent())panel.innerHTML=localize('<p>This section could not load. Please reload the page.</p>');}
+  try{const data=await json('mdlxl-content.json?v=20261113-public-credit-name');if(!isCurrent())return;panel.innerHTML=localize(contentSection(section,data.locales?.[language]||data));}catch{if(isCurrent())panel.innerHTML=localize('<p>This section could not load. Please reload the page.</p>');}
   await latestTask;return;
  }
  panel.innerHTML=localize(contentSection(section));
