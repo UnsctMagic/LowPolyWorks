@@ -7,6 +7,7 @@ import {createRequire} from 'node:module';
 import {fileURLToPath} from 'node:url';
 import {parseMDX} from '../dist/vendor/war3-model.mjs';
 import {parseCompatibleMdx} from '../dist/warcraft-mdx-compatibility.js';
+import {prepareModelEvents} from './model-event-resources.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const [id, ...args] = process.argv.slice(2);
@@ -33,7 +34,7 @@ for (const name of needed) {
   if (file) await fs.access(path.join(root, 'dist', file));
   else missing.push(name);
 }
-if (!missing.length) { console.log(`${id}: all ${needed.length} rendering textures are available; MDX unchanged.`); process.exit(0); }
+if (!missing.length) { await prepareModelEvents({root,row,model,mdlxl,archives,game}); console.log(`${id}: all ${needed.length} rendering textures are available; MDX unchanged.`); process.exit(0); }
 const require = createRequire(import.meta.url);
 const {Mpq} = require(path.join(mdlxl, 'electron/mpq.cjs'));
 const readers = [], records = [], unresolved = [];
@@ -78,4 +79,5 @@ if (unresolved.length) throw Error(`Unavailable in local native sources (check s
 await fs.writeFile(indexPath, JSON.stringify(index));
 await fs.mkdir(path.join(root, 'output/model-textures'), {recursive:true});
 await fs.writeFile(path.join(root, 'output/model-textures', id + '.json'), JSON.stringify({id, model:row.file, modelSha256:originalHash, textures:records}, null, 2) + '\n');
+await prepareModelEvents({root,row,model,mdlxl,archives,game});
 console.log(JSON.stringify({id, modelSha256:originalHash, resolved:records, modelUnchanged:true}, null, 2));
