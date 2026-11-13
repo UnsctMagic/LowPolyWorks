@@ -31981,8 +31981,8 @@
       "Portrait",
       "Portrait Talk"
     ],
-    "bytes": 531802,
-    "sha256": "8217695478c1f4d8aa03a835eec6eb66061260c64e7d6ea4fd2c024b42ffe67c",
+    "bytes": 531806,
+    "sha256": "c4b87d7b89c9092bf77b2b043c9cb265242f44da4669aa4a87d72c4c856983e9",
     "authors": [
       {
         "name": "UnsanctionedMagic",
@@ -32076,13 +32076,17 @@
       "vampiredragonfade\\saddletrim.tga": "textures/VampireDragonFade/SaddleTrim.tga",
       "vampiredragonfade\\thronetrim.tga": "textures/VampireDragonFade/ThroneTrim.tga"
     },
-    "downloadPack": "downloads/zombie-dragon-von-carstein-82176954/WH_VC_ZombieDragonVCarstein02.zip",
+    "downloadPack": "downloads/zombie-dragon-von-carstein-c4b87d7b/WH_VC_ZombieDragonVCarstein02.zip",
     "captureSequence": "Stand - 1",
     "captureTime": 400,
     "captureFormationYaw": 0.65,
     "imageVersion": "20261109-von-carstein-bindings",
     "searchDescription": "Preview and download Zombie Dragon - Von Carstein, a Vampire Counts model for Warcraft III and WarhammerCraft.",
     "changelog": [
+      {
+        "date": "13 November 2026",
+        "text": "Fixed sounds in Spell Attack Alternate by restoring the gargoyle scream with the same timing as the ground Spell."
+      },
       {
         "date": "9 November 2026",
         "text": "Added hero variation, fixed emitter colors on morph animations and removed unused materials. Improved bone bindings and adjusted geosets. Removed non-native texture."
@@ -32676,8 +32680,8 @@
       "Portrait",
       "Portrait Talk"
     ],
-    "bytes": 535854,
-    "sha256": "69feb1f49e952db1eba575331dd95da73ef55911c2c072b644b6995991b3ec81",
+    "bytes": 535858,
+    "sha256": "5ebb9be59546fd9208d17e6402916bbf41a17335c84418b8c548ff072f4364f5",
     "authors": [
       {
         "name": "UnsanctionedMagic",
@@ -32771,13 +32775,17 @@
       "vampiredragonfade\\saddletrim.tga": "textures/VampireDragonFade/SaddleTrim.tga",
       "vampiredragonfade\\thronetrim.tga": "textures/VampireDragonFade/ThroneTrim.tga"
     },
-    "downloadPack": "downloads/zombie-dragon-von-carstein-hero-69feb1f4/WH_VC_ZombieDragonVCarsteinHero02.zip",
+    "downloadPack": "downloads/zombie-dragon-von-carstein-hero-5ebb9be5/WH_VC_ZombieDragonVCarsteinHero02.zip",
     "captureSequence": "Stand - 1",
     "captureTime": 400,
     "captureFormationYaw": 0.65,
     "imageVersion": "20261109-von-carstein-bindings",
     "searchDescription": "Preview and download the Zombie Dragon - Von Carstein Hero model for Warcraft III and WarhammerCraft.",
     "changelog": [
+      {
+        "date": "13 November 2026",
+        "text": "Fixed sounds in Spell Attack Alternate by restoring the gargoyle scream with the same timing as the ground Spell."
+      },
       {
         "date": "9 November 2026",
         "text": "Added hero variation, fixed emitter colors on morph animations and removed unused materials. Improved bone bindings and adjusted geosets. Removed non-native texture."
@@ -33041,8 +33049,8 @@
       "Portrait",
       "Portrait Talk"
     ],
-    "bytes": 275635,
-    "sha256": "ce5006cfac8ebb5b211798c0cba4439acd7d0381f4d88a4aded2112cdcb46a4a",
+    "bytes": 275639,
+    "sha256": "8bd50ffe445289087aeba4465b899cce6c48bad24d2f5cc3de84c419e6185162",
     "authors": [
       {
         "name": "UnsanctionedMagic",
@@ -33092,6 +33100,10 @@
     "captureFormationYaw": 0.65,
     "searchDescription": "Preview and download Zombie Dragon Riderless, a Vampire Counts model for Warcraft III and WarhammerCraft.",
     "changelog": [
+      {
+        "date": "13 November 2026",
+        "text": "Fixed sounds in Spell Attack Alternate by restoring the gargoyle scream with the same timing as the ground Spell."
+      },
       {
         "date": "9 November 2026",
         "text": "Updated geometry and vertex bindings across five geosets."
