@@ -582,14 +582,14 @@
       "updatedAt": "2026-11-09T20:50:35.382Z"
     },
     "great-unclean-one-of-nurgle": {
-      "sha256": "def6b36057d87aa24f3c1b12cdc92b0814e7783d85b1758e804e3f69df5fb517",
+      "sha256": "801267babb53c7f3f34225c14c7a91fed7cad21383a51708e0c1361c7ac3dc34",
       "publishedAt": "2026-11-12T23:31:40.597Z",
-      "updatedAt": "2026-11-12T23:50:35.289Z"
+      "updatedAt": "2026-11-13T00:16:04.611Z"
     },
     "great-unclean-one-of-nurgle-hero": {
-      "sha256": "1254bf3fb36decd7138a785c624c157c4c0feebd555a1bf35a697f0901562fda",
+      "sha256": "375d06212b8b376f73edc351482b003e3b0b4a3977750cb1984959ee923e6236",
       "publishedAt": "2026-11-12T23:31:40.597Z",
-      "updatedAt": "2026-11-12T23:50:35.289Z"
+      "updatedAt": "2026-11-13T00:16:04.611Z"
     }
   }
 }

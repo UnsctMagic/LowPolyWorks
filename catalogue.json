@@ -33586,11 +33586,11 @@
       "Portrait Talk - 1",
       "Portrait Talk - 2"
     ],
-    "bytes": 246848,
+    "bytes": 246864,
     "portraitBackdropGeosets": [
       39
     ],
-    "sha256": "def6b36057d87aa24f3c1b12cdc92b0814e7783d85b1758e804e3f69df5fb517",
+    "sha256": "801267babb53c7f3f34225c14c7a91fed7cad21383a51708e0c1361c7ac3dc34",
     "textureFiles": {
       "doodads\\cinematic\\eyeofsargeras\\green_glow3.dds": "textures/eyeofsargeras-green-glow3.png"
     },
@@ -34095,11 +34095,11 @@
       "Portrait Talk - 1",
       "Portrait Talk - 2"
     ],
-    "bytes": 248964,
+    "bytes": 248980,
     "portraitBackdropGeosets": [
       39
     ],
-    "sha256": "1254bf3fb36decd7138a785c624c157c4c0feebd555a1bf35a697f0901562fda",
+    "sha256": "375d06212b8b376f73edc351482b003e3b0b4a3977750cb1984959ee923e6236",
     "textureFiles": {
       "doodads\\cinematic\\eyeofsargeras\\green_glow3.dds": "textures/eyeofsargeras-green-glow3.png"
     },
