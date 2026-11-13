@@ -95,7 +95,11 @@ footer{max-width:1740px;padding:20px 24px}
 .controls .model-playback{grid-template-columns:92px minmax(0,1fr) 104px 104px}
 .controls .control-fields{grid-template-columns:92px minmax(0,1fr) 92px minmax(0,1fr);padding:10px 0;border-top:1px solid #c9b17a1f;border-bottom:1px solid #c9b17a1f}
 .controls .control-actions{grid-template-columns:minmax(0,1fr) 104px 104px 104px}
-.controls .model-actions{grid-template-columns:repeat(3,104px);justify-content:end}
+.controls .model-actions{grid-template-columns:minmax(250px,1fr) repeat(3,104px)}
+.controls .viewer-effects{display:flex;flex-wrap:wrap;align-items:center;gap:5px 10px;min-width:0}
+.controls .viewer-effects label{display:flex;align-items:center;gap:3px;cursor:pointer}
+.controls .viewer-effects input{margin:0;accent-color:#d4b568}
+.controls .unit-effects-actions{grid-template-columns:minmax(0,1fr) 104px}
 .controls .control-range{display:grid;grid-template-columns:minmax(0,1fr) 30px;gap:8px;align-items:center;min-width:0}
 .controls .control-row select{width:100%;height:36px;padding:4px 8px}
 .controls .control-row select.team-input{width:100%}
@@ -121,7 +125,7 @@ footer{max-width:1740px;padding:20px 24px}
 .controls output{font-size:.88rem;color:#e3c77f;font-family:'IM Fell English',Georgia,serif;text-shadow:1px 1px 0 #000}
 /* The controls follow the viewer panel width, which narrows before the window does. */
 .controls{container-type:inline-size}
-@container (max-width:519px){.controls .control-row{gap:7px 8px}.controls .control-sequence{grid-template-columns:84px minmax(0,1fr) 88px}.controls .model-playback{grid-template-columns:84px minmax(0,1fr) 88px 88px}.controls .control-fields{grid-template-columns:84px minmax(0,1fr)}.controls .control-actions{grid-template-columns:minmax(0,1fr) 88px 88px 88px}.controls .model-actions{grid-template-columns:repeat(3,88px)}.controls .control-row label{font-size:.76rem}}
+@container (max-width:519px){.controls .control-row{gap:7px 8px}.controls .control-sequence{grid-template-columns:84px minmax(0,1fr) 88px}.controls .model-playback{grid-template-columns:84px minmax(0,1fr) 88px 88px}.controls .control-fields{grid-template-columns:84px minmax(0,1fr)}.controls .control-actions{grid-template-columns:minmax(0,1fr) 88px 88px 88px}.controls .model-actions{grid-template-columns:repeat(3,minmax(0,1fr))}.controls .model-actions .viewer-effects{grid-column:1/-1}.controls .control-row label{font-size:.76rem}}
 @container (max-width:299px){.controls .control-sequence{grid-template-columns:minmax(0,1fr) 84px}.controls .model-playback{grid-template-columns:minmax(0,1fr) 80px 66px;column-gap:6px}.controls .control-sequence label{grid-column:1/-1}.controls .model-playback select{padding-inline:6px 24px;background-position:right 6px center,0 0,0 0}.controls .control-fields{grid-template-columns:minmax(0,1fr)}.controls .control-actions{grid-template-columns:1fr 1fr}}
 @media(max-width:560px){.controls{padding:8px}}
 
@@ -266,6 +270,7 @@ body a[href]:any-link:hover{color:var(--link-hover)}
  .controls .viewer-settings .control-fields{grid-template-columns:96px minmax(0,1fr);margin:0;padding:8px 0 12px;border-top:0}
  .controls .viewer-settings .control-actions{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:10px}
  .controls .viewer-settings .control-actions>span{display:none}
+ .controls .viewer-settings .viewer-effects{grid-column:1/-1;justify-content:space-between}
  .controls .range{height:44px}
  .variant-tabs{flex-wrap:nowrap;overflow-x:auto;max-width:100%;gap:6px;margin:0 0 12px;padding-bottom:5px;scrollbar-width:thin}
  .variant-tabs a{flex:none;min-height:44px;font-size:.85rem;border-width:6px;padding:3px 9px 3px 3px;gap:5px}
@@ -297,3 +302,5 @@ body a[href]:any-link:hover{color:var(--link-hover)}
 .model-card .card-portrait img[src^="thumbs/unit-warrior-of-tzeentch.png"]{transform:scale(1.15);transform-origin:50% 95%}
 
 .model-card .card-portrait img[src^="thumbs/unit-chaos-warrior-of-nurgle.png"]{transform:scale(.85);transform-origin:50% 50%}
+
+@container (min-width:520px) and (max-width:629px){.controls .model-actions{grid-template-columns:repeat(3,minmax(0,1fr))}.controls .model-actions .viewer-effects{grid-column:1/-1}}

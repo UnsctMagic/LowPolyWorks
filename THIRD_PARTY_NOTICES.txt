@@ -41,3 +41,6 @@ Original font distribution: https://github.com/luxcem/ttf-tengwar-annatar
 Licence: mdlxl/tutorials/fonts/tengwar-annatar/LICENCE
 Documentation: mdlxl/tutorials/fonts/tengwar-annatar/tngandoc.pdf
 Readme: mdlxl/tutorials/fonts/tengwar-annatar/readme.txt
+
+Warcraft III native event resources (Blizzard Entertainment)
+Animation sounds, splat textures and spawned effect models are extracted from local game archives for preview playback. Original model downloads are unchanged.

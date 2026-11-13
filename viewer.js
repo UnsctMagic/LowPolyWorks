@@ -7,6 +7,9 @@ import {parseMDX,parseMDL,ModelRenderer} from './vendor/war3-model.mjs';
 import {decodeTga} from './texture-raster.js';
 import {installWarcraftPreviewAdapter,previewGeosetTint,initializeWarcraftRenderer} from './website-preview-adapter.js?v=20261018-uniform-budget';
 import {advanceShowcaseModel} from './vendor/mdlxl/app/showcase-playback.js';
+import {createViewerEvents} from './viewer-events.js?v=20261113-viewer-events';
+import {readEffectSettings} from './viewer-effect-controls.js';
+import {resetPreviewEffects} from './vendor/mdlxl/app/warcraft-preview-adapter.js';
 import {viewerPlaybackSample,setWarcraftCamera} from './viewer-effects.js?v=20261006-classic-portrait-controls';
 import {installParticleNativeCompatibility} from './vendor/mdlxl/particle-native.mjs';
 import {convertMdxGeosetColorTracks} from './vendor/mdlxl/src/geoset-color-codec.js';
@@ -27,7 +30,8 @@ export async function createViewer(canvas,row,{thumbnail=false,portrait=false,fo
  let sequence=model.Sequences.findIndex(s=>s.Name==='Stand'||s.Name==='Stand - 1'),clock=0,playing=!thumbnail,speed=1,rotate=false,revision=0,previous=null,disposed=false;
  if(sequence<0)sequence=0;
  if(portrait&&firstPortraitSequenceIndex(model)>=0)sequence=firstPortraitSequenceIndex(model);
- let looping=!model.Sequences[sequence].NonLooping;
+ let looping=!model.Sequences[sequence].NonLooping,ended=false;
+ const effects=readEffectSettings();
  let portraitActive=portrait,portraitDetached=false,worldView=null;
  let turntableYaw=0,turntableSpeed=1,navigating=false;
  const turntableAxis=new THREE.Vector3(0,0,1),inverseTurntable=new THREE.Quaternion();
@@ -49,11 +53,22 @@ export async function createViewer(canvas,row,{thumbnail=false,portrait=false,fo
  }
 
  teamTextures.ready(native);
+ // Gate the main model's emitters only; spawned effects own their controllers.
+ for(const controller of [native.particlesController,native.ribbonsController]){
+  if(!controller)continue;
+  const update=controller.updateEmitter,draw=controller.render;
+  controller.updateEmitter=function(...args){if(effects.emitters)return update.apply(this,args);};
+  controller.render=function(...args){if(effects.emitters)return draw.apply(this,args);};
+ }
  await Promise.all([teamTextures.colour(native,teamColor),...model.Textures.filter(t=>t.Image&&!teamTextures.textures.has(t)).map(async t=>{native.setTextureImageData(t.Image,[await textureData(t.Image,row)]);improveNativeTexture(gl,native,t.Image,graphics);})]);
+ const eventPreview=thumbnail?null:createViewerEvents({gl,model,row,textureData,graphics,teamColor,getSettings:()=>effects});
+ const unlockSound=()=>eventPreview?.unlockSound();
+ if(!thumbnail)canvas.addEventListener('pointerdown',unlockSound);
  const captureOrthographic=thumbnail&&row.captureOrthographic;
  const camera=captureOrthographic?new THREE.OrthographicCamera(-200,200,200,-200,.1,3000):new THREE.PerspectiveCamera(32,1,.1,3000);camera.up.set(0,0,1);
  const turntableCamera=thumbnail?null:camera.clone();
  let renderCamera=camera;
+ await eventPreview?.ready;
  native.setSequence(sequence);native.setLightColor([1,1,1]);
  previous=advanceShowcaseModel(native,model,{frame:model.Sequences[sequence].Interval[0],sequenceIndex:sequence,globalTime:0,revision,segment:sequence},previous);
  // Frame the drawn pose, excluding portrait scenery and invisible variants.
@@ -116,7 +131,7 @@ export async function createViewer(canvas,row,{thumbnail=false,portrait=false,fo
   portraitActive=active;portraitDetached=false;onPortraitModeChange?.(active);
  }
  const maxSize=Math.min(gl.getParameter(gl.MAX_RENDERBUFFER_SIZE),...gl.getParameter(gl.MAX_VIEWPORT_DIMS)),msaaSamples=gl.getParameter(gl.SAMPLES);
- function render(delta=0){if(disposed)return;const w=Math.max(1,canvas.clientWidth||480),h=Math.max(1,canvas.clientHeight||480),scale=Math.min(graphics.pixelRatio,maxSize/Math.max(w,h));const width=Math.round(w*scale),height=Math.round(h*scale);if(canvas.width!==width||canvas.height!==height){canvas.width=width;canvas.height=height;canvas.dataset.renderScale=String(scale);canvas.dataset.msaaSamples=String(msaaSamples);}// Preserve the current orbit and pan while keeping the same framing on resize.
+ function render(delta=0,eventDelta=delta){if(disposed)return;const w=Math.max(1,canvas.clientWidth||480),h=Math.max(1,canvas.clientHeight||480),scale=Math.min(graphics.pixelRatio,maxSize/Math.max(w,h));const width=Math.round(w*scale),height=Math.round(h*scale);if(canvas.width!==width||canvas.height!==height){canvas.width=width;canvas.height=height;canvas.dataset.renderScale=String(scale);canvas.dataset.msaaSamples=String(msaaSamples);}// Preserve the current orbit and pan while keeping the same framing on resize.
  if(!thumbnail&&!portraitActive&&camera.aspect!==w/h)camera.zoom*=Math.min(1,w/h)/Math.min(1,camera.aspect);
  camera.aspect=w/h;camera.updateProjectionMatrix();camera.updateMatrixWorld();
  clock+=delta*speed;const sample=viewerPlaybackSample(model,sequence,clock,revision,looping),frame=sample.frame;
@@ -137,22 +152,23 @@ export async function createViewer(canvas,row,{thumbnail=false,portrait=false,fo
  if(!portraitActive||portraitDetached)updateDepthClipping(renderCamera,center,radius,clipRadius);
  // Warcraft particle planes and billboard nodes use +X as forward and +Z as up.
  setWarcraftCamera(native,renderCamera);previous=advanceShowcaseModel(native,model,sample,previous);
- gl.viewport(0,0,canvas.width,canvas.height);gl.clearColor(...(portraitActive||transparent?[0,0,0]:[16/255,24/255,39/255]),transparent?0:1);gl.clearDepth(1);gl.depthMask(true);gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT);native.render(renderCamera.matrixWorldInverse.elements,renderCamera.projectionMatrix.elements,{wireframe:false,useEnvironmentMap:true});}
+ gl.viewport(0,0,canvas.width,canvas.height);gl.clearColor(...(portraitActive||transparent?[0,0,0]:[16/255,24/255,39/255]),transparent?0:1);gl.clearDepth(1);gl.depthMask(true);gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT);native.render(renderCamera.matrixWorldInverse.elements,renderCamera.projectionMatrix.elements,{wireframe:false,useEnvironmentMap:true});
+ eventPreview?.render(sample,eventDelta,renderCamera,playing,looping,speed);}
  let last=performance.now(),raf;
  function tick(now){
   if(disposed)return;
-  const delta=Math.min(70,now-last);
+  const eventDelta=Math.max(0,now-last),delta=Math.min(70,eventDelta);
   last=now;
   // Match the previous 50-second revolution at the default 1× orbit speed.
   if(rotate&&!navigating&&(!portraitActive||portraitDetached))turntableYaw=(turntableYaw+delta*turntableSpeed*(2*Math.PI/50000))%(2*Math.PI);
   controls?.update();
-  render(playing?delta:0);
+  render(playing?delta:0,playing||ended?eventDelta:0);
   if(playing&&!looping&&clock>=model.Sequences[sequence].Interval[1]-model.Sequences[sequence].Interval[0]){
-   playing=false;onPlayingChange?.(playing);
+   playing=false;ended=true;onPlayingChange?.(playing);
   }
   raf=requestAnimationFrame(tick);
  }
  render();
  if(!thumbnail)raf=requestAnimationFrame(tick);
- return {model,render,...(thumbnail?{captureFrame:()=>({center:center.clone(),radius,clipRadius,camera:camera.clone()}),useCaptureFrame(frame){center.copy(frame.center);radius=frame.radius;clipRadius=frame.clipRadius;camera.copy(frame.camera);revision++;previous=null;render();}}:{}),formationAnchor:()=>new THREE.Vector3(0,0,center.z).project(camera).x/2+.5,snapshot:()=>canvas.toDataURL('image/png'),sequence(i){sequence=i;clipRadius=sequenceClipRadius(i);looping=!model.Sequences[i].NonLooping;clock=0;revision++;previous=null;native.setSequence(i);if(!thumbnail)setLivePortrait(/portrait/i.test(model.Sequences[i].Name));render();return looping;},play(){if(!playing){playing=true;onPlayingChange?.(playing);}},loop(v){looping=v;clock=0;revision++;previous=null;render();},looping:()=>looping,pause(){playing=!playing;if(playing&&!looping&&clock>=model.Sequences[sequence].Interval[1]-model.Sequences[sequence].Interval[0]){clock=0;revision++;previous=null;render();}onPlayingChange?.(playing);return playing;},speed(v){speed=v;},orbitSpeed(v){turntableSpeed=v;},lighting(mode){if(['game','portrait','none'].includes(mode)){lightingMode=mode;render();}return lightingMode;},async colour(hex){await teamTextures.colour(native,hex);if(!disposed)render();},rotate(){rotate=!rotate;if(rotate)detachPortrait();return rotate;},reset(){turntableYaw=0;if(portraitActive)portraitDetached=false;else fit();render();},dispose(){disposed=true;cancelAnimationFrame(raf);controls?.removeEventListener('start',startNavigation);controls?.removeEventListener('end',endNavigation);navigation?.dispose();adapter.dispose();gl.getExtension('WEBGL_lose_context')?.loseContext();}};
+ return {model,render,...(thumbnail?{captureFrame:()=>({center:center.clone(),radius,clipRadius,camera:camera.clone()}),useCaptureFrame(frame){center.copy(frame.center);radius=frame.radius;clipRadius=frame.clipRadius;camera.copy(frame.camera);revision++;previous=null;render();}}:{}),formationAnchor:()=>new THREE.Vector3(0,0,center.z).project(camera).x/2+.5,snapshot:()=>canvas.toDataURL('image/png'),sequence(i){ended=false;eventPreview?.stopSounds();sequence=i;clipRadius=sequenceClipRadius(i);looping=!model.Sequences[i].NonLooping;clock=0;revision++;previous=null;native.setSequence(i);if(!thumbnail)setLivePortrait(/portrait/i.test(model.Sequences[i].Name));render();return looping;},play(){eventPreview?.unlockSound();if(ended){clock=0;revision++;previous=null;}ended=false;eventPreview?.armSound(sequence,clock,looping);if(!playing){playing=true;onPlayingChange?.(playing);}},loop(v){ended=false;looping=v;clock=0;revision++;previous=null;render();},looping:()=>looping,pause(){playing=!playing;ended=false;if(playing){eventPreview?.unlockSound();eventPreview?.armSound(sequence,clock,looping);}else eventPreview?.stopSounds();if(playing&&!looping&&clock>=model.Sequences[sequence].Interval[1]-model.Sequences[sequence].Interval[0]){clock=0;revision++;previous=null;render();}onPlayingChange?.(playing);return playing;},speed(v){speed=v;},orbitSpeed(v){turntableSpeed=v;},lighting(mode){if(['game','portrait','none'].includes(mode)){lightingMode=mode;render();}return lightingMode;},effects:()=>({...effects}),effect(key,value){if(!(key in effects))return;effects[key]=!!value;if(key==='emitters'&&!value)resetPreviewEffects(native);if(key==='sounds'){if(value)eventPreview?.unlockSound();else eventPreview?.stopSounds();}else if(!value)eventPreview?.clear(key);render();},async colour(hex){await Promise.all([teamTextures.colour(native,hex),eventPreview?.colour(hex)]);if(!disposed)render();},rotate(){rotate=!rotate;if(rotate)detachPortrait();return rotate;},reset(){turntableYaw=0;if(portraitActive)portraitDetached=false;else fit();render();},dispose(){disposed=true;cancelAnimationFrame(raf);canvas.removeEventListener('pointerdown',unlockSound);eventPreview?.dispose();controls?.removeEventListener('start',startNavigation);controls?.removeEventListener('end',endNavigation);navigation?.dispose();adapter.dispose();gl.getExtension('WEBGL_lose_context')?.loseContext();}};
 }
