@@ -34338,7 +34338,7 @@
     "name": "Lahmian Vampire",
     "army": "vampire-counts",
     "description": "All Vampires of the Lahmian sisterhood are said to be descended from Neferata – one of the few Vampire nobles who escaped the sacking of Lahmia. Only the most enchantingly beautiful maidens are chosen from amongst noble human families to be granted Neferata's Blood Kiss, and trained to control the humans around them. No other Vampires excel in infiltrating human society like the shadowy sisterhood, for no one quite knows how many eccentric noblewomen are in truth, members of the Undead.",
-    "credits": "Shared credits - See the main Lahmian Vampire page.",
+    "credits": "Model Base - Shadow Heart - Good and Evil by Bleeq\n\nAdditional Parts - Vampire Maid · Credits unknown\n\nSleeves - Tyrande Ascended Classic by FerSZ\n\nStaff - Orcish Staff by Sunchips",
     "geosets": [
       {
         "index": 0,
@@ -34526,8 +34526,32 @@
     ],
     "creditLinks": [
       {
-        "text": "main Lahmian Vampire page",
-        "url": "https://www.lowpolyworks.com/model/lahmian-vampire/"
+        "text": "Shadow Heart - Good and Evil",
+        "url": "https://www.hiveworkshop.com/threads/shadow-heart-good-and-evil.355958/"
+      },
+      {
+        "text": "Bleeq",
+        "url": "https://www.hiveworkshop.com/members/bleeq.310462/"
+      },
+      {
+        "text": "Vampire Maid",
+        "url": "https://wc3vault.com/18c9545b-e179-4891-962a-d643387dbb19"
+      },
+      {
+        "text": "Tyrande Ascended Classic",
+        "url": "https://www.hiveworkshop.com/threads/tyrande-ascended-classic.374502/#post-3749826"
+      },
+      {
+        "text": "FerSZ",
+        "url": "https://www.hiveworkshop.com/members/fersz.252357/"
+      },
+      {
+        "text": "Orcish Staff",
+        "url": "https://www.hiveworkshop.com/threads/orcish-staff.237603/"
+      },
+      {
+        "text": "Sunchips",
+        "url": "https://www.hiveworkshop.com/members/sunchips.176515/"
       }
     ],
     "sha256": "22dad1df7374ef013f8da6814246bfa0d3c8461fb08759cee5cb853edf8f6301",
