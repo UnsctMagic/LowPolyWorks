@@ -87,18 +87,23 @@ export function createViewerEvents({gl,model,row,textureData,graphics,teamColor,
    const response=await fetch(url);if(!response.ok)throw Error('Event resource unavailable: '+name);
    return response.arrayBuffer();
   };
+  const definitionFor=name=>row.eventDefinitions?.[eventResourceKey(name)]||manifest.events[eventResourceKey(name)];
+  async function loadSound(name,entry){
+   if(audioBuffers.has(name))return;
+   if(!entry?.files?.length){warn('Sound file unavailable: '+name);return;}
+   audioContext ||= new AudioContext();
+   const buffer=await audioContext.decodeAudioData(await fetchBytes(entry.files[0]));
+   if(!disposed)audioBuffers.set(name,buffer);
+  }
   for(const name of new Set(events.map(e=>e.Name))){
    if(disposed)return;
-   const entry=row.eventDefinitions?.[eventResourceKey(name)]||manifest.events[eventResourceKey(name)];
+   const entry=definitionFor(name);
    if(!entry){if(/^(SND|FPT|SPL|UBR|SPN)/i.test(name))warn('Event resources have not been prepared: '+name);continue;}
    if(entry.empty)continue;
    if(entry.unavailable){warn('Event unavailable: '+name+' ('+(entry.reason||'native file missing')+')');continue;}
    try{
     if(entry.type==='SND'){
-     if(!entry.files?.length){warn('Sound file unavailable: '+name);continue;}
-     audioContext ||= new AudioContext();
-     const bytes=await fetchBytes(entry.files[0]),buffer=await audioContext.decodeAudioData(bytes);
-     if(!disposed)audioBuffers.set(name,buffer);
+     await loadSound(name,entry);
      continue;
     }
     const key=gamePathKey(entry.resourcePath);
@@ -110,7 +115,13 @@ export function createViewerEvents({gl,model,row,textureData,graphics,teamColor,
       const images=new Map();
       for(const info of source.Textures||[])if(info.Image&&![1,2].includes(info.ReplaceableId))images.set(info.Image,await textureData(info.Image,eventTextures));
       if(disposed)return;
-      resources.set(key,{source,images,lifeSpanMs:Math.max(1,source.Sequences[0].Interval[1]-source.Sequences[0].Interval[0])});
+      const sounds=new Set((source.EventObjects||[]).filter(event=>/^SND/i.test(event.Name)).map(event=>event.Name));
+      for(const sound of sounds){
+       try{await loadSound(sound,definitionFor(sound));}
+       catch(error){warn('Event '+sound+': '+error.message);}
+      }
+      if(disposed)return;
+      resources.set(key,{source,images,hasSounds:sounds.size>0,lifeSpanMs:Math.max(1,source.Sequences[0].Interval[1]-source.Sequences[0].Interval[0])});
      }else{
       const image=await textureData(entry.resourcePath,eventTextures);
       if(disposed)return;
@@ -123,6 +134,11 @@ export function createViewerEvents({gl,model,row,textureData,graphics,teamColor,
    }catch(error){warn('Event '+name+': '+error.message);}
   }
  })().catch(error=>warn(error.message));
+ function playSound(name){
+  const buffer=audioBuffers.get(name);if(!buffer)return;
+  const source=audioContext.createBufferSource();source.buffer=buffer;source.connect(audioContext.destination);
+  source.onended=()=>{sources.delete(source);source.disconnect();};sources.add(source);source.start();
+ }
  function worldAtTrigger(item,sample){
   const interval=model.Sequences[sample.sequenceIndex].Interval,span=interval[1]-interval[0];
   const global=(item.event.GlobalSeqId??item.event.GlobalSequenceId??-1)>=0;
@@ -171,13 +187,17 @@ export function createViewerEvents({gl,model,row,textureData,graphics,teamColor,
     if(item.ageMs>elapsed+1e-5||instances.has(item.key)||!settings[item.definition.type==='SPN'?'spawns':'events'])continue;
     const ageMs=item.definition.type==='SPN'?item.ageMs:(speed>0?item.ageMs/speed:0);
     if(ageMs>=item.definition.lifeSpanMs)continue;
-    instances.set(item.key,{...item,ageMs,travelMs:item.ageMs,world:worldAtTrigger(item,sample)});
+    instances.set(item.key,{...item,ageMs,travelMs:item.ageMs,triggerTime:sample.globalTime-item.ageMs,world:worldAtTrigger(item,sample)});
    }
    if(delta>0&&settings.sounds&&playing&&sample.sequenceIndex===soundSequence&&audioContext?.state==='running'){
-    for(const {event}of crossedViewerSounds(model,sample.sequenceIndex,soundFrom,sample.globalTime,soundCycle,looping)){
-     const buffer=audioBuffers.get(event.Name);if(!buffer)continue;
-     const source=audioContext.createBufferSource();source.buffer=buffer;source.connect(audioContext.destination);
-     source.onended=()=>{sources.delete(source);source.disconnect();};sources.add(source);source.start();
+    for(const {event}of crossedViewerSounds(model,sample.sequenceIndex,soundFrom,sample.globalTime,soundCycle,looping))playSound(event.Name);
+    const [start,end]=model.Sequences[sample.sequenceIndex].Interval,span=end-start;
+    const cycleStart=soundCycle*span;
+    for(const state of instances.values()){
+     if(state.definition.type!=='SPN'||state.triggerTime<cycleStart||state.triggerTime>=cycleStart+span)continue;
+     const resource=resources.get(gamePathKey(state.definition.resourcePath));
+     if(!resource.hasSounds)continue;
+     for(const {event}of crossedViewerSounds(resource.source,0,soundFrom-state.triggerTime,sample.globalTime-state.triggerTime,0,false))playSound(event.Name);
     }
    }
    if(delta>0)soundFrom=sample.globalTime;previous=sample;
