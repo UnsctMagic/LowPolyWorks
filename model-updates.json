@@ -590,6 +590,10 @@
       "sha256": "375d06212b8b376f73edc351482b003e3b0b4a3977750cb1984959ee923e6236",
       "publishedAt": "2026-11-12T23:31:40.597Z",
       "updatedAt": "2026-11-13T00:16:04.611Z"
+    },
+    "lahmian-vampire": {
+      "sha256": "795bd0a56dd8230cf15281ae0f9de9014e13942a6eb61b5cd7e9c0badaef1f18",
+      "publishedAt": "2026-11-14T01:34:19.279Z"
     }
   }
 }
