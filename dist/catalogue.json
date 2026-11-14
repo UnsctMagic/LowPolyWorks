@@ -34118,5 +34118,211 @@
     "captureSequence": "Stand - 2",
     "captureTime": 500,
     "captureFormationYaw": -0.33
+  },
+  {
+    "id": "lahmian-vampire",
+    "file": "WH_VC_LahmianVampire01.mdx",
+    "name": "Lahmian Vampire",
+    "army": "vampire-counts",
+    "description": "All Vampires of the Lahmian sisterhood are said to be descended from Neferata – one of the few Vampire nobles who escaped the sacking of Lahmia. Only the most enchantingly beautiful maidens are chosen from amongst noble human families to be granted Neferata's Blood Kiss, and trained to control the humans around them. No other Vampires excel in infiltrating human society like the shadowy sisterhood, for no one quite knows how many eccentric noblewomen are in truth, members of the Undead.",
+    "credits": "Model Base - Shadow Heart - Good and Evil by Bleeq\n\nAdditional Parts - Vampire Maid · Credits unknown\n\nSleeves and Sleeve Animations - Tyrande Ascended Classic by FerSZ\n\nStaff - Orcish Staff by Sunchips",
+    "geosets": [
+      {
+        "index": 0,
+        "vertices": 46,
+        "triangles": 77,
+        "textures": [
+          "Units\\Undead\\HeroDeathKnight\\HeroDeathknight.blp"
+        ]
+      },
+      {
+        "index": 1,
+        "vertices": 83,
+        "triangles": 88,
+        "textures": [
+          "Units\\Undead\\EvilArthas\\UndeadArthas.blp"
+        ]
+      },
+      {
+        "index": 2,
+        "vertices": 14,
+        "triangles": 8,
+        "textures": [
+          "units\\Other\\Proudmoore\\Proudmoore.blp"
+        ]
+      },
+      {
+        "index": 3,
+        "vertices": 202,
+        "triangles": 327,
+        "textures": [
+          "Textures\\BansheeRanger.blp",
+          "Units\\Creeps\\SylvanusWindrunner\\SylvanusWindrunner.blp"
+        ]
+      },
+      {
+        "index": 4,
+        "vertices": 359,
+        "triangles": 421,
+        "textures": [
+          "Doodads\\Cinematic\\RockinArthas\\ArthasCloakCredits.blp"
+        ]
+      },
+      {
+        "index": 5,
+        "vertices": 12,
+        "triangles": 8,
+        "textures": [
+          "ReplaceableTextures\\CommandButtons\\BTNSoulGem.blp"
+        ]
+      },
+      {
+        "index": 6,
+        "vertices": 24,
+        "triangles": 12,
+        "textures": [
+          "Textures\\Purple_Glow.blp"
+        ]
+      },
+      {
+        "index": 7,
+        "vertices": 286,
+        "triangles": 336,
+        "textures": [
+          "Buildings\\Undead\\AltarOfDarkness\\CreepyAltarOfDark.blp"
+        ]
+      },
+      {
+        "index": 8,
+        "vertices": 220,
+        "triangles": 162,
+        "textures": [
+          "Units\\Undead\\HeroDreadLord\\HeroDreadlord.blp"
+        ]
+      },
+      {
+        "index": 9,
+        "vertices": 20,
+        "triangles": 20,
+        "textures": [
+          "Doodads\\Cinematic\\ArthasIllidanFight\\ArthasCloakFight.blp"
+        ]
+      },
+      {
+        "index": 10,
+        "vertices": 32,
+        "triangles": 48,
+        "textures": [
+          "Units\\Human\\Sorceress\\BloodElfSorceress.blp"
+        ]
+      },
+      {
+        "index": 11,
+        "vertices": 4,
+        "triangles": 2,
+        "textures": [
+          "ReplaceableId 2"
+        ]
+      },
+      {
+        "index": 12,
+        "vertices": 67,
+        "triangles": 118,
+        "textures": [
+          "buildings\\Naga\\TempleofTides\\TempleOfTheTides.blp"
+        ]
+      },
+      {
+        "index": 13,
+        "vertices": 51,
+        "triangles": 96,
+        "textures": [
+          "Buildings\\Undead\\Necropolis\\CreepyNecropolis.blp"
+        ]
+      },
+      {
+        "index": 14,
+        "vertices": 12,
+        "triangles": 12,
+        "textures": [
+          "Textures\\FrostmMourne.blp"
+        ]
+      },
+      {
+        "index": 15,
+        "vertices": 6,
+        "triangles": 4,
+        "textures": [
+          "Textures\\Eyes.blp"
+        ]
+      },
+      {
+        "index": 16,
+        "vertices": 13,
+        "triangles": 18,
+        "textures": [
+          "ReplaceableTextures\\WorldEditUI\\EditorGemAct.blp"
+        ]
+      }
+    ],
+    "sequences": [
+      "Walk",
+      "Stand",
+      "Stand 2",
+      "Stand Ready",
+      "Attack",
+      "Attack 2",
+      "Spell Throw",
+      "Spell Slam",
+      "Stand Channel",
+      "Death",
+      "Dissipate",
+      "Portrait 1",
+      "Portrait 2",
+      "Portrait Talk 1",
+      "Portrait Talk 2"
+    ],
+    "bytes": 233346,
+    "authors": [
+      {
+        "name": "UnsanctionedMagic",
+        "url": "https://xgm.guru/user/UnsanctMagic"
+      },
+      {
+        "name": "Bleeq",
+        "url": "https://www.hiveworkshop.com/members/bleeq.310462/"
+      }
+    ],
+    "creditLinks": [
+      {
+        "text": "Shadow Heart - Good and Evil",
+        "url": "https://www.hiveworkshop.com/threads/shadow-heart-good-and-evil.355958/"
+      },
+      {
+        "text": "Bleeq",
+        "url": "https://www.hiveworkshop.com/members/bleeq.310462/"
+      },
+      {
+        "text": "Vampire Maid",
+        "url": "https://wc3vault.com/18c9545b-e179-4891-962a-d643387dbb19"
+      },
+      {
+        "text": "Tyrande Ascended Classic",
+        "url": "https://www.hiveworkshop.com/threads/tyrande-ascended-classic.374502/#post-3749826"
+      },
+      {
+        "text": "FerSZ",
+        "url": "https://www.hiveworkshop.com/members/fersz.252357/"
+      },
+      {
+        "text": "Orcish Staff",
+        "url": "https://www.hiveworkshop.com/threads/orcish-staff.237603/"
+      },
+      {
+        "text": "Sunchips",
+        "url": "https://www.hiveworkshop.com/members/sunchips.176515/"
+      }
+    ],
+    "sha256": "795bd0a56dd8230cf15281ae0f9de9014e13942a6eb61b5cd7e9c0badaef1f18"
   }
 ]
