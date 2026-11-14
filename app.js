@@ -13,7 +13,7 @@ import {renderJournal} from './journal.js?v=20261113-public-credit-name';
 import {renderMdlxl} from './mdlxl.js?v=20261113-public-credit-name';
 import {readMdlxlRoute,mdlxlHref} from './mdlxl-routes.js?v=20261109-spread-pieces';
 const initialMdlxl=readMdlxlRoute(location);if(initialMdlxl&&location.hash.startsWith('#project/mdlxl'))history.replaceState(null,'',mdlxlHref(initialMdlxl.section,initialMdlxl.tutorial,location.search));
-const app=document.querySelector('#app'),baseCatalogue=await fetch('catalogue.json?v=20261114-lahmian-vampire').then(r=>r.json());
+const app=document.querySelector('#app'),baseCatalogue=await fetch('catalogue.json?v=20261113-zombie-dragon-sounds').then(r=>r.json());
 const armies=await fetch('armies.json?v=20261113-daemons-spelling').then(r=>r.json());
 // Keep the first three army cards fixed and shuffle the remaining cards once per load.
 const pinnedArmyIds=['warriors-of-chaos','vampire-counts','demons-of-chaos'];
