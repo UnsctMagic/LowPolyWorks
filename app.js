@@ -17,9 +17,9 @@ let baseCatalogue=[],armies=[],variantGroups=[],armyCardOrder=[],catalogueLoad;
 function loadCatalogue(){
  return catalogueLoad??=(async()=>{
   [baseCatalogue,armies,variantGroups]=await Promise.all([
-   fetch('catalogue.json?v=20261114-lahmian-vampire').then(r=>r.json()),
+   fetch('catalogue.json?v=20261114-lahmian-hero').then(r=>r.json()),
    fetch('armies.json?v=20261113-daemons-spelling').then(r=>r.json()),
-   fetch('variants.json?v=20261113-demons-of-chaos').then(r=>r.json()).catch(()=>[])
+   fetch('variants.json?v=20261114-lahmian-hero').then(r=>r.json()).catch(()=>[])
   ]);
   // Keep the first three army cards fixed and shuffle the remaining cards once per load.
   const pinnedArmyIds=['warriors-of-chaos','vampire-counts','demons-of-chaos'];
