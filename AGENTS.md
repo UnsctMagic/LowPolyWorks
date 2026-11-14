@@ -39,7 +39,7 @@
 
 ## Model file additions
 
-Use the same catalogue workflow for a loose MDX, a ZIP drop, or an offline draft waiting for models. A supplied model plus its text and credits is enough to prepare the standard card and page.
+**Avner can drop model links as-is. The links are enough to start the credits.** Open the links, identify the models and creators, and write and verify the byline and Credits tab. Avner does not need to supply a readme, format the credits, label each link, or approve routine attribution. Follow any roles or corrections he gives.
 
 ### Identify the drop
 
@@ -48,10 +48,9 @@ Use the same catalogue workflow for a loose MDX, a ZIP drop, or an offline draft
 
 ### Build the credits
 
-- Keep the user’s lore verbatim. Use the model’s own release notes or archive readme for attribution. Use linked donor pages to resolve the title and creator of the specific asset the user named. Keep the donor page’s thanks, sponsorship, parts list and other credits out unless the user explicitly requested them.
-- Set the catalogue `authors` in display order. For Avner’s drops, `UnsanctionedMagic` comes first and the credited base-model creator comes second. Put any other explicitly credited main authors after the base creator. An archive’s `Submitted by` line can identify additional main authors, while its explicit `Model Base` row establishes the base creator. When several base sources are supplied, keep their specific roles. If the primary base is genuinely unclear, ask which creator should be second and continue the independent asset work.
-- Store each named contribution in the catalogue `credits` and its matching `creditLinks`. Use `Model Base - <model title> by <author>` to render the bold **Model Base** heading with linked model and author. Retain an explicit further editor or upstream base in the detailed credits. For parts, use the supplied role and linked asset title with the creator when known. Use the supplied asset title and “Credits unknown” for an explicitly unknown creator. Link titles and names instead of displaying raw URLs or a hosting-site name as the asset title.
-- If the user says a part is shared with an existing model, locate the exact catalogue entry and reuse only the matching part’s credit and links. Apply later corrections to both the row and its links. For shared Unit/Hero credits, keep the detailed rows on the specified main page and use the existing shared-credit link on the other variant.
+- Open each link and find the model title, creator and profile link. Use the drop notes, matching archive readme or existing catalogue credits when they help identify the base or a part. Use a general Parts credit if a part’s exact role is unclear. If a creator remains unknown, use the verified model title and “Credits unknown”. Ask only one focused question if the base creator or another material attribution is still ambiguous after checking the sources. Continue the rest of the work.
+- Keep supplied lore verbatim. For Avner’s drops, set the catalogue `authors` to `UnsanctionedMagic` first and the base-model creator second, followed by any other explicitly credited main authors. Add the linked base title and creator under **Model Base**, and link each part’s title and creator in the appropriate credit row using `credits` and `creditLinks`. Include donor acknowledgements, sponsorships or additional contributors only if Avner asks for them.
+- When Avner points to a part used on another LowPolyWorks model, look up that entry and reuse the matching part credit and links. Apply corrections to both the credit text and its links. For shared Unit/Hero credits, keep the detailed rows on the main page and link to them from the other variant.
 
 ### Prepare and verify the release
 
