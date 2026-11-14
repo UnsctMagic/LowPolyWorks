@@ -5,7 +5,7 @@ import {modelFollowMarkup,mountModelFollow} from './model-follows.js?v=20261012-
 import {uploadedModelCard,renderUnitCard} from './unit-card.js?v=20261113-viewer-events';
 import {startMenuVisitor} from './menu-visitor.js?v=20261108-hat-only';
 import {countShredder} from './shredder-stats.js?v=20261022-stash-tzeentch';
-import {createViewer} from './viewer.js?v=20261113-viewer-events';
+import {createViewer} from './viewer.js?v=20261114-dissipate-sound';
 import {wheelSelect} from './wheel-select.js?v=20261022-wheel-animations';
 import {TEAM_COLORS} from './vendor/mdlxl/src/team-colors.js';
 import {recordUsage} from './usage.js?v=20261012-shredder-cloudflare';

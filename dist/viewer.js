@@ -7,7 +7,7 @@ import {parseMDX,parseMDL,ModelRenderer} from './vendor/war3-model.mjs';
 import {decodeTga} from './texture-raster.js';
 import {installWarcraftPreviewAdapter,previewGeosetTint,initializeWarcraftRenderer} from './website-preview-adapter.js?v=20261018-uniform-budget';
 import {advanceShowcaseModel} from './vendor/mdlxl/app/showcase-playback.js';
-import {createViewerEvents} from './viewer-events.js?v=20261113-viewer-events';
+import {createViewerEvents} from './viewer-events.js?v=20261114-dissipate-sound';
 import {readEffectSettings} from './viewer-effect-controls.js';
 import {resetPreviewEffects} from './vendor/mdlxl/app/warcraft-preview-adapter.js';
 import {viewerPlaybackSample,setWarcraftCamera} from './viewer-effects.js?v=20261006-classic-portrait-controls';
