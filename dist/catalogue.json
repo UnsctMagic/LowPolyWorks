@@ -34121,7 +34121,7 @@
   },
   {
     "id": "lahmian-vampire",
-    "file": "WH_VC_LahmianVampire01.mdx",
+    "file": "WH_VC_LahmianVampire02.mdx",
     "name": "Lahmian Vampire",
     "army": "vampire-counts",
     "description": "All Vampires of the Lahmian sisterhood are said to be descended from Neferata – one of the few Vampire nobles who escaped the sacking of Lahmia. Only the most enchantingly beautiful maidens are chosen from amongst noble human families to be granted Neferata's Blood Kiss, and trained to control the humans around them. No other Vampires excel in infiltrating human society like the shadowy sisterhood, for no one quite knows how many eccentric noblewomen are in truth, members of the Undead.",
@@ -34282,7 +34282,7 @@
       "Portrait Talk 1",
       "Portrait Talk 2"
     ],
-    "bytes": 233346,
+    "bytes": 233246,
     "authors": [
       {
         "name": "UnsanctionedMagic",
@@ -34323,6 +34323,220 @@
         "url": "https://www.hiveworkshop.com/members/sunchips.176515/"
       }
     ],
-    "sha256": "795bd0a56dd8230cf15281ae0f9de9014e13942a6eb61b5cd7e9c0badaef1f18"
+    "sha256": "040ee125f5c257768e316593fd75780021a86274a18697c4da0d8d4ff994b3a7",
+    "imageVersion": "20261114-lahmian-hero",
+    "changelog": [
+      {
+        "date": "14 November 2026",
+        "text": "Fixed sanity issues, added hero variation."
+      }
+    ]
+  },
+  {
+    "id": "lahmian-vampire-hero",
+    "file": "WH_VC_LahmianVampire01TC.mdx",
+    "name": "Lahmian Vampire",
+    "army": "vampire-counts",
+    "description": "All Vampires of the Lahmian sisterhood are said to be descended from Neferata – one of the few Vampire nobles who escaped the sacking of Lahmia. Only the most enchantingly beautiful maidens are chosen from amongst noble human families to be granted Neferata's Blood Kiss, and trained to control the humans around them. No other Vampires excel in infiltrating human society like the shadowy sisterhood, for no one quite knows how many eccentric noblewomen are in truth, members of the Undead.",
+    "credits": "Shared credits - See the main Lahmian Vampire page.",
+    "geosets": [
+      {
+        "index": 0,
+        "vertices": 46,
+        "triangles": 77,
+        "textures": [
+          "Units\\Undead\\HeroDeathKnight\\HeroDeathknight.blp"
+        ]
+      },
+      {
+        "index": 1,
+        "vertices": 83,
+        "triangles": 88,
+        "textures": [
+          "Units\\Undead\\EvilArthas\\UndeadArthas.blp"
+        ]
+      },
+      {
+        "index": 2,
+        "vertices": 14,
+        "triangles": 8,
+        "textures": [
+          "units\\Other\\Proudmoore\\Proudmoore.blp"
+        ]
+      },
+      {
+        "index": 3,
+        "vertices": 202,
+        "triangles": 327,
+        "textures": [
+          "Textures\\BansheeRanger.blp",
+          "Units\\Creeps\\SylvanusWindrunner\\SylvanusWindrunner.blp"
+        ]
+      },
+      {
+        "index": 4,
+        "vertices": 359,
+        "triangles": 421,
+        "textures": [
+          "ReplaceableId 1",
+          "Units\\Creeps\\Revenant\\Revenant.blp"
+        ]
+      },
+      {
+        "index": 5,
+        "vertices": 12,
+        "triangles": 8,
+        "textures": [
+          "ReplaceableTextures\\CommandButtons\\BTNSoulGem.blp"
+        ]
+      },
+      {
+        "index": 6,
+        "vertices": 24,
+        "triangles": 12,
+        "textures": [
+          "Textures\\Purple_Glow.blp"
+        ]
+      },
+      {
+        "index": 7,
+        "vertices": 286,
+        "triangles": 336,
+        "textures": [
+          "Buildings\\Undead\\AltarOfDarkness\\CreepyAltarOfDark.blp"
+        ]
+      },
+      {
+        "index": 8,
+        "vertices": 220,
+        "triangles": 162,
+        "textures": [
+          "Units\\Undead\\HeroDreadLord\\HeroDreadlord.blp"
+        ]
+      },
+      {
+        "index": 9,
+        "vertices": 20,
+        "triangles": 20,
+        "textures": [
+          "ReplaceableId 1",
+          "Units\\Creeps\\Revenant\\Revenant.blp"
+        ]
+      },
+      {
+        "index": 10,
+        "vertices": 32,
+        "triangles": 48,
+        "textures": [
+          "Units\\Human\\Sorceress\\BloodElfSorceress.blp"
+        ]
+      },
+      {
+        "index": 11,
+        "vertices": 4,
+        "triangles": 2,
+        "textures": [
+          "ReplaceableId 2"
+        ]
+      },
+      {
+        "index": 12,
+        "vertices": 67,
+        "triangles": 118,
+        "textures": [
+          "buildings\\Naga\\TempleofTides\\TempleOfTheTides.blp"
+        ]
+      },
+      {
+        "index": 13,
+        "vertices": 51,
+        "triangles": 96,
+        "textures": [
+          "Buildings\\Undead\\Necropolis\\CreepyNecropolis.blp"
+        ]
+      },
+      {
+        "index": 14,
+        "vertices": 12,
+        "triangles": 12,
+        "textures": [
+          "Textures\\FrostmMourne.blp"
+        ]
+      },
+      {
+        "index": 15,
+        "vertices": 6,
+        "triangles": 4,
+        "textures": [
+          "Textures\\Eyes.blp"
+        ]
+      },
+      {
+        "index": 16,
+        "vertices": 13,
+        "triangles": 18,
+        "textures": [
+          "ReplaceableTextures\\WorldEditUI\\EditorGemAct.blp"
+        ]
+      },
+      {
+        "index": 17,
+        "vertices": 12,
+        "triangles": 6,
+        "textures": [
+          "ReplaceableId 2"
+        ]
+      },
+      {
+        "index": 18,
+        "vertices": 8,
+        "triangles": 4,
+        "textures": [
+          "ReplaceableId 2"
+        ]
+      }
+    ],
+    "sequences": [
+      "Walk",
+      "Stand",
+      "Stand 2",
+      "Stand Ready",
+      "Attack",
+      "Attack 2",
+      "Spell Throw",
+      "Spell Slam",
+      "Stand Channel",
+      "Death",
+      "Dissipate",
+      "Portrait 1",
+      "Portrait 2",
+      "Portrait Talk 1",
+      "Portrait Talk 2"
+    ],
+    "bytes": 236106,
+    "authors": [
+      {
+        "name": "UnsanctionedMagic",
+        "url": "https://xgm.guru/user/UnsanctMagic"
+      },
+      {
+        "name": "Bleeq",
+        "url": "https://www.hiveworkshop.com/members/bleeq.310462/"
+      }
+    ],
+    "creditLinks": [
+      {
+        "text": "main Lahmian Vampire page",
+        "url": "https://www.lowpolyworks.com/model/lahmian-vampire/"
+      }
+    ],
+    "sha256": "22dad1df7374ef013f8da6814246bfa0d3c8461fb08759cee5cb853edf8f6301",
+    "imageVersion": "20261114-lahmian-hero",
+    "changelog": [
+      {
+        "date": "14 November 2026",
+        "text": "Fixed sanity issues, added hero variation."
+      }
+    ]
   }
 ]

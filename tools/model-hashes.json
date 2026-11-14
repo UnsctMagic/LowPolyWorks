@@ -604,7 +604,11 @@
     "sha256": "375d06212b8b376f73edc351482b003e3b0b4a3977750cb1984959ee923e6236"
   },
   {
-    "file": "WH_VC_LahmianVampire01.mdx",
-    "sha256": "795bd0a56dd8230cf15281ae0f9de9014e13942a6eb61b5cd7e9c0badaef1f18"
+    "file": "WH_VC_LahmianVampire02.mdx",
+    "sha256": "040ee125f5c257768e316593fd75780021a86274a18697c4da0d8d4ff994b3a7"
+  },
+  {
+    "file": "WH_VC_LahmianVampire01TC.mdx",
+    "sha256": "22dad1df7374ef013f8da6814246bfa0d3c8461fb08759cee5cb853edf8f6301"
   }
 ]

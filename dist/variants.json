@@ -813,5 +813,19 @@
       }
     ],
     "showCardVariants": false
+  },
+  {
+    "id": "lahmian-vampire",
+    "name": "Lahmian Vampire",
+    "variants": [
+      {
+        "id": "lahmian-vampire",
+        "label": "Unit"
+      },
+      {
+        "id": "lahmian-vampire-hero",
+        "label": "Hero"
+      }
+    ]
   }
 ]

@@ -592,8 +592,13 @@
       "updatedAt": "2026-11-13T00:16:04.611Z"
     },
     "lahmian-vampire": {
-      "sha256": "795bd0a56dd8230cf15281ae0f9de9014e13942a6eb61b5cd7e9c0badaef1f18",
-      "publishedAt": "2026-11-14T01:34:19.279Z"
+      "sha256": "040ee125f5c257768e316593fd75780021a86274a18697c4da0d8d4ff994b3a7",
+      "publishedAt": "2026-11-14T01:34:19.279Z",
+      "updatedAt": "2026-11-14T15:17:27.567Z"
+    },
+    "lahmian-vampire-hero": {
+      "sha256": "22dad1df7374ef013f8da6814246bfa0d3c8461fb08759cee5cb853edf8f6301",
+      "publishedAt": "2026-11-14T15:17:27.567Z"
     }
   }
 }
