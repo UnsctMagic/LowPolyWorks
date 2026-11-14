@@ -49,7 +49,7 @@ function destroySpawn(state,gl){
  }
  if(state.vao)gl.deleteVertexArray(state.vao);
 }
-export function createViewerEvents({gl,model,row,textureData,graphics,teamColor,getSettings,onWarning=console.warn}){
+export function createViewerEvents({gl,model,row,textureData,graphics,teamColor,getSettings,onWarning=console.warn,onChange}){
  let disposed=false,decals,audioContext,previous,colour=teamColor,soundFrom=-1e-6,soundCycle=0,soundSequence=0;
  const definitions=new Map(),resources=new Map(),instances=new Map(),audioBuffers=new Map(),sources=new Set(),warnings=new Set();
  const warn=message=>{if(!disposed&&!warnings.has(message)){warnings.add(message);onWarning(message);}};
@@ -61,7 +61,7 @@ export function createViewerEvents({gl,model,row,textureData,graphics,teamColor,
   else destroySpawn(state,gl);
  };
  function updateColour(state,value){
-  state.pendingColour=state.team.colour(state.native,value).then(()=>{if(!state.released)state.teamReady=true;}).catch(error=>warn(error.message));
+  state.pendingColour=state.team.colour(state.native,value).then(()=>{if(!state.released){state.teamReady=true;onChange?.();}}).catch(error=>warn(error.message));
   const pending=state.pendingColour;
   void pending.then(()=>{if(state.pendingColour===pending)state.pendingColour=null;});
   return pending;

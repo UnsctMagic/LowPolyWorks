@@ -91,6 +91,9 @@ footer{max-width:1740px;padding:20px 24px}
 .controls{padding:10px 12px}
 .controls .control-row{display:grid;gap:8px 10px;align-items:center;min-width:0}
 .controls .control-row+.control-row{margin-top:10px}
+.controls .viewer-timeline{grid-template-columns:minmax(0,1fr) auto;gap:10px}
+.viewer-timeline #animation-time-label{white-space:nowrap;font-size:.8rem;font-variant-numeric:tabular-nums;color:#e3c77f}
+.viewer-timeline .range{margin:0;touch-action:pan-y}
 .controls .control-sequence{grid-template-columns:92px minmax(0,1fr) 104px}
 .controls .model-playback{grid-template-columns:92px minmax(0,1fr) 104px 104px}
 .controls .control-fields{grid-template-columns:92px minmax(0,1fr) 92px minmax(0,1fr);padding:10px 0;border-top:1px solid #c9b17a1f;border-bottom:1px solid #c9b17a1f}
