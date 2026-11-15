@@ -9,6 +9,7 @@ import {TEAM_COLORS} from '../dist/vendor/mdlxl/src/team-colors.js';
 import {cataloguePage,modelPage,mdlxlPage} from './model-pages.mjs';
 import {parseMDX} from '../dist/vendor/war3-model.mjs';
 import {parseCompatibleMdx} from '../dist/warcraft-mdx-compatibility.js';
+import {siteAssetProblems} from './site-assets.mjs';
 
 const project = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const root = path.join(project, 'dist');
@@ -76,4 +77,9 @@ for (const army of armies) {
 exists('ui/human-portrait-frame.png');
 exists('ui/portrait-stone-classic-v3.webp');
 exists('whiteout/whiteout-paint-blp.wasm');
-console.log(`${rows.length} models, ${armies.length} armies, textures, downloads, unit cards, formation assets, and application syntax verified.`);
+// Site art size caps and one cache key per script (AGENTS.md, Site art and script loading).
+const siteFiles = fs.readdirSync(root, {recursive: true}).map(name => name.split(path.sep).join('/'))
+  .filter(name => !/^(?:models|textures|thumbs|downloads|event-resources|model|army)\//.test(name));
+const siteProblems = siteAssetProblems(name => fs.existsSync(path.join(root, name)) ? fs.readFileSync(path.join(root, name)) : null, siteFiles);
+assert.deepEqual(siteProblems, [], 'Site art and script loading (AGENTS.md):\n' + siteProblems.join('\n'));
+console.log(`${rows.length} models, ${armies.length} armies, textures, downloads, unit cards, formation assets, site art sizes, single script loads, and application syntax verified.`);
