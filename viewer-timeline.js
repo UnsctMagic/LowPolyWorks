@@ -1,5 +1,5 @@
 export function timelineMarkup(){
- return '<div class="control-row viewer-timeline"><input id="animation-time" class="range" type="range" min="0" max="0" step="1" value="0" aria-label="Animation time" title="Scrub animation" disabled><span id="animation-time-label" aria-hidden="true">0.00 / 0.00 s</span></div>';
+ return '<div class="control-row viewer-timeline"><input id="animation-time" class="range" type="range" min="0" max="0" step="1" value="0" aria-label="Animation time" title="Scrub animation" disabled><span id="animation-time-label" aria-hidden="true">0.00 / 0.00 s</span><button id="reset-viewpoint" class="iron-button" type="button" aria-label="Reset viewpoint" title="Reset viewpoint" disabled>&#8634;</button></div>';
 }
 export function mountTimeline(container,seek){
  const input=container.querySelector('#animation-time'),label=container.querySelector('#animation-time-label');
