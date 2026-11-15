@@ -30,6 +30,24 @@
             <span class="tutorial-card-footer"><span>2 个步骤</span><span class="tutorial-card-open">打开教程 →</span></span>
           </span>
         </a>
+<a class="tutorial-card" id="tab-animated" aria-controls="tutorial-animated" data-tutorial="animated" href="/mdlxl/tutorials/animated/?lang=zh">
+          <span class="tutorial-card-media" aria-hidden="true"><img src="/mdlxl/tutorials/zh/animated-card.png?v=ca1a5b96c82b2d0a" width="1264" height="760" alt=""></span>
+          <span class="tutorial-card-copy">
+            <span class="tutorial-card-category">顶点编辑器</span>
+            <span class="tutorial-card-title">动画预览</span>
+            <span class="tutorial-card-description">在动画帧上编辑顶点。</span>
+            <span class="tutorial-card-footer"><span>2 个步骤</span><span class="tutorial-card-open">打开教程 →</span></span>
+          </span>
+        </a>
+<a class="tutorial-card" id="tab-eachpiece" aria-controls="tutorial-eachpiece" data-tutorial="eachpiece" href="/mdlxl/tutorials/each-piece/?lang=zh">
+          <span class="tutorial-card-media" aria-hidden="true"><img src="/mdlxl/tutorials/zh/each-piece-card.png?v=742938ba8188da9c" width="1264" height="760" alt=""></span>
+          <span class="tutorial-card-copy">
+            <span class="tutorial-card-category">工作平面约束</span>
+            <span class="tutorial-card-title">每一块</span>
+            <span class="tutorial-card-description">让每个单独的块在原位旋转。</span>
+            <span class="tutorial-card-footer"><span>1 个步骤</span><span class="tutorial-card-open">打开教程 →</span></span>
+          </span>
+        </a>
 </nav>
     </div>
     <a class="tutorial-back" id="tutorial-back" hidden><span aria-hidden="true">←</span> 全部教程</a>
@@ -111,4 +129,29 @@
         </figure>
       </section>
       <p class="recording-note">工具按连通的网格分组。录制时，在模型副本中将每把武器的网格连接成一个部件。</p>
+    </article>
+<article class="tutorial-panel" role="region" id="tutorial-animated" aria-labelledby="tab-animated" hidden>
+      <p class="sample-note">顶点编辑器</p>
+      <h3 id="animated-title">动画预览</h3>
+      <p><strong>动画预览</strong>在编辑时以模型某个动画的一帧显示模型。编辑会改变基础姿势，所有动画都会使用这些修改。</p>
+      <section class="demo-step" aria-labelledby="animated-pose-title">
+        <h4 id="animated-pose-title">1. 选择动画和帧</h4>
+        <figure class="gif-player" data-animation="animated-pose"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/zh/animated-pose.mp4?v=64fec01f3d6d2200" muted loop playsinline controls width="1264" height="760" preload="metadata" aria-label="1. 选择动画和帧. 点击动画预览旁的箭头并选择动画。动画预览会在该动画的第一帧开启。右键单击动画预览，输入帧编号并按 Enter。Shift + Space 在该帧和基础姿势之间切换。"></video></figure>
+        <p>点击<strong>动画预览</strong>旁的箭头并选择动画。<strong>动画预览</strong>会在该动画的第一帧开启。右键单击<strong>动画预览</strong>，输入<strong>帧</strong>编号并按 <kbd>Enter</kbd>。<kbd>Shift</kbd> + <kbd>Space</kbd> 在该帧和基础姿势之间切换。</p>
+      </section>
+      <section class="demo-step" aria-labelledby="animated-edit-title">
+        <h4 id="animated-edit-title">2. 在摆好姿势的模型上编辑</h4>
+        <figure class="gif-player" data-animation="animated-edit"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/zh/animated-edit.mp4?v=845ff80b00144fc9" muted loop playsinline controls width="1264" height="760" preload="metadata" aria-label="2. 在摆好姿势的模型上编辑. 在帧中看到顶点的位置直接选择并移动：按 A 拖出选框，再按 M 拖动。按 Shift + Space 可在基础姿势中看到同样的修改。"></video></figure>
+        <p>在帧中看到顶点的位置直接选择并移动：按 <kbd>A</kbd> 拖出选框，再按 <kbd>M</kbd> 拖动。按 <kbd>Shift</kbd> + <kbd>Space</kbd> 可在基础姿势中看到同样的修改。</p>
+      </section>
+    </article>
+<article class="tutorial-panel" role="region" id="tutorial-eachpiece" aria-labelledby="tab-eachpiece" hidden>
+      <p class="sample-note">工作平面约束</p>
+      <h3 id="eachpiece-title">每一块</h3>
+      <p><strong>每一块</strong>位于顶点编辑器中<strong>工作平面约束</strong>旁边。Forge 中也有同样的复选框。</p>
+      <section class="demo-step" aria-labelledby="animated-each-piece-title">
+        <h4 id="animated-each-piece-title">开启和关闭“每一块”时旋转</h4>
+        <figure class="gif-player" data-animation="animated-each-piece"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/zh/animated-each-piece.mp4?v=e942102a6e64430d" muted loop playsinline controls width="1264" height="760" preload="metadata" aria-label="开启和关闭“每一块”时旋转. 关闭：旋转（R）把整个选区作为一组旋转。开启：每个单独的块在原位旋转。视频中先旋转整个 Footman（Ctrl + A），用 Ctrl + Z 撤销，再在开启每一块后旋转。"></video></figure>
+        <p>关闭：<strong>旋转</strong>（<kbd>R</kbd>）把整个选区作为一组旋转。开启：每个单独的块在原位旋转。视频中先旋转整个 Footman（<kbd>Ctrl</kbd> + <kbd>A</kbd>），用 <kbd>Ctrl</kbd> + <kbd>Z</kbd> 撤销，再在开启<strong>每一块</strong>后旋转。</p>
+      </section>
     </article>
