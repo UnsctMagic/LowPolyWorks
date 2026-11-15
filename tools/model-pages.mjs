@@ -72,20 +72,6 @@ export function modelPage(template, row, thumbnail, army) {
   return pageContent(pageHead(template, title, summary, metadata), content);
 }
 
-export function previewTemplate(html) {
-  return html.replace('<head>', '<head><base href="/">')
-    .replace(/src="app\.js\?v=[^"]+"/, 'src="app.js?v=20261013-shredder-relaxed-dive"');
-}
-
-export function previewApp(app) {
-  const oldRoute = "const [,kind,id]=location.hash.match(/^#(army|model)\\/(.+)$/)||[];";
-  if (!app.includes(oldRoute)) throw Error('Model route owner changed');
-  if (app.split('href="#model/${row.id}"').length !== 3 || app.split('const army=armies.find(a=>a.id===row.army);document.title=').length !== 2) throw Error('Model link owner changed');
-  return app.replaceAll('href="#model/${row.id}"', 'href="/model/${row.id}/"')
-    .replace(oldRoute, "const modelPath=location.pathname.match(/^\\/model\\/([a-z0-9-]+)\\/?$/);const [,kind,id]=(location.hash||(modelPath?'#model/'+modelPath[1]:'')).match(/^#(army|model)\\/(.+)$/)||[];")
-    .replace("const army=armies.find(a=>a.id===row.army);document.title=", "history.replaceState(null,'','/model/'+row.id+'/'+location.search);const army=armies.find(a=>a.id===row.army);document.title=");
-}
-
 export function generateSearchFiles(root, rows, armies) {
   const urls = ['/', '/mdlxl/', cataloguePath, ...armies.map(armyPath), ...rows.map(modelPath)].map(route => site + route);
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map(url => `  <url><loc>${escape(url)}</loc></url>`).join('\n')}\n</urlset>\n`;

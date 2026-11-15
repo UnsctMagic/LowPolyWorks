@@ -37,6 +37,14 @@
 - On every army page, updated models move up automatically: sort cards newest first by the latest model publication or update timestamp across all live variants. Fixed army placements must not override this order. Preserve group membership, variant selection and relative order when dates are equal or missing.
 - For every model update, refresh the byte-derived update metadata and verify the affected card moves up on the actual army page at desktop and mobile widths.
 
+## Site art and script loading
+
+- Site look and UI art (header, frames, textures, sprites, buttons, icons, and the pictures inside menu SVGs) is WebP at the size actually displayed, allowing for 2× screens. Use lossless WebP where exact pixels matter (sprites, masks, border slices, anything a script reads); quality 90 with untouched transparency is fine for painted textures. Keep the pixel size when CSS slices or scripts depend on it.
+- Aim for 500 KB or less per art file. No site-art file may exceed 1 MiB (1,048,576 bytes), and no SVG may embed a raster over 1 MiB; never embed a large raster in an SVG. The favicon is a small copy of at most 192 px.
+- Keep an original PNG only where something outside the pages links to it (`ui/mdlxl-icon.png` for share previews, `ui/unsanctionedmagic-name.png` for posts). Do not delete originals that posts or share previews use. Model card, formation and post pictures follow their own rules above.
+- Each shared script has one version tag: every file that imports it, and every page that loads it, uses the same `?v=` key. When you change a script, update its key everywhere it is imported, never in only one importer; otherwise the page downloads and runs it twice.
+- `node tools/check-project.mjs` enforces the caps and the single key (see `tools/site-assets.mjs`, which lists the exempt files); it must pass before publishing.
+
 ## Model file additions
 
 **Avner can drop model links as-is. The links are enough to start the credits.** Open the links, identify the models and creators, and write and verify the byline and Credits tab. Avner does not need to supply a readme, format the credits, label each link, or approve routine attribution. Follow any roles or corrections he gives.
