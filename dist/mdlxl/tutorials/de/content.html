@@ -30,6 +30,24 @@
             <span class="tutorial-card-footer"><span>2 Schritte</span><span class="tutorial-card-open">Tutorial öffnen →</span></span>
           </span>
         </a>
+<a class="tutorial-card" id="tab-animated" aria-controls="tutorial-animated" data-tutorial="animated" href="/mdlxl/tutorials/animated/?lang=de">
+          <span class="tutorial-card-media" aria-hidden="true"><img src="/mdlxl/tutorials/de/animated-card.png?v=6622ea61a69e49d4" width="1264" height="760" alt=""></span>
+          <span class="tutorial-card-copy">
+            <span class="tutorial-card-category">Vertex-Editor</span>
+            <span class="tutorial-card-title">Animiert</span>
+            <span class="tutorial-card-description">Scheitelpunkte in einem Animationsbild bearbeiten.</span>
+            <span class="tutorial-card-footer"><span>2 Schritte</span><span class="tutorial-card-open">Tutorial öffnen →</span></span>
+          </span>
+        </a>
+<a class="tutorial-card" id="tab-eachpiece" aria-controls="tutorial-eachpiece" data-tutorial="eachpiece" href="/mdlxl/tutorials/each-piece/?lang=de">
+          <span class="tutorial-card-media" aria-hidden="true"><img src="/mdlxl/tutorials/de/each-piece-card.png?v=53733b58b9f737f5" width="1264" height="760" alt=""></span>
+          <span class="tutorial-card-copy">
+            <span class="tutorial-card-category">Arbeitsebenenbindung</span>
+            <span class="tutorial-card-title">Jedes Teil</span>
+            <span class="tutorial-card-description">Jedes einzelne Teil an seiner Stelle drehen.</span>
+            <span class="tutorial-card-footer"><span>1 Schritt</span><span class="tutorial-card-open">Tutorial öffnen →</span></span>
+          </span>
+        </a>
 </nav>
     </div>
     <a class="tutorial-back" id="tutorial-back" hidden><span aria-hidden="true">←</span> Alle Tutorials</a>
@@ -113,4 +131,29 @@
         </figure>
       </section>
       <p class="recording-note">Das Werkzeug gruppiert zusammenhängende Geometrie. Für die Aufnahme wurden die Meshes jeder Waffe in einer Modellkopie zu einem Teil verbunden.</p>
+    </article>
+<article class="tutorial-panel" role="region" id="tutorial-animated" aria-labelledby="tab-animated" hidden>
+      <p class="sample-note">Vertex-Editor</p>
+      <h3 id="animated-title">Animiert</h3>
+      <p><strong>Animiert</strong> zeigt das Modell beim Bearbeiten in einem Bild einer seiner Animationen. Die Änderungen gelten für die Grundpose und damit für alle Animationen.</p>
+      <section class="demo-step" aria-labelledby="animated-pose-title">
+        <h4 id="animated-pose-title">1. Animation und Bild wählen</h4>
+        <figure class="gif-player" data-animation="animated-pose"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/de/animated-pose.mp4?v=42ea13ad3f5c8282" muted loop playsinline controls width="1264" height="760" preload="metadata" aria-label="1. Animation und Bild wählen. Auf den Pfeil neben Animiert klicken und eine Animation wählen. Animiert schaltet sich bei ihrem ersten Bild ein. Rechtsklick auf Animiert, eine Nummer bei Bild eingeben und Enter drücken. Shift + Space wechselt zwischen dem Bild und der Grundpose."></video></figure>
+        <p>Auf den Pfeil neben <strong>Animiert</strong> klicken und eine Animation wählen. <strong>Animiert</strong> schaltet sich bei ihrem ersten Bild ein. Rechtsklick auf <strong>Animiert</strong>, eine Nummer bei <strong>Bild</strong> eingeben und <kbd>Enter</kbd> drücken. <kbd>Shift</kbd> + <kbd>Space</kbd> wechselt zwischen dem Bild und der Grundpose.</p>
+      </section>
+      <section class="demo-step" aria-labelledby="animated-edit-title">
+        <h4 id="animated-edit-title">2. Am posierten Modell bearbeiten</h4>
+        <figure class="gif-player" data-animation="animated-edit"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/de/animated-edit.mp4?v=e3d3b8f33ffa0e52" muted loop playsinline controls width="1264" height="760" preload="metadata" aria-label="2. Am posierten Modell bearbeiten. Scheitelpunkte dort auswählen und verschieben, wo sie im Bild zu sehen sind: A und einen Rahmen ziehen, dann M und ziehen. Mit Shift + Space dieselbe Änderung in der Grundpose ansehen."></video></figure>
+        <p>Scheitelpunkte dort auswählen und verschieben, wo sie im Bild zu sehen sind: <kbd>A</kbd> und einen Rahmen ziehen, dann <kbd>M</kbd> und ziehen. Mit <kbd>Shift</kbd> + <kbd>Space</kbd> dieselbe Änderung in der Grundpose ansehen.</p>
+      </section>
+    </article>
+<article class="tutorial-panel" role="region" id="tutorial-eachpiece" aria-labelledby="tab-eachpiece" hidden>
+      <p class="sample-note">Arbeitsebenenbindung</p>
+      <h3 id="eachpiece-title">Jedes Teil</h3>
+      <p><strong>Jedes Teil</strong> steht im Vertex-Editor neben <strong>Arbeitsebenenbindung</strong>. Forge hat dasselbe Kontrollkästchen.</p>
+      <section class="demo-step" aria-labelledby="animated-each-piece-title">
+        <h4 id="animated-each-piece-title">Drehen mit und ohne Jedes Teil</h4>
+        <figure class="gif-player" data-animation="animated-each-piece"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/de/animated-each-piece.mp4?v=20d5ae63e285c380" muted loop playsinline controls width="1264" height="760" preload="metadata" aria-label="Drehen mit und ohne Jedes Teil. Aus: Drehen (R) dreht die gesamte Auswahl als Gruppe. Ein: Jedes einzelne Teil dreht sich an seiner Stelle. Das Video dreht den ganzen Footman (Ctrl + A), macht es mit Ctrl + Z rückgängig und dreht dann mit eingeschaltetem Jedes Teil."></video></figure>
+        <p>Aus: <strong>Drehen</strong> (<kbd>R</kbd>) dreht die gesamte Auswahl als Gruppe. Ein: Jedes einzelne Teil dreht sich an seiner Stelle. Das Video dreht den ganzen Footman (<kbd>Ctrl</kbd> + <kbd>A</kbd>), macht es mit <kbd>Ctrl</kbd> + <kbd>Z</kbd> rückgängig und dreht dann mit eingeschaltetem <strong>Jedes Teil</strong>.</p>
+      </section>
     </article>

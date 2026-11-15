@@ -30,6 +30,24 @@
             <span class="tutorial-card-footer"><span>2 étapes</span><span class="tutorial-card-open">Ouvrir le tutoriel →</span></span>
           </span>
         </a>
+<a class="tutorial-card" id="tab-animated" aria-controls="tutorial-animated" data-tutorial="animated" href="/mdlxl/tutorials/animated/?lang=fr">
+          <span class="tutorial-card-media" aria-hidden="true"><img src="/mdlxl/tutorials/fr/animated-card.png?v=5eaf2fb2d602ee40" width="1264" height="760" alt=""></span>
+          <span class="tutorial-card-copy">
+            <span class="tutorial-card-category">Éditeur de sommets</span>
+            <span class="tutorial-card-title">Animé</span>
+            <span class="tutorial-card-description">Modifiez les sommets sur une image d’animation.</span>
+            <span class="tutorial-card-footer"><span>2 étapes</span><span class="tutorial-card-open">Ouvrir le tutoriel →</span></span>
+          </span>
+        </a>
+<a class="tutorial-card" id="tab-eachpiece" aria-controls="tutorial-eachpiece" data-tutorial="eachpiece" href="/mdlxl/tutorials/each-piece/?lang=fr">
+          <span class="tutorial-card-media" aria-hidden="true"><img src="/mdlxl/tutorials/fr/each-piece-card.png?v=a7928766a3bd53d1" width="1264" height="760" alt=""></span>
+          <span class="tutorial-card-copy">
+            <span class="tutorial-card-category">Contraintes du plan</span>
+            <span class="tutorial-card-title">Chaque pièce</span>
+            <span class="tutorial-card-description">Faites tourner chaque pièce séparée à sa place.</span>
+            <span class="tutorial-card-footer"><span>1 étape</span><span class="tutorial-card-open">Ouvrir le tutoriel →</span></span>
+          </span>
+        </a>
 </nav>
     </div>
     <a class="tutorial-back" id="tutorial-back" hidden><span aria-hidden="true">←</span> Tous les tutoriels</a>
@@ -113,4 +131,29 @@
         </figure>
       </section>
       <p class="recording-note">L’outil suit la géométrie connectée. Dans la copie utilisée pour l’enregistrement, les maillages de chaque arme ont été reliés en une seule pièce.</p>
+    </article>
+<article class="tutorial-panel" role="region" id="tutorial-animated" aria-labelledby="tab-animated" hidden>
+      <p class="sample-note">Éditeur de sommets</p>
+      <h3 id="animated-title">Animé</h3>
+      <p><strong>Animé</strong> affiche le modèle dans une image de l’une de ses animations pendant que vous modifiez. Vos modifications changent la pose de base : toutes les animations les utilisent.</p>
+      <section class="demo-step" aria-labelledby="animated-pose-title">
+        <h4 id="animated-pose-title">1. Choisir une animation et une image</h4>
+        <figure class="gif-player" data-animation="animated-pose"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/fr/animated-pose.mp4?v=0da29ba517d84a88" muted loop playsinline controls width="1264" height="760" preload="metadata" aria-label="1. Choisir une animation et une image. Cliquez sur la flèche à côté de Animé et choisissez une animation. Animé s’active sur sa première image. Faites un clic droit sur Animé, saisissez un numéro d’Image et appuyez sur Enter. Shift + Space bascule entre l’image et la pose de base."></video></figure>
+        <p>Cliquez sur la flèche à côté de <strong>Animé</strong> et choisissez une animation. <strong>Animé</strong> s’active sur sa première image. Faites un clic droit sur <strong>Animé</strong>, saisissez un numéro d’<strong>Image</strong> et appuyez sur <kbd>Enter</kbd>. <kbd>Shift</kbd> + <kbd>Space</kbd> bascule entre l’image et la pose de base.</p>
+      </section>
+      <section class="demo-step" aria-labelledby="animated-edit-title">
+        <h4 id="animated-edit-title">2. Modifier le modèle posé</h4>
+        <figure class="gif-player" data-animation="animated-edit"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/fr/animated-edit.mp4?v=a96772ec3fcd61f3" muted loop playsinline controls width="1264" height="760" preload="metadata" aria-label="2. Modifier le modèle posé. Sélectionnez et déplacez les sommets là où vous les voyez dans l’image : A et tracez un cadre, puis M et faites glisser. Appuyez sur Shift + Space pour voir la même modification dans la pose de base."></video></figure>
+        <p>Sélectionnez et déplacez les sommets là où vous les voyez dans l’image : <kbd>A</kbd> et tracez un cadre, puis <kbd>M</kbd> et faites glisser. Appuyez sur <kbd>Shift</kbd> + <kbd>Space</kbd> pour voir la même modification dans la pose de base.</p>
+      </section>
+    </article>
+<article class="tutorial-panel" role="region" id="tutorial-eachpiece" aria-labelledby="tab-eachpiece" hidden>
+      <p class="sample-note">Contraintes du plan</p>
+      <h3 id="eachpiece-title">Chaque pièce</h3>
+      <p><strong>Chaque pièce</strong> se trouve à côté de <strong>Contraintes du plan</strong> dans l’éditeur de sommets. Forge a la même case.</p>
+      <section class="demo-step" aria-labelledby="animated-each-piece-title">
+        <h4 id="animated-each-piece-title">Tourner avec et sans Chaque pièce</h4>
+        <figure class="gif-player" data-animation="animated-each-piece"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/fr/animated-each-piece.mp4?v=701899577fcee5ca" muted loop playsinline controls width="1264" height="760" preload="metadata" aria-label="Tourner avec et sans Chaque pièce. Désactivé : Tourner (R) fait tourner toute la sélection en bloc. Activé : chaque pièce séparée tourne à sa place. La vidéo fait tourner tout le Footman (Ctrl + A), annule avec Ctrl + Z, puis tourne à nouveau avec Chaque pièce activé."></video></figure>
+        <p>Désactivé : <strong>Tourner</strong> (<kbd>R</kbd>) fait tourner toute la sélection en bloc. Activé : chaque pièce séparée tourne à sa place. La vidéo fait tourner tout le Footman (<kbd>Ctrl</kbd> + <kbd>A</kbd>), annule avec <kbd>Ctrl</kbd> + <kbd>Z</kbd>, puis tourne à nouveau avec <strong>Chaque pièce</strong> activé.</p>
+      </section>
     </article>
