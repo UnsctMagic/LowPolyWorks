@@ -3,13 +3,13 @@ import {effectControlsMarkup,mountEffectControls} from './viewer-effect-controls
 import {prepareMobileLayout} from './mobile-layout.js?v=20261018-mobile-layout';
 import {groupModelUpdate,modelUpdateTagMarkup,mountModelUpdateTags} from './model-update-tags.js?v=20261109-update-badge-priority';
 import {modelFollowMarkup,mountModelFollow} from './model-follows.js?v=20261012-cloudflare';
-import {uploadedModelCard,renderUnitCard} from './unit-card.js?v=20261114-viewer-performance';
+import {uploadedModelCard,renderUnitCard} from './unit-card.js?v=20261115-site-perf';
 import {startMenuVisitor} from './menu-visitor.js?v=20261115-site-perf';
 import {countShredder} from './shredder-stats.js?v=20261022-stash-tzeentch';
 import {wheelSelect} from './wheel-select.js?v=20261022-wheel-animations';
 import {TEAM_COLORS} from './vendor/mdlxl/src/team-colors.js';
 import {recordUsage} from './usage.js?v=20261012-shredder-cloudflare';
-import {renderJournal} from './journal.js?v=20261113-public-credit-name';
+import {renderJournal} from './journal.js?v=20261115-site-perf';
 import {readMdlxlRoute,mdlxlHref} from './mdlxl-routes.js?v=20261115-call-upon-forge';
 const initialMdlxl=readMdlxlRoute(location);if(initialMdlxl&&location.hash.startsWith('#project/mdlxl'))history.replaceState(null,'',mdlxlHref(initialMdlxl.section,initialMdlxl.tutorial,location.search));
 const app=document.querySelector('#app');
@@ -85,7 +85,7 @@ async function route(){prepareMobileLayout(document.querySelector('.masthead'));
  const isCatalogue=legacyCatalogue||(!location.hash&&/^\/warhammercraft\/?$/.test(location.pathname))||Boolean(kind);document.body.classList.toggle('journal',!isCatalogue);
  const isMdlxl=!!mdlxlState;document.body.classList.toggle('mdlxl',isMdlxl);
  for(const link of document.querySelectorAll('.masthead nav a')){const selected=link.pathname==='/mdlxl/'?isMdlxl:link.pathname==='/warhammercraft/'&&isCatalogue;if(selected)link.setAttribute('aria-current','page');else link.removeAttribute('aria-current');}
- if(isMdlxl){document.querySelector('.masthead a[href="/mdlxl/"]').setAttribute('aria-current','page');const {renderMdlxl}=await import('./mdlxl.js?v=20261115-call-upon-forge');if(version!==routeVersion)return;await renderMdlxl(app,()=>version===routeVersion,recordUsage);return;}
+ if(isMdlxl){document.querySelector('.masthead a[href="/mdlxl/"]').setAttribute('aria-current','page');const {renderMdlxl}=await import('./mdlxl.js?v=20261115-site-perf');if(version!==routeVersion)return;await renderMdlxl(app,()=>version===routeVersion,recordUsage);return;}
  if(!isCatalogue){await renderJournal(app,()=>version===routeVersion);return;}
  try{await loadCatalogue();}catch(error){if(version===routeVersion)app.innerHTML='<p class="viewer-error">'+escape(error.message)+'</p>';return;}
  if(version!==routeVersion)return;
@@ -108,7 +108,7 @@ async function route(){prepareMobileLayout(document.querySelector('.masthead'));
   loopButton.setAttribute('aria-pressed',looping);
   loopButton.firstElementChild.textContent=looping?'On':'Off';
  }
- try{const {createViewer}=await import('./viewer.js?v=20261114-viewer-performance');if(version!==routeVersion)return;const next=await createViewer(document.querySelector('#model-canvas'),row,{teamColor:carried?.team||army.teamColour||TEAM_COLORS[0].rgbHex,onTimeChange:time=>{if(version===routeVersion)updateTimeline(time);},onPortraitModeChange:active=>{viewport.classList.toggle('portrait-mode',active);},onLightingChange:mode=>{if(version===routeVersion)document.querySelector('#lighting').value=mode;},onPlayingChange:playing=>{if(version!==routeVersion)return;document.querySelector('#play').textContent=playing?'Pause':'Play';if(!playing&&birdDecay?.version===version){const index=birdDecay.index;birdDecay=null;document.querySelector('#sequence').value=index;updateLoopButton(viewer.sequence(index));viewer.play();}}});if(version!==routeVersion){next.dispose();return;}viewer=next;mountEffectControls(app,viewer);const teamInput=document.querySelector('#team');teamInput.value=carried?.team||army.teamColour||TEAM_COLORS[0].rgbHex;teamInput.style.backgroundColor=teamInput.value;teamInput.style.color=neutralTextColor(teamInput.value);document.querySelector('#viewer-message').remove();for(const input of document.querySelectorAll('.controls button,.controls input:not(#animation-time),.controls select'))input.disabled=false;loopChoice=null;
+ try{const {createViewer}=await import('./viewer.js?v=20261115-site-perf');if(version!==routeVersion)return;const next=await createViewer(document.querySelector('#model-canvas'),row,{teamColor:carried?.team||army.teamColour||TEAM_COLORS[0].rgbHex,onTimeChange:time=>{if(version===routeVersion)updateTimeline(time);},onPortraitModeChange:active=>{viewport.classList.toggle('portrait-mode',active);},onLightingChange:mode=>{if(version===routeVersion)document.querySelector('#lighting').value=mode;},onPlayingChange:playing=>{if(version!==routeVersion)return;document.querySelector('#play').textContent=playing?'Pause':'Play';if(!playing&&birdDecay?.version===version){const index=birdDecay.index;birdDecay=null;document.querySelector('#sequence').value=index;updateLoopButton(viewer.sequence(index));viewer.play();}}});if(version!==routeVersion){next.dispose();return;}viewer=next;mountEffectControls(app,viewer);const teamInput=document.querySelector('#team');teamInput.value=carried?.team||army.teamColour||TEAM_COLORS[0].rgbHex;teamInput.style.backgroundColor=teamInput.value;teamInput.style.color=neutralTextColor(teamInput.value);document.querySelector('#viewer-message').remove();for(const input of document.querySelectorAll('.controls button,.controls input:not(#animation-time),.controls select'))input.disabled=false;loopChoice=null;
  updateLoopButton(viewer.looping());
  loopButton.onclick=()=>{
   birdDecay=null;

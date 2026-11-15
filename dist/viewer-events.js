@@ -4,7 +4,7 @@ import {allNodes,sampleNodeMatrices} from './vendor/mdlxl/src/animation.js';
 import {resetPreviewEffects} from './vendor/mdlxl/app/warcraft-preview-adapter.js';
 import {billboardCameraCorrection} from './vendor/mdlxl/app/preview-pose.js';
 import {installParticleNativeCompatibility} from './vendor/mdlxl/particle-native.mjs';
-import {initializeWarcraftRenderer} from './website-preview-adapter.js';
+import {initializeWarcraftRenderer} from './website-preview-adapter.js?v=20261018-uniform-budget';
 import {installWarcraftTeamTextures} from './warcraft-team-textures.js?v=20261020-particle-alpha';
 import {createGLProgram,preserveGLState,uploadTexture} from './viewer-event-gl.js';
 import {gamePathKey,eventResourceKey,viewerEventInstances,viewerDecalDefinition,viewerDecalSample,crossedViewerSounds} from './viewer-event-data.js';
