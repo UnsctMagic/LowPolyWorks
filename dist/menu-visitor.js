@@ -1,5 +1,5 @@
-const sheet = new URL('./ui/visitor/0.png' + new URL(import.meta.url).search, import.meta.url).href; // Shares the script's cache key.
-const wings = new URL('./ui/visitor/1.png', import.meta.url).href;
+const sheet = new URL('./ui/visitor/0.webp' + new URL(import.meta.url).search, import.meta.url).href; // Shares the script's cache key.
+const wings = new URL('./ui/visitor/1.webp', import.meta.url).href;
 // Calendar windows use Europe/Amsterdam midnight. Ends are exclusive.
 const HALLOWEEN_START = Date.UTC(2026, 9, 29, 23), HALLOWEEN_END = Date.UTC(2026, 9, 31, 23);
 // Prime Video Season 3 premiere: 11 November 2026. Crown: 8–12 November.
@@ -24,8 +24,8 @@ const flightScale = .9, flightSize = 240 * flightScale, footOffset = 59.375 * bo
 const LEAN = [[0, 2], [5, 1], [4, 3], [5, 1], [0, 2], [6, 1], [7, 3], [6, 1]], LEAN_BEAT = 220;
 const LEAN_TIME = LEAN.reduce((total, [, beats]) => total + beats, 0) * LEAN_BEAT;
 // Authored edge departure: standing launch cells and tucked-wing dive cells.
-const moves = new URL('./ui/visitor/2.png' + new URL(import.meta.url).search, import.meta.url).href;
-const diveArt = new URL('./ui/visitor/3.png' + new URL(import.meta.url).search, import.meta.url).href;
+const moves = new URL('./ui/visitor/2.webp' + new URL(import.meta.url).search, import.meta.url).href;
+const diveArt = new URL('./ui/visitor/3.webp' + new URL(import.meta.url).search, import.meta.url).href;
 const sequence = (row, durations, dx = null) => ({row, durations, dx, duration:durations.reduce((total, ms) => total + ms, 0)});
 const DIVE_START = sequence(7, [110, 150, 200, 90, 70, 70, 70, 70]);      // look over the edge, crouch, hop off
 const DIVE_FALL = .8, DIVE_PULL = .35, DIVE_GRAVITY = 780; // seconds, seconds, px/s²
@@ -167,7 +167,7 @@ export function startMenuVisitor({onInteraction} = {}) {
       trimEdges.top[x] = top; trimEdges.bottom[x] = canvas.height - 1 - bottom;
     }
   };
-  trimArt.src = new URL('./ui/slate-frame-v2.png', import.meta.url).href;
+  trimArt.src = new URL('./ui/slate-frame-v2.webp', import.meta.url).href;
   const pointer = {x:-10000, y:-10000, moved:0, sampled:0, speed:0, vx:0, vy:0, velocityAt:0};
   const throwSamples = [];
   let frame, phase = 'rest', perch, previousElement, started = 0, last = performance.now();
