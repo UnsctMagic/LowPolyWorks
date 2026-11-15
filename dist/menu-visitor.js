@@ -115,7 +115,11 @@ export function startMenuVisitor({onInteraction} = {}) {
   document.head.append(css);
   const costumeSize = flightSize + 80, costumePadding = 40;
   let directionalHats, disposed = false;
-  const hatReady = import('./visitor-hats.js?v=20261030-seasonal-hats').then(async module => { if (disposed) return; const hats = await module.createDirectionalHatRenderer(); if (disposed) hats.dispose(); else directionalHats = hats; });
+  // Hats are drawn with Three.js, so they load only where a hat can show: seasonal days and the MDLxL pages
+  // (Mordor tutorial language). Elsewhere they load when a costume starts; he waits for the hat before appearing.
+  let hatLoad = null;
+  const loadHats = () => hatLoad ||= import('./visitor-hats.js?v=20261030-seasonal-hats').then(async module => { if (disposed) return; const hats = await module.createDirectionalHatRenderer(); if (disposed) hats.dispose(); else directionalHats = hats; });
+  const hatReady = costumeAt() !== 'none' || location.pathname.startsWith('/mdlxl/') ? loadHats() : null;
   let mordor = false;
   const currentCostume = () => mordor ? 'morgoth' : costumeAt();
   const costumeActive = () => currentCostume() !== 'none';
@@ -143,8 +147,9 @@ export function startMenuVisitor({onInteraction} = {}) {
   const peanutTest = new URLSearchParams(location.search).has('peanut-test');
   // The test view is the owner's own playground, so it never counts.
   const played = kind => { if (!peanutTest) onInteraction?.(kind); };
-  const art = new Image(), flightArt = new Image(); art.src = sheet; flightArt.src = wings;
-  const movesImage = new Image(), diveImage = new Image(); movesImage.src = moves; diveImage.src = diveArt;
+  // He arrives seconds after the page opens, so his art yields bandwidth to the page itself.
+  const art = new Image(), flightArt = new Image(); art.fetchPriority = flightArt.fetchPriority = 'low'; art.src = sheet; flightArt.src = wings;
+  const movesImage = new Image(), diveImage = new Image(); movesImage.fetchPriority = diveImage.fetchPriority = 'low'; movesImage.src = moves; diveImage.src = diveArt;
   const trimArt = new Image();
   let trimEdges, peekMask;
   trimArt.onload = () => {
@@ -949,7 +954,9 @@ export function startMenuVisitor({onInteraction} = {}) {
       if (mordor && phase === 'peek-hidden') rest(now);
     }
     tickPeanut(document.hidden ? 0 : dt);
-    const canAppear = !document.hidden && now >= next && art.complete && art.naturalWidth && flightArt.complete && flightArt.naturalWidth;
+    const hatShown = !costumeActive() || directionalHats;
+    if (!hatShown) loadHats();
+    const canAppear = !document.hidden && now >= next && hatShown && art.complete && art.naturalWidth && flightArt.complete && flightArt.naturalWidth;
     if (follow && !holding()) follow = null;
     // Following food into a new view: fly there from wherever he is, retrying until it has a perch.
     if (follow && canAppear && phase !== 'attack') {

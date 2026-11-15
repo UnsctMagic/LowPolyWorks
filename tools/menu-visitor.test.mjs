@@ -5,9 +5,7 @@ import {test} from 'node:test';
 
 const source = fs.readFileSync(new URL('../dist/menu-visitor.js', import.meta.url), 'utf8');
 // Inspect state in a test-only copy. The shipped visitor has no testing API.
-const instrumented = source.replace('export function costumeAt(', 'function costumeAt(')
-  .replace(/  const hatReady = import\([^\n]+/, '  const hatReady = null;')
-  .replace('let directionalHats, disposed = false;', "let directionalHats = {poseFor:()=>({x:97,y:72,scale:1}),render:id=>({src:id==='halloween'?'witch-hat.png':id+'.png'}),dispose(){}}, disposed = false;")
+const instrument = text => text.replace('export function costumeAt(', 'function costumeAt(')
   .replaceAll('import.meta.url', "'http://localhost/menu-visitor.js'")
   .replace('export function startMenuVisitor(', 'function startMenuVisitor(')
   .replace('  return () => {', `  globalThis.visitor = {
@@ -18,6 +16,11 @@ const instrumented = source.replace('export function costumeAt(', 'function cost
     tick, tickPeanut, paint, peanutLook, rest, pose,
   };
   return () => {`) + '\nglobalThis.played = [];\nglobalThis.stopVisitor = startMenuVisitor({onInteraction:kind => globalThis.played.push(kind)});';
+const instrumented = instrument(source
+  .replace(/  const hatReady = [^\n]+/, '  const hatReady = null;')
+  .replace('let directionalHats, disposed = false;', "let directionalHats = {poseFor:()=>({x:97,y:72,scale:1}),render:id=>({src:id==='halloween'?'witch-hat.png':id+'.png'}),dispose(){}}, disposed = false;"));
+// The real hat loading, with the Three.js hat renderer import replaced by a promise the test settles.
+const lazyHats = instrument(source.replace(/import\('\.\/visitor-hats\.js[^']*'\)/, '(globalThis.hatImports.push(1), globalThis.hatModule)'));
 
 // extras adds globals such as sessionStorage, for pages that carry him over from a previous page.
 function fixture(testMode = true, random = .6, extras = {}) {
@@ -47,7 +50,7 @@ function fixture(testMode = true, random = .6, extras = {}) {
     Image:class {complete=true; naturalWidth=1536; naturalHeight=1098;},
     getComputedStyle:()=>({visibility:'visible',borderLeftWidth:'18',borderRightWidth:'18',borderTopWidth:'18',borderBottomWidth:'18'}),
     requestAnimationFrame:callback=>{raf=callback; return 1;}, cancelAnimationFrame:()=>{raf=null;}, ...extras});
-  vm.runInContext(instrumented, context);
+  vm.runInContext(extras.visitorSource || instrumented, context);
   const step = (ms=16) => {now += ms; raf(now);};
   const advance = ms => {for (let elapsed=0; elapsed<ms; elapsed+=16) step();};
   const emit = (type, extra={}) => {
@@ -856,4 +859,26 @@ test('Mordor crown takes priority over seasonal hats and restores them on exit',
     delete panel.dataset.tutorialLanguage; f.step();
     assert.equal(bird.dataset.hat,season);
   }
+});
+
+// Hats are drawn with Three.js: an ordinary day away from the MDLxL pages loads no hat renderer.
+// A costume that starts later loads it, and he waits for the hat before he appears.
+test('the hat renderer loads only when a costume can show, and he waits for it', async () => {
+  let settle;
+  const extras = {visitorSource:lazyHats, hatImports:[], hatModule:new Promise(resolve => {settle = resolve;}),
+    Date:class extends Date {static now(){return Date.UTC(2026, 10, 15, 12);}}};
+  const f = fixture(true, .6, extras);
+  const bird = f.nodes.find(n => n.className === 'menu-visitor');
+  f.advance(500);
+  assert.equal(extras.hatImports.length, 0, 'no costume, no hat renderer');
+  f.nodes[0].dataset.tutorialLanguage = 'mordor';
+  f.advance(500);
+  assert.equal(extras.hatImports.length, 1, 'Mordor loads the hat renderer once');
+  assert.equal(f.state().phase, 'rest', 'he waits for the crown');
+  settle({createDirectionalHatRenderer:async () => ({poseFor:()=>({x:97,y:72,scale:1}), render:id=>({src:id+'.png'}), dispose(){}})});
+  await new Promise(resolve => setImmediate(resolve));
+  f.advance(200);
+  assert.notEqual(f.state().phase, 'rest', 'he appears once the crown is ready');
+  assert.equal(bird.dataset.hat, 'morgoth');
+  assert.equal(extras.hatImports.length, 1);
 });
