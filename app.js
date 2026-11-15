@@ -85,7 +85,7 @@ async function route(){prepareMobileLayout(document.querySelector('.masthead'));
  const isCatalogue=legacyCatalogue||(!location.hash&&/^\/warhammercraft\/?$/.test(location.pathname))||Boolean(kind);document.body.classList.toggle('journal',!isCatalogue);
  const isMdlxl=!!mdlxlState;document.body.classList.toggle('mdlxl',isMdlxl);
  for(const link of document.querySelectorAll('.masthead nav a')){const selected=link.pathname==='/mdlxl/'?isMdlxl:link.pathname==='/warhammercraft/'&&isCatalogue;if(selected)link.setAttribute('aria-current','page');else link.removeAttribute('aria-current');}
- if(isMdlxl){document.querySelector('.masthead a[href="/mdlxl/"]').setAttribute('aria-current','page');const {renderMdlxl}=await import('./mdlxl.js?v=20261115-site-perf');if(version!==routeVersion)return;await renderMdlxl(app,()=>version===routeVersion,recordUsage);return;}
+ if(isMdlxl){document.querySelector('.masthead a[href="/mdlxl/"]').setAttribute('aria-current','page');const {renderMdlxl}=await import('./mdlxl.js?v=20261115-fx-snowman');if(version!==routeVersion)return;await renderMdlxl(app,()=>version===routeVersion,recordUsage);return;}
  if(!isCatalogue){await renderJournal(app,()=>version===routeVersion);return;}
  try{await loadCatalogue();}catch(error){if(version===routeVersion)app.innerHTML='<p class="viewer-error">'+escape(error.message)+'</p>';return;}
  if(version!==routeVersion)return;

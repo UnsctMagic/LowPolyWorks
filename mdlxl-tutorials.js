@@ -4,7 +4,7 @@ import {mountTutorialPlayers} from './mdlxl/tutorials/playback.js?v=20261109-tut
 import {startToolPings} from './mdlxl/tutorials/highlights.js?v=20261030-tutorial-languages';
 import {recordTutorial} from './usage.js?v=20261025-amsterdam-days';
 import {tutorialLanguages,tutorialText} from './mdlxl/tutorials/languages.js?v=20261104-fr-de-fx';
-const version='20261115-call-upon-forge';
+const version='20261115-fx-snowman';
 const valid=language=>tutorialLanguages.some(item=>item.id===language);
 async function loadPlayers(state,article) {
   const content=state.body.firstElementChild;
@@ -46,7 +46,7 @@ function showTutorial(state) {
 }
 export async function renderTutorials(panel,isCurrent,requested) {
   if(!document.getElementById('mdlxl-tutorial-style')){
-    const style=document.createElement('link');style.id='mdlxl-tutorial-style';style.rel='stylesheet';style.href='/mdlxl-tutorials.css?v=20261115-call-upon-forge';document.head.append(style);
+    const style=document.createElement('link');style.id='mdlxl-tutorial-style';style.rel='stylesheet';style.href='/mdlxl-tutorials.css?v=20261115-fx-snowman';document.head.append(style);
   }
   let state=panel._tutorialController;
   if(!state||!state.header.isConnected){
