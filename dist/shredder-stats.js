@@ -1,7 +1,7 @@
 // Counts how visitors play with Shredder for the Vault's Shredder's Stash.
 // Interactions are tallied in this browser and sent as one batch when a page is hidden or closed, at most
 // a few times a day, so his statistics cost few tracker writes. Opted-out browsers never tally or send.
-import {recordShredder,usageAllowed} from './usage.js?v=20261012-shredder-cloudflare';
+import {recordShredder,usageAllowed} from './usage.js?v=20261025-amsterdam-days';
 
 const KINDS = ['peek', 'grab', 'feed', 'crack', 'follow', 'attack'];
 const PENDING = 'lowpolyworks.shredderPending', SENT = 'lowpolyworks.shredderSent', DAILY_SENDS = 4, MAX = 999;

@@ -2,7 +2,7 @@ import {applyMdlxlShellLanguage} from './mdlxl-languages.js?v=20261105-permanent
 import {mdlxlHref} from './mdlxl-routes.js?v=20261115-call-upon-forge';
 import {mountTutorialPlayers} from './mdlxl/tutorials/playback.js?v=20261109-tutorial-mp4';
 import {startToolPings} from './mdlxl/tutorials/highlights.js?v=20261030-tutorial-languages';
-import {recordTutorial} from './usage.js?v=20261012-shredder-cloudflare';
+import {recordTutorial} from './usage.js?v=20261025-amsterdam-days';
 import {tutorialLanguages,tutorialText} from './mdlxl/tutorials/languages.js?v=20261104-fr-de-fx';
 const version='20261115-call-upon-forge';
 const valid=language=>tutorialLanguages.some(item=>item.id===language);
