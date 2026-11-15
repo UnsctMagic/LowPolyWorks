@@ -80,12 +80,12 @@
 [data-tutorial-language=mordor] .tutorial-body .tutorial-card[data-tutorial=spread][lang=en] span{font-family:Georgia,serif;letter-spacing:normal}
 @media(max-width:650px){#tutorial-spread .gif-player{padding:3px}}
 
-:is(#tutorial-animated,#tutorial-eachpiece){--tutorial-media-width:1000px}
-:is(#tutorial-animated,#tutorial-eachpiece) .player-frame{aspect-ratio:1264/760}
-:is(#tutorial-animated,#tutorial-eachpiece) kbd{font:600 .88em ui-monospace,monospace;white-space:nowrap;border:1px solid #796646;border-radius:4px;padding:.1em .35em;background:#182131;color:#f8e0a7}
-[data-tutorial-language=mordor] .tutorial-body :is(#tutorial-animated,#tutorial-eachpiece)[lang=en] :is(p,h3,h4,span,strong),
-[data-tutorial-language=mordor] .tutorial-body .tutorial-card:is([data-tutorial=animated],[data-tutorial=eachpiece])[lang=en] span{font-family:Georgia,serif;letter-spacing:normal}
-@media(max-width:650px){:is(#tutorial-animated,#tutorial-eachpiece) .gif-player{padding:3px}}
+:is(#tutorial-animated,#tutorial-eachpiece,#tutorial-forge){--tutorial-media-width:1000px}
+:is(#tutorial-animated,#tutorial-eachpiece,#tutorial-forge) .player-frame{aspect-ratio:1264/760}
+:is(#tutorial-animated,#tutorial-eachpiece,#tutorial-forge) kbd{font:600 .88em ui-monospace,monospace;white-space:nowrap;border:1px solid #796646;border-radius:4px;padding:.1em .35em;background:#182131;color:#f8e0a7}
+[data-tutorial-language=mordor] .tutorial-body :is(#tutorial-animated,#tutorial-eachpiece,#tutorial-forge)[lang=en] :is(p,h3,h4,span,strong),
+[data-tutorial-language=mordor] .tutorial-body .tutorial-card:is([data-tutorial=animated],[data-tutorial=eachpiece],[data-tutorial=forge])[lang=en] span{font-family:Georgia,serif;letter-spacing:normal}
+@media(max-width:650px){:is(#tutorial-animated,#tutorial-eachpiece,#tutorial-forge) .gif-player{padding:3px}}
 
 video.player-frame::cue{background-color:#151a22d9;color:white;font:600 19px system-ui,sans-serif;text-shadow:0 1px 2px #000}
 @media(max-width:650px){video.player-frame::cue{font-size:14px}}

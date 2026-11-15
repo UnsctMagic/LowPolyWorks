@@ -48,6 +48,15 @@
             <span class="tutorial-card-footer"><span>1 个步骤</span><span class="tutorial-card-open">打开教程 →</span></span>
           </span>
         </a>
+<a class="tutorial-card" id="tab-forge" aria-controls="tutorial-forge" data-tutorial="forge" href="/mdlxl/tutorials/call-upon-forge/?lang=zh">
+          <span class="tutorial-card-media" aria-hidden="true"><img src="/mdlxl/tutorials/zh/forge-card.png?v=30ee166b6d7afd28" width="1264" height="760" alt=""></span>
+          <span class="tutorial-card-copy">
+            <span class="tutorial-card-category">锻造</span>
+            <span class="tutorial-card-title">调用 Forge 工具</span>
+            <span class="tutorial-card-description">在顶点编辑器中使用 Forge 工具：为 Footman 的盾牌倒角并弯曲。</span>
+            <span class="tutorial-card-footer"><span>5 个步骤</span><span class="tutorial-card-open">打开教程 →</span></span>
+          </span>
+        </a>
 </nav>
     </div>
     <a class="tutorial-back" id="tutorial-back" hidden><span aria-hidden="true">←</span> 全部教程</a>
@@ -153,5 +162,35 @@
         <h4 id="animated-each-piece-title">开启和关闭“每一块”时旋转</h4>
         <figure class="gif-player" data-animation="animated-each-piece"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/zh/animated-each-piece.mp4?v=e942102a6e64430d" muted loop playsinline controls width="1264" height="760" preload="metadata" aria-label="开启和关闭“每一块”时旋转. 关闭：旋转（R）把整个选区作为一组旋转。开启：每个单独的块在原位旋转。视频中先旋转整个 Footman（Ctrl + A），用 Ctrl + Z 撤销，再在开启每一块后旋转。"></video></figure>
         <p>关闭：<strong>旋转</strong>（<kbd>R</kbd>）把整个选区作为一组旋转。开启：每个单独的块在原位旋转。视频中先旋转整个 Footman（<kbd>Ctrl</kbd> + <kbd>A</kbd>），用 <kbd>Ctrl</kbd> + <kbd>Z</kbd> 撤销，再在开启<strong>每一块</strong>后旋转。</p>
+      </section>
+    </article>
+<article class="tutorial-panel" role="region" id="tutorial-forge" aria-labelledby="tab-forge" hidden>
+      <p class="sample-note">锻造</p>
+      <h3 id="forge-title">调用 Forge 工具</h3>
+      <p><strong>调用 Forge 工具</strong>会把 Forge 工具加入顶点编辑器。这里为 Footman 的盾牌倒角，并把它弯成弧形盾。</p>
+      <section class="demo-step" aria-labelledby="forge-open-title">
+        <h4 id="forge-open-title">1. 调用 Forge 工具</h4>
+        <figure class="gif-player" data-animation="forge-open"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/zh/forge-open.mp4?v=d6bd41b51f4a56d1" muted loop playsinline controls width="1264" height="760" preload="metadata" aria-label="1. 调用 Forge 工具. 右键单击锻造图标并选择调用 Forge 工具。Forge 工具会在顶点编辑器左侧打开。选择、镜头、撤销和其他顶点工具照常可用。"></video></figure>
+        <p>右键单击<strong>锻造</strong>图标并选择<strong>调用 Forge 工具</strong>。Forge 工具会在顶点编辑器左侧打开。选择、镜头、撤销和其他顶点工具照常可用。</p>
+      </section>
+      <section class="demo-step" aria-labelledby="forge-isolate-title">
+        <h4 id="forge-isolate-title">2. 单独显示盾牌</h4>
+        <figure class="gif-player" data-animation="forge-isolate"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/zh/forge-isolate.mp4?v=d8a7d4ac621744de" muted loop playsinline controls width="1264" height="760" preload="metadata" aria-label="2. 单独显示盾牌. 红色队伍颜色层是单独的几何集：在几何集下勾选 2。按 A，点击一个盾牌顶点，再用 Shift + LMB 点击其余顶点。点击分离为新多边形组，再点击清除，勾选这两个新几何集并关闭显示全部：只显示盾牌。"></video></figure>
+        <p>红色队伍颜色层是单独的几何集：在<strong>几何集</strong>下勾选 <strong>2</strong>。按 <kbd>A</kbd>，点击一个盾牌顶点，再用 <kbd>Shift</kbd> + <kbd>LMB</kbd> 点击其余顶点。点击<strong>分离为新多边形组</strong>，再点击<strong>清除</strong>，勾选这两个新几何集并关闭<strong>显示全部</strong>：只显示盾牌。</p>
+      </section>
+      <section class="demo-step" aria-labelledby="forge-bevel-title">
+        <h4 id="forge-bevel-title">3. 倒角</h4>
+        <figure class="gif-player" data-animation="forge-bevel"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/zh/forge-bevel.mp4?v=b811d381e8cbbdca" muted loop playsinline controls width="1264" height="760" preload="metadata" aria-label="3. 倒角. 在视图菜单中选择左视图和线框。取消勾选红色层，按 Ctrl + A 选中盾牌。点击倒角并拖动金色手柄：轮廓上出现新的边。点击 ✓ 保留。"></video></figure>
+        <p>在视图菜单中选择<strong>左视图</strong>和<strong>线框</strong>。取消勾选红色层，按 <kbd>Ctrl</kbd> + <kbd>A</kbd> 选中盾牌。点击<strong>倒角</strong>并拖动金色手柄：轮廓上出现新的边。点击 <strong>✓</strong> 保留。</p>
+      </section>
+      <section class="demo-step" aria-labelledby="forge-bend-title">
+        <h4 id="forge-bend-title">4. 弯曲</h4>
+        <figure class="gif-player" data-animation="forge-bend"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/zh/forge-bend.mp4?v=ccb0411160997456" muted loop playsinline controls width="1264" height="760" preload="metadata" aria-label="4. 弯曲. 选择透视图和纹理视图，重新勾选红色层并按 Ctrl + A。点击弯曲，选择横向和转动弯曲，使盾牌沿深度方向弯曲，然后拖动手柄：两侧向身体弯去。点击 ✓。重新打开显示全部并点击适应，查看整个 Footman。"></video></figure>
+        <p>选择<strong>透视图</strong>和<strong>纹理视图</strong>，重新勾选红色层并按 <kbd>Ctrl</kbd> + <kbd>A</kbd>。点击<strong>弯曲</strong>，选择<strong>横向</strong>和<strong>转动弯曲</strong>，使盾牌沿深度方向弯曲，然后拖动手柄：两侧向身体弯去。点击 <strong>✓</strong>。重新打开<strong>显示全部</strong>并点击<strong>适应</strong>，查看整个 Footman。</p>
+      </section>
+      <section class="demo-step" aria-labelledby="forge-check-title">
+        <h4 id="forge-check-title">5. 检查</h4>
+        <figure class="gif-player" data-animation="forge-check"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/zh/forge-check.mp4?v=04e5c321aec9f078" muted loop playsinline controls width="1264" height="760" preload="metadata" aria-label="5. 检查. 用 Alt + LMB 转动视图。Ctrl + Z 和 Ctrl + Y 撤销和重做弯曲。"></video></figure>
+        <p>用 <kbd>Alt</kbd> + <kbd>LMB</kbd> 转动视图。<kbd>Ctrl</kbd> + <kbd>Z</kbd> 和 <kbd>Ctrl</kbd> + <kbd>Y</kbd> 撤销和重做弯曲。</p>
       </section>
     </article>
