@@ -30,6 +30,24 @@
             <span class="tutorial-card-footer"><span>2 pasos</span><span class="tutorial-card-open">Abrir tutorial →</span></span>
           </span>
         </a>
+<a class="tutorial-card" id="tab-animated" aria-controls="tutorial-animated" data-tutorial="animated" href="/mdlxl/tutorials/animated/?lang=es">
+          <span class="tutorial-card-media" aria-hidden="true"><img src="/mdlxl/tutorials/es/animated-card.png?v=affd087629719beb" width="1264" height="760" alt=""></span>
+          <span class="tutorial-card-copy">
+            <span class="tutorial-card-category">Editor de vértices</span>
+            <span class="tutorial-card-title">Animado</span>
+            <span class="tutorial-card-description">Edita vértices sobre un fotograma de animación.</span>
+            <span class="tutorial-card-footer"><span>2 pasos</span><span class="tutorial-card-open">Abrir tutorial →</span></span>
+          </span>
+        </a>
+<a class="tutorial-card" id="tab-eachpiece" aria-controls="tutorial-eachpiece" data-tutorial="eachpiece" href="/mdlxl/tutorials/each-piece/?lang=es">
+          <span class="tutorial-card-media" aria-hidden="true"><img src="/mdlxl/tutorials/es/each-piece-card.png?v=1fe3f3c33db92f10" width="1264" height="760" alt=""></span>
+          <span class="tutorial-card-copy">
+            <span class="tutorial-card-category">Restricciones del plano</span>
+            <span class="tutorial-card-title">Cada pieza</span>
+            <span class="tutorial-card-description">Gira cada pieza separada en su sitio.</span>
+            <span class="tutorial-card-footer"><span>1 paso</span><span class="tutorial-card-open">Abrir tutorial →</span></span>
+          </span>
+        </a>
 </nav>
     </div>
     <a class="tutorial-back" id="tutorial-back" hidden><span aria-hidden="true">←</span> Todos los tutoriales</a>
@@ -111,4 +129,29 @@
         </figure>
       </section>
       <p class="recording-note">La herramienta sigue la geometría conectada. Para grabar, se unieron las mallas de cada arma en una sola pieza en una copia del modelo.</p>
+    </article>
+<article class="tutorial-panel" role="region" id="tutorial-animated" aria-labelledby="tab-animated" hidden>
+      <p class="sample-note">Editor de vértices</p>
+      <h3 id="animated-title">Animado</h3>
+      <p><strong>Animado</strong> muestra el modelo en un fotograma de una de sus animaciones mientras editas. Tus cambios modifican la pose base, así que todas las animaciones los usan.</p>
+      <section class="demo-step" aria-labelledby="animated-pose-title">
+        <h4 id="animated-pose-title">1. Elige una animación y un fotograma</h4>
+        <figure class="gif-player" data-animation="animated-pose"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/es/animated-pose.mp4?v=ca6e3c317623a4af" muted loop playsinline controls width="1264" height="760" preload="metadata" aria-label="1. Elige una animación y un fotograma. Haz clic en la flecha junto a Animado y elige una animación. Animado se activa en su primer fotograma. Haz clic derecho en Animado, escribe un número de Fotograma y pulsa Enter. Shift + Space alterna entre el fotograma y la pose base."></video></figure>
+        <p>Haz clic en la flecha junto a <strong>Animado</strong> y elige una animación. <strong>Animado</strong> se activa en su primer fotograma. Haz clic derecho en <strong>Animado</strong>, escribe un número de <strong>Fotograma</strong> y pulsa <kbd>Enter</kbd>. <kbd>Shift</kbd> + <kbd>Space</kbd> alterna entre el fotograma y la pose base.</p>
+      </section>
+      <section class="demo-step" aria-labelledby="animated-edit-title">
+        <h4 id="animated-edit-title">2. Edita sobre el modelo en pose</h4>
+        <figure class="gif-player" data-animation="animated-edit"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/es/animated-edit.mp4?v=d62cd24729c5f39f" muted loop playsinline controls width="1264" height="760" preload="metadata" aria-label="2. Edita sobre el modelo en pose. Selecciona y mueve vértices donde los ves en el fotograma: A y arrastra un recuadro; luego M y arrastra. Pulsa Shift + Space para ver el mismo cambio en la pose base."></video></figure>
+        <p>Selecciona y mueve vértices donde los ves en el fotograma: <kbd>A</kbd> y arrastra un recuadro; luego <kbd>M</kbd> y arrastra. Pulsa <kbd>Shift</kbd> + <kbd>Space</kbd> para ver el mismo cambio en la pose base.</p>
+      </section>
+    </article>
+<article class="tutorial-panel" role="region" id="tutorial-eachpiece" aria-labelledby="tab-eachpiece" hidden>
+      <p class="sample-note">Restricciones del plano</p>
+      <h3 id="eachpiece-title">Cada pieza</h3>
+      <p><strong>Cada pieza</strong> está junto a <strong>Restricciones del plano</strong> en el editor de vértices. Forge tiene la misma casilla.</p>
+      <section class="demo-step" aria-labelledby="animated-each-piece-title">
+        <h4 id="animated-each-piece-title">Rotar con y sin Cada pieza</h4>
+        <figure class="gif-player" data-animation="animated-each-piece"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/es/animated-each-piece.mp4?v=8f34804d21049635" muted loop playsinline controls width="1264" height="760" preload="metadata" aria-label="Rotar con y sin Cada pieza. Desactivado: Rotar (R) gira toda la selección como un grupo. Activado: cada pieza separada gira en su sitio. El vídeo gira todo el Footman (Ctrl + A), lo deshace con Ctrl + Z y vuelve a girar con Cada pieza activado."></video></figure>
+        <p>Desactivado: <strong>Rotar</strong> (<kbd>R</kbd>) gira toda la selección como un grupo. Activado: cada pieza separada gira en su sitio. El vídeo gira todo el Footman (<kbd>Ctrl</kbd> + <kbd>A</kbd>), lo deshace con <kbd>Ctrl</kbd> + <kbd>Z</kbd> y vuelve a girar con <strong>Cada pieza</strong> activado.</p>
+      </section>
     </article>

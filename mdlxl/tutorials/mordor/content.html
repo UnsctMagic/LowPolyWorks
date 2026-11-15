@@ -30,6 +30,24 @@
             <span class="tutorial-card-footer"><span>2 steps</span><span class="tutorial-card-open">Open tutorial →</span></span>
           </span>
         </a>
+<a class="tutorial-card" id="tab-animated" aria-controls="tutorial-animated" data-tutorial="animated" href="/mdlxl/tutorials/animated/?lang=mordor" lang="en">
+          <span class="tutorial-card-media" aria-hidden="true"><img src="/mdlxl/tutorials/animated-card.png?v=5c33939d7bdc493e" width="1264" height="760" alt=""></span>
+          <span class="tutorial-card-copy">
+            <span class="tutorial-card-category">Vertex editor</span>
+            <span class="tutorial-card-title">Animated</span>
+            <span class="tutorial-card-description">Edit vertices on an animation frame.</span>
+            <span class="tutorial-card-footer"><span>2 steps</span><span class="tutorial-card-open">Open tutorial →</span></span>
+          </span>
+        </a>
+<a class="tutorial-card" id="tab-eachpiece" aria-controls="tutorial-eachpiece" data-tutorial="eachpiece" href="/mdlxl/tutorials/each-piece/?lang=mordor" lang="en">
+          <span class="tutorial-card-media" aria-hidden="true"><img src="/mdlxl/tutorials/each-piece-card.png?v=ba36cec90323ac69" width="1264" height="760" alt=""></span>
+          <span class="tutorial-card-copy">
+            <span class="tutorial-card-category">Workplane Constraints</span>
+            <span class="tutorial-card-title">Each Piece</span>
+            <span class="tutorial-card-description">Rotate every separate piece on its own spot.</span>
+            <span class="tutorial-card-footer"><span>1 step</span><span class="tutorial-card-open">Open tutorial →</span></span>
+          </span>
+        </a>
 </nav>
     </div>
     <a class="tutorial-back" id="tutorial-back" hidden><span aria-hidden="true">←</span> atulûk uruk</a>
@@ -111,4 +129,29 @@
         </figure>
       </section>
       <p class="recording-note">Spread pieces follows connected geometry. For these clips, the weapon meshes were joined into one piece per weapon in a recording copy of the model.</p>
+    </article>
+<article class="tutorial-panel" role="region" id="tutorial-animated" aria-labelledby="tab-animated" hidden lang="en">
+      <p class="sample-note">Vertex editor</p>
+      <h3 id="animated-title">Animated</h3>
+      <p><strong>Animated</strong> shows the model in a frame of one of its animations while you edit. Your edits change the base pose, so every animation uses them.</p>
+      <section class="demo-step" aria-labelledby="animated-pose-title">
+        <h4 id="animated-pose-title">1. Choose an animation and a frame</h4>
+        <figure class="gif-player" data-animation="animated-pose"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/mordor/animated-pose.mp4?v=477deda9e3c8fb7d" muted loop playsinline controls width="1264" height="760" preload="metadata" aria-label="1. Choose an animation and a frame. Click the arrow beside Animated and choose an animation. Animated turns on at its first frame. Right-click Animated, type a Frame number and press Enter. Shift + Space switches between the frame and the base pose."></video></figure>
+        <p>Click the arrow beside <strong>Animated</strong> and choose an animation. <strong>Animated</strong> turns on at its first frame. Right-click <strong>Animated</strong>, type a <strong>Frame</strong> number and press <kbd>Enter</kbd>. <kbd>Shift</kbd> + <kbd>Space</kbd> switches between the frame and the base pose.</p>
+      </section>
+      <section class="demo-step" aria-labelledby="animated-edit-title">
+        <h4 id="animated-edit-title">2. Edit on the posed model</h4>
+        <figure class="gif-player" data-animation="animated-edit"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/mordor/animated-edit.mp4?v=27436952bc51f795" muted loop playsinline controls width="1264" height="760" preload="metadata" aria-label="2. Edit on the posed model. Select and move vertices where you see them in the frame: A and drag a box, then M and drag. Press Shift + Space to see the same edit in the base pose."></video></figure>
+        <p>Select and move vertices where you see them in the frame: <kbd>A</kbd> and drag a box, then <kbd>M</kbd> and drag. Press <kbd>Shift</kbd> + <kbd>Space</kbd> to see the same edit in the base pose.</p>
+      </section>
+    </article>
+<article class="tutorial-panel" role="region" id="tutorial-eachpiece" aria-labelledby="tab-eachpiece" hidden lang="en">
+      <p class="sample-note">Workplane Constraints</p>
+      <h3 id="eachpiece-title">Each Piece</h3>
+      <p><strong>Each Piece</strong> is beside <strong>Workplane Constraints</strong> in the Vertex editor. Forge has the same checkbox.</p>
+      <section class="demo-step" aria-labelledby="animated-each-piece-title">
+        <h4 id="animated-each-piece-title">Rotate with and without Each Piece</h4>
+        <figure class="gif-player" data-animation="animated-each-piece"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/mordor/animated-each-piece.mp4?v=84635c77e8de2e84" muted loop playsinline controls width="1264" height="760" preload="metadata" aria-label="Rotate with and without Each Piece. Off: Rotate (R) turns the whole selection as one group. On: each separate piece turns on its own spot. The clip rotates the whole Footman (Ctrl + A), undoes it with Ctrl + Z, then rotates again with Each Piece on."></video></figure>
+        <p>Off: <strong>Rotate</strong> (<kbd>R</kbd>) turns the whole selection as one group. On: each separate piece turns on its own spot. The clip rotates the whole Footman (<kbd>Ctrl</kbd> + <kbd>A</kbd>), undoes it with <kbd>Ctrl</kbd> + <kbd>Z</kbd>, then rotates again with <strong>Each Piece</strong> on.</p>
+      </section>
     </article>

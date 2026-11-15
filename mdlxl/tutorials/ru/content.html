@@ -30,6 +30,24 @@
             <span class="tutorial-card-footer"><span>2 шага</span><span class="tutorial-card-open">Открыть урок →</span></span>
           </span>
         </a>
+<a class="tutorial-card" id="tab-animated" aria-controls="tutorial-animated" data-tutorial="animated" href="/mdlxl/tutorials/animated/?lang=ru">
+          <span class="tutorial-card-media" aria-hidden="true"><img src="/mdlxl/tutorials/ru/animated-card.png?v=addd4c8fae938145" width="1264" height="760" alt=""></span>
+          <span class="tutorial-card-copy">
+            <span class="tutorial-card-category">Редактор вершин</span>
+            <span class="tutorial-card-title">Анимация</span>
+            <span class="tutorial-card-description">Редактируйте вершины на кадре анимации.</span>
+            <span class="tutorial-card-footer"><span>2 шага</span><span class="tutorial-card-open">Открыть урок →</span></span>
+          </span>
+        </a>
+<a class="tutorial-card" id="tab-eachpiece" aria-controls="tutorial-eachpiece" data-tutorial="eachpiece" href="/mdlxl/tutorials/each-piece/?lang=ru">
+          <span class="tutorial-card-media" aria-hidden="true"><img src="/mdlxl/tutorials/ru/each-piece-card.png?v=838a046eef706001" width="1264" height="760" alt=""></span>
+          <span class="tutorial-card-copy">
+            <span class="tutorial-card-category">Ограничения плоскости</span>
+            <span class="tutorial-card-title">Каждый кусок</span>
+            <span class="tutorial-card-description">Поворачивайте каждый отдельный кусок на его месте.</span>
+            <span class="tutorial-card-footer"><span>1 шаг</span><span class="tutorial-card-open">Открыть урок →</span></span>
+          </span>
+        </a>
 </nav>
     </div>
     <a class="tutorial-back" id="tutorial-back" hidden><span aria-hidden="true">←</span> Все уроки</a>
@@ -111,4 +129,29 @@
         </figure>
       </section>
       <p class="recording-note">Инструмент учитывает связность геометрии. В копии модели для записи сетка каждого клинка была соединена в одну часть.</p>
+    </article>
+<article class="tutorial-panel" role="region" id="tutorial-animated" aria-labelledby="tab-animated" hidden>
+      <p class="sample-note">Редактор вершин</p>
+      <h3 id="animated-title">Анимация</h3>
+      <p><strong>Анимация</strong> показывает модель в кадре одной из её анимаций, пока вы редактируете. Правки меняют исходную позу, поэтому их используют все анимации.</p>
+      <section class="demo-step" aria-labelledby="animated-pose-title">
+        <h4 id="animated-pose-title">1. Выберите анимацию и кадр</h4>
+        <figure class="gif-player" data-animation="animated-pose"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/ru/animated-pose.mp4?v=8ad2917f6a273df7" muted loop playsinline controls width="1264" height="760" preload="metadata" aria-label="1. Выберите анимацию и кадр. Нажмите стрелку рядом с Анимация и выберите анимацию. Анимация включается на её первом кадре. Щёлкните Анимация правой кнопкой, введите номер в поле Кадр и нажмите Enter. Shift + Space переключает между кадром и исходной позой."></video></figure>
+        <p>Нажмите стрелку рядом с <strong>Анимация</strong> и выберите анимацию. <strong>Анимация</strong> включается на её первом кадре. Щёлкните <strong>Анимация</strong> правой кнопкой, введите номер в поле <strong>Кадр</strong> и нажмите <kbd>Enter</kbd>. <kbd>Shift</kbd> + <kbd>Space</kbd> переключает между кадром и исходной позой.</p>
+      </section>
+      <section class="demo-step" aria-labelledby="animated-edit-title">
+        <h4 id="animated-edit-title">2. Редактируйте модель в позе</h4>
+        <figure class="gif-player" data-animation="animated-edit"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/ru/animated-edit.mp4?v=373761131b91e6cc" muted loop playsinline controls width="1264" height="760" preload="metadata" aria-label="2. Редактируйте модель в позе. Выделяйте и перемещайте вершины там, где они видны в кадре: A и рамка мышью, затем M и перетаскивание. Нажмите Shift + Space, чтобы увидеть ту же правку в исходной позе."></video></figure>
+        <p>Выделяйте и перемещайте вершины там, где они видны в кадре: <kbd>A</kbd> и рамка мышью, затем <kbd>M</kbd> и перетаскивание. Нажмите <kbd>Shift</kbd> + <kbd>Space</kbd>, чтобы увидеть ту же правку в исходной позе.</p>
+      </section>
+    </article>
+<article class="tutorial-panel" role="region" id="tutorial-eachpiece" aria-labelledby="tab-eachpiece" hidden>
+      <p class="sample-note">Ограничения плоскости</p>
+      <h3 id="eachpiece-title">Каждый кусок</h3>
+      <p><strong>Каждый кусок</strong> находится рядом с <strong>Ограничения плоскости</strong> в редакторе вершин. В Forge есть такой же флажок.</p>
+      <section class="demo-step" aria-labelledby="animated-each-piece-title">
+        <h4 id="animated-each-piece-title">Поворот с «Каждый кусок» и без него</h4>
+        <figure class="gif-player" data-animation="animated-each-piece"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/ru/animated-each-piece.mp4?v=2a59ac8d32bd4463" muted loop playsinline controls width="1264" height="760" preload="metadata" aria-label="Поворот с «Каждый кусок» и без него. Выкл.: Поворот (R) вращает всё выделение как одну группу. Вкл.: каждый отдельный кусок вращается на своём месте. В ролике весь Footman (Ctrl + A) поворачивается, поворот отменяется Ctrl + Z, затем поворот повторяется с включённым Каждый кусок."></video></figure>
+        <p>Выкл.: <strong>Поворот</strong> (<kbd>R</kbd>) вращает всё выделение как одну группу. Вкл.: каждый отдельный кусок вращается на своём месте. В ролике весь Footman (<kbd>Ctrl</kbd> + <kbd>A</kbd>) поворачивается, поворот отменяется <kbd>Ctrl</kbd> + <kbd>Z</kbd>, затем поворот повторяется с включённым <strong>Каждый кусок</strong>.</p>
+      </section>
     </article>
