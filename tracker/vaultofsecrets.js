@@ -21,7 +21,7 @@ const armyOptions=(selected='')=>account.unitArmies.map(a=>`<option value="${esc
 function workspace(){
  postsLoaded=false;
  app.innerHTML=`<div class="vault-top"><div><h1>Vault of Secrets</h1><p class="muted">${escape(account.author.name)}${owner()?' <span class="badge">Admin</span>':''}</p></div><button id="logout" class="secondary">Log out</button></div>
-<nav class="vault-nav" aria-label="Workspace"><button data-tab="units">Unit cards</button><button data-tab="upload">New unit card</button><button data-tab="posts">Posts &amp; account</button>${owner()?'<button data-tab="activity">Activity</button><button data-tab="stash">Shredder&#39;s Stash</button>':''}</nav>
+<nav class="vault-nav" aria-label="Workspace"><button data-tab="units">Unit cards</button><button data-tab="upload">New unit card</button><button data-tab="posts">Posts &amp; account</button>${owner()?'<button data-tab="activity">Activity</button><button data-tab="reports">Reports</button><button data-tab="stash">Shredder&#39;s Stash</button>':''}</nav>
 <section id="units-panel">
  <div id="removals" class="removals" hidden></div>
  <div class="filters" role="search"><input type="search" id="filter-query" placeholder="Search by name, author or army" aria-label="Search unit cards" value="${escape(prefs.query)}"><select id="filter-army" aria-label="Army"><option value="">All armies</option>${armyOptions(prefs.army)}<option value="other" ${prefs.army==='other'?'selected':''}>Other projects</option></select><select id="filter-status" aria-label="Status"><option value="">Any status</option><option value="live">On the site</option><option value="hidden">Hidden</option><option value="edited">Edited in the Vault</option></select>${owner()?'<select id="filter-source" aria-label="Source"><option value="">All cards</option><option value="vault">Vault uploads</option><option value="catalogue">Original catalogue</option></select>':''}<select id="filter-sort" aria-label="Order"><option value="army">Group by army</option><option value="name">Name A–Z</option><option value="downloads">Most downloads</option><option value="recent">Recently added</option></select></div>
@@ -36,7 +36,7 @@ function workspace(){
  <fieldset><legend>3 · Text &amp; credits</legend>${editorField('description','Description')}${editorField('byline','By — finished model authors')}${editorField('credits','Credits')}<p class="hint">Markdown and BBCode work here, including links and images.</p><button type="button" id="text-preview" class="secondary">Preview text</button><section id="text-result" class="post-body" hidden></section></fieldset>
  <div class="actions"><button id="publish-unit" type="submit" disabled>Publish unit card</button><button type="button" id="cancel-upload" class="secondary" hidden>Cancel upload</button></div><p id="unit-status" class="status" role="status"></p>
 </form></section>
-<section id="posts-panel" hidden><div id="author-app"></div></section><section id="activity-panel" hidden></section><section id="stash-panel" hidden></section>`;
+<section id="posts-panel" hidden><div id="author-app"></div></section><section id="activity-panel" hidden></section><section id="reports-panel" hidden></section><section id="stash-panel" hidden></section>`;
  app.querySelector('#logout').onclick=async()=>{await api('logout',{});account=null;clearDraft();login();};
  app.querySelector('.vault-nav').onclick=event=>{const tab=event.target.closest('[data-tab]')?.dataset.tab;if(tab)openTab(tab);};
  for(const id of ['query','army','status','source','sort']){const input=app.querySelector('#filter-'+id);if(!input)continue;input.value=prefs[id]||'';input[id==='query'?'oninput':'onchange']=()=>{prefs[id]=input.value;savePrefs();renderUnits();};}
@@ -52,9 +52,9 @@ function workspace(){
 }
 function openTab(tab){
  const panel=tab==='catalogue'?'catalogue':tab;
- for(const name of ['units','catalogue','upload','posts','activity','stash'])app.querySelector('#'+name+'-panel').hidden=name!==panel;
+ for(const name of ['units','catalogue','upload','posts','activity','reports','stash'])app.querySelector('#'+name+'-panel').hidden=name!==panel;
  for(const button of app.querySelectorAll('[data-tab]')){const current=button.dataset.tab===(tab==='catalogue'?'units':tab);if(current)button.setAttribute('aria-current','page');else button.removeAttribute('aria-current');}
- const run=async()=>{if(tab==='posts'&&!postsLoaded){postsLoaded=true;const editor=await import('./author.js?v=20261009-unit-upload');await editor.start();}if(tab==='activity')await activity();if(tab==='stash')await stash();if(tab==='units')renderUnits();};
+ const run=async()=>{if(tab==='posts'&&!postsLoaded){postsLoaded=true;const editor=await import('./author.js?v=20261009-unit-upload');await editor.start();}if(tab==='activity')await activity();if(tab==='reports')await reports_tab();if(tab==='stash')await stash();if(tab==='units')renderUnits();};
  run().catch(error=>app.querySelector('#'+panel+'-panel').append(Object.assign(document.createElement('p'),{className:'status',textContent:error.message})));
 }
 const status=(selector,message)=>{const node=app.querySelector(selector);if(node)node.textContent=message;};
@@ -215,6 +215,32 @@ async function stash(){
  const rows=[['peek','Played with his peeking','Times they made him duck while he peeked'],['grab','Caught a falling peanut','Peanuts grabbed out of the air'],['feed','Fed him peanuts','Peanuts they threw that he caught'],['crack','Cracked a shell','Hard throws that broke the shell'],['follow','Led him across menus','Menu changes with a peanut in hand'],['attack','Sent him on a Bird Attack','Units he dived through in a model preview']];
  const metric=(value,label)=>`<div class="metric"><strong>${number(value)}</strong><span>${label}</span></div>`;
  panel.innerHTML=`<h2>Shredder's Stash</h2><div class="metrics">${metric(stats.people,'People who played with him')}${metric(stats.interactions.feed.count,'Peanuts fed')}${metric(stats.interactions.feed.people,'People who fed him')}</div><table><thead><tr><th scope="col">What they did</th><th scope="col">People</th><th scope="col">Times</th></tr></thead><tbody>${rows.map(([kind,label,detail])=>`<tr><td>${label}<br><span class="hint">${detail}</span></td><td>${number(stats.interactions[kind].people)}</td><td>${number(stats.interactions[kind].count)}</td></tr>`).join('')}</tbody></table><p class="hint" style="margin-top:12px">People are anonymous browsers. Your own play is never counted: browsers that opened the site with the opt-out link, the peanut test view and localhost send nothing. ${optOutSaved===false?'<strong>This browser blocks site storage, so it could not be excluded automatically.</strong> ':'This browser is excluded again every time you log in to the Vault. '}On a device where you don\'t open the Vault, use <a href="https://www.lowpolyworks.com/?tracking-opt-out" target="_blank" rel="noopener">Exclude this browser</a>. ${stats.lastPlayedAt?'Last play recorded '+escape(new Date(stats.lastPlayedAt).toLocaleString())+'.':'No play recorded yet.'} Updated ${escape(new Date(report.asOf).toLocaleString())}.</p>`;
+}
+// Problem reports sent from the MDLxL app. Messages are untrusted text, so they are only ever set as textContent.
+let showReviewed=false;
+async function reports_tab(){
+ const panel=app.querySelector('#reports-panel'),data=await api('feedback-list'+(showReviewed?'&all=1':''));
+ panel.textContent='';
+ const head=Object.assign(document.createElement('div'),{className:'panel-head'}),controls=Object.assign(document.createElement('div'),{className:'inline-controls'});
+ const toggle=Object.assign(document.createElement('button'),{type:'button',className:data.open?'secondary':'',textContent:data.open?'Open':'Paused'});
+ toggle.onclick=async()=>{toggle.disabled=true;try{await api('feedback-open',{open:!data.open});await reports_tab();}catch(error){toggle.disabled=false;note.textContent=error.message;}};
+ const label=document.createElement('label'),check=Object.assign(document.createElement('input'),{type:'checkbox',checked:showReviewed});
+ check.onchange=()=>{showReviewed=check.checked;reports_tab().catch(error=>{note.textContent=error.message;});};
+ label.append(check,' Show reviewed');controls.append(toggle,label);head.append(Object.assign(document.createElement('h2'),{textContent:'Reports'}),controls);
+ const note=Object.assign(document.createElement('p'),{className:'status'});
+ panel.append(head,note);
+ if(!data.reports.length){panel.append(Object.assign(document.createElement('p'),{className:'empty',textContent:'No reports.'}));return;}
+ const table=document.createElement('table'),body=document.createElement('tbody');
+ table.innerHTML='<thead><tr><th scope="col">Date</th><th scope="col">Version</th><th scope="col">Windows</th><th scope="col">Name</th><th scope="col">Message</th><th scope="col"></th></tr></thead>';
+ for(const report of data.reports){
+  const row=document.createElement('tr'),cell=(text,className)=>{const td=Object.assign(document.createElement('td'),{textContent:text});if(className)td.className=className;row.append(td);return td;};
+  cell(new Date(report.receivedAt).toLocaleString());cell(report.version);cell(report.os);cell(report.name);cell(report.message).style.whiteSpace='pre-wrap';
+  const action=document.createElement('td');
+  if(report.reviewed)action.textContent='Reviewed';
+  else{const button=Object.assign(document.createElement('button'),{type:'button',className:'secondary',textContent:'Reviewed'});button.onclick=async()=>{button.disabled=true;try{await api('feedback-review',{reviewed:[report.id]});await reports_tab();}catch(error){button.disabled=false;note.textContent=error.message;}};action.append(button);}
+  row.append(action);body.append(row);
+ }
+ table.append(body);panel.append(table);
 }
 // MDLxL in-app updates, beside GitHub's count of every release ZIP download (the website button and the updater together).
 // MDLxL tutorial opens. Titles come from the published tutorial page, so a new tutorial needs no Vault change.

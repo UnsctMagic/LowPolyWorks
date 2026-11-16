@@ -80,3 +80,24 @@ test('delete hides the post and poll and restore recovers the exact authored con
 });
 test('publishing, editing, deleting and restoring posts never enqueues model-file emails',async()=>{const f=fixture(),request=await owner(f),post=model();await f.execute('publish',post,request);await f.execute('update-post',{...post,revision:0,title:'Corrected title'},request);await f.execute('delete-post',{id:post.id,revision:1},request);await f.execute('restore-post',{id:post.id,revision:2},request);assert.equal(f.state.notifications.length,0);assert.equal(f.emails.length,0);});
 test('a legacy password is upgraded to the peppered hash at the next login',async()=>{const f=fixture();await owner(f);assert(!f.state.authors[0].password.startsWith('v2:'));f.env.PUBLISHING_PASSWORD_PEPPER='test-only-pepper-'.repeat(3);const login=pass=>f.execute('login',{username:'UnsanctionedMagic',password:pass},{ip:'owner'});await login(password);assert.match(f.state.authors[0].password,/^v2:/);await assert.rejects(login('a-wrong-test-password'),{status:401});await login(password);delete f.env.PUBLISHING_PASSWORD_PEPPER;await assert.rejects(login(password),{status:401});});
+test('Vault report actions are owner-only and need the session, role and CSRF token',async()=>{
+ const f=fixture(),request=await owner(f),other=await contributor(f,request),calls=[];
+ const feedback={inbox:async({all})=>({open:true,reports:[{id:1,all}]}),review:async ids=>calls.push(['review',ids]),setOpen:async open=>calls.push(['open',open])};
+ const handler=createHandler(f,{env:{},feedback});
+ async function call(action,{method='POST',session,csrf,body={}}={}){const res={setHeader(){},status(code){this.statusCode=code;return this;},json(value){this.body=value;},end(){}};await handler({url:'/api/publishing?action='+action,method,headers:{origin:AUTHOR_ORIGIN,'content-type':'application/json',...session?{cookie:'lpw_session='+session}:{},...csrf?{'x-csrf-token':csrf}:{}},body},res);return res;}
+ assert.equal((await call('feedback-list',{method:'GET'})).statusCode,401);assert.equal((await call('feedback-list',{method:'GET',session:other.session})).statusCode,403);
+ assert.deepEqual((await call('feedback-list',{method:'GET',session:request.session})).body,{open:true,reports:[{id:1,all:false}]});
+ for(const action of ['feedback-review','feedback-open']){
+  const body=action==='feedback-open'?{open:false}:{reviewed:[1]};
+  assert.equal((await call(action,{body})).statusCode,401);assert.equal((await call(action,{session:request.session,body})).statusCode,403);
+  assert.equal((await call(action,{session:other.session,csrf:other.csrf,body})).statusCode,403);
+ }
+ assert.deepEqual(calls,[]);
+ assert.equal((await call('feedback-review',{session:request.session,csrf:request.csrf,body:{reviewed:['x']}})).statusCode,400);
+ assert.equal((await call('feedback-review',{session:request.session,csrf:request.csrf,body:{reviewed:[1,2]}})).statusCode,200);
+ assert.equal((await call('feedback-open',{session:request.session,csrf:request.csrf,body:{open:false}})).statusCode,200);
+ assert.deepEqual(calls,[['review',[1,2]],['open',false]]);
+ // Without a report inbox on the server the actions say so instead of failing silently.
+ const bare=createHandler(f,{env:{}}),res={setHeader(){},status(code){this.statusCode=code;return this;},json(value){this.body=value;},end(){}};
+ await bare({url:'/api/publishing?action=feedback-list',method:'GET',headers:{cookie:'lpw_session='+request.session}},res);assert.equal(res.statusCode,503);
+});
