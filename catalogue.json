@@ -33198,7 +33198,7 @@
     ],
     "searchDescription": "Great Unclean One of Nurgle, a Warhammer Fantasy model for Warcraft III Classic.",
     "imageVersion": "20261115-great-unclean-one-clippings",
-    "file": "WH_DOC_GreatUncleanOneUnit02.mdx",
+    "file": "WH_DOC_GreatUncleanOneUnit03.mdx",
     "geosets": [
       {
         "index": 0,
@@ -33398,7 +33398,7 @@
         "triangles": 44,
         "material": 15,
         "textures": [
-          "doodads\\cinematic\\eyeofsargeras\\green_glow3.dds"
+          "Textures\\green_glow3.blp"
         ]
       },
       {
@@ -33602,14 +33602,15 @@
     "portraitBackdropGeosets": [
       39
     ],
-    "sha256": "cbeaf5d6e603f3a142d56e1de277c5d4fb00bb39db66bd020eb09c40e12e4cd7",
-    "textureFiles": {
-      "doodads\\cinematic\\eyeofsargeras\\green_glow3.dds": "textures/eyeofsargeras-green-glow3.png"
-    },
+    "sha256": "2b0c01d8d72f7eca3027ceea8e67c029235ea0d7eae47d1755b1b835273dec2a",
     "captureSequence": "Stand - 2",
     "captureTime": 500,
     "captureFormationYaw": -0.33,
     "changelog": [
+      {
+        "date": "16 November 2026",
+        "text": "Changed green_glow3.dds to the native Warcraft III texture Textures\\green_glow3.blp for older versions."
+      },
       {
         "date": "15 November 2026",
         "text": "Fixed clippings"
@@ -33704,7 +33705,7 @@
     ],
     "searchDescription": "Great Unclean One of Nurgle, a Warhammer Fantasy model for Warcraft III Classic.",
     "imageVersion": "20261115-great-unclean-one-clippings",
-    "file": "WH_DOC_GreatUncleanOneHero01.mdx",
+    "file": "WH_DOC_GreatUncleanOneHero02.mdx",
     "geosets": [
       {
         "index": 0,
@@ -33904,7 +33905,7 @@
         "triangles": 44,
         "material": 15,
         "textures": [
-          "doodads\\cinematic\\eyeofsargeras\\green_glow3.dds"
+          "Textures\\green_glow3.blp"
         ]
       },
       {
@@ -34117,14 +34118,15 @@
     "portraitBackdropGeosets": [
       39
     ],
-    "sha256": "b65ffb1b7ee03264de9b1861a8a9df0d3fd6e35e79324f5244b024564ff7c1d8",
-    "textureFiles": {
-      "doodads\\cinematic\\eyeofsargeras\\green_glow3.dds": "textures/eyeofsargeras-green-glow3.png"
-    },
+    "sha256": "fd4c89d1d7d6466f030db7bf544810d3be30d36493a528572ef41b5271275ea0",
     "captureSequence": "Stand - 2",
     "captureTime": 500,
     "captureFormationYaw": -0.33,
     "changelog": [
+      {
+        "date": "16 November 2026",
+        "text": "Changed green_glow3.dds to the native Warcraft III texture Textures\\green_glow3.blp for older versions."
+      },
       {
         "date": "15 November 2026",
         "text": "Fixed clippings"
