@@ -7,6 +7,7 @@ CREATE TABLE feedback (
   ip_hash TEXT,
   version TEXT NOT NULL,
   os TEXT NOT NULL DEFAULT '',
+  name TEXT NOT NULL DEFAULT '',
   message TEXT NOT NULL,
   reviewed INTEGER NOT NULL DEFAULT 0
 );
@@ -16,3 +17,5 @@ CREATE INDEX feedback_day_ip ON feedback (day, ip_hash);
 CREATE INDEX feedback_unreviewed ON feedback (reviewed, id);
 CREATE TABLE feedback_settings (id INTEGER PRIMARY KEY CHECK (id = 1), open INTEGER NOT NULL);
 INSERT INTO feedback_settings (id, open) VALUES (1, 1);
+-- Private message rules (see lib/feedback-filter.js). Filled from a file kept outside Git, never by a migration.
+CREATE TABLE feedback_terms (term TEXT PRIMARY KEY);

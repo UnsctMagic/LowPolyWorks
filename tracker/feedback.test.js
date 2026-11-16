@@ -5,6 +5,7 @@ import {DatabaseSync} from 'node:sqlite';
 import {createFeedback} from './lib/feedback.js';
 import {createFeedbackHandler} from './api/feedback.js';
 import {runVercelHandler} from './cloudflare/adapter.js';
+import {compileRules} from './lib/feedback-filter.js';
 
 // A small stand-in for the D1 binding, backed by Node's built-in SQLite.
 function sqliteD1(){
@@ -35,8 +36,8 @@ test('only the MDLxL app can read the switch or send a report',async()=>{
 });
 test('reports are validated and cleaned before they are stored',async()=>{
  const {call,db}=setup();
- assert.equal((await call({body:report(1,{message:'x'.repeat(5000)})})).status,413);
- assert.equal((await call({body:'x'.repeat(5000)})).status,413);
+ assert.equal((await call({body:report(1,{message:'x'.repeat(12000)})})).status,413);
+ assert.equal((await call({body:'x'.repeat(12000)})).status,413);
  for(const bad of [{message:'   '},{message:''},{message:5},{message:'x'.repeat(2001)},{pc:'ABC'},{pc:'A'.repeat(64)},{pc:'a'.repeat(63)},{version:'1.2'},{version:'1.2.3.4'},{version:'a.b.c'}])assert.equal((await call({body:report(1,bad)})).status,400,JSON.stringify(bad).slice(0,60));
  assert.equal((await call({body:'{oops'})).status,400);assert.equal((await call({body:'[]'})).status,400);
  assert.equal(db.sqlite.prepare('SELECT COUNT(*) n FROM feedback').get().n,0);
@@ -108,11 +109,47 @@ test('the private token reads the inbox and marks reports reviewed or flips the 
  assert.equal((await call({method:'POST',query:'?inbox=1',body:{open:false}})).status,401);
  const read=await call({method:'GET',query:'?inbox=1',app:false,headers:token});
  assert.equal(read.status,200);assert.equal(read.body.open,true);assert.deepEqual(read.body.reports.map(r=>r.message),['Report 3','Report 2','Report 1']);
- assert.deepEqual(Object.keys(read.body.reports[0]).sort(),['id','message','os','receivedAt','reviewed','version']);assert.equal(read.body.reports[0].reviewed,false);
+ assert.deepEqual(Object.keys(read.body.reports[0]).sort(),['id','message','name','os','receivedAt','reviewed','version']);assert.equal(read.body.reports[0].reviewed,false);
  assert(!JSON.stringify(read.body).includes(pcs(1)));
  assert.equal((await call({method:'POST',query:'?inbox=1',headers:token,body:{reviewed:[2]}})).status,204);
  assert.deepEqual((await call({method:'GET',query:'?inbox=1',headers:token})).body.reports.map(r=>r.id),[3,1]);
  const all=await call({method:'GET',query:'?inbox=1&all=1',headers:token});assert.deepEqual(all.body.reports.map(r=>[r.id,r.reviewed]),[[3,false],[2,true],[1,false]]);
  assert.equal((await call({method:'POST',query:'?inbox=1',headers:token,body:{open:false}})).status,204);assert.equal(await feedback.isOpen(),false);
  for(const body of [{reviewed:['x']},{},{open:'no'}])assert.equal((await call({method:'POST',query:'?inbox=1',headers:token,body})).status,400);
+});
+
+test('an optional name up to 40 characters is stored and read back',async()=>{
+ const {call,db}=setup();
+ assert.equal((await call({body:report(1,{name:'  Herr   Dave\u0007 '})})).status,204);
+ assert.equal((await call({body:report(2)})).status,204);
+ assert.equal((await call({body:report(3,{name:'n'.repeat(41)})})).status,400);
+ assert.equal((await call({body:report(3,{name:7})})).status,204);
+ assert.deepEqual(db.sqlite.prepare('SELECT name FROM feedback ORDER BY id').all().map(row=>row.name),['Herr Dave','','']);
+ const read=await call({method:'GET',query:'?inbox=1',headers:token});assert.deepEqual(read.body.reports.map(r=>r.name),['','','Herr Dave']);
+});
+
+// Stand-in terms only: the real list is private and never in Git.
+const rules=['banana','^grape','~melon','=piña','kiwi fruit','egg','שזיף','تفاحة','苹果','^яблок','=(((','=1234'];
+test('a report matching the private rules is answered like a saved one and nothing is stored',async()=>{
+ const {call,db,feedback}=setup();
+ const add=db.sqlite.prepare('INSERT INTO feedback_terms (term) VALUES (?)');for(const term of rules)add.run(term);
+ const blocked=await call({body:report(1,{message:'I like B A N A N A s? no: b4n4n4 is bad'})});
+ assert.deepEqual([blocked.status,blocked.body],[204,null]);
+ assert.equal((await call({body:report(2,{name:'Grapefruit',message:'The tool crashed.'})})).status,204);
+ assert.equal((await call({body:report(3,{message:'The tool crashed when I opened the Movement editor.'})})).status,204);
+ assert.deepEqual(db.sqlite.prepare('SELECT pc FROM feedback ORDER BY id').all().map(row=>row.pc),[pcs(3)]);
+ // Over a limit or paused, a matching report gets the same refusal as any other, so the rules cannot be probed.
+ for(let i=0;i<3;i++)await call({body:report(9),ip:'192.0.2.'+i});
+ assert.deepEqual((await call({body:report(9,{message:'melons'}),ip:'192.0.2.50'})).body,{error:'pc'});
+ await feedback.setOpen(false);
+ assert.equal((await call({body:report(10,{message:'banana'})})).status,503);
+});
+test('the rules see through spacing, digits, look-alike letters, accents, hidden characters and masks',()=>{
+ const {blocks}=compileRules(rules);
+ for(const text of ['banana','BANANA!','b a n a n a','b.a.n.a.n.a','b4n4n4','bаnаnа','bananaaaa','b​anana','bánáná','ｂａｎａｎａ','b*nana','b@n@n@',
+  'grapes','Grapefruit','watermelon','piña','kiwi-fruit','kiwifruit','וְהַשְּׁזִיפִים','ושזיפים','بالتفاحة','التفاحه','我喜欢苹果','яблоко','Яблоки','(((them)))','pin 1234','b*n*n*','b***','grap*s','**banana**'])assert(blocks(text),text);
+ for(const text of ['bandana','Ban ana','grape'.replace('g','x'),'mel on','pina colada','kiwi','eggplant','eg','The UV editor froze','שלום','مرحبا','苹','1234567',
+  // Bold markdown is not a mask, letters of different scripts are not joined, and a doubled letter stays doubled.
+  '**Bold** text and **A** b**','k i w и','eg g'])assert(!blocks(text),text);
+ assert.equal(compileRules([]).blocks('anything'),false);
 });

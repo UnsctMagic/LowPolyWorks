@@ -231,10 +231,10 @@ async function reports_tab(){
  panel.append(head,note);
  if(!data.reports.length){panel.append(Object.assign(document.createElement('p'),{className:'empty',textContent:'No reports.'}));return;}
  const table=document.createElement('table'),body=document.createElement('tbody');
- table.innerHTML='<thead><tr><th scope="col">Date</th><th scope="col">Version</th><th scope="col">Windows</th><th scope="col">Message</th><th scope="col"></th></tr></thead>';
+ table.innerHTML='<thead><tr><th scope="col">Date</th><th scope="col">Version</th><th scope="col">Windows</th><th scope="col">Name</th><th scope="col">Message</th><th scope="col"></th></tr></thead>';
  for(const report of data.reports){
   const row=document.createElement('tr'),cell=(text,className)=>{const td=Object.assign(document.createElement('td'),{textContent:text});if(className)td.className=className;row.append(td);return td;};
-  cell(new Date(report.receivedAt).toLocaleString());cell(report.version);cell(report.os);cell(report.message).style.whiteSpace='pre-wrap';
+  cell(new Date(report.receivedAt).toLocaleString());cell(report.version);cell(report.os);cell(report.name);cell(report.message).style.whiteSpace='pre-wrap';
   const action=document.createElement('td');
   if(report.reviewed)action.textContent='Reviewed';
   else{const button=Object.assign(document.createElement('button'),{type:'button',className:'secondary',textContent:'Reviewed'});button.onclick=async()=>{button.disabled=true;try{await api('feedback-review',{reviewed:[report.id]});await reports_tab();}catch(error){button.disabled=false;note.textContent=error.message;}};action.append(button);}
