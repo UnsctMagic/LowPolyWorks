@@ -104,3 +104,16 @@ Storage is the D1 database `lowpolyworks-vault` (`migrations/0001_init.sql`). Th
 Workers Free allows 10 ms CPU per request. Passwords therefore use a peppered, lighter scrypt (`v2:`; secret `PUBLISHING_PASSWORD_PEPPER`, which exists only in the Worker). An older hash still verifies once and is upgraded at that login. Uploads, `/api/media` and `/api/assets` need upload storage and wait for Workers Paid; unit files are added through Codex or Claude via git meanwhile.
 
 Run Wrangler from `tracker/`: `pnpm dlx wrangler@4.149.0 deploy`. Secrets: `PUBLISHING_SESSION_SECRET` (the same value as Vercel, so existing unsubscribe and follow links stay valid), `PUBLISHING_SETUP_TOKEN_HASH`, `PUBLISHING_OWNER_USERNAME`, `PUBLISHING_PASSWORD_PEPPER`, `MODEL_MAIL_FROM`, `RESEND_API_KEY`, `USAGE_READ_TOKEN` and `MODEL_NOTIFICATIONS_TOKEN`. `MODEL_NOTIFICATIONS_ENABLED` is `true`; the GitHub secret `MODEL_NOTIFICATIONS_TOKEN` was replaced with the Worker's, so Vercel no longer receives the job and the two backends never both send mail. Mail needs `RESEND_API_KEY`. To copy the Vercel data again, run `BLOB_READ_WRITE_TOKEN=... node cloudflare/export-vercel.mjs <file.sql>` and then `pnpm dlx wrangler@4.149.0 d1 execute lowpolyworks-vault --remote --file <file.sql>`; it replaces the state and adds events that are not yet stored.
+
+## Problem reports
+
+MDLxL sends short problem reports to `/api/feedback`. Only the app can call it: no `Origin` and a `User-Agent` of `MDLxL/<version>`.
+
+- `GET /api/feedback` returns `{"open":true|false}`.
+- `POST /api/feedback` takes `{message,pc,version,os}` (4096 bytes at most; message 1-2000 characters, `pc` 64 lowercase hex characters, `version` like `0.41.0`). It answers `204`, `400`, `413`, `503 {"error":"paused"}` or `429 {"error":"day"|"ip"|"pc"}`.
+- Limits per UTC day: 20 reports on the whole site, 5 per IP, 3 per PC. A stored inbox of 500 unreviewed reports also answers `day`. The count and insert are one SQL statement, so concurrent reports cannot pass the caps.
+- Switch: the Vault's **Reports** tab (owner only) has an Open/Paused toggle. Paused answers `503`; the app reads the switch with `GET`, so no app release is needed.
+- Privacy: the raw IP is never stored, only a keyed hash (HMAC-SHA256 with `PUBLISHING_SESSION_SECRET`, salted with the day). Every report clears hashes older than yesterday. Messages are untrusted text; the Vault shows them as plain text.
+- Review: `GET /api/feedback?inbox=1` (add `&all=1` for reviewed ones) with `Authorization: Bearer <USAGE_READ_TOKEN>` lists reports newest first, at most 500. `POST /api/feedback?inbox=1` with `{"reviewed":[ids]}` and/or `{"open":bool}` marks reports reviewed or flips the switch. The Vault uses the owner session and CSRF token (`/api/publishing` actions `feedback-list`, `feedback-review`, `feedback-open`), never the token.
+
+Deploy (migration 0003 first, then the Worker): `wrangler d1 migrations apply lowpolyworks-vault --remote`, then `wrangler deploy`.

@@ -2,6 +2,8 @@
 import {createHandler as createPublishingHandler} from './api/publishing.js';
 import {createEventsHandler} from './api/events.js';
 import {createReportHandler} from './api/report.js';
+import {createFeedbackHandler} from './api/feedback.js';
+import {createFeedback} from './lib/feedback.js';
 import {createHandler as createNotificationsHandler} from './api/model-notifications.js';
 import {createPublishing} from './lib/publishing.js';
 import {mailConfigured,sendEmail} from './lib/publishing-mail.js';
@@ -22,14 +24,15 @@ function servicesFor(env){
  let cached;
  // Only finished results are shared, because a Worker request cannot wait on another request's I/O.
  const eventModels=async()=>{if(cached&&Date.now()-cached.at<60000)return cached.models;const models=await loadModels();cached={at:Date.now(),models};return models;};
- return services={db:env.DB,store,events,loadModels,eventModels,publishing};
+ return services={db:env.DB,store,events,loadModels,eventModels,publishing,feedback:createFeedback(env.DB,env)};
 }
 export default {async fetch(request,env,ctx){
- const {pathname}=new URL(request.url),{events,loadModels,eventModels,publishing}=servicesFor(env);
+ const {pathname}=new URL(request.url),{events,loadModels,eventModels,publishing,feedback}=servicesFor(env);
  const handler={
-  '/api/publishing':()=>createPublishingHandler(publishing,{summary:events.summary,loadModels,env}),
+  '/api/publishing':()=>createPublishingHandler(publishing,{summary:events.summary,loadModels,env,feedback}),
   '/api/events':()=>createEventsHandler({writeBlob:events.write,loadModels:eventModels}),
   '/api/report':()=>createReportHandler({summary:events.summary,loadModels,env}),
+  '/api/feedback':()=>createFeedbackHandler({feedback,env}),
   '/api/model-notifications':()=>createNotificationsHandler(publishing,{env}),
  }[pathname];
  // Post media and unit files need upload storage, which waits for Workers Paid.
