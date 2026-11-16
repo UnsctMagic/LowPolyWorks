@@ -46,7 +46,9 @@ function workspace(){
  app.querySelector('#unit-project').onchange=projectChanged;app.querySelector('#unit-army').onchange=()=>app.querySelector('#studio').contentWindow.postMessage({type:'studio-colour',colour:armyColour()},SITE);
  app.querySelector('#text-preview').onclick=()=>{const result=app.querySelector('#text-result');result.hidden=false;result.innerHTML='<h3>Description</h3>'+postBody(app.querySelector('#description').value)+'<h3>By</h3>'+postBody(app.querySelector('#byline').value)+'<h3>Credits</h3>'+postBody(app.querySelector('#credits').value);};
  app.querySelector('#unit-form').onsubmit=publishUnit;app.querySelector('#cancel-unit').onclick=()=>{clearDraft();resetForm();openTab('units');};app.querySelector('#cancel-upload').onclick=()=>controller?.abort();
- bindFormatting();clearDraft();resetForm();openTab('units');
+ // vaultofsecrets.html?tab=reports opens the owner's inbox directly; other visitors get the default tab.
+ const start=new URLSearchParams(location.search).get('tab');
+ bindFormatting();clearDraft();resetForm();openTab(start==='reports'&&owner()?'reports':'units');
  clearInterval(countdown);countdown=setInterval(()=>{if(!app.querySelector('#removals')?.hidden)renderRemovals();},60000);
  if(owner()){loadCatalogue().then(renderUnits,error=>status('#manage-status',error.message));loadReport().then(renderUnits,()=>{});}
 }
