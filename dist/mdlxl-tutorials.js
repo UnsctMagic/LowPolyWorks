@@ -4,7 +4,7 @@ import {mountTutorialPlayers} from './mdlxl/tutorials/playback.js?v=20261109-tut
 import {startToolPings} from './mdlxl/tutorials/highlights.js?v=20261030-tutorial-languages';
 import {recordTutorial} from './usage.js?v=20261025-amsterdam-days';
 import {tutorialLanguages,tutorialText} from './mdlxl/tutorials/languages.js?v=20261118-ribbon-current';
-const version='20261115-fx-snowman';
+const version='20261118-ribbon-current';
 const valid=language=>tutorialLanguages.some(item=>item.id===language);
 async function loadPlayers(state,article) {
   const content=state.body.firstElementChild;
