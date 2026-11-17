@@ -3,7 +3,7 @@ import {mdlxlHref} from './mdlxl-routes.js?v=20261117-animate-tutorials';
 import {mountTutorialPlayers} from './mdlxl/tutorials/playback.js?v=20261109-tutorial-mp4';
 import {startToolPings} from './mdlxl/tutorials/highlights.js?v=20261030-tutorial-languages';
 import {recordTutorial} from './usage.js?v=20261025-amsterdam-days';
-import {tutorialLanguages,tutorialText} from './mdlxl/tutorials/languages.js?v=20261117-tutorial-shelves';
+import {tutorialLanguages,tutorialText} from './mdlxl/tutorials/languages.js?v=20261118-ribbon-current';
 const version='20261115-fx-snowman';
 const valid=language=>tutorialLanguages.some(item=>item.id===language);
 async function loadPlayers(state,article) {
@@ -82,7 +82,7 @@ function showTutorial(state) {
 }
 export async function renderTutorials(panel,isCurrent,requested) {
   if(!document.getElementById('mdlxl-tutorial-style')){
-    const style=document.createElement('link');style.id='mdlxl-tutorial-style';style.rel='stylesheet';style.href='/mdlxl-tutorials.css?v=20261117-tutorial-shelves';document.head.append(style);
+    const style=document.createElement('link');style.id='mdlxl-tutorial-style';style.rel='stylesheet';style.href='/mdlxl-tutorials.css?v=20261118-ribbon-current';document.head.append(style);
   }
   let state=panel._tutorialController;
   if(!state||!state.header.isConnected){

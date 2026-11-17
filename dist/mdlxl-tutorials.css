@@ -66,7 +66,8 @@
 
 /* EMTR ribbons and OptimizeXL guides */
 #tutorial-emtr,#tutorial-optixl,#tutorial-fx{--tutorial-media-width:1114px}
-#tutorial-emtr .player-frame,#tutorial-optixl .player-frame{aspect-ratio:11/7}
+#tutorial-optixl .player-frame{aspect-ratio:11/7}
+#tutorial-emtr .player-frame{aspect-ratio:1264/760}
 #tutorial-optixl .stage-block{margin:25px 0}#tutorial-optixl .stage-block h5{font-size:1.12rem;color:var(--bone);margin-bottom:10px}
 #tutorial-optixl .watch{border-left:3px solid #a99568;padding-left:16px;line-height:1.6}
 #tutorial-optixl .reference details{border-bottom:1px solid #75634466;padding:15px 0}#tutorial-optixl .reference summary{cursor:pointer;color:var(--bone)}
