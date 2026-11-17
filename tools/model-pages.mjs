@@ -63,13 +63,19 @@ export function modelPage(template, row, thumbnail, army) {
   const title = `${row.name} — Warcraft III Model — LowPolyWorks`;
   const summary = row.searchDescription ?? `Preview and download ${row.name}, a Warhammer Fantasy model for Warcraft III Classic.`;
   const content = [
-    `<section class="project-heading"><h1>${escape(row.name)}</h1>`,
+    `<div class="model-title"><h1>${escape(row.name)}</h1></div>`,
+    '<div class="model-layout">',
+    '<section class="viewer slab" aria-label="Model preview"><div class="viewport">',
+    `<noscript><img src="${image.slice(site.length)}" alt="${escape(row.name)}" width="${width}" height="${height}" style="display:block;width:100%;height:100%;object-fit:contain"></noscript>`,
+    '</div></section>',
+    '<section class="details slab"><div class="tab-content">',
     `<p>${escape(summary)} <a href="${armyPath(army)}">${escape(army.name)}</a></p>`,
-    `<img src="${image.slice(site.length)}" alt="${escape(row.name)}" width="${width}" height="${height}" style="max-width:100%;height:auto">`,
     ...row.description.trim().split(/\r?\n\s*\r?\n/).filter(text => text !== summary).map(text => `<p>${escape(text).replace(/\r?\n/g, '<br>')}</p>`),
-    '</section>',
+    '</div></section>',
+    '</div>',
   ].join('\n');
-  return pageContent(pageHead(template, title, summary, metadata), content);
+  const modelTemplate = template.replace('<body class="journal">', '<body>');
+  return pageContent(pageHead(modelTemplate, title, summary, metadata), content);
 }
 
 export function generateSearchFiles(root, rows, armies) {
