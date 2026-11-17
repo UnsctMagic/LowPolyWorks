@@ -42,9 +42,9 @@ for (const [name, clip] of Object.entries(manifest)) {
   const MIN = 12;
   cues.forEach((c, i) => { const next = cues[i + 1]; if (next && c.endFrame - c.startFrame < MIN && next.endFrame - (c.startFrame + MIN) >= MIN) { c.endFrame = c.startFrame + MIN; next.startFrame = c.endFrame; } });
   const pings = clip.pings.map(p => ({ startFrame: at(p.t0), endFrame: at(p.t1), x: Math.round(p.x * 10) / 10, y: Math.round(p.y * 10) / 10, selector: p.selector }));
-  // Card pictures: the raised arm with Focused Skeleton (after the drag), the finished pose before the camera turns.
+  // Card pictures: the raised arm with Focused Skeleton (after the drag), the finished pose after the last camera turn.
   const startOf = phase => ranges.find(r => r.phase === phase)?.start ?? count;
-  const cards = { 'fskel-animate': ['fskel-card.png', startOf('play') - 3], 'pose-legs': ['pose-card.png', startOf('camera') - 3] };
+  const cards = { 'fskel-animate': ['fskel-card.png', startOf('play') - 3], 'pose-legs': ['pose-card.png', count - 3] };
   if (cards[name]) {
     const [cardName, frame] = cards[name], card = target + '/' + cardName;
     const c = spawnSync('python', ['-I', '-c', `from PIL import Image;Image.open(r'${encode}/${String(Math.max(0, frame)).padStart(5, '0')}.jpg').crop((0,0,${W},${H})).save(r'${card}',optimize=True)`], { encoding: 'utf8', windowsHide: true });
