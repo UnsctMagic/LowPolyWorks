@@ -3,7 +3,7 @@ import {mdlxlHref} from './mdlxl-routes.js?v=20261117-animate-tutorials';
 import {mountTutorialPlayers} from './mdlxl/tutorials/playback.js?v=20261109-tutorial-mp4';
 import {startToolPings} from './mdlxl/tutorials/highlights.js?v=20261030-tutorial-languages';
 import {recordTutorial} from './usage.js?v=20261025-amsterdam-days';
-import {tutorialLanguages,tutorialText} from './mdlxl/tutorials/languages.js?v=20261104-fr-de-fx';
+import {tutorialLanguages,tutorialText} from './mdlxl/tutorials/languages.js?v=20261117-tutorial-shelves';
 const version='20261115-fx-snowman';
 const valid=language=>tutorialLanguages.some(item=>item.id===language);
 async function loadPlayers(state,article) {
@@ -26,6 +26,42 @@ async function loadPlayers(state,article) {
     if(current())console.error('Tutorial video metadata',error);
   }
 }
+// Library sorting: two shelves (quick tricks, tools) and the app area each guide belongs to.
+// Guides not listed here: 1-2 steps count as quick tricks, otherwise tools; they show under All and their shelf.
+const guideSorting={anchor:['quick','vertices'],align:['quick','vertices'],spread:['quick','vertices'],animated:['quick','vertices'],eachpiece:['quick','vertices'],live:['quick','uv'],uvgrid:['quick','uv'],fskel:['quick','animation'],forge:['tools','vertices'],pose:['tools','animation'],glow:['tools','effects'],emtr:['tools','effects'],fx:['tools','effects'],corpse:['tools','model'],optixl:['tools','model']};
+const areaOrder=['vertices','uv','animation','effects','model'];
+function arrangeLibrary(state,text) {
+  const menu=state.body.querySelector('.tutorial-menu');
+  if(!menu||menu.dataset.sorted)return;
+  menu.dataset.sorted='1';
+  const cards=[...menu.querySelectorAll('.tutorial-card')];
+  for(const card of cards){
+    const [shelf,area]=guideSorting[card.dataset.tutorial]||[parseInt(card.querySelector('.tutorial-card-footer span')?.textContent,10)<=2?'quick':'tools',''];
+    card.dataset.shelf=shelf;card.dataset.area=area;
+  }
+  const shelves={},rank=card=>{const i=areaOrder.indexOf(card.dataset.area);return i<0?areaOrder.length:i;};
+  menu.classList.add('tutorial-menu-sorted');
+  for(const shelf of ['quick','tools']){
+    const section=document.createElement('section'),heading=document.createElement('h3'),grid=document.createElement('div');
+    section.className='tutorial-shelf';section.dataset.shelf=shelf;heading.textContent=text.sort[shelf];grid.className='tutorial-shelf-cards';
+    grid.append(...cards.filter(card=>card.dataset.shelf===shelf).sort((a,b)=>rank(a)-rank(b)||cards.indexOf(a)-cards.indexOf(b)));
+    section.append(heading,grid);menu.append(section);shelves[shelf]=section;
+  }
+  const bar=document.createElement('div');bar.className='tutorial-filters';bar.setAttribute('role','group');bar.setAttribute('aria-label',text.sort.label);
+  const filters=['all','quick','tools',...areaOrder.filter(area=>cards.some(card=>card.dataset.area===area))];
+  const apply=filter=>{
+    state.filter=filter;
+    for(const button of bar.querySelectorAll('button'))button.setAttribute('aria-pressed',String(button.dataset.filter===filter));
+    for(const card of cards)card.hidden=!(filter==='all'||card.dataset.shelf===filter||card.dataset.area===filter);
+    for(const [shelf,section] of Object.entries(shelves))section.hidden=!cards.some(card=>card.dataset.shelf===shelf&&!card.hidden);
+  };
+  for(const filter of filters){
+    if(filter===filters[3]){const gap=document.createElement('span');gap.className='tutorial-filter-gap';gap.setAttribute('aria-hidden','true');bar.append(gap);}
+    const button=document.createElement('button');button.type='button';button.dataset.filter=filter;button.textContent=text.sort[filter];button.onclick=()=>apply(filter);bar.append(button);
+  }
+  menu.before(bar);
+  apply(filters.includes(state.filter)?state.filter:'all');
+}
 function showTutorial(state) {
   const cards=[...state.body.querySelectorAll('.tutorial-card')];
   const selected=cards.find(card=>card.dataset.tutorial===state.requested);
@@ -46,7 +82,7 @@ function showTutorial(state) {
 }
 export async function renderTutorials(panel,isCurrent,requested) {
   if(!document.getElementById('mdlxl-tutorial-style')){
-    const style=document.createElement('link');style.id='mdlxl-tutorial-style';style.rel='stylesheet';style.href='/mdlxl-tutorials.css?v=20261117-animate-tutorials';document.head.append(style);
+    const style=document.createElement('link');style.id='mdlxl-tutorial-style';style.rel='stylesheet';style.href='/mdlxl-tutorials.css?v=20261117-tutorial-shelves';document.head.append(style);
   }
   let state=panel._tutorialController;
   if(!state||!state.header.isConnected){
@@ -69,6 +105,6 @@ export async function renderTutorials(panel,isCurrent,requested) {
     if(!response.ok)throw Error('Tutorial language could not load');
     const markup=await response.text();if(generation!==state.generation||!state.isCurrent()||!panel.isConnected)return;
     const content=document.createElement('div');content.className='tutorial-language-body';content.dataset.tutorialLocale=language;content.innerHTML=markup;for(const image of content.querySelectorAll('img'))image.loading='lazy';state.body.replaceChildren(content);
-    state.loadedLanguage=language;startToolPings(content);showTutorial(state);
+    state.loadedLanguage=language;startToolPings(content);arrangeLibrary(state,text);showTutorial(state);
   }catch(error){if(generation===state.generation&&state.isCurrent()&&panel.isConnected)state.body.textContent=text.error;}
 }
