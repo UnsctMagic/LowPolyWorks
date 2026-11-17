@@ -14,7 +14,7 @@ async function load() {
   return { ObjectLoader: three.ObjectLoader, projectPoseHandles: pose.projectPoseHandles };
 }
 
-async function prepare(s, { azimuth = 35, elevation = 8, zoom = 7, sequenceName = 'Stand' } = {}) {
+async function prepare(s, { azimuth = 35, elevation = 8, zoom = 7, sequenceName = 'Stand', panBone = 'Chest' } = {}) {
   const { page } = s, { ObjectLoader, projectPoseHandles } = await load();
   const c = { page, sleep, TIMELINE };
   await page.locator('[data-hotkey="animation"]').click();
@@ -78,15 +78,16 @@ async function prepare(s, { azimuth = 35, elevation = 8, zoom = 7, sequenceName 
   };
   // The right mouse button pans: drag until the chest sits at the goal point.
   c.panChest = async (fx = .5, fy = .5) => {
+    const bone = panBone;
     const b = await c.box(), goal = { x: b.x + b.width * fx, y: b.y + b.height * fy };
     for (let k = 0; k < 5; k++) {
-      const p = (await c.bones(['Chest'])).Chest, dx = goal.x - p.x, dy = goal.y - p.y;
+      const p = (await c.bones([bone]))[bone], dx = goal.x - p.x, dy = goal.y - p.y;
       if (Math.abs(dx) < 5 && Math.abs(dy) < 5) return p;
       await page.mouse.move(b.x + b.width * .62, b.y + b.height * .5); await page.mouse.down({ button: 'right' });
       for (let i = 1; i <= 10; i++) { await page.mouse.move(b.x + b.width * .62 + dx * i / 10, b.y + b.height * .5 + dy * i / 10); await sleep(25); }
       await page.mouse.up({ button: 'right' }); await sleep(450);
     }
-    return (await c.bones(['Chest'])).Chest;
+    return (await c.bones([bone]))[bone];
   };
   c.orbitAngles = await c.orbitTo(azimuth, elevation);
   const b0 = await c.box();

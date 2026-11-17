@@ -6,7 +6,7 @@ Two MDLxL 0.40.2 guides, real recordings from the app in EN/ES/RU/ZH/FR/DE. The 
 | --- | --- | --- |
 | Focused Skeleton (`focused-skeleton`) | `fskel-pick` | Movement on Stand. Skeleton on for about 1.5 s, off; double-click the upper arm (`LMB × 2`): its bone is selected and F.Skeleton turns on; double-click a leg: the focus moves to the leg. Bones and Skeleton stay off. |
 | | `fskel-animate` | Double-click the upper arm; click a frame in the middle of the timeline (`LMB`); Workplane YZ; Rotate (`R + LMB`) and drag so the arm swings up; `Space` plays it. |
-| POSE (`pose`) | `pose-on` | Animation and a frame chosen; POSE under Tools; the hand, foot and Body handles appear. |
+| POSE (`pose`, Footman) | `pose-on` | Animation and a frame chosen; POSE under Tools; the hand, foot and Body handles appear. |
 | | `pose-arms` | Each Hand handle dragged up and out into a V. |
 | | `pose-legs` | A Foot handle dragged up (the knee lifts), Body lowered a little; `Alt + LMB` turns the view; `Space` plays the animation into the pose. |
 
@@ -15,8 +15,9 @@ All clips are 1264×760, 25 fps H.264, muted loops. Green ring + crosshair pings
 ## Inputs
 
 - App: a fresh worktree of MDLxL `origin/main` `0b7c7071` (0.40.2) built with `vite build`; `node_modules` is a junction to `D:/Claude/MDLxL/node_modules` (removed as a link afterwards).
-- Model: a copy of `D:/Claude/LowPolyWorks-anim-tut/dist/models/WH_VC_LahmianVampire01.mdx` (SHA-256 `795bd0a56dd8230cf15281ae0f9de9014e13942a6eb61b5cd7e9c0badaef1f18`) in `<work>/models/`; all its textures are game files read from `D:/Warcraft III`. POSE recognises both hands, both feet and Body on it (chains `limb:13`/`limb:14` hands, `limb:5`/`limb:6` feet, body 111), so the alternative in `MDLxL-TestModels/pose-anatomy` was not needed. The collection itself is read only.
-- Bones used: upper arm `Should_L` (double-click point 40% from `Should_L` to `Elbow_L`), leg `Hip_L`. Frames on the Stand animation (1167-2733): the Focused Skeleton guide uses 1950 (the middle); POSE uses 2400, where the neighbouring keys of the limbs are far enough apart for the pose to show while it plays.
+- Models: Focused Skeleton uses a copy of `D:/Claude/LowPolyWorks-anim-tut/dist/models/WH_VC_LahmianVampire01.mdx` (SHA-256 `795bd0a56dd8230cf15281ae0f9de9014e13942a6eb61b5cd7e9c0badaef1f18`), all textures game files. POSE uses a copy of `D:/Claude/MDLxL-TestModels/citadel-fixture/Footman.mdx` (SHA-256 `7ee255776a6e757bd89766354df763201cd0519c488585b7c30151d5e313fc13`) in `<work>/models/`; `capture-pose.cjs` sets `LPW_MODEL=Footman.mdx`. Both come from `D:/Warcraft III` for textures; the collection itself is read only. POSE recognises both hands, both feet and Body on the Footman (chains `limb:42`/`limb:38` hands, `limb:32`/`limb:29` feet, Body = `Bone_Root`; Pelvis repeats Body and is folded in; pelvis, chest and head are Helpers).
+- Focused Skeleton: upper arm `Should_L` (double-click point 40% from `Should_L` to `Elbow_L`), leg `Hip_L`, Stand animation (1167-2733), frame 1950 (the middle).
+- POSE: Footman `Stand - 1` (167-1667), frame 683 in the longest gap between keys (467 and 900), camera azimuth 45 degrees, wheel zoom 3 steps. Hands are aimed at 14 units outward and 38 above the shoulders (`Bone_Arm1_R/L`), the left foot is dragged up and forward, Body is lowered; Escape clears the selection before the card frame so no gizmo covers the body.
 - Playwright: `D:/Claude/tools/node_modules/playwright-core`. Native textures from `D:/Warcraft III`.
 
 ## Run

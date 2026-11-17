@@ -11,10 +11,12 @@ const folder = page => SITE + '/' + (page === 'en' ? '' : page + '/');
 const k = key => key.split(' + ').map(part => `<kbd>${part}</kbd>`).join(' + ');
 const s = label => `<strong>${label}</strong>`;
 const hash = file => crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex').slice(0, 16);
-const TUTORIALS = [
+const ALL = [
   { key: 'fskel', slug: 'focused-skeleton', card: 'fskel-card.png', clips: ['fskel-pick', 'fskel-animate'] },
   { key: 'pose', slug: 'pose', card: 'pose-card.png', clips: ['pose-on', 'pose-arms', 'pose-legs'] },
 ];
+// LPW_ONLY=pose re-runs one guide only (the other cards, articles and clips stay as they are).
+const TUTORIALS = process.env.LPW_ONLY ? ALL.filter(t => t.key === process.env.LPW_ONLY) : ALL;
 // Control names are the app's own labels from src/locales/<language>.json (POSE is not translated).
 const TEXT = {
   en: { open: 'Open tutorial',
