@@ -4,6 +4,7 @@ import {prepareMobileLayout} from './mobile-layout.js?v=20261018-mobile-layout';
 import {groupModelUpdate,modelUpdateTagMarkup,mountModelUpdateTags} from './model-update-tags.js?v=20261109-update-badge-priority';
 import {modelFollowMarkup,mountModelFollow} from './model-follows.js?v=20261012-cloudflare';
 import {uploadedModelCard,renderUnitCard} from './unit-card.js?v=20261115-site-perf';
+import {startFrameSnap} from './frame-snap.js?v=20261118-stone-snap';
 import {startMenuVisitor} from './menu-visitor.js?v=20261115-site-perf';
 import {countShredder} from './shredder-stats.js?v=20261022-stash-tzeentch';
 import {wheelSelect} from './wheel-select.js?v=20261022-wheel-animations';
@@ -130,4 +131,4 @@ document.querySelector('#catalogue-summary').addEventListener('click',event=>{co
 recordUsage('visit');
 document.addEventListener('click',event=>{if(event.defaultPrevented||event.button!==0||event.ctrlKey||event.metaKey||event.shiftKey||event.altKey)return;const link=event.target.closest('a[href]');if(!link||link.target||link.hasAttribute('download'))return;const url=new URL(link.href,location.href);if(url.origin!==location.origin)return;if(/^\/(?:warhammercraft|army\/[a-z0-9-]+)\/$/.test(url.pathname)&&!url.hash){event.preventDefault();const href=url.pathname+url.search;if(location.pathname+location.search+location.hash!==href){history.pushState(null,'',href);route();}return;}const next=readMdlxlRoute(url);if(!next)return;event.preventDefault();const search=new URLSearchParams(url.search),language=document.getElementById('tutorial-language')?.value||new URLSearchParams(location.search).get('lang');if(language&&!search.has('lang'))search.set('lang',language);const href=mdlxlHref(next.section,next.tutorial,search);if(location.pathname+location.search+location.hash!==href)history.pushState(null,'',href);route();});
 window.addEventListener('hashchange',route);window.addEventListener('popstate',()=>{if(/^\/model\//.test(location.pathname)&&/^\/model\//.test(document.querySelector('.variant-tabs a')?.pathname||''))swapping=true;route();});route();
-startMenuVisitor({onInteraction:countShredder});
+startFrameSnap();startMenuVisitor({onInteraction:countShredder});
