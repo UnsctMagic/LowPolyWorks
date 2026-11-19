@@ -9,7 +9,7 @@ FFMPEG = 'D:/Claude/MDLxL/electron/ffmpeg/ffmpeg.exe'
 CLIPS = {'': ['fit-area', 'fit-move']}
 CARDS = ['fit-card.png']
 PAGES = ['en', 'es', 'ru', 'zh', 'fr', 'de', 'mordor']
-W, H = 1264, 760
+W, H = 1920, 1008
 report = {'clips': []}
 tmp = WORK / 'verify-frames'
 for page in PAGES:
@@ -22,7 +22,7 @@ for page in PAGES:
     # The Mordor page shows the English card from the English folder, like the other vertex guides.
     cardFolder = SITE if page in ('en', 'mordor') else folder
     rel = '/mdlxl/tutorials/' + ('' if page in ('en', 'mordor') else page + '/') + 'fit-card.png?v=' + hashlib.sha256((cardFolder / 'fit-card.png').read_bytes()).hexdigest()[:16]
-    assert '<img src="' + rel + '" width="1264" height="760"' in html, (page, 'card picture')
+    assert '<img src="' + rel + '" width="960" height="504"' in html, (page, 'card picture')
     for prefix, clips in CLIPS.items():
       encoded = json.loads((WORK / 'captures' / (prefix + source) / 'encoded.json').read_text(encoding='utf8'))
       for clip in clips:
@@ -89,7 +89,7 @@ for page in PAGES:
             shutil.rmtree(tmp)
     for name in CARDS:
         card = (SITE if page in ('en', 'mordor') else folder) / name
-        with Image.open(card) as im: assert im.size == (W, H), (page, name, 'card size')
+        with Image.open(card) as im: assert im.size == (960, 504), (page, name, 'card size')
 (WORK / 'report').mkdir(exist_ok=True)
 (WORK / 'report' / 'media.json').write_text(json.dumps(report, indent=1), encoding='utf8')
 n = len(report['clips'])

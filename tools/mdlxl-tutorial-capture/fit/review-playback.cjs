@@ -73,7 +73,7 @@ app.whenReady().then(async () => {
           const layout = await js(`(()=>{const v=[...document.querySelectorAll('${panel} video')];return{overflow:document.documentElement.scrollWidth>innerWidth+1,widths:v.map(e=>Math.round(e.getBoundingClientRect().width)),ratios:v.map(e=>+(e.getBoundingClientRect().width/e.getBoundingClientRect().height).toFixed(3))}})()`);
           if (layout.overflow) throw Error(size.name + ' tutorial overflows');
           if (new Set(layout.widths).size !== 1) throw Error('Clip widths differ ' + layout.widths);
-          if (layout.ratios.some(r => Math.abs(r - 1264 / 760) > .02)) throw Error('Clip aspect ratio ' + layout.ratios);
+          if (layout.ratios.some(r => Math.abs(r - 1920 / 1008) > .02)) throw Error('Clip aspect ratio ' + layout.ratios);
           const clips = [];
           for (const clip of tutorial.clips) {
             const sel = `${panel} [data-animation="${clip}"] video`;

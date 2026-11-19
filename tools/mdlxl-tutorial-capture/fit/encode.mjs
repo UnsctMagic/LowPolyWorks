@@ -3,7 +3,7 @@
 import fs from 'node:fs'; import path from 'node:path'; import crypto from 'node:crypto'; import { spawnSync } from 'node:child_process';
 const WORK = process.env.LPW_WORK || 'D:/Claude/fit-tutorial-work';
 const SITE = process.env.LPW_SITE || 'D:/Claude/LowPolyWorks-fit-tutorial/dist/mdlxl/tutorials';
-const FFMPEG = 'D:/Claude/MDLxL/electron/ffmpeg/ffmpeg.exe', FPS = 25, STEP = 1000 / FPS, W = 1264, H = 760;
+const FFMPEG = 'D:/Claude/MDLxL/electron/ffmpeg/ffmpeg.exe', FPS = 25, STEP = 1000 / FPS, W = 1920, H = 1008, FH = 1009;
 const locale = process.argv[2];
 if (!['en', 'es', 'ru', 'zh', 'fr', 'de'].includes(locale)) throw Error('Expected a locale');
 const out = WORK + '/captures/' + locale, manifest = JSON.parse(fs.readFileSync(out + '/manifest.json', 'utf8'));
@@ -50,7 +50,7 @@ for (const [name, raw] of Object.entries(manifest)) {
   const cards = { 'fit-move': ['fit-card.png'] };
   if (cards[name]) {
     const [cardName] = cards[name]; const card = target + '/' + cardName, frame = Math.max(0, count - 12);
-    const c = spawnSync('python', ['-I', '-c', `from PIL import Image;Image.open(r'${encode}/${String(frame).padStart(5, '0')}.jpg').crop((0,0,${W},${H})).convert('RGB').quantize(256,method=Image.Quantize.MEDIANCUT,dither=Image.Dither.FLOYDSTEINBERG).save(r'${card}',optimize=True)`], { encoding: 'utf8', windowsHide: true });
+    const c = spawnSync('python', ['-I', '-c', `from PIL import Image;Image.open(r'${encode}/${String(frame).padStart(5, '0')}.jpg').crop((0,0,${W},${H})).resize((960,504),Image.LANCZOS).convert('RGB').quantize(256,method=Image.Quantize.MEDIANCUT,dither=Image.Dither.FLOYDSTEINBERG).save(r'${card}',optimize=True)`], { encoding: 'utf8', windowsHide: true });
     if (c.status !== 0) throw Error(c.stderr);
     report.cards = { ...report.cards, [cardName]: urlBase + cardName + '?v=' + hash(card) };
     report.cardFrame = frame;

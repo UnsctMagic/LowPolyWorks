@@ -11,7 +11,7 @@ async function openSession({ locale, out, debug = false }) {
   fs.rmSync(out, { recursive: true, force: true });
   fs.mkdirSync(out + '/raw', { recursive: true });
   const { app, page } = await launchApp({ fixture: WORK + '/models/' + (process.env.LPW_MODEL || 'TEST UV FIT SNAKE 01.mdx'), out, show: 'inactive',
-    bounds: { x: -3000, y: 0, width: 1280, height: 800 }, env: { MDLVIS_GAME_DATA: 'D:/Warcraft III' },
+    bounds: { x: -3000, y: 0, width: 1936, height: 1048 }, env: { MDLVIS_GAME_DATA: 'D:/Warcraft III' },
     settings: { preferences: { language: locale, showHotkeys: false, graphics: { pauseWhenHidden: false } } } });
   const manifest = {}, proof = { locale, checks: [] };
   const cdp = await page.context().newCDPSession(page);

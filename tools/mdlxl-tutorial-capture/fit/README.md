@@ -25,3 +25,7 @@ Geoset 4 has 157 points / 247 triangles; all points selected; the Fit bar appear
 ## Run
 
 `node run.cjs [locales]` (records through MDLxL `scripts/hidden-run.ps1` on the invisible desktop, encodes, removes raw frames and profiles), `node integrate.mjs`, then register the guide (`tutorialSlugs` in `dist/mdlxl-routes.js`, `guideSorting` in `dist/mdlxl-tutorials.js`, `guideNames` in `tools/model-pages.mjs`, the `#tutorial-fit` selectors in `dist/mdlxl-tutorials.css`), set the `?v=` key (`20261119-fit-tutorial`) everywhere, `node tools/model-pages.mjs`, `node tools/check-project.mjs`, `python -I verify-media.py`, and `review-playback.cjs` (serve with `PORT=4197 node server.mjs`, one language per run). `review-playback.cjs` ignores the browser's harmless "ResizeObserver loop" notice, which the site's `frame-snap.js` raises on every guide page (the POSE guide shows it too).
+
+## Re-recording on the owner's recording (19 Nov)
+
+The clips copy the owner's screen recording (his GIF frames f000-f170) at his window size: 1920x1009 window, clips encoded 1920x1008, card picture 960x504. 85 of the 157 points are selected (the first UV piece, v < 0.3; his Stats show 85 sel), the map starts zoomed out (tile 258 px), is zoomed with the wheel at his cursor, panned with a right-drag, Fit, his nine clicks, Enter, Fit again (the 85 UVs fill the outline, the other 72 stay on the dark red part), then his left-drag in the 3D preview. Views and cursor paths are measured from his frames (see the constants at the top of `capture.cjs`).

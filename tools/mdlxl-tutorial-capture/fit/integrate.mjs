@@ -31,12 +31,12 @@ function markup(lang, page, index) {
     if (!url) throw Error('No encoded clip ' + page + '/' + clip);
     return `      <section class="demo-step" aria-labelledby="${id}">
         <h4 id="${id}">${heading}</h4>
-        <figure class="gif-player" data-animation="${clip}"><video class="player-frame" data-tutorial-video="${url}" muted loop playsinline controls width="1264" height="760" preload="metadata" aria-label="${escapeAttr(heading + '. ' + strip(body))}"></video></figure>
+        <figure class="gif-player" data-animation="${clip}"><video class="player-frame" data-tutorial-video="${url}" muted loop playsinline controls width="1920" height="1008" preload="metadata" aria-label="${escapeAttr(heading + '. ' + strip(body))}"></video></figure>
         <p>${body}</p>
       </section>`;
   }).join('\n');
   const cardHtml = `<a class="tutorial-card" id="tab-${KEY}" aria-controls="tutorial-${KEY}" data-tutorial="${KEY}" href="/mdlxl/tutorials/${SLUG}/?lang=${page}"${langAttr}>
-          <span class="tutorial-card-media" aria-hidden="true"><img src="${card}" width="1264" height="760" alt=""></span>
+          <span class="tutorial-card-media" aria-hidden="true"><img src="${card}" width="960" height="504" alt=""></span>
           <span class="tutorial-card-copy">
             <span class="tutorial-card-category">${t.category}</span>
             <span class="tutorial-card-title">${title}</span>
