@@ -1,4 +1,4 @@
-import {mdlxlLanguages,mdlxlLanguage,mdlxlText,localizedMdlxlMarkup,applyMdlxlShellLanguage} from './mdlxl-languages.js?v=20261105-permanent-download';
+import {mdlxlLanguages,mdlxlLanguage,mdlxlText,localizedMdlxlMarkup,applyMdlxlShellLanguage} from './mdlxl-languages.js?v=20261119-no-discord';
 import {readMdlxlRoute,mdlxlHref} from './mdlxl-routes.js?v=20261117-animate-tutorials';
 import {mdlxlLogoMarkup,igniteMdlxlLogo} from './mdlxl-eyes.js?v=20261029-project-branding';
 const REPO='https://github.com/UnsctMagic/MDLxL';
@@ -107,7 +107,7 @@ function contentSection(section,data){
  if(section==='preview')return '<h2>Preview</h2><div class="mdlxl-placeholder"><span aria-hidden="true">◇</span><p>Screenshots are coming soon.</p></div>';
  if(section==='credits')return `<h2>Credits & acknowledgements</h2>${creditProse(data.creditIntro)}${data.credits.map(group=>`<section class="mdlxl-text-group"><h3>${escape(group.title)}</h3>${creditProse(group.lines)}</section>`).join('')}`;
  if(section==='about')return `<h2>A dream for more CTRL+Z.</h2>${prose(data.intro)}<img class="mdlxl-author-image" src="ui/author-space-dog.gif" alt="A dog in a space station with the caption: I have no idea what I'm doing.">${prose(data.story)}<h2 class="mdlxl-features-heading">Inside the workshop</h2>${data.features.map(group=>`<section class="mdlxl-text-group"><h3>${escape(group.title)}</h3>${prose(group.lines)}</section>`).join('')}${prose(data.closing)}`;
- return '<div class="mdlxl-section-heading"><h2><a href="https://discord.gg/CDXrQHsj2" target="_blank" rel="noopener noreferrer">Find us on Discord at HerrDave&#39;s Workshop</a></h2></div><div id="mdlxl-releases" aria-live="polite"><p>Loading patch notes…</p></div>';
+ return '<div id="mdlxl-releases" aria-live="polite"><p>Loading patch notes…</p></div>';
 }
 export async function renderMdlxl(app,routeIsCurrent,recordUsage){
  const generation=(app._mdlxlGeneration||0)+1;app._mdlxlGeneration=generation;
@@ -130,7 +130,7 @@ export async function renderMdlxl(app,routeIsCurrent,recordUsage){
  const latestTask=latestPromise.then(release=>{if(!currentDownload())return;const url=downloadUrl(release);if(!url)throw Error('No application ZIP');button.href=url;button.removeAttribute('aria-disabled');app._mdlxlDownloadVersion=release.tag_name;app._mdlxlDownloadError=false;button.textContent=t('Download')+' '+release.tag_name+' ↗';app.querySelector('#mdlxl-version').textContent=t('Windows · Portable ZIP');const source=release.assets?.find(a=>/FFmpeg-corresponding-source.*\.zip$/i.test(a.name));if(source){const link=app.querySelector('#mdlxl-ffmpeg-source');link.href=source.browser_download_url;link.hidden=false;}}).catch(()=>{if(currentDownload()){button.href=PERMANENT_DOWNLOAD;button.textContent=t('Download')+' ↗';app.querySelector('#mdlxl-version').textContent=t('Windows · Portable ZIP');}});
  const panel=app.querySelector('#mdlxl-content');
  if(section==='tutorials'){
-  try{const {renderTutorials}=await import('./mdlxl-tutorials.js?v=20261118-ribbon-current');if(!isCurrent())return;await renderTutorials(panel,isCurrent,navigation.tutorial);}catch{if(isCurrent())panel.innerHTML=localize('<p>Tutorials could not load. Please reload the page.</p>');}
+  try{const {renderTutorials}=await import('./mdlxl-tutorials.js?v=20261119-no-discord');if(!isCurrent())return;await renderTutorials(panel,isCurrent,navigation.tutorial);}catch{if(isCurrent())panel.innerHTML=localize('<p>Tutorials could not load. Please reload the page.</p>');}
   await latestTask;return;
  }
  if(section!=='tutorials'){delete panel.dataset?.tutorialLanguage;panel.removeAttribute?.('lang');}
