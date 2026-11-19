@@ -35013,7 +35013,7 @@
       "Portrait",
       "Portrait Talk"
     ],
-    "bytes": 172191,
+    "bytes": 172399,
     "authors": [
       {
         "name": "UnsanctionedMagic",
@@ -35042,11 +35042,17 @@
         "url": "https://wc3.ninja/models/25615"
       }
     ],
-    "sha256": "1c7810ef6825e2ac8628a3e57d6a2ccb11f4d6f63b509c8e5cca096375772650",
-    "imageVersion": "20261119-daemonette-variants",
+    "sha256": "c8b91458038c23fb751427c455f8f22f486a7a61fd2a8162d3604b32fa4d7857",
+    "imageVersion": "20261119-daemonette-tc-c8b91458",
     "searchDescription": "Team Color variation of Daemonette of Slaanesh, a Daemons of Chaos model for Warcraft III Classic.",
     "textureFiles": {
       "ui\\minimap\\minimap-gold-haunted.blp": "textures/native-04da013287e68f51.png"
-    }
+    },
+    "changelog": [
+      {
+        "date": "2026-11-19",
+        "text": "Updated Team Color model."
+      }
+    ]
   }
 ]
