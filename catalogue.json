@@ -34584,5 +34584,469 @@
         "text": "Fixed sanity issues, added hero variation."
       }
     ]
+  },
+  {
+    "id": "daemonette-of-slaanesh",
+    "file": "WH_DOC_Daemonette01.mdx",
+    "name": "Daemonette of Slaanesh",
+    "army": "demons-of-chaos",
+    "description": "Daemonettes are known to mortals as the handmaidens of Slaanesh. They are a mixture of the beautiful and the monstrous, made all the more disturbing by the visceral clash of both. They delight in the carnage of battle, weaving around the clumsy blows of their enemies as they shrill and sigh their delight amidst swift-taloned slaughter.",
+    "credits": "Model Base - Eredar Witch by FerSZ\n\nClaws - Murk Snapper Hero by -Grendel\n\nChains - Mindflayer by -Grendel",
+    "geosets": [
+      {
+        "index": 0,
+        "vertices": 20,
+        "triangles": 28,
+        "textures": [
+          "Doodads\\Cinematic\\IllidanVictoryCinematic\\IllidanBody.blp"
+        ]
+      },
+      {
+        "index": 1,
+        "vertices": 165,
+        "triangles": 289,
+        "textures": [
+          "UI\\Glues\\SinglePlayer\\NightElfCampaign3D\\NightElfFemaleSkin.blp"
+        ]
+      },
+      {
+        "index": 2,
+        "vertices": 118,
+        "triangles": 156,
+        "textures": [
+          "Doodads\\Cinematic\\ArthasIllidanFight\\Hair02_00.blp"
+        ]
+      },
+      {
+        "index": 3,
+        "vertices": 14,
+        "triangles": 12,
+        "textures": [
+          "Textures\\LavaLump2.blp"
+        ]
+      },
+      {
+        "index": 4,
+        "vertices": 22,
+        "triangles": 28,
+        "textures": [
+          "Units\\Demon\\ChaosWarlock\\ChaosWarlock.blp"
+        ]
+      },
+      {
+        "index": 5,
+        "vertices": 24,
+        "triangles": 40,
+        "textures": [
+          "Doodads\\Cinematic\\ArthasIllidanFight\\IllidanCineStuff.blp"
+        ]
+      },
+      {
+        "index": 6,
+        "vertices": 137,
+        "triangles": 136,
+        "textures": [
+          "Doodads\\Cinematic\\RockinArthas\\ArthasCloakCredits.blp"
+        ]
+      },
+      {
+        "index": 7,
+        "vertices": 90,
+        "triangles": 98,
+        "textures": [
+          "Units\\Human\\Sorceress\\BloodElfSorceress.blp"
+        ]
+      },
+      {
+        "index": 8,
+        "vertices": 95,
+        "triangles": 142,
+        "textures": [
+          "Units\\Creeps\\HarpyWitch\\HarpyWitch.blp"
+        ]
+      },
+      {
+        "index": 9,
+        "vertices": 110,
+        "triangles": 204,
+        "textures": [
+          "Textures\\Skeleton.blp"
+        ]
+      },
+      {
+        "index": 10,
+        "vertices": 36,
+        "triangles": 30,
+        "textures": [
+          "Units\\Human\\Sorceress\\Sorceress.blp"
+        ]
+      },
+      {
+        "index": 11,
+        "vertices": 32,
+        "triangles": 24,
+        "textures": [
+          "UI\\Minimap\\minimap-gold-haunted.blp"
+        ]
+      },
+      {
+        "index": 12,
+        "vertices": 214,
+        "triangles": 328,
+        "textures": [
+          "Textures\\InfernalCannon.blp"
+        ]
+      },
+      {
+        "index": 13,
+        "vertices": 9,
+        "triangles": 16,
+        "textures": [
+          "Textures\\InfernalCannon.blp",
+          "Textures\\GOLDCoin.blp"
+        ]
+      },
+      {
+        "index": 14,
+        "vertices": 216,
+        "triangles": 388,
+        "textures": [
+          "Units\\Creeps\\Lobstrokkblue\\LobstrokkBlue.blp",
+          "Units\\Creeps\\Lobstrokkgreen\\LobstrokkGreen.blp",
+          "Units\\Creeps\\Lobstrokkred\\Lobstrokk.blp"
+        ]
+      },
+      {
+        "index": 15,
+        "vertices": 16,
+        "triangles": 16,
+        "textures": [
+          "Units\\NightElf\\FaerieDragon\\FaerieDragon.blp"
+        ]
+      },
+      {
+        "index": 16,
+        "vertices": 211,
+        "triangles": 115,
+        "textures": [
+          "Units\\Demon\\HeroPitLord\\HeroPitlord.blp"
+        ]
+      },
+      {
+        "index": 17,
+        "vertices": 14,
+        "triangles": 12,
+        "textures": [
+          "Textures\\Purple_Glow.blp"
+        ]
+      },
+      {
+        "index": 18,
+        "vertices": 45,
+        "triangles": 26,
+        "textures": [
+          "Textures\\gutz.blp"
+        ]
+      },
+      {
+        "index": 19,
+        "vertices": 4,
+        "triangles": 2,
+        "textures": [
+          "Units\\Human\\Phoenix\\TeleportTarget.blp"
+        ]
+      },
+      {
+        "index": 20,
+        "vertices": 4,
+        "triangles": 2,
+        "textures": []
+      }
+    ],
+    "sequences": [
+      "Walk",
+      "Stand",
+      "Stand 2",
+      "Stand Ready",
+      "Attack 1",
+      "Attack 2",
+      "Spell Slam 1",
+      "Death",
+      "Decay Flesh",
+      "Decay Bone",
+      "Portrait",
+      "Portrait Talk"
+    ],
+    "bytes": 170919,
+    "authors": [
+      {
+        "name": "UnsanctionedMagic",
+        "url": "https://xgm.guru/user/UnsanctMagic"
+      },
+      {
+        "name": "FerSZ",
+        "url": "https://www.hiveworkshop.com/members/fersz.252357/"
+      }
+    ],
+    "creditLinks": [
+      {
+        "text": "Eredar Witch",
+        "url": "https://www.hiveworkshop.com/threads/eredar-witch.290652/"
+      },
+      {
+        "text": "FerSZ",
+        "url": "https://www.hiveworkshop.com/members/fersz.252357/"
+      },
+      {
+        "text": "Murk Snapper Hero",
+        "url": "https://wc3.ninja/models/1633381#d=366.2&y=-1.140&p=1.137&tx=63.7&ty=99.2&tz=33.3"
+      },
+      {
+        "text": "Mindflayer",
+        "url": "https://wc3.ninja/models/25615"
+      }
+    ],
+    "sha256": "3647e4d4f4c929ad6daf745b405d8c5c9f411065182a76de5ee746e2d3e8c799",
+    "imageVersion": "20261119-daemonette",
+    "searchDescription": "Daemonette of Slaanesh, a Daemons of Chaos model for Warcraft III Classic.",
+    "textureFiles": {
+      "ui\\minimap\\minimap-gold-haunted.blp": "textures/native-04da013287e68f51.png"
+    }
+  },
+  {
+    "id": "daemonette-of-slaanesh-team-color",
+    "file": "WH_DOC_DaemonetteTC01.mdx",
+    "name": "Daemonette of Slaanesh",
+    "army": "demons-of-chaos",
+    "description": "Daemonettes are known to mortals as the handmaidens of Slaanesh. They are a mixture of the beautiful and the monstrous, made all the more disturbing by the visceral clash of both. They delight in the carnage of battle, weaving around the clumsy blows of their enemies as they shrill and sigh their delight amidst swift-taloned slaughter.",
+    "credits": "Model Base - Eredar Witch by FerSZ\n\nClaws - Murk Snapper Hero by -Grendel\n\nChains - Mindflayer by -Grendel",
+    "geosets": [
+      {
+        "index": 0,
+        "vertices": 20,
+        "triangles": 28,
+        "textures": [
+          "Doodads\\Cinematic\\IllidanVictoryCinematic\\IllidanBody.blp"
+        ]
+      },
+      {
+        "index": 1,
+        "vertices": 165,
+        "triangles": 289,
+        "textures": [
+          "UI\\Glues\\SinglePlayer\\NightElfCampaign3D\\NightElfFemaleSkin.blp"
+        ]
+      },
+      {
+        "index": 2,
+        "vertices": 118,
+        "triangles": 156,
+        "textures": [
+          "Doodads\\Cinematic\\ArthasIllidanFight\\Hair02_00.blp"
+        ]
+      },
+      {
+        "index": 3,
+        "vertices": 14,
+        "triangles": 12,
+        "textures": [
+          "Textures\\LavaLump2.blp"
+        ]
+      },
+      {
+        "index": 4,
+        "vertices": 22,
+        "triangles": 28,
+        "textures": [
+          "Units\\Demon\\ChaosWarlock\\ChaosWarlock.blp"
+        ]
+      },
+      {
+        "index": 5,
+        "vertices": 24,
+        "triangles": 40,
+        "textures": [
+          "Doodads\\Cinematic\\ArthasIllidanFight\\IllidanCineStuff.blp"
+        ]
+      },
+      {
+        "index": 6,
+        "vertices": 98,
+        "triangles": 90,
+        "textures": [
+          "Doodads\\Cinematic\\RockinArthas\\ArthasCloakCredits.blp"
+        ]
+      },
+      {
+        "index": 7,
+        "vertices": 90,
+        "triangles": 98,
+        "textures": [
+          "Units\\Human\\Sorceress\\BloodElfSorceress.blp"
+        ]
+      },
+      {
+        "index": 8,
+        "vertices": 95,
+        "triangles": 142,
+        "textures": [
+          "Units\\Creeps\\HarpyWitch\\HarpyWitch.blp"
+        ]
+      },
+      {
+        "index": 9,
+        "vertices": 110,
+        "triangles": 204,
+        "textures": [
+          "Textures\\Skeleton.blp"
+        ]
+      },
+      {
+        "index": 10,
+        "vertices": 36,
+        "triangles": 30,
+        "textures": [
+          "Units\\Human\\Sorceress\\Sorceress.blp"
+        ]
+      },
+      {
+        "index": 11,
+        "vertices": 32,
+        "triangles": 24,
+        "textures": [
+          "UI\\Minimap\\minimap-gold-haunted.blp"
+        ]
+      },
+      {
+        "index": 12,
+        "vertices": 214,
+        "triangles": 328,
+        "textures": [
+          "Textures\\InfernalCannon.blp"
+        ]
+      },
+      {
+        "index": 13,
+        "vertices": 9,
+        "triangles": 16,
+        "textures": [
+          "Textures\\InfernalCannon.blp",
+          "Textures\\GOLDCoin.blp"
+        ]
+      },
+      {
+        "index": 14,
+        "vertices": 216,
+        "triangles": 388,
+        "textures": [
+          "Units\\Creeps\\Lobstrokkblue\\LobstrokkBlue.blp",
+          "Units\\Creeps\\Lobstrokkgreen\\LobstrokkGreen.blp",
+          "Units\\Creeps\\Lobstrokkred\\Lobstrokk.blp"
+        ]
+      },
+      {
+        "index": 15,
+        "vertices": 16,
+        "triangles": 16,
+        "textures": [
+          "Units\\NightElf\\FaerieDragon\\FaerieDragon.blp"
+        ]
+      },
+      {
+        "index": 16,
+        "vertices": 211,
+        "triangles": 115,
+        "textures": [
+          "Units\\Demon\\HeroPitLord\\HeroPitlord.blp"
+        ]
+      },
+      {
+        "index": 17,
+        "vertices": 14,
+        "triangles": 12,
+        "textures": [
+          "Textures\\Purple_Glow.blp"
+        ]
+      },
+      {
+        "index": 18,
+        "vertices": 45,
+        "triangles": 26,
+        "textures": [
+          "Textures\\gutz.blp"
+        ]
+      },
+      {
+        "index": 19,
+        "vertices": 4,
+        "triangles": 2,
+        "textures": [
+          "Units\\Human\\Phoenix\\TeleportTarget.blp"
+        ]
+      },
+      {
+        "index": 20,
+        "vertices": 4,
+        "triangles": 2,
+        "textures": []
+      },
+      {
+        "index": 21,
+        "vertices": 39,
+        "triangles": 46,
+        "textures": [
+          "Units\\Creeps\\Revenant\\Revenant.blp"
+        ]
+      }
+    ],
+    "sequences": [
+      "Walk",
+      "Stand",
+      "Stand 2",
+      "Stand Ready",
+      "Attack 1",
+      "Attack 2",
+      "Spell Slam 1",
+      "Death",
+      "Decay Flesh",
+      "Decay Bone",
+      "Portrait",
+      "Portrait Talk"
+    ],
+    "bytes": 172191,
+    "authors": [
+      {
+        "name": "UnsanctionedMagic",
+        "url": "https://xgm.guru/user/UnsanctMagic"
+      },
+      {
+        "name": "FerSZ",
+        "url": "https://www.hiveworkshop.com/members/fersz.252357/"
+      }
+    ],
+    "creditLinks": [
+      {
+        "text": "Eredar Witch",
+        "url": "https://www.hiveworkshop.com/threads/eredar-witch.290652/"
+      },
+      {
+        "text": "FerSZ",
+        "url": "https://www.hiveworkshop.com/members/fersz.252357/"
+      },
+      {
+        "text": "Murk Snapper Hero",
+        "url": "https://wc3.ninja/models/1633381#d=366.2&y=-1.140&p=1.137&tx=63.7&ty=99.2&tz=33.3"
+      },
+      {
+        "text": "Mindflayer",
+        "url": "https://wc3.ninja/models/25615"
+      }
+    ],
+    "sha256": "1c7810ef6825e2ac8628a3e57d6a2ccb11f4d6f63b509c8e5cca096375772650",
+    "imageVersion": "20261119-daemonette-variants",
+    "searchDescription": "Team Color variation of Daemonette of Slaanesh, a Daemons of Chaos model for Warcraft III Classic.",
+    "textureFiles": {
+      "ui\\minimap\\minimap-gold-haunted.blp": "textures/native-04da013287e68f51.png"
+    }
   }
 ]

@@ -827,5 +827,19 @@
         "label": "Hero"
       }
     ]
+  },
+  {
+    "id": "daemonette-of-slaanesh",
+    "name": "Daemonette of Slaanesh",
+    "variants": [
+      {
+        "id": "daemonette-of-slaanesh",
+        "label": "Original"
+      },
+      {
+        "id": "daemonette-of-slaanesh-team-color",
+        "label": "Team Color"
+      }
+    ]
   }
 ]
