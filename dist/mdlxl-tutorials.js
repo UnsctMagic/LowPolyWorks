@@ -3,8 +3,8 @@ import {mdlxlHref} from './mdlxl-routes.js?v=20261117-animate-tutorials';
 import {mountTutorialPlayers} from './mdlxl/tutorials/playback.js?v=20261109-tutorial-mp4';
 import {startToolPings} from './mdlxl/tutorials/highlights.js?v=20261030-tutorial-languages';
 import {recordTutorial} from './usage.js?v=20261025-amsterdam-days';
-import {tutorialLanguages,tutorialText} from './mdlxl/tutorials/languages.js?v=20261118-ribbon-current';
-const version='20261118-ribbon-current';
+import {tutorialLanguages,tutorialText} from './mdlxl/tutorials/languages.js?v=20261119-fit-tutorial';
+const version='20261119-fit-tutorial';
 const valid=language=>tutorialLanguages.some(item=>item.id===language);
 async function loadPlayers(state,article) {
   const content=state.body.firstElementChild;
@@ -28,7 +28,7 @@ async function loadPlayers(state,article) {
 }
 // Library sorting: two shelves (quick tricks, tools) and the app area each guide belongs to.
 // Guides not listed here: 1-2 steps count as quick tricks, otherwise tools; they show under All and their shelf.
-const guideSorting={anchor:['quick','vertices'],align:['quick','vertices'],spread:['quick','vertices'],animated:['quick','vertices'],eachpiece:['quick','vertices'],live:['quick','uv'],uvgrid:['quick','uv'],fskel:['quick','animation'],forge:['tools','vertices'],pose:['tools','animation'],glow:['tools','effects'],emtr:['tools','effects'],fx:['tools','effects'],corpse:['tools','model'],optixl:['tools','model']};
+const guideSorting={anchor:['quick','vertices'],align:['quick','vertices'],spread:['quick','vertices'],animated:['quick','vertices'],eachpiece:['quick','vertices'],fit:['quick','uv'],live:['quick','uv'],uvgrid:['quick','uv'],fskel:['quick','animation'],forge:['tools','vertices'],pose:['tools','animation'],glow:['tools','effects'],emtr:['tools','effects'],fx:['tools','effects'],corpse:['tools','model'],optixl:['tools','model']};
 const areaOrder=['vertices','uv','animation','effects','model'];
 function arrangeLibrary(state,text) {
   const menu=state.body.querySelector('.tutorial-menu');
@@ -82,7 +82,7 @@ function showTutorial(state) {
 }
 export async function renderTutorials(panel,isCurrent,requested) {
   if(!document.getElementById('mdlxl-tutorial-style')){
-    const style=document.createElement('link');style.id='mdlxl-tutorial-style';style.rel='stylesheet';style.href='/mdlxl-tutorials.css?v=20261118-ribbon-current';document.head.append(style);
+    const style=document.createElement('link');style.id='mdlxl-tutorial-style';style.rel='stylesheet';style.href='/mdlxl-tutorials.css?v=20261119-fit-tutorial';document.head.append(style);
   }
   let state=panel._tutorialController;
   if(!state||!state.header.isConnected){
