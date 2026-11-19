@@ -483,9 +483,9 @@
       "publishedAt": "2026-10-20T23:54:43.892Z"
     },
     "warrior-of-khorne-cleaver": {
-      "sha256": "cd9ce210a479d47b081f3d50e40a1bb9989523f9617251d465ccabbf7eacb4ab",
+      "sha256": "fe8e78eaf071427ac067981c884c40c70bfcb4622e7fad369ad3bc8e0dfc08e7",
       "publishedAt": "2026-10-21T09:45:33.925Z",
-      "updatedAt": "2026-11-05T23:48:45.364Z"
+      "updatedAt": "2026-11-19T02:07:23.639Z"
     },
     "warrior-of-tzeentch": {
       "sha256": "67d71609888e655b7562eb54496a2f4cd80df6987ea5cb05f692cf8030599700",
@@ -545,8 +545,8 @@
       "publishedAt": "2026-11-04T22:41:35.390Z"
     },
     "warrior-of-khorne-cleaver-hero": {
-      "sha256": "c0e5558533a6754f85df2eb067026186376a65e3408dfba1b709ae5bb44ea5cf",
-      "updatedAt": "2026-11-05T23:48:45.364Z"
+      "sha256": "fe8d085a55b7648dfa01597b3fb14799779a38c29000dc62feac04251e8aecba",
+      "updatedAt": "2026-11-19T02:07:23.639Z"
     },
     "greenskin-orc-boy-native-reskin": {
       "sha256": "8fa997c36e42d4b22f4d4ed43a6d53bef5ecdf1e628baf197d021850af924d8e",

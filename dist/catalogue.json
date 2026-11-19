@@ -15663,7 +15663,7 @@
   },
   {
     "id": "warrior-of-khorne-cleaver",
-    "file": "WH_WOC_WarriorKhorneGW06.mdx",
+    "file": "WH_WOC_WarriorKhorneGW07.mdx",
     "name": "Warrior of Khorne · Cleaver",
     "army": "warriors-of-chaos",
     "description": "The Warriors of Chaos that follow the Blood God, as with all servants of the Ruinous Powers, are not limited to the primitive tribes of the north. His grasp can reach the heart of every soldier, every warrior, every life-taker. When a noble Knight of Bretonnia or a Templar of the Empire falls to His worship it is because they forget why they kill. To change from killing for the common good to killing only because one wants to – because the act is pleasing – is when the righteous have fallen from their path. These are the warriors Khorne embraces, never to release. These are the converts that He savours.",
@@ -16082,9 +16082,13 @@
         "url": "https://www.hiveworkshop.com/members/herrdave.234820/"
       }
     ],
-    "sha256": "cd9ce210a479d47b081f3d50e40a1bb9989523f9617251d465ccabbf7eacb4ab",
-    "imageVersion": "20261106-cleaver-unit-hero",
+    "sha256": "fe8e78eaf071427ac067981c884c40c70bfcb4622e7fad369ad3bc8e0dfc08e7",
+    "imageVersion": "20261119-cleaver-clipping",
     "changelog": [
+      {
+        "date": "19 November 2026",
+        "text": "Fixed tiny clipping"
+      },
       {
         "date": "6 November 2026",
         "text": "Added two new animations and a Hero variation."
@@ -16109,7 +16113,7 @@
   },
   {
     "id": "warrior-of-khorne-cleaver-hero",
-    "file": "WH_WOC_WarriorKhorneHeroGW01.mdx",
+    "file": "WH_WOC_WarriorKhorneHeroGW02.mdx",
     "name": "Warrior of Khorne · Cleaver Hero",
     "army": "warriors-of-chaos",
     "description": "The Warriors of Chaos that follow the Blood God, as with all servants of the Ruinous Powers, are not limited to the primitive tribes of the north. His grasp can reach the heart of every soldier, every warrior, every life-taker. When a noble Knight of Bretonnia or a Templar of the Empire falls to His worship it is because they forget why they kill. To change from killing for the common good to killing only because one wants to – because the act is pleasing – is when the righteous have fallen from their path. These are the warriors Khorne embraces, never to release. These are the converts that He savours.",
@@ -16547,9 +16551,13 @@
         "url": "https://www.hiveworkshop.com/members/herrdave.234820/"
       }
     ],
-    "sha256": "c0e5558533a6754f85df2eb067026186376a65e3408dfba1b709ae5bb44ea5cf",
-    "imageVersion": "20261106-cleaver-unit-hero",
+    "sha256": "fe8d085a55b7648dfa01597b3fb14799779a38c29000dc62feac04251e8aecba",
+    "imageVersion": "20261119-cleaver-clipping",
     "changelog": [
+      {
+        "date": "19 November 2026",
+        "text": "Fixed tiny clipping"
+      },
       {
         "date": "6 November 2026",
         "text": "Added two new animations and a Hero variation."
