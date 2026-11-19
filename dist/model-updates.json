@@ -599,6 +599,10 @@
     "lahmian-vampire-hero": {
       "sha256": "22dad1df7374ef013f8da6814246bfa0d3c8461fb08759cee5cb853edf8f6301",
       "publishedAt": "2026-11-14T15:17:27.567Z"
+    },
+    "daemonette-of-slaanesh": {
+      "sha256": "3647e4d4f4c929ad6daf745b405d8c5c9f411065182a76de5ee746e2d3e8c799",
+      "publishedAt": "2026-11-19T20:44:40.679Z"
     }
   }
 }
