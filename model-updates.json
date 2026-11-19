@@ -605,8 +605,9 @@
       "publishedAt": "2026-11-19T21:57:25.719Z"
     },
     "daemonette-of-slaanesh-team-color": {
-      "sha256": "1c7810ef6825e2ac8628a3e57d6a2ccb11f4d6f63b509c8e5cca096375772650",
-      "publishedAt": "2026-11-19T21:57:25.719Z"
+      "sha256": "c8b91458038c23fb751427c455f8f22f486a7a61fd2a8162d3604b32fa4d7857",
+      "publishedAt": "2026-11-19T21:57:25.719Z",
+      "updatedAt": "2026-11-19T22:16:01.260Z"
     }
   }
 }
