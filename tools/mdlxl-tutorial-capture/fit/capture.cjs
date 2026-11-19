@@ -7,10 +7,10 @@ const { openSession, sleep, WORK } = require('./recorder.cjs');
 const LOCALE = process.env.LPW_LOCALE || 'en';
 const OUT = WORK + '/captures/' + LOCALE;
 const GEOSET = 3;                       // geoset 4 in the app's lists (1-based)
-const CENTER = [.63, .575];              // the view is centred here (u, v) and shows one tile at TILE px
-const TILE = 480;
-// The polygon: four corners on the purple/red snake column of the texture (u, v).
-const AREA = [[.575, .565], [.70, .565], [.70, .955], [.575, .955]];
+const CENTER = [.531, -.312];            // the owner's view: centred here (u, v), the tile is 1/1.312 of the map's width, so the red and teal columns fill it
+const TILE_PER_WIDTH = 1 / 1.312;
+// The polygon: the owner's nine clicks around the teal scaly column right of the dark red one (u, v), read from his recording.
+const AREA = [[0.8036, -0.5019], [0.9587, -0.5029], [0.9548, -0.1368], [0.9721, -0.0415], [0.9048, 0.0004], [0.8247, 0.0039], [0.7776, -0.0525], [0.7958, -0.0993], [0.8238, -0.1146]];
 
 (async () => {
   const s = await openSession({ locale: LOCALE, out: OUT, debug: process.env.LPW_DEBUG === '1' });
@@ -27,12 +27,9 @@ const AREA = [[.575, .565], [.70, .565], [.70, .955], [.575, .955]];
   const same = (a, b) => a.length === b.length && a.every((v, i) => v === b[i]);
   const boundsOf = pts => [Math.min(...pts.map(q => q[0])), Math.min(...pts.map(q => q[1])), Math.max(...pts.map(q => q[0])), Math.max(...pts.map(q => q[1]))];
   try {
-    // Setup (not part of a clip): only geoset 4 shown, all its points selected, the UV Wrapper open on it.
+    // Setup (not part of a clip): geoset 4 chosen, all its points selected, the UV Wrapper open on it.
     await page.locator('[data-hotkey="geosetsClear"]').click(); await sleep(250);
-    await page.locator('[data-hotkey="geoset:' + GEOSET + '"]').click(); await sleep(300);
-    const showAll = page.locator('[data-hotkey="showAllGeosets"]');
-    if (await showAll.isChecked()) await showAll.uncheck();
-    await sleep(500);
+    await page.locator('[data-hotkey="geoset:' + GEOSET + '"]').click(); await sleep(500);
     const base = await model();
     s.proof.before = { vertices: base.vertices, triangles: base.triangles, uvBounds: boundsOf(uvPoints(base.uv)) };
     check(base.vertices === 157 && base.triangles === 247, 'geoset 4 has 157 points and 247 triangles', { vertices: base.vertices, triangles: base.triangles });
@@ -42,21 +39,13 @@ const AREA = [[.575, .565], [.70, .565], [.70, .955], [.575, .955]];
     await page.locator('[data-hotkey="uv"]').click();
     await page.locator('.uv-tab-window .uv-editor canvas').waitFor(); await sleep(2500);
     await page.evaluate(() => { window.uvp = () => findFiberProps('.uv-editor', p => p.geoset && p.onSelectVertices); window.uvs = () => findFiberState('.uv-editor', st => st.uv && st.draw, { last: true }); });
-    // The live preview shows only the snake; the map shows one tile with the column in the middle.
-    await page.locator('.uv-tab-window [data-hotkey="uv-wrapper:selected-only"]').click(); await sleep(1000);
-    await page.evaluate(([center, tile]) => { const st = uvs(), r = document.querySelector('.uv-editor canvas').getBoundingClientRect(), ts = uvp().textureSize || [1, 1], aspect = Math.max(.01, ts[0] / ts[1]),
-      b = Math.max(20, Math.min((r.width - 40) / 2.7, (r.height - 40) / 2.3)), unit = b * (aspect >= 1 ? aspect : 1);
-      st.zoom = tile / unit; st.panX = (.5 - center[0]) * tile; st.panY = (.5 - center[1]) * tile; st.draw(); }, [CENTER, TILE]);
+    await page.evaluate(([center, perWidth]) => { const st = uvs(), r = document.querySelector('.uv-editor canvas').getBoundingClientRect(), ts = uvp().textureSize || [1, 1], aspect = Math.max(.01, ts[0] / ts[1]),
+      b = Math.max(20, Math.min((r.width - 40) / 2.7, (r.height - 40) / 2.3)), unit = b * (aspect >= 1 ? aspect : 1), tile = r.width * perWidth;
+      st.zoom = tile / unit; st.panX = (.5 - center[0]) * tile; st.panY = (.5 - center[1]) * tile; st.draw(); }, [CENTER, TILE_PER_WIDTH]);
     await sleep(600);
     const fitButton = page.locator('.uv-tab-window [data-hotkey="uv:fit"]');
     await fitButton.scrollIntoViewIfNeeded(); await sleep(500);
     const preview = await page.locator('.uv-tab-window .uv-preview-canvas').boundingBox();
-    await page.mouse.move(preview.x + preview.width / 2, preview.y + preview.height / 2);
-    for (let i = 0; i < 6; i++) { await page.mouse.wheel(0, -120); await sleep(150); }
-    await sleep(800);
-    // Pan the preview (right button) so the snake sits in the middle of it.
-    const pdy = -80, pc = { x: preview.x + preview.width / 2, y: preview.y + preview.height / 2 };
-    await glide(pc, { x: pc.x, y: pc.y + pdy }, 700, 'right'); await sleep(1200);
     const fb = await fitButton.boundingBox();
     check(fb && fb.y + fb.height < 755, 'the Fit button is in view', fb);
     const m0 = await mapping();
@@ -64,7 +53,7 @@ const AREA = [[.575, .565], [.70, .565], [.70, .955], [.575, .955]];
     const free = { x: m0.canvas.l + m0.canvas.w - 60, y: m0.canvas.t + 60 };
     await shot('start');
 
-    // 1. Fit, Polygon lasso, four corners, Enter, Fit.
+    // 1. Fit, Polygon lasso, the owner's nine corners, Enter, Fit.
     await begin('fit-area');
     phase('tool'); await sleep(800);
     await ping(fitButton, 1300); await fitButton.click(); await sleep(600);
@@ -77,10 +66,10 @@ const AREA = [[.575, .565], [.70, .565], [.70, .955], [.575, .955]];
     const pb = await polygon.boundingBox();
     await glide({ x: pb.x + pb.width / 2, y: pb.y + pb.height / 2 }, corners[0], 1100); await sleep(500);
     await page.mouse.click(corners[0].x, corners[0].y); await sleep(700);
-    for (let i = 1; i < corners.length; i++) { await glide(corners[i - 1], corners[i], 900); await sleep(200); await page.mouse.click(corners[i].x, corners[i].y); await sleep(700); }
+    for (let i = 1; i < corners.length; i++) { await glide(corners[i - 1], corners[i], 650); await sleep(150); await page.mouse.click(corners[i].x, corners[i].y); await sleep(450); }
     await shot('corners');
     phase('enter');
-    await glide(corners[3], free, 700); await sleep(300);
+    await glide(corners[corners.length - 1], free, 700); await sleep(300);
     await cue('Enter', async () => { await page.keyboard.press('Enter'); await sleep(400); }, 500);
     await sleep(1100);
     await shot('area');
@@ -102,8 +91,16 @@ const AREA = [[.575, .565], [.70, .565], [.70, .955], [.575, .955]];
     s.proof.inside = { checked: points.length, outside: outside.length, bounds: boundsOf(points) };
     check(outside.length === 0, 'all ' + points.length + ' UV points lie inside the marked area', { outside: outside.slice(0, 5) });
     s.proof.moved = uvPoints(base.uv).filter((p, i) => Math.hypot(p[0] - points[i][0], p[1] - points[i][1]) > 1e-6).length;
-    await sleep(3200);
+    await sleep(2200);
     await shot('fitted');
+    // Turn the 3D preview with a real left-button drag so the snake shows its new texture around the base.
+    phase('rotate');
+    const pv = await page.locator('.uv-tab-window .uv-preview-canvas').boundingBox();
+    const from = { x: pv.x + pv.width * .5, y: pv.y + pv.height * .5 };
+    await glide(free, from, 700); await sleep(300);
+    await glide(from, { x: from.x + (+process.env.LPW_DX || -90), y: from.y + (+process.env.LPW_DY || 20) }, 1500, 'left');
+    await sleep(2500);
+    await shot('rotated');
     await end(600);
 
     // Not part of a clip: Ctrl + Z puts every UV back.
