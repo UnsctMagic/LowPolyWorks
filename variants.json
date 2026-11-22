@@ -841,5 +841,24 @@
         "label": "Team Color"
       }
     ]
+  },
+  {
+    "id": "chaos-dragon-with-chaos-lord",
+    "name": "Chaos Dragon - Chaos Lord",
+    "showCardVariants": false,
+    "variants": [
+      {
+        "id": "chaos-dragon-with-chaos-lord",
+        "label": "Unit"
+      },
+      {
+        "id": "chaos-dragon-with-chaos-lord-hero",
+        "label": "Hero"
+      },
+      {
+        "id": "chaos-dragon-with-chaos-lord-lance",
+        "label": "Lance"
+      }
+    ]
   }
 ]

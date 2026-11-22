@@ -612,6 +612,14 @@
     "chaos-dragon-with-chaos-lord": {
       "sha256": "92e00e4fe8f4e53eb0c84f88a0eedeae4cd876a7b226f2b93befbe9ddf6bdac8",
       "publishedAt": "2026-11-22T18:19:34.760Z"
+    },
+    "chaos-dragon-with-chaos-lord-hero": {
+      "sha256": "7d11f8eadf98986c33efdddc53cc618defced7ffb1358bae83b0cc72e587a6ce",
+      "publishedAt": "2026-11-22T18:19:34.760Z"
+    },
+    "chaos-dragon-with-chaos-lord-lance": {
+      "sha256": "bce4e7341526f5be0f5e9122a608a738bab3478d9c3d470c26787ea04116b6f4",
+      "publishedAt": "2026-11-22T18:19:34.760Z"
     }
   }
 }
