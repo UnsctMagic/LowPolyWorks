@@ -101,6 +101,25 @@ export async function createViewer(canvas,row,{thumbnail=false,portrait=false,fo
  }
  let clipRadius=sequenceClipRadius(sequence);
  const navigation=!thumbnail?bindVertexCamera(camera,canvas):null,controls=navigation?.controls;
+ const panAnchor=new THREE.Vector3(),portraitPanAnchor=new THREE.Vector3();
+ const anchorInView=new THREE.Vector3(),panCorrection=new THREE.Vector3();
+ function limitPan(){
+  anchorInView.copy(portraitActive?portraitPanAnchor:panAnchor)
+   .applyAxisAngle(turntableAxis,turntableYaw).applyMatrix4(camera.matrixWorldInverse);
+  const depth=-anchorInView.z;
+  if(depth<=0)return;
+  const projection=camera.projectionMatrix.elements;
+  const x=anchorInView.x*projection[0]/depth;
+  const y=anchorInView.y*projection[5]/depth;
+  // Allow the body to reach the edge while keeping its framing point inside the view.
+  const limit=.96,displacement=Math.hypot(x,y);
+  if(displacement<=limit)return;
+  const excess=1-limit/displacement;
+  panCorrection.set(anchorInView.x*excess,anchorInView.y*excess,0).applyQuaternion(camera.quaternion);
+  camera.position.add(panCorrection);
+  controls.target.add(panCorrection);
+  camera.updateMatrixWorld();
+ }
  // The live view faces the model head-on, centred on its body, and frames the drawn pose
  // tightly, so every model fills the same share of the viewport.
  function frontView(aspect){
@@ -114,7 +133,7 @@ export async function createViewer(canvas,row,{thumbnail=false,portrait=false,fo
   return {target,direction,distance};
  }
  function fit(){const aspect=Math.max(1,canvas.clientWidth)/Math.max(1,canvas.clientHeight);camera.zoom=1;camera.aspect=aspect;
-  if(!thumbnail){const view=frontView(aspect);camera.position.copy(view.target).addScaledVector(view.direction,view.distance);camera.lookAt(view.target);if(controls){controls.target.copy(view.target);controls.minDistance=radius*.4;controls.maxDistance=view.distance*3;controls.update();}return;}
+  if(!thumbnail){const view=frontView(aspect);panAnchor.copy(view.target);camera.position.copy(view.target).addScaledVector(view.direction,view.distance);camera.lookAt(view.target);if(controls){controls.target.copy(view.target);controls.minDistance=radius*.4;controls.maxDistance=view.distance*3;controls.update();}return;}
   const distance=perspectiveFitDistance(radius,camera.fov??32,aspect);camera.position.copy(center).addScaledVector(formation?new THREE.Vector3(Math.cos(formationYaw),Math.sin(formationYaw),.12).normalize():new THREE.Vector3(Math.cos(.75),Math.sin(.75),.18).normalize(),distance);camera.lookAt(center);if(controls){controls.target.copy(center);controls.minDistance=radius*.4;controls.maxDistance=distance*3;controls.update();}}
  fit();
  if(thumbnail&&row.captureCameraAngles){setEditorCameraAngles(camera,center,row.captureCameraAngles);if(captureOrthographic){camera.left=-radius;camera.right=radius;camera.top=radius;camera.bottom=-radius;camera.updateProjectionMatrix();}}
@@ -142,7 +161,8 @@ export async function createViewer(canvas,row,{thumbnail=false,portrait=false,fo
  const holdEnd=!playing&&clock===duration;
  const sample=viewerPlaybackSample(model,sequence,clock,revision,holdEnd?false:looping),frame=sample.frame;
  onTimeChange?.({time:looping&&!holdEnd&&duration>0?clock%duration:Math.min(clock,duration),duration});
- if(portraitActive&&!portraitDetached){const evaluated=evaluateModelCamera(model,model.Cameras[0],frame,sequence,clock);if(!applyEvaluatedModelCamera(camera,controls||portraitControls,evaluated,w/h))throw Error('Portrait camera unavailable.');}
+ if(portraitActive&&!portraitDetached){const evaluated=evaluateModelCamera(model,model.Cameras[0],frame,sequence,clock);if(!applyEvaluatedModelCamera(camera,controls||portraitControls,evaluated,w/h))throw Error('Portrait camera unavailable.');portraitPanAnchor.copy((controls||portraitControls).target);}
+ else if(controls)limitPan();
  // Apply the inverse of a ground-plane model spin to the render camera so
  // the authored origin stays fixed, even after the navigation camera pans.
  renderCamera=camera;
