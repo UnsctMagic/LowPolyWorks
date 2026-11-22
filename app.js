@@ -18,7 +18,7 @@ let baseCatalogue=[],armies=[],variantGroups=[],armyCardOrder=[],catalogueLoad;
 function loadCatalogue(){
  return catalogueLoad??=(async()=>{
   [baseCatalogue,armies,variantGroups]=await Promise.all([
-   fetch('catalogue.json?v=20261119-daemonette-tc-c8b91458').then(r=>r.json()),
+   fetch('catalogue.json?v=20261122-chaos-dragon').then(r=>r.json()),
    fetch('armies.json?v=20261113-daemons-spelling').then(r=>r.json()),
    fetch('variants.json?v=20261119-daemonette-variants').then(r=>r.json()).catch(()=>[])
   ]);

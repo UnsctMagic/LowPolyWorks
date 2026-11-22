@@ -608,6 +608,10 @@
     "daemonette-of-slaanesh-team-color": {
       "sha256": "c8b91458038c23fb751427c455f8f22f486a7a61fd2a8162d3604b32fa4d7857",
       "publishedAt": "2026-11-19T21:57:25.719Z"
+    },
+    "chaos-dragon-with-chaos-lord": {
+      "sha256": "92e00e4fe8f4e53eb0c84f88a0eedeae4cd876a7b226f2b93befbe9ddf6bdac8",
+      "publishedAt": "2026-11-22T18:19:34.760Z"
     }
   }
 }
