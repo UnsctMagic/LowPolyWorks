@@ -18034,7 +18034,7 @@
   },
   {
     "id": "blood-dragon",
-    "file": "WH_VC_BloodDragonAxe02.mdx",
+    "file": "WH_VC_BloodDragonAxe03.mdx",
     "name": "Blood Dragon",
     "army": "vampire-counts",
     "description": "The Blood Dragons are a Bloodline of Vampires devoted to the pursuit of absolute martial perfection. The bloodline originated with Abhorash, who came to believe in no cause or ideal beyond himself. Abhorash urged his disciples to follow his example and hone their martial skills until they became the ultimate warriors, transcending Vampirism and the limitations of the mortal world. His followers swore to this path and took the name Blood Dragons.\n\nUnlike other bloodlines, they regard pursuits such as conquest, political power, or mastery of magic as trivial distractions. They swear loyalty to neither nations nor rulers, believing instead in the purity of their personal quest. Through constant warfare and unrelenting trial by battle, they seek to rise beyond the pre-eminent nature of the Vampire and attain a state approaching godhood, accepting any slaughter required as the necessary price of mastery.\n\nSource: Night's Dark Masters — The Bloodlines, pp. 43–44.",
@@ -18136,26 +18136,15 @@
     "geosets": [
       {
         "index": 0,
-        "vertices": 20,
-        "triangles": 30,
-        "material": 6,
+        "vertices": 95,
+        "triangles": 96,
+        "material": 19,
         "textures": [
-          "Team colour / glow",
-          "Textures\\UndeadAirBarge.blp"
+          "UI\\Glues\\SinglePlayer\\Alliance_Exp\\BE_Armor.blp"
         ]
       },
       {
         "index": 1,
-        "vertices": 13,
-        "triangles": 14,
-        "material": 6,
-        "textures": [
-          "Team colour / glow",
-          "Textures\\UndeadAirBarge.blp"
-        ]
-      },
-      {
-        "index": 2,
         "vertices": 22,
         "triangles": 20,
         "material": 0,
@@ -18164,36 +18153,26 @@
         ]
       },
       {
-        "index": 3,
-        "vertices": 17,
-        "triangles": 22,
-        "material": 7,
+        "index": 2,
+        "vertices": 72,
+        "triangles": 104,
+        "material": 4,
         "textures": [
           "Team colour / glow",
           "UI\\Glues\\SinglePlayer\\HumanCampaign3D\\HumanCampaignFootman.blp"
         ]
       },
       {
-        "index": 4,
-        "vertices": 22,
-        "triangles": 28,
-        "material": 9,
+        "index": 3,
+        "vertices": 242,
+        "triangles": 276,
+        "material": 6,
         "textures": [
           "Buildings\\Undead\\AltarOfDarkness\\CreepyAltarOfDark.blp"
         ]
       },
       {
-        "index": 5,
-        "vertices": 22,
-        "triangles": 38,
-        "material": 6,
-        "textures": [
-          "Team colour / glow",
-          "Textures\\UndeadAirBarge.blp"
-        ]
-      },
-      {
-        "index": 6,
+        "index": 4,
         "vertices": 41,
         "triangles": 58,
         "material": 1,
@@ -18202,17 +18181,16 @@
         ]
       },
       {
-        "index": 7,
+        "index": 5,
         "vertices": 16,
         "triangles": 8,
         "material": 2,
         "textures": [
-          "Textures\\LavaLump2.blp",
           "Textures\\LavaLump2.blp"
         ]
       },
       {
-        "index": 8,
+        "index": 6,
         "vertices": 4,
         "triangles": 2,
         "material": 3,
@@ -18221,305 +18199,131 @@
         ]
       },
       {
-        "index": 9,
-        "vertices": 46,
-        "triangles": 38,
-        "material": 8,
-        "textures": [
-          "Textures\\UndeadAirBarge.blp"
-        ]
-      },
-      {
-        "index": 10,
-        "vertices": 52,
-        "triangles": 56,
-        "material": 4,
-        "textures": [
-          "Textures\\RedDragon.blp"
-        ]
-      },
-      {
-        "index": 11,
-        "vertices": 31,
-        "triangles": 44,
+        "index": 7,
+        "vertices": 74,
+        "triangles": 78,
         "material": 5,
         "textures": [
-          "UI\\Glues\\SinglePlayer\\HumanCampaign3D\\HumanCampaignFootman.blp"
-        ]
-      },
-      {
-        "index": 12,
-        "vertices": 22,
-        "triangles": 20,
-        "material": 9,
-        "textures": [
-          "Buildings\\Undead\\AltarOfDarkness\\CreepyAltarOfDark.blp"
-        ]
-      },
-      {
-        "index": 13,
-        "vertices": 6,
-        "triangles": 2,
-        "material": 8,
-        "textures": [
           "Textures\\UndeadAirBarge.blp"
         ]
       },
       {
-        "index": 14,
+        "index": 8,
         "vertices": 53,
         "triangles": 80,
-        "material": 14,
+        "material": 11,
         "textures": [
           "Textures\\Hair02_09.blp"
         ]
       },
       {
-        "index": 15,
-        "vertices": 116,
-        "triangles": 122,
-        "material": 10,
+        "index": 9,
+        "vertices": 115,
+        "triangles": 130,
+        "material": 7,
         "textures": [
           "Abilities\\Spells\\Undead\\CarrionSwarm\\HeroDreadlord.blp"
         ]
       },
       {
-        "index": 16,
+        "index": 10,
         "vertices": 8,
         "triangles": 4,
-        "material": 11,
+        "material": 8,
         "textures": [
           "textures\\purple_glow.blp",
           "Team colour / glow"
         ]
       },
       {
-        "index": 17,
-        "vertices": 359,
-        "triangles": 559,
-        "material": 12,
+        "index": 11,
+        "vertices": 360,
+        "triangles": 573,
+        "material": 9,
         "textures": [
           "Textures\\UndeadAirBarge.blp"
         ]
       },
       {
-        "index": 18,
+        "index": 12,
         "vertices": 150,
-        "triangles": 310,
-        "material": 13,
+        "triangles": 218,
+        "material": 10,
         "textures": [
           "Textures\\RedDragon.blp"
         ]
       },
       {
-        "index": 19,
+        "index": 13,
         "vertices": 13,
         "triangles": 12,
-        "material": 21,
+        "material": 17,
         "textures": [
-          "Doodads\\Ashenvale\\Props\\ScorchedRemains\\Demonized.blp"
+          "Textures\\UndeadTransportShip.blp"
         ]
       },
       {
-        "index": 20,
-        "vertices": 108,
-        "triangles": 128,
-        "material": 15,
+        "index": 14,
+        "vertices": 40,
+        "triangles": 32,
+        "material": 12,
         "textures": [
           "Team colour / glow",
           "Units\\Undead\\UndeadAirBarge\\UndeadAirBarge.blp"
         ]
       },
       {
-        "index": 21,
-        "vertices": 16,
-        "triangles": 24,
-        "material": 9,
-        "textures": [
-          "Buildings\\Undead\\AltarOfDarkness\\CreepyAltarOfDark.blp"
-        ]
-      },
-      {
-        "index": 22,
-        "vertices": 9,
-        "triangles": 6,
-        "material": 6,
-        "textures": [
-          "Team colour / glow",
-          "Textures\\UndeadAirBarge.blp"
-        ]
-      },
-      {
-        "index": 23,
-        "vertices": 10,
-        "triangles": 6,
-        "material": 8,
-        "textures": [
-          "Textures\\UndeadAirBarge.blp"
-        ]
-      },
-      {
-        "index": 24,
+        "index": 15,
         "vertices": 8,
         "triangles": 8,
-        "material": 16,
+        "material": 13,
         "textures": [
           "Textures\\Ballista.blp"
         ]
       },
       {
-        "index": 25,
-        "vertices": 78,
-        "triangles": 72,
-        "material": 17,
-        "textures": [
-          "Buildings\\Undead\\AltarOfDarkness\\CreepyAltarOfDark.blp"
-        ]
-      },
-      {
-        "index": 26,
-        "vertices": 61,
+        "index": 16,
+        "vertices": 51,
         "triangles": 43,
-        "material": 18,
+        "material": 15,
         "textures": [
           "Textures\\RedDragon.blp"
         ]
       },
       {
-        "index": 27,
+        "index": 17,
         "vertices": 8,
         "triangles": 8,
-        "material": 19,
+        "material": 16,
         "textures": [
           "UI\\Console\\NightElf\\NightElfUITile-InventoryCover.blp"
         ]
       },
       {
-        "index": 28,
-        "vertices": 31,
+        "index": 18,
+        "vertices": 29,
         "triangles": 21,
-        "material": 17,
+        "material": 14,
         "textures": [
           "Buildings\\Undead\\AltarOfDarkness\\CreepyAltarOfDark.blp"
         ]
       },
       {
-        "index": 29,
-        "vertices": 24,
-        "triangles": 38,
-        "material": 7,
+        "index": 19,
+        "vertices": 339,
+        "triangles": 258,
+        "material": 18,
         "textures": [
-          "Team colour / glow",
-          "UI\\Glues\\SinglePlayer\\HumanCampaign3D\\HumanCampaignFootman.blp"
+          "Units\\Undead\\HeroDreadLord\\HeroDreadlord.blp"
         ]
       },
       {
-        "index": 30,
-        "vertices": 12,
-        "triangles": 12,
+        "index": 20,
+        "vertices": 89,
+        "triangles": 64,
         "material": 20,
         "textures": [
-          "Team colour / glow",
-          "Buildings\\Undead\\AltarOfDarkness\\CreepyAltarOfDark.blp"
-        ]
-      },
-      {
-        "index": 31,
-        "vertices": 6,
-        "triangles": 4,
-        "material": 10,
-        "textures": [
-          "Abilities\\Spells\\Undead\\CarrionSwarm\\HeroDreadlord.blp"
-        ]
-      },
-      {
-        "index": 32,
-        "vertices": 6,
-        "triangles": 4,
-        "material": 10,
-        "textures": [
-          "Abilities\\Spells\\Undead\\CarrionSwarm\\HeroDreadlord.blp"
-        ]
-      },
-      {
-        "index": 33,
-        "vertices": 88,
-        "triangles": 64,
-        "material": 22,
-        "textures": [
-          "Units\\Undead\\HeroDreadLord\\HeroDreadlord.blp"
-        ]
-      },
-      {
-        "index": 34,
-        "vertices": 22,
-        "triangles": 16,
-        "material": 22,
-        "textures": [
-          "Units\\Undead\\HeroDreadLord\\HeroDreadlord.blp"
-        ]
-      },
-      {
-        "index": 35,
-        "vertices": 22,
-        "triangles": 16,
-        "material": 22,
-        "textures": [
-          "Units\\Undead\\HeroDreadLord\\HeroDreadlord.blp"
-        ]
-      },
-      {
-        "index": 36,
-        "vertices": 66,
-        "triangles": 48,
-        "material": 22,
-        "textures": [
-          "Units\\Undead\\HeroDreadLord\\HeroDreadlord.blp"
-        ]
-      },
-      {
-        "index": 37,
-        "vertices": 66,
-        "triangles": 50,
-        "material": 22,
-        "textures": [
-          "Units\\Undead\\HeroDreadLord\\HeroDreadlord.blp"
-        ]
-      },
-      {
-        "index": 38,
-        "vertices": 22,
-        "triangles": 16,
-        "material": 22,
-        "textures": [
-          "Units\\Undead\\HeroDreadLord\\HeroDreadlord.blp"
-        ]
-      },
-      {
-        "index": 39,
-        "vertices": 22,
-        "triangles": 16,
-        "material": 22,
-        "textures": [
-          "Units\\Undead\\HeroDreadLord\\HeroDreadlord.blp"
-        ]
-      },
-      {
-        "index": 40,
-        "vertices": 22,
-        "triangles": 16,
-        "material": 22,
-        "textures": [
-          "Units\\Undead\\HeroDreadLord\\HeroDreadlord.blp"
-        ]
-      },
-      {
-        "index": 41,
-        "vertices": 22,
-        "triangles": 16,
-        "material": 22,
-        "textures": [
-          "Units\\Undead\\HeroDreadLord\\HeroDreadlord.blp"
+          "Textures\\GenericGlow64.blp"
         ]
       }
     ],
@@ -18541,14 +18345,23 @@
       "Stand Ready",
       "Attack Walk Stand Spin"
     ],
-    "bytes": 254283,
-    "sha256": "04033e3aab58e55cf76f8b6de4b25a3cf2bb25ac19e13740d40e74b7feb7c34e",
+    "bytes": 208670,
+    "sha256": "8f638787481ba71f7ea5955de322e7b27ee410926c85a0604cfd209b2eb28fd5",
     "formationSequence": "Attack Slam",
     "formationTime": 1018,
     "searchDescription": "Preview and download a Warhammer Fantasy Blood Dragon model for Warcraft 3. A Vampire Counts warrior with a double axe and 16 animations.",
     "formationBodyHeight": 0.76,
     "formationYaw": 0.15,
-    "captureRibbons": false
+    "captureRibbons": false,
+    "captureSequence": "Attack Slam",
+    "captureTime": 1018,
+    "imageVersion": "20261122-blood-dragon-8f638787",
+    "changelog": [
+      {
+        "date": "22 November 2026",
+        "text": "Reskinned and optimized"
+      }
+    ]
   },
   {
     "id": "kurgan-warlord",
