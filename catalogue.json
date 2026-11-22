@@ -36476,7 +36476,7 @@
     "name": "Chaos Dragon - Riderless",
     "army": "warriors-of-chaos",
     "description": "Optimized version: Looks and animates exactly like the full version but is about 17 KB smaller because the per-animation geoset bounding boxes have been removed. The game doesn't need them. Model editors may warn about missing extents, which is harmless. Use the full version if you want to edit the model.\n\n“It's whispered amongst the northern tribes that somewhere in the icy peaks, there are Dragons, but not the ones of legend. These are the mutant spawn of Galrauch, the ancient Dragon who was corrupted by Tzeentch. The Chaos Dragons are thankfully rare and content to spend the eons buried in their lairs, brimming with hatred and plotting the destruction of all that lives. But when the Dark Gods call, not even these monsters can resist the urge to wage war for the Ruinous Powers. But they are fickle creatures, quick to turn on their allies should it give them the advantage.”\n\n—Reinholt Schent, Scholar of the Fantastic\n\nWarhammer Fantasy Roleplay 2nd Edition: Tome of Corruption (RPG)\npg. 114",
-    "credits": "Model Base - Lindormr Dragon by Olofmoleman (Dragon Body) / Gnome Dragonrider by Direfury (Animations)\n\nReskin/Remesh - By UnsanctionedMagic\n\nDragon Face 1 Gills/Horns - Skeletal Dragon / Frostwyrm Remake by Mister_Haudrauf and Olofmoleman, reshaped by UnsanctionedMagic\n\nDragon Face 2 - Dragons by stein123, reshaped by UnsanctionedMagic",
+    "credits": "Model Base - Lindormr Dragon by Olofmoleman (Dragon Body) / Gnome Dragonrider by Direfury (Animations)\n\nReskin/Remesh - By UnsanctionedMagic\n\nDragon Face 1 Gills/Horns - Skeletal Dragon / Frostwyrm Remake by Mister_Haudrauf and Olofmoleman, reshaped by UnsanctionedMagic\n\nDragon Face 2 - Dragons by stein123, reshaped by UnsanctionedMagic\n\nLayered skin effects created with the MDLxL FX feature.",
     "authors": [
       {
         "name": "UnsanctionedMagic",
@@ -36523,6 +36523,10 @@
       {
         "text": "stein123",
         "url": "https://www.hiveworkshop.com/members/stein123.196992/"
+      },
+      {
+        "text": "MDLxL FX feature",
+        "url": "https://www.lowpolyworks.com/mdlxl/tutorials/fx/"
       }
     ],
     "geosets": [
@@ -36706,7 +36710,7 @@
       },
       {
         "index": 18,
-        "vertices": 322,
+        "vertices": 302,
         "triangles": 504,
         "material": 15,
         "textures": [
@@ -36784,9 +36788,9 @@
       "Portrait",
       "Portrait Talk"
     ],
-    "bytes": 477032,
-    "sha256": "68ec9306ea54619014bbb850aeb3a67fc8f93b1cb462b2140eae5a6d8cf82749",
-    "downloadPack": "downloads/chaos-dragon-riderless/sound-timing/ChaosDragonRiderLess01Optimized.zip",
+    "bytes": 476372,
+    "sha256": "703a29a6ec42ec1244b9aee18cc153871a2f563faf4295d25df86da4f1054098",
+    "downloadPack": "downloads/chaos-dragon-riderless/tattoos/ChaosDragonRiderLess01Optimized.zip",
     "publishedAt": "2026-11-22T21:06:10.683Z",
     "imageVersion": "20261122-chaos-dragon-riderless",
     "searchDescription": "Preview and download Chaos Dragon - Riderless, a Warriors of Chaos model for Warcraft III Classic.",
@@ -36794,13 +36798,13 @@
     "downloadOptions": [
       {
         "label": "Download",
-        "path": "downloads/chaos-dragon-riderless/sound-timing/ChaosDragonRiderLess01.zip",
-        "bytes": 494420
+        "path": "downloads/chaos-dragon-riderless/tattoos/ChaosDragonRiderLess01.zip",
+        "bytes": 493760
       },
       {
         "label": "Optimized",
-        "path": "downloads/chaos-dragon-riderless/sound-timing/ChaosDragonRiderLess01Optimized.zip",
-        "bytes": 477032
+        "path": "downloads/chaos-dragon-riderless/tattoos/ChaosDragonRiderLess01Optimized.zip",
+        "bytes": 476372
       }
     ]
   }
