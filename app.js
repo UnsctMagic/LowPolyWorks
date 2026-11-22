@@ -10,7 +10,7 @@ import {countShredder} from './shredder-stats.js?v=20261022-stash-tzeentch';
 import {wheelSelect} from './wheel-select.js?v=20261022-wheel-animations';
 import {TEAM_COLORS} from './vendor/mdlxl/src/team-colors.js';
 import {recordUsage} from './usage.js?v=20261025-amsterdam-days';
-import {renderJournal} from './journal.js?v=20261115-site-perf';
+import {renderJournal} from './journal.js?v=20261122-riderless-cache';
 import {readMdlxlRoute,mdlxlHref} from './mdlxl-routes.js?v=20261117-animate-tutorials';
 const initialMdlxl=readMdlxlRoute(location);if(initialMdlxl&&location.hash.startsWith('#project/mdlxl'))history.replaceState(null,'',mdlxlHref(initialMdlxl.section,initialMdlxl.tutorial,location.search));
 const app=document.querySelector('#app');
