@@ -35542,7 +35542,13 @@
       "Flying unit Projectile Launch: X 0, Y 195, Z 275",
       "Combined Unit Projectile Launch: X 0, Y 240, Z 210"
     ],
-    "optimizedNote": "looks and animates exactly like the full version but is about 40 KB smaller, because the per-animation bounding boxes have been removed. The game doesn't need them. Model editors may warn about missing extents, which is harmless. Use the full version if you want to edit the model."
+    "optimizedNote": "looks and animates exactly like the full version but is about 40 KB smaller, because the per-animation bounding boxes have been removed. The game doesn't need them. Model editors may warn about missing extents, which is harmless. Use the full version if you want to edit the model.",
+    "changelog": [
+      {
+        "date": "22 November 2026",
+        "text": "Fixed emitters"
+      }
+    ]
   },
   {
     "id": "chaos-dragon-with-chaos-lord-hero",
@@ -36238,7 +36244,13 @@
       "Flying unit Projectile Launch: X 0, Y 195, Z 275",
       "Combined Unit Projectile Launch: X 0, Y 240, Z 210"
     ],
-    "optimizedNote": "looks and animates exactly like the full version but is about 40 KB smaller, because the per-animation bounding boxes have been removed. The game doesn't need them. Model editors may warn about missing extents, which is harmless. Use the full version if you want to edit the model."
+    "optimizedNote": "looks and animates exactly like the full version but is about 40 KB smaller, because the per-animation bounding boxes have been removed. The game doesn't need them. Model editors may warn about missing extents, which is harmless. Use the full version if you want to edit the model.",
+    "changelog": [
+      {
+        "date": "22 November 2026",
+        "text": "Fixed emitters"
+      }
+    ]
   },
   {
     "id": "chaos-dragon-with-chaos-lord-lance",
@@ -36455,7 +36467,7 @@
     "bytes": 34444,
     "sha256": "beb82b4406b677fcc0676bc89732cece8067d4fbb9212f9c100f7ac43fca181c",
     "publishedAt": "2026-11-22T18:19:34.760Z",
-    "imageVersion": "20261122-chaos-dragon",
+    "imageVersion": "20261122-lance-portrait",
     "searchDescription": "Preview and download Chaos Lance for Warcraft III Classic.",
     "downloadOptions": [
       {
@@ -36468,6 +36480,12 @@
       0.38,
       -0.92,
       0.38
+    ],
+    "changelog": [
+      {
+        "date": "22 November 2026",
+        "text": "Fixed emitters"
+      }
     ]
   },
   {
