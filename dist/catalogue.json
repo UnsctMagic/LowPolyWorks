@@ -34865,5 +34865,636 @@
         "text": "Updated Team Color model."
       }
     ]
+  },
+  {
+    "id": "chaos-dragon-with-chaos-lord",
+    "file": "WH_WOC_ChaosDragonLord01Optimized.mdx",
+    "name": "Chaos Dragon with Chaos Lord",
+    "army": "warriors-of-chaos",
+    "description": "“It's whispered amongst the northern tribes that somewhere in the icy peaks, there are Dragons, but not the ones of legend. These are the mutant spawn of Galrauch, the ancient Dragon who was corrupted by Tzeentch. The Chaos Dragons are thankfully rare and content to spend the eons buried in their lairs, brimming with hatred and plotting the destruction of all that lives. But when the Dark Gods call, not even these monsters can resist the urge to wage war for the Ruinous Powers. But they are fickle creatures, quick to turn on their allies should it give them the advantage.”\n\n—Reinholt Schent, Scholar of the Fantastic\n\nWarhammer Fantasy Roleplay 2nd Edition: Tome of Corruption (RPG)\npg. 114",
+    "credits": "Model Base - Gnome Dragonrider by Direfury (Animations) / Lindormr Dragon by Olofmoleman (Dragon Body) / Dread Knight/Death Knight by Direfury (Rider Body)\n\nReskin/Remesh - By UnsanctionedMagic\n\nChains around dragon neck - Abomination (Re-Classic) by Johnwar\n\nDragon Face 1 Gills/Horns - Skeletal Dragon / Frostwyrm Remake by Mister_Haudrauf and Olofmoleman\n\nDragon Face 2 - Dragons by stein123, reshaped by UnsanctionedMagic\n\nRider Helmet - Bandit Enforcer (Re-Classic) by Johnwar\n\nHorns - Celestial Yak from World of Warcraft by Blizzard\n\nLance Head - Guilty Thorn by Blood Raven\n\nProjectile base animation - Mars the Impaler by Jab1z\n\nCloak - Shamelessly skinned by UnsanctionedMagic from Blizzard.\n\nLayered skin effects created with the MDLxL FX feature.",
+    "authors": [
+      {
+        "name": "UnsanctionedMagic",
+        "url": "https://xgm.guru/user/UnsanctMagic"
+      }
+    ],
+    "creditLinks": [
+      {
+        "text": "UnsanctionedMagic",
+        "url": "https://xgm.guru/user/UnsanctMagic"
+      },
+      {
+        "text": "Gnome Dragonrider",
+        "url": "https://www.hiveworkshop.com/threads/gnome-dragonrider.324793/"
+      },
+      {
+        "text": "Direfury",
+        "url": "https://www.hiveworkshop.com/members/direfury.188037/"
+      },
+      {
+        "text": "Lindormr Dragon",
+        "url": "https://www.hiveworkshop.com/threads/lindormr-dragon.52050/"
+      },
+      {
+        "text": "Olofmoleman",
+        "url": "https://www.hiveworkshop.com/members/olofmoleman.115820/"
+      },
+      {
+        "text": "Dread Knight/Death Knight",
+        "url": "https://www.hiveworkshop.com/threads/dread-knight-death-knight.252328/"
+      },
+      {
+        "text": "Abomination (Re-Classic)",
+        "url": "https://www.hiveworkshop.com/threads/abomination-re-classic.357166/"
+      },
+      {
+        "text": "Johnwar",
+        "url": "https://www.hiveworkshop.com/members/johnwar.264426/"
+      },
+      {
+        "text": "Skeletal Dragon / Frostwyrm Remake",
+        "url": "https://www.hiveworkshop.com/threads/skeletal-dragon-frostwyrm-remake.294139/"
+      },
+      {
+        "text": "Mister_Haudrauf",
+        "url": "https://www.hiveworkshop.com/members/mister_haudrauf.236714/"
+      },
+      {
+        "text": "stein123",
+        "url": "https://www.hiveworkshop.com/members/stein123.196992/"
+      },
+      {
+        "text": "Bandit Enforcer (Re-Classic)",
+        "url": "https://www.hiveworkshop.com/threads/bandit-enforcer-re-classic.336169/"
+      },
+      {
+        "text": "Celestial Yak",
+        "url": "https://wc3.ninja/models/1052739#d=645.2&y=-0.580&p=0.166&tx=0.0&ty=0.0&tz=112.0"
+      },
+      {
+        "text": "Blizzard",
+        "url": "https://www.blizzard.com/"
+      },
+      {
+        "text": "Guilty Thorn",
+        "url": "https://www.hiveworkshop.com/threads/guilty-thorn.261830/"
+      },
+      {
+        "text": "Blood Raven",
+        "url": "https://www.hiveworkshop.com/members/blood-raven.194769/"
+      },
+      {
+        "text": "Mars the Impaler",
+        "url": "https://www.hiveworkshop.com/threads/mars-the-impaler.336494/"
+      },
+      {
+        "text": "MDLxL FX feature",
+        "url": "https://www.lowpolyworks.com/mdlxl/tutorials/fx/"
+      }
+    ],
+    "geosets": [
+      {
+        "index": 0,
+        "vertices": 214,
+        "triangles": 108,
+        "material": 8,
+        "textures": [
+          "Textures\\Abomination.blp",
+          "Textures\\Abomination.blp"
+        ]
+      },
+      {
+        "index": 1,
+        "vertices": 6,
+        "triangles": 4,
+        "material": 28,
+        "textures": [
+          "Units\\Other\\DiabloCar\\DiabloCar.blp",
+          "Units\\Other\\DiabloCar\\DiabloCar.blp"
+        ]
+      },
+      {
+        "index": 2,
+        "vertices": 8,
+        "triangles": 4,
+        "material": 3,
+        "textures": [
+          "Textures\\Red_Glow3.blp",
+          "Textures\\Red_Glow3.blp"
+        ]
+      },
+      {
+        "index": 3,
+        "vertices": 173,
+        "triangles": 246,
+        "material": 2,
+        "textures": [
+          "Textures\\BlackDragon.blp",
+          "Textures\\BlackDragon.blp"
+        ]
+      },
+      {
+        "index": 4,
+        "vertices": 62,
+        "triangles": 84,
+        "material": 4,
+        "textures": [
+          "Team colour / glow",
+          "Textures\\UndeadAirBarge.blp"
+        ]
+      },
+      {
+        "index": 5,
+        "vertices": 4,
+        "triangles": 2,
+        "material": 5,
+        "textures": [
+          "Team colour / glow"
+        ]
+      },
+      {
+        "index": 6,
+        "vertices": 354,
+        "triangles": 334,
+        "material": 6,
+        "textures": [
+          "Textures\\gutz.blp"
+        ]
+      },
+      {
+        "index": 7,
+        "vertices": 40,
+        "triangles": 48,
+        "material": 26,
+        "textures": [
+          "Team colour / glow",
+          "Units\\Creeps\\FacelessOne\\FacelessOne.blp"
+        ]
+      },
+      {
+        "index": 8,
+        "vertices": 415,
+        "triangles": 566,
+        "material": 10,
+        "textures": [
+          "Textures\\RedDragon.blp",
+          "Textures\\RedDragon.blp"
+        ]
+      },
+      {
+        "index": 9,
+        "vertices": 46,
+        "triangles": 46,
+        "material": 12,
+        "textures": [
+          "Units\\Naga\\SnapDragon\\SnapDragon.blp",
+          "Units\\Naga\\SnapDragon\\SnapDragon.blp"
+        ]
+      },
+      {
+        "index": 10,
+        "vertices": 91,
+        "triangles": 104,
+        "material": 10,
+        "textures": [
+          "Textures\\RedDragon.blp",
+          "Textures\\RedDragon.blp"
+        ]
+      },
+      {
+        "index": 11,
+        "vertices": 21,
+        "triangles": 22,
+        "material": 13,
+        "textures": [
+          "Textures\\AzureDragon.blp",
+          "Textures\\AzureDragon.blp"
+        ]
+      },
+      {
+        "index": 12,
+        "vertices": 249,
+        "triangles": 332,
+        "material": 14,
+        "textures": [
+          "Textures\\Skeleton.blp",
+          "Textures\\Skeleton.blp"
+        ]
+      },
+      {
+        "index": 13,
+        "vertices": 42,
+        "triangles": 48,
+        "material": 15,
+        "textures": [
+          "Team colour / glow",
+          "Team colour / glow",
+          "Units\\Undead\\Ghoul\\Ghoul.blp",
+          "Units\\Undead\\Ghoul\\Ghoul.blp"
+        ]
+      },
+      {
+        "index": 14,
+        "vertices": 8,
+        "triangles": 4,
+        "material": 3,
+        "textures": [
+          "Textures\\Red_Glow3.blp",
+          "Textures\\Red_Glow3.blp"
+        ]
+      },
+      {
+        "index": 15,
+        "vertices": 350,
+        "triangles": 300,
+        "material": 16,
+        "textures": [
+          "Textures\\DeathScream.blp",
+          "Textures\\DeathScream.blp"
+        ]
+      },
+      {
+        "index": 16,
+        "vertices": 571,
+        "triangles": 849,
+        "material": 11,
+        "textures": [
+          "Textures\\BlackDragon.blp",
+          "Textures\\BlackDragon.blp"
+        ]
+      },
+      {
+        "index": 17,
+        "vertices": 24,
+        "triangles": 12,
+        "material": 10,
+        "textures": [
+          "Textures\\RedDragon.blp",
+          "Textures\\RedDragon.blp"
+        ]
+      },
+      {
+        "index": 18,
+        "vertices": 76,
+        "triangles": 120,
+        "material": 21,
+        "textures": [
+          "Textures\\GreenDragon.blp",
+          "Textures\\GreenDragon.blp"
+        ]
+      },
+      {
+        "index": 19,
+        "vertices": 8,
+        "triangles": 4,
+        "material": 23,
+        "textures": [
+          "Textures\\Blue_Glow2.blp",
+          "Textures\\Blue_Glow2.blp"
+        ]
+      },
+      {
+        "index": 20,
+        "vertices": 8,
+        "triangles": 4,
+        "material": 22,
+        "textures": [
+          "Units\\Undead\\Skeleton\\Skeleton.blp",
+          "Units\\Undead\\Skeleton\\Skeleton.blp"
+        ]
+      },
+      {
+        "index": 21,
+        "vertices": 189,
+        "triangles": 257,
+        "material": 17,
+        "textures": [
+          "TerrainArt\\Dungeon\\Cave_GreyStones.blp"
+        ]
+      },
+      {
+        "index": 22,
+        "vertices": 197,
+        "triangles": 257,
+        "material": 18,
+        "textures": [
+          "Textures\\GenericGlow64.blp"
+        ]
+      },
+      {
+        "index": 23,
+        "vertices": 569,
+        "triangles": 845,
+        "material": 19,
+        "textures": [
+          "TerrainArt\\Dungeon\\Cave_DarkRocks.blp"
+        ]
+      },
+      {
+        "index": 24,
+        "vertices": 302,
+        "triangles": 504,
+        "material": 20,
+        "textures": [
+          "Doodads\\Cinematic\\IcecrownObelisk\\glow_runes.blp",
+          "Doodads\\Cinematic\\IcecrownObelisk\\glow_runes.blp",
+          "Doodads\\Cinematic\\IcecrownObelisk\\glow_runes.blp"
+        ]
+      },
+      {
+        "index": 25,
+        "vertices": 22,
+        "triangles": 16,
+        "material": 0,
+        "textures": [
+          "Units\\Undead\\FrostWyrm\\FrostWyrm.blp",
+          "Units\\Undead\\FrostWyrm\\FrostWyrm.blp"
+        ]
+      },
+      {
+        "index": 26,
+        "vertices": 94,
+        "triangles": 124,
+        "material": 24,
+        "textures": [
+          "Textures\\GenericGlow64.blp"
+        ]
+      },
+      {
+        "index": 27,
+        "vertices": 101,
+        "triangles": 147,
+        "material": 25,
+        "textures": [
+          "Textures\\GenericGlow64.blp",
+          "Textures\\GenericGlow64.blp"
+        ]
+      },
+      {
+        "index": 28,
+        "vertices": 14,
+        "triangles": 12,
+        "material": 9,
+        "textures": [
+          "Team colour / glow",
+          "Units\\Creeps\\ChaosWarlockGreen\\ChaosGreenWarlock.blp"
+        ]
+      },
+      {
+        "index": 29,
+        "vertices": 429,
+        "triangles": 566,
+        "material": 27,
+        "textures": [
+          "Doodads\\Cinematic\\EyeOfSargeras\\Demon_Rune_Cracks.blp",
+          "Doodads\\Cinematic\\EyeOfSargeras\\Demon_Rune_Cracks.blp"
+        ]
+      },
+      {
+        "index": 30,
+        "vertices": 654,
+        "triangles": 361,
+        "material": 29,
+        "textures": [
+          "Textures\\OutlandDoodads.blp"
+        ]
+      },
+      {
+        "index": 31,
+        "vertices": 12,
+        "triangles": 12,
+        "material": 30,
+        "textures": [
+          "Textures\\Ballista.blp"
+        ]
+      },
+      {
+        "index": 32,
+        "vertices": 93,
+        "triangles": 130,
+        "material": 31,
+        "textures": [
+          "Textures\\AxeBladeBlueSteel.blp"
+        ]
+      },
+      {
+        "index": 33,
+        "vertices": 64,
+        "triangles": 72,
+        "material": 32,
+        "textures": [
+          "ReplaceableTextures\\CommandButtons\\BTNFire.blp"
+        ]
+      },
+      {
+        "index": 34,
+        "vertices": 93,
+        "triangles": 130,
+        "material": 33,
+        "textures": [
+          "TerrainArt\\Dungeon\\Cave_Lava.blp"
+        ]
+      },
+      {
+        "index": 35,
+        "vertices": 93,
+        "triangles": 130,
+        "material": 34,
+        "textures": [
+          "Textures\\Flame4.blp"
+        ]
+      },
+      {
+        "index": 36,
+        "vertices": 93,
+        "triangles": 130,
+        "material": 35,
+        "textures": [
+          "Textures\\CloudsTile1.blp"
+        ]
+      },
+      {
+        "index": 37,
+        "vertices": 93,
+        "triangles": 130,
+        "material": 36,
+        "textures": [
+          "Textures\\AxeBladeBlueSteel.blp"
+        ]
+      },
+      {
+        "index": 38,
+        "vertices": 28,
+        "triangles": 25,
+        "material": 37,
+        "textures": [
+          "Units\\Creeps\\Magnataur\\Magnataur.blp"
+        ]
+      },
+      {
+        "index": 39,
+        "vertices": 225,
+        "triangles": 207,
+        "material": 38,
+        "textures": [
+          "Units\\Orc\\Spiritwolf\\FeralSpirit.blp"
+        ]
+      },
+      {
+        "index": 40,
+        "vertices": 18,
+        "triangles": 17,
+        "material": 39,
+        "textures": [
+          "Units\\Orc\\Spiritwolf\\FeralSpirit.blp"
+        ]
+      },
+      {
+        "index": 41,
+        "vertices": 24,
+        "triangles": 32,
+        "material": 40,
+        "textures": [
+          "Team colour / glow",
+          "Textures\\UndeadTransportShip.blp"
+        ]
+      },
+      {
+        "index": 42,
+        "vertices": 26,
+        "triangles": 16,
+        "material": 1,
+        "textures": [
+          "Textures\\UndeadTransportShip.blp",
+          "Textures\\UndeadTransportShip.blp"
+        ]
+      },
+      {
+        "index": 43,
+        "vertices": 11,
+        "triangles": 10,
+        "material": 47,
+        "textures": [
+          "Textures\\Doodads0.blp"
+        ]
+      },
+      {
+        "index": 44,
+        "vertices": 91,
+        "triangles": 122,
+        "material": 41,
+        "textures": [
+          "Textures\\InfernalCannon.blp"
+        ]
+      },
+      {
+        "index": 45,
+        "vertices": 41,
+        "triangles": 36,
+        "material": 42,
+        "textures": [
+          "Textures\\Bandit.blp"
+        ]
+      },
+      {
+        "index": 46,
+        "vertices": 23,
+        "triangles": 32,
+        "material": 43,
+        "textures": [
+          "Units\\Creeps\\BanditLord\\BanditLord.blp"
+        ]
+      },
+      {
+        "index": 47,
+        "vertices": 203,
+        "triangles": 348,
+        "material": 44,
+        "textures": [
+          "Textures\\UndeadAirBarge.blp",
+          "Textures\\UndeadAirBarge.blp"
+        ]
+      },
+      {
+        "index": 48,
+        "vertices": 129,
+        "triangles": 139,
+        "material": 45,
+        "textures": [
+          "Units\\Other\\BloodElfLieutenant\\BloodElfLieutenant.blp"
+        ]
+      },
+      {
+        "index": 49,
+        "vertices": 132,
+        "triangles": 84,
+        "material": 46,
+        "textures": [
+          "Team colour / glow",
+          "units\\Creeps\\LordGarithos\\LordGarithos.blp"
+        ]
+      },
+      {
+        "index": 50,
+        "vertices": 56,
+        "triangles": 108,
+        "material": 25,
+        "textures": [
+          "Textures\\GenericGlow64.blp",
+          "Textures\\GenericGlow64.blp"
+        ]
+      },
+      {
+        "index": 51,
+        "vertices": 17,
+        "triangles": 15,
+        "material": 2,
+        "textures": [
+          "Textures\\BlackDragon.blp",
+          "Textures\\BlackDragon.blp"
+        ]
+      }
+    ],
+    "sequences": [
+      "Walk",
+      "Stand - 1",
+      "Stand - 2",
+      "Stand Ready",
+      "Attack - 1",
+      "Attack - 2",
+      "Attack Slam",
+      "Spell",
+      "Spell Two",
+      "Spell Throw",
+      "Spell Slam",
+      "Stand Channel",
+      "Death",
+      "Decay Flesh",
+      "Decay Bone",
+      "Morph",
+      "Stand Alternate",
+      "Stand Alternate - 2",
+      "Walk Alternate",
+      "Walk Alternate - 2",
+      "Stand Ready Alternate",
+      "Attack Throw Alternate",
+      "Spell Alternate",
+      "Spell Two Alternate",
+      "Stand Channel Alternate",
+      "Morph Alternate",
+      "Death Alternate",
+      "Portrait",
+      "Portrait Talk"
+    ],
+    "bytes": 695657,
+    "sha256": "92e00e4fe8f4e53eb0c84f88a0eedeae4cd876a7b226f2b93befbe9ddf6bdac8",
+    "downloadPack": "downloads/chaos-dragon-with-chaos-lord/WH_WOC_ChaosDragonLord01Optimized.zip",
+    "publishedAt": "2026-11-22T18:19:34.760Z",
+    "imageVersion": "20261122-chaos-dragon",
+    "searchDescription": "Preview and download Chaos Dragon with Chaos Lord, a Warriors of Chaos model for Warcraft III Classic.",
+    "textureFiles": {
+      "units\\other\\diablocar\\diablocar.blp": "textures/native-diablocar.png"
+    }
   }
 ]
