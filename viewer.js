@@ -9,6 +9,7 @@ import {installWarcraftPreviewAdapter,previewGeosetTint,initializeWarcraftRender
 import {advanceShowcaseModel} from './vendor/mdlxl/app/showcase-playback.js';
 import {createViewerEvents} from './viewer-events.js?v=20261115-site-perf';
 import {readEffectSettings} from './viewer-effect-controls.js?v=20261113-viewer-events';
+import {createEmitterReplay} from './viewer-emitter-replay.js';
 import {resetPreviewEffects} from './vendor/mdlxl/app/warcraft-preview-adapter.js';
 import {viewerPlaybackSample,setWarcraftCamera} from './viewer-effects.js?v=20261006-classic-portrait-controls';
 import {installParticleNativeCompatibility} from './vendor/mdlxl/particle-native.mjs';
@@ -53,6 +54,7 @@ export async function createViewer(canvas,row,{thumbnail=false,portrait=false,fo
   native.setLayerProps=function(layer,textureID){const result=setLayerProps.call(this,layer,textureID);if(layer===bracerLayer){gl.enable(gl.POLYGON_OFFSET_FILL);gl.polygonOffset(-1,-8);}else gl.disable(gl.POLYGON_OFFSET_FILL);return result;};
  }
 
+ const emitterReplay=!thumbnail&&(model.ParticleEmitters2?.length||model.RibbonEmitters?.length)?createEmitterReplay(native):null;
  teamTextures.ready(native);
  // Gate the main model's emitters only; spawned effects own their controllers.
  for(const controller of [native.particlesController,native.ribbonsController]){
@@ -178,7 +180,11 @@ export async function createViewer(canvas,row,{thumbnail=false,portrait=false,fo
  // Keep depth precision around the model as playback and mouse navigation change the view.
  if(!portraitActive||portraitDetached)updateDepthClipping(renderCamera,center,radius,clipRadius);
  // Warcraft particle planes and billboard nodes use +X as forward and +Z as up.
- setWarcraftCamera(native,renderCamera);previous=advanceShowcaseModel(native,model,sample,previous);
+ setWarcraftCamera(native,renderCamera);
+ if(effects.emitters&&emitterReplay?.active){
+  if(!emitterReplay.render(renderCamera,sample.frame))invalidate();
+  previous=sample;
+ }else previous=advanceShowcaseModel(native,model,sample,previous);
  gl.viewport(0,0,canvas.width,canvas.height);gl.clearColor(...(portraitActive||transparent?[0,0,0]:[16/255,24/255,39/255]),transparent?0:1);gl.clearDepth(1);gl.depthMask(true);gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT);native.render(renderCamera.matrixWorldInverse.elements,renderCamera.projectionMatrix.elements,{wireframe:false,useEnvironmentMap:true});
  eventPreview?.render(sample,eventDelta,renderCamera,playing,looping,speed);}
  const frameInterval=1000/preferences.graphics.maxFps;
@@ -196,7 +202,10 @@ export async function createViewer(canvas,row,{thumbnail=false,portrait=false,fo
   if(turning)turntableYaw=(turntableYaw+delta*turntableSpeed*(2*Math.PI/50000))%(2*Math.PI);
   // Mouse controls update on input and emit change, including zoom.
   // Held poses redraw only after input, resize or an async effect upload.
-  if(playing||turning||needsRender||ended&&eventPreview?.active)render(playing?delta:0,playing||ended?eventDelta:0);
+  const replayPending=effects.emitters&&emitterReplay?.busy;
+  if(playing&&emitterReplay?.active&&!replayPending)emitterReplay.clear();
+  const advancing=playing&&!replayPending;
+  if(playing||turning||needsRender||ended&&eventPreview?.active)render(advancing?delta:0,advancing||ended?eventDelta:0);
   if(playing&&!looping&&clock>=model.Sequences[sequence].Interval[1]-model.Sequences[sequence].Interval[0]){
    playing=false;ended=true;onPlayingChange?.(playing);
   }
@@ -207,6 +216,9 @@ export async function createViewer(canvas,row,{thumbnail=false,portrait=false,fo
  return {model,render,seek(time){
   const [start,end]=model.Sequences[sequence].Interval;
   clock=Math.max(0,Math.min(end-start,time));playing=false;ended=false;
-  eventPreview?.stopSounds();revision++;previous=null;render();onPlayingChange?.(false);
- },...(thumbnail?{captureFrame:()=>({center:center.clone(),radius,clipRadius,camera:camera.clone()}),useCaptureFrame(frame){center.copy(frame.center);radius=frame.radius;clipRadius=frame.clipRadius;camera.copy(frame.camera);revision++;previous=null;render();}}:{}),formationAnchor:()=>new THREE.Vector3(0,0,center.z).project(camera).x/2+.5,snapshot:()=>canvas.toDataURL('image/png'),sequence(i){ended=false;eventPreview?.stopSounds();sequence=i;clipRadius=sequenceClipRadius(i);looping=!model.Sequences[i].NonLooping;clock=0;revision++;previous=null;native.setSequence(i);if(!thumbnail)setLivePortrait(/portrait/i.test(model.Sequences[i].Name));render();return looping;},play(){eventPreview?.unlockSound();if(ended){clock=0;revision++;previous=null;}ended=false;eventPreview?.armSound(sequence,clock,looping);if(!playing){playing=true;onPlayingChange?.(playing);}},loop(v){ended=false;looping=v;clock=0;revision++;previous=null;render();},looping:()=>looping,pause(){playing=!playing;ended=false;if(playing){eventPreview?.unlockSound();eventPreview?.armSound(sequence,clock,looping);}else eventPreview?.stopSounds();if(playing&&!looping&&clock>=model.Sequences[sequence].Interval[1]-model.Sequences[sequence].Interval[0]){clock=0;revision++;previous=null;render();}onPlayingChange?.(playing);return playing;},speed(v){speed=v;},orbitSpeed(v){turntableSpeed=v;},lighting(mode){if(['game','portrait','none'].includes(mode)){lightingMode=mode;render();}return lightingMode;},effects:()=>({...effects}),effect(key,value){if(!(key in effects))return;effects[key]=!!value;if(key==='emitters'&&!value)resetPreviewEffects(native);if(key==='sounds'){if(value)eventPreview?.unlockSound();else eventPreview?.stopSounds();}else if(!value)eventPreview?.clear(key);render();},async colour(hex){await Promise.all([teamTextures.colour(native,hex),eventPreview?.colour(hex)]);if(!disposed)render();},rotate(){rotate=!rotate;if(rotate)detachPortrait();return rotate;},reset(){turntableYaw=0;if(portraitActive)portraitDetached=false;else fit();render();},dispose(){disposed=true;cancelAnimationFrame(raf);resizeObserver?.disconnect();controls?.removeEventListener('change',invalidate);canvas.removeEventListener('pointerdown',unlockSound);eventPreview?.dispose();controls?.removeEventListener('start',startNavigation);controls?.removeEventListener('end',endNavigation);navigation?.dispose();adapter.dispose();gl.getExtension('WEBGL_lose_context')?.loseContext();}};
+  eventPreview?.stopSounds();revision++;previous=null;
+  emitterReplay?.seek(sequence,clock);
+  if(effects.emitters&&emitterReplay)invalidate();else render();
+  onPlayingChange?.(false);
+ },...(thumbnail?{captureFrame:()=>({center:center.clone(),radius,clipRadius,camera:camera.clone()}),useCaptureFrame(frame){center.copy(frame.center);radius=frame.radius;clipRadius=frame.clipRadius;camera.copy(frame.camera);revision++;previous=null;render();}}:{}),formationAnchor:()=>new THREE.Vector3(0,0,center.z).project(camera).x/2+.5,snapshot:()=>canvas.toDataURL('image/png'),sequence(i){emitterReplay?.clear();ended=false;eventPreview?.stopSounds();sequence=i;clipRadius=sequenceClipRadius(i);looping=!model.Sequences[i].NonLooping;clock=0;revision++;previous=null;native.setSequence(i);if(!thumbnail)setLivePortrait(/portrait/i.test(model.Sequences[i].Name));render();return looping;},play(){eventPreview?.unlockSound();if(ended){emitterReplay?.clear();clock=0;revision++;previous=null;}ended=false;eventPreview?.armSound(sequence,clock,looping);if(!playing){playing=true;onPlayingChange?.(playing);}},loop(v){emitterReplay?.clear();ended=false;looping=v;clock=0;revision++;previous=null;render();},looping:()=>looping,pause(){playing=!playing;ended=false;if(playing){eventPreview?.unlockSound();eventPreview?.armSound(sequence,clock,looping);}else eventPreview?.stopSounds();if(playing&&!looping&&clock>=model.Sequences[sequence].Interval[1]-model.Sequences[sequence].Interval[0]){emitterReplay?.clear();clock=0;revision++;previous=null;render();}onPlayingChange?.(playing);return playing;},speed(v){speed=v;},orbitSpeed(v){turntableSpeed=v;},lighting(mode){if(['game','portrait','none'].includes(mode)){lightingMode=mode;render();}return lightingMode;},effects:()=>({...effects}),effect(key,value){if(!(key in effects))return;effects[key]=!!value;if(key==='emitters'&&!value)resetPreviewEffects(native);if(key==='sounds'){if(value)eventPreview?.unlockSound();else eventPreview?.stopSounds();}else if(!value)eventPreview?.clear(key);render();},async colour(hex){await Promise.all([teamTextures.colour(native,hex),eventPreview?.colour(hex)]);if(!disposed)render();},rotate(){rotate=!rotate;if(rotate)detachPortrait();return rotate;},reset(){turntableYaw=0;if(portraitActive)portraitDetached=false;else fit();render();},dispose(){emitterReplay?.clear();disposed=true;cancelAnimationFrame(raf);resizeObserver?.disconnect();controls?.removeEventListener('change',invalidate);canvas.removeEventListener('pointerdown',unlockSound);eventPreview?.dispose();controls?.removeEventListener('start',startNavigation);controls?.removeEventListener('end',endNavigation);navigation?.dispose();adapter.dispose();gl.getExtension('WEBGL_lose_context')?.loseContext();}};
 }
