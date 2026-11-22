@@ -18345,15 +18345,15 @@
       "Stand Ready",
       "Attack Walk Stand Spin"
     ],
-    "bytes": 208670,
-    "sha256": "8f638787481ba71f7ea5955de322e7b27ee410926c85a0604cfd209b2eb28fd5",
+    "bytes": 209198,
+    "sha256": "b003efb8041e58dfb161bb73775de7ed9a7564d9ae79c0f4a841a5f83f108faa",
     "formationSequence": "Attack Slam",
     "formationTime": 1018,
     "searchDescription": "Preview and download a Warhammer Fantasy Blood Dragon model for Warcraft 3. A Vampire Counts warrior with a double axe and 16 animations.",
     "formationBodyHeight": 0.76,
     "formationYaw": 0.15,
     "captureRibbons": false,
-    "imageVersion": "20261122-blood-dragon-axe03-stand",
+    "imageVersion": "20261122-blood-dragon-stand-b003efb8",
     "changelog": [
       {
         "date": "22 November 2026",
