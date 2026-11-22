@@ -1,4 +1,4 @@
-import {createViewer} from './viewer.js?v=20261115-site-perf';
+import {createViewer} from './viewer.js?v=20261122-pan-limit';
 import {wheelSelect} from './wheel-select.js?v=20261022-wheel-animations';
 import {unpackFile,inspectModel,findTexture,pathKey,sha256,modelPattern} from './model-files.js';
 import {TEAM_COLORS} from './vendor/mdlxl/src/team-colors.js';
