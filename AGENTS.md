@@ -37,6 +37,10 @@
 - On every army page, updated models move up automatically: sort cards newest first by the latest model publication or update timestamp across all live variants. Fixed army placements must not override this order. Preserve group membership, variant selection and relative order when dates are equal or missing.
 - For every model update, refresh the byte-derived update metadata and verify the affected card moves up on the actual army page at desktop and mobile widths.
 
+## Model card badges
+
+- On every army card, including grouped and uploaded models, keep **New!** for the full 72 hours after first publication. Revisions and variants added during that window count toward card recency and never earn an **Updated** badge. After the window, later changes can earn the existing dated **Updated** badge. Legacy cards without a publication date can show **Updated**.
+
 ## Site art and script loading
 
 - Site look and UI art (header, frames, textures, sprites, buttons, icons, and the pictures inside menu SVGs) is WebP at the size actually displayed, allowing for 2× screens. Use lossless WebP where exact pixels matter (sprites, masks, border slices, anything a script reads); quality 90 with untouched transparency is fine for painted textures. Keep the pixel size when CSS slices or scripts depend on it.

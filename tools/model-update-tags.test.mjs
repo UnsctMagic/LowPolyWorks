@@ -63,19 +63,43 @@ test('revised models keep their original dated Updated badges and expiry',()=>{
  assert.equal(element.hidden,false);assert.equal(element.textContent,'Updated 10/10');dispose();
 });
 
-test('a first release is New until a revision takes priority during the New window',()=>{
- let time=start;const element={dataset:{modelUpdated:'knight'},style:{},hidden:true};
+test('a revision during launch keeps New! until the original expiry and never shows Updated',()=>{
+ let time=start+day,queued;
+ const element={dataset:{modelUpdated:'knight'},style:{},hidden:true};
  const root={querySelectorAll:()=>[element],ownerDocument:{addEventListener(){},removeEventListener(){}}};
- const record={publishedAt:new Date(start).toISOString()};
- let dispose=mountModelUpdateTags(root,{knight:record},{now:()=>time,setTimer:()=>1,clearTimer(){}});
- assert.equal(element.textContent,'New!');dispose();
- time=start+day;record.updatedAt=new Date(time).toISOString();
- dispose=mountModelUpdateTags(root,{knight:record},{now:()=>time,setTimer:()=>1,clearTimer(){}});
- assert.equal(element.textContent,'Updated 11/10');dispose();
+ const record={publishedAt:new Date(start).toISOString(),updatedAt:new Date(time).toISOString()};
+ const dispose=mountModelUpdateTags(root,{knight:record},{now:()=>time,setTimer:(callback,delay)=>{queued={callback,delay};return 1;},clearTimer:()=>{queued=null;}});
+ assert.equal(element.textContent,'New!');
+ assert.equal(element.dataset.day,'1');
+ assert.equal(queued.delay,day);
+ time=start+2*day;queued.callback();
+ assert.equal(element.textContent,'New!');
+ assert.equal(element.dataset.day,'2');
+ time=start+3*day;queued.callback();
+ assert.equal(element.hidden,true);
+ assert.equal(queued,null);
+ dispose();
 });
 
-test('the live catalogue has three Updated cards and two New cards without resetting timestamps',()=>{
- const records=JSON.parse(fs.readFileSync(new URL('../dist/model-updates.json',import.meta.url))).models;
+test('a revision at the exact end of the launch window earns a dated Updated badge',()=>{
+ const time=start+3*day;
+ const element={dataset:{modelUpdated:'knight'},style:{},hidden:true};
+ const root={querySelectorAll:()=>[element],ownerDocument:{addEventListener(){},removeEventListener(){}}};
+ const record={publishedAt:new Date(start).toISOString(),updatedAt:new Date(time).toISOString()};
+ const dispose=mountModelUpdateTags(root,{knight:record},{now:()=>time,setTimer:()=>1,clearTimer(){}});
+ assert.equal(element.hidden,false);
+ assert.equal(element.textContent,'Updated 13/10');
+ dispose();
+});
+
+test('dated Updated and New badges can coexist without resetting timestamps',()=>{
+ const records={
+  'von-carstein':{updatedAt:'2026-10-10T08:12:24.945Z'},
+  'von-carstein-dread-knight':{updatedAt:'2026-10-10T08:12:24.945Z'},
+  'khorne-flail':{updatedAt:'2026-10-11T09:03:56.313Z'},
+  'blood-dragon':{publishedAt:'2026-10-12T09:03:56.313Z'},
+  'nurgle-champion':{publishedAt:'2026-10-12T09:03:56.313Z'},
+ };
  const elements=['von-carstein','von-carstein-dread-knight','khorne-flail','blood-dragon','nurgle-champion'].map(id=>({dataset:{modelUpdated:id},style:{},hidden:true}));
  const root={querySelectorAll:()=>elements,ownerDocument:{addEventListener(){},removeEventListener(){}}};
  const dispose=mountModelUpdateTags(root,records,{now:()=>Date.parse('2026-10-12T09:30:00Z'),setTimer:()=>1,clearTimer(){}});
