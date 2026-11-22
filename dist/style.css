@@ -92,7 +92,9 @@ footer{max-width:1740px;padding:20px 24px}
 .controls .control-row{display:grid;gap:8px 10px;align-items:center;min-width:0}
 .controls .control-row+.control-row{margin-top:10px}
 .controls .viewer-timeline{grid-template-columns:minmax(0,1fr) auto auto;gap:10px}
-.viewer-timeline #animation-time-label{white-space:nowrap;font-size:.8rem;font-variant-numeric:tabular-nums;color:#e3c77f}
+.viewer-timeline #animation-time-label{display:grid;white-space:nowrap;font-size:.8rem;font-variant-numeric:tabular-nums;color:#e3c77f}
+.viewer-timeline #animation-time-label::before{content:attr(data-full-time);grid-area:1/1;visibility:hidden}
+.viewer-timeline #animation-time-label>span{grid-area:1/1}
 .viewer-timeline .range{margin:0;touch-action:pan-y}
 .controls .viewer-timeline #reset-viewpoint{width:auto;aspect-ratio:1;padding-inline:0;font:1.125rem/1 system-ui,sans-serif}
 .controls .control-sequence{grid-template-columns:92px minmax(0,1fr) 104px}

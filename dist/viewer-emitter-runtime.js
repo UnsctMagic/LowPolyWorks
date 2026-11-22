@@ -1,6 +1,5 @@
 // EMTR simulation from MDLxL 19481b447bf06b3990adfc021dd8e2d77eec0b04, app/particle-preview-adapter.js.
-// The simulation, native compatibility and snapshot-copy bodies are unchanged.
-// Only imports/exports are adapted; editor UI, picking and recipe editing are omitted.
+// Adapted for the website timeline, with a separate simulation model and reusable seek checkpoints.
 import { Matrix4, Vector3 } from 'three';
 import { ModelRenderer } from './vendor/war3-model.mjs';
 import { sampleTrack } from './vendor/mdlxl/src/animation.js';
@@ -106,6 +105,22 @@ export function particleTimelineAt(timeline,time) {
   const rawFrame=segment.frame+elapsed*segment.poseRate,span=segment.loop?segment.loop[1]-segment.loop[0]:0,cycles=span>0?Math.floor((rawFrame-segment.loop[0]+1e-8)/span):0;
   return {frame:span>0?segment.loop[0]+phaseOf(rawFrame-segment.loop[0],span):rawFrame,global:segment.global+elapsed*segment.poseRate,fx:segment.fx+elapsed*segment.fxRate,poseRate:segment.poseRate,fxRate:segment.fxRate,cycle:(segment.cycle||0)+cycles,loop:segment.loop};
 }
+function emitterSimulationModel(model) {
+  const particles=model.ParticleEmitters2||[], ribbons=model.RibbonEmitters||[], nodes=[];
+  for(const emitter of [...particles,...ribbons]){
+    let node=model.Nodes[emitter.ObjectId];
+    while(node&&!nodes[node.ObjectId]){
+      nodes[node.ObjectId]=node;
+      node=model.Nodes[node.Parent];
+    }
+  }
+  // Replay only evaluates emitter nodes and their ancestors. The visible renderer owns meshes and materials.
+  return structuredClone({
+    Nodes:nodes, ParticleEmitters2:particles, RibbonEmitters:ribbons,
+    Sequences:model.Sequences, GlobalSequences:model.GlobalSequences,
+    Geosets:[], GeosetAnims:[], Materials:[], Textures:[]
+  });
+}
 function simulationTracks(model) {
   const result=[],seen=new Set();
   const walk=value=>{
@@ -113,7 +128,7 @@ function simulationTracks(model) {
     if(value.Keys)result.push(value);
     for(const child of Object.values(value))walk(child);
   };
-  for(const family of ['ParticleEmitters2','RibbonEmitters','Helpers','Bones'])for(const node of model[family]||[])walk(node);
+  for(const node of [...model.Nodes,...model.ParticleEmitters2,...model.RibbonEmitters])walk(node);
   return result;
 }
 const phaseOf=(time,period)=>((time%period)+period)%period;
@@ -138,13 +153,16 @@ function restoreNativeEffectState(native,state) {
 export class ParticlePreviewBudgetError extends Error {constructor(limit){super('Preview paused at the '+limit.toLocaleString('en-US')+' live-particle budget. Authored values are unchanged.');this.name='ParticlePreviewBudgetError';this.limit=limit;}}
 export class NativeParticleSimulation {
   constructor(model,sequence=0,{seed=0x4d444c58,timeline,maxLive=12000}={}) {
-    this.maxLive=maxLive;this.native=new ModelRenderer(structuredClone(model));this.poseToFxRate=1;
+    this.maxLive=maxLive;this.native=new ModelRenderer(emitterSimulationModel(model));this.poseToFxRate=1;
     installParticleNativeCompatibility(this.native,{getTravelDistance:delta=>particleTravelDistance(this.native.model,this.sequence,delta*this.poseToFxRate)});this.sequence=sequence;this.native.setSequence(sequence);
     const start=model.Sequences[sequence].Interval[0];
     this.timeline=structuredClone(timeline||[{at:0,frame:start,global:start,fx:0,poseRate:1,fxRate:1}]);
-    this.time=0;this.random=seededParticleRandom(seed);this.seed=seed;this.tracks=simulationTracks(this.native.model);this.burstStamps=new Map();this.checkpoints=[];
+    this.time=0;this.random=seededParticleRandom(seed);this.seed=seed;this.tracks=simulationTracks(this.native.model);this.burstStamps=new Map();
+    const duration=model.Sequences[sequence].Interval[1]-start;
+    this.checkpointInterval=Math.max(250,Math.ceil(duration/320)*10);
     for(const controller of [this.native.particlesController,this.native.ribbonsController])for(const emitter of controller.emitters)emitter.baseCapacity=Math.min(emitter.baseCapacity,256);
     this.step(0,0,true);
+    this.checkpoints=new Map([[0,this.snapshot()]]);
   }
   setCamera(position,quaternion){this.native.setCamera(position,quaternion);}
   nextEvent(target) {
@@ -220,16 +238,21 @@ export class NativeParticleSimulation {
     this.time=to;
   }
   advance(target,{budgetMs=Infinity,now=()=>performance.now()}={}) {
-    if(target<this.time-1e-7)throw Error('Backward particle time requires restoring a checkpoint.');
     const began=now();
+    const interval=this.checkpointInterval;
+    // Keep checkpoints throughout the clip so reversing direction can reuse earlier replay.
+    for(let time=Math.floor(target/interval)*interval;time>=0;time-=interval){
+      const checkpoint=this.checkpoints.get(time);
+      if(!checkpoint)continue;
+      if(this.time>target||time>this.time)this.restore(checkpoint);
+      break;
+    }
     if(this.partialBase&&target>this.time+1e-7){const base=this.partialBase;this.partialBase=null;this.restore(base);}
     while(this.time<target-1e-7){
       const boundary=this.nextEvent(Infinity),next=Math.min(target,boundary);
       if(next<boundary-1e-7)this.partialBase=this.snapshot();
       this.step(this.time,next,true);
-      if(this.time-this.lastCheckpoint>=500||this.lastCheckpoint===undefined){
-        this.lastCheckpoint=this.time;this.checkpoints.push(this.snapshot());if(this.checkpoints.length>12)this.checkpoints.shift();
-      }
+      if(next%interval===0&&!this.checkpoints.has(next))this.checkpoints.set(next,this.snapshot());
       if(now()-began>=budgetMs)return {complete:this.time>=target-1e-7,time:this.time};
     }
     return {complete:true,time:this.time};
@@ -243,14 +266,21 @@ export class NativeParticleSimulation {
   refresh(){this.step(this.time,this.time,false,{poseOnly:true});}
 }
 
-export function copyParticleSimulationToPreview(simulation,native,phase,hiddenIds) {
-  const source=simulation.native,particles=native.particlesController,ribbons=native.ribbonsController;
-  // Evaluate model pose/materials at the displayed time without triggering FX twice.
+export function setEmitterPreviewPose(native,sequence,frame,globalTime) {
+  // Evaluate the displayed pose without advancing the live controllers.
+  const particles=native.particlesController,ribbons=native.ribbonsController;
   const savedParticleUpdate=particles.update,savedRibbonUpdate=ribbons.update;
   particles.update=()=>{};ribbons.update=()=>{};
-  native.rendererData.animation=simulation.sequence;native.rendererData.animationInfo=native.model.Sequences[simulation.sequence];native.rendererData.frame=phase.frame;
-  for(let i=0;i<native.model.GlobalSequences.length;i++)if(native.model.GlobalSequences[i]>0)native.rendererData.globalSequencesFrames[i]=phaseOf(phase.global,native.model.GlobalSequences[i]);
+  native.rendererData.animation=sequence;
+  native.rendererData.animationInfo=native.model.Sequences[sequence];
+  native.rendererData.frame=frame;
+  for(let i=0;i<native.model.GlobalSequences.length;i++)if(native.model.GlobalSequences[i]>0)native.rendererData.globalSequencesFrames[i]=phaseOf(globalTime,native.model.GlobalSequences[i]);
   try{native.update(0);}finally{particles.update=savedParticleUpdate;ribbons.update=savedRibbonUpdate;}
+}
+
+export function copyParticleSimulationToPreview(simulation,native,phase,hiddenIds) {
+  const source=simulation.native,particles=native.particlesController,ribbons=native.ribbonsController;
+  setEmitterPreviewPose(native,simulation.sequence,phase.frame,phase.global);
   for(const from of source.particlesController.emitters){
     if(hiddenIds?.has(from.props.ObjectId))continue;
     const to=particles.emitters.find(e=>e.props.ObjectId===from.props.ObjectId);if(!to)continue;
