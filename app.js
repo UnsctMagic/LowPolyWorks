@@ -1,16 +1,16 @@
-import {timelineMarkup,mountTimeline} from './viewer-timeline.js?v=20261115-reset-viewpoint';
+import {timelineMarkup,mountTimeline} from './viewer-timeline.js?v=20261122-emitter-drag';
 import {effectControlsMarkup,mountEffectControls} from './viewer-effect-controls.js?v=20261113-viewer-events';
 import {prepareMobileLayout} from './mobile-layout.js?v=20261018-mobile-layout';
 import {groupModelUpdate,modelUpdateTagMarkup,mountModelUpdateTags} from './model-update-tags.js?v=20261122-new-badge-priority';
 import {modelFollowMarkup,mountModelFollow} from './model-follows.js?v=20261012-cloudflare';
-import {uploadedModelCard,renderUnitCard} from './unit-card.js?v=20261122-new-badge-priority';
+import {uploadedModelCard,renderUnitCard} from './unit-card.js?v=20261122-emitter-drag';
 import {startFrameSnap} from './frame-snap.js?v=20261118-stone-snap';
 import {startMenuVisitor} from './menu-visitor.js?v=20261115-site-perf';
 import {countShredder} from './shredder-stats.js?v=20261022-stash-tzeentch';
 import {wheelSelect} from './wheel-select.js?v=20261022-wheel-animations';
 import {TEAM_COLORS} from './vendor/mdlxl/src/team-colors.js';
 import {recordUsage} from './usage.js?v=20261025-amsterdam-days';
-import {renderJournal} from './journal.js?v=20261122-new-badge-priority';
+import {renderJournal} from './journal.js?v=20261122-emitter-drag';
 import {readMdlxlRoute,mdlxlHref} from './mdlxl-routes.js?v=20261117-animate-tutorials';
 const initialMdlxl=readMdlxlRoute(location);if(initialMdlxl&&location.hash.startsWith('#project/mdlxl'))history.replaceState(null,'',mdlxlHref(initialMdlxl.section,initialMdlxl.tutorial,location.search));
 const app=document.querySelector('#app');
@@ -115,7 +115,7 @@ async function route(){prepareMobileLayout(document.querySelector('.masthead'));
   loopButton.setAttribute('aria-pressed',looping);
   loopButton.firstElementChild.textContent=looping?'On':'Off';
  }
- try{const {createViewer}=await import('./viewer.js?v=20261122-emitter-scrubbing');if(version!==routeVersion)return;const next=await createViewer(document.querySelector('#model-canvas'),row,{teamColor:carried?.team||army.teamColour||TEAM_COLORS[0].rgbHex,onTimeChange:time=>{if(version===routeVersion)updateTimeline(time);},onPortraitModeChange:active=>{viewport.classList.toggle('portrait-mode',active);},onLightingChange:mode=>{if(version===routeVersion)document.querySelector('#lighting').value=mode;},onPlayingChange:playing=>{if(version!==routeVersion)return;document.querySelector('#play').textContent=playing?'Pause':'Play';if(!playing&&birdDecay?.version===version){const index=birdDecay.index;birdDecay=null;document.querySelector('#sequence').value=index;updateLoopButton(viewer.sequence(index));viewer.play();}}});if(version!==routeVersion){next.dispose();return;}viewer=next;mountEffectControls(app,viewer);const teamInput=document.querySelector('#team');teamInput.value=carried?.team||army.teamColour||TEAM_COLORS[0].rgbHex;teamInput.style.backgroundColor=teamInput.value;teamInput.style.color=neutralTextColor(teamInput.value);document.querySelector('#viewer-message').remove();for(const input of document.querySelectorAll('.controls button,.controls input:not(#animation-time),.controls select'))input.disabled=false;loopChoice=null;
+ try{const {createViewer}=await import('./viewer.js?v=20261122-emitter-drag');if(version!==routeVersion)return;const next=await createViewer(document.querySelector('#model-canvas'),row,{teamColor:carried?.team||army.teamColour||TEAM_COLORS[0].rgbHex,onTimeChange:time=>{if(version===routeVersion)updateTimeline(time);},onPortraitModeChange:active=>{viewport.classList.toggle('portrait-mode',active);},onLightingChange:mode=>{if(version===routeVersion)document.querySelector('#lighting').value=mode;},onPlayingChange:playing=>{if(version!==routeVersion)return;document.querySelector('#play').textContent=playing?'Pause':'Play';if(!playing&&birdDecay?.version===version){const index=birdDecay.index;birdDecay=null;document.querySelector('#sequence').value=index;updateLoopButton(viewer.sequence(index));viewer.play();}}});if(version!==routeVersion){next.dispose();return;}viewer=next;mountEffectControls(app,viewer);const teamInput=document.querySelector('#team');teamInput.value=carried?.team||army.teamColour||TEAM_COLORS[0].rgbHex;teamInput.style.backgroundColor=teamInput.value;teamInput.style.color=neutralTextColor(teamInput.value);document.querySelector('#viewer-message').remove();for(const input of document.querySelectorAll('.controls button,.controls input:not(#animation-time),.controls select'))input.disabled=false;loopChoice=null;
  updateLoopButton(viewer.looping());
  loopButton.onclick=()=>{
   birdDecay=null;

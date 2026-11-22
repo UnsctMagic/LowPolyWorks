@@ -1,4 +1,4 @@
-import {NativeParticleSimulation,particleTimelineAt,copyParticleSimulationToPreview} from './viewer-emitter-runtime.js';
+import {NativeParticleSimulation,particleTimelineAt,copyParticleSimulationToPreview,setEmitterPreviewPose} from './viewer-emitter-runtime.js?v=20261122-emitter-drag';
 import {setWarcraftCamera} from './viewer-effects.js?v=20261006-classic-portrait-controls';
 
 // EMTR's bounded replay and frozen simulation, connected to the website clock.
@@ -8,7 +8,10 @@ export function createEmitterReplay(native){
  return {
   get active(){return pending||!!simulation;},
   get busy(){return pending;},
-  seek(index,time){sequence=index;target=time;simulation=null;pending=true;},
+  seek(index,time){
+   if(index!==sequence)simulation=null;
+   sequence=index;target=time;pending=true;
+  },
   clear(){pending=false;simulation=null;},
   render(camera,frame){
    if(!simulation){
@@ -19,7 +22,10 @@ export function createEmitterReplay(native){
    setWarcraftCamera(simulation.native,camera);
    const result=simulation.advance(target,{budgetMs:5});
    pending=!result.complete;
-   if(pending)return false;
+   if(pending){
+    setEmitterPreviewPose(native,sequence,frame,target);
+    return false;
+   }
    simulation.refresh();
    // The live adapter ages ribbons with simulated deltas against a wall-clock
    // anchor. Synchronize that anchor before transferring EMTR's frozen state.
