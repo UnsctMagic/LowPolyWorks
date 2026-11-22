@@ -34872,7 +34872,7 @@
     "name": "Chaos Dragon - Chaos Lord",
     "army": "warriors-of-chaos",
     "description": "“It's whispered amongst the northern tribes that somewhere in the icy peaks, there are Dragons, but not the ones of legend. These are the mutant spawn of Galrauch, the ancient Dragon who was corrupted by Tzeentch. The Chaos Dragons are thankfully rare and content to spend the eons buried in their lairs, brimming with hatred and plotting the destruction of all that lives. But when the Dark Gods call, not even these monsters can resist the urge to wage war for the Ruinous Powers. But they are fickle creatures, quick to turn on their allies should it give them the advantage.”\n\n—Reinholt Schent, Scholar of the Fantastic\n\nWarhammer Fantasy Roleplay 2nd Edition: Tome of Corruption (RPG)\npg. 114",
-    "credits": "Model Base - Gnome Dragonrider by Direfury (Animations) / Lindormr Dragon by Olofmoleman (Dragon Body) / Dread Knight/Death Knight by Direfury (Rider Body)\n\nReskin/Remesh - By UnsanctionedMagic\n\nChains around dragon neck - Abomination (Re-Classic) by Johnwar\n\nDragon Face 1 Gills/Horns - Skeletal Dragon / Frostwyrm Remake by Mister_Haudrauf and Olofmoleman, reshaped by UnsanctionedMagic\n\nDragon Face 2 - Dragons by stein123, reshaped by UnsanctionedMagic\n\nRider Helmet - Bandit Enforcer (Re-Classic) by Johnwar\n\nHorns - Celestial Yak from World of Warcraft by Blizzard\n\nChaos Star - Credits unknown\n\nLance Head - Guilty Thorn by Blood Raven\n\nProjectile base animation - Mars the Impaler by Jab1z\n\nCloak - Shamelessly skinned by UnsanctionedMagic from Blizzard.\n\nLayered skin effects created with the MDLxL FX feature.",
+    "credits": "Model Base - Gnome Dragonrider by Direfury (Animations) / Lindormr Dragon by Olofmoleman (Dragon Body) / Dread Knight/Death Knight by Direfury (Rider Body)\n\nReskin/Remesh - By UnsanctionedMagic\n\nChains around dragon neck - Abomination (Re-Classic) by Johnwar\n\nDragon Face 1 Gills/Horns - Skeletal Dragon / Frostwyrm Remake by Mister_Haudrauf and Olofmoleman, reshaped by UnsanctionedMagic\n\nDragon Face 2 - Dragons by stein123, reshaped by UnsanctionedMagic\n\nRider Helmet - Bandit Enforcer (Re-Classic) by Johnwar\n\nHorns - Celestial Yak from World of Warcraft by Blizzard\n\nChaos Star - Credits unknown\n\nShoulders - Warlocks Updated by AlanFluorine\n\nLance Head - Guilty Thorn by Blood Raven\n\nProjectile base animation - Mars the Impaler by Jab1z\n\nCloak - Shamelessly skinned by UnsanctionedMagic from Blizzard.\n\nLayered skin effects created with the MDLxL FX feature.",
     "authors": [
       {
         "name": "UnsanctionedMagic",
@@ -34963,6 +34963,14 @@
       {
         "text": "Chaos Star",
         "url": "https://wc3.ninja/models/4104505#d=157.0&y=0.350&p=0.119&tx=0.0&ty=0.0&tz=63.9"
+      },
+      {
+        "text": "Warlocks Updated",
+        "url": "https://www.hiveworkshop.com/threads/warlocks-updated.371295/"
+      },
+      {
+        "text": "AlanFluorine",
+        "url": "https://www.hiveworkshop.com/members/alanfluorine.285675/"
       }
     ],
     "geosets": [
@@ -35538,7 +35546,7 @@
     "name": "Chaos Dragon - Chaos Lord",
     "army": "warriors-of-chaos",
     "description": "“It's whispered amongst the northern tribes that somewhere in the icy peaks, there are Dragons, but not the ones of legend. These are the mutant spawn of Galrauch, the ancient Dragon who was corrupted by Tzeentch. The Chaos Dragons are thankfully rare and content to spend the eons buried in their lairs, brimming with hatred and plotting the destruction of all that lives. But when the Dark Gods call, not even these monsters can resist the urge to wage war for the Ruinous Powers. But they are fickle creatures, quick to turn on their allies should it give them the advantage.”\n\n—Reinholt Schent, Scholar of the Fantastic\n\nWarhammer Fantasy Roleplay 2nd Edition: Tome of Corruption (RPG)\npg. 114",
-    "credits": "Model Base - Gnome Dragonrider by Direfury (Animations) / Lindormr Dragon by Olofmoleman (Dragon Body) / Dread Knight/Death Knight by Direfury (Rider Body)\n\nReskin/Remesh - By UnsanctionedMagic\n\nChains around dragon neck - Abomination (Re-Classic) by Johnwar\n\nDragon Face 1 Gills/Horns - Skeletal Dragon / Frostwyrm Remake by Mister_Haudrauf and Olofmoleman, reshaped by UnsanctionedMagic\n\nDragon Face 2 - Dragons by stein123, reshaped by UnsanctionedMagic\n\nRider Helmet - Bandit Enforcer (Re-Classic) by Johnwar\n\nHorns - Celestial Yak from World of Warcraft by Blizzard\n\nChaos Star - Credits unknown\n\nLance Head - Guilty Thorn by Blood Raven\n\nProjectile base animation - Mars the Impaler by Jab1z\n\nCloak - Shamelessly skinned by UnsanctionedMagic from Blizzard.\n\nLayered skin effects created with the MDLxL FX feature.",
+    "credits": "Model Base - Gnome Dragonrider by Direfury (Animations) / Lindormr Dragon by Olofmoleman (Dragon Body) / Dread Knight/Death Knight by Direfury (Rider Body)\n\nReskin/Remesh - By UnsanctionedMagic\n\nChains around dragon neck - Abomination (Re-Classic) by Johnwar\n\nDragon Face 1 Gills/Horns - Skeletal Dragon / Frostwyrm Remake by Mister_Haudrauf and Olofmoleman, reshaped by UnsanctionedMagic\n\nDragon Face 2 - Dragons by stein123, reshaped by UnsanctionedMagic\n\nRider Helmet - Bandit Enforcer (Re-Classic) by Johnwar\n\nHorns - Celestial Yak from World of Warcraft by Blizzard\n\nChaos Star - Credits unknown\n\nShoulders - Warlocks Updated by AlanFluorine\n\nLance Head - Guilty Thorn by Blood Raven\n\nProjectile base animation - Mars the Impaler by Jab1z\n\nCloak - Shamelessly skinned by UnsanctionedMagic from Blizzard.\n\nLayered skin effects created with the MDLxL FX feature.",
     "authors": [
       {
         "name": "UnsanctionedMagic",
@@ -35629,6 +35637,14 @@
       {
         "text": "Chaos Star",
         "url": "https://wc3.ninja/models/4104505#d=157.0&y=0.350&p=0.119&tx=0.0&ty=0.0&tz=63.9"
+      },
+      {
+        "text": "Warlocks Updated",
+        "url": "https://www.hiveworkshop.com/threads/warlocks-updated.371295/"
+      },
+      {
+        "text": "AlanFluorine",
+        "url": "https://www.hiveworkshop.com/members/alanfluorine.285675/"
       }
     ],
     "geosets": [
@@ -36222,7 +36238,7 @@
     "name": "Chaos Lance",
     "army": "warriors-of-chaos",
     "description": "Projectile model for Chaos Dragon - Chaos Lord.",
-    "credits": "Model Base - Gnome Dragonrider by Direfury (Animations) / Lindormr Dragon by Olofmoleman (Dragon Body) / Dread Knight/Death Knight by Direfury (Rider Body)\n\nReskin/Remesh - By UnsanctionedMagic\n\nChains around dragon neck - Abomination (Re-Classic) by Johnwar\n\nDragon Face 1 Gills/Horns - Skeletal Dragon / Frostwyrm Remake by Mister_Haudrauf and Olofmoleman, reshaped by UnsanctionedMagic\n\nDragon Face 2 - Dragons by stein123, reshaped by UnsanctionedMagic\n\nRider Helmet - Bandit Enforcer (Re-Classic) by Johnwar\n\nHorns - Celestial Yak from World of Warcraft by Blizzard\n\nChaos Star - Credits unknown\n\nLance Head - Guilty Thorn by Blood Raven\n\nProjectile base animation - Mars the Impaler by Jab1z\n\nCloak - Shamelessly skinned by UnsanctionedMagic from Blizzard.\n\nLayered skin effects created with the MDLxL FX feature.",
+    "credits": "Model Base - Gnome Dragonrider by Direfury (Animations) / Lindormr Dragon by Olofmoleman (Dragon Body) / Dread Knight/Death Knight by Direfury (Rider Body)\n\nReskin/Remesh - By UnsanctionedMagic\n\nChains around dragon neck - Abomination (Re-Classic) by Johnwar\n\nDragon Face 1 Gills/Horns - Skeletal Dragon / Frostwyrm Remake by Mister_Haudrauf and Olofmoleman, reshaped by UnsanctionedMagic\n\nDragon Face 2 - Dragons by stein123, reshaped by UnsanctionedMagic\n\nRider Helmet - Bandit Enforcer (Re-Classic) by Johnwar\n\nHorns - Celestial Yak from World of Warcraft by Blizzard\n\nChaos Star - Credits unknown\n\nShoulders - Warlocks Updated by AlanFluorine\n\nLance Head - Guilty Thorn by Blood Raven\n\nProjectile base animation - Mars the Impaler by Jab1z\n\nCloak - Shamelessly skinned by UnsanctionedMagic from Blizzard.\n\nLayered skin effects created with the MDLxL FX feature.",
     "authors": [
       {
         "name": "UnsanctionedMagic",
@@ -36313,6 +36329,14 @@
       {
         "text": "Chaos Star",
         "url": "https://wc3.ninja/models/4104505#d=157.0&y=0.350&p=0.119&tx=0.0&ty=0.0&tz=63.9"
+      },
+      {
+        "text": "Warlocks Updated",
+        "url": "https://www.hiveworkshop.com/threads/warlocks-updated.371295/"
+      },
+      {
+        "text": "AlanFluorine",
+        "url": "https://www.hiveworkshop.com/members/alanfluorine.285675/"
       }
     ],
     "geosets": [
