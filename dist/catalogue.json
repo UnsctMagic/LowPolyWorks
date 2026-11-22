@@ -36469,5 +36469,339 @@
       -0.92,
       0.38
     ]
+  },
+  {
+    "id": "chaos-dragon-riderless",
+    "file": "ChaosDragonRiderLess01Optimized.mdx",
+    "name": "Chaos Dragon - Riderless",
+    "army": "warriors-of-chaos",
+    "description": "Optimized version: Looks and animates exactly like the full version but is about 17 KB smaller because the per-animation geoset bounding boxes have been removed. The game doesn't need them. Model editors may warn about missing extents, which is harmless. Use the full version if you want to edit the model.\n\n“It's whispered amongst the northern tribes that somewhere in the icy peaks, there are Dragons, but not the ones of legend. These are the mutant spawn of Galrauch, the ancient Dragon who was corrupted by Tzeentch. The Chaos Dragons are thankfully rare and content to spend the eons buried in their lairs, brimming with hatred and plotting the destruction of all that lives. But when the Dark Gods call, not even these monsters can resist the urge to wage war for the Ruinous Powers. But they are fickle creatures, quick to turn on their allies should it give them the advantage.”\n\n—Reinholt Schent, Scholar of the Fantastic\n\nWarhammer Fantasy Roleplay 2nd Edition: Tome of Corruption (RPG)\npg. 114",
+    "credits": "Model Base - Lindormr Dragon by Olofmoleman (Dragon Body) / Gnome Dragonrider by Direfury (Animations)\n\nReskin/Remesh - By UnsanctionedMagic\n\nDragon Face 1 Gills/Horns - Skeletal Dragon / Frostwyrm Remake by Mister_Haudrauf and Olofmoleman, reshaped by UnsanctionedMagic\n\nDragon Face 2 - Dragons by stein123, reshaped by UnsanctionedMagic",
+    "authors": [
+      {
+        "name": "UnsanctionedMagic",
+        "url": "https://xgm.guru/user/UnsanctMagic"
+      },
+      {
+        "name": "Olofmoleman",
+        "url": "https://www.hiveworkshop.com/members/olofmoleman.115820/"
+      },
+      {
+        "name": "Direfury",
+        "url": "https://www.hiveworkshop.com/members/direfury.188037/"
+      }
+    ],
+    "creditLinks": [
+      {
+        "text": "UnsanctionedMagic",
+        "url": "https://xgm.guru/user/UnsanctMagic"
+      },
+      {
+        "text": "Olofmoleman",
+        "url": "https://www.hiveworkshop.com/members/olofmoleman.115820/"
+      },
+      {
+        "text": "Direfury",
+        "url": "https://www.hiveworkshop.com/members/direfury.188037/"
+      },
+      {
+        "text": "Lindormr Dragon",
+        "url": "https://www.hiveworkshop.com/threads/lindormr-dragon.52050/"
+      },
+      {
+        "text": "Gnome Dragonrider",
+        "url": "https://www.hiveworkshop.com/threads/gnome-dragonrider.324793/"
+      },
+      {
+        "text": "Skeletal Dragon / Frostwyrm Remake",
+        "url": "https://www.hiveworkshop.com/threads/skeletal-dragon-frostwyrm-remake.294139/"
+      },
+      {
+        "text": "Mister_Haudrauf",
+        "url": "https://www.hiveworkshop.com/members/mister_haudrauf.236714/"
+      },
+      {
+        "text": "stein123",
+        "url": "https://www.hiveworkshop.com/members/stein123.196992/"
+      }
+    ],
+    "geosets": [
+      {
+        "index": 0,
+        "vertices": 87,
+        "triangles": 135,
+        "material": 1,
+        "textures": [
+          "Textures\\BlackDragon.blp",
+          "Textures\\BlackDragon.blp"
+        ]
+      },
+      {
+        "index": 1,
+        "vertices": 354,
+        "triangles": 334,
+        "material": 3,
+        "textures": [
+          "Textures\\gutz.blp"
+        ]
+      },
+      {
+        "index": 2,
+        "vertices": 415,
+        "triangles": 566,
+        "material": 5,
+        "textures": [
+          "Textures\\RedDragon.blp",
+          "Textures\\RedDragon.blp"
+        ]
+      },
+      {
+        "index": 3,
+        "vertices": 73,
+        "triangles": 68,
+        "material": 7,
+        "textures": [
+          "Units\\Naga\\SnapDragon\\SnapDragon.blp",
+          "Units\\Naga\\SnapDragon\\SnapDragon.blp"
+        ]
+      },
+      {
+        "index": 4,
+        "vertices": 91,
+        "triangles": 104,
+        "material": 5,
+        "textures": [
+          "Textures\\RedDragon.blp",
+          "Textures\\RedDragon.blp"
+        ]
+      },
+      {
+        "index": 5,
+        "vertices": 21,
+        "triangles": 22,
+        "material": 8,
+        "textures": [
+          "Textures\\AzureDragon.blp",
+          "Textures\\AzureDragon.blp"
+        ]
+      },
+      {
+        "index": 6,
+        "vertices": 249,
+        "triangles": 332,
+        "material": 9,
+        "textures": [
+          "Textures\\Skeleton.blp",
+          "Textures\\Skeleton.blp"
+        ]
+      },
+      {
+        "index": 7,
+        "vertices": 42,
+        "triangles": 48,
+        "material": 10,
+        "textures": [
+          "Team colour / glow",
+          "Team colour / glow",
+          "Units\\Undead\\Ghoul\\Ghoul.blp",
+          "Units\\Undead\\Ghoul\\Ghoul.blp"
+        ]
+      },
+      {
+        "index": 8,
+        "vertices": 8,
+        "triangles": 4,
+        "material": 2,
+        "textures": [
+          "Textures\\Red_Glow3.blp",
+          "Textures\\Red_Glow3.blp"
+        ]
+      },
+      {
+        "index": 9,
+        "vertices": 350,
+        "triangles": 300,
+        "material": 11,
+        "textures": [
+          "Textures\\DeathScream.blp",
+          "Textures\\DeathScream.blp"
+        ]
+      },
+      {
+        "index": 10,
+        "vertices": 571,
+        "triangles": 849,
+        "material": 6,
+        "textures": [
+          "Textures\\BlackDragon.blp",
+          "Textures\\BlackDragon.blp"
+        ]
+      },
+      {
+        "index": 11,
+        "vertices": 24,
+        "triangles": 12,
+        "material": 5,
+        "textures": [
+          "Textures\\RedDragon.blp",
+          "Textures\\RedDragon.blp"
+        ]
+      },
+      {
+        "index": 12,
+        "vertices": 76,
+        "triangles": 120,
+        "material": 16,
+        "textures": [
+          "Textures\\GreenDragon.blp",
+          "Textures\\GreenDragon.blp"
+        ]
+      },
+      {
+        "index": 13,
+        "vertices": 8,
+        "triangles": 4,
+        "material": 18,
+        "textures": [
+          "Textures\\Blue_Glow2.blp",
+          "Textures\\Blue_Glow2.blp"
+        ]
+      },
+      {
+        "index": 14,
+        "vertices": 8,
+        "triangles": 4,
+        "material": 17,
+        "textures": [
+          "Units\\Undead\\Skeleton\\Skeleton.blp",
+          "Units\\Undead\\Skeleton\\Skeleton.blp"
+        ]
+      },
+      {
+        "index": 15,
+        "vertices": 189,
+        "triangles": 257,
+        "material": 12,
+        "textures": [
+          "TerrainArt\\Dungeon\\Cave_GreyStones.blp"
+        ]
+      },
+      {
+        "index": 16,
+        "vertices": 197,
+        "triangles": 257,
+        "material": 13,
+        "textures": [
+          "Textures\\GenericGlow64.blp"
+        ]
+      },
+      {
+        "index": 17,
+        "vertices": 569,
+        "triangles": 845,
+        "material": 14,
+        "textures": [
+          "TerrainArt\\Dungeon\\Cave_DarkRocks.blp"
+        ]
+      },
+      {
+        "index": 18,
+        "vertices": 322,
+        "triangles": 504,
+        "material": 15,
+        "textures": [
+          "Doodads\\Cinematic\\IcecrownObelisk\\glow_runes.blp",
+          "Doodads\\Cinematic\\IcecrownObelisk\\glow_runes.blp",
+          "Doodads\\Cinematic\\IcecrownObelisk\\glow_runes.blp"
+        ]
+      },
+      {
+        "index": 19,
+        "vertices": 22,
+        "triangles": 16,
+        "material": 0,
+        "textures": [
+          "Units\\Undead\\FrostWyrm\\FrostWyrm.blp",
+          "Units\\Undead\\FrostWyrm\\FrostWyrm.blp"
+        ]
+      },
+      {
+        "index": 20,
+        "vertices": 94,
+        "triangles": 124,
+        "material": 19,
+        "textures": [
+          "Textures\\GenericGlow64.blp"
+        ]
+      },
+      {
+        "index": 21,
+        "vertices": 101,
+        "triangles": 147,
+        "material": 20,
+        "textures": [
+          "Textures\\GenericGlow64.blp",
+          "Textures\\GenericGlow64.blp"
+        ]
+      },
+      {
+        "index": 22,
+        "vertices": 429,
+        "triangles": 566,
+        "material": 21,
+        "textures": [
+          "Doodads\\Cinematic\\EyeOfSargeras\\Demon_Rune_Cracks.blp",
+          "Doodads\\Cinematic\\EyeOfSargeras\\Demon_Rune_Cracks.blp"
+        ]
+      }
+    ],
+    "sequences": [
+      "Walk",
+      "Stand - 1",
+      "Stand - 2",
+      "Stand Ready",
+      "Attack - 1",
+      "Attack - 2",
+      "Attack Slam",
+      "Spell",
+      "Spell Two",
+      "Spell Slam",
+      "Stand Channel",
+      "Death",
+      "Decay Flesh",
+      "Decay Bone",
+      "Morph",
+      "Stand Alternate",
+      "Stand Alternate - 2",
+      "Walk Alternate",
+      "Walk Alternate - 2",
+      "Stand Ready Alternate",
+      "Spell Attack Alternate",
+      "Spell Two Alternate",
+      "Stand Channel Alternate",
+      "Morph Alternate",
+      "Death Alternate",
+      "Portrait",
+      "Portrait Talk"
+    ],
+    "bytes": 477048,
+    "sha256": "38bdee35fd4352c67ae47b399b90c2e21c4d08cb7f906bac1be6dd7c14f70174",
+    "downloadPack": "downloads/chaos-dragon-riderless/ChaosDragonRiderLess01Optimized.zip",
+    "publishedAt": "2026-11-22T21:06:10.683Z",
+    "imageVersion": "20261122-chaos-dragon-riderless",
+    "searchDescription": "Preview and download Chaos Dragon - Riderless, a Warriors of Chaos model for Warcraft III Classic.",
+    "textureFiles": {},
+    "downloadOptions": [
+      {
+        "label": "Download",
+        "path": "downloads/chaos-dragon-riderless/ChaosDragonRiderLess01.zip",
+        "bytes": 494436
+      },
+      {
+        "label": "Optimized",
+        "path": "downloads/chaos-dragon-riderless/ChaosDragonRiderLess01Optimized.zip",
+        "bytes": 477048
+      }
+    ]
   }
 ]
