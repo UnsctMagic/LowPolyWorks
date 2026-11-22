@@ -36784,9 +36784,9 @@
       "Portrait",
       "Portrait Talk"
     ],
-    "bytes": 477048,
-    "sha256": "38bdee35fd4352c67ae47b399b90c2e21c4d08cb7f906bac1be6dd7c14f70174",
-    "downloadPack": "downloads/chaos-dragon-riderless/ChaosDragonRiderLess01Optimized.zip",
+    "bytes": 477032,
+    "sha256": "68ec9306ea54619014bbb850aeb3a67fc8f93b1cb462b2140eae5a6d8cf82749",
+    "downloadPack": "downloads/chaos-dragon-riderless/sound-timing/ChaosDragonRiderLess01Optimized.zip",
     "publishedAt": "2026-11-22T21:06:10.683Z",
     "imageVersion": "20261122-chaos-dragon-riderless",
     "searchDescription": "Preview and download Chaos Dragon - Riderless, a Warriors of Chaos model for Warcraft III Classic.",
@@ -36794,13 +36794,13 @@
     "downloadOptions": [
       {
         "label": "Download",
-        "path": "downloads/chaos-dragon-riderless/ChaosDragonRiderLess01.zip",
-        "bytes": 494436
+        "path": "downloads/chaos-dragon-riderless/sound-timing/ChaosDragonRiderLess01.zip",
+        "bytes": 494420
       },
       {
         "label": "Optimized",
-        "path": "downloads/chaos-dragon-riderless/ChaosDragonRiderLess01Optimized.zip",
-        "bytes": 477048
+        "path": "downloads/chaos-dragon-riderless/sound-timing/ChaosDragonRiderLess01Optimized.zip",
+        "bytes": 477032
       }
     ]
   }

@@ -624,8 +624,9 @@
       "publishedAt": "2026-11-22T18:19:34.760Z"
     },
     "chaos-dragon-riderless": {
-      "sha256": "38bdee35fd4352c67ae47b399b90c2e21c4d08cb7f906bac1be6dd7c14f70174",
-      "publishedAt": "2026-11-22T21:06:10.683Z"
+      "sha256": "68ec9306ea54619014bbb850aeb3a67fc8f93b1cb462b2140eae5a6d8cf82749",
+      "publishedAt": "2026-11-22T21:06:10.683Z",
+      "updatedAt": "2026-11-22T21:28:20.837Z"
     }
   }
 }
