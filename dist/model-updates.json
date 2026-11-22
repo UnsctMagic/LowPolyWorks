@@ -610,12 +610,14 @@
       "publishedAt": "2026-11-19T21:57:23.864Z"
     },
     "chaos-dragon-with-chaos-lord": {
-      "sha256": "92e00e4fe8f4e53eb0c84f88a0eedeae4cd876a7b226f2b93befbe9ddf6bdac8",
-      "publishedAt": "2026-11-22T18:19:34.760Z"
+      "sha256": "75c17134e8eb15f5c625317c2f04008f8e10a1ff49e14cc8c0cebc1b4e6b984b",
+      "publishedAt": "2026-11-22T18:19:34.760Z",
+      "updatedAt": "2026-11-22T18:39:36.360Z"
     },
     "chaos-dragon-with-chaos-lord-hero": {
-      "sha256": "7d11f8eadf98986c33efdddc53cc618defced7ffb1358bae83b0cc72e587a6ce",
-      "publishedAt": "2026-11-22T18:19:34.760Z"
+      "sha256": "541529bb8460047add265656d9af525a22c169d2ace97819bb59325f90b5fd10",
+      "publishedAt": "2026-11-22T18:19:34.760Z",
+      "updatedAt": "2026-11-22T18:39:36.360Z"
     },
     "chaos-dragon-with-chaos-lord-lance": {
       "sha256": "bce4e7341526f5be0f5e9122a608a738bab3478d9c3d470c26787ea04116b6f4",

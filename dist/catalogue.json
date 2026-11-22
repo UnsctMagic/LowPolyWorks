@@ -35495,8 +35495,8 @@
       "Portrait",
       "Portrait Talk"
     ],
-    "bytes": 695657,
-    "sha256": "92e00e4fe8f4e53eb0c84f88a0eedeae4cd876a7b226f2b93befbe9ddf6bdac8",
+    "bytes": 695641,
+    "sha256": "75c17134e8eb15f5c625317c2f04008f8e10a1ff49e14cc8c0cebc1b4e6b984b",
     "downloadPack": "downloads/chaos-dragon-with-chaos-lord/WH_WOC_ChaosDragonLord01Optimized.zip",
     "publishedAt": "2026-11-22T18:19:34.760Z",
     "imageVersion": "20261122-chaos-dragon",
@@ -35508,12 +35508,12 @@
       {
         "label": "Download",
         "path": "downloads/chaos-dragon-with-chaos-lord/WH_WOC_ChaosDragonLord01.zip",
-        "bytes": 737881
+        "bytes": 737865
       },
       {
         "label": "Optimized",
         "path": "downloads/chaos-dragon-with-chaos-lord/WH_WOC_ChaosDragonLord01Optimized.zip",
-        "bytes": 695657
+        "bytes": 695641
       }
     ],
     "projectileBytes": 34408,
@@ -36175,8 +36175,8 @@
       "Portrait",
       "Portrait Talk"
     ],
-    "bytes": 696577,
-    "sha256": "7d11f8eadf98986c33efdddc53cc618defced7ffb1358bae83b0cc72e587a6ce",
+    "bytes": 696561,
+    "sha256": "541529bb8460047add265656d9af525a22c169d2ace97819bb59325f90b5fd10",
     "downloadPack": "downloads/chaos-dragon-with-chaos-lord/WH_WOC_ChaosDragonLord01HeroOptimized.zip",
     "publishedAt": "2026-11-22T18:19:34.760Z",
     "imageVersion": "20261122-chaos-dragon",
@@ -36188,12 +36188,12 @@
       {
         "label": "Download",
         "path": "downloads/chaos-dragon-with-chaos-lord/WH_WOC_ChaosDragonLord01Hero.zip",
-        "bytes": 740485
+        "bytes": 740469
       },
       {
         "label": "Optimized",
         "path": "downloads/chaos-dragon-with-chaos-lord/WH_WOC_ChaosDragonLord01HeroOptimized.zip",
-        "bytes": 696577
+        "bytes": 696561
       }
     ],
     "projectileBytes": 34408,
