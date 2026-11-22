@@ -610,18 +610,19 @@
       "publishedAt": "2026-11-19T21:57:23.864Z"
     },
     "chaos-dragon-with-chaos-lord": {
-      "sha256": "79c1946d441845fac32633b78cf3e6c8579c7b77214fd223c33e60efdcbfbf32",
+      "sha256": "1c845e5dbb585f3f096b568927672d01b6fa4b074b17d4ba128c699ca123f586",
       "publishedAt": "2026-11-22T18:19:34.760Z",
-      "updatedAt": "2026-11-22T18:56:19.592Z"
+      "updatedAt": "2026-11-22T21:56:35.274Z"
     },
     "chaos-dragon-with-chaos-lord-hero": {
-      "sha256": "9dbeb9ab449d8f14a62eadb48b41f2be19e6817ecb4ed90aa39ef459e02ac3fa",
+      "sha256": "1ff5abc42e4364392ad37a6a11637ad40200dd6e9b414cdf9d8ceab7ba5bf65f",
       "publishedAt": "2026-11-22T18:19:34.760Z",
-      "updatedAt": "2026-11-22T18:56:19.592Z"
+      "updatedAt": "2026-11-22T21:56:35.274Z"
     },
     "chaos-dragon-with-chaos-lord-lance": {
-      "sha256": "bce4e7341526f5be0f5e9122a608a738bab3478d9c3d470c26787ea04116b6f4",
-      "publishedAt": "2026-11-22T18:19:34.760Z"
+      "sha256": "beb82b4406b677fcc0676bc89732cece8067d4fbb9212f9c100f7ac43fca181c",
+      "publishedAt": "2026-11-22T18:19:34.760Z",
+      "updatedAt": "2026-11-22T21:56:35.274Z"
     },
     "chaos-dragon-riderless": {
       "sha256": "703a29a6ec42ec1244b9aee18cc153871a2f563faf4295d25df86da4f1054098",
