@@ -35511,8 +35511,8 @@
       "Portrait",
       "Portrait Talk"
     ],
-    "bytes": 695641,
-    "sha256": "79c1946d441845fac32633b78cf3e6c8579c7b77214fd223c33e60efdcbfbf32",
+    "bytes": 696477,
+    "sha256": "1c845e5dbb585f3f096b568927672d01b6fa4b074b17d4ba128c699ca123f586",
     "downloadPack": "downloads/chaos-dragon-with-chaos-lord/WH_WOC_ChaosDragonLord01Optimized.zip",
     "publishedAt": "2026-11-22T18:19:34.760Z",
     "imageVersion": "20261122-chaos-dragon",
@@ -35524,15 +35524,15 @@
       {
         "label": "Download",
         "path": "downloads/chaos-dragon-with-chaos-lord/WH_WOC_ChaosDragonLord01.zip",
-        "bytes": 737865
+        "bytes": 738701
       },
       {
         "label": "Optimized",
         "path": "downloads/chaos-dragon-with-chaos-lord/WH_WOC_ChaosDragonLord01Optimized.zip",
-        "bytes": 695641
+        "bytes": 696477
       }
     ],
-    "projectileBytes": 34408,
+    "projectileBytes": 34444,
     "settings": [
       "Animation Damage Point: 0.696",
       "Animation Backswing Point: 0.696",
@@ -36207,8 +36207,8 @@
       "Portrait",
       "Portrait Talk"
     ],
-    "bytes": 696561,
-    "sha256": "9dbeb9ab449d8f14a62eadb48b41f2be19e6817ecb4ed90aa39ef459e02ac3fa",
+    "bytes": 697325,
+    "sha256": "1ff5abc42e4364392ad37a6a11637ad40200dd6e9b414cdf9d8ceab7ba5bf65f",
     "downloadPack": "downloads/chaos-dragon-with-chaos-lord/WH_WOC_ChaosDragonLord01HeroOptimized.zip",
     "publishedAt": "2026-11-22T18:19:34.760Z",
     "imageVersion": "20261122-chaos-dragon",
@@ -36220,15 +36220,15 @@
       {
         "label": "Download",
         "path": "downloads/chaos-dragon-with-chaos-lord/WH_WOC_ChaosDragonLord01Hero.zip",
-        "bytes": 740469
+        "bytes": 741233
       },
       {
         "label": "Optimized",
         "path": "downloads/chaos-dragon-with-chaos-lord/WH_WOC_ChaosDragonLord01HeroOptimized.zip",
-        "bytes": 696561
+        "bytes": 697325
       }
     ],
-    "projectileBytes": 34408,
+    "projectileBytes": 34444,
     "settings": [
       "Animation Damage Point: 0.696",
       "Animation Backswing Point: 0.696",
@@ -36452,8 +36452,8 @@
       "Stand",
       "Death"
     ],
-    "bytes": 34408,
-    "sha256": "bce4e7341526f5be0f5e9122a608a738bab3478d9c3d470c26787ea04116b6f4",
+    "bytes": 34444,
+    "sha256": "beb82b4406b677fcc0676bc89732cece8067d4fbb9212f9c100f7ac43fca181c",
     "publishedAt": "2026-11-22T18:19:34.760Z",
     "imageVersion": "20261122-chaos-dragon",
     "searchDescription": "Preview and download Chaos Lance for Warcraft III Classic.",
@@ -36461,7 +36461,7 @@
       {
         "label": "Download MDX",
         "path": "downloads/chaos-dragon-with-chaos-lord/WH_WOC_ChaosLance02.mdx",
-        "bytes": 34408
+        "bytes": 34444
       }
     ],
     "viewerDirection": [
