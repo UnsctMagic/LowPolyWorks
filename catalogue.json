@@ -4,7 +4,7 @@
     "file": "WH_VC_Graveguard03.mdx",
     "name": "Graveguard",
     "army": "vampire-counts",
-    "description": "\"Wights are driven by a malign intelligence all their own, not the unquestioning allegiance of their lesser counterpart. Just as a powerful necromancer will some day die and rise again as an Undead, all his vile powers intact, so too can the greatest of the warrior heroes. Many of them are truly ancient, the remnants of an aboriginal, tribal people who once occupied the lands of the Empire thousands of years before it was so known.\"\r\n\r\n—Waldemarr, scholar of Nuln.\r\n\r\nTaken from: Warhammer Fantasy Roleplay 2nd Edition: Old World Bestiary",
+    "description": "\"Wights are driven by a malign intelligence all their own, not the unquestioning allegiance of their lesser counterpart. Just as a powerful necromancer will some day die and rise again as an Undead, all his vile powers intact, so too can the greatest of the warrior heroes. Many of them are truly ancient, the remnants of an aboriginal, tribal people who once occupied the lands of the Empire thousands of years before it was so known.\"\n\n—Waldemarr, scholar of Nuln.\nTaken from: Warhammer Fantasy Roleplay 2nd Edition: Old World Bestiary",
     "credits": "Model Base - Necron Guard by Rhapsodie\r\n\r\n -Which is based on Nature Protector by Maximal\r\n\r\nHelm and Weapon base - Skeleton-Pack by DREADMAN\r\n\r\nShield - Projected with MDLxL Forge feature.\r\n\r\nGargoyle Head, Helm Wings, Birth Animation - Blizzard.",
     "geosets": [
       {
@@ -349,7 +349,7 @@
     "file": "WH_VC_VonCarsteinLord07.mdx",
     "name": "Von Carstein Vampire",
     "army": "vampire-counts",
-    "description": "Ahh, the children of the night... listen to them, what sweet music they make.\r\n\r\nVampires, they suck blood, they roll with bats and wolves... Who doesn't like vampires?!!?\r\n\r\nSarafan Vampire Hunters.\r\n\r\nBut screw them, this Von Castein lord has killed plenty in his pursuit for dominance and power and perhaps he even traveled dimensions into Nosgoth at one point... To know the future... Raziel...uh... nevermind, this is still Warhammer.",
+    "description": "Ahh, the children of the night... listen to them, what sweet music they make.\n\nVampires, they suck blood, they roll with bats and wolves... Who doesn't like vampires?!!?\n\nSarafan Vampire Hunters.\n\nBut screw them, this Von Castein lord has killed plenty in his pursuit for dominance and power and perhaps he even traveled dimensions into Nosgoth at one point... To know the future... Raziel...uh... nevermind, this is still Warhammer.",
     "credits": "Model Base -Dread Knight/Death Knight by Direfury\r\n\r\nSword - Undead Dark Sword by Uncle Fester / Undead Sword by Perfjert\r\n\r\nShoulders - Hero Geist by Direfury\r\n\r\nFace - Modified from Vampyr by Dionesiist",
     "geosets": [
       {
@@ -1660,7 +1660,7 @@
     "file": "WH_WOC_KnightKhorneAxe05.mdx",
     "name": "Knight of Khorne · Axe",
     "army": "warriors-of-chaos",
-    "description": "I have never seen men fight like that...\r\n\r\nI barely made it out alive, this was no victory.\r\n\r\nStatues of brass, massive, twice the size of the biggest man I've ever seen and then some.\r\n\r\nWalking, not charging... advancing like a great wall made of brass and blood red steel.\r\n\r\nI saw men throw down their weapons crying, screaming...\r\n\r\nMen crawled beneath one another to get away...\r\n\r\nIt made no difference, there was nowhere to run.\r\n\r\nI watched a man split from shoulder to hip as he was trying to hide.\r\n\r\nAnother crushed into nothing I could recognize...\r\n\r\nMen were knocked down, trampled, hacked apart and still they kept hacking at the corpses.\r\n\r\nLike a butcher at the block, hacking away piece by piece.\r\n\r\nIt made no difference, we had to fight.\r\n\r\nThey even killed each other.\r\n\r\nThe ones we managed to injure or stagger fighting back became obstacles for the others,\r\n\r\nSo they simply cut through those to reach us faster.\r\n\r\nBut I think they knew they would die that day.\r\n\r\nI heard they razed ten cities before they reached us.\r\n\r\nThat they had come down from the north on a path of destruction.\r\n\r\nThat they had fought their way south for weeks leaving behind only blood and ash.\r\n\r\nBy the time they reached us they were outnumbered fifty to one.\r\n\r\nWe had heard of them coming.\r\n\r\nWe had heard what they had done.\r\n\r\nRivers of blood.\r\n\r\nBut It made no difference... I wanted to fight... to kill.\r\n\r\nThey did not run or beg.\r\n\r\nThey knew they were going to die, I think they wanted to.\r\n\r\nMy city has lost everything defeating them and they got what they came for.\r\n\r\nYou call this victory...?\r\n\r\nSomehow... I envy them.\r\n\r\nI have spent all my life afraid... Afraid of pain... regret... death...\r\n\r\nAfraid of fear.\r\n\r\nThose men were afraid of nothing.\r\n\r\nWanted nothing.\r\n\r\nKept nothing...\r\n\r\nBut it made no difference... I killed them too.\r\n\r\nNorth...\r\n\r\nThat is where they came from.\r\n\r\nThat is where I will go.",
+    "description": "I have never seen men fight like that... I barely made it out alive, this was no victory.\n\nStatues of brass, massive, twice the size of the biggest man I've ever seen and then some. Walking, not charging... advancing like a great wall made of brass and blood red steel. I saw men throw down their weapons crying, screaming... Men crawled beneath one another to get away... It made no difference, there was nowhere to run.\n\nI watched a man split from shoulder to hip as he was trying to hide. Another crushed into nothing I could recognize... Men were knocked down, trampled, hacked apart and still they kept hacking at the corpses. Like a butcher at the block, hacking away piece by piece.\n\nIt made no difference, we had to fight. They even killed each other. The ones we managed to injure or stagger fighting back became obstacles for the others, So they simply cut through those to reach us faster.\n\nBut I think they knew they would die that day. I heard they razed ten cities before they reached us. That they had come down from the north on a path of destruction. That they had fought their way south for weeks leaving behind only blood and ash. By the time they reached us they were outnumbered fifty to one.\n\nWe had heard of them coming. We had heard what they had done. Rivers of blood. But It made no difference... I wanted to fight... to kill.\n\nThey did not run or beg. They knew they were going to die, I think they wanted to. My city has lost everything defeating them and they got what they came for. You call this victory...?\n\nSomehow... I envy them. I have spent all my life afraid... Afraid of pain... regret... death... Afraid of fear. Those men were afraid of nothing. Wanted nothing. Kept nothing... But it made no difference... I killed them too.\n\nNorth... That is where they came from. That is where I will go.",
     "credits": "Model Base - Vile Knight by HerrDave / Further edited by Stein123\r\n\r\nFlail Animations - Knight, Bandit Lord & Riderless Horse by Loktar\r\n\r\nBloodied Khorne Symbol - Blood Letter by Ironmaiden\r\n\r\nHelm 1 Base - Black Knight by Direfury\r\n\r\nHelm 2 Base - Advanced White Helm by Astaroth Zion\r\n\r\nHelm Horehair Crest - Blackorder Assassin by Rhapsodie\r\n\r\nFlail Knight Face - adapted from IronMaiden's Dawn of War Helms\r\n\r\nHelm Khorne Bunny Ears - adapted and reshaped from World Eaters Helm by Ironmaiden\r\n\r\nShield Base - Projected and shaped using the forge feature of MDLxL\r\n\r\nSkull Jaw - reshaped World of Warcraft: Legion - Drogbar asset\r\n\r\nKhorne Symbol - Adept of Khorne by WebSter\r\n\r\nAxe - Traitor Knightess by Greedy Martyrdom\r\n\r\nHorse head and tail - Headless Horseman by Johnwar\r\n\r\nFur Cloak - Chaos Warrior by Azazeron\r\n\r\nShoulders - Diablo_3_Barbarian_Shoulders by Forgotten_Warlord",
     "geosets": [
       {
@@ -2237,7 +2237,7 @@
     "file": "WH_WOC_KnightKhroneBStandard02.mdx",
     "name": "Knight of Khorne - Standard Bearer",
     "army": "warriors-of-chaos",
-    "description": "I have never seen men fight like that...\r\n\r\nI barely made it out alive, this was no victory.\r\n\r\nStatues of brass, massive, twice the size of the biggest man I've ever seen and then some.\r\n\r\nWalking, not charging... advancing like a great wall made of brass and blood red steel.\r\n\r\nI saw men throw down their weapons crying, screaming...\r\n\r\nMen crawled beneath one another to get away...\r\n\r\nIt made no difference, there was nowhere to run.\r\n\r\nI watched a man split from shoulder to hip as he was trying to hide.\r\n\r\nAnother crushed into nothing I could recognize...\r\n\r\nMen were knocked down, trampled, hacked apart and still they kept hacking at the corpses.\r\n\r\nLike a butcher at the block, hacking away piece by piece.\r\n\r\nIt made no difference, we had to fight.\r\n\r\nThey even killed each other.\r\n\r\nThe ones we managed to injure or stagger fighting back became obstacles for the others,\r\n\r\nSo they simply cut through those to reach us faster.\r\n\r\nBut I think they knew they would die that day.\r\n\r\nI heard they razed ten cities before they reached us.\r\n\r\nThat they had come down from the north on a path of destruction.\r\n\r\nThat they had fought their way south for weeks leaving behind only blood and ash.\r\n\r\nBy the time they reached us they were outnumbered fifty to one.\r\n\r\nWe had heard of them coming.\r\n\r\nWe had heard what they had done.\r\n\r\nRivers of blood.\r\n\r\nBut It made no difference... I wanted to fight... to kill.\r\n\r\nThey did not run or beg.\r\n\r\nThey knew they were going to die, I think they wanted to.\r\n\r\nMy city has lost everything defeating them and they got what they came for.\r\n\r\nYou call this victory...?\r\n\r\nSomehow... I envy them.\r\n\r\nI have spent all my life afraid... Afraid of pain... regret... death...\r\n\r\nAfraid of fear.\r\n\r\nThose men were afraid of nothing.\r\n\r\nWanted nothing.\r\n\r\nKept nothing...\r\n\r\nBut it made no difference... I killed them too.\r\n\r\nNorth...\r\n\r\nThat is where they came from.\r\n\r\nThat is where I will go.",
+    "description": "I have never seen men fight like that... I barely made it out alive, this was no victory.\n\nStatues of brass, massive, twice the size of the biggest man I've ever seen and then some. Walking, not charging... advancing like a great wall made of brass and blood red steel. I saw men throw down their weapons crying, screaming... Men crawled beneath one another to get away... It made no difference, there was nowhere to run.\n\nI watched a man split from shoulder to hip as he was trying to hide. Another crushed into nothing I could recognize... Men were knocked down, trampled, hacked apart and still they kept hacking at the corpses. Like a butcher at the block, hacking away piece by piece.\n\nIt made no difference, we had to fight. They even killed each other. The ones we managed to injure or stagger fighting back became obstacles for the others, So they simply cut through those to reach us faster.\n\nBut I think they knew they would die that day. I heard they razed ten cities before they reached us. That they had come down from the north on a path of destruction. That they had fought their way south for weeks leaving behind only blood and ash. By the time they reached us they were outnumbered fifty to one.\n\nWe had heard of them coming. We had heard what they had done. Rivers of blood. But It made no difference... I wanted to fight... to kill.\n\nThey did not run or beg. They knew they were going to die, I think they wanted to. My city has lost everything defeating them and they got what they came for. You call this victory...?\n\nSomehow... I envy them. I have spent all my life afraid... Afraid of pain... regret... death... Afraid of fear. Those men were afraid of nothing. Wanted nothing. Kept nothing... But it made no difference... I killed them too.\n\nNorth... That is where they came from. That is where I will go.",
     "credits": "Model Base - Vile Knight by HerrDave / Further edited by Stein123\r\n\r\nHelm - Bandit Enforcer (Re-Classic) by Johnwar\r\n\r\nSymbol of Khorne - Projected with MDLxL\r\n\r\nAxe - Double Axe by Blood Raven\r\n\r\nBanner - Replaceable Banner by Illidan(Evil)X\r\n\r\nHorse head and tail - Headless Horseman by Johnwar\r\n\r\nFur Cloak - Chaos Warrior by Azazeron\r\n\r\nShoulders - Diablo_3_Barbarian_Shoulders by Forgotten_Warlord",
     "authors": [
       {
@@ -2724,7 +2724,7 @@
     "file": "WH_WOC_KnightKhroneBStandardHero01.mdx",
     "name": "Knight of Khorne - Standard Bearer",
     "army": "warriors-of-chaos",
-    "description": "I have never seen men fight like that...\r\n\r\nI barely made it out alive, this was no victory.\r\n\r\nStatues of brass, massive, twice the size of the biggest man I've ever seen and then some.\r\n\r\nWalking, not charging... advancing like a great wall made of brass and blood red steel.\r\n\r\nI saw men throw down their weapons crying, screaming...\r\n\r\nMen crawled beneath one another to get away...\r\n\r\nIt made no difference, there was nowhere to run.\r\n\r\nI watched a man split from shoulder to hip as he was trying to hide.\r\n\r\nAnother crushed into nothing I could recognize...\r\n\r\nMen were knocked down, trampled, hacked apart and still they kept hacking at the corpses.\r\n\r\nLike a butcher at the block, hacking away piece by piece.\r\n\r\nIt made no difference, we had to fight.\r\n\r\nThey even killed each other.\r\n\r\nThe ones we managed to injure or stagger fighting back became obstacles for the others,\r\n\r\nSo they simply cut through those to reach us faster.\r\n\r\nBut I think they knew they would die that day.\r\n\r\nI heard they razed ten cities before they reached us.\r\n\r\nThat they had come down from the north on a path of destruction.\r\n\r\nThat they had fought their way south for weeks leaving behind only blood and ash.\r\n\r\nBy the time they reached us they were outnumbered fifty to one.\r\n\r\nWe had heard of them coming.\r\n\r\nWe had heard what they had done.\r\n\r\nRivers of blood.\r\n\r\nBut It made no difference... I wanted to fight... to kill.\r\n\r\nThey did not run or beg.\r\n\r\nThey knew they were going to die, I think they wanted to.\r\n\r\nMy city has lost everything defeating them and they got what they came for.\r\n\r\nYou call this victory...?\r\n\r\nSomehow... I envy them.\r\n\r\nI have spent all my life afraid... Afraid of pain... regret... death...\r\n\r\nAfraid of fear.\r\n\r\nThose men were afraid of nothing.\r\n\r\nWanted nothing.\r\n\r\nKept nothing...\r\n\r\nBut it made no difference... I killed them too.\r\n\r\nNorth...\r\n\r\nThat is where they came from.\r\n\r\nThat is where I will go.",
+    "description": "I have never seen men fight like that... I barely made it out alive, this was no victory.\n\nStatues of brass, massive, twice the size of the biggest man I've ever seen and then some. Walking, not charging... advancing like a great wall made of brass and blood red steel. I saw men throw down their weapons crying, screaming... Men crawled beneath one another to get away... It made no difference, there was nowhere to run.\n\nI watched a man split from shoulder to hip as he was trying to hide. Another crushed into nothing I could recognize... Men were knocked down, trampled, hacked apart and still they kept hacking at the corpses. Like a butcher at the block, hacking away piece by piece.\n\nIt made no difference, we had to fight. They even killed each other. The ones we managed to injure or stagger fighting back became obstacles for the others, So they simply cut through those to reach us faster.\n\nBut I think they knew they would die that day. I heard they razed ten cities before they reached us. That they had come down from the north on a path of destruction. That they had fought their way south for weeks leaving behind only blood and ash. By the time they reached us they were outnumbered fifty to one.\n\nWe had heard of them coming. We had heard what they had done. Rivers of blood. But It made no difference... I wanted to fight... to kill.\n\nThey did not run or beg. They knew they were going to die, I think they wanted to. My city has lost everything defeating them and they got what they came for. You call this victory...?\n\nSomehow... I envy them. I have spent all my life afraid... Afraid of pain... regret... death... Afraid of fear. Those men were afraid of nothing. Wanted nothing. Kept nothing... But it made no difference... I killed them too.\n\nNorth... That is where they came from. That is where I will go.",
     "credits": "Model Base - Vile Knight by HerrDave / Further edited by Stein123\r\n\r\nHelm - Bandit Enforcer (Re-Classic) by Johnwar\r\n\r\nSymbol of Khorne - Projected with MDLxL\r\n\r\nAxe - Double Axe by Blood Raven\r\n\r\nBanner - Replaceable Banner by Illidan(Evil)X\r\n\r\nHorse head and tail - Headless Horseman by Johnwar\r\n\r\nFur Cloak - Chaos Warrior by Azazeron\r\n\r\nShoulders - Diablo_3_Barbarian_Shoulders by Forgotten_Warlord",
     "authors": [
       {
@@ -3229,7 +3229,7 @@
     "file": "WH_WOC_KnightKhorneFlailHero02.mdx",
     "name": "Knight of Khorne · Champion",
     "army": "warriors-of-chaos",
-    "description": "I have never seen men fight like that...\r\n\r\nI barely made it out alive, this was no victory.\r\n\r\nStatues of brass, massive, twice the size of the biggest man I've ever seen and then some.\r\n\r\nWalking, not charging... advancing like a great wall made of brass and blood red steel.\r\n\r\nI saw men throw down their weapons crying, screaming...\r\n\r\nMen crawled beneath one another to get away...\r\n\r\nIt made no difference, there was nowhere to run.\r\n\r\nI watched a man split from shoulder to hip as he was trying to hide.\r\n\r\nAnother crushed into nothing I could recognize...\r\n\r\nMen were knocked down, trampled, hacked apart and still they kept hacking at the corpses.\r\n\r\nLike a butcher at the block, hacking away piece by piece.\r\n\r\nIt made no difference, we had to fight.\r\n\r\nThey even killed each other.\r\n\r\nThe ones we managed to injure or stagger fighting back became obstacles for the others,\r\n\r\nSo they simply cut through those to reach us faster.\r\n\r\nBut I think they knew they would die that day.\r\n\r\nI heard they razed ten cities before they reached us.\r\n\r\nThat they had come down from the north on a path of destruction.\r\n\r\nThat they had fought their way south for weeks leaving behind only blood and ash.\r\n\r\nBy the time they reached us they were outnumbered fifty to one.\r\n\r\nWe had heard of them coming.\r\n\r\nWe had heard what they had done.\r\n\r\nRivers of blood.\r\n\r\nBut It made no difference... I wanted to fight... to kill.\r\n\r\nThey did not run or beg.\r\n\r\nThey knew they were going to die, I think they wanted to.\r\n\r\nMy city has lost everything defeating them and they got what they came for.\r\n\r\nYou call this victory...?\r\n\r\nSomehow... I envy them.\r\n\r\nI have spent all my life afraid... Afraid of pain... regret... death...\r\n\r\nAfraid of fear.\r\n\r\nThose men were afraid of nothing.\r\n\r\nWanted nothing.\r\n\r\nKept nothing...\r\n\r\nBut it made no difference... I killed them too.\r\n\r\nNorth...\r\n\r\nThat is where they came from.\r\n\r\nThat is where I will go.",
+    "description": "I have never seen men fight like that... I barely made it out alive, this was no victory.\n\nStatues of brass, massive, twice the size of the biggest man I've ever seen and then some. Walking, not charging... advancing like a great wall made of brass and blood red steel. I saw men throw down their weapons crying, screaming... Men crawled beneath one another to get away... It made no difference, there was nowhere to run.\n\nI watched a man split from shoulder to hip as he was trying to hide. Another crushed into nothing I could recognize... Men were knocked down, trampled, hacked apart and still they kept hacking at the corpses. Like a butcher at the block, hacking away piece by piece.\n\nIt made no difference, we had to fight. They even killed each other. The ones we managed to injure or stagger fighting back became obstacles for the others, So they simply cut through those to reach us faster.\n\nBut I think they knew they would die that day. I heard they razed ten cities before they reached us. That they had come down from the north on a path of destruction. That they had fought their way south for weeks leaving behind only blood and ash. By the time they reached us they were outnumbered fifty to one.\n\nWe had heard of them coming. We had heard what they had done. Rivers of blood. But It made no difference... I wanted to fight... to kill.\n\nThey did not run or beg. They knew they were going to die, I think they wanted to. My city has lost everything defeating them and they got what they came for. You call this victory...?\n\nSomehow... I envy them. I have spent all my life afraid... Afraid of pain... regret... death... Afraid of fear. Those men were afraid of nothing. Wanted nothing. Kept nothing... But it made no difference... I killed them too.\n\nNorth... That is where they came from. That is where I will go.",
     "credits": "Model Base - Vile Knight by HerrDave / Further edited by Stein123\r\n\r\nFlail Animations - Knight, Bandit Lord & Riderless Horse by Loktar\r\n\r\nBloodied Khorne Symbol - Blood Letter by Ironmaiden\r\n\r\nHelm 1 Base - Black Knight by Direfury\r\n\r\nHelm 2 Base - Advanced White Helm by Astaroth Zion\r\n\r\nHelm Horehair Crest - Blackorder Assassin by Rhapsodie\r\n\r\nFlail Knight Face - adapted from IronMaiden's Dawn of War Helms\r\n\r\nHelm Khorne Bunny Ears - adapted and reshaped from World Eaters Helm by Ironmaiden\r\n\r\nShield Base - Projected and shaped using the forge feature of MDLxL\r\n\r\nSkull Jaw - reshaped World of Warcraft: Legion - Drogbar asset\r\n\r\nKhorne Symbol - Adept of Khorne by WebSter\r\n\r\nAxe - Traitor Knightess by Greedy Martyrdom\r\n\r\nHorse head and tail - Headless Horseman by Johnwar\r\n\r\nFur Cloak - Chaos Warrior by Azazeron\r\n\r\nShoulders - Diablo_3_Barbarian_Shoulders by Forgotten_Warlord",
     "geosets": [
       {
@@ -3750,7 +3750,7 @@
     "file": "WH_WOC_KnightKhorneFlailUnit04.mdx",
     "name": "Knight of Khorne · Champion",
     "army": "warriors-of-chaos",
-    "description": "I have never seen men fight like that...\r\n\r\nI barely made it out alive, this was no victory.\r\n\r\nStatues of brass, massive, twice the size of the biggest man I've ever seen and then some.\r\n\r\nWalking, not charging... advancing like a great wall made of brass and blood red steel.\r\n\r\nI saw men throw down their weapons crying, screaming...\r\n\r\nMen crawled beneath one another to get away...\r\n\r\nIt made no difference, there was nowhere to run.\r\n\r\nI watched a man split from shoulder to hip as he was trying to hide.\r\n\r\nAnother crushed into nothing I could recognize...\r\n\r\nMen were knocked down, trampled, hacked apart and still they kept hacking at the corpses.\r\n\r\nLike a butcher at the block, hacking away piece by piece.\r\n\r\nIt made no difference, we had to fight.\r\n\r\nThey even killed each other.\r\n\r\nThe ones we managed to injure or stagger fighting back became obstacles for the others,\r\n\r\nSo they simply cut through those to reach us faster.\r\n\r\nBut I think they knew they would die that day.\r\n\r\nI heard they razed ten cities before they reached us.\r\n\r\nThat they had come down from the north on a path of destruction.\r\n\r\nThat they had fought their way south for weeks leaving behind only blood and ash.\r\n\r\nBy the time they reached us they were outnumbered fifty to one.\r\n\r\nWe had heard of them coming.\r\n\r\nWe had heard what they had done.\r\n\r\nRivers of blood.\r\n\r\nBut It made no difference... I wanted to fight... to kill.\r\n\r\nThey did not run or beg.\r\n\r\nThey knew they were going to die, I think they wanted to.\r\n\r\nMy city has lost everything defeating them and they got what they came for.\r\n\r\nYou call this victory...?\r\n\r\nSomehow... I envy them.\r\n\r\nI have spent all my life afraid... Afraid of pain... regret... death...\r\n\r\nAfraid of fear.\r\n\r\nThose men were afraid of nothing.\r\n\r\nWanted nothing.\r\n\r\nKept nothing...\r\n\r\nBut it made no difference... I killed them too.\r\n\r\nNorth...\r\n\r\nThat is where they came from.\r\n\r\nThat is where I will go.",
+    "description": "I have never seen men fight like that... I barely made it out alive, this was no victory.\n\nStatues of brass, massive, twice the size of the biggest man I've ever seen and then some. Walking, not charging... advancing like a great wall made of brass and blood red steel. I saw men throw down their weapons crying, screaming... Men crawled beneath one another to get away... It made no difference, there was nowhere to run.\n\nI watched a man split from shoulder to hip as he was trying to hide. Another crushed into nothing I could recognize... Men were knocked down, trampled, hacked apart and still they kept hacking at the corpses. Like a butcher at the block, hacking away piece by piece.\n\nIt made no difference, we had to fight. They even killed each other. The ones we managed to injure or stagger fighting back became obstacles for the others, So they simply cut through those to reach us faster.\n\nBut I think they knew they would die that day. I heard they razed ten cities before they reached us. That they had come down from the north on a path of destruction. That they had fought their way south for weeks leaving behind only blood and ash. By the time they reached us they were outnumbered fifty to one.\n\nWe had heard of them coming. We had heard what they had done. Rivers of blood. But It made no difference... I wanted to fight... to kill.\n\nThey did not run or beg. They knew they were going to die, I think they wanted to. My city has lost everything defeating them and they got what they came for. You call this victory...?\n\nSomehow... I envy them. I have spent all my life afraid... Afraid of pain... regret... death... Afraid of fear. Those men were afraid of nothing. Wanted nothing. Kept nothing... But it made no difference... I killed them too.\n\nNorth... That is where they came from. That is where I will go.",
     "credits": "Model Base - Vile Knight by HerrDave / Further edited by Stein123\r\n\r\nFlail Animations - Knight, Bandit Lord & Riderless Horse by Loktar\r\n\r\nBloodied Khorne Symbol - Blood Letter by Ironmaiden\r\n\r\nHelm 1 Base - Black Knight by Direfury\r\n\r\nHelm 2 Base - Advanced White Helm by Astaroth Zion\r\n\r\nHelm Horehair Crest - Blackorder Assassin by Rhapsodie\r\n\r\nFlail Knight Face - adapted from IronMaiden's Dawn of War Helms\r\n\r\nHelm Khorne Bunny Ears - adapted and reshaped from World Eaters Helm by Ironmaiden\r\n\r\nShield Base - Projected and shaped using the forge feature of MDLxL\r\n\r\nSkull Jaw - reshaped World of Warcraft: Legion - Drogbar asset\r\n\r\nKhorne Symbol - Adept of Khorne by WebSter\r\n\r\nAxe - Traitor Knightess by Greedy Martyrdom\r\n\r\nHorse head and tail - Headless Horseman by Johnwar\r\n\r\nFur Cloak - Chaos Warrior by Azazeron\r\n\r\nShoulders - Diablo_3_Barbarian_Shoulders by Forgotten_Warlord",
     "geosets": [
       {
@@ -4253,7 +4253,7 @@
     "file": "WH_WOC_KnightNurgleHeavy06.mdx",
     "name": "Knight of Nurgle · Heavy",
     "army": "warriors-of-chaos",
-    "description": "There are many strange places to end up in the Old World...\r\n\r\nSome would claim the strangest is tucked within the comforting embrace of the Urfather.\r\n\r\nBut why? What could drive mortal men to seek out something so wrong?\r\n\r\nTell me, what would a knight who has lost his family to war continue fighting for? What is left to endure for those whose martial strength proved meaningless against the plights of life?\r\n\r\nThe strongest men are not broken with swords... I can tell you that much.\r\n\r\nIt is there, in those dark corners of the mind you will hear him whisper to you.\r\n\r\nHis embrace, his promises...\r\n\r\nNo more restless nights. No more seeing faces long buried. No more graves to dig... no more watching those you once loved fade and turn to dust... no more fearing the years that seem to pass faster and faster.\r\n\r\nHe would take all the pain away.\r\n\r\nHe would tuck those memories gently to sleep, still the passing of time, and silence every wound that steel could never mend...\r\n\r\nSuch a watchful father.\r\n\r\nA good father.\r\n\r\nHe does keep his promises.\r\n\r\nThe pain fades...\r\n\r\nThen the feelings.\r\n\r\nThen the memories.\r\n\r\nThen flesh swells, old wounds open and blossom yet ache no more, flies gather beneath a rusted visor and the body slowly rots... but somehow refuses to die.\r\n\r\nBut from that warm, rotten embrace do those knights rise once again...\r\n\r\nPerhaps to you they are disgusting abominations, bringers of death and decay, swollen, corpse-like and clad in rusted steel.\r\n\r\nBut in truth?\r\n\r\nThey have purpose.\r\n\r\nThey are at peace.\r\n\r\nThey are happy.\r\n\r\nAre you?...",
+    "description": "There are many strange places to end up in the Old World... Some would claim the strangest is tucked within the comforting embrace of the Urfather.\n\nBut why? What could drive mortal men to seek out something so wrong? Tell me, what would a knight who has lost his family to war continue fighting for? What is left to endure for those whose martial strength proved meaningless against the plights of life? The strongest men are not broken with swords... I can tell you that much.\n\nIt is there, in those dark corners of the mind you will hear him whisper to you. His embrace, his promises...\n\nNo more restless nights. No more seeing faces long buried. No more graves to dig... no more watching those you once loved fade and turn to dust... no more fearing the years that seem to pass faster and faster. He would take all the pain away. He would tuck those memories gently to sleep, still the passing of time, and silence every wound that steel could never mend...\n\nSuch a watchful father. A good father. He does keep his promises.\n\nThe pain fades... Then the feelings. Then the memories. Then flesh swells, old wounds open and blossom yet ache no more, flies gather beneath a rusted visor and the body slowly rots... but somehow refuses to die.\n\nBut from that warm, rotten embrace do those knights rise once again... Perhaps to you they are disgusting abominations, bringers of death and decay, swollen, corpse-like and clad in rusted steel.\n\nBut in truth? They have purpose. They are at peace. They are happy.\n\nAre you?...",
     "credits": "Model Base - Vile Knight by HerrDave /  Nurgle Knight by Stein123\r\n\r\nHelm - Bandit Enforcer by Johnwar\r\n\r\nHorns - Dire Maul Stone Deer Statue - WoW model\r\n\r\nFace/Shield Face/Tongue - Ghoul Re-Classic and Abomination Re-Classic by Johnwar\r\n\r\nHorse head and tail - Headless Horseman by Johnwar\r\n\r\nFur Cloak - Chaos Warrior by Azazeron\r\n\r\nScythe Top  - Reaper Ghost by Cinos",
     "geosets": [
       {
@@ -4814,7 +4814,7 @@
     "file": "WH_WOC_KnightNurgleV2_05.mdx",
     "name": "Knight of Nurgle",
     "army": "warriors-of-chaos",
-    "description": "There are many strange places to end up in the Old World...\r\n\r\nSome would claim the strangest is tucked within the comforting embrace of the Urfather.\r\n\r\nBut why? What could drive mortal men to seek out something so wrong?\r\n\r\nTell me, what would a knight who has lost his family to war continue fighting for? What is left to endure for those whose martial strength proved meaningless against the plights of life?\r\n\r\nThe strongest men are not broken with swords... I can tell you that much.\r\n\r\nIt is there, in those dark corners of the mind you will hear him whisper to you.\r\n\r\nHis embrace, his promises...\r\n\r\nNo more restless nights. No more seeing faces long buried. No more graves to dig... no more watching those you once loved fade and turn to dust... no more fearing the years that seem to pass faster and faster.\r\n\r\nHe would take all the pain away.\r\n\r\nHe would tuck those memories gently to sleep, still the passing of time, and silence every wound that steel could never mend...\r\n\r\nSuch a watchful father.\r\n\r\nA good father.\r\n\r\nHe does keep his promises.\r\n\r\nThe pain fades...\r\n\r\nThen the feelings.\r\n\r\nThen the memories.\r\n\r\nThen flesh swells, old wounds open and blossom yet ache no more, flies gather beneath a rusted visor and the body slowly rots... but somehow refuses to die.\r\n\r\nBut from that warm, rotten embrace do those knights rise once again...\r\n\r\nPerhaps to you they are disgusting abominations, bringers of death and decay, swollen, corpse-like and clad in rusted steel.\r\n\r\nBut in truth?\r\n\r\nThey have purpose.\r\n\r\nThey are at peace.\r\n\r\nThey are happy.\r\n\r\nAre you?...",
+    "description": "There are many strange places to end up in the Old World... Some would claim the strangest is tucked within the comforting embrace of the Urfather.\n\nBut why? What could drive mortal men to seek out something so wrong? Tell me, what would a knight who has lost his family to war continue fighting for? What is left to endure for those whose martial strength proved meaningless against the plights of life? The strongest men are not broken with swords... I can tell you that much.\n\nIt is there, in those dark corners of the mind you will hear him whisper to you. His embrace, his promises...\n\nNo more restless nights. No more seeing faces long buried. No more graves to dig... no more watching those you once loved fade and turn to dust... no more fearing the years that seem to pass faster and faster. He would take all the pain away. He would tuck those memories gently to sleep, still the passing of time, and silence every wound that steel could never mend...\n\nSuch a watchful father. A good father. He does keep his promises.\n\nThe pain fades... Then the feelings. Then the memories. Then flesh swells, old wounds open and blossom yet ache no more, flies gather beneath a rusted visor and the body slowly rots... but somehow refuses to die.\n\nBut from that warm, rotten embrace do those knights rise once again... Perhaps to you they are disgusting abominations, bringers of death and decay, swollen, corpse-like and clad in rusted steel.\n\nBut in truth? They have purpose. They are at peace. They are happy.\n\nAre you?...",
     "credits": "Model Base - Vile Knight by HerrDave /  Nurgle Knight by Stein123\r\n\r\nHelm - Bandit Enforcer by Johnwar\r\n\r\nHorns - Dire Maul Stone Deer Statue - WoW model\r\n\r\nFace/Shield Face/Tongue - Ghoul Re-Classic and Abomination Re-Classic by Johnwar\r\n\r\nHorse head and tail - Headless Horseman by Johnwar\r\n\r\nFur Cloak - Chaos Warrior by Azazeron\r\n\r\nScythe Top  - Reaper Ghost by Cinos",
     "geosets": [
       {
@@ -5263,7 +5263,7 @@
     "file": "WH_WOC_KnightNurgleChampionHero01.mdx",
     "name": "Knight of Nurgle · Champion",
     "army": "warriors-of-chaos",
-    "description": "There are many strange places to end up in the Old World...\r\n\r\nSome would claim the strangest is tucked within the comforting embrace of the Urfather.\r\n\r\nBut why? What could drive mortal men to seek out something so wrong?\r\n\r\nTell me, what would a knight who has lost his family to war continue fighting for? What is left to endure for those whose martial strength proved meaningless against the plights of life?\r\n\r\nThe strongest men are not broken with swords... I can tell you that much.\r\n\r\nIt is there, in those dark corners of the mind you will hear him whisper to you.\r\n\r\nHis embrace, his promises...\r\n\r\nNo more restless nights. No more seeing faces long buried. No more graves to dig... no more watching those you once loved fade and turn to dust... no more fearing the years that seem to pass faster and faster.\r\n\r\nHe would take all the pain away.\r\n\r\nHe would tuck those memories gently to sleep, still the passing of time, and silence every wound that steel could never mend...\r\n\r\nSuch a watchful father.\r\n\r\nA good father.\r\n\r\nHe does keep his promises.\r\n\r\nThe pain fades...\r\n\r\nThen the feelings.\r\n\r\nThen the memories.\r\n\r\nThen flesh swells, old wounds open and blossom yet ache no more, flies gather beneath a rusted visor and the body slowly rots... but somehow refuses to die.\r\n\r\nBut from that warm, rotten embrace do those knights rise once again...\r\n\r\nPerhaps to you they are disgusting abominations, bringers of death and decay, swollen, corpse-like and clad in rusted steel.\r\n\r\nBut in truth?\r\n\r\nThey have purpose.\r\n\r\nThey are at peace.\r\n\r\nThey are happy.\r\n\r\nAre you?...",
+    "description": "There are many strange places to end up in the Old World... Some would claim the strangest is tucked within the comforting embrace of the Urfather.\n\nBut why? What could drive mortal men to seek out something so wrong? Tell me, what would a knight who has lost his family to war continue fighting for? What is left to endure for those whose martial strength proved meaningless against the plights of life? The strongest men are not broken with swords... I can tell you that much.\n\nIt is there, in those dark corners of the mind you will hear him whisper to you. His embrace, his promises...\n\nNo more restless nights. No more seeing faces long buried. No more graves to dig... no more watching those you once loved fade and turn to dust... no more fearing the years that seem to pass faster and faster. He would take all the pain away. He would tuck those memories gently to sleep, still the passing of time, and silence every wound that steel could never mend...\n\nSuch a watchful father. A good father. He does keep his promises.\n\nThe pain fades... Then the feelings. Then the memories. Then flesh swells, old wounds open and blossom yet ache no more, flies gather beneath a rusted visor and the body slowly rots... but somehow refuses to die.\n\nBut from that warm, rotten embrace do those knights rise once again... Perhaps to you they are disgusting abominations, bringers of death and decay, swollen, corpse-like and clad in rusted steel.\n\nBut in truth? They have purpose. They are at peace. They are happy.\n\nAre you?...",
     "credits": "Model Base - Vile Knight by HerrDave /  Nurgle Knight by Stein123\r\n\r\nHelm - Gladiator's Helmet by Deolrin / Bandit Enforcer by Johnwar\r\n\r\nHelm Horns - Goats by Bakr\r\n\r\nHorns - Dire Maul Stone Deer Statue - WoW model\r\n\r\nFace/Shield Face/Tongue - Ghoul Re-Classic and Abomination Re-Classic by Johnwar\r\n\r\nHorse head and tail - Headless Horseman by Johnwar\r\n\r\nFur Cloak - Chaos Warrior by Azazeron\r\n\r\nAxe Blade - Igneous Cleaver by Solu9 / Further edited by Epimetheus\r\n\r\nWeapon Shaft - Orcish Staff by Sunchips",
     "geosets": [
       {
@@ -5835,7 +5835,7 @@
     "file": "WH_WOC_KnightNurgleChampionUnit07.mdx",
     "name": "Knight of Nurgle · Champion",
     "army": "warriors-of-chaos",
-    "description": "There are many strange places to end up in the Old World...\r\n\r\nSome would claim the strangest is tucked within the comforting embrace of the Urfather.\r\n\r\nBut why? What could drive mortal men to seek out something so wrong?\r\n\r\nTell me, what would a knight who has lost his family to war continue fighting for? What is left to endure for those whose martial strength proved meaningless against the plights of life?\r\n\r\nThe strongest men are not broken with swords... I can tell you that much.\r\n\r\nIt is there, in those dark corners of the mind you will hear him whisper to you.\r\n\r\nHis embrace, his promises...\r\n\r\nNo more restless nights. No more seeing faces long buried. No more graves to dig... no more watching those you once loved fade and turn to dust... no more fearing the years that seem to pass faster and faster.\r\n\r\nHe would take all the pain away.\r\n\r\nHe would tuck those memories gently to sleep, still the passing of time, and silence every wound that steel could never mend...\r\n\r\nSuch a watchful father.\r\n\r\nA good father.\r\n\r\nHe does keep his promises.\r\n\r\nThe pain fades...\r\n\r\nThen the feelings.\r\n\r\nThen the memories.\r\n\r\nThen flesh swells, old wounds open and blossom yet ache no more, flies gather beneath a rusted visor and the body slowly rots... but somehow refuses to die.\r\n\r\nBut from that warm, rotten embrace do those knights rise once again...\r\n\r\nPerhaps to you they are disgusting abominations, bringers of death and decay, swollen, corpse-like and clad in rusted steel.\r\n\r\nBut in truth?\r\n\r\nThey have purpose.\r\n\r\nThey are at peace.\r\n\r\nThey are happy.\r\n\r\nAre you?...",
+    "description": "There are many strange places to end up in the Old World... Some would claim the strangest is tucked within the comforting embrace of the Urfather.\n\nBut why? What could drive mortal men to seek out something so wrong? Tell me, what would a knight who has lost his family to war continue fighting for? What is left to endure for those whose martial strength proved meaningless against the plights of life? The strongest men are not broken with swords... I can tell you that much.\n\nIt is there, in those dark corners of the mind you will hear him whisper to you. His embrace, his promises...\n\nNo more restless nights. No more seeing faces long buried. No more graves to dig... no more watching those you once loved fade and turn to dust... no more fearing the years that seem to pass faster and faster. He would take all the pain away. He would tuck those memories gently to sleep, still the passing of time, and silence every wound that steel could never mend...\n\nSuch a watchful father. A good father. He does keep his promises.\n\nThe pain fades... Then the feelings. Then the memories. Then flesh swells, old wounds open and blossom yet ache no more, flies gather beneath a rusted visor and the body slowly rots... but somehow refuses to die.\n\nBut from that warm, rotten embrace do those knights rise once again... Perhaps to you they are disgusting abominations, bringers of death and decay, swollen, corpse-like and clad in rusted steel.\n\nBut in truth? They have purpose. They are at peace. They are happy.\n\nAre you?...",
     "credits": "Model Base - Vile Knight by HerrDave /  Nurgle Knight by Stein123\r\n\r\nHelm - Gladiator's Helmet by Deolrin / Bandit Enforcer by Johnwar\r\n\r\nHelm Horns - Goats by Bakr\r\n\r\nHorns - Dire Maul Stone Deer Statue - WoW model\r\n\r\nFace/Shield Face/Tongue - Ghoul Re-Classic and Abomination Re-Classic by Johnwar\r\n\r\nHorse head and tail - Headless Horseman by Johnwar\r\n\r\nFur Cloak - Chaos Warrior by Azazeron\r\n\r\nAxe Blade - Igneous Cleaver by Solu9 / Further edited by Epimetheus\r\n\r\nWeapon Shaft - Orcish Staff by Sunchips",
     "geosets": [
       {
@@ -6372,7 +6372,7 @@
     "file": "WH_WOC_KnightSlaaneshAxe07.mdx",
     "name": "Knight of Slaanesh · Axe",
     "army": "warriors-of-chaos",
-    "description": "How good of you to come all this way, just to watch me cut you apart.\r\n\r\nI see you struggle... I know this is difficult, to die... really, I do.\r\n\r\nBut if you would just hold still, this would be over so much sooner.\r\n\r\nYou might think I hate you but I don't.\r\n\r\nI take great pleasure in what we are doing together, you and I.\r\n\r\nThis little act of killing you is merely one scene in a much grander performance.\r\n\r\nYou, your friends, your people, these lands... you are all background players in my great presence, can't you feel it?\r\n\r\nYou should feel honored, my sword is inside you, after all.\r\n\r\nYou see, I WANT to be here.\r\n\r\nI want to take this from you.\r\n\r\nI want to look into your eyes while you grasp what you are losing.\r\n\r\nThat moment...\r\n\r\nThat is the pleasure.\r\n\r\nShort but so so good...\r\n\r\nI said hold still!\r\n\r\nYou know, I was like you once.\r\n\r\nI lived in these lands, I was a Knight of Bretonnia... I loved my Lady.\r\n\r\nLove...\r\n\r\nWhat a tedious thing.\r\n\r\nIt gives you nothing.\r\n\r\nLook what it gave you, holding your guts like that.\r\n\r\nYou weren't a knight for very long, were you?\r\n\r\n...\r\n\r\nYou really are having difficulty holding still.\r\n\r\nAnd why are you screaming?\r\n\r\nHmm...\r\n\r\nPerhaps I should cut out your tongue.\r\n\r\nIt would make it much easier for you to listen... you NEED to listen.\r\n\r\nNow...\r\n\r\nHold still...",
+    "description": "How good of you to come all this way, just to watch me cut you apart. I see you struggle... I know this is difficult, to die... really, I do. But if you would just hold still, this would be over so much sooner.\n\nYou might think I hate you but I don't. I take great pleasure in what we are doing together, you and I.\n\nThis little act of killing you is merely one scene in a much grander performance. You, your friends, your people, these lands... you are all background players in my great presence, can't you feel it? You should feel honored, my sword is inside you, after all.\n\nYou see, I WANT to be here. I want to take this from you. I want to look into your eyes while you grasp what you are losing. That moment... That is the pleasure. Short but so so good...\n\nI said hold still!\n\nYou know, I was like you once. I lived in these lands, I was a Knight of Bretonnia... I loved my Lady.\n\nLove... What a tedious thing. It gives you nothing. Look what it gave you, holding your guts like that. You weren't a knight for very long, were you? ...\n\nYou really are having difficulty holding still. And why are you screaming? Hmm... Perhaps I should cut out your tongue. It would make it much easier for you to listen... you NEED to listen.\n\nNow... Hold still...",
     "credits": "Model Base - Vile Knight by HerrDave /  Slaanesh Knight by Stein123\r\n\r\nHelm Shape and Horns - Chaos Warrior of Slaanesh by Diazon, found on Warhammer Eternal Strife by Nightmare2077\r\n\r\nAdditional - Front Skull adapted from IronMaiden's Dawn of War Helms.\r\n\r\nShield-Woman/Demon - Guardian Matriarch by Greedy Martyrdom\r\n\r\nHorse Head and Tail - Headless Horseman by Johnwar\r\n\r\nHeroes Axe - Radiant Emerald Cleaver by @Sunchips",
     "geosets": [
       {
@@ -6825,7 +6825,7 @@
     "file": "WH_WOC_KnightSlaaneshLance07.mdx",
     "name": "Knight of Slaanesh · Lance",
     "army": "warriors-of-chaos",
-    "description": "How good of you to come all this way, just to watch me cut you apart.\r\n\r\nI see you struggle... I know this is difficult, to die... really, I do.\r\n\r\nBut if you would just hold still, this would be over so much sooner.\r\n\r\nYou might think I hate you but I don't.\r\n\r\nI take great pleasure in what we are doing together, you and I.\r\n\r\nThis little act of killing you is merely one scene in a much grander performance.\r\n\r\nYou, your friends, your people, these lands... you are all background players in my great presence, can't you feel it?\r\n\r\nYou should feel honored, my sword is inside you, after all.\r\n\r\nYou see, I WANT to be here.\r\n\r\nI want to take this from you.\r\n\r\nI want to look into your eyes while you grasp what you are losing.\r\n\r\nThat moment...\r\n\r\nThat is the pleasure.\r\n\r\nShort but so so good...\r\n\r\nI said hold still!\r\n\r\nYou know, I was like you once.\r\n\r\nI lived in these lands, I was a Knight of Bretonnia... I loved my Lady.\r\n\r\nLove...\r\n\r\nWhat a tedious thing.\r\n\r\nIt gives you nothing.\r\n\r\nLook what it gave you, holding your guts like that.\r\n\r\nYou weren't a knight for very long, were you?\r\n\r\n...\r\n\r\nYou really are having difficulty holding still.\r\n\r\nAnd why are you screaming?\r\n\r\nHmm...\r\n\r\nPerhaps I should cut out your tongue.\r\n\r\nIt would make it much easier for you to listen... you NEED to listen.\r\n\r\nNow...\r\n\r\nHold still...",
+    "description": "How good of you to come all this way, just to watch me cut you apart. I see you struggle... I know this is difficult, to die... really, I do. But if you would just hold still, this would be over so much sooner.\n\nYou might think I hate you but I don't. I take great pleasure in what we are doing together, you and I.\n\nThis little act of killing you is merely one scene in a much grander performance. You, your friends, your people, these lands... you are all background players in my great presence, can't you feel it? You should feel honored, my sword is inside you, after all.\n\nYou see, I WANT to be here. I want to take this from you. I want to look into your eyes while you grasp what you are losing. That moment... That is the pleasure. Short but so so good...\n\nI said hold still!\n\nYou know, I was like you once. I lived in these lands, I was a Knight of Bretonnia... I loved my Lady.\n\nLove... What a tedious thing. It gives you nothing. Look what it gave you, holding your guts like that. You weren't a knight for very long, were you? ...\n\nYou really are having difficulty holding still. And why are you screaming? Hmm... Perhaps I should cut out your tongue. It would make it much easier for you to listen... you NEED to listen.\n\nNow... Hold still...",
     "credits": "Model Base - Vile Knight by HerrDave /  Slaanesh Knight by Stein123\r\n\r\nHelm Shape and Horns - Chaos Warrior of Slaanesh by Diazon, found on Warhammer Eternal Strife by Nightmare2077\r\n\r\nAdditional - Front Skull adapted from IronMaiden's Dawn of War Helms.\r\n\r\nShield-Woman/Demon - Guardian Matriarch by Greedy Martyrdom\r\n\r\nHorse Head and Tail - Headless Horseman by Johnwar\r\n\r\nHeroes Axe - Radiant Emerald Cleaver by @Sunchips",
     "geosets": [
       {
@@ -7280,7 +7280,7 @@
     "file": "WH_WOC_KnightUndividedSword07.mdx",
     "name": "Knight Undivided · Sword",
     "army": "warriors-of-chaos",
-    "description": "The good old days of horns, fur, and dark steel are back.\r\n\r\nFrom the far reaches of the North, clad in black steel and mounted upon mighty Chaos steeds, ride the blackest of the black, the heralds of mankinds doom.\r\n\r\nLock up your doors and hide for they come in the name of the Ruinous Powers and only in death is there glory.",
+    "description": "The good old days of horns, fur, and dark steel are back.\n\nFrom the far reaches of the North, clad in black steel and mounted upon mighty Chaos steeds, ride the blackest of the black, the heralds of mankinds doom.\n\nLock up your doors and hide for they come in the name of the Ruinous Powers and only in death is there glory.",
     "credits": "Model Base - Vile Knight by HerrDave / Further edited by Stein123\r\n\r\nHelmet, Chaos Star wrapped on shoulders - Chaos Warriors by Diazon, found on Warhammer Eternal Strife by Nightmare2077\r\n\r\nSword - Red Rune Sword by Sunchips\r\n\r\nHorse head and tail - Headless Horseman by Johnwar\r\n\r\nFur Cloak - Chaos Warrior by Azazeron\r\n\r\nHorns - Force Commander and Chaos Lords by EmirDaud, Darnish89",
     "geosets": [
       {
@@ -7683,7 +7683,7 @@
     "file": "WH_WOC_KnightUndividedLanceAxe08.mdx",
     "name": "Knight Undivided · Lance",
     "army": "warriors-of-chaos",
-    "description": "The good old days of horns, fur, and dark steel are back.\r\n\r\nFrom the far reaches of the North, clad in black steel and mounted upon mighty Chaos steeds, ride the blackest of the black, the heralds of mankinds doom.\r\n\r\nLock up your doors and hide for they come in the name of the Ruinous Powers and only in death is there glory.",
+    "description": "The good old days of horns, fur, and dark steel are back.\n\nFrom the far reaches of the North, clad in black steel and mounted upon mighty Chaos steeds, ride the blackest of the black, the heralds of mankinds doom.\n\nLock up your doors and hide for they come in the name of the Ruinous Powers and only in death is there glory.",
     "credits": "Model Base - Vile Knight by HerrDave / Further edited by Stein123\r\n\r\nHelmet, Chaos Star wrapped on shoulders - Chaos Warriors by Diazon, found on Warhammer Eternal Strife by Nightmare2077\r\n\r\nSword - Red Rune Sword by Sunchips\r\n\r\nHorse head and tail - Headless Horseman by Johnwar\r\n\r\nFur Cloak - Chaos Warrior by Azazeron\r\n\r\nHorns - Force Commander and Chaos Lords by EmirDaud, Darnish89",
     "geosets": [
       {
@@ -8040,7 +8040,7 @@
     "file": "WH_WOC_AspiringHero01.mdx",
     "name": "Aspiring Champion",
     "army": "warriors-of-chaos",
-    "description": "None have tasted power so sweet and so alluring as those who have bent the knee to the Ruinous Powers.\r\n\r\nMighty warlords, knights, holy men and even women... once they have glimpsed such power, they can no longer unsee.\r\n\r\nThey come to crave it, carving their path toward eternal glory or damnation, fighting harder and harder with every battle to prove their worth in the eyes of Chaos... they are the Aspiring Champions.\r\n\r\nThis is... FaceHelm... the mighty leaper of Norsca.",
+    "description": "None have tasted power so sweet and so alluring as those who have bent the knee to the Ruinous Powers. Mighty warlords, knights, holy men and even women... once they have glimpsed such power, they can no longer unsee. They come to crave it, carving their path toward eternal glory or damnation, fighting harder and harder with every battle to prove their worth in the eyes of Chaos... they are the Aspiring Champions.\n\nThis is... FaceHelm... the mighty leaper of Norsca.",
     "credits": "Model Base - Captain Marwyn by Direfury\r\n\r\nAxe - Armageddon by KayS\r\n\r\nHelm - Chaos Chosen by Stein123\r\n\r\nHelm Base - Dark Knight - Highlord Inquistor by Greedy Martyrdom\r\n\r\nCloak - Shamelessly skinned by UnsanctionedMagic from Blizzard.\r\n\r\nHorns - Force Commander and Chaos Lords by @EmirDaud, @Darnish89",
     "geosets": [
       {
@@ -8351,7 +8351,7 @@
     "file": "WH_WOC_Aspiring15.mdx",
     "name": "Aspiring Champion",
     "army": "warriors-of-chaos",
-    "description": "None have tasted power so sweet and so alluring as those who have bent the knee to the Ruinous Powers.\r\n\r\nMighty warlords, knights, holy men and even women... once they have glimpsed such power, they can no longer unsee.\r\n\r\nThey come to crave it, carving their path toward eternal glory or damnation, fighting harder and harder with every battle to prove their worth in the eyes of Chaos... they are the Aspiring Champions.\r\n\r\nThis is... FaceHelm... the mighty leaper of Norsca.",
+    "description": "None have tasted power so sweet and so alluring as those who have bent the knee to the Ruinous Powers. Mighty warlords, knights, holy men and even women... once they have glimpsed such power, they can no longer unsee. They come to crave it, carving their path toward eternal glory or damnation, fighting harder and harder with every battle to prove their worth in the eyes of Chaos... they are the Aspiring Champions.\n\nThis is... FaceHelm... the mighty leaper of Norsca.",
     "credits": "Model Base - Captain Marwyn by Direfury\r\n\r\nAxe - Armageddon by KayS\r\n\r\nHelm - Chaos Chosen by Stein123\r\n\r\nHelm Base - Dark Knight - Highlord Inquistor by Greedy Martyrdom\r\n\r\nCloak - Shamelessly skinned by UnsanctionedMagic from Blizzard.\r\n\r\nHorns - Force Commander and Chaos Lords by @EmirDaud, @Darnish89",
     "geosets": [
       {
@@ -8645,7 +8645,7 @@
     "name": "Bretonnian Archer",
     "army": "bretonnia",
     "author": "HerrDave",
-    "description": "\"Whilst highborn knights are the true backbone of most Bretonnian armies, the peasants form the overall bulk. In times of war, these peasants often receive no training at all and are simply rounded up and pointed at the enemy. Men-at-arms, on the other hand, are probably the closest thing to a professional soldier a Bretonnian army can field. These soldiers are equipped and trained at the expense of their local lord to fight on his behalf, with recruitment often starting at a relatively young age.\"\n\nThis pack includes\n\n- Bretonnian swordsman\n\n- Bretonnian archer\n\n- Bretonnian pikeman\n\nUses all in-game textures",
+    "description": "\"Whilst highborn knights are the true backbone of most Bretonnian armies, the peasants form the overall bulk. In times of war, these peasants often receive no training at all and are simply rounded up and pointed at the enemy. Men-at-arms, on the other hand, are probably the closest thing to a professional soldier a Bretonnian army can field. These soldiers are equipped and trained at the expense of their local lord to fight on his behalf, with recruitment often starting at a relatively young age.\"\n\nThis pack includes\n- Bretonnian swordsman\n- Bretonnian archer\n- Bretonnian pikeman\n\nUses all in-game textures",
     "credits": "Model - HerrDave\n\nOriginal resource - Bretonnian Men-at-arms",
     "sourceUrl": "https://www.hiveworkshop.com/threads/bretonnian-men-at-arms.351097/#resource-124832",
     "sourcePack": "Bretonnian Men-at-arms",
@@ -8814,7 +8814,7 @@
     "name": "Bretonnian Pikeman",
     "army": "bretonnia",
     "author": "HerrDave",
-    "description": "\"Whilst highborn knights are the true backbone of most Bretonnian armies, the peasants form the overall bulk. In times of war, these peasants often receive no training at all and are simply rounded up and pointed at the enemy. Men-at-arms, on the other hand, are probably the closest thing to a professional soldier a Bretonnian army can field. These soldiers are equipped and trained at the expense of their local lord to fight on his behalf, with recruitment often starting at a relatively young age.\"\n\nThis pack includes\n\n- Bretonnian swordsman\n\n- Bretonnian archer\n\n- Bretonnian pikeman\n\nUses all in-game textures",
+    "description": "\"Whilst highborn knights are the true backbone of most Bretonnian armies, the peasants form the overall bulk. In times of war, these peasants often receive no training at all and are simply rounded up and pointed at the enemy. Men-at-arms, on the other hand, are probably the closest thing to a professional soldier a Bretonnian army can field. These soldiers are equipped and trained at the expense of their local lord to fight on his behalf, with recruitment often starting at a relatively young age.\"\n\nThis pack includes\n- Bretonnian swordsman\n- Bretonnian archer\n- Bretonnian pikeman\n\nUses all in-game textures",
     "credits": "Model - HerrDave\n\nOriginal resource - Bretonnian Men-at-arms",
     "sourceUrl": "https://www.hiveworkshop.com/threads/bretonnian-men-at-arms.351097/#resource-124833",
     "sourcePack": "Bretonnian Men-at-arms",
@@ -9003,7 +9003,7 @@
     "name": "Bretonnian Swordsman",
     "army": "bretonnia",
     "author": "HerrDave",
-    "description": "\"Whilst highborn knights are the true backbone of most Bretonnian armies, the peasants form the overall bulk. In times of war, these peasants often receive no training at all and are simply rounded up and pointed at the enemy. Men-at-arms, on the other hand, are probably the closest thing to a professional soldier a Bretonnian army can field. These soldiers are equipped and trained at the expense of their local lord to fight on his behalf, with recruitment often starting at a relatively young age.\"\n\nThis pack includes\n\n- Bretonnian swordsman\n\n- Bretonnian archer\n\n- Bretonnian pikeman\n\nUses all in-game textures",
+    "description": "\"Whilst highborn knights are the true backbone of most Bretonnian armies, the peasants form the overall bulk. In times of war, these peasants often receive no training at all and are simply rounded up and pointed at the enemy. Men-at-arms, on the other hand, are probably the closest thing to a professional soldier a Bretonnian army can field. These soldiers are equipped and trained at the expense of their local lord to fight on his behalf, with recruitment often starting at a relatively young age.\"\n\nThis pack includes\n- Bretonnian swordsman\n- Bretonnian archer\n- Bretonnian pikeman\n\nUses all in-game textures",
     "credits": "Model - HerrDave\n\nOriginal resource - Bretonnian Men-at-arms",
     "sourceUrl": "https://www.hiveworkshop.com/threads/bretonnian-men-at-arms.351097/#resource-124831",
     "sourcePack": "Bretonnian Men-at-arms",
@@ -9180,7 +9180,7 @@
     "name": "Greenskin - Black Orc",
     "army": "orcs-and-goblins",
     "author": "HerrDave",
-    "description": "MerRy ChrisTMas, ya Zoggin Sn0TT GITZ!\n\nWAAAAAAAAAAAGH!!\n\n- Ugslap, Da Singin' Orc\n\nThis pack includes\n\n- Savage Orc\n\n- Orc Boy\n\n- Black Orc\n\n- Black Orc Warboss\n\n- Black Orc Warboss (Hero)\n\nThe models here use an omni-skin, meaning you only have to import it once in order to use every model featured int he pack.",
+    "description": "MerRy ChrisTMas, ya Zoggin Sn0TT GITZ!\nWAAAAAAAAAAAGH!!\n- Ugslap, Da Singin' Orc\n\nThis pack includes\n- Savage Orc\n- Orc Boy\n- Black Orc\n- Black Orc Warboss\n- Black Orc Warboss (Hero)\n\nThe models here use an omni-skin, meaning you only have to import it once in order to use every model featured int he pack.",
     "credits": "Model - HerrDave\n\nOriginal resource - Warhammer - Greenskins (1H)",
     "sourceUrl": "https://www.hiveworkshop.com/threads/warhammer-greenskins-1h.321022/#resource-87376",
     "sourcePack": "Warhammer - Greenskins (1H)",
@@ -9312,7 +9312,7 @@
     "file": "WH_GS_BlackOrc01.mdx",
     "name": "Greenskin - Black Orc",
     "army": "orcs-and-goblins",
-    "description": "MerRy ChrisTMas, ya Zoggin Sn0TT GITZ!\n\nWAAAAAAAAAAAGH!!\n\n- Ugslap, Da Singin' Orc\n\nThis variation uses native Warcraft III textures.",
+    "description": "MerRy ChrisTMas, ya Zoggin Sn0TT GITZ!\nWAAAAAAAAAAAGH!!\n- Ugslap, Da Singin' Orc\n\nThis variation uses native Warcraft III textures.",
     "credits": "Model - HerrDave\n\nOriginal resource - Warhammer - Greenskins (1H)\n\nReskin by UnsanctionedMagic",
     "sha256": "040d415fd72953961016ce590ef0d02eddcd42752a3e14a9cca6c2c1df8062ff",
     "geosets": [
@@ -9555,7 +9555,7 @@
     "name": "Greenskin - Black Orc Warboss",
     "army": "orcs-and-goblins",
     "author": "HerrDave",
-    "description": "MerRy ChrisTMas, ya Zoggin Sn0TT GITZ!\n\nWAAAAAAAAAAAGH!!\n\n- Ugslap, Da Singin' Orc\n\nThis pack includes\n\n- Savage Orc\n\n- Orc Boy\n\n- Black Orc\n\n- Black Orc Warboss\n\n- Black Orc Warboss (Hero)\n\nThe models here use an omni-skin, meaning you only have to import it once in order to use every model featured int he pack.",
+    "description": "MerRy ChrisTMas, ya Zoggin Sn0TT GITZ!\nWAAAAAAAAAAAGH!!\n- Ugslap, Da Singin' Orc\n\nThis pack includes\n- Savage Orc\n- Orc Boy\n- Black Orc\n- Black Orc Warboss\n- Black Orc Warboss (Hero)\n\nThe models here use an omni-skin, meaning you only have to import it once in order to use every model featured int he pack.",
     "credits": "Model - HerrDave\n\nOriginal resource - Warhammer - Greenskins (1H)",
     "sourceUrl": "https://www.hiveworkshop.com/threads/warhammer-greenskins-1h.321022/#resource-87377",
     "sourcePack": "Warhammer - Greenskins (1H)",
@@ -9694,7 +9694,7 @@
     "name": "Greenskin - Black Orc Warboss (Hero)",
     "army": "orcs-and-goblins",
     "author": "HerrDave",
-    "description": "MerRy ChrisTMas, ya Zoggin Sn0TT GITZ!\n\nWAAAAAAAAAAAGH!!\n\n- Ugslap, Da Singin' Orc\n\nThis pack includes\n\n- Savage Orc\n\n- Orc Boy\n\n- Black Orc\n\n- Black Orc Warboss\n\n- Black Orc Warboss (Hero)\n\nThe models here use an omni-skin, meaning you only have to import it once in order to use every model featured int he pack.",
+    "description": "MerRy ChrisTMas, ya Zoggin Sn0TT GITZ!\nWAAAAAAAAAAAGH!!\n- Ugslap, Da Singin' Orc\n\nThis pack includes\n- Savage Orc\n- Orc Boy\n- Black Orc\n- Black Orc Warboss\n- Black Orc Warboss (Hero)\n\nThe models here use an omni-skin, meaning you only have to import it once in order to use every model featured int he pack.",
     "credits": "Model - HerrDave\n\nOriginal resource - Warhammer - Greenskins (1H)",
     "sourceUrl": "https://www.hiveworkshop.com/threads/warhammer-greenskins-1h.321022/#resource-104264",
     "sourcePack": "Warhammer - Greenskins (1H)",
@@ -9842,7 +9842,7 @@
     "name": "Greenskin - Orc Boy",
     "army": "orcs-and-goblins",
     "author": "HerrDave",
-    "description": "MerRy ChrisTMas, ya Zoggin Sn0TT GITZ!\n\nWAAAAAAAAAAAGH!!\n\n- Ugslap, Da Singin' Orc\n\nThis pack includes\n\n- Savage Orc\n\n- Orc Boy\n\n- Black Orc\n\n- Black Orc Warboss\n\n- Black Orc Warboss (Hero)\n\nThe models here use an omni-skin, meaning you only have to import it once in order to use every model featured int he pack.",
+    "description": "MerRy ChrisTMas, ya Zoggin Sn0TT GITZ!\nWAAAAAAAAAAAGH!!\n- Ugslap, Da Singin' Orc\n\nThis pack includes\n- Savage Orc\n- Orc Boy\n- Black Orc\n- Black Orc Warboss\n- Black Orc Warboss (Hero)\n\nThe models here use an omni-skin, meaning you only have to import it once in order to use every model featured int he pack.",
     "credits": "Model - HerrDave\n\nOriginal resource - Warhammer - Greenskins (1H)",
     "sourceUrl": "https://www.hiveworkshop.com/threads/warhammer-greenskins-1h.321022/#resource-87375",
     "sourcePack": "Warhammer - Greenskins (1H)",
@@ -9983,7 +9983,7 @@
     "file": "WH_OG_OrcBoy01.mdx",
     "name": "Greenskin - Orc Boy",
     "army": "orcs-and-goblins",
-    "description": "MerRy ChrisTMas, ya Zoggin Sn0TT GITZ!\n\nWAAAAAAAAAAAGH!!\n\n- Ugslap, Da Singin' Orc\n\nThis variation uses native Warcraft III textures.",
+    "description": "MerRy ChrisTMas, ya Zoggin Sn0TT GITZ!\nWAAAAAAAAAAAGH!!\n- Ugslap, Da Singin' Orc\n\nThis variation uses native Warcraft III textures.",
     "credits": "Model - HerrDave\n\nOriginal resource - Warhammer - Greenskins (1H)\n\nReskin by UnsanctionedMagic",
     "sha256": "8fa997c36e42d4b22f4d4ed43a6d53bef5ecdf1e628baf197d021850af924d8e",
     "geosets": [
@@ -10177,7 +10177,7 @@
     "name": "Snotling",
     "army": "orcs-and-goblins",
     "author": "HerrDave",
-    "description": "MerRy ChrisTMas, ya Zoggin Sn0TT GITZ!\n\nWAAAAAAAAAAAGH!!\n\n- Ugslap, Da Singin' Orc\n\nThis pack includes\n\n- Savage Orc\n\n- Orc Boy\n\n- Black Orc\n\n- Black Orc Warboss\n\n- Black Orc Warboss (Hero)\n\nThe models here use an omni-skin, meaning you only have to import it once in order to use every model featured int he pack.",
+    "description": "MerRy ChrisTMas, ya Zoggin Sn0TT GITZ!\nWAAAAAAAAAAAGH!!\n- Ugslap, Da Singin' Orc\n\nThis pack includes\n- Savage Orc\n- Orc Boy\n- Black Orc\n- Black Orc Warboss\n- Black Orc Warboss (Hero)\n\nThe models here use an omni-skin, meaning you only have to import it once in order to use every model featured int he pack.",
     "credits": "Model - HerrDave\n\nOriginal resource - Warhammer - Greenskins (1H)",
     "sourceUrl": "https://www.hiveworkshop.com/threads/warhammer-greenskins-1h.321022/#resource-103868",
     "sourcePack": "Warhammer - Greenskins (1H)",
@@ -10285,7 +10285,7 @@
     "name": "Greenskin - Savage Orc",
     "army": "orcs-and-goblins",
     "author": "HerrDave",
-    "description": "MerRy ChrisTMas, ya Zoggin Sn0TT GITZ!\n\nWAAAAAAAAAAAGH!!\n\n- Ugslap, Da Singin' Orc\n\nThis pack includes\n\n- Savage Orc\n\n- Orc Boy\n\n- Black Orc\n\n- Black Orc Warboss\n\n- Black Orc Warboss (Hero)\n\nThe models here use an omni-skin, meaning you only have to import it once in order to use every model featured int he pack.",
+    "description": "MerRy ChrisTMas, ya Zoggin Sn0TT GITZ!\nWAAAAAAAAAAAGH!!\n- Ugslap, Da Singin' Orc\n\nThis pack includes\n- Savage Orc\n- Orc Boy\n- Black Orc\n- Black Orc Warboss\n- Black Orc Warboss (Hero)\n\nThe models here use an omni-skin, meaning you only have to import it once in order to use every model featured int he pack.",
     "credits": "Model - HerrDave\n\nOriginal resource - Warhammer - Greenskins (1H)",
     "sourceUrl": "https://www.hiveworkshop.com/threads/warhammer-greenskins-1h.321022/#resource-87374",
     "sourcePack": "Warhammer - Greenskins (1H)",
@@ -10396,7 +10396,7 @@
     "name": "Empire Captain",
     "army": "the-empire",
     "author": "HerrDave",
-    "description": "Reikland is red,\n\nSecessionists are blue;\n\nI hate the halflings,\n\nand I hate you too.\n\n- Marius Leitdorf, Imperial Diplomat\n\nThis pack includes\n\n- Spanish Halberdier\n\n- Spanish Tercio\n\n- Spanish Swordsman\n\n- Empire Halberdier\n\n- Empire Swordsman\n\n- Empire Captain",
+    "description": "Reikland is red,\nSecessionists are blue;\nI hate the halflings,\nand I hate you too.\n- Marius Leitdorf, Imperial Diplomat\n\nThis pack includes\n- Spanish Halberdier\n- Spanish Tercio\n- Spanish Swordsman\n- Empire Halberdier\n- Empire Swordsman\n- Empire Captain",
     "credits": "Model - HerrDave\n\nOriginal resource - Warhammer Infantry Pack",
     "sourceUrl": "https://www.hiveworkshop.com/threads/warhammer-infantry-pack.319674/#resource-86791",
     "sourcePack": "Warhammer Infantry Pack",
@@ -10524,7 +10524,7 @@
     "name": "Empire Halberdier",
     "army": "the-empire",
     "author": "HerrDave",
-    "description": "Reikland is red,\n\nSecessionists are blue;\n\nI hate the halflings,\n\nand I hate you too.\n\n- Marius Leitdorf, Imperial Diplomat\n\nThis pack includes\n\n- Spanish Halberdier\n\n- Spanish Tercio\n\n- Spanish Swordsman\n\n- Empire Halberdier\n\n- Empire Swordsman\n\n- Empire Captain",
+    "description": "Reikland is red,\nSecessionists are blue;\nI hate the halflings,\nand I hate you too.\n- Marius Leitdorf, Imperial Diplomat\n\nThis pack includes\n- Spanish Halberdier\n- Spanish Tercio\n- Spanish Swordsman\n- Empire Halberdier\n- Empire Swordsman\n- Empire Captain",
     "credits": "Model - HerrDave\n\nOriginal resource - Warhammer Infantry Pack",
     "sourceUrl": "https://www.hiveworkshop.com/threads/warhammer-infantry-pack.319674/#resource-88507",
     "sourcePack": "Warhammer Infantry Pack",
@@ -10646,7 +10646,7 @@
     "name": "Empire Swordsman",
     "army": "the-empire",
     "author": "HerrDave",
-    "description": "Reikland is red,\n\nSecessionists are blue;\n\nI hate the halflings,\n\nand I hate you too.\n\n- Marius Leitdorf, Imperial Diplomat\n\nThis pack includes\n\n- Spanish Halberdier\n\n- Spanish Tercio\n\n- Spanish Swordsman\n\n- Empire Halberdier\n\n- Empire Swordsman\n\n- Empire Captain",
+    "description": "Reikland is red,\nSecessionists are blue;\nI hate the halflings,\nand I hate you too.\n- Marius Leitdorf, Imperial Diplomat\n\nThis pack includes\n- Spanish Halberdier\n- Spanish Tercio\n- Spanish Swordsman\n- Empire Halberdier\n- Empire Swordsman\n- Empire Captain",
     "credits": "Model - HerrDave\n\nOriginal resource - Warhammer Infantry Pack",
     "sourceUrl": "https://www.hiveworkshop.com/threads/warhammer-infantry-pack.319674/#resource-86747",
     "sourcePack": "Warhammer Infantry Pack",
@@ -10763,7 +10763,7 @@
     "name": "Estalian Infantry",
     "army": "the-empire",
     "author": "HerrDave",
-    "description": "Reikland is red,\n\nSecessionists are blue;\n\nI hate the halflings,\n\nand I hate you too.\n\n- Marius Leitdorf, Imperial Diplomat\n\nThis pack includes\n\n- Spanish Halberdier\n\n- Spanish Tercio\n\n- Spanish Swordsman\n\n- Empire Halberdier\n\n- Empire Swordsman\n\n- Empire Captain",
+    "description": "Reikland is red,\nSecessionists are blue;\nI hate the halflings,\nand I hate you too.\n- Marius Leitdorf, Imperial Diplomat\n\nThis pack includes\n- Spanish Halberdier\n- Spanish Tercio\n- Spanish Swordsman\n- Empire Halberdier\n- Empire Swordsman\n- Empire Captain",
     "credits": "Model - HerrDave\n\nOriginal resource - Warhammer Infantry Pack",
     "sourceUrl": "https://www.hiveworkshop.com/threads/warhammer-infantry-pack.319674/#resource-88510",
     "sourcePack": "Warhammer Infantry Pack",
@@ -10874,7 +10874,7 @@
     "name": "Estalian Swordsman",
     "army": "the-empire",
     "author": "HerrDave",
-    "description": "Reikland is red,\n\nSecessionists are blue;\n\nI hate the halflings,\n\nand I hate you too.\n\n- Marius Leitdorf, Imperial Diplomat\n\nThis pack includes\n\n- Spanish Halberdier\n\n- Spanish Tercio\n\n- Spanish Swordsman\n\n- Empire Halberdier\n\n- Empire Swordsman\n\n- Empire Captain",
+    "description": "Reikland is red,\nSecessionists are blue;\nI hate the halflings,\nand I hate you too.\n- Marius Leitdorf, Imperial Diplomat\n\nThis pack includes\n- Spanish Halberdier\n- Spanish Tercio\n- Spanish Swordsman\n- Empire Halberdier\n- Empire Swordsman\n- Empire Captain",
     "credits": "Model - HerrDave\n\nOriginal resource - Warhammer Infantry Pack",
     "sourceUrl": "https://www.hiveworkshop.com/threads/warhammer-infantry-pack.319674/#resource-88509",
     "sourcePack": "Warhammer Infantry Pack",
@@ -10998,7 +10998,7 @@
     "name": "Estalian Spearman",
     "army": "the-empire",
     "author": "HerrDave",
-    "description": "Reikland is red,\n\nSecessionists are blue;\n\nI hate the halflings,\n\nand I hate you too.\n\n- Marius Leitdorf, Imperial Diplomat\n\nThis pack includes\n\n- Spanish Halberdier\n\n- Spanish Tercio\n\n- Spanish Swordsman\n\n- Empire Halberdier\n\n- Empire Swordsman\n\n- Empire Captain",
+    "description": "Reikland is red,\nSecessionists are blue;\nI hate the halflings,\nand I hate you too.\n- Marius Leitdorf, Imperial Diplomat\n\nThis pack includes\n- Spanish Halberdier\n- Spanish Tercio\n- Spanish Swordsman\n- Empire Halberdier\n- Empire Swordsman\n- Empire Captain",
     "credits": "Model - HerrDave\n\nOriginal resource - Warhammer Infantry Pack",
     "sourceUrl": "https://www.hiveworkshop.com/threads/warhammer-infantry-pack.319674/#resource-88508",
     "sourcePack": "Warhammer Infantry Pack",
@@ -11108,7 +11108,7 @@
     "name": "Elector Count",
     "army": "the-empire",
     "author": "HerrDave",
-    "description": "\"Summon the Elector Counts!\"\n\n- Emperor Karl Franz",
+    "description": "\"Summon the Elector Counts!\"\n- Emperor Karl Franz",
     "credits": "Model - HerrDave\n\nOriginal resource - Warhammer Elector Count",
     "sourceUrl": "https://www.hiveworkshop.com/threads/warhammer-elector-count.319908/#resource-86862",
     "sourcePack": "Warhammer Elector Count",
@@ -11239,7 +11239,7 @@
     "name": "Elite Steam Tank",
     "army": "the-empire",
     "author": "HerrDave",
-    "description": "\"HerrDave doesn't have a quote for this, he just wants to upload it and never model another Steam Tank for as long as he lives.\"\n\n- HerrDave\n\nThese models share an omni-skin, meaning you only have to import it once in order to use both tanks.",
+    "description": "\"HerrDave doesn't have a quote for this, he just wants to upload it and never model another Steam Tank for as long as he lives.\"\n- HerrDave\n\nThese models share an omni-skin, meaning you only have to import it once in order to use both tanks.",
     "credits": "Model - HerrDave\n\nOriginal resource - Warhammer Steam Tank",
     "sourceUrl": "https://www.hiveworkshop.com/threads/warhammer-steam-tank.320733/#resource-87246",
     "sourcePack": "Warhammer Steam Tank",
@@ -11378,7 +11378,7 @@
     "name": "Standard Steam Tank",
     "army": "the-empire",
     "author": "HerrDave",
-    "description": "\"HerrDave doesn't have a quote for this, he just wants to upload it and never model another Steam Tank for as long as he lives.\"\n\n- HerrDave\n\nThese models share an omni-skin, meaning you only have to import it once in order to use both tanks.",
+    "description": "\"HerrDave doesn't have a quote for this, he just wants to upload it and never model another Steam Tank for as long as he lives.\"\n- HerrDave\n\nThese models share an omni-skin, meaning you only have to import it once in order to use both tanks.",
     "credits": "Model - HerrDave\n\nOriginal resource - Warhammer Steam Tank",
     "sourceUrl": "https://www.hiveworkshop.com/threads/warhammer-steam-tank.320733/#resource-87245",
     "sourcePack": "Warhammer Steam Tank",
@@ -12205,7 +12205,7 @@
     "name": "Knight of the Blazing Sun (Mounted)",
     "army": "the-empire",
     "author": "HerrDave",
-    "description": "\"AAAAAAAAAGH!\"\n\n-Battle Orders of Ludwig Vogel\n\nFeaturing\n\n-Mounted Knight of the Blazing Sun\n\n-Dismounted Knight of the Blazing Sun",
+    "description": "\"AAAAAAAAAGH!\"\n-Battle Orders of Ludwig Vogel\n\nFeaturing\n-Mounted Knight of the Blazing Sun\n-Dismounted Knight of the Blazing Sun",
     "credits": "Model - HerrDave\n\nOriginal resource - Knight of the Blazing Sun",
     "sourceUrl": "https://www.hiveworkshop.com/threads/knight-of-the-blazing-sun.302679/#resource-81065",
     "sourcePack": "Knight of the Blazing Sun",
@@ -12339,7 +12339,7 @@
     "name": "Knight of the Blazing Sun (Dismounted)",
     "army": "the-empire",
     "author": "HerrDave",
-    "description": "\"AAAAAAAAAGH!\"\n\n-Battle Orders of Ludwig Vogel\n\nFeaturing\n\n-Mounted Knight of the Blazing Sun\n\n-Dismounted Knight of the Blazing Sun",
+    "description": "\"AAAAAAAAAGH!\"\n-Battle Orders of Ludwig Vogel\n\nFeaturing\n-Mounted Knight of the Blazing Sun\n-Dismounted Knight of the Blazing Sun",
     "credits": "Model - HerrDave\n\nOriginal resource - Knight of the Blazing Sun",
     "sourceUrl": "https://www.hiveworkshop.com/threads/knight-of-the-blazing-sun.302679/#resource-76825",
     "sourcePack": "Knight of the Blazing Sun",
@@ -12436,7 +12436,7 @@
     "name": "Reikland Greatsword",
     "army": "the-empire",
     "author": "HerrDave",
-    "description": "\"Despite the horrific casualties and many wounds that they suffered during the battle, the Greatswords fought on resolutely and, by battle's end, their white Reikguard uniforms had been drenched in blood.\"\n\n—The Carroburg Greatswords, during the Siege of Carroburg\n\nIntended for use in Warhammer maps, but it can easily fit into any Renaissance themed map as well.\n\nUses in-game textures.",
+    "description": "\"Despite the horrific casualties and many wounds that they suffered during the battle, the Greatswords fought on resolutely and, by battle's end, their white Reikguard uniforms had been drenched in blood.\"\n—The Carroburg Greatswords, during the Siege of Carroburg\n\nIntended for use in Warhammer maps, but it can easily fit into any Renaissance themed map as well.\n\nUses in-game textures.",
     "credits": "Model - HerrDave\n\nOriginal resource - Reikland Greatsword",
     "sourceUrl": "https://www.hiveworkshop.com/threads/reikland-greatsword.301045/#resource-75804",
     "sourcePack": "Reikland Greatsword",
@@ -12654,7 +12654,7 @@
     "file": "WH_WOC_KnightTzeentchSword07.mdx",
     "name": "Knight of Tzeentch · Sword",
     "army": "warriors-of-chaos",
-    "description": "This has been my company for a thousand wars, a thousand roads, a thousand years.\r\n\r\nMy brothers, that is what we call each other.\r\n\r\nWe have ridden beneath this banner for centuries... and yet I cannot recall their names nor their faces.\r\n\r\nDid they ever have faces?...\r\n\r\nWe hail from every corner of the world, or so we remember.\r\n\r\nWorlds I see when we close our eyes, cities beneath violet skies and fields without horizons...\r\n\r\nAnd always above it all a great burning eye, watching, above as the sun.\r\n\r\nWe had different lives once, different faces, different banners... I recall, sometimes.\r\n\r\nPerhaps that was a thousand years ago, perhaps it was yesterday...\r\n\r\nOr, perhaps, was it another man's dream?\r\n\r\nWe cannot tell, it does not matter.\r\n\r\nAs we ride, days stretch into years and years collapse into moments, time has no meaning.\r\n\r\nRoads unfold never ending, the ground beneath us breathes and lives and trees bend and whisper to us secrets men do not wish to hear.\r\n\r\nThe ravens herald our coming.\r\n\r\nWe can recall a thousand battles,\r\n\r\nkingdoms we have brought to ashes, kings slain, gods destroyed.\r\n\r\nBut I do not remember arriving at any of them, only leaving.\r\n\r\nHow did we end up here?\r\n\r\nA voice...\r\n\r\nA will...\r\n\r\nbut whose?...\r\n\r\nIn war we see it clearly, we feel alive... and for a moment, I wake up...\r\n\r\nThe trees stand still, the ravens fall silent and the skies are no longer violet when the ground runs red with blood...\r\n\r\nFor a moment...\r\n\r\nFor another thousand years....\r\n\r\nBut always... When we shut our eyes... A burning eye, staring, reaching deep into my soul.",
+    "description": "This has been my company for a thousand wars, a thousand roads, a thousand years. My brothers, that is what we call each other. We have ridden beneath this banner for centuries... and yet I cannot recall their names nor their faces. Did they ever have faces?...\n\nWe hail from every corner of the world, or so we remember. Worlds I see when we close our eyes, cities beneath violet skies and fields without horizons... And always above it all a great burning eye, watching, above as the sun.\n\nWe had different lives once, different faces, different banners... I recall, sometimes. Perhaps that was a thousand years ago, perhaps it was yesterday... Or, perhaps, was it another man's dream? We cannot tell, it does not matter.\n\nAs we ride, days stretch into years and years collapse into moments, time has no meaning. Roads unfold never ending, the ground beneath us breathes and lives and trees bend and whisper to us secrets men do not wish to hear. The ravens herald our coming.\n\nWe can recall a thousand battles, kingdoms we have brought to ashes, kings slain, gods destroyed. But I do not remember arriving at any of them, only leaving.\n\nHow did we end up here? A voice... A will... but whose?...\n\nIn war we see it clearly, we feel alive... and for a moment, I wake up... The trees stand still, the ravens fall silent and the skies are no longer violet when the ground runs red with blood... For a moment... For another thousand years....\n\nBut always... When we shut our eyes... A burning eye, staring, reaching deep into my soul.",
     "credits": "Model Base - Vile Knight by HerrDave / Further edited by Stein123 \r\nChaos Stars, Bitz and bobs - Chaos Warriors by Diazon, found on Warhammer Eternal Strife by Nightmare2077 \r\nAnimated Eyes - Hatchet Eye Drranosh by Ratamahatta (Added many frames to make it smoother)\r\n\r\nBlade - Devouring Blade by Blood Raven \r\nTzeentchian Symbol - projected from 2D image using MDLxL \r\nTzeentchian Style Weapon Guard - Tzeentch Hero Pack by Grey Knight \r\nBlue Horror on Shield -Tzeentch Horror converted from DoW by Biridius , Edited heavily by Stein123 and me.\r\n\r\nHorse head and tail - Headless Horseman by Johnwar \r\nFur Cloak, Helm base - Chaos Warrior by Azazeron \r\nHelmet Horn - adapted from IronMaiden's Dawn of War Helms .\r\n\r\nGem on Sword - Radiant Emerald Cleaver by Sunchips",
     "geosets": [
       {
@@ -13261,7 +13261,7 @@
     "file": "WH_WOC_KnightTzeentchLance07.mdx",
     "name": "Knight of Tzeentch · Lance",
     "army": "warriors-of-chaos",
-    "description": "This has been my company for a thousand wars, a thousand roads, a thousand years.\r\n\r\nMy brothers, that is what we call each other.\r\n\r\nWe have ridden beneath this banner for centuries... and yet I cannot recall their names nor their faces.\r\n\r\nDid they ever have faces?...\r\n\r\nWe hail from every corner of the world, or so we remember.\r\n\r\nWorlds I see when we close our eyes, cities beneath violet skies and fields without horizons...\r\n\r\nAnd always above it all a great burning eye, watching, above as the sun.\r\n\r\nWe had different lives once, different faces, different banners... I recall, sometimes.\r\n\r\nPerhaps that was a thousand years ago, perhaps it was yesterday...\r\n\r\nOr, perhaps, was it another man's dream?\r\n\r\nWe cannot tell, it does not matter.\r\n\r\nAs we ride, days stretch into years and years collapse into moments, time has no meaning.\r\n\r\nRoads unfold never ending, the ground beneath us breathes and lives and trees bend and whisper to us secrets men do not wish to hear.\r\n\r\nThe ravens herald our coming.\r\n\r\nWe can recall a thousand battles,\r\n\r\nkingdoms we have brought to ashes, kings slain, gods destroyed.\r\n\r\nBut I do not remember arriving at any of them, only leaving.\r\n\r\nHow did we end up here?\r\n\r\nA voice...\r\n\r\nA will...\r\n\r\nbut whose?...\r\n\r\nIn war we see it clearly, we feel alive... and for a moment, I wake up...\r\n\r\nThe trees stand still, the ravens fall silent and the skies are no longer violet when the ground runs red with blood...\r\n\r\nFor a moment...\r\n\r\nFor another thousand years....\r\n\r\nBut always... When we shut our eyes... A burning eye, staring, reaching deep into my soul.",
+    "description": "This has been my company for a thousand wars, a thousand roads, a thousand years. My brothers, that is what we call each other. We have ridden beneath this banner for centuries... and yet I cannot recall their names nor their faces. Did they ever have faces?...\n\nWe hail from every corner of the world, or so we remember. Worlds I see when we close our eyes, cities beneath violet skies and fields without horizons... And always above it all a great burning eye, watching, above as the sun.\n\nWe had different lives once, different faces, different banners... I recall, sometimes. Perhaps that was a thousand years ago, perhaps it was yesterday... Or, perhaps, was it another man's dream? We cannot tell, it does not matter.\n\nAs we ride, days stretch into years and years collapse into moments, time has no meaning. Roads unfold never ending, the ground beneath us breathes and lives and trees bend and whisper to us secrets men do not wish to hear. The ravens herald our coming.\n\nWe can recall a thousand battles, kingdoms we have brought to ashes, kings slain, gods destroyed. But I do not remember arriving at any of them, only leaving.\n\nHow did we end up here? A voice... A will... but whose?...\n\nIn war we see it clearly, we feel alive... and for a moment, I wake up... The trees stand still, the ravens fall silent and the skies are no longer violet when the ground runs red with blood... For a moment... For another thousand years....\n\nBut always... When we shut our eyes... A burning eye, staring, reaching deep into my soul.",
     "credits": "Model Base - Vile Knight by HerrDave / Further edited by Stein123 \r\nChaos Stars, Bitz and bobs - Chaos Warriors by Diazon, found on Warhammer Eternal Strife by Nightmare2077 \r\nAnimated Eyes - Hatchet Eye Drranosh by Ratamahatta (Added many frames to make it smoother)\r\n\r\nBlade - Devouring Blade by Blood Raven \r\nTzeentchian Symbol - projected from 2D image using MDLxL \r\nTzeentchian Style Weapon Guard - Tzeentch Hero Pack by Grey Knight \r\nBlue Horror on Shield -Tzeentch Horror converted from DoW by Biridius , Edited heavily by Stein123 and me.\r\n\r\nHorse head and tail - Headless Horseman by Johnwar \r\nFur Cloak, Helm base - Chaos Warrior by Azazeron \r\nHelmet Horn - adapted from IronMaiden's Dawn of War Helms .\r\n\r\nGem on Sword - Radiant Emerald Cleaver by Sunchips",
     "geosets": [
       {
@@ -17251,7 +17251,7 @@
     "file": "chaos-warrior-of-nurgle/WH_WOC_WarriorNurgle02.mdx",
     "name": "Warrior of Nurgle",
     "army": "warriors-of-chaos",
-    "description": "An unbearable stench always heralds the approach of the Plague Lord’s warriors. Their helmets often bear great, withered horns and they are clad in rust-tarnished armour which conceal vile conditions or mutations – perhaps a slimy tentacle, or translucent, jelly-like flesh that reveals their decaying inner organs, or simply a body riddled with leprosy. Sometimes the corpulent meat of their bodies spills from the cracks of their armour. Whatever the case, they are deadly fighters who are near-impervious to pain and fight on despite receiving the most horrendous wounds imaginable.\r\n\r\nSource: Chaos Warriors of Nurgle",
+    "description": "An unbearable stench always heralds the approach of the Plague Lord’s warriors. Their helmets often bear great, withered horns and they are clad in rust-tarnished armour which conceal vile conditions or mutations – perhaps a slimy tentacle, or translucent, jelly-like flesh that reveals their decaying inner organs, or simply a body riddled with leprosy. Sometimes the corpulent meat of their bodies spills from the cracks of their armour. Whatever the case, they are deadly fighters who are near-impervious to pain and fight on despite receiving the most horrendous wounds imaginable.\n\nSource: Chaos Warriors of Nurgle",
     "credits": "Model Base - Chaos Warrior by Azazeron\r\n\r\nMashed with - Chaos Warriors by Diazon, found on Warhammer Eternal Strife by Nightmare2077\r\n\r\nHelm - Tzeentch Pack Old Ver.2 by Grey Knight\r\n\r\nShoulders - Bandit Enforcer (Re-Classic) by Johnwar\r\n\r\nAxe - Iron Raven by Blood Raven\r\n\r\nGuts - Abomination (Re-Classic) by Johnwar\r\n\r\nHorns - Goats by Bakr\r\n\r\nAdditional credits - Stein123",
     "geosets": [
       {
@@ -17679,12 +17679,6 @@
       }
     ],
     "sha256": "6f3bf59ebfcee8beda63bc70b2058fc59a1a74f36c5fd14bb624af6c961312a7",
-    "descriptionLinks": [
-      {
-        "text": "Chaos Warriors of Nurgle",
-        "url": "https://totalwarwarhammer.fandom.com/wiki/Chaos_Warriors_of_Nurgle"
-      }
-    ],
     "searchDescription": "An unbearable stench always heralds the approach of the Plague Lord’s warriors. Their helmets often bear great, withered horns and they are clad in rust-tarnished armour which conceal vile conditions or mutations – perhaps a slimy tentacle, or translucent, jelly-like flesh that reveals their decaying inner organs, or simply a body riddled with leprosy. Sometimes the corpulent meat of their bodies spills from the cracks of their armour. Whatever the case, they are deadly fighters who are near-impervious to pain and fight on despite receiving the most horrendous wounds imaginable.",
     "imageVersion": "20261030-nurgle-standard-card-fit",
     "changelog": [
@@ -17700,7 +17694,7 @@
     "file": "chaos-warrior-of-nurgle/WH_WOC_WarriorNurgleHeavy01.mdx",
     "name": "Warrior of Nurgle · Heavy Flail",
     "army": "warriors-of-chaos",
-    "description": "An unbearable stench always heralds the approach of the Plague Lord’s warriors. Their helmets often bear great, withered horns and they are clad in rust-tarnished armour which conceal vile conditions or mutations – perhaps a slimy tentacle, or translucent, jelly-like flesh that reveals their decaying inner organs, or simply a body riddled with leprosy. Sometimes the corpulent meat of their bodies spills from the cracks of their armour. Whatever the case, they are deadly fighters who are near-impervious to pain and fight on despite receiving the most horrendous wounds imaginable.\r\n\r\nSource: Chaos Warriors of Nurgle",
+    "description": "An unbearable stench always heralds the approach of the Plague Lord’s warriors. Their helmets often bear great, withered horns and they are clad in rust-tarnished armour which conceal vile conditions or mutations – perhaps a slimy tentacle, or translucent, jelly-like flesh that reveals their decaying inner organs, or simply a body riddled with leprosy. Sometimes the corpulent meat of their bodies spills from the cracks of their armour. Whatever the case, they are deadly fighters who are near-impervious to pain and fight on despite receiving the most horrendous wounds imaginable.\n\nSource: Chaos Warriors of Nurgle",
     "credits": "Model Base - Chaos Warrior by Azazeron\r\n\r\nMashed with - Chaos Warriors by Diazon, found on Warhammer Eternal Strife by Nightmare2077\r\n\r\nHelm - Tzeentch Pack Old Ver.2 by Grey Knight\r\n\r\nShoulders - Bandit Enforcer (Re-Classic) by Johnwar\r\n\r\nAxe - Iron Raven by Blood Raven\r\n\r\nGuts - Abomination (Re-Classic) by Johnwar\r\n\r\nHorns - Goats by Bakr\r\n\r\nAdditional credits - Stein123, HerrDave (Attack Slam animation help)\r\n\r\nHelm (Heavy Flail variation) - Bandit Enforcer/Black Knight by Direfury\r\n\r\nFlail head - Plague Monks by Diazon, found on Warhammer Eternal Strife by Nightmare2077",
     "geosets": [
       {
@@ -18023,12 +18017,6 @@
       }
     ],
     "sha256": "afe3b4908432d671d36e942daf23a2ecee7af106bbcfe138b8e5f8e84bb6a64b",
-    "descriptionLinks": [
-      {
-        "text": "Chaos Warriors of Nurgle",
-        "url": "https://totalwarwarhammer.fandom.com/wiki/Chaos_Warriors_of_Nurgle"
-      }
-    ],
     "searchDescription": "An unbearable stench always heralds the approach of the Plague Lord’s warriors. Their helmets often bear great, withered horns and they are clad in rust-tarnished armour which conceal vile conditions or mutations – perhaps a slimy tentacle, or translucent, jelly-like flesh that reveals their decaying inner organs, or simply a body riddled with leprosy. Sometimes the corpulent meat of their bodies spills from the cracks of their armour. Whatever the case, they are deadly fighters who are near-impervious to pain and fight on despite receiving the most horrendous wounds imaginable.",
     "imageVersion": "20261030-nurgle-heavy-flail-v2"
   },
@@ -18038,40 +18026,6 @@
     "name": "Blood Dragon",
     "army": "vampire-counts",
     "description": "The Blood Dragons are a Bloodline of Vampires devoted to the pursuit of absolute martial perfection. The bloodline originated with Abhorash, who came to believe in no cause or ideal beyond himself. Abhorash urged his disciples to follow his example and hone their martial skills until they became the ultimate warriors, transcending Vampirism and the limitations of the mortal world. His followers swore to this path and took the name Blood Dragons.\n\nUnlike other bloodlines, they regard pursuits such as conquest, political power, or mastery of magic as trivial distractions. They swear loyalty to neither nations nor rulers, believing instead in the purity of their personal quest. Through constant warfare and unrelenting trial by battle, they seek to rise beyond the pre-eminent nature of the Vampire and attain a state approaching godhood, accepting any slaughter required as the necessary price of mastery.\n\nSource: Night's Dark Masters — The Bloodlines, pp. 43–44.",
-    "descriptionLinks": [
-      {
-        "text": "Bloodline",
-        "url": "https://whfb.lexicanum.com/wiki/Bloodline"
-      },
-      {
-        "text": "Vampires",
-        "url": "https://whfb.lexicanum.com/wiki/Vampire"
-      },
-      {
-        "text": "originated",
-        "url": "https://whfb.lexicanum.com/wiki/First_Children"
-      },
-      {
-        "text": "Abhorash",
-        "url": "https://whfb.lexicanum.com/wiki/Abhorash"
-      },
-      {
-        "text": "mortal world",
-        "url": "https://whfb.lexicanum.com/wiki/World"
-      },
-      {
-        "text": "magic",
-        "url": "https://whfb.lexicanum.com/wiki/Magic"
-      },
-      {
-        "text": "godhood",
-        "url": "https://whfb.lexicanum.com/wiki/God"
-      },
-      {
-        "text": "Night's Dark Masters",
-        "url": "https://whfb.lexicanum.com/wiki/Night%27s_Dark_Masters"
-      }
-    ],
     "credits": "Model Base - Dark Knight - Highlord Inquisitor by Greedy Martyrdom\n\nAxe - Double Axe by Blood Raven\n\nShoulder Pads/Breastplate - Red Dragon Scale Mail by Sunchips\n\nBelt Buckle - Skeleton-Pack by DREADMAN\n\nFace - Vampyr by Dionesiist\n\nHelm - Found on Empire of Warcraft, helm made by Дядя Шнюк",
     "authors": [
       {
@@ -18366,7 +18320,7 @@
     "file": "WH_WOC_KurganWarlordHero01.mdx",
     "name": "Kurgan Warlord",
     "army": "warriors-of-chaos",
-    "description": "\"Why do we raid your lands? It is the will of the Gods...\"\n—Zar Seizask, Kurgan Chieftain.\n\nWarhammer Fantasy Roleplay 2nd Edition: Tome of Corruption   pg 152",
+    "description": "\"Why do we raid your lands? It is the will of the Gods...\"\n—Zar Seizask, Kurgan Chieftain.\n\nWarhammer Fantasy Roleplay 2nd Edition: Tome of Corruption pg 152",
     "credits": "Model Base - Pale Emperor by Direfury + Chaos Chosen by Stein123\n\nWeapon - BadassHammer by Sin'dorei300\n\nHelm - Chaos Warrior by Azazeron\n\nShoulder - Vrykul Death Knight by JesusHipster\n\nArm - OgreDeathKnight by Sin'dorei300",
     "geosets": [
       {
@@ -18618,7 +18572,7 @@
     "file": "WH_WOC_KurganWarlord02.mdx",
     "name": "Kurgan Warlord",
     "army": "warriors-of-chaos",
-    "description": "\"Why do we raid your lands? It is the will of the Gods...\"\n—Zar Seizask, Kurgan Chieftain.\n\nWarhammer Fantasy Roleplay 2nd Edition: Tome of Corruption   pg 152",
+    "description": "\"Why do we raid your lands? It is the will of the Gods...\"\n—Zar Seizask, Kurgan Chieftain.\n\nWarhammer Fantasy Roleplay 2nd Edition: Tome of Corruption pg 152",
     "credits": "Model Base - Pale Emperor by Direfury + Chaos Chosen by Stein123\n\nWeapon - BadassHammer by Sin'dorei300\n\nHelm - Chaos Warrior by Azazeron\n\nShoulder - Vrykul Death Knight by JesusHipster\n\nArm - OgreDeathKnight by Sin'dorei300",
     "geosets": [
       {
@@ -19502,7 +19456,7 @@
         "url": "https://www.hiveworkshop.com/members/gluma.241499/"
       }
     ],
-    "description": "Evil goat dude. Two weapon options with slightly different animations, spell and attacks slam extra anims, hero version\n\n\n\n\n\nUse or edit at will, give cretit",
+    "description": "Evil goat dude. Two weapon options with slightly different animations, spell and attacks slam extra anims, hero version\n\nUse or edit at will, give cretit",
     "credits": "Model - Gluma\n\nOriginal resource - Gors",
     "creditLinks": [
       {
@@ -19674,7 +19628,7 @@
         "url": "https://www.hiveworkshop.com/members/gluma.241499/"
       }
     ],
-    "description": "Evil goat dude. Two weapon options with slightly different animations, spell and attacks slam extra anims, hero version\n\n\n\n\n\nUse or edit at will, give cretit",
+    "description": "Evil goat dude. Two weapon options with slightly different animations, spell and attacks slam extra anims, hero version\n\nUse or edit at will, give cretit",
     "credits": "Model - Gluma\n\nOriginal resource - Gors",
     "creditLinks": [
       {
@@ -19837,7 +19791,7 @@
         "url": "https://www.hiveworkshop.com/members/gluma.241499/"
       }
     ],
-    "description": "Evil goat dude. Two weapon options with slightly different animations, spell and attacks slam extra anims, hero version\n\n\n\n\n\nUse or edit at will, give cretit",
+    "description": "Evil goat dude. Two weapon options with slightly different animations, spell and attacks slam extra anims, hero version\n\nUse or edit at will, give cretit",
     "credits": "Model - Gluma\n\nOriginal resource - Gors",
     "creditLinks": [
       {
@@ -20009,7 +19963,7 @@
         "url": "https://www.hiveworkshop.com/members/gluma.241499/"
       }
     ],
-    "description": "Evil goat dude. Two weapon options with slightly different animations, spell and attacks slam extra anims, hero version\n\n\n\n\n\nUse or edit at will, give cretit",
+    "description": "Evil goat dude. Two weapon options with slightly different animations, spell and attacks slam extra anims, hero version\n\nUse or edit at will, give cretit",
     "credits": "Model - Gluma\n\nOriginal resource - Gors",
     "creditLinks": [
       {
@@ -20172,7 +20126,7 @@
         "url": "https://www.hiveworkshop.com/members/gluma.241499/"
       }
     ],
-    "description": "When skaven-totally-don't-exist jokes stop being funny.\n\n\n\nHas special animations for continious fire (stand channel) and gun windup (stand channel alternate)\n\n\n\nPlans: make a windup icon",
+    "description": "When skaven-totally-don't-exist jokes stop being funny.\n\nHas special animations for continious fire (stand channel) and gun windup (stand channel alternate)\n\nPlans: make a windup icon",
     "credits": "Model - Gluma\n\nOriginal resource - Ratling Gunner",
     "creditLinks": [
       {
@@ -20365,7 +20319,7 @@
         "url": "https://www.hiveworkshop.com/members/gluma.241499/"
       }
     ],
-    "description": "When skaven-totally-don't-exist jokes stop being funny.\n\n\n\nHas special animations for continious fire (stand channel) and gun windup (stand channel alternate)\n\n\n\nPlans: make a windup icon",
+    "description": "When skaven-totally-don't-exist jokes stop being funny.\n\nHas special animations for continious fire (stand channel) and gun windup (stand channel alternate)\n\nPlans: make a windup icon",
     "credits": "Model - Gluma\n\nOriginal resource - Ratling Gunner",
     "creditLinks": [
       {
@@ -20551,7 +20505,7 @@
         "url": "https://www.hiveworkshop.com/members/gluma.241499/"
       }
     ],
-    "description": "Some weird people in rat costumes with a toy gun\n\n\n\nThere's some simple projectile model if you want visible bullet traces\n\n\n\nUpdate 06/02/2019: changed the gunner's pose in stand and walk anims to better transit into attack and stand ready, shield is now TK, better lighting on portrait",
+    "description": "Some weird people in rat costumes with a toy gun\n\nThere's some simple projectile model if you want visible bullet traces\n\nUpdate 06/02/2019: changed the gunner's pose in stand and walk anims to better transit into attack and stand ready, shield is now TK, better lighting on portrait",
     "credits": "Model - Gluma\n\nOriginal resource - Warplock Jezzail",
     "creditLinks": [
       {
@@ -20677,7 +20631,7 @@
         "url": "https://www.hiveworkshop.com/members/gluma.241499/"
       }
     ],
-    "description": "The big rat stuck in a tin can\n\n\n\nAlso lad, be easy on that dwarven ale\n\n\n\nKeywords:\n\nrat, skaven, warhammer",
+    "description": "The big rat stuck in a tin can\n\nAlso lad, be easy on that dwarven ale\n\nKeywords:\nrat, skaven, warhammer",
     "credits": "Model - Gluma\n\nOriginal resource - Stormvermin",
     "creditLinks": [
       {
@@ -20804,7 +20758,7 @@
         "url": "https://www.hiveworkshop.com/members/gluma.241499/"
       }
     ],
-    "description": "This individual clearly has nothing to do with the mythical Skaven, 'cause we all know funny rat people don't exist What-what? Man-thing die-die!\n\n\n\n\n\nPlease use this as much as you can and even more, just if you do, notify me and make me happy\n\n\n\nUpdate 05.02.19: Added cannibalism, attack anims more snappy, teamcolor now unshaded, proper normals on the blade so its lighter now, better lighting on the portrait (supposedly), now has proper name for clarity\n\n\n\nKeywords:\n\nrat, skaven, warhammer",
+    "description": "This individual clearly has nothing to do with the mythical Skaven, 'cause we all know funny rat people don't exist What-what? Man-thing die-die!\n\nPlease use this as much as you can and even more, just if you do, notify me and make me happy\n\nUpdate 05.02.19: Added cannibalism, attack anims more snappy, teamcolor now unshaded, proper normals on the blade so its lighter now, better lighting on the portrait (supposedly), now has proper name for clarity\n\nKeywords:\nrat, skaven, warhammer",
     "credits": "Model - Gluma\n\nOriginal resource - Skaven Clanrat",
     "creditLinks": [
       {
@@ -20939,7 +20893,7 @@
         "url": "https://www.hiveworkshop.com/members/gluma.241499/"
       }
     ],
-    "description": "A set medieval and warhammer-esque handgun armed guys\n\n\n\nRecommended parameters:\n\n\n\nFor Arquebus:\n\nAnimation Damage point: 0.3\n\nFor everyone else:\n\nAnimation Damage point: 0.170\n\nFor all:\n\nArt - Death time (seconds): 3.000\n\nArt - Animation - Walk Speed/Run Speed: 240\n\nArt - Projectile Launch - X: 20\n\nArt - Projectile Launch - Y: 70\n\n[I]Art - Projectile Launch - Z: 80[/I]",
+    "description": "A set medieval and warhammer-esque handgun armed guys\n\nRecommended parameters:\nFor Arquebus:\nAnimation Damage point: 0.3\n\nFor everyone else:\nAnimation Damage point: 0.170\n\nFor all:\nArt - Death time (seconds): 3.000\nArt - Animation - Walk Speed/Run Speed: 240\nArt - Projectile Launch - X: 20\nArt - Projectile Launch - Y: 70\nArt - Projectile Launch - Z: 80",
     "credits": "Model - Gluma\n\nOriginal resource - Human Handgunners",
     "creditLinks": [
       {
@@ -21048,7 +21002,7 @@
         "url": "https://www.hiveworkshop.com/members/gluma.241499/"
       }
     ],
-    "description": "A set medieval and warhammer-esque handgun armed guys\n\n\n\nRecommended parameters:\n\n\n\nFor Arquebus:\n\nAnimation Damage point: 0.3\n\nFor everyone else:\n\nAnimation Damage point: 0.170\n\nFor all:\n\nArt - Death time (seconds): 3.000\n\nArt - Animation - Walk Speed/Run Speed: 240\n\nArt - Projectile Launch - X: 20\n\nArt - Projectile Launch - Y: 70\n\n[I]Art - Projectile Launch - Z: 80[/I]",
+    "description": "A set medieval and warhammer-esque handgun armed guys\n\nRecommended parameters:\nFor Arquebus:\nAnimation Damage point: 0.3\n\nFor everyone else:\nAnimation Damage point: 0.170\n\nFor all:\nArt - Death time (seconds): 3.000\nArt - Animation - Walk Speed/Run Speed: 240\nArt - Projectile Launch - X: 20\nArt - Projectile Launch - Y: 70\nArt - Projectile Launch - Z: 80",
     "credits": "Model - Gluma\n\nOriginal resource - Human Handgunners",
     "creditLinks": [
       {
@@ -21157,7 +21111,7 @@
         "url": "https://www.hiveworkshop.com/members/gluma.241499/"
       }
     ],
-    "description": "A set medieval and warhammer-esque handgun armed guys\n\n\n\nRecommended parameters:\n\n\n\nFor Arquebus:\n\nAnimation Damage point: 0.3\n\nFor everyone else:\n\nAnimation Damage point: 0.170\n\nFor all:\n\nArt - Death time (seconds): 3.000\n\nArt - Animation - Walk Speed/Run Speed: 240\n\nArt - Projectile Launch - X: 20\n\nArt - Projectile Launch - Y: 70\n\n[I]Art - Projectile Launch - Z: 80[/I]",
+    "description": "A set medieval and warhammer-esque handgun armed guys\n\nRecommended parameters:\nFor Arquebus:\nAnimation Damage point: 0.3\n\nFor everyone else:\nAnimation Damage point: 0.170\n\nFor all:\nArt - Death time (seconds): 3.000\nArt - Animation - Walk Speed/Run Speed: 240\nArt - Projectile Launch - X: 20\nArt - Projectile Launch - Y: 70\nArt - Projectile Launch - Z: 80",
     "credits": "Model - Gluma\n\nOriginal resource - Human Handgunners",
     "creditLinks": [
       {
@@ -21266,7 +21220,7 @@
         "url": "https://www.hiveworkshop.com/members/gluma.241499/"
       }
     ],
-    "description": "A set medieval and warhammer-esque handgun armed guys\n\n\n\nRecommended parameters:\n\n\n\nFor Arquebus:\n\nAnimation Damage point: 0.3\n\nFor everyone else:\n\nAnimation Damage point: 0.170\n\nFor all:\n\nArt - Death time (seconds): 3.000\n\nArt - Animation - Walk Speed/Run Speed: 240\n\nArt - Projectile Launch - X: 20\n\nArt - Projectile Launch - Y: 70\n\n[I]Art - Projectile Launch - Z: 80[/I]",
+    "description": "A set medieval and warhammer-esque handgun armed guys\n\nRecommended parameters:\nFor Arquebus:\nAnimation Damage point: 0.3\n\nFor everyone else:\nAnimation Damage point: 0.170\n\nFor all:\nArt - Death time (seconds): 3.000\nArt - Animation - Walk Speed/Run Speed: 240\nArt - Projectile Launch - X: 20\nArt - Projectile Launch - Y: 70\nArt - Projectile Launch - Z: 80",
     "credits": "Model - Gluma\n\nOriginal resource - Human Handgunners",
     "creditLinks": [
       {
@@ -21378,7 +21332,7 @@
         "url": "https://www.hiveworkshop.com/members/gluma.241499/"
       }
     ],
-    "description": "Angry dark elf woman from Warhammer FB (based on an older mini)\n\nNow with a night elf skin!\n\n\n\nRecommended World Editor parameters:\n\n\n\nArt - Animation - Walk Speed/Run Speed: 250\n\nArt - Death time (seconds): 3.0\n\nWeapon Sound: Metal Medium Slice/Metal Heavy Slice\n\nCombat - Attack 1 - Animation Damage point: 0.300\n\n\n\nFeel free to use or edit\n\n\n\n\n\n04.07.26 ran models through MOP\n\n\n\nkeywords: swords, female, assasin, saber, dual, rogue",
+    "description": "Angry dark elf woman from Warhammer FB (based on an older mini)\n\nNow with a night elf skin!\n\nRecommended World Editor parameters:\nArt - Animation - Walk Speed/Run Speed: 250\nArt - Death time (seconds): 3.0\nWeapon Sound: Metal Medium Slice/Metal Heavy Slice\nCombat - Attack 1 - Animation Damage point: 0.300\n\nFeel free to use or edit\n\n04.07.26 ran models through MOP\n\nkeywords: swords, female, assasin, saber, dual, rogue",
     "credits": "Model - Gluma\n\nOriginal resource - Night Elf Bladedancer / Dark Elf Witch",
     "creditLinks": [
       {
@@ -21503,7 +21457,7 @@
         "url": "https://www.hiveworkshop.com/members/gluma.241499/"
       }
     ],
-    "description": "Angry dark elf woman from Warhammer FB (based on an older mini)\n\nNow with a night elf skin!\n\n\n\nRecommended World Editor parameters:\n\n\n\nArt - Animation - Walk Speed/Run Speed: 250\n\nArt - Death time (seconds): 3.0\n\nWeapon Sound: Metal Medium Slice/Metal Heavy Slice\n\nCombat - Attack 1 - Animation Damage point: 0.300\n\n\n\nFeel free to use or edit\n\n\n\n\n\n04.07.26 ran models through MOP\n\n\n\nkeywords: swords, female, assasin, saber, dual, rogue",
+    "description": "Angry dark elf woman from Warhammer FB (based on an older mini)\n\nNow with a night elf skin!\n\nRecommended World Editor parameters:\nArt - Animation - Walk Speed/Run Speed: 250\nArt - Death time (seconds): 3.0\nWeapon Sound: Metal Medium Slice/Metal Heavy Slice\nCombat - Attack 1 - Animation Damage point: 0.300\n\nFeel free to use or edit\n\n04.07.26 ran models through MOP\n\nkeywords: swords, female, assasin, saber, dual, rogue",
     "credits": "Model - Gluma\n\nOriginal resource - Night Elf Bladedancer / Dark Elf Witch",
     "creditLinks": [
       {
@@ -21620,7 +21574,7 @@
         "url": "https://www.hiveworkshop.com/members/gluma.241499/"
       }
     ],
-    "description": "A number of Elf women with whips\n\n\n\nRecommended World Editor parameters:\n\n\n\nArt - Animation - Walk Speed/Run Speed: 300\n\nArt - Death time (seconds): 3.0\n\nWeapon Sound: Metal Light Chop\n\nCombat - Attack 1 - Animation Damage point: 0.300 - 0.400\n\n\n\n04.07.26 ran models through MOP\n\n\n\nKeywords: elf, whip, lash, night elf, dark elf, warhammer, burning, legion, watcher, assasin, sentry",
+    "description": "A number of Elf women with whips\n\nRecommended World Editor parameters:\nArt - Animation - Walk Speed/Run Speed: 300\nArt - Death time (seconds): 3.0\nWeapon Sound: Metal Light Chop\nCombat - Attack 1 - Animation Damage point: 0.300 - 0.400\n\n04.07.26 ran models through MOP\n\nKeywords: elf, whip, lash, night elf, dark elf, warhammer, burning, legion, watcher, assasin, sentry",
     "credits": "Model - Gluma\n\nOriginal resource - Elf Lashers",
     "creditLinks": [
       {
@@ -21744,7 +21698,7 @@
         "url": "https://www.hiveworkshop.com/members/gluma.241499/"
       }
     ],
-    "description": "A number of Elf women with whips\n\n\n\nRecommended World Editor parameters:\n\n\n\nArt - Animation - Walk Speed/Run Speed: 300\n\nArt - Death time (seconds): 3.0\n\nWeapon Sound: Metal Light Chop\n\nCombat - Attack 1 - Animation Damage point: 0.300 - 0.400\n\n\n\n04.07.26 ran models through MOP\n\n\n\nKeywords: elf, whip, lash, night elf, dark elf, warhammer, burning, legion, watcher, assasin, sentry",
+    "description": "A number of Elf women with whips\n\nRecommended World Editor parameters:\nArt - Animation - Walk Speed/Run Speed: 300\nArt - Death time (seconds): 3.0\nWeapon Sound: Metal Light Chop\nCombat - Attack 1 - Animation Damage point: 0.300 - 0.400\n\n04.07.26 ran models through MOP\n\nKeywords: elf, whip, lash, night elf, dark elf, warhammer, burning, legion, watcher, assasin, sentry",
     "credits": "Model - Gluma\n\nOriginal resource - Elf Lashers",
     "creditLinks": [
       {
@@ -21867,7 +21821,7 @@
         "url": "https://www.hiveworkshop.com/members/gluma.241499/"
       }
     ],
-    "description": "A number of Elf women with whips\n\n\n\nRecommended World Editor parameters:\n\n\n\nArt - Animation - Walk Speed/Run Speed: 300\n\nArt - Death time (seconds): 3.0\n\nWeapon Sound: Metal Light Chop\n\nCombat - Attack 1 - Animation Damage point: 0.300 - 0.400\n\n\n\n04.07.26 ran models through MOP\n\n\n\nKeywords: elf, whip, lash, night elf, dark elf, warhammer, burning, legion, watcher, assasin, sentry",
+    "description": "A number of Elf women with whips\n\nRecommended World Editor parameters:\nArt - Animation - Walk Speed/Run Speed: 300\nArt - Death time (seconds): 3.0\nWeapon Sound: Metal Light Chop\nCombat - Attack 1 - Animation Damage point: 0.300 - 0.400\n\n04.07.26 ran models through MOP\n\nKeywords: elf, whip, lash, night elf, dark elf, warhammer, burning, legion, watcher, assasin, sentry",
     "credits": "Model - Gluma\n\nOriginal resource - Elf Lashers",
     "creditLinks": [
       {
@@ -21980,7 +21934,7 @@
         "url": "https://www.hiveworkshop.com/members/gluma.241499/"
       }
     ],
-    "description": "A number of Elf women with whips\n\n\n\nRecommended World Editor parameters:\n\n\n\nArt - Animation - Walk Speed/Run Speed: 300\n\nArt - Death time (seconds): 3.0\n\nWeapon Sound: Metal Light Chop\n\nCombat - Attack 1 - Animation Damage point: 0.300 - 0.400\n\n\n\n04.07.26 ran models through MOP\n\n\n\nKeywords: elf, whip, lash, night elf, dark elf, warhammer, burning, legion, watcher, assasin, sentry",
+    "description": "A number of Elf women with whips\n\nRecommended World Editor parameters:\nArt - Animation - Walk Speed/Run Speed: 300\nArt - Death time (seconds): 3.0\nWeapon Sound: Metal Light Chop\nCombat - Attack 1 - Animation Damage point: 0.300 - 0.400\n\n04.07.26 ran models through MOP\n\nKeywords: elf, whip, lash, night elf, dark elf, warhammer, burning, legion, watcher, assasin, sentry",
     "credits": "Model - Gluma\n\nOriginal resource - Elf Lashers",
     "creditLinks": [
       {
@@ -22094,7 +22048,7 @@
         "url": "https://www.hiveworkshop.com/members/gluma.241499/"
       }
     ],
-    "description": "Dinosaur cavalry from Warhammer\n\n\n\n\n\nRecommended Object Editor parameters:\n\n\n\nCombat - Attack 1 - Animation Damage point: 0.300\n\nArt - Death time (seconds): 2.5 (for rider)\n\nArt - Death time (seconds): 2.0 (for feral cold one)\n\nArt - Animation - Walk Speed/Run Speed: 300 - 360\n\n\n\n\n\nKeywords:\n\nWarhammer, Fantasy, Battles, Saurus, Lizardman, Lizardmen, Reptile, Lizard, Seraphon, Warrior, Barbarian, Tribal, Aztec, Mounted, Cavalry, Dinosaur, Raptor",
+    "description": "Dinosaur cavalry from Warhammer\n\nRecommended Object Editor parameters:\nCombat - Attack 1 - Animation Damage point: 0.300\nArt - Death time (seconds): 2.5 (for rider)\nArt - Death time (seconds): 2.0 (for feral cold one)\nArt - Animation - Walk Speed/Run Speed: 300 - 360\n\nKeywords:\nWarhammer, Fantasy, Battles, Saurus, Lizardman, Lizardmen, Reptile, Lizard, Seraphon, Warrior, Barbarian, Tribal, Aztec, Mounted, Cavalry, Dinosaur, Raptor",
     "credits": "Model - Gluma\n\nOriginal resource - Cold One Rider",
     "creditLinks": [
       {
@@ -22208,7 +22162,7 @@
         "url": "https://www.hiveworkshop.com/members/gluma.241499/"
       }
     ],
-    "description": "Dinosaur cavalry from Warhammer\n\n\n\n\n\nRecommended Object Editor parameters:\n\n\n\nCombat - Attack 1 - Animation Damage point: 0.300\n\nArt - Death time (seconds): 2.5 (for rider)\n\nArt - Death time (seconds): 2.0 (for feral cold one)\n\nArt - Animation - Walk Speed/Run Speed: 300 - 360\n\n\n\n\n\nKeywords:\n\nWarhammer, Fantasy, Battles, Saurus, Lizardman, Lizardmen, Reptile, Lizard, Seraphon, Warrior, Barbarian, Tribal, Aztec, Mounted, Cavalry, Dinosaur, Raptor",
+    "description": "Dinosaur cavalry from Warhammer\n\nRecommended Object Editor parameters:\nCombat - Attack 1 - Animation Damage point: 0.300\nArt - Death time (seconds): 2.5 (for rider)\nArt - Death time (seconds): 2.0 (for feral cold one)\nArt - Animation - Walk Speed/Run Speed: 300 - 360\n\nKeywords:\nWarhammer, Fantasy, Battles, Saurus, Lizardman, Lizardmen, Reptile, Lizard, Seraphon, Warrior, Barbarian, Tribal, Aztec, Mounted, Cavalry, Dinosaur, Raptor",
     "credits": "Model - Gluma\n\nOriginal resource - Cold One Rider",
     "creditLinks": [
       {
@@ -22323,7 +22277,7 @@
         "url": "https://www.hiveworkshop.com/members/gluma.241499/"
       }
     ],
-    "description": "Dinosaur cavalry from Warhammer\n\n\n\n\n\nRecommended Object Editor parameters:\n\n\n\nCombat - Attack 1 - Animation Damage point: 0.300\n\nArt - Death time (seconds): 2.5 (for rider)\n\nArt - Death time (seconds): 2.0 (for feral cold one)\n\nArt - Animation - Walk Speed/Run Speed: 300 - 360\n\n\n\n\n\nKeywords:\n\nWarhammer, Fantasy, Battles, Saurus, Lizardman, Lizardmen, Reptile, Lizard, Seraphon, Warrior, Barbarian, Tribal, Aztec, Mounted, Cavalry, Dinosaur, Raptor",
+    "description": "Dinosaur cavalry from Warhammer\n\nRecommended Object Editor parameters:\nCombat - Attack 1 - Animation Damage point: 0.300\nArt - Death time (seconds): 2.5 (for rider)\nArt - Death time (seconds): 2.0 (for feral cold one)\nArt - Animation - Walk Speed/Run Speed: 300 - 360\n\nKeywords:\nWarhammer, Fantasy, Battles, Saurus, Lizardman, Lizardmen, Reptile, Lizard, Seraphon, Warrior, Barbarian, Tribal, Aztec, Mounted, Cavalry, Dinosaur, Raptor",
     "credits": "Model - Gluma\n\nOriginal resource - Cold One Rider",
     "creditLinks": [
       {
@@ -22413,7 +22367,7 @@
         "url": "https://www.hiveworkshop.com/members/gluma.241499/"
       }
     ],
-    "description": "Warhammer caster beastman\n\n\n\nRecommended World Editor parameters:\n\n\n\nArt - Animation - Walk Speed/Run Speed: 240\n\nArt - Death time (seconds): 3.000\n\nAnimation Damage point: 0.350\n\n(note: I gave up trying to find perfect Art - Projectile Launch coordinates, so if you happen to find better fitting ones just let me know)\n\nArt - Projectile Launch Y: 35.000\n\nArt - Projectile Launch Z: 150.000\n\n\n\nFeel free to use or edit\n\n\n\n\n\n\n\nKeywords:\n\nWarhammer, Fantasy, Battles, Beastman, Beastmen, Goat, Satyr, Shaman, Mage, Magic, Tribal",
+    "description": "Warhammer caster beastman\n\nRecommended World Editor parameters:\nArt - Animation - Walk Speed/Run Speed: 240\nArt - Death time (seconds): 3.000\nAnimation Damage point: 0.350\n\n(note: I gave up trying to find perfect Art - Projectile Launch coordinates, so if you happen to find better fitting ones just let me know)\nArt - Projectile Launch Y: 35.000\nArt - Projectile Launch Z: 150.000\n\nFeel free to use or edit\n\nKeywords:\nWarhammer, Fantasy, Battles, Beastman, Beastmen, Goat, Satyr, Shaman, Mage, Magic, Tribal",
     "credits": "Model - Gluma\n\nOriginal resource - Bray Shaman",
     "creditLinks": [
       {
@@ -22542,7 +22496,7 @@
         "url": "https://www.hiveworkshop.com/members/gluma.241499/"
       }
     ],
-    "description": "Warhammer caster beastman\n\n\n\nRecommended World Editor parameters:\n\n\n\nArt - Animation - Walk Speed/Run Speed: 240\n\nArt - Death time (seconds): 3.000\n\nAnimation Damage point: 0.350\n\n(note: I gave up trying to find perfect Art - Projectile Launch coordinates, so if you happen to find better fitting ones just let me know)\n\nArt - Projectile Launch Y: 35.000\n\nArt - Projectile Launch Z: 150.000\n\n\n\nFeel free to use or edit\n\n\n\n\n\n\n\nKeywords:\n\nWarhammer, Fantasy, Battles, Beastman, Beastmen, Goat, Satyr, Shaman, Mage, Magic, Tribal",
+    "description": "Warhammer caster beastman\n\nRecommended World Editor parameters:\nArt - Animation - Walk Speed/Run Speed: 240\nArt - Death time (seconds): 3.000\nAnimation Damage point: 0.350\n\n(note: I gave up trying to find perfect Art - Projectile Launch coordinates, so if you happen to find better fitting ones just let me know)\nArt - Projectile Launch Y: 35.000\nArt - Projectile Launch Z: 150.000\n\nFeel free to use or edit\n\nKeywords:\nWarhammer, Fantasy, Battles, Beastman, Beastmen, Goat, Satyr, Shaman, Mage, Magic, Tribal",
     "credits": "Model - Gluma\n\nOriginal resource - Bray Shaman",
     "creditLinks": [
       {
@@ -22672,7 +22626,7 @@
         "url": "https://www.hiveworkshop.com/members/gluma.241499/"
       }
     ],
-    "description": "Warhammer caster beastman\n\n\n\nRecommended World Editor parameters:\n\n\n\nArt - Animation - Walk Speed/Run Speed: 240\n\nArt - Death time (seconds): 3.000\n\nAnimation Damage point: 0.350\n\n(note: I gave up trying to find perfect Art - Projectile Launch coordinates, so if you happen to find better fitting ones just let me know)\n\nArt - Projectile Launch Y: 35.000\n\nArt - Projectile Launch Z: 150.000\n\n\n\nFeel free to use or edit\n\n\n\n\n\n\n\nKeywords:\n\nWarhammer, Fantasy, Battles, Beastman, Beastmen, Goat, Satyr, Shaman, Mage, Magic, Tribal",
+    "description": "Warhammer caster beastman\n\nRecommended World Editor parameters:\nArt - Animation - Walk Speed/Run Speed: 240\nArt - Death time (seconds): 3.000\nAnimation Damage point: 0.350\n\n(note: I gave up trying to find perfect Art - Projectile Launch coordinates, so if you happen to find better fitting ones just let me know)\nArt - Projectile Launch Y: 35.000\nArt - Projectile Launch Z: 150.000\n\nFeel free to use or edit\n\nKeywords:\nWarhammer, Fantasy, Battles, Beastman, Beastmen, Goat, Satyr, Shaman, Mage, Magic, Tribal",
     "credits": "Model - Gluma\n\nOriginal resource - Bray Shaman",
     "creditLinks": [
       {
@@ -22772,7 +22726,7 @@
         "url": "https://www.hiveworkshop.com/members/gluma.241499/"
       }
     ],
-    "description": "Warhammer caster beastman\n\n\n\nRecommended World Editor parameters:\n\n\n\nArt - Animation - Walk Speed/Run Speed: 240\n\nArt - Death time (seconds): 3.000\n\nAnimation Damage point: 0.350\n\n(note: I gave up trying to find perfect Art - Projectile Launch coordinates, so if you happen to find better fitting ones just let me know)\n\nArt - Projectile Launch Y: 35.000\n\nArt - Projectile Launch Z: 150.000\n\n\n\nFeel free to use or edit\n\n\n\n\n\n\n\nKeywords:\n\nWarhammer, Fantasy, Battles, Beastman, Beastmen, Goat, Satyr, Shaman, Mage, Magic, Tribal",
+    "description": "Warhammer caster beastman\n\nRecommended World Editor parameters:\nArt - Animation - Walk Speed/Run Speed: 240\nArt - Death time (seconds): 3.000\nAnimation Damage point: 0.350\n\n(note: I gave up trying to find perfect Art - Projectile Launch coordinates, so if you happen to find better fitting ones just let me know)\nArt - Projectile Launch Y: 35.000\nArt - Projectile Launch Z: 150.000\n\nFeel free to use or edit\n\nKeywords:\nWarhammer, Fantasy, Battles, Beastman, Beastmen, Goat, Satyr, Shaman, Mage, Magic, Tribal",
     "credits": "Model - Gluma\n\nOriginal resource - Bray Shaman",
     "creditLinks": [
       {
@@ -22864,7 +22818,7 @@
         "url": "https://www.hiveworkshop.com/members/gluma.241499/"
       }
     ],
-    "description": "Big Warhammer lizardman armed with a club. Hero and uunit version, plus some ability icons\n\n\n\nfirst model I made completely from scratch!!\n\n\n\nRecommended World Editor parameters:\n\n\n\nArt - Animation - Walk Speed/Run Speed: 200\n\nArt - Death time (seconds): 3.000\n\nWeapon Sound: Metal Heavy Bash\n\nAnimation Damage point: 0.330\n\n\n\nFeel free to use or edit\n\n\n\nTo use 'Walk Fast' animation by default, add \"Fast\" to Art - Required Animation Names\n\n\n\nKeywords:\n\nWarhammer, Fantasy, Battles, Saurus, Lizardman, Lizardmen, Reptile, Lizard, Seraphon, Warrior, Barbarian, Tribal, Aztec",
+    "description": "Big Warhammer lizardman armed with a club. Hero and uunit version, plus some ability icons\n\nfirst model I made completely from scratch!!\n\nRecommended World Editor parameters:\nArt - Animation - Walk Speed/Run Speed: 200\nArt - Death time (seconds): 3.000\nWeapon Sound: Metal Heavy Bash\nAnimation Damage point: 0.330\n\nFeel free to use or edit\n\nTo use 'Walk Fast' animation by default, add \"Fast\" to Art - Required Animation Names\n\nKeywords:\nWarhammer, Fantasy, Battles, Saurus, Lizardman, Lizardmen, Reptile, Lizard, Seraphon, Warrior, Barbarian, Tribal, Aztec",
     "credits": "Model - Gluma\n\nOriginal resource - Saurus Warrior",
     "creditLinks": [
       {
@@ -22962,7 +22916,7 @@
         "url": "https://www.hiveworkshop.com/members/gluma.241499/"
       }
     ],
-    "description": "Big Warhammer lizardman armed with a club. Hero and uunit version, plus some ability icons\n\n\n\nfirst model I made completely from scratch!!\n\n\n\nRecommended World Editor parameters:\n\n\n\nArt - Animation - Walk Speed/Run Speed: 200\n\nArt - Death time (seconds): 3.000\n\nWeapon Sound: Metal Heavy Bash\n\nAnimation Damage point: 0.330\n\n\n\nFeel free to use or edit\n\n\n\nTo use 'Walk Fast' animation by default, add \"Fast\" to Art - Required Animation Names\n\n\n\nKeywords:\n\nWarhammer, Fantasy, Battles, Saurus, Lizardman, Lizardmen, Reptile, Lizard, Seraphon, Warrior, Barbarian, Tribal, Aztec",
+    "description": "Big Warhammer lizardman armed with a club. Hero and uunit version, plus some ability icons\n\nfirst model I made completely from scratch!!\n\nRecommended World Editor parameters:\nArt - Animation - Walk Speed/Run Speed: 200\nArt - Death time (seconds): 3.000\nWeapon Sound: Metal Heavy Bash\nAnimation Damage point: 0.330\n\nFeel free to use or edit\n\nTo use 'Walk Fast' animation by default, add \"Fast\" to Art - Required Animation Names\n\nKeywords:\nWarhammer, Fantasy, Battles, Saurus, Lizardman, Lizardmen, Reptile, Lizard, Seraphon, Warrior, Barbarian, Tribal, Aztec",
     "credits": "Model - Gluma\n\nOriginal resource - Saurus Warrior",
     "creditLinks": [
       {
@@ -23059,7 +23013,7 @@
         "url": "https://www.hiveworkshop.com/members/gluma.241499/"
       }
     ],
-    "description": "Dwarf gun based on Warhammer FB minis\n\n\n\nRecommended WorldEdit stats:\n\n\n\nDeath Time (seconds): 2.000\n\nArt - Projectile Launch - Y: 50\n\nArt - Projectile Launch - Z: 60\n\nAbination Damage Point: 0.400\n\nProjectile Art: Cannon Tower\n\nAnimation - Run/Walk Speed: 185.000\n\n\n\n\n\nTags: Dwarf, Warhammer, Gun, Firearm, Gunpowder, Artillery, Siege, Warhammer",
+    "description": "Dwarf gun based on Warhammer FB minis\n\nRecommended WorldEdit stats:\nDeath Time (seconds): 2.000\nArt - Projectile Launch - Y: 50\nArt - Projectile Launch - Z: 60\nAbination Damage Point: 0.400\nProjectile Art: Cannon Tower\nAnimation - Run/Walk Speed: 185.000\n\nTags: Dwarf, Warhammer, Gun, Firearm, Gunpowder, Artillery, Siege, Warhammer",
     "credits": "Model - Gluma\n\nOriginal resource - Dwarf Cannon",
     "creditLinks": [
       {
@@ -23178,7 +23132,7 @@
         "url": "https://www.hiveworkshop.com/members/gluma.241499/"
       }
     ],
-    "description": "Aged Warhammer lizard\n\n\n\nRecommended World Editor parameters:\n\n\n\nArt - Animation - Walk Speed/Run Speed: 200\n\nArt - Death time (seconds): 4.500\n\nWeapon Sound: Metal Heavy Bash\n\nAnimation Damage point: 0.330\n\n\n\nTo use 'Walk Fast' animation by default, add \"Fast\" to Art - Required Animation Names\n\n\n\nFeel free to use or edit\n\nKeywords:\n\nWarhammer, Fantasy, Battles, Saurus, Lizardman, Lizardmen, Reptile, Lizard, Seraphon, Warrior, Barbarian, Tribal, Aztec",
+    "description": "Aged Warhammer lizard\n\nRecommended World Editor parameters:\nArt - Animation - Walk Speed/Run Speed: 200\nArt - Death time (seconds): 4.500\nWeapon Sound: Metal Heavy Bash\nAnimation Damage point: 0.330\n\nTo use 'Walk Fast' animation by default, add \"Fast\" to Art - Required Animation Names\n\nFeel free to use or edit\n\nKeywords:\nWarhammer, Fantasy, Battles, Saurus, Lizardman, Lizardmen, Reptile, Lizard, Seraphon, Warrior, Barbarian, Tribal, Aztec",
     "credits": "Model - Gluma\n\nOriginal resource - Saurus Oldblood",
     "creditLinks": [
       {
@@ -23284,7 +23238,7 @@
         "url": "https://www.hiveworkshop.com/members/gluma.241499/"
       }
     ],
-    "description": "Aged Warhammer lizard\n\n\n\nRecommended World Editor parameters:\n\n\n\nArt - Animation - Walk Speed/Run Speed: 200\n\nArt - Death time (seconds): 4.500\n\nWeapon Sound: Metal Heavy Bash\n\nAnimation Damage point: 0.330\n\n\n\nTo use 'Walk Fast' animation by default, add \"Fast\" to Art - Required Animation Names\n\n\n\nFeel free to use or edit\n\nKeywords:\n\nWarhammer, Fantasy, Battles, Saurus, Lizardman, Lizardmen, Reptile, Lizard, Seraphon, Warrior, Barbarian, Tribal, Aztec",
+    "description": "Aged Warhammer lizard\n\nRecommended World Editor parameters:\nArt - Animation - Walk Speed/Run Speed: 200\nArt - Death time (seconds): 4.500\nWeapon Sound: Metal Heavy Bash\nAnimation Damage point: 0.330\n\nTo use 'Walk Fast' animation by default, add \"Fast\" to Art - Required Animation Names\n\nFeel free to use or edit\n\nKeywords:\nWarhammer, Fantasy, Battles, Saurus, Lizardman, Lizardmen, Reptile, Lizard, Seraphon, Warrior, Barbarian, Tribal, Aztec",
     "credits": "Model - Gluma\n\nOriginal resource - Saurus Oldblood",
     "creditLinks": [
       {
@@ -23391,7 +23345,7 @@
         "url": "https://www.hiveworkshop.com/members/gluma.241499/"
       }
     ],
-    "description": "warhammer crocodile\n\n\n\nRecommended World Editor parameters:\n\n\n\nArt - Animation - Walk Speed/Run Speed: 200\n\nArt - Death time (seconds): 4.000\n\nAnimation Damage point: 0.3\n\n\n\n\n\n\n\nKeywords:\n\nWarhammer, Fantasy, Battles, Kroxigor, Lizardman, Lizardmen, Reptile, Lizard, Seraphon, Warrior, Barbarian, Tribal, Aztec, Tank, Bruiser",
+    "description": "warhammer crocodile\n\nRecommended World Editor parameters:\nArt - Animation - Walk Speed/Run Speed: 200\nArt - Death time (seconds): 4.000\nAnimation Damage point: 0.3\n\nKeywords:\nWarhammer, Fantasy, Battles, Kroxigor, Lizardman, Lizardmen, Reptile, Lizard, Seraphon, Warrior, Barbarian, Tribal, Aztec, Tank, Bruiser",
     "credits": "Model - Gluma\n\nOriginal resource - Kroxigor, Ancient Kroxigor",
     "creditLinks": [
       {
@@ -23498,7 +23452,7 @@
         "url": "https://www.hiveworkshop.com/members/gluma.241499/"
       }
     ],
-    "description": "warhammer crocodile\n\n\n\nRecommended World Editor parameters:\n\n\n\nArt - Animation - Walk Speed/Run Speed: 200\n\nArt - Death time (seconds): 4.000\n\nAnimation Damage point: 0.3\n\n\n\n\n\n\n\nKeywords:\n\nWarhammer, Fantasy, Battles, Kroxigor, Lizardman, Lizardmen, Reptile, Lizard, Seraphon, Warrior, Barbarian, Tribal, Aztec, Tank, Bruiser",
+    "description": "warhammer crocodile\n\nRecommended World Editor parameters:\nArt - Animation - Walk Speed/Run Speed: 200\nArt - Death time (seconds): 4.000\nAnimation Damage point: 0.3\n\nKeywords:\nWarhammer, Fantasy, Battles, Kroxigor, Lizardman, Lizardmen, Reptile, Lizard, Seraphon, Warrior, Barbarian, Tribal, Aztec, Tank, Bruiser",
     "credits": "Model - Gluma\n\nOriginal resource - Kroxigor, Ancient Kroxigor",
     "creditLinks": [
       {
@@ -23613,7 +23567,7 @@
         "url": "https://www.hiveworkshop.com/members/gluma.241499/"
       }
     ],
-    "description": "warhammer crocodile\n\n\n\nRecommended World Editor parameters:\n\n\n\nArt - Animation - Walk Speed/Run Speed: 200\n\nArt - Death time (seconds): 4.000\n\nAnimation Damage point: 0.3\n\n\n\n\n\n\n\nKeywords:\n\nWarhammer, Fantasy, Battles, Kroxigor, Lizardman, Lizardmen, Reptile, Lizard, Seraphon, Warrior, Barbarian, Tribal, Aztec, Tank, Bruiser",
+    "description": "warhammer crocodile\n\nRecommended World Editor parameters:\nArt - Animation - Walk Speed/Run Speed: 200\nArt - Death time (seconds): 4.000\nAnimation Damage point: 0.3\n\nKeywords:\nWarhammer, Fantasy, Battles, Kroxigor, Lizardman, Lizardmen, Reptile, Lizard, Seraphon, Warrior, Barbarian, Tribal, Aztec, Tank, Bruiser",
     "credits": "Model - Gluma\n\nOriginal resource - Kroxigor, Ancient Kroxigor",
     "creditLinks": [
       {
@@ -23711,7 +23665,7 @@
         "url": "https://www.hiveworkshop.com/members/gluma.241499/"
       }
     ],
-    "description": "warhammer crocodile\n\n\n\nRecommended World Editor parameters:\n\n\n\nArt - Animation - Walk Speed/Run Speed: 200\n\nArt - Death time (seconds): 4.000\n\nAnimation Damage point: 0.3\n\n\n\n\n\n\n\nKeywords:\n\nWarhammer, Fantasy, Battles, Kroxigor, Lizardman, Lizardmen, Reptile, Lizard, Seraphon, Warrior, Barbarian, Tribal, Aztec, Tank, Bruiser",
+    "description": "warhammer crocodile\n\nRecommended World Editor parameters:\nArt - Animation - Walk Speed/Run Speed: 200\nArt - Death time (seconds): 4.000\nAnimation Damage point: 0.3\n\nKeywords:\nWarhammer, Fantasy, Battles, Kroxigor, Lizardman, Lizardmen, Reptile, Lizard, Seraphon, Warrior, Barbarian, Tribal, Aztec, Tank, Bruiser",
     "credits": "Model - Gluma\n\nOriginal resource - Kroxigor, Ancient Kroxigor",
     "creditLinks": [
       {
@@ -23817,7 +23771,7 @@
         "url": "https://www.hiveworkshop.com/members/gluma.241499/"
       }
     ],
-    "description": "Use \"swimless\" version for smaller file size\n\n\n\nRecommended file parameters:\n\nArt - Death Time (seconds): 3.00\n\nArt - Projectile Launch - X: 30.000\n\nArt - Projectile Launch - Y: 0\n\nArt - Projectile Launch - Z: 90\n\nCombat - Attack 1 - Animation Damage Point 0.400 or 0.300",
+    "description": "Use \"swimless\" version for smaller file size\n\nRecommended file parameters:\nArt - Death Time (seconds): 3.00\nArt - Projectile Launch - X: 30.000\nArt - Projectile Launch - Y: 0\nArt - Projectile Launch - Z: 90\nCombat - Attack 1 - Animation Damage Point 0.400 or 0.300",
     "credits": "Model - Gluma\n\nOriginal resource - Skink High Priest",
     "creditLinks": [
       {
@@ -23943,7 +23897,7 @@
         "url": "https://www.hiveworkshop.com/members/gluma.241499/"
       }
     ],
-    "description": "Use \"swimless\" version for smaller file size\n\n\n\nRecommended file parameters:\n\nArt - Death Time (seconds): 3.00\n\nArt - Projectile Launch - X: 30.000\n\nArt - Projectile Launch - Y: 0\n\nArt - Projectile Launch - Z: 90\n\nCombat - Attack 1 - Animation Damage Point 0.400 or 0.300",
+    "description": "Use \"swimless\" version for smaller file size\n\nRecommended file parameters:\nArt - Death Time (seconds): 3.00\nArt - Projectile Launch - X: 30.000\nArt - Projectile Launch - Y: 0\nArt - Projectile Launch - Z: 90\nCombat - Attack 1 - Animation Damage Point 0.400 or 0.300",
     "credits": "Model - Gluma\n\nOriginal resource - Skink High Priest",
     "creditLinks": [
       {
@@ -24063,7 +24017,7 @@
         "url": "https://www.hiveworkshop.com/members/gluma.241499/"
       }
     ],
-    "description": "Use \"swimless\" version for smaller file size\n\n\n\nRecommended file parameters:\n\nArt - Death Time (seconds): 3.00\n\nArt - Projectile Launch - X: 30.000\n\nArt - Projectile Launch - Y: 0\n\nArt - Projectile Launch - Z: 90\n\nCombat - Attack 1 - Animation Damage Point 0.400 or 0.300",
+    "description": "Use \"swimless\" version for smaller file size\n\nRecommended file parameters:\nArt - Death Time (seconds): 3.00\nArt - Projectile Launch - X: 30.000\nArt - Projectile Launch - Y: 0\nArt - Projectile Launch - Z: 90\nCombat - Attack 1 - Animation Damage Point 0.400 or 0.300",
     "credits": "Model - Gluma\n\nOriginal resource - Skink High Priest",
     "creditLinks": [
       {
@@ -24200,7 +24154,7 @@
         "url": "https://www.hiveworkshop.com/members/gluma.241499/"
       }
     ],
-    "description": "Use \"swimless\" version for smaller file size\n\n\n\nRecommended file parameters:\n\nArt - Death Time (seconds): 3.00\n\nArt - Projectile Launch - X: 30.000\n\nArt - Projectile Launch - Y: 0\n\nArt - Projectile Launch - Z: 90\n\nCombat - Attack 1 - Animation Damage Point 0.400 or 0.300",
+    "description": "Use \"swimless\" version for smaller file size\n\nRecommended file parameters:\nArt - Death Time (seconds): 3.00\nArt - Projectile Launch - X: 30.000\nArt - Projectile Launch - Y: 0\nArt - Projectile Launch - Z: 90\nCombat - Attack 1 - Animation Damage Point 0.400 or 0.300",
     "credits": "Model - Gluma\n\nOriginal resource - Skink High Priest",
     "creditLinks": [
       {
@@ -24330,7 +24284,7 @@
         "url": "https://www.hiveworkshop.com/members/gluma.241499/"
       }
     ],
-    "description": "skink worker/builder unit\n\n\n\nrefer to Skink Troops fo recommended parameters\n\n\n\n\n\nUse swimless version for less file size",
+    "description": "skink worker/builder unit\n\nrefer to Skink Troops fo recommended parameters\n\nUse swimless version for less file size",
     "credits": "Model - Gluma\n\nOriginal resource - Skink Worker",
     "creditLinks": [
       {
@@ -24481,7 +24435,7 @@
         "url": "https://www.hiveworkshop.com/members/gluma.241499/"
       }
     ],
-    "description": "skink worker/builder unit\n\n\n\nrefer to Skink Troops fo recommended parameters\n\n\n\n\n\nUse swimless version for less file size",
+    "description": "skink worker/builder unit\n\nrefer to Skink Troops fo recommended parameters\n\nUse swimless version for less file size",
     "credits": "Model - Gluma\n\nOriginal resource - Skink Worker",
     "creditLinks": [
       {
@@ -24621,7 +24575,7 @@
         "url": "https://www.hiveworkshop.com/members/gluma.241499/"
       }
     ],
-    "description": "Skink chief with a blowpipe\n\n\n\nmaybe I'll make a club version later\n\n\n\n\n\nrecommended editor parameters:\n\n\n\n\n\nCombat - Attack 1 - Animation Damage Point 0.250\n\nArt - Projectile Launch - X: 0\n\nArt - Projectile Launch - Y: 110\n\nArt - Projectile Launch - Z: 90\n\nArt - Projectile Launch - Z (Swimming): 0\n\nCombat - Attack 1 - Animation Damage Point: 0.3\n\nArt - Animation Walk/Run Speed 250.00",
+    "description": "Skink chief with a blowpipe\n\nmaybe I'll make a club version later\n\nrecommended editor parameters:\nCombat - Attack 1 - Animation Damage Point 0.250\nArt - Projectile Launch - X: 0\nArt - Projectile Launch - Y: 110\nArt - Projectile Launch - Z: 90\nArt - Projectile Launch - Z (Swimming): 0\nCombat - Attack 1 - Animation Damage Point: 0.3\nArt - Animation Walk/Run Speed 250.00",
     "credits": "Model - Gluma\n\nOriginal resource - Skink Chief",
     "creditLinks": [
       {
@@ -24766,7 +24720,7 @@
         "url": "https://www.hiveworkshop.com/members/gluma.241499/"
       }
     ],
-    "description": "Skink chief with a blowpipe\n\n\n\nmaybe I'll make a club version later\n\n\n\n\n\nrecommended editor parameters:\n\n\n\n\n\nCombat - Attack 1 - Animation Damage Point 0.250\n\nArt - Projectile Launch - X: 0\n\nArt - Projectile Launch - Y: 110\n\nArt - Projectile Launch - Z: 90\n\nArt - Projectile Launch - Z (Swimming): 0\n\nCombat - Attack 1 - Animation Damage Point: 0.3\n\nArt - Animation Walk/Run Speed 250.00",
+    "description": "Skink chief with a blowpipe\n\nmaybe I'll make a club version later\n\nrecommended editor parameters:\nCombat - Attack 1 - Animation Damage Point 0.250\nArt - Projectile Launch - X: 0\nArt - Projectile Launch - Y: 110\nArt - Projectile Launch - Z: 90\nArt - Projectile Launch - Z (Swimming): 0\nCombat - Attack 1 - Animation Damage Point: 0.3\nArt - Animation Walk/Run Speed 250.00",
     "credits": "Model - Gluma\n\nOriginal resource - Skink Chief",
     "creditLinks": [
       {
@@ -24913,7 +24867,7 @@
         "url": "https://www.hiveworkshop.com/members/gluma.241499/"
       }
     ],
-    "description": "Generic warhammer lizardmen skinks\n\n\n\n\n\nRecommended visual parameters:\n\n\n\n\n\nSpear:\n\nCombat - Attack 1 - Animation Damage Point: 0.3\n\n\n\nBlowpipe:\n\nArt - Projectile Launch - X: 0\n\nArt - Projectile Launch - Y: 150\n\nArt - Projectile Launch - Z: 90\n\nArt - Projectile Launch - Z (Swimming): 0\n\nCombat - Attack 1 - Animation Damage Point: 0.3\n\n\n\nJavelin:\n\nArt - Projectile Launch - X: 20\n\nArt - Projectile Launch - Y: 40\n\nArt - Projectile Launch - Z: 120\n\nArt - Projectile Launch - Z (Swimming): 0\n\nCombat - Attack 1 - Animation Damage Point: 0.3",
+    "description": "Generic warhammer lizardmen skinks\n\nRecommended visual parameters:\nSpear:\nCombat - Attack 1 - Animation Damage Point: 0.3\n\nBlowpipe:\nArt - Projectile Launch - X: 0\nArt - Projectile Launch - Y: 150\nArt - Projectile Launch - Z: 90\nArt - Projectile Launch - Z (Swimming): 0\nCombat - Attack 1 - Animation Damage Point: 0.3\n\nJavelin:\nArt - Projectile Launch - X: 20\nArt - Projectile Launch - Y: 40\nArt - Projectile Launch - Z: 120\nArt - Projectile Launch - Z (Swimming): 0\nCombat - Attack 1 - Animation Damage Point: 0.3",
     "credits": "Model - Gluma\n\nOriginal resource - Skink Troops",
     "creditLinks": [
       {
@@ -25048,7 +25002,7 @@
         "url": "https://www.hiveworkshop.com/members/gluma.241499/"
       }
     ],
-    "description": "Generic warhammer lizardmen skinks\n\n\n\n\n\nRecommended visual parameters:\n\n\n\n\n\nSpear:\n\nCombat - Attack 1 - Animation Damage Point: 0.3\n\n\n\nBlowpipe:\n\nArt - Projectile Launch - X: 0\n\nArt - Projectile Launch - Y: 150\n\nArt - Projectile Launch - Z: 90\n\nArt - Projectile Launch - Z (Swimming): 0\n\nCombat - Attack 1 - Animation Damage Point: 0.3\n\n\n\nJavelin:\n\nArt - Projectile Launch - X: 20\n\nArt - Projectile Launch - Y: 40\n\nArt - Projectile Launch - Z: 120\n\nArt - Projectile Launch - Z (Swimming): 0\n\nCombat - Attack 1 - Animation Damage Point: 0.3",
+    "description": "Generic warhammer lizardmen skinks\n\nRecommended visual parameters:\nSpear:\nCombat - Attack 1 - Animation Damage Point: 0.3\n\nBlowpipe:\nArt - Projectile Launch - X: 0\nArt - Projectile Launch - Y: 150\nArt - Projectile Launch - Z: 90\nArt - Projectile Launch - Z (Swimming): 0\nCombat - Attack 1 - Animation Damage Point: 0.3\n\nJavelin:\nArt - Projectile Launch - X: 20\nArt - Projectile Launch - Y: 40\nArt - Projectile Launch - Z: 120\nArt - Projectile Launch - Z (Swimming): 0\nCombat - Attack 1 - Animation Damage Point: 0.3",
     "credits": "Model - Gluma\n\nOriginal resource - Skink Troops",
     "creditLinks": [
       {
@@ -25181,7 +25135,7 @@
         "url": "https://www.hiveworkshop.com/members/gluma.241499/"
       }
     ],
-    "description": "Generic warhammer lizardmen skinks\n\n\n\n\n\nRecommended visual parameters:\n\n\n\n\n\nSpear:\n\nCombat - Attack 1 - Animation Damage Point: 0.3\n\n\n\nBlowpipe:\n\nArt - Projectile Launch - X: 0\n\nArt - Projectile Launch - Y: 150\n\nArt - Projectile Launch - Z: 90\n\nArt - Projectile Launch - Z (Swimming): 0\n\nCombat - Attack 1 - Animation Damage Point: 0.3\n\n\n\nJavelin:\n\nArt - Projectile Launch - X: 20\n\nArt - Projectile Launch - Y: 40\n\nArt - Projectile Launch - Z: 120\n\nArt - Projectile Launch - Z (Swimming): 0\n\nCombat - Attack 1 - Animation Damage Point: 0.3",
+    "description": "Generic warhammer lizardmen skinks\n\nRecommended visual parameters:\nSpear:\nCombat - Attack 1 - Animation Damage Point: 0.3\n\nBlowpipe:\nArt - Projectile Launch - X: 0\nArt - Projectile Launch - Y: 150\nArt - Projectile Launch - Z: 90\nArt - Projectile Launch - Z (Swimming): 0\nCombat - Attack 1 - Animation Damage Point: 0.3\n\nJavelin:\nArt - Projectile Launch - X: 20\nArt - Projectile Launch - Y: 40\nArt - Projectile Launch - Z: 120\nArt - Projectile Launch - Z (Swimming): 0\nCombat - Attack 1 - Animation Damage Point: 0.3",
     "credits": "Model - Gluma\n\nOriginal resource - Skink Troops",
     "creditLinks": [
       {
@@ -25334,7 +25288,7 @@
         "url": "https://www.hiveworkshop.com/members/gluma.241499/"
       }
     ],
-    "description": "Generic warhammer lizardmen skinks\n\n\n\n\n\nRecommended visual parameters:\n\n\n\n\n\nSpear:\n\nCombat - Attack 1 - Animation Damage Point: 0.3\n\n\n\nBlowpipe:\n\nArt - Projectile Launch - X: 0\n\nArt - Projectile Launch - Y: 150\n\nArt - Projectile Launch - Z: 90\n\nArt - Projectile Launch - Z (Swimming): 0\n\nCombat - Attack 1 - Animation Damage Point: 0.3\n\n\n\nJavelin:\n\nArt - Projectile Launch - X: 20\n\nArt - Projectile Launch - Y: 40\n\nArt - Projectile Launch - Z: 120\n\nArt - Projectile Launch - Z (Swimming): 0\n\nCombat - Attack 1 - Animation Damage Point: 0.3",
+    "description": "Generic warhammer lizardmen skinks\n\nRecommended visual parameters:\nSpear:\nCombat - Attack 1 - Animation Damage Point: 0.3\n\nBlowpipe:\nArt - Projectile Launch - X: 0\nArt - Projectile Launch - Y: 150\nArt - Projectile Launch - Z: 90\nArt - Projectile Launch - Z (Swimming): 0\nCombat - Attack 1 - Animation Damage Point: 0.3\n\nJavelin:\nArt - Projectile Launch - X: 20\nArt - Projectile Launch - Y: 40\nArt - Projectile Launch - Z: 120\nArt - Projectile Launch - Z (Swimming): 0\nCombat - Attack 1 - Animation Damage Point: 0.3",
     "credits": "Model - Gluma\n\nOriginal resource - Skink Troops",
     "creditLinks": [
       {
@@ -25469,7 +25423,7 @@
         "url": "https://www.hiveworkshop.com/members/gluma.241499/"
       }
     ],
-    "description": "Generic warhammer lizardmen skinks\n\n\n\n\n\nRecommended visual parameters:\n\n\n\n\n\nSpear:\n\nCombat - Attack 1 - Animation Damage Point: 0.3\n\n\n\nBlowpipe:\n\nArt - Projectile Launch - X: 0\n\nArt - Projectile Launch - Y: 150\n\nArt - Projectile Launch - Z: 90\n\nArt - Projectile Launch - Z (Swimming): 0\n\nCombat - Attack 1 - Animation Damage Point: 0.3\n\n\n\nJavelin:\n\nArt - Projectile Launch - X: 20\n\nArt - Projectile Launch - Y: 40\n\nArt - Projectile Launch - Z: 120\n\nArt - Projectile Launch - Z (Swimming): 0\n\nCombat - Attack 1 - Animation Damage Point: 0.3",
+    "description": "Generic warhammer lizardmen skinks\n\nRecommended visual parameters:\nSpear:\nCombat - Attack 1 - Animation Damage Point: 0.3\n\nBlowpipe:\nArt - Projectile Launch - X: 0\nArt - Projectile Launch - Y: 150\nArt - Projectile Launch - Z: 90\nArt - Projectile Launch - Z (Swimming): 0\nCombat - Attack 1 - Animation Damage Point: 0.3\n\nJavelin:\nArt - Projectile Launch - X: 20\nArt - Projectile Launch - Y: 40\nArt - Projectile Launch - Z: 120\nArt - Projectile Launch - Z (Swimming): 0\nCombat - Attack 1 - Animation Damage Point: 0.3",
     "credits": "Model - Gluma\n\nOriginal resource - Skink Troops",
     "creditLinks": [
       {
@@ -25602,7 +25556,7 @@
         "url": "https://www.hiveworkshop.com/members/gluma.241499/"
       }
     ],
-    "description": "Generic warhammer lizardmen skinks\n\n\n\n\n\nRecommended visual parameters:\n\n\n\n\n\nSpear:\n\nCombat - Attack 1 - Animation Damage Point: 0.3\n\n\n\nBlowpipe:\n\nArt - Projectile Launch - X: 0\n\nArt - Projectile Launch - Y: 150\n\nArt - Projectile Launch - Z: 90\n\nArt - Projectile Launch - Z (Swimming): 0\n\nCombat - Attack 1 - Animation Damage Point: 0.3\n\n\n\nJavelin:\n\nArt - Projectile Launch - X: 20\n\nArt - Projectile Launch - Y: 40\n\nArt - Projectile Launch - Z: 120\n\nArt - Projectile Launch - Z (Swimming): 0\n\nCombat - Attack 1 - Animation Damage Point: 0.3",
+    "description": "Generic warhammer lizardmen skinks\n\nRecommended visual parameters:\nSpear:\nCombat - Attack 1 - Animation Damage Point: 0.3\n\nBlowpipe:\nArt - Projectile Launch - X: 0\nArt - Projectile Launch - Y: 150\nArt - Projectile Launch - Z: 90\nArt - Projectile Launch - Z (Swimming): 0\nCombat - Attack 1 - Animation Damage Point: 0.3\n\nJavelin:\nArt - Projectile Launch - X: 20\nArt - Projectile Launch - Y: 40\nArt - Projectile Launch - Z: 120\nArt - Projectile Launch - Z (Swimming): 0\nCombat - Attack 1 - Animation Damage Point: 0.3",
     "credits": "Model - Gluma\n\nOriginal resource - Skink Troops",
     "creditLinks": [
       {
@@ -25755,7 +25709,7 @@
         "url": "https://www.hiveworkshop.com/members/gluma.241499/"
       }
     ],
-    "description": "Generic warhammer lizardmen skinks\n\n\n\n\n\nRecommended visual parameters:\n\n\n\n\n\nSpear:\n\nCombat - Attack 1 - Animation Damage Point: 0.3\n\n\n\nBlowpipe:\n\nArt - Projectile Launch - X: 0\n\nArt - Projectile Launch - Y: 150\n\nArt - Projectile Launch - Z: 90\n\nArt - Projectile Launch - Z (Swimming): 0\n\nCombat - Attack 1 - Animation Damage Point: 0.3\n\n\n\nJavelin:\n\nArt - Projectile Launch - X: 20\n\nArt - Projectile Launch - Y: 40\n\nArt - Projectile Launch - Z: 120\n\nArt - Projectile Launch - Z (Swimming): 0\n\nCombat - Attack 1 - Animation Damage Point: 0.3",
+    "description": "Generic warhammer lizardmen skinks\n\nRecommended visual parameters:\nSpear:\nCombat - Attack 1 - Animation Damage Point: 0.3\n\nBlowpipe:\nArt - Projectile Launch - X: 0\nArt - Projectile Launch - Y: 150\nArt - Projectile Launch - Z: 90\nArt - Projectile Launch - Z (Swimming): 0\nCombat - Attack 1 - Animation Damage Point: 0.3\n\nJavelin:\nArt - Projectile Launch - X: 20\nArt - Projectile Launch - Y: 40\nArt - Projectile Launch - Z: 120\nArt - Projectile Launch - Z (Swimming): 0\nCombat - Attack 1 - Animation Damage Point: 0.3",
     "credits": "Model - Gluma\n\nOriginal resource - Skink Troops",
     "creditLinks": [
       {
@@ -25879,7 +25833,7 @@
         "url": "https://www.hiveworkshop.com/members/gluma.241499/"
       }
     ],
-    "description": "Go to Diablo Goatmen for more fitting icons. Shares texture with goatman bowmen with corrensponding skins\n\n\n\nUse Headhunter as base for easy fitting parameters, but change Art - Death time (seconds) to 3-3,5.\n\n\n\n\n\n\n\nPlease ignore sanity checker warnings on missiles, they're literally the same as the vanilla headhunter missile",
+    "description": "Go to Diablo Goatmen for more fitting icons. Shares texture with goatman bowmen with corrensponding skins\n\nUse Headhunter as base for easy fitting parameters, but change Art - Death time (seconds) to 3-3,5.\n\nPlease ignore sanity checker warnings on missiles, they're literally the same as the vanilla headhunter missile",
     "credits": "Model - Gluma\n\nOriginal resource - Goatman Spear Thrower",
     "creditLinks": [
       {
@@ -26040,7 +25994,7 @@
         "url": "https://www.hiveworkshop.com/members/gluma.241499/"
       }
     ],
-    "description": "Can also be used as a wc3 satyr worker\n\n\n\nDesired art parameters:\n\n\n\nSame as default Peon, but change Art - Animation - Walk Speed / Art - Animation - Run Speed to 240",
+    "description": "Can also be used as a wc3 satyr worker\n\nDesired art parameters:\nSame as default Peon, but change Art - Animation - Walk Speed / Art - Animation - Run Speed to 240",
     "credits": "Model - Gluma\n\nOriginal resource - Ungor Slave",
     "creditLinks": [
       {
@@ -26206,7 +26160,7 @@
         "url": "https://www.hiveworkshop.com/members/gluma.241499/"
       }
     ],
-    "description": "Started this model long ago but forgot to finish it\n\n\n\n\n\nRecommended editor parameters:\n\n\n\nrun/walk speed parameter: 240 to 280\n\nDamage point: 0.5\n\nArt - Death Time (seconds) 2 to 2.5\n\nArt - Projectile Launch - X: 15\n\nArt - Projectile Launch - Y: 0\n\nArt - Projectile Launch - Z: 60\n\nArt - projectile art: Archer\n\n\n\n06.09.2024 update:\n\nfixed sanity checker warnings, texture tweaks, portrait tweaks and fix, proportion edits",
+    "description": "Started this model long ago but forgot to finish it\n\nRecommended editor parameters:\nrun/walk speed parameter: 240 to 280\nDamage point: 0.5\nArt - Death Time (seconds) 2 to 2.5\nArt - Projectile Launch - X: 15\nArt - Projectile Launch - Y: 0\nArt - Projectile Launch - Z: 60\nArt - projectile art: Archer\n\n06.09.2024 update:\nfixed sanity checker warnings, texture tweaks, portrait tweaks and fix, proportion edits",
     "credits": "Model - Gluma\n\nOriginal resource - Ungor Bowman",
     "creditLinks": [
       {
@@ -26389,7 +26343,7 @@
         "url": "https://www.hiveworkshop.com/members/gluma.241499/"
       }
     ],
-    "description": "just a warhammer goat that I made on a whim, maybe I'll make more one day\n\nuse or modify as you see fit; pls give credit\n\n\n\n\n\n\n\n\n\n06.09.2024 update\n\n\n\nfixed sanity checker warnings, texture tweaks, portrait tweaks and fix, proportion edits\n\n\n\nIf you want the old version of the model, you can still download it here: fixed sanity checker warnings, texture tweaks, portrait tweaks and fix, proportion edits\n\n\n\n\n\n\n\nrecommended parameters:\n\n\n\nArt - Animation - Walk Speed: 240\n\nCombat - Attack 1 - Animation Damage Point: 0.3\n\nArt - Death Time (seconds): 2 to 2.5",
+    "description": "just a warhammer goat that I made on a whim, maybe I'll make more one day\n\nuse or modify as you see fit; pls give credit\n\n06.09.2024 update\nfixed sanity checker warnings, texture tweaks, portrait tweaks and fix, proportion edits\n\nIf you want the old version of the model, you can still download it here: fixed sanity checker warnings, texture tweaks, portrait tweaks and fix, proportion edits\n\nrecommended parameters:\nArt - Animation - Walk Speed: 240\nCombat - Attack 1 - Animation Damage Point: 0.3\nArt - Death Time (seconds): 2 to 2.5",
     "credits": "Model - Gluma\n\nOriginal resource - Ungor with spear",
     "creditLinks": [
       {
@@ -26565,7 +26519,7 @@
         "url": "https://www.hiveworkshop.com/members/gluma.241499/"
       }
     ],
-    "description": "Wc3 always felt like it could use more crossbows\n\n\n\nHas two attack animation variants: with and without cocking lever, former being slower and latter faster\n\nBolt missile model included\n\n\n\nyou have my permission to use or modify this model however you see fit as long as you give credit",
+    "description": "Wc3 always felt like it could use more crossbows\n\nHas two attack animation variants: with and without cocking lever, former being slower and latter faster\n\nBolt missile model included\n\nyou have my permission to use or modify this model however you see fit as long as you give credit",
     "credits": "Model - Gluma\n\nOriginal resource - Human Crossbowman",
     "creditLinks": [
       {
@@ -26731,7 +26685,7 @@
         "url": "https://www.hiveworkshop.com/members/gluma.241499/"
       }
     ],
-    "description": "Big crossbows\n\n\n\nRecommended World Editor parameters:\n\n\n\nArt - Projectile Launch - X: 0\n\nArt - Projectile Launch - Y: 59\n\nArt - Projectile Launch - Z: 70\n\nCombat - Attack - Animation Damage Point: 0.05 to 0.1\n\nArt - Animation - Walk Speed/Run Speed: 150\n\nArt - Death time (seconds): 3.3\n\n\n\nRepeating model variants work smoothly with up to 1.0 sec attack cooldown\n\n\n\nKeywords: ballista, repeating, crossbow, automatic, arrow, bolt, dark, elf, siege, engine, artillery, machine",
+    "description": "Big crossbows\n\nRecommended World Editor parameters:\nArt - Projectile Launch - X: 0\nArt - Projectile Launch - Y: 59\nArt - Projectile Launch - Z: 70\nCombat - Attack - Animation Damage Point: 0.05 to 0.1\nArt - Animation - Walk Speed/Run Speed: 150\nArt - Death time (seconds): 3.3\n\nRepeating model variants work smoothly with up to 1.0 sec attack cooldown\n\nKeywords: ballista, repeating, crossbow, automatic, arrow, bolt, dark, elf, siege, engine, artillery, machine",
     "credits": "Model - Gluma\n\nOriginal resource - Ballista and Bolt Thrower",
     "creditLinks": [
       {
@@ -26859,7 +26813,7 @@
         "url": "https://www.hiveworkshop.com/members/gluma.241499/"
       }
     ],
-    "description": "Big crossbows\n\n\n\nRecommended World Editor parameters:\n\n\n\nArt - Projectile Launch - X: 0\n\nArt - Projectile Launch - Y: 59\n\nArt - Projectile Launch - Z: 70\n\nCombat - Attack - Animation Damage Point: 0.05 to 0.1\n\nArt - Animation - Walk Speed/Run Speed: 150\n\nArt - Death time (seconds): 3.3\n\n\n\nRepeating model variants work smoothly with up to 1.0 sec attack cooldown\n\n\n\nKeywords: ballista, repeating, crossbow, automatic, arrow, bolt, dark, elf, siege, engine, artillery, machine",
+    "description": "Big crossbows\n\nRecommended World Editor parameters:\nArt - Projectile Launch - X: 0\nArt - Projectile Launch - Y: 59\nArt - Projectile Launch - Z: 70\nCombat - Attack - Animation Damage Point: 0.05 to 0.1\nArt - Animation - Walk Speed/Run Speed: 150\nArt - Death time (seconds): 3.3\n\nRepeating model variants work smoothly with up to 1.0 sec attack cooldown\n\nKeywords: ballista, repeating, crossbow, automatic, arrow, bolt, dark, elf, siege, engine, artillery, machine",
     "credits": "Model - Gluma\n\nOriginal resource - Ballista and Bolt Thrower",
     "creditLinks": [
       {
@@ -27014,7 +26968,7 @@
         "url": "https://www.hiveworkshop.com/members/gluma.241499/"
       }
     ],
-    "description": "Big crossbows\n\n\n\nRecommended World Editor parameters:\n\n\n\nArt - Projectile Launch - X: 0\n\nArt - Projectile Launch - Y: 59\n\nArt - Projectile Launch - Z: 70\n\nCombat - Attack - Animation Damage Point: 0.05 to 0.1\n\nArt - Animation - Walk Speed/Run Speed: 150\n\nArt - Death time (seconds): 3.3\n\n\n\nRepeating model variants work smoothly with up to 1.0 sec attack cooldown\n\n\n\nKeywords: ballista, repeating, crossbow, automatic, arrow, bolt, dark, elf, siege, engine, artillery, machine",
+    "description": "Big crossbows\n\nRecommended World Editor parameters:\nArt - Projectile Launch - X: 0\nArt - Projectile Launch - Y: 59\nArt - Projectile Launch - Z: 70\nCombat - Attack - Animation Damage Point: 0.05 to 0.1\nArt - Animation - Walk Speed/Run Speed: 150\nArt - Death time (seconds): 3.3\n\nRepeating model variants work smoothly with up to 1.0 sec attack cooldown\n\nKeywords: ballista, repeating, crossbow, automatic, arrow, bolt, dark, elf, siege, engine, artillery, machine",
     "credits": "Model - Gluma\n\nOriginal resource - Ballista and Bolt Thrower",
     "creditLinks": [
       {
@@ -27151,7 +27105,7 @@
         "url": "https://www.hiveworkshop.com/members/gluma.241499/"
       }
     ],
-    "description": "Big crossbows\n\n\n\nRecommended World Editor parameters:\n\n\n\nArt - Projectile Launch - X: 0\n\nArt - Projectile Launch - Y: 59\n\nArt - Projectile Launch - Z: 70\n\nCombat - Attack - Animation Damage Point: 0.05 to 0.1\n\nArt - Animation - Walk Speed/Run Speed: 150\n\nArt - Death time (seconds): 3.3\n\n\n\nRepeating model variants work smoothly with up to 1.0 sec attack cooldown\n\n\n\nKeywords: ballista, repeating, crossbow, automatic, arrow, bolt, dark, elf, siege, engine, artillery, machine",
+    "description": "Big crossbows\n\nRecommended World Editor parameters:\nArt - Projectile Launch - X: 0\nArt - Projectile Launch - Y: 59\nArt - Projectile Launch - Z: 70\nCombat - Attack - Animation Damage Point: 0.05 to 0.1\nArt - Animation - Walk Speed/Run Speed: 150\nArt - Death time (seconds): 3.3\n\nRepeating model variants work smoothly with up to 1.0 sec attack cooldown\n\nKeywords: ballista, repeating, crossbow, automatic, arrow, bolt, dark, elf, siege, engine, artillery, machine",
     "credits": "Model - Gluma\n\nOriginal resource - Ballista and Bolt Thrower",
     "creditLinks": [
       {
@@ -27315,7 +27269,7 @@
         "url": "https://www.hiveworkshop.com/members/gluma.241499/"
       }
     ],
-    "description": "Funny rat ray gun from warhammer\n\n\n\nRecommended WorldEdit stats:\n\n\n\nDeath Time (seconds): 2.000\n\nAnimation Damage Point: ~0.300\n\nAnimation - Run/Walk Speed: 185.000\n\nArt - Projectile Launch - Y: 75\n\nArt - Projectile Launch - Z: 100\n\nArt - Projectile Launch - X: 0\n\n\n\nFor the projectile, use a lightning attack like that of a chimaera, but use the manaburn effect\n\n\n\nUpdate 29 April 2025:\n\n-Center wheels design changed to look less like a sports car wheel\n\n-Minor change to metal hue\n\n-New warpstone texture\n\n-2x times shorter attack windup\n\n-Wheel leave \"footprints\" now\n\n-Better normals\n\n\n\nYou can still get the original version here\n\n\n\n\n\n\n\nTags: Skaven, Warhammer, Gun, Laser, Artillery, Siege, Warhammer, Thunder, Green, Energy, Beam",
+    "description": "Funny rat ray gun from warhammer\n\nRecommended WorldEdit stats:\nDeath Time (seconds): 2.000\nAnimation Damage Point: ~0.300\nAnimation - Run/Walk Speed: 185.000\nArt - Projectile Launch - Y: 75\nArt - Projectile Launch - Z: 100\nArt - Projectile Launch - X: 0\n\nFor the projectile, use a lightning attack like that of a chimaera, but use the manaburn effect\n\nUpdate 29 April 2025:\n-Center wheels design changed to look less like a sports car wheel\n-Minor change to metal hue\n-New warpstone texture\n-2x times shorter attack windup\n-Wheel leave \"footprints\" now\n-Better normals\n\nYou can still get the original version here\n\nTags: Skaven, Warhammer, Gun, Laser, Artillery, Siege, Warhammer, Thunder, Green, Energy, Beam",
     "credits": "Model - Gluma\n\nOriginal resource - Warp Lightning Cannon",
     "creditLinks": [
       {
@@ -27473,7 +27427,7 @@
         "url": "https://www.hiveworkshop.com/members/gluma.241499/"
       }
     ],
-    "description": "Just a big ye olde cannon\n\n\n\nRecommended WorldEdit stats:\n\n\n\nCannon: (Identical to my dwarf cannon model)\n\nDeath Time (seconds): 2.000\n\nArt - Projectile Launch - Y: 50\n\nArt - Projectile Launch - Z: 60\n\nAnimation Damage Point: 0.400\n\nProjectile Art: Cannon Tower\n\nAnimation - Run/Walk Speed: 185.000\n\n\n\nMortar:\n\nDeath Time (seconds): 2.000\n\nArt - Projectile Launch - Y: 0\n\nArt - Projectile Launch - Z: 80\n\nCombat Attack Projectile Arc: 1.000\n\nAnimation Damage Point: 0.400\n\nProjectile Art: Cannon Tower\n\nAnimation - Run/Walk Speed: 185.000\n\n\n\n\n\n\n\nTags: Human, Warhammer, Gun, Firearm, Gunpowder, Artillery, Siege, Bombard",
+    "description": "Just a big ye olde cannon\n\nRecommended WorldEdit stats:\nCannon: (Identical to my dwarf cannon model)\nDeath Time (seconds): 2.000\nArt - Projectile Launch - Y: 50\nArt - Projectile Launch - Z: 60\nAnimation Damage Point: 0.400\nProjectile Art: Cannon Tower\nAnimation - Run/Walk Speed: 185.000\n\nMortar:\nDeath Time (seconds): 2.000\nArt - Projectile Launch - Y: 0\nArt - Projectile Launch - Z: 80\nCombat Attack Projectile Arc: 1.000\nAnimation Damage Point: 0.400\nProjectile Art: Cannon Tower\nAnimation - Run/Walk Speed: 185.000\n\nTags: Human, Warhammer, Gun, Firearm, Gunpowder, Artillery, Siege, Bombard",
     "credits": "Model - Gluma\n\nOriginal resource - Human Cannon and Mortar",
     "creditLinks": [
       {
@@ -27569,7 +27523,7 @@
         "url": "https://www.hiveworkshop.com/members/gluma.241499/"
       }
     ],
-    "description": "Just a big ye olde cannon\n\n\n\nRecommended WorldEdit stats:\n\n\n\nCannon: (Identical to my dwarf cannon model)\n\nDeath Time (seconds): 2.000\n\nArt - Projectile Launch - Y: 50\n\nArt - Projectile Launch - Z: 60\n\nAnimation Damage Point: 0.400\n\nProjectile Art: Cannon Tower\n\nAnimation - Run/Walk Speed: 185.000\n\n\n\nMortar:\n\nDeath Time (seconds): 2.000\n\nArt - Projectile Launch - Y: 0\n\nArt - Projectile Launch - Z: 80\n\nCombat Attack Projectile Arc: 1.000\n\nAnimation Damage Point: 0.400\n\nProjectile Art: Cannon Tower\n\nAnimation - Run/Walk Speed: 185.000\n\n\n\n\n\n\n\nTags: Human, Warhammer, Gun, Firearm, Gunpowder, Artillery, Siege, Bombard",
+    "description": "Just a big ye olde cannon\n\nRecommended WorldEdit stats:\nCannon: (Identical to my dwarf cannon model)\nDeath Time (seconds): 2.000\nArt - Projectile Launch - Y: 50\nArt - Projectile Launch - Z: 60\nAnimation Damage Point: 0.400\nProjectile Art: Cannon Tower\nAnimation - Run/Walk Speed: 185.000\n\nMortar:\nDeath Time (seconds): 2.000\nArt - Projectile Launch - Y: 0\nArt - Projectile Launch - Z: 80\nCombat Attack Projectile Arc: 1.000\nAnimation Damage Point: 0.400\nProjectile Art: Cannon Tower\nAnimation - Run/Walk Speed: 185.000\n\nTags: Human, Warhammer, Gun, Firearm, Gunpowder, Artillery, Siege, Bombard",
     "credits": "Model - Gluma\n\nOriginal resource - Human Cannon and Mortar",
     "creditLinks": [
       {
@@ -27665,7 +27619,7 @@
         "url": "https://www.hiveworkshop.com/members/gluma.241499/"
       }
     ],
-    "description": "Just a big ye olde cannon\n\n\n\nRecommended WorldEdit stats:\n\n\n\nCannon: (Identical to my dwarf cannon model)\n\nDeath Time (seconds): 2.000\n\nArt - Projectile Launch - Y: 50\n\nArt - Projectile Launch - Z: 60\n\nAnimation Damage Point: 0.400\n\nProjectile Art: Cannon Tower\n\nAnimation - Run/Walk Speed: 185.000\n\n\n\nMortar:\n\nDeath Time (seconds): 2.000\n\nArt - Projectile Launch - Y: 0\n\nArt - Projectile Launch - Z: 80\n\nCombat Attack Projectile Arc: 1.000\n\nAnimation Damage Point: 0.400\n\nProjectile Art: Cannon Tower\n\nAnimation - Run/Walk Speed: 185.000\n\n\n\n\n\n\n\nTags: Human, Warhammer, Gun, Firearm, Gunpowder, Artillery, Siege, Bombard",
+    "description": "Just a big ye olde cannon\n\nRecommended WorldEdit stats:\nCannon: (Identical to my dwarf cannon model)\nDeath Time (seconds): 2.000\nArt - Projectile Launch - Y: 50\nArt - Projectile Launch - Z: 60\nAnimation Damage Point: 0.400\nProjectile Art: Cannon Tower\nAnimation - Run/Walk Speed: 185.000\n\nMortar:\nDeath Time (seconds): 2.000\nArt - Projectile Launch - Y: 0\nArt - Projectile Launch - Z: 80\nCombat Attack Projectile Arc: 1.000\nAnimation Damage Point: 0.400\nProjectile Art: Cannon Tower\nAnimation - Run/Walk Speed: 185.000\n\nTags: Human, Warhammer, Gun, Firearm, Gunpowder, Artillery, Siege, Bombard",
     "credits": "Model - Gluma\n\nOriginal resource - Human Cannon and Mortar",
     "creditLinks": [
       {
@@ -27762,7 +27716,7 @@
         "url": "https://www.hiveworkshop.com/members/gluma.241499/"
       }
     ],
-    "description": "Just a big ye olde cannon\n\n\n\nRecommended WorldEdit stats:\n\n\n\nCannon: (Identical to my dwarf cannon model)\n\nDeath Time (seconds): 2.000\n\nArt - Projectile Launch - Y: 50\n\nArt - Projectile Launch - Z: 60\n\nAnimation Damage Point: 0.400\n\nProjectile Art: Cannon Tower\n\nAnimation - Run/Walk Speed: 185.000\n\n\n\nMortar:\n\nDeath Time (seconds): 2.000\n\nArt - Projectile Launch - Y: 0\n\nArt - Projectile Launch - Z: 80\n\nCombat Attack Projectile Arc: 1.000\n\nAnimation Damage Point: 0.400\n\nProjectile Art: Cannon Tower\n\nAnimation - Run/Walk Speed: 185.000\n\n\n\n\n\n\n\nTags: Human, Warhammer, Gun, Firearm, Gunpowder, Artillery, Siege, Bombard",
+    "description": "Just a big ye olde cannon\n\nRecommended WorldEdit stats:\nCannon: (Identical to my dwarf cannon model)\nDeath Time (seconds): 2.000\nArt - Projectile Launch - Y: 50\nArt - Projectile Launch - Z: 60\nAnimation Damage Point: 0.400\nProjectile Art: Cannon Tower\nAnimation - Run/Walk Speed: 185.000\n\nMortar:\nDeath Time (seconds): 2.000\nArt - Projectile Launch - Y: 0\nArt - Projectile Launch - Z: 80\nCombat Attack Projectile Arc: 1.000\nAnimation Damage Point: 0.400\nProjectile Art: Cannon Tower\nAnimation - Run/Walk Speed: 185.000\n\nTags: Human, Warhammer, Gun, Firearm, Gunpowder, Artillery, Siege, Bombard",
     "credits": "Model - Gluma\n\nOriginal resource - Human Cannon and Mortar",
     "creditLinks": [
       {
@@ -27859,7 +27813,7 @@
         "url": "https://www.hiveworkshop.com/members/gluma.241499/"
       }
     ],
-    "description": "Another dwarf artillery piece based on Warhammer FB minis\n\n\n\nHas 3 shooting modes: full arrage, small barrage, single shots.\n\n\n\nMaster: Has all 3 firing modes. Single shots as Attack, small barrages as Attack Slam and full barrages as Spell Slam.\n\nA: Full barrage only as Attack\n\nB: Single shots only as Attack\n\nC: 2-3 shot barrages as Attack\n\n\n\nRecommended WorldEdit stats:\n\n\n\nDeath Time (seconds): 2.000\n\nAnimation Damage Point: ~0.400\n\nProjectile Art: Cannon Tower, Flying Machine (for easiest shrapnel barrage effect)\n\nAnimation - Run/Walk Speed: 185.000\n\n\n\nNote: Unfortunately, all warcraft 3 model previewers and modeling software renders this model's particle fx incorrectly - it only works right in-game.\n\n\n\nTags: Dwarf, Warhammer, Gun, Firearm, Gunpowder, Artillery, Siege, Warhammer",
+    "description": "Another dwarf artillery piece based on Warhammer FB minis\n\nHas 3 shooting modes: full arrage, small barrage, single shots.\nMaster: Has all 3 firing modes. Single shots as Attack, small barrages as Attack Slam and full barrages as Spell Slam.\nA: Full barrage only as Attack\nB: Single shots only as Attack\nC: 2-3 shot barrages as Attack\n\nRecommended WorldEdit stats:\nDeath Time (seconds): 2.000\nAnimation Damage Point: ~0.400\nProjectile Art: Cannon Tower, Flying Machine (for easiest shrapnel barrage effect)\nAnimation - Run/Walk Speed: 185.000\n\nNote: Unfortunately, all warcraft 3 model previewers and modeling software renders this model's particle fx incorrectly - it only works right in-game.\n\nTags: Dwarf, Warhammer, Gun, Firearm, Gunpowder, Artillery, Siege, Warhammer",
     "credits": "Model - Gluma\n\nOriginal resource - Dwarf Organ Cannon",
     "creditLinks": [
       {
@@ -28041,7 +27995,7 @@
         "url": "https://www.hiveworkshop.com/members/gluma.241499/"
       }
     ],
-    "description": "Another dwarf artillery piece based on Warhammer FB minis\n\n\n\nHas 3 shooting modes: full arrage, small barrage, single shots.\n\n\n\nMaster: Has all 3 firing modes. Single shots as Attack, small barrages as Attack Slam and full barrages as Spell Slam.\n\nA: Full barrage only as Attack\n\nB: Single shots only as Attack\n\nC: 2-3 shot barrages as Attack\n\n\n\nRecommended WorldEdit stats:\n\n\n\nDeath Time (seconds): 2.000\n\nAnimation Damage Point: ~0.400\n\nProjectile Art: Cannon Tower, Flying Machine (for easiest shrapnel barrage effect)\n\nAnimation - Run/Walk Speed: 185.000\n\n\n\nNote: Unfortunately, all warcraft 3 model previewers and modeling software renders this model's particle fx incorrectly - it only works right in-game.\n\n\n\nTags: Dwarf, Warhammer, Gun, Firearm, Gunpowder, Artillery, Siege, Warhammer",
+    "description": "Another dwarf artillery piece based on Warhammer FB minis\n\nHas 3 shooting modes: full arrage, small barrage, single shots.\nMaster: Has all 3 firing modes. Single shots as Attack, small barrages as Attack Slam and full barrages as Spell Slam.\nA: Full barrage only as Attack\nB: Single shots only as Attack\nC: 2-3 shot barrages as Attack\n\nRecommended WorldEdit stats:\nDeath Time (seconds): 2.000\nAnimation Damage Point: ~0.400\nProjectile Art: Cannon Tower, Flying Machine (for easiest shrapnel barrage effect)\nAnimation - Run/Walk Speed: 185.000\n\nNote: Unfortunately, all warcraft 3 model previewers and modeling software renders this model's particle fx incorrectly - it only works right in-game.\n\nTags: Dwarf, Warhammer, Gun, Firearm, Gunpowder, Artillery, Siege, Warhammer",
     "credits": "Model - Gluma\n\nOriginal resource - Dwarf Organ Cannon",
     "creditLinks": [
       {
@@ -28215,7 +28169,7 @@
         "url": "https://www.hiveworkshop.com/members/gluma.241499/"
       }
     ],
-    "description": "Another dwarf artillery piece based on Warhammer FB minis\n\n\n\nHas 3 shooting modes: full arrage, small barrage, single shots.\n\n\n\nMaster: Has all 3 firing modes. Single shots as Attack, small barrages as Attack Slam and full barrages as Spell Slam.\n\nA: Full barrage only as Attack\n\nB: Single shots only as Attack\n\nC: 2-3 shot barrages as Attack\n\n\n\nRecommended WorldEdit stats:\n\n\n\nDeath Time (seconds): 2.000\n\nAnimation Damage Point: ~0.400\n\nProjectile Art: Cannon Tower, Flying Machine (for easiest shrapnel barrage effect)\n\nAnimation - Run/Walk Speed: 185.000\n\n\n\nNote: Unfortunately, all warcraft 3 model previewers and modeling software renders this model's particle fx incorrectly - it only works right in-game.\n\n\n\nTags: Dwarf, Warhammer, Gun, Firearm, Gunpowder, Artillery, Siege, Warhammer",
+    "description": "Another dwarf artillery piece based on Warhammer FB minis\n\nHas 3 shooting modes: full arrage, small barrage, single shots.\nMaster: Has all 3 firing modes. Single shots as Attack, small barrages as Attack Slam and full barrages as Spell Slam.\nA: Full barrage only as Attack\nB: Single shots only as Attack\nC: 2-3 shot barrages as Attack\n\nRecommended WorldEdit stats:\nDeath Time (seconds): 2.000\nAnimation Damage Point: ~0.400\nProjectile Art: Cannon Tower, Flying Machine (for easiest shrapnel barrage effect)\nAnimation - Run/Walk Speed: 185.000\n\nNote: Unfortunately, all warcraft 3 model previewers and modeling software renders this model's particle fx incorrectly - it only works right in-game.\n\nTags: Dwarf, Warhammer, Gun, Firearm, Gunpowder, Artillery, Siege, Warhammer",
     "credits": "Model - Gluma\n\nOriginal resource - Dwarf Organ Cannon",
     "creditLinks": [
       {
@@ -28391,7 +28345,7 @@
         "url": "https://www.hiveworkshop.com/members/gluma.241499/"
       }
     ],
-    "description": "Another dwarf artillery piece based on Warhammer FB minis\n\n\n\nHas 3 shooting modes: full arrage, small barrage, single shots.\n\n\n\nMaster: Has all 3 firing modes. Single shots as Attack, small barrages as Attack Slam and full barrages as Spell Slam.\n\nA: Full barrage only as Attack\n\nB: Single shots only as Attack\n\nC: 2-3 shot barrages as Attack\n\n\n\nRecommended WorldEdit stats:\n\n\n\nDeath Time (seconds): 2.000\n\nAnimation Damage Point: ~0.400\n\nProjectile Art: Cannon Tower, Flying Machine (for easiest shrapnel barrage effect)\n\nAnimation - Run/Walk Speed: 185.000\n\n\n\nNote: Unfortunately, all warcraft 3 model previewers and modeling software renders this model's particle fx incorrectly - it only works right in-game.\n\n\n\nTags: Dwarf, Warhammer, Gun, Firearm, Gunpowder, Artillery, Siege, Warhammer",
+    "description": "Another dwarf artillery piece based on Warhammer FB minis\n\nHas 3 shooting modes: full arrage, small barrage, single shots.\nMaster: Has all 3 firing modes. Single shots as Attack, small barrages as Attack Slam and full barrages as Spell Slam.\nA: Full barrage only as Attack\nB: Single shots only as Attack\nC: 2-3 shot barrages as Attack\n\nRecommended WorldEdit stats:\nDeath Time (seconds): 2.000\nAnimation Damage Point: ~0.400\nProjectile Art: Cannon Tower, Flying Machine (for easiest shrapnel barrage effect)\nAnimation - Run/Walk Speed: 185.000\n\nNote: Unfortunately, all warcraft 3 model previewers and modeling software renders this model's particle fx incorrectly - it only works right in-game.\n\nTags: Dwarf, Warhammer, Gun, Firearm, Gunpowder, Artillery, Siege, Warhammer",
     "credits": "Model - Gluma\n\nOriginal resource - Dwarf Organ Cannon",
     "creditLinks": [
       {
@@ -28741,12 +28695,6 @@
       "Portrait Talk - 2",
       "Decay Flesh",
       "Decay Bone"
-    ],
-    "descriptionLinks": [
-      {
-        "text": "@Lukor",
-        "url": "https://www.hiveworkshop.com/members/237060/"
-      }
     ]
   },
   {
@@ -28967,12 +28915,6 @@
       "Stand Channel 2",
       "Decay Flesh",
       "Decay Bone"
-    ],
-    "descriptionLinks": [
-      {
-        "text": "@Lukor",
-        "url": "https://www.hiveworkshop.com/members/237060/"
-      }
     ]
   },
   {
@@ -29212,17 +29154,7 @@
     ],
     "textureFiles": {
       "units\\other\\diablocar\\diablocar.blp": "textures/native-diablocar.png"
-    },
-    "descriptionLinks": [
-      {
-        "text": "@Lukor",
-        "url": "https://www.hiveworkshop.com/members/237060/"
-      },
-      {
-        "text": "Centaur Outrider",
-        "url": "https://www.hiveworkshop.com/threads/centaur-outrider.358118/"
-      }
-    ]
+    }
   },
   {
     "id": "maximal-141711",
@@ -29462,24 +29394,14 @@
     ],
     "textureFiles": {
       "units\\other\\diablocar\\diablocar.blp": "textures/native-diablocar.png"
-    },
-    "descriptionLinks": [
-      {
-        "text": "@Lukor",
-        "url": "https://www.hiveworkshop.com/members/237060/"
-      },
-      {
-        "text": "Centaur Outrider",
-        "url": "https://www.hiveworkshop.com/threads/centaur-outrider.358118/"
-      }
-    ]
+    }
   },
   {
     "id": "slaanesh-champion",
     "file": "WH_WOC_KnightSlaaneshChampionUnit04.mdx",
     "name": "Champion of Slaanesh",
     "army": "warriors-of-chaos",
-    "description": "How good of you to come all this way, just to watch me cut you apart.\r\n\r\nI see you struggle... I know this is difficult, to die... really, I do.\r\n\r\nBut if you would just hold still, this would be over so much sooner.\r\n\r\nYou might think I hate you but I don't.\r\n\r\nI take great pleasure in what we are doing together, you and I.\r\n\r\nThis little act of killing you is merely one scene in a much grander performance.\r\n\r\nYou, your friends, your people, these lands... you are all background players in my great presence, can't you feel it?\r\n\r\nYou should feel honored, my sword is inside you, after all.\r\n\r\nYou see, I WANT to be here.\r\n\r\nI want to take this from you.\r\n\r\nI want to look into your eyes while you grasp what you are losing.\r\n\r\nThat moment...\r\n\r\nThat is the pleasure.\r\n\r\nShort but so so good...\r\n\r\nI said hold still!\r\n\r\nYou know, I was like you once.\r\n\r\nI lived in these lands, I was a Knight of Bretonnia... I loved my Lady.\r\n\r\nLove...\r\n\r\nWhat a tedious thing.\r\n\r\nIt gives you nothing.\r\n\r\nLook what it gave you, holding your guts like that.\r\n\r\nYou weren't a knight for very long, were you?\r\n\r\n...\r\n\r\nYou really are having difficulty holding still.\r\n\r\nAnd why are you screaming?\r\n\r\nHmm...\r\n\r\nPerhaps I should cut out your tongue.\r\n\r\nIt would make it much easier for you to listen... you NEED to listen.\r\n\r\nNow...\r\n\r\nHold still...",
+    "description": "How good of you to come all this way, just to watch me cut you apart. I see you struggle... I know this is difficult, to die... really, I do. But if you would just hold still, this would be over so much sooner.\n\nYou might think I hate you but I don't. I take great pleasure in what we are doing together, you and I.\n\nThis little act of killing you is merely one scene in a much grander performance. You, your friends, your people, these lands... you are all background players in my great presence, can't you feel it? You should feel honored, my sword is inside you, after all.\n\nYou see, I WANT to be here. I want to take this from you. I want to look into your eyes while you grasp what you are losing. That moment... That is the pleasure. Short but so so good...\n\nI said hold still!\n\nYou know, I was like you once. I lived in these lands, I was a Knight of Bretonnia... I loved my Lady.\n\nLove... What a tedious thing. It gives you nothing. Look what it gave you, holding your guts like that. You weren't a knight for very long, were you? ...\n\nYou really are having difficulty holding still. And why are you screaming? Hmm... Perhaps I should cut out your tongue. It would make it much easier for you to listen... you NEED to listen.\n\nNow... Hold still...",
     "credits": "Model Base - Vile Knight by HerrDave /  Slaanesh Knight by Stein123\r\n\r\nHelm Shape and Horns - Chaos Warrior of Slaanesh by Diazon, found on Warhammer Eternal Strife by Nightmare2077\r\n\r\nAdditional - Front Skull adapted from IronMaiden's Dawn of War Helms.\r\n\r\nShield-Woman/Demon - Guardian Matriarch by Greedy Martyrdom\r\n\r\nHorse Head and Tail - Headless Horseman by Johnwar\r\n\r\nHeroes Axe - Radiant Emerald Cleaver by @Sunchips\r\n\r\nHorns - Eredar Witch by FerSZ\r\n\r\nSkull - Necromancer (Re-Classic) by Johnwar\r\n\r\nHelm - Samurai Helmet by Kitabatake",
     "authors": [
       {
@@ -29971,7 +29893,7 @@
     "file": "WH_WOC_KnightSlaaneshChampionHero04.mdx",
     "name": "Champion of Slaanesh",
     "army": "warriors-of-chaos",
-    "description": "How good of you to come all this way, just to watch me cut you apart.\r\n\r\nI see you struggle... I know this is difficult, to die... really, I do.\r\n\r\nBut if you would just hold still, this would be over so much sooner.\r\n\r\nYou might think I hate you but I don't.\r\n\r\nI take great pleasure in what we are doing together, you and I.\r\n\r\nThis little act of killing you is merely one scene in a much grander performance.\r\n\r\nYou, your friends, your people, these lands... you are all background players in my great presence, can't you feel it?\r\n\r\nYou should feel honored, my sword is inside you, after all.\r\n\r\nYou see, I WANT to be here.\r\n\r\nI want to take this from you.\r\n\r\nI want to look into your eyes while you grasp what you are losing.\r\n\r\nThat moment...\r\n\r\nThat is the pleasure.\r\n\r\nShort but so so good...\r\n\r\nI said hold still!\r\n\r\nYou know, I was like you once.\r\n\r\nI lived in these lands, I was a Knight of Bretonnia... I loved my Lady.\r\n\r\nLove...\r\n\r\nWhat a tedious thing.\r\n\r\nIt gives you nothing.\r\n\r\nLook what it gave you, holding your guts like that.\r\n\r\nYou weren't a knight for very long, were you?\r\n\r\n...\r\n\r\nYou really are having difficulty holding still.\r\n\r\nAnd why are you screaming?\r\n\r\nHmm...\r\n\r\nPerhaps I should cut out your tongue.\r\n\r\nIt would make it much easier for you to listen... you NEED to listen.\r\n\r\nNow...\r\n\r\nHold still...",
+    "description": "How good of you to come all this way, just to watch me cut you apart. I see you struggle... I know this is difficult, to die... really, I do. But if you would just hold still, this would be over so much sooner.\n\nYou might think I hate you but I don't. I take great pleasure in what we are doing together, you and I.\n\nThis little act of killing you is merely one scene in a much grander performance. You, your friends, your people, these lands... you are all background players in my great presence, can't you feel it? You should feel honored, my sword is inside you, after all.\n\nYou see, I WANT to be here. I want to take this from you. I want to look into your eyes while you grasp what you are losing. That moment... That is the pleasure. Short but so so good...\n\nI said hold still!\n\nYou know, I was like you once. I lived in these lands, I was a Knight of Bretonnia... I loved my Lady.\n\nLove... What a tedious thing. It gives you nothing. Look what it gave you, holding your guts like that. You weren't a knight for very long, were you? ...\n\nYou really are having difficulty holding still. And why are you screaming? Hmm... Perhaps I should cut out your tongue. It would make it much easier for you to listen... you NEED to listen.\n\nNow... Hold still...",
     "credits": "Model Base - Vile Knight by HerrDave /  Slaanesh Knight by Stein123\r\n\r\nHelm Shape and Horns - Chaos Warrior of Slaanesh by Diazon, found on Warhammer Eternal Strife by Nightmare2077\r\n\r\nAdditional - Front Skull adapted from IronMaiden's Dawn of War Helms.\r\n\r\nShield-Woman/Demon - Guardian Matriarch by Greedy Martyrdom\r\n\r\nHorse Head and Tail - Headless Horseman by Johnwar\r\n\r\nHeroes Axe - Radiant Emerald Cleaver by @Sunchips\r\n\r\nHorns - Eredar Witch by FerSZ\r\n\r\nSkull - Necromancer (Re-Classic) by Johnwar\r\n\r\nHelm - Samurai Helmet by Kitabatake",
     "authors": [
       {
@@ -34871,7 +34793,7 @@
     "file": "WH_WOC_ChaosDragonLord01Optimized.mdx",
     "name": "Chaos Dragon - Chaos Lord",
     "army": "warriors-of-chaos",
-    "description": "“It's whispered amongst the northern tribes that somewhere in the icy peaks, there are Dragons, but not the ones of legend. These are the mutant spawn of Galrauch, the ancient Dragon who was corrupted by Tzeentch. The Chaos Dragons are thankfully rare and content to spend the eons buried in their lairs, brimming with hatred and plotting the destruction of all that lives. But when the Dark Gods call, not even these monsters can resist the urge to wage war for the Ruinous Powers. But they are fickle creatures, quick to turn on their allies should it give them the advantage.”\n\n—Reinholt Schent, Scholar of the Fantastic\n\nWarhammer Fantasy Roleplay 2nd Edition: Tome of Corruption (RPG)\npg. 114",
+    "description": "“It's whispered amongst the northern tribes that somewhere in the icy peaks, there are Dragons, but not the ones of legend. These are the mutant spawn of Galrauch, the ancient Dragon who was corrupted by Tzeentch. The Chaos Dragons are thankfully rare and content to spend the eons buried in their lairs, brimming with hatred and plotting the destruction of all that lives. But when the Dark Gods call, not even these monsters can resist the urge to wage war for the Ruinous Powers. But they are fickle creatures, quick to turn on their allies should it give them the advantage.”\n\n—Reinholt Schent, Scholar of the Fantastic\nWarhammer Fantasy Roleplay 2nd Edition: Tome of Corruption (RPG)\npg. 114",
     "credits": "Model Base - Gnome Dragonrider by Direfury (Animations) / Lindormr Dragon by Olofmoleman (Dragon Body) / Dread Knight/Death Knight by Direfury (Rider Body)\n\nReskin/Remesh - By UnsanctionedMagic\n\nChains around dragon neck - Abomination (Re-Classic) by Johnwar\n\nDragon Face 1 Gills/Horns - Skeletal Dragon / Frostwyrm Remake by Mister_Haudrauf and Olofmoleman, reshaped by UnsanctionedMagic\n\nDragon Face 2 - Dragons by stein123, reshaped by UnsanctionedMagic\n\nRider Helmet - Bandit Enforcer (Re-Classic) by Johnwar\n\nHorns - Celestial Yak from World of Warcraft by Blizzard\n\nChaos Star - Chaos Buildings by Grey Knight\n\nShoulder and weapon base - Warlocks Updated by AlanFluorine\n\nLance Head - Guilty Thorn by Blood Raven\n\nProjectile base animation - Mars the Impaler by Jab1z\n\nCloak - Shamelessly skinned by UnsanctionedMagic from Blizzard.\n\nLayered skin effects created with the MDLxL FX feature.",
     "authors": [
       {
@@ -35555,7 +35477,7 @@
     "file": "WH_WOC_ChaosDragonLord01HeroOptimized.mdx",
     "name": "Chaos Dragon - Chaos Lord",
     "army": "warriors-of-chaos",
-    "description": "“It's whispered amongst the northern tribes that somewhere in the icy peaks, there are Dragons, but not the ones of legend. These are the mutant spawn of Galrauch, the ancient Dragon who was corrupted by Tzeentch. The Chaos Dragons are thankfully rare and content to spend the eons buried in their lairs, brimming with hatred and plotting the destruction of all that lives. But when the Dark Gods call, not even these monsters can resist the urge to wage war for the Ruinous Powers. But they are fickle creatures, quick to turn on their allies should it give them the advantage.”\n\n—Reinholt Schent, Scholar of the Fantastic\n\nWarhammer Fantasy Roleplay 2nd Edition: Tome of Corruption (RPG)\npg. 114",
+    "description": "“It's whispered amongst the northern tribes that somewhere in the icy peaks, there are Dragons, but not the ones of legend. These are the mutant spawn of Galrauch, the ancient Dragon who was corrupted by Tzeentch. The Chaos Dragons are thankfully rare and content to spend the eons buried in their lairs, brimming with hatred and plotting the destruction of all that lives. But when the Dark Gods call, not even these monsters can resist the urge to wage war for the Ruinous Powers. But they are fickle creatures, quick to turn on their allies should it give them the advantage.”\n\n—Reinholt Schent, Scholar of the Fantastic\nWarhammer Fantasy Roleplay 2nd Edition: Tome of Corruption (RPG)\npg. 114",
     "credits": "Model Base - Gnome Dragonrider by Direfury (Animations) / Lindormr Dragon by Olofmoleman (Dragon Body) / Dread Knight/Death Knight by Direfury (Rider Body)\n\nReskin/Remesh - By UnsanctionedMagic\n\nChains around dragon neck - Abomination (Re-Classic) by Johnwar\n\nDragon Face 1 Gills/Horns - Skeletal Dragon / Frostwyrm Remake by Mister_Haudrauf and Olofmoleman, reshaped by UnsanctionedMagic\n\nDragon Face 2 - Dragons by stein123, reshaped by UnsanctionedMagic\n\nRider Helmet - Bandit Enforcer (Re-Classic) by Johnwar\n\nHorns - Celestial Yak from World of Warcraft by Blizzard\n\nChaos Star - Chaos Buildings by Grey Knight\n\nShoulder and weapon base - Warlocks Updated by AlanFluorine\n\nLance Head - Guilty Thorn by Blood Raven\n\nProjectile base animation - Mars the Impaler by Jab1z\n\nCloak - Shamelessly skinned by UnsanctionedMagic from Blizzard.\n\nLayered skin effects created with the MDLxL FX feature.",
     "authors": [
       {
@@ -36493,7 +36415,7 @@
     "file": "ChaosDragonRiderLess01Optimized.mdx",
     "name": "Chaos Dragon - Riderless",
     "army": "warriors-of-chaos",
-    "description": "Optimized version: Looks and animates exactly like the full version but is about 17 KB smaller because the per-animation geoset bounding boxes have been removed. The game doesn't need them. Model editors may warn about missing extents, which is harmless. Use the full version if you want to edit the model.\n\n“It's whispered amongst the northern tribes that somewhere in the icy peaks, there are Dragons, but not the ones of legend. These are the mutant spawn of Galrauch, the ancient Dragon who was corrupted by Tzeentch. The Chaos Dragons are thankfully rare and content to spend the eons buried in their lairs, brimming with hatred and plotting the destruction of all that lives. But when the Dark Gods call, not even these monsters can resist the urge to wage war for the Ruinous Powers. But they are fickle creatures, quick to turn on their allies should it give them the advantage.”\n\n—Reinholt Schent, Scholar of the Fantastic\n\nWarhammer Fantasy Roleplay 2nd Edition: Tome of Corruption (RPG)\npg. 114",
+    "description": "Optimized version: Looks and animates exactly like the full version but is about 17 KB smaller because the per-animation geoset bounding boxes have been removed. The game doesn't need them. Model editors may warn about missing extents, which is harmless. Use the full version if you want to edit the model.\n\n“It's whispered amongst the northern tribes that somewhere in the icy peaks, there are Dragons, but not the ones of legend. These are the mutant spawn of Galrauch, the ancient Dragon who was corrupted by Tzeentch. The Chaos Dragons are thankfully rare and content to spend the eons buried in their lairs, brimming with hatred and plotting the destruction of all that lives. But when the Dark Gods call, not even these monsters can resist the urge to wage war for the Ruinous Powers. But they are fickle creatures, quick to turn on their allies should it give them the advantage.”\n\n—Reinholt Schent, Scholar of the Fantastic\nWarhammer Fantasy Roleplay 2nd Edition: Tome of Corruption (RPG)\npg. 114",
     "credits": "Model Base - Lindormr Dragon by Olofmoleman (Dragon Body) / Gnome Dragonrider by Direfury (Animations)\n\nReskin/Remesh - By UnsanctionedMagic\n\nDragon Face 1 Gills/Horns - Skeletal Dragon / Frostwyrm Remake by Mister_Haudrauf and Olofmoleman, reshaped by UnsanctionedMagic\n\nDragon Face 2 - Dragons by stein123, reshaped by UnsanctionedMagic\n\nLayered skin effects created with the MDLxL FX feature.",
     "authors": [
       {
