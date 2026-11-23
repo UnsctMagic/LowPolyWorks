@@ -5,7 +5,7 @@
     "name": "Chaos Sorcerer of Tzeentch",
     "army": "warriors-of-chaos",
     "description": "A Sorcerer versed in Tzeentch’s ways is a formidable opponent – cunning, devious and cruel. They may lead an entire warband of fellow disciples or Daemons of Tzeentch, manipulating the talents of their followers as easily as they manipulate the Winds of Magic in service to the Great Conspirator. They may also take up advisory positions to Tzeentchian Lords, although the scheming and manipulative nature of Chaos Sorcerers usually leaves little doubt as to who wields the true power. Masters of the darkest magic, they are rightly feared, for to face one in battle is to know that your very soul is in jeopardy.",
-    "credits": "Model Base - Tzeentch Hero Pack by Grey Knight\nTzeentch Disc - Tzeentch Rubric Unit pack by Grey Knight",
+    "credits": "Model Base - Tzeentch Hero Pack by Grey Knight\nTzeentch Disc - Tzeentch Rubric Unit pack by Grey Knight\n\nAdditional credits: Stein123",
     "authors": [
       {
         "name": "UnsanctionedMagic",
@@ -28,6 +28,10 @@
       {
         "text": "Grey Knight",
         "url": "https://www.hiveworkshop.com/members/grey-knight.245238/"
+      },
+      {
+        "text": "Stein123",
+        "url": "https://www.hiveworkshop.com/members/stein123.196992/"
       }
     ],
     "sequences": [
@@ -412,7 +416,7 @@
     "name": "Chaos Sorcerer of Tzeentch",
     "army": "warriors-of-chaos",
     "description": "A Sorcerer versed in Tzeentch’s ways is a formidable opponent – cunning, devious and cruel. They may lead an entire warband of fellow disciples or Daemons of Tzeentch, manipulating the talents of their followers as easily as they manipulate the Winds of Magic in service to the Great Conspirator. They may also take up advisory positions to Tzeentchian Lords, although the scheming and manipulative nature of Chaos Sorcerers usually leaves little doubt as to who wields the true power. Masters of the darkest magic, they are rightly feared, for to face one in battle is to know that your very soul is in jeopardy.",
-    "credits": "Model Base - Tzeentch Hero Pack by Grey Knight\nTzeentch Disc - Tzeentch Rubric Unit pack by Grey Knight",
+    "credits": "Model Base - Tzeentch Hero Pack by Grey Knight\nTzeentch Disc - Tzeentch Rubric Unit pack by Grey Knight\n\nAdditional credits: Stein123",
     "authors": [
       {
         "name": "UnsanctionedMagic",
@@ -435,6 +439,10 @@
       {
         "text": "Grey Knight",
         "url": "https://www.hiveworkshop.com/members/grey-knight.245238/"
+      },
+      {
+        "text": "Stein123",
+        "url": "https://www.hiveworkshop.com/members/stein123.196992/"
       }
     ],
     "sequences": [
