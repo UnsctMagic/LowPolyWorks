@@ -70,7 +70,9 @@ export function modelPage(template, row, thumbnail, army) {
     '</div></section>',
     '<section class="details slab"><div class="tab-content">',
     `<p>${escape(summary)} <a href="${armyPath(army)}">${escape(army.name)}</a></p>`,
-    ...row.description.trim().split(/\r?\n\s*\r?\n/).filter(text => text !== summary).map(text => `<p>${escape(text).replace(/\r?\n/g, '<br>')}</p>`),
+    '<div class="lore">',
+    ...row.description.trim().split(/\r?\n\s*\r?\n/).filter(text => text !== summary).map(text => `<p>${escape(text.trim()).replace(/\r?\n/g, '<br>')}</p>`),
+    '</div>',
     '</div></section>',
     '</div>',
   ].join('\n');
