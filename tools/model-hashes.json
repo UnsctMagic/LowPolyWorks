@@ -634,5 +634,13 @@
   {
     "file": "ChaosDragonRiderLess01Optimized.mdx",
     "sha256": "703a29a6ec42ec1244b9aee18cc153871a2f563faf4295d25df86da4f1054098"
+  },
+  {
+    "file": "WH_WOC_TzeentchSorcerer01Optimized.mdx",
+    "sha256": "753e7883682c78f18c6861e5d8c1a4ae980d84bfd4729a273551493520f65623"
+  },
+  {
+    "file": "WH_WOC_TzeentchSorcererHero01Optimized.mdx",
+    "sha256": "d700c550d49cf1fbd5cee7d4587fcb96479bcddf278cfc44c36fbf8bfd6879a0"
   }
 ]

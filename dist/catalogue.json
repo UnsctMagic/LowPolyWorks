@@ -1,5 +1,865 @@
 [
   {
+    "id": "chaos-sorcerer-of-tzeentch",
+    "file": "WH_WOC_TzeentchSorcerer01Optimized.mdx",
+    "name": "Chaos Sorcerer of Tzeentch",
+    "army": "warriors-of-chaos",
+    "description": "A Sorcerer versed in Tzeentch’s ways is a formidable opponent – cunning, devious and cruel. They may lead an entire warband of fellow disciples or Daemons of Tzeentch, manipulating the talents of their followers as easily as they manipulate the Winds of Magic in service to the Great Conspirator. They may also take up advisory positions to Tzeentchian Lords, although the scheming and manipulative nature of Chaos Sorcerers usually leaves little doubt as to who wields the true power. Masters of the darkest magic, they are rightly feared, for to face one in battle is to know that your very soul is in jeopardy.",
+    "credits": "Model Base - Tzeentch Hero Pack by Grey Knight\nTzeentch Disc - Tzeentch Rubric Unit pack by Grey Knight",
+    "authors": [
+      {
+        "name": "UnsanctionedMagic",
+        "url": "https://xgm.guru/user/UnsanctMagic"
+      },
+      {
+        "name": "Grey Knight",
+        "url": "https://www.hiveworkshop.com/members/grey-knight.245238/"
+      }
+    ],
+    "creditLinks": [
+      {
+        "text": "Tzeentch Hero Pack",
+        "url": "https://www.hiveworkshop.com/threads/tzeentch-hero-pack.305025/"
+      },
+      {
+        "text": "Tzeentch Rubric Unit pack",
+        "url": "https://www.hiveworkshop.com/threads/tzeentch-rubric-unit-pack.324699/"
+      },
+      {
+        "text": "Grey Knight",
+        "url": "https://www.hiveworkshop.com/members/grey-knight.245238/"
+      }
+    ],
+    "sequences": [
+      "Stand",
+      "Stand - 1",
+      "Stand - 2",
+      "Walk",
+      "Attack",
+      "Attack 2",
+      "Spell Slam",
+      "Spell Throw",
+      "Stand Channel",
+      "Stand Channel Alternate",
+      "Death",
+      "Dissipate",
+      "Portrait - 1",
+      "Portrait Talk"
+    ],
+    "geosets": [
+      {
+        "index": 0,
+        "vertices": 4,
+        "triangles": 2,
+        "material": 1,
+        "textures": [
+          "Textures\\star3.blp"
+        ]
+      },
+      {
+        "index": 1,
+        "vertices": 4,
+        "triangles": 2,
+        "material": 0,
+        "textures": [
+          "Textures\\Star9.blp"
+        ]
+      },
+      {
+        "index": 2,
+        "vertices": 4,
+        "triangles": 2,
+        "material": 1,
+        "textures": [
+          "Textures\\star3.blp"
+        ]
+      },
+      {
+        "index": 3,
+        "vertices": 9,
+        "triangles": 8,
+        "material": 0,
+        "textures": [
+          "Textures\\Star9.blp"
+        ]
+      },
+      {
+        "index": 4,
+        "vertices": 13,
+        "triangles": 10,
+        "material": 1,
+        "textures": [
+          "Textures\\star3.blp"
+        ]
+      },
+      {
+        "index": 5,
+        "vertices": 61,
+        "triangles": 58,
+        "material": 11,
+        "textures": [
+          "Doodads\\Cinematic\\RockinArthas\\ArthasCloakCredits.blp"
+        ]
+      },
+      {
+        "index": 6,
+        "vertices": 328,
+        "triangles": 393,
+        "material": 12,
+        "textures": [
+          "Team colour / glow",
+          "Doodads\\Icecrown\\Structures\\Icecrown_Rubble\\Ice_Strucures.blp",
+          "Doodads\\Icecrown\\Structures\\Icecrown_Rubble\\Ice_Strucures.blp"
+        ]
+      },
+      {
+        "index": 7,
+        "vertices": 124,
+        "triangles": 154,
+        "material": 5,
+        "textures": [
+          "Team colour / glow",
+          "Textures\\UndeadAirBarge.blp",
+          "Textures\\UndeadAirBarge.blp"
+        ]
+      },
+      {
+        "index": 8,
+        "vertices": 20,
+        "triangles": 16,
+        "material": 11,
+        "textures": [
+          "Doodads\\Cinematic\\RockinArthas\\ArthasCloakCredits.blp"
+        ]
+      },
+      {
+        "index": 9,
+        "vertices": 50,
+        "triangles": 60,
+        "material": 5,
+        "textures": [
+          "Team colour / glow",
+          "Textures\\UndeadAirBarge.blp",
+          "Textures\\UndeadAirBarge.blp"
+        ]
+      },
+      {
+        "index": 10,
+        "vertices": 24,
+        "triangles": 24,
+        "material": 5,
+        "textures": [
+          "Team colour / glow",
+          "Textures\\UndeadAirBarge.blp",
+          "Textures\\UndeadAirBarge.blp"
+        ]
+      },
+      {
+        "index": 11,
+        "vertices": 47,
+        "triangles": 67,
+        "material": 5,
+        "textures": [
+          "Team colour / glow",
+          "Textures\\UndeadAirBarge.blp",
+          "Textures\\UndeadAirBarge.blp"
+        ]
+      },
+      {
+        "index": 12,
+        "vertices": 40,
+        "triangles": 36,
+        "material": 3,
+        "textures": [
+          "ReplaceableTextures\\TeamColor\\TeamColor08.blp",
+          "Buildings\\Human\\Workshop\\Factory.blp"
+        ]
+      },
+      {
+        "index": 13,
+        "vertices": 52,
+        "triangles": 81,
+        "material": 4,
+        "textures": [
+          "Textures\\CreepyNecropolis.blp"
+        ]
+      },
+      {
+        "index": 14,
+        "vertices": 17,
+        "triangles": 20,
+        "material": 2,
+        "textures": [
+          "Textures\\furboots2.blp"
+        ]
+      },
+      {
+        "index": 15,
+        "vertices": 61,
+        "triangles": 100,
+        "material": 11,
+        "textures": [
+          "Doodads\\Cinematic\\RockinArthas\\ArthasCloakCredits.blp"
+        ]
+      },
+      {
+        "index": 16,
+        "vertices": 23,
+        "triangles": 34,
+        "material": 5,
+        "textures": [
+          "Team colour / glow",
+          "Textures\\UndeadAirBarge.blp",
+          "Textures\\UndeadAirBarge.blp"
+        ]
+      },
+      {
+        "index": 17,
+        "vertices": 20,
+        "triangles": 16,
+        "material": 13,
+        "textures": [
+          "Abilities\\Spells\\Human\\DevotionAura\\AuraRuneArrow1.blp"
+        ]
+      },
+      {
+        "index": 18,
+        "vertices": 24,
+        "triangles": 26,
+        "material": 6,
+        "textures": [
+          "Team colour / glow",
+          "UI\\Glues\\SinglePlayer\\HumanCampaign3D\\HumanCampaignFootman.blp",
+          "UI\\Glues\\SinglePlayer\\HumanCampaign3D\\HumanCampaignFootman.blp"
+        ]
+      },
+      {
+        "index": 19,
+        "vertices": 38,
+        "triangles": 56,
+        "material": 5,
+        "textures": [
+          "Team colour / glow",
+          "Textures\\UndeadAirBarge.blp",
+          "Textures\\UndeadAirBarge.blp"
+        ]
+      },
+      {
+        "index": 20,
+        "vertices": 52,
+        "triangles": 82,
+        "material": 14,
+        "textures": [
+          "Doodads\\Cinematic\\IcecrownObelisk\\glow_runes.blp",
+          "Doodads\\Cinematic\\IcecrownObelisk\\glow_runes.blp",
+          "Doodads\\Cinematic\\IcecrownObelisk\\glow_runes.blp"
+        ]
+      },
+      {
+        "index": 21,
+        "vertices": 47,
+        "triangles": 53,
+        "material": 15,
+        "textures": [
+          "Abilities\\Spells\\Undead\\VampiricAura\\AuraRune6.blp"
+        ]
+      },
+      {
+        "index": 22,
+        "vertices": 66,
+        "triangles": 98,
+        "material": 7,
+        "textures": [
+          "Units\\Creeps\\SkeletonOrc\\SkeletonOrc.blp"
+        ]
+      },
+      {
+        "index": 23,
+        "vertices": 30,
+        "triangles": 36,
+        "material": 8,
+        "textures": [
+          "Units\\Critters\\Vulture\\Carrionswarm.blp"
+        ]
+      },
+      {
+        "index": 24,
+        "vertices": 18,
+        "triangles": 32,
+        "material": 12,
+        "textures": [
+          "Team colour / glow",
+          "Doodads\\Icecrown\\Structures\\Icecrown_Rubble\\Ice_Strucures.blp",
+          "Doodads\\Icecrown\\Structures\\Icecrown_Rubble\\Ice_Strucures.blp"
+        ]
+      },
+      {
+        "index": 25,
+        "vertices": 4,
+        "triangles": 2,
+        "material": 10,
+        "textures": [
+          "Abilities\\Spells\\Undead\\VampiricAura\\AuraRune6.blp"
+        ]
+      },
+      {
+        "index": 26,
+        "vertices": 18,
+        "triangles": 32,
+        "material": 16,
+        "textures": [
+          "Team colour / glow",
+          "Doodads\\Icecrown\\Structures\\Icecrown_Rubble\\Ice_Strucures.blp",
+          "Doodads\\Icecrown\\Structures\\Icecrown_Rubble\\Ice_Strucures.blp"
+        ]
+      },
+      {
+        "index": 27,
+        "vertices": 104,
+        "triangles": 160,
+        "material": 17,
+        "textures": [
+          "Team colour / glow",
+          "Textures\\UndeadAirBarge.blp",
+          "Textures\\UndeadAirBarge.blp"
+        ]
+      },
+      {
+        "index": 28,
+        "vertices": 29,
+        "triangles": 30,
+        "material": 18,
+        "textures": [
+          "Units\\NightElf\\DruidOfTheTalon\\DruidottheTalon.blp"
+        ]
+      },
+      {
+        "index": 29,
+        "vertices": 4,
+        "triangles": 2,
+        "material": 19,
+        "textures": [
+          "Team colour / glow"
+        ]
+      },
+      {
+        "index": 30,
+        "vertices": 13,
+        "triangles": 13,
+        "material": 5,
+        "textures": [
+          "Team colour / glow",
+          "Textures\\UndeadAirBarge.blp",
+          "Textures\\UndeadAirBarge.blp"
+        ]
+      },
+      {
+        "index": 31,
+        "vertices": 13,
+        "triangles": 13,
+        "material": 20,
+        "textures": [
+          "Textures\\Lightning4b.blp"
+        ]
+      },
+      {
+        "index": 32,
+        "vertices": 124,
+        "triangles": 154,
+        "material": 21,
+        "textures": [
+          "Doodads\\Cinematic\\IcecrownObelisk\\glow_runes.blp",
+          "Doodads\\Cinematic\\IcecrownObelisk\\glow_runes.blp"
+        ]
+      },
+      {
+        "index": 33,
+        "vertices": 124,
+        "triangles": 154,
+        "material": 22,
+        "textures": [
+          "Textures\\GenericGlow64.blp"
+        ]
+      }
+    ],
+    "bytes": 257124,
+    "sha256": "753e7883682c78f18c6861e5d8c1a4ae980d84bfd4729a273551493520f65623",
+    "captureSequence": "Stand",
+    "captureTime": 450,
+    "captureFormationYaw": -0.42,
+    "capturePadding": 1.15,
+    "textureFiles": {
+      "textures\\lightning4b.blp": "textures/sorcerer-native-lightning4b.png"
+    },
+    "optimizedNote": "looks and animates exactly like the full version but is about 13 KB smaller in MDX form, because the per-animation bounding boxes have been removed. The game doesn't need them. Model editors may warn about missing extents, which is harmless. Use the full version if you want to edit the model.",
+    "downloadOptions": [
+      {
+        "label": "Download",
+        "path": "downloads/chaos-sorcerer-of-tzeentch/WH_WOC_TzeentchSorcerer01.zip",
+        "bytes": 270452
+      },
+      {
+        "label": "Optimized",
+        "path": "downloads/chaos-sorcerer-of-tzeentch/WH_WOC_TzeentchSorcerer01Optimized.zip",
+        "bytes": 257124
+      }
+    ],
+    "imageVersion": "20261124-tzeentch-sorcerer"
+  },
+  {
+    "id": "chaos-sorcerer-of-tzeentch-hero",
+    "file": "WH_WOC_TzeentchSorcererHero01Optimized.mdx",
+    "name": "Chaos Sorcerer of Tzeentch",
+    "army": "warriors-of-chaos",
+    "description": "A Sorcerer versed in Tzeentch’s ways is a formidable opponent – cunning, devious and cruel. They may lead an entire warband of fellow disciples or Daemons of Tzeentch, manipulating the talents of their followers as easily as they manipulate the Winds of Magic in service to the Great Conspirator. They may also take up advisory positions to Tzeentchian Lords, although the scheming and manipulative nature of Chaos Sorcerers usually leaves little doubt as to who wields the true power. Masters of the darkest magic, they are rightly feared, for to face one in battle is to know that your very soul is in jeopardy.",
+    "credits": "Model Base - Tzeentch Hero Pack by Grey Knight\nTzeentch Disc - Tzeentch Rubric Unit pack by Grey Knight",
+    "authors": [
+      {
+        "name": "UnsanctionedMagic",
+        "url": "https://xgm.guru/user/UnsanctMagic"
+      },
+      {
+        "name": "Grey Knight",
+        "url": "https://www.hiveworkshop.com/members/grey-knight.245238/"
+      }
+    ],
+    "creditLinks": [
+      {
+        "text": "Tzeentch Hero Pack",
+        "url": "https://www.hiveworkshop.com/threads/tzeentch-hero-pack.305025/"
+      },
+      {
+        "text": "Tzeentch Rubric Unit pack",
+        "url": "https://www.hiveworkshop.com/threads/tzeentch-rubric-unit-pack.324699/"
+      },
+      {
+        "text": "Grey Knight",
+        "url": "https://www.hiveworkshop.com/members/grey-knight.245238/"
+      }
+    ],
+    "sequences": [
+      "Stand",
+      "Stand - 1",
+      "Stand - 2",
+      "Walk",
+      "Attack",
+      "Attack 2",
+      "Spell Slam",
+      "Spell Throw",
+      "Stand Channel",
+      "Stand Channel Alternate",
+      "Death",
+      "Dissipate",
+      "Portrait - 1",
+      "Portrait Talk"
+    ],
+    "geosets": [
+      {
+        "index": 0,
+        "vertices": 4,
+        "triangles": 2,
+        "material": 1,
+        "textures": [
+          "Textures\\star3.blp"
+        ]
+      },
+      {
+        "index": 1,
+        "vertices": 4,
+        "triangles": 2,
+        "material": 0,
+        "textures": [
+          "Textures\\Star9.blp"
+        ]
+      },
+      {
+        "index": 2,
+        "vertices": 4,
+        "triangles": 2,
+        "material": 1,
+        "textures": [
+          "Textures\\star3.blp"
+        ]
+      },
+      {
+        "index": 3,
+        "vertices": 9,
+        "triangles": 8,
+        "material": 0,
+        "textures": [
+          "Textures\\Star9.blp"
+        ]
+      },
+      {
+        "index": 4,
+        "vertices": 13,
+        "triangles": 10,
+        "material": 1,
+        "textures": [
+          "Textures\\star3.blp"
+        ]
+      },
+      {
+        "index": 5,
+        "vertices": 61,
+        "triangles": 58,
+        "material": 11,
+        "textures": [
+          "Doodads\\Cinematic\\RockinArthas\\ArthasCloakCredits.blp"
+        ]
+      },
+      {
+        "index": 6,
+        "vertices": 328,
+        "triangles": 393,
+        "material": 12,
+        "textures": [
+          "Team colour / glow",
+          "Doodads\\Icecrown\\Structures\\Icecrown_Rubble\\Ice_Strucures.blp",
+          "Doodads\\Icecrown\\Structures\\Icecrown_Rubble\\Ice_Strucures.blp"
+        ]
+      },
+      {
+        "index": 7,
+        "vertices": 124,
+        "triangles": 154,
+        "material": 5,
+        "textures": [
+          "Team colour / glow",
+          "Textures\\UndeadAirBarge.blp",
+          "Textures\\UndeadAirBarge.blp"
+        ]
+      },
+      {
+        "index": 8,
+        "vertices": 20,
+        "triangles": 16,
+        "material": 11,
+        "textures": [
+          "Doodads\\Cinematic\\RockinArthas\\ArthasCloakCredits.blp"
+        ]
+      },
+      {
+        "index": 9,
+        "vertices": 50,
+        "triangles": 60,
+        "material": 5,
+        "textures": [
+          "Team colour / glow",
+          "Textures\\UndeadAirBarge.blp",
+          "Textures\\UndeadAirBarge.blp"
+        ]
+      },
+      {
+        "index": 10,
+        "vertices": 24,
+        "triangles": 24,
+        "material": 5,
+        "textures": [
+          "Team colour / glow",
+          "Textures\\UndeadAirBarge.blp",
+          "Textures\\UndeadAirBarge.blp"
+        ]
+      },
+      {
+        "index": 11,
+        "vertices": 47,
+        "triangles": 67,
+        "material": 5,
+        "textures": [
+          "Team colour / glow",
+          "Textures\\UndeadAirBarge.blp",
+          "Textures\\UndeadAirBarge.blp"
+        ]
+      },
+      {
+        "index": 12,
+        "vertices": 40,
+        "triangles": 36,
+        "material": 3,
+        "textures": [
+          "ReplaceableTextures\\TeamColor\\TeamColor08.blp",
+          "Buildings\\Human\\Workshop\\Factory.blp"
+        ]
+      },
+      {
+        "index": 13,
+        "vertices": 52,
+        "triangles": 81,
+        "material": 4,
+        "textures": [
+          "Textures\\CreepyNecropolis.blp"
+        ]
+      },
+      {
+        "index": 14,
+        "vertices": 17,
+        "triangles": 20,
+        "material": 2,
+        "textures": [
+          "Team colour / glow",
+          "Units\\Creeps\\FacelessOne\\FacelessOne.blp"
+        ]
+      },
+      {
+        "index": 15,
+        "vertices": 61,
+        "triangles": 100,
+        "material": 11,
+        "textures": [
+          "Doodads\\Cinematic\\RockinArthas\\ArthasCloakCredits.blp"
+        ]
+      },
+      {
+        "index": 16,
+        "vertices": 23,
+        "triangles": 34,
+        "material": 5,
+        "textures": [
+          "Team colour / glow",
+          "Textures\\UndeadAirBarge.blp",
+          "Textures\\UndeadAirBarge.blp"
+        ]
+      },
+      {
+        "index": 17,
+        "vertices": 20,
+        "triangles": 16,
+        "material": 13,
+        "textures": [
+          "Abilities\\Spells\\Human\\DevotionAura\\AuraRuneArrow1.blp"
+        ]
+      },
+      {
+        "index": 18,
+        "vertices": 24,
+        "triangles": 26,
+        "material": 6,
+        "textures": [
+          "Team colour / glow",
+          "UI\\Glues\\SinglePlayer\\HumanCampaign3D\\HumanCampaignFootman.blp",
+          "UI\\Glues\\SinglePlayer\\HumanCampaign3D\\HumanCampaignFootman.blp"
+        ]
+      },
+      {
+        "index": 19,
+        "vertices": 38,
+        "triangles": 56,
+        "material": 5,
+        "textures": [
+          "Team colour / glow",
+          "Textures\\UndeadAirBarge.blp",
+          "Textures\\UndeadAirBarge.blp"
+        ]
+      },
+      {
+        "index": 20,
+        "vertices": 52,
+        "triangles": 82,
+        "material": 14,
+        "textures": [
+          "Doodads\\Cinematic\\IcecrownObelisk\\glow_runes.blp",
+          "Doodads\\Cinematic\\IcecrownObelisk\\glow_runes.blp",
+          "Doodads\\Cinematic\\IcecrownObelisk\\glow_runes.blp"
+        ]
+      },
+      {
+        "index": 21,
+        "vertices": 47,
+        "triangles": 53,
+        "material": 15,
+        "textures": [
+          "Abilities\\Spells\\Undead\\VampiricAura\\AuraRune6.blp"
+        ]
+      },
+      {
+        "index": 22,
+        "vertices": 66,
+        "triangles": 98,
+        "material": 7,
+        "textures": [
+          "Units\\Creeps\\SkeletonOrc\\SkeletonOrc.blp"
+        ]
+      },
+      {
+        "index": 23,
+        "vertices": 30,
+        "triangles": 36,
+        "material": 8,
+        "textures": [
+          "Units\\Critters\\Vulture\\Carrionswarm.blp"
+        ]
+      },
+      {
+        "index": 24,
+        "vertices": 18,
+        "triangles": 32,
+        "material": 12,
+        "textures": [
+          "Team colour / glow",
+          "Doodads\\Icecrown\\Structures\\Icecrown_Rubble\\Ice_Strucures.blp",
+          "Doodads\\Icecrown\\Structures\\Icecrown_Rubble\\Ice_Strucures.blp"
+        ]
+      },
+      {
+        "index": 25,
+        "vertices": 4,
+        "triangles": 2,
+        "material": 10,
+        "textures": [
+          "Abilities\\Spells\\Undead\\VampiricAura\\AuraRune6.blp"
+        ]
+      },
+      {
+        "index": 26,
+        "vertices": 18,
+        "triangles": 32,
+        "material": 16,
+        "textures": [
+          "Team colour / glow",
+          "Doodads\\Icecrown\\Structures\\Icecrown_Rubble\\Ice_Strucures.blp",
+          "Doodads\\Icecrown\\Structures\\Icecrown_Rubble\\Ice_Strucures.blp"
+        ]
+      },
+      {
+        "index": 27,
+        "vertices": 104,
+        "triangles": 160,
+        "material": 17,
+        "textures": [
+          "Team colour / glow",
+          "Textures\\UndeadAirBarge.blp",
+          "Textures\\UndeadAirBarge.blp"
+        ]
+      },
+      {
+        "index": 28,
+        "vertices": 29,
+        "triangles": 30,
+        "material": 18,
+        "textures": [
+          "Units\\NightElf\\DruidOfTheTalon\\DruidottheTalon.blp"
+        ]
+      },
+      {
+        "index": 29,
+        "vertices": 4,
+        "triangles": 2,
+        "material": 19,
+        "textures": [
+          "Team colour / glow"
+        ]
+      },
+      {
+        "index": 30,
+        "vertices": 13,
+        "triangles": 13,
+        "material": 5,
+        "textures": [
+          "Team colour / glow",
+          "Textures\\UndeadAirBarge.blp",
+          "Textures\\UndeadAirBarge.blp"
+        ]
+      },
+      {
+        "index": 31,
+        "vertices": 13,
+        "triangles": 13,
+        "material": 20,
+        "textures": [
+          "Textures\\Lightning4b.blp"
+        ]
+      },
+      {
+        "index": 32,
+        "vertices": 124,
+        "triangles": 154,
+        "material": 21,
+        "textures": [
+          "Doodads\\Cinematic\\IcecrownObelisk\\glow_runes.blp",
+          "Doodads\\Cinematic\\IcecrownObelisk\\glow_runes.blp"
+        ]
+      },
+      {
+        "index": 33,
+        "vertices": 124,
+        "triangles": 154,
+        "material": 22,
+        "textures": [
+          "Textures\\GenericGlow64.blp"
+        ]
+      },
+      {
+        "index": 34,
+        "vertices": 20,
+        "triangles": 16,
+        "material": 23,
+        "textures": [
+          "Team colour / glow"
+        ]
+      },
+      {
+        "index": 35,
+        "vertices": 20,
+        "triangles": 16,
+        "material": 24,
+        "textures": [
+          "Team colour / glow"
+        ]
+      },
+      {
+        "index": 36,
+        "vertices": 52,
+        "triangles": 81,
+        "material": 25,
+        "textures": [
+          "Team colour / glow"
+        ]
+      },
+      {
+        "index": 37,
+        "vertices": 52,
+        "triangles": 81,
+        "material": 26,
+        "textures": [
+          "Team colour / glow"
+        ]
+      },
+      {
+        "index": 38,
+        "vertices": 12,
+        "triangles": 6,
+        "material": 27,
+        "textures": [
+          "Team colour / glow"
+        ]
+      }
+    ],
+    "bytes": 261132,
+    "sha256": "d700c550d49cf1fbd5cee7d4587fcb96479bcddf278cfc44c36fbf8bfd6879a0",
+    "captureSequence": "Stand",
+    "captureTime": 450,
+    "captureFormationYaw": -0.42,
+    "capturePadding": 1.15,
+    "textureFiles": {
+      "textures\\lightning4b.blp": "textures/sorcerer-native-lightning4b.png"
+    },
+    "optimizedNote": "looks and animates exactly like the full version but is about 15 KB smaller in MDX form, because the per-animation bounding boxes have been removed. The game doesn't need them. Model editors may warn about missing extents, which is harmless. Use the full version if you want to edit the model.",
+    "downloadOptions": [
+      {
+        "label": "Download",
+        "path": "downloads/chaos-sorcerer-of-tzeentch/WH_WOC_TzeentchSorcererHero01.zip",
+        "bytes": 276420
+      },
+      {
+        "label": "Optimized",
+        "path": "downloads/chaos-sorcerer-of-tzeentch/WH_WOC_TzeentchSorcererHero01Optimized.zip",
+        "bytes": 261132
+      }
+    ],
+    "imageVersion": "20261124-tzeentch-sorcerer"
+  },
+  {
     "id": "graveguard",
     "file": "WH_VC_Graveguard03.mdx",
     "name": "Graveguard",

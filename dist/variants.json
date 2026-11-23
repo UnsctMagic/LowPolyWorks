@@ -860,5 +860,19 @@
         "label": "Lance"
       }
     ]
+  },
+  {
+    "id": "chaos-sorcerer-of-tzeentch",
+    "name": "Chaos Sorcerer of Tzeentch",
+    "variants": [
+      {
+        "id": "chaos-sorcerer-of-tzeentch",
+        "label": "Unit"
+      },
+      {
+        "id": "chaos-sorcerer-of-tzeentch-hero",
+        "label": "Hero"
+      }
+    ]
   }
 ]
