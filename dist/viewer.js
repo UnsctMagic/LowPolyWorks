@@ -12,7 +12,7 @@ import {readEffectSettings} from './viewer-effect-controls.js?v=20261113-viewer-
 import {createEmitterReplay} from './viewer-emitter-replay.js?v=20261122-emitter-drag';
 import {resetPreviewEffects} from './vendor/mdlxl/app/warcraft-preview-adapter.js';
 import {viewerPlaybackSample,setWarcraftCamera} from './viewer-effects.js?v=20261006-classic-portrait-controls';
-import {installParticleNativeCompatibility} from './vendor/mdlxl/particle-native.mjs';
+import {installParticleNativeCompatibility} from './viewer-emitter-runtime.js?v=20261124-walk-trail';
 import {convertMdxGeosetColorTracks} from './vendor/mdlxl/src/geoset-color-codec.js';
 import {decodePaintBlp} from './vendor/mdlxl/src/paint-blp.js';
 import {improveNativeTexture} from './vendor/mdlxl/app/viewport-quality.js';
