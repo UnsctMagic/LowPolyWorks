@@ -25,8 +25,12 @@ export function installParticleNativeCompatibility(native,{getTravelDistance=del
  const update=ribbons.updateEmitter;
   ribbons.updateEmitter=function(emitter,delta){
    update.call(this,emitter,delta);
-   if(!emitter.props.Gravity||delta<=0)return;
-   const now=Date.now();
+   if(delta<=0)return;
+   const now=Date.now(),travel=getTravelDistance(delta);
+   // Ribbon segments stay where they were laid down while the unit walks on,
+   // like world-space particles; the segment born this update is already in place.
+   if(travel>0)for(let i=0;i<emitter.creationTimes.length;i++)if(emitter.creationTimes[i]<now){emitter.vertices[i*6]-=travel;emitter.vertices[i*6+3]-=travel;}
+   if(!emitter.props.Gravity)return;
    for(let i=0;i<emitter.creationTimes.length;i++){
     const age=Math.max(0,(now-emitter.creationTimes[i])/1000),previous=Math.max(0,age-delta/1000);
     const drop=.5*emitter.props.Gravity*(age*age-previous*previous);

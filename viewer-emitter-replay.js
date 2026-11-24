@@ -1,4 +1,4 @@
-import {NativeParticleSimulation,particleTimelineAt,copyParticleSimulationToPreview,setEmitterPreviewPose} from './viewer-emitter-runtime.js?v=20261122-emitter-drag';
+import {NativeParticleSimulation,particleTimelineAt,copyParticleSimulationToPreview,setEmitterPreviewPose} from './viewer-emitter-runtime.js?v=20261124-walk-trail';
 import {setWarcraftCamera} from './viewer-effects.js?v=20261006-classic-portrait-controls';
 
 // EMTR's bounded replay and frozen simulation, connected to the website clock.
