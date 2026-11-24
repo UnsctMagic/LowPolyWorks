@@ -7,7 +7,7 @@ import {parseMDX,parseMDL,ModelRenderer} from './vendor/war3-model.mjs';
 import {decodeTga} from './texture-raster.js';
 import {installWarcraftPreviewAdapter,previewGeosetTint,initializeWarcraftRenderer} from './website-preview-adapter.js?v=20261018-uniform-budget';
 import {advanceShowcaseModel} from './vendor/mdlxl/app/showcase-playback.js';
-import {createViewerEvents} from './viewer-events.js?v=20261115-site-perf';
+import {createViewerEvents} from './viewer-events.js?v=20261124-walk-trail';
 import {readEffectSettings} from './viewer-effect-controls.js?v=20261113-viewer-events';
 import {createEmitterReplay} from './viewer-emitter-replay.js?v=20261122-emitter-drag';
 import {resetPreviewEffects} from './vendor/mdlxl/app/warcraft-preview-adapter.js';

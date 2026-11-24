@@ -206,12 +206,10 @@ export function createViewerEvents({gl,model,row,textureData,graphics,teamColor,
    try{
     for(const [key,state]of instances){
      const resource=resources.get(gamePathKey(state.definition.resourcePath));if(!resource)continue;
+     // Footprints, splats and spawned models stay where they landed while a walking unit moves on.
+     const world=state.world.clone(),moveSpeed=Number(model.Sequences[sample.sequenceIndex].MoveSpeed);
+     if(Number.isFinite(moveSpeed)&&moveSpeed>0)world.elements[12]-=moveSpeed*state.travelMs/1000;
      if(resource.texture){
-      const world=state.world.clone();
-      if(/^FPT/i.test(state.event.Name)){
-       const moveSpeed=Number(model.Sequences[sample.sequenceIndex].MoveSpeed);
-       if(Number.isFinite(moveSpeed)&&moveSpeed>0)world.elements[12]-=moveSpeed*state.travelMs/1000;
-      }
       decals ||= createDecals(gl);decals.render(resource.texture,state,world,camera);
      }else{
       if(!state.native)try{makeSpawn(state,resource);}catch(error){warn('Spawn renderer: '+error.message);release(state);instances.delete(key);continue;}
@@ -220,10 +218,10 @@ export function createViewerEvents({gl,model,row,textureData,graphics,teamColor,
       while(remaining>1e-6){const step=Math.min(20,remaining);native.update(step);remaining-=step;}
       native.setFrame(start+state.ageMs);native.update(0);state.simulatedAge=state.ageMs;
       if(!state.teamReady)continue;
-      const inverse=state.world.clone().invert(),position=camera.position.clone().applyMatrix4(inverse);
+      const inverse=world.clone().invert(),position=camera.position.clone().applyMatrix4(inverse);
       const rotation=new Quaternion().setFromRotationMatrix(inverse).multiply(camera.quaternion).multiply(billboardCameraCorrection);
       native.setCamera(position.toArray(),rotation.toArray());
-      const matrix=new Matrix4().multiplyMatrices(camera.matrixWorldInverse,state.world);
+      const matrix=new Matrix4().multiplyMatrices(camera.matrixWorldInverse,world);
       gl.bindVertexArray(state.vao);gl.depthFunc(gl.LEQUAL);native.render(matrix.elements,camera.projectionMatrix.elements,{wireframe:false,useEnvironmentMap:false});
      }
     }
