@@ -37615,5 +37615,188 @@
         "bytes": 476372
       }
     ]
+  },
+  {
+    "id": "nurgling-of-nurgle",
+    "file": "WH_DOC_Nurgling01.mdx",
+    "name": "Nurgling of Nurgle",
+    "army": "demons-of-chaos",
+    "description": "Nurglings are Lesser Daemons of Nurgle that are the very image of Father Nurgle himself, having friendly, mischievous faces and bloated, green bodies fitted with disproportionate limbs. The only difference is their size; a Nurgling is no taller than a foot high.\n\nEven as disgusting as they are, nothing compares to how they are often created. A Nurgling grows in the rotting flesh of a Greater Daemon of the Plague Lord, a Great Unclean One. Like infants, they feed on the nutrients of the mother, though in this case, it is the rancid milk of pestilence. In time, a diet of filth enables the Nurgling to grow large enough to allow it to eat its way out of the Greater Daemon's wet innards, born to whatever horrid existence it faces. These foul things inhabit the bodies of larger Daemons, preferably the Great Unclean Ones who spawn them. They creep into the crevices, burying themselves beneath the diseased flab of the larger Daemons' bulky forms and suckle on the cancerous wounds that weep foul pus.\n\nWhile covering their host, they jockey for the favour of their master, purring with pleasure when caressed or squealing with delight when offered a choice morsel of flesh. Queerly, Great Unclean Ones tend to see these vermin as their children. They coddle them, coo at them, and caress them, showering them with affection -- though such endearments are no obstacle to the Greater Daemon's tantrums and bottomless hunger. Many Nurglings rot away, get caught between the Greater Daemon's prodigious toes, or are dissolved in its gastric juices.\n\n— Warhammer Fantasy Roleplay 2nd Edition: Tome of Corruption (RPG), p. 226",
+    "credits": "Model Base - Warhammer Nurgling by Credits unknown\n\nFound on Ninja, reworked and retextured by UnsanctionedMagic\n\nPortrait/Death animations - Abomination by johnwar and Blizzard Entertainment",
+    "authors": [
+      {
+        "name": "UnsanctionedMagic",
+        "url": "https://xgm.guru/user/UnsanctMagic"
+      }
+    ],
+    "creditLinks": [
+      {
+        "text": "Warhammer Nurgling",
+        "url": "https://wc3.ninja/models/4104441#d=805.3&y=0.000&p=0.300&tx=0.0&ty=0.0&tz=100.0"
+      },
+      {
+        "text": "Ninja",
+        "url": "https://wc3.ninja/models/4104441"
+      },
+      {
+        "text": "UnsanctionedMagic",
+        "url": "https://xgm.guru/user/UnsanctMagic"
+      },
+      {
+        "text": "Abomination",
+        "url": "https://www.hiveworkshop.com/media/abomination.141108/"
+      },
+      {
+        "text": "johnwar",
+        "url": "https://www.hiveworkshop.com/members/johnwar.264426/"
+      },
+      {
+        "text": "Blizzard Entertainment",
+        "url": "https://www.blizzard.com/"
+      }
+    ],
+    "geosets": [
+      {
+        "index": 0,
+        "vertices": 171,
+        "triangles": 302,
+        "material": 0,
+        "textures": [
+          "UI\\Glues\\SinglePlayer\\OrcCampaign3D\\CampaignOrc.blp"
+        ]
+      },
+      {
+        "index": 1,
+        "vertices": 23,
+        "triangles": 25,
+        "material": 1,
+        "textures": [
+          "Textures\\Skeleton.blp"
+        ]
+      },
+      {
+        "index": 2,
+        "vertices": 12,
+        "triangles": 10,
+        "material": 2,
+        "textures": [
+          "Textures\\Abomination.blp"
+        ]
+      },
+      {
+        "index": 3,
+        "vertices": 22,
+        "triangles": 32,
+        "material": 3,
+        "textures": [
+          "Textures\\Skeleton.blp"
+        ]
+      },
+      {
+        "index": 4,
+        "vertices": 18,
+        "triangles": 14,
+        "material": 2,
+        "textures": [
+          "Textures\\Abomination.blp"
+        ]
+      },
+      {
+        "index": 5,
+        "vertices": 6,
+        "triangles": 6,
+        "material": 4,
+        "textures": [
+          "Units\\Other\\FleshGolem\\FleshGolem.blp"
+        ]
+      },
+      {
+        "index": 6,
+        "vertices": 6,
+        "triangles": 4,
+        "material": 5,
+        "textures": [
+          "Textures\\Abomination.blp"
+        ]
+      },
+      {
+        "index": 7,
+        "vertices": 4,
+        "triangles": 2,
+        "material": 5,
+        "textures": [
+          "Textures\\Abomination.blp"
+        ]
+      },
+      {
+        "index": 8,
+        "vertices": 4,
+        "triangles": 2,
+        "material": 2,
+        "textures": [
+          "Textures\\Abomination.blp"
+        ]
+      },
+      {
+        "index": 9,
+        "vertices": 26,
+        "triangles": 36,
+        "material": 6,
+        "textures": [
+          "Units\\Undead\\HeroDreadLord\\HeroDreadlord.blp"
+        ]
+      },
+      {
+        "index": 10,
+        "vertices": 13,
+        "triangles": 11,
+        "material": 7,
+        "textures": [
+          "Units\\Undead\\Ghoul\\Ghoul.blp"
+        ]
+      },
+      {
+        "index": 11,
+        "vertices": 37,
+        "triangles": 30,
+        "material": 5,
+        "textures": [
+          "Textures\\Abomination.blp"
+        ]
+      },
+      {
+        "index": 12,
+        "vertices": 36,
+        "triangles": 28,
+        "material": 0,
+        "textures": [
+          "UI\\Glues\\SinglePlayer\\OrcCampaign3D\\CampaignOrc.blp"
+        ]
+      },
+      {
+        "index": 13,
+        "vertices": 4,
+        "triangles": 2,
+        "material": 8,
+        "textures": []
+      }
+    ],
+    "sequences": [
+      "Walk",
+      "Stand",
+      "Attack 1",
+      "Attack 2",
+      "Stand Channel",
+      "Death",
+      "Decay Flesh",
+      "Decay Bone",
+      "Portrait - 2",
+      "Portrait Talk - 2",
+      "Portrait Talk - 1"
+    ],
+    "bytes": 110463,
+    "sha256": "54dd54d827a148adde31c1cdf707f50a83087d7c55a8173068aa275418c5e464",
+    "imageVersion": "20261126-nurgling",
+    "searchDescription": "Nurgling of Nurgle, a Daemons of Chaos unit model for Warcraft III Classic."
   }
 ]
