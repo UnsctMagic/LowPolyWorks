@@ -486,7 +486,7 @@
     "warrior-of-khorne-cleaver": {
       "sha256": "fe8e78eaf071427ac067981c884c40c70bfcb4622e7fad369ad3bc8e0dfc08e7",
       "publishedAt": "2026-10-21T09:45:33.925Z",
-      "updatedAt": "2026-11-19T02:07:27.306Z"
+      "updatedAt": "2026-11-19T02:07:23.639Z"
     },
     "warrior-of-tzeentch": {
       "sha256": "67d71609888e655b7562eb54496a2f4cd80df6987ea5cb05f692cf8030599700",
@@ -547,7 +547,7 @@
     },
     "warrior-of-khorne-cleaver-hero": {
       "sha256": "fe8d085a55b7648dfa01597b3fb14799779a38c29000dc62feac04251e8aecba",
-      "updatedAt": "2026-11-19T02:07:27.306Z"
+      "updatedAt": "2026-11-19T02:07:23.639Z"
     },
     "greenskin-orc-boy-native-reskin": {
       "sha256": "8fa997c36e42d4b22f4d4ed43a6d53bef5ecdf1e628baf197d021850af924d8e",
@@ -566,7 +566,7 @@
     },
     "zombie-dragon-von-carstein": {
       "sha256": "c4b87d7b89c9092bf77b2b043c9cb265242f44da4669aa4a87d72c4c856983e9",
-      "updatedAt": "2026-11-13T16:45:32.548Z"
+      "updatedAt": "2026-11-13T16:45:32.216Z"
     },
     "greenskin-black-orc-native-reskin": {
       "sha256": "040d415fd72953961016ce590ef0d02eddcd42752a3e14a9cca6c2c1df8062ff",
@@ -576,21 +576,21 @@
     "zombie-dragon-riderless": {
       "sha256": "8bd50ffe445289087aeba4465b899cce6c48bad24d2f5cc3de84c419e6185162",
       "publishedAt": "2026-11-09T20:15:55.695Z",
-      "updatedAt": "2026-11-13T16:45:32.548Z"
+      "updatedAt": "2026-11-13T16:45:32.216Z"
     },
     "zombie-dragon-von-carstein-hero": {
       "sha256": "5ebb9be59546fd9208d17e6402916bbf41a17335c84418b8c548ff072f4364f5",
-      "updatedAt": "2026-11-13T16:45:32.548Z"
+      "updatedAt": "2026-11-13T16:45:32.216Z"
     },
     "great-unclean-one-of-nurgle": {
       "sha256": "2b0c01d8d72f7eca3027ceea8e67c029235ea0d7eae47d1755b1b835273dec2a",
       "publishedAt": "2026-11-12T23:31:40.597Z",
-      "updatedAt": "2026-11-16T17:10:24.381Z"
+      "updatedAt": "2026-11-16T17:10:21.530Z"
     },
     "great-unclean-one-of-nurgle-hero": {
       "sha256": "fd4c89d1d7d6466f030db7bf544810d3be30d36493a528572ef41b5271275ea0",
       "publishedAt": "2026-11-12T23:31:40.597Z",
-      "updatedAt": "2026-11-16T17:10:24.381Z"
+      "updatedAt": "2026-11-16T17:10:21.530Z"
     },
     "lahmian-vampire": {
       "sha256": "040ee125f5c257768e316593fd75780021a86274a18697c4da0d8d4ff994b3a7",
@@ -603,11 +603,11 @@
     },
     "daemonette-of-slaanesh": {
       "sha256": "3647e4d4f4c929ad6daf745b405d8c5c9f411065182a76de5ee746e2d3e8c799",
-      "publishedAt": "2026-11-19T21:57:25.719Z"
+      "publishedAt": "2026-11-19T21:57:23.864Z"
     },
     "daemonette-of-slaanesh-team-color": {
       "sha256": "c8b91458038c23fb751427c455f8f22f486a7a61fd2a8162d3604b32fa4d7857",
-      "publishedAt": "2026-11-19T21:57:25.719Z"
+      "publishedAt": "2026-11-19T21:57:23.864Z"
     },
     "chaos-dragon-with-chaos-lord": {
       "sha256": "1c845e5dbb585f3f096b568927672d01b6fa4b074b17d4ba128c699ca123f586",
@@ -636,6 +636,10 @@
     "chaos-sorcerer-of-tzeentch-hero": {
       "sha256": "d700c550d49cf1fbd5cee7d4587fcb96479bcddf278cfc44c36fbf8bfd6879a0",
       "publishedAt": "2026-11-23T23:29:53.434Z"
+    },
+    "nurgling-of-nurgle": {
+      "sha256": "54dd54d827a148adde31c1cdf707f50a83087d7c55a8173068aa275418c5e464",
+      "publishedAt": "2026-11-26T02:54:14.699Z"
     }
   }
 }
