@@ -33806,8 +33806,8 @@
       }
     ],
     "searchDescription": "Great Unclean One of Nurgle, a Warhammer Fantasy model for Warcraft III Classic.",
-    "imageVersion": "20261115-great-unclean-one-clippings",
-    "file": "WH_DOC_GreatUncleanOneUnit03.mdx",
+    "imageVersion": "20261126-blister-hole",
+    "file": "WH_DOC_GreatUncleanOneUnit04.mdx",
     "geosets": [
       {
         "index": 0,
@@ -34211,11 +34211,15 @@
     "portraitBackdropGeosets": [
       39
     ],
-    "sha256": "2b0c01d8d72f7eca3027ceea8e67c029235ea0d7eae47d1755b1b835273dec2a",
+    "sha256": "ed4432a6a7ef72644ee5cd1fc3fb08b2689a092b46b9249c403101bf7c0b7c5a",
     "captureSequence": "Stand - 2",
     "captureTime": 500,
     "captureFormationYaw": -0.33,
     "changelog": [
+      {
+        "date": "26 November 2026",
+        "text": "closed one blister hole....!"
+      },
       {
         "date": "16 November 2026",
         "text": "Changed green_glow3.dds to the native Warcraft III texture Textures\\green_glow3.blp for older versions."
@@ -34313,8 +34317,8 @@
       }
     ],
     "searchDescription": "Great Unclean One of Nurgle, a Warhammer Fantasy model for Warcraft III Classic.",
-    "imageVersion": "20261115-great-unclean-one-clippings",
-    "file": "WH_DOC_GreatUncleanOneHero02.mdx",
+    "imageVersion": "20261126-blister-hole",
+    "file": "WH_DOC_GreatUncleanOneHero03.mdx",
     "geosets": [
       {
         "index": 0,
@@ -34727,11 +34731,15 @@
     "portraitBackdropGeosets": [
       39
     ],
-    "sha256": "fd4c89d1d7d6466f030db7bf544810d3be30d36493a528572ef41b5271275ea0",
+    "sha256": "04b35b03f492b13d787e3346fabbb20d27d185eb705246b99fdf19a1642488a0",
     "captureSequence": "Stand - 2",
     "captureTime": 500,
     "captureFormationYaw": -0.33,
     "changelog": [
+      {
+        "date": "26 November 2026",
+        "text": "closed one blister hole....!"
+      },
       {
         "date": "16 November 2026",
         "text": "Changed green_glow3.dds to the native Warcraft III texture Textures\\green_glow3.blp for older versions."
