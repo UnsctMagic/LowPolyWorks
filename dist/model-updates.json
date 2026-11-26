@@ -638,8 +638,9 @@
       "publishedAt": "2026-11-23T23:29:53.434Z"
     },
     "nurgling-of-nurgle": {
-      "sha256": "54dd54d827a148adde31c1cdf707f50a83087d7c55a8173068aa275418c5e464",
-      "publishedAt": "2026-11-26T02:54:14.699Z"
+      "sha256": "4eb6b82376dced8f81724cfdaaf46619d865d1ecd9ba8413b59192b772d2b2cb",
+      "publishedAt": "2026-11-26T02:54:14.699Z",
+      "updatedAt": "2026-11-26T11:42:31.778Z"
     }
   }
 }
