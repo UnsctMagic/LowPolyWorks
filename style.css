@@ -311,3 +311,4 @@ body a[href]:any-link:hover{color:var(--link-hover)}
 
 @container (min-width:520px) and (max-width:629px){.controls .model-actions{grid-template-columns:repeat(3,minmax(0,1fr))}.controls .model-actions .viewer-effects{grid-column:1/-1}}
 .model-card .card-portrait img[src^="thumbs/unit-nurgling-of-nurgle.png"]{transform:translateY(5%) scale(.345)}
+.model-card .card-portrait img[src^="thumbs/unit-daemonette-of-slaanesh"]{transform:scale(.8)}
