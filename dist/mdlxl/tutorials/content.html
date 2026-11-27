@@ -84,6 +84,15 @@
             <span class="tutorial-card-footer"><span>2 steps</span><span class="tutorial-card-open">Open tutorial →</span></span>
           </span>
         </a>
+<a class="tutorial-card" id="tab-cut" aria-controls="tutorial-cut" data-tutorial="cut" href="/mdlxl/tutorials/cut/?lang=en">
+          <span class="tutorial-card-media" aria-hidden="true"><img src="/mdlxl/tutorials/cut-card.png?v=8d0cf6829f3617cb" width="1264" height="760" alt=""></span>
+          <span class="tutorial-card-copy">
+            <span class="tutorial-card-category">Vertex editor</span>
+            <span class="tutorial-card-title">Cut</span>
+            <span class="tutorial-card-description">Split a triangle from a vertex.</span>
+            <span class="tutorial-card-footer"><span>2 steps</span><span class="tutorial-card-open">Open tutorial →</span></span>
+          </span>
+        </a>
 </nav>
     </div>
     <a class="tutorial-back" id="tutorial-back" hidden><span aria-hidden="true">←</span> All tutorials</a>
@@ -269,5 +278,20 @@
         <h4 id="fit-move-title">Fit</h4>
         <figure class="gif-player" data-animation="fit-move"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/fit-move.mp4?v=d5086ef1f118318e" muted loop playsinline controls width="1920" height="1008" preload="metadata" aria-label="Fit. Click Fit again: the selected UVs move into the area. Only existing points move."></video></figure>
         <p>Click <strong>Fit</strong> again: the selected UVs move into the area. Only existing points move.</p>
+      </section>
+    </article>
+<article class="tutorial-panel" role="region" id="tutorial-cut" aria-labelledby="tab-cut" hidden>
+      <p class="sample-note">Vertex editor</p>
+      <h3 id="cut-title">Cut</h3>
+      <p><strong>Cut</strong> is beside <strong>Create triangle</strong> in the Vertex editor.</p>
+      <section class="demo-step" aria-labelledby="cut-line-title">
+        <h4 id="cut-line-title">Cut a line</h4>
+        <figure class="gif-player" data-animation="cut-line"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/cut-line.mp4?v=289c09d42e62565a" muted loop playsinline controls width="1264" height="760" preload="metadata" aria-label="Cut a line. Click Cut, then a vertex. Move onto a line across from it and click: a point is made there and both triangles beside the line split."></video></figure>
+        <p>Click <strong>Cut</strong>, then a vertex. Move onto a line across from it and click: a point is made there and both triangles beside the line split.</p>
+      </section>
+      <section class="demo-step" aria-labelledby="cut-corner-title">
+        <h4 id="cut-corner-title">Cut to a corner</h4>
+        <figure class="gif-player" data-animation="cut-corner"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/cut-corner.mp4?v=498def1d6720cf27" muted loop playsinline controls width="1264" height="760" preload="metadata" aria-label="Cut to a corner. Press Ctrl + Z to undo. With Cut on, click a vertex, then the corner across the line: the line between the two triangles turns to end there."></video></figure>
+        <p>Press <kbd>Ctrl</kbd> + <kbd>Z</kbd> to undo. With <strong>Cut</strong> on, click a vertex, then the corner across the line: the line between the two triangles turns to end there.</p>
       </section>
     </article>
