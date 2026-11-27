@@ -18,7 +18,7 @@ let baseCatalogue=[],armies=[],variantGroups=[],armyCardOrder=[],catalogueLoad;
 function loadCatalogue(){
  return catalogueLoad??=(async()=>{
   [baseCatalogue,armies,variantGroups]=await Promise.all([
-   fetch('catalogue.json?v=20261126-great-unclean-04').then(r=>r.json()),
+   fetch('catalogue.json?v=20261127-khorne-gw08').then(r=>r.json()),
    fetch('armies.json?v=20261113-daemons-spelling').then(r=>r.json()),
    fetch('variants.json?v=20261124-tzeentch-sorcerer').then(r=>r.json()).catch(()=>[])
   ]);

@@ -16531,7 +16531,7 @@
   },
   {
     "id": "warrior-of-khorne-cleaver",
-    "file": "WH_WOC_WarriorKhorneGW07.mdx",
+    "file": "WH_WOC_WarriorKhorneGW08.mdx",
     "name": "Warrior of Khorne · Cleaver",
     "army": "warriors-of-chaos",
     "description": "The Warriors of Chaos that follow the Blood God, as with all servants of the Ruinous Powers, are not limited to the primitive tribes of the north. His grasp can reach the heart of every soldier, every warrior, every life-taker. When a noble Knight of Bretonnia or a Templar of the Empire falls to His worship it is because they forget why they kill. To change from killing for the common good to killing only because one wants to – because the act is pleasing – is when the righteous have fallen from their path. These are the warriors Khorne embraces, never to release. These are the converts that He savours.",
@@ -16854,7 +16854,7 @@
       "Portrait",
       "Portrait Talk"
     ],
-    "bytes": 126400,
+    "bytes": 126280,
     "portraitBackdropGeosets": [
       2
     ],
@@ -16950,9 +16950,13 @@
         "url": "https://www.hiveworkshop.com/members/herrdave.234820/"
       }
     ],
-    "sha256": "fe8e78eaf071427ac067981c884c40c70bfcb4622e7fad369ad3bc8e0dfc08e7",
+    "sha256": "995497b6495c85da4f639d34fc5872664d48fe6ff532e7fdd2d3d36805118d0d",
     "imageVersion": "20261119-cleaver-clipping",
     "changelog": [
+      {
+        "date": "27 November 2026",
+        "text": "broken sound marker removed, model loads again."
+      },
       {
         "date": "19 November 2026",
         "text": "Fixed tiny clipping"
