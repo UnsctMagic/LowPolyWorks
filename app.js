@@ -11,7 +11,7 @@ import {wheelSelect} from './wheel-select.js?v=20261022-wheel-animations';
 import {TEAM_COLORS} from './vendor/mdlxl/src/team-colors.js';
 import {recordUsage} from './usage.js?v=20261025-amsterdam-days';
 import {renderJournal} from './journal.js?v=20261124-viewer-wheel';
-import {readMdlxlRoute,mdlxlHref} from './mdlxl-routes.js?v=20261117-animate-tutorials';
+import {readMdlxlRoute,mdlxlHref} from './mdlxl-routes.js?v=20261127-cut-tutorial';
 const initialMdlxl=readMdlxlRoute(location);if(initialMdlxl&&location.hash.startsWith('#project/mdlxl'))history.replaceState(null,'',mdlxlHref(initialMdlxl.section,initialMdlxl.tutorial,location.search));
 const app=document.querySelector('#app');
 let baseCatalogue=[],armies=[],variantGroups=[],armyCardOrder=[],catalogueLoad;
@@ -92,7 +92,7 @@ async function route(){prepareMobileLayout(document.querySelector('.masthead'));
  const isCatalogue=legacyCatalogue||(!location.hash&&/^\/warhammercraft\/?$/.test(location.pathname))||Boolean(kind);document.body.classList.toggle('journal',!isCatalogue);
  const isMdlxl=!!mdlxlState;document.body.classList.toggle('mdlxl',isMdlxl);
  for(const link of document.querySelectorAll('.masthead nav a')){const selected=link.pathname==='/mdlxl/'?isMdlxl:link.pathname==='/warhammercraft/'&&isCatalogue;if(selected)link.setAttribute('aria-current','page');else link.removeAttribute('aria-current');}
- if(isMdlxl){document.querySelector('.masthead a[href="/mdlxl/"]').setAttribute('aria-current','page');const {renderMdlxl}=await import('./mdlxl.js?v=20261127-fit-tutorial');if(version!==routeVersion)return;await renderMdlxl(app,()=>version===routeVersion,recordUsage);return;}
+ if(isMdlxl){document.querySelector('.masthead a[href="/mdlxl/"]').setAttribute('aria-current','page');const {renderMdlxl}=await import('./mdlxl.js?v=20261127-cut-tutorial');if(version!==routeVersion)return;await renderMdlxl(app,()=>version===routeVersion,recordUsage);return;}
  if(!isCatalogue){await renderJournal(app,()=>version===routeVersion);return;}
  try{await loadCatalogue();}catch(error){if(version===routeVersion)app.innerHTML='<p class="viewer-error">'+escape(error.message)+'</p>';return;}
  if(version!==routeVersion)return;
