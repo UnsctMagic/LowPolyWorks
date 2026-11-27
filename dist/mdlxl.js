@@ -1,4 +1,4 @@
-import {mdlxlLanguages,mdlxlLanguage,mdlxlText,localizedMdlxlMarkup,applyMdlxlShellLanguage} from './mdlxl-languages.js?v=20261127-fit-tutorial';
+import {mdlxlLanguages,mdlxlLanguage,mdlxlText,localizedMdlxlMarkup,applyMdlxlShellLanguage} from './mdlxl-languages.js?v=20261119-no-discord';
 import {readMdlxlRoute,mdlxlHref} from './mdlxl-routes.js?v=20261117-animate-tutorials';
 import {mdlxlLogoMarkup,igniteMdlxlLogo} from './mdlxl-eyes.js?v=20261029-project-branding';
 const REPO='https://github.com/UnsctMagic/MDLxL';
