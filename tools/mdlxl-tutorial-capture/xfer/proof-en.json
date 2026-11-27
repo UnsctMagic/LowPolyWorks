@@ -1,0 +1,703 @@
+{
+ "locale": "en",
+ "checks": [
+  {
+   "ok": true,
+   "message": "UI language",
+   "data": "en"
+  },
+  {
+   "ok": true,
+   "message": "the Transfer window is closed before the clip",
+   "data": null
+  },
+  {
+   "ok": true,
+   "message": "XFER opens in Transplant",
+   "data": null
+  },
+  {
+   "ok": true,
+   "message": "the Gargoyle is the chosen donor in From",
+   "data": null
+  },
+  {
+   "ok": true,
+   "message": "clicking Walk - 1 chooses it for both views",
+   "data": [
+    "Walk - 1",
+    "Walk - 1"
+   ]
+  },
+  {
+   "ok": true,
+   "message": "both views show the animation clicked in the list",
+   "data": [
+    "Attack - 2",
+    "Attack - 2"
+   ]
+  },
+  {
+   "ok": true,
+   "message": "Pause stops the donor view",
+   "data": "Play"
+  },
+  {
+   "ok": true,
+   "message": "a paused view does not move",
+   "data": "4850"
+  },
+  {
+   "ok": true,
+   "message": "dragging the track moves the donor view to another moment",
+   "data": {
+    "t1": "4850",
+    "t2": "5263"
+   }
+  },
+  {
+   "ok": true,
+   "message": "Play starts the donor view again",
+   "data": "Pause"
+  },
+  {
+   "ok": true,
+   "message": "Speed 50% is set on the donor view",
+   "data": "50"
+  },
+  {
+   "ok": true,
+   "message": "the Result dropdown changes both views to the same animation",
+   "data": [
+    "Walk - 1",
+    "Walk - 1"
+   ]
+  },
+  {
+   "ok": true,
+   "message": "dragging the result view also turns the donor view",
+   "data": {
+    "before": {
+     "frame": 2783,
+     "sequence": 1,
+     "camera": [
+      110.5512039697685,
+      -196.69708478994914,
+      130.0054300579295
+     ],
+     "playing": true,
+     "time": 2768
+    },
+    "after": [
+     -30.40054878005335,
+     148.80364917780784,
+     242.22287023018657
+    ]
+   }
+  },
+  {
+   "ok": true,
+   "message": "both views look different after the drag",
+   "data": null
+  },
+  {
+   "ok": true,
+   "message": "the reset button turns the views back",
+   "data": {
+    "turned": [
+     -30.40054878005335,
+     148.80364917780784,
+     242.22287023018657
+    ],
+    "back": [
+     110.55120396976722,
+     -196.69708478994738,
+     130.0054300579284
+    ]
+   }
+  },
+  {
+   "ok": true,
+   "message": "Rotation is the chosen method",
+   "data": null
+  },
+  {
+   "ok": true,
+   "message": "Rotation: no part uses engine 2",
+   "data": {
+    "events": true,
+    "emitters": false,
+    "keep": [],
+    "mirror": false,
+    "autoFix": {
+     "trackWindow": true,
+     "keepTorso": true
+    },
+    "donorSequence": 0
+   }
+  },
+  {
+   "ok": true,
+   "message": "Position: every part uses engine 2",
+   "data": {
+    "events": true,
+    "emitters": false,
+    "keep": [],
+    "mirror": false,
+    "autoFix": {
+     "trackWindow": true,
+     "keepTorso": true
+    },
+    "engine": 2,
+    "regions": {
+     "armL": 2,
+     "armR": 2,
+     "legL": 2,
+     "legR": 2,
+     "weapon": 2
+    },
+    "donorSequence": 0
+   }
+  },
+  {
+   "ok": true,
+   "message": "Mix shows a dot on each arm and leg of the result",
+   "data": [
+    "Foot",
+    "Foot",
+    "Hand",
+    "Hand"
+   ]
+  },
+  {
+   "ok": true,
+   "message": "clicking a dot opens its Rotation / Position choice",
+   "data": null
+  },
+  {
+   "ok": true,
+   "message": "Mix: one part now turns like the donor, the others use Position",
+   "data": {
+    "armL": 2,
+    "armR": 1,
+    "legL": 2,
+    "legR": 2,
+    "weapon": 2
+   }
+  },
+  {
+   "ok": true,
+   "message": "This animation is the chosen scope",
+   "data": null
+  },
+  {
+   "ok": true,
+   "message": "More opens the extra choices",
+   "data": null
+  },
+  {
+   "ok": true,
+   "message": "Esc closed only the menu, not the window",
+   "data": null
+  },
+  {
+   "ok": true,
+   "message": "Mirror switches the donor left and right",
+   "data": null
+  },
+  {
+   "ok": true,
+   "message": "Mirror off again",
+   "data": null
+  },
+  {
+   "ok": true,
+   "message": "Sounds off",
+   "data": null
+  },
+  {
+   "ok": true,
+   "message": "Effects on",
+   "data": null
+  },
+  {
+   "ok": true,
+   "message": "Keep: the axe stays on its own bone",
+   "data": [
+    19
+   ]
+  },
+  {
+   "ok": true,
+   "message": "Transplant gives the model the donor bones and animations",
+   "data": {
+    "before": 38,
+    "after": 57,
+    "sequences": [
+     "Stand - 1",
+     "Walk - 1",
+     "Walk - 2",
+     "Stand - 2",
+     "Attack - 2",
+     "Death",
+     "Morph",
+     "Stand Alternate",
+     "Morph Alternate",
+     "Death Alternate"
+    ]
+   }
+  },
+  {
+   "ok": true,
+   "message": "Transplant is off after it is applied",
+   "data": null
+  },
+  {
+   "ok": true,
+   "message": "Ctrl + Z puts the original bones and animations back",
+   "data": {
+    "bones": 38,
+    "sequences": [
+     "walk",
+     "Stand - 1",
+     "Attack - 1",
+     "Death",
+     "Decay Flesh",
+     "Attack - 2",
+     "Stand - 2",
+     "Stand Victory",
+     "Stand - 3",
+     "Spell",
+     "Stand Ready",
+     "Decay Bone"
+    ]
+   }
+  },
+  {
+   "ok": true,
+   "message": "Retarget starts with no part taken",
+   "data": []
+  },
+  {
+   "ok": true,
+   "message": "the donor shows a hand handle",
+   "data": null
+  },
+  {
+   "ok": true,
+   "message": "clicking a hand handle takes that arm",
+   "data": [
+    "Right arm"
+   ]
+  },
+  {
+   "ok": true,
+   "message": "clicking a foot handle takes that leg",
+   "data": [
+    "Right arm",
+    "Left leg"
+   ]
+  },
+  {
+   "ok": true,
+   "message": "Take whole body takes all seven parts",
+   "data": [
+    "Head",
+    "Chest",
+    "Hips",
+    "Left arm",
+    "Right arm",
+    "Left leg",
+    "Right leg"
+   ]
+  },
+  {
+   "ok": true,
+   "message": "Clear all removes them",
+   "data": []
+  },
+  {
+   "ok": true,
+   "message": "Mirror is on for the donor",
+   "data": null
+  },
+  {
+   "ok": true,
+   "message": "dragging Strength raises it and moves the hand path",
+   "data": {
+    "v0": 100,
+    "v1": 142
+   }
+  },
+  {
+   "ok": true,
+   "message": "double-clicking the slider puts 100% back",
+   "data": 100
+  },
+  {
+   "ok": true,
+   "message": "dragging Pose toward Theirs raises it",
+   "data": {
+    "m0": 50,
+    "m1": 100
+   }
+  },
+  {
+   "ok": true,
+   "message": "Raise changed",
+   "data": {
+    "v": 0,
+    "now": 60
+   }
+  },
+  {
+   "ok": true,
+   "message": "Turn changed",
+   "data": {
+    "v": 0,
+    "now": 50
+   }
+  },
+  {
+   "ok": true,
+   "message": "Roll changed",
+   "data": {
+    "v": 0,
+    "now": 44
+   }
+  },
+  {
+   "ok": true,
+   "message": "dragging the hand with Whole movement changes Raise / Turn",
+   "data": {
+    "o0": [
+     60,
+     50
+    ],
+    "o1": [
+     90,
+     57
+    ]
+   }
+  },
+  {
+   "ok": true,
+   "message": "This moment adds a diamond to the timeline",
+   "data": 1
+  },
+  {
+   "ok": true,
+   "message": "Clear fixes removes the diamond",
+   "data": 0
+  },
+  {
+   "ok": true,
+   "message": "dragging the clip sideways sets Delay",
+   "data": 270
+  },
+  {
+   "ok": true,
+   "message": "dragging an edge trims the clip (cut end drawn dashed)",
+   "data": null
+  },
+  {
+   "ok": true,
+   "message": "double-clicking the edge puts that end back",
+   "data": null
+  },
+  {
+   "ok": true,
+   "message": "speed changed",
+   "data": {
+    "v": 100,
+    "now": 225
+   }
+  },
+  {
+   "ok": true,
+   "message": "blend changed",
+   "data": {
+    "v": 0,
+    "now": 310
+   }
+  },
+  {
+   "ok": true,
+   "message": "Add after adds a lane of its own",
+   "data": {
+    "lanes0": 2,
+    "lanes1": 3
+   }
+  },
+  {
+   "ok": true,
+   "message": "its x removes the lane again",
+   "data": 2
+  },
+  {
+   "ok": true,
+   "message": "Keep foot on the ground switches",
+   "data": {
+    "was": true
+   }
+  },
+  {
+   "ok": true,
+   "message": "Stay in own range switches",
+   "data": {
+    "was": false
+   }
+  },
+  {
+   "ok": true,
+   "message": "Keep arm out of the body switches",
+   "data": {
+    "was": false
+   }
+  },
+  {
+   "ok": true,
+   "message": "Travel changed",
+   "data": {
+    "tv": 100,
+    "now": 33
+   }
+  },
+  {
+   "ok": true,
+   "message": "Keep weapon above the ground switches",
+   "data": {
+    "was": true
+   }
+  },
+  {
+   "ok": true,
+   "message": "Take from switches the selected part to the animation the donor view shows",
+   "data": null
+  },
+  {
+   "ok": true,
+   "message": "Add animation adds Gargoyle Attack to the model",
+   "data": {
+    "before": 12,
+    "after": [
+     "walk",
+     "Stand - 1",
+     "Attack - 1",
+     "Death",
+     "Decay Flesh",
+     "Attack - 2",
+     "Stand - 2",
+     "Stand Victory",
+     "Stand - 3",
+     "Spell",
+     "Stand Ready",
+     "Decay Bone",
+     "Gargoyle Attack"
+    ]
+   }
+  },
+  {
+   "ok": true,
+   "message": "the Result dropdown lists the new animation",
+   "data": null
+  },
+  {
+   "ok": true,
+   "message": "Keep own animations is on",
+   "data": null
+  },
+  {
+   "ok": true,
+   "message": "Add all adds the donor animations the model does not have",
+   "data": {
+    "label": "Add all\n(6)",
+    "before": 13,
+    "after": 19
+   }
+  },
+  {
+   "ok": true,
+   "message": "Load from… lists the saved setup",
+   "data": "Gargoyle setup\n×\nLoad from file…"
+  }
+ ],
+ "start": {
+  "sequences": [
+   "walk",
+   "Stand - 1",
+   "Attack - 1",
+   "Death",
+   "Decay Flesh",
+   "Attack - 2",
+   "Stand - 2",
+   "Stand Victory",
+   "Stand - 3",
+   "Spell",
+   "Stand Ready",
+   "Decay Bone"
+  ],
+  "bones": 38
+ },
+ "donorFile": "D:/Claude/xfertut-work/models/Gargoyle.mdx",
+ "open": {
+  "dropdowns": [
+   "Attack - 2",
+   "Attack - 2"
+  ]
+ },
+ "views": {
+  "before": {
+   "frame": 2783,
+   "sequence": 1,
+   "camera": [
+    110.5512039697685,
+    -196.69708478994914,
+    130.0054300579295
+   ],
+   "playing": true,
+   "time": 2768
+  },
+  "turned": [
+   -30.40054878005335,
+   148.80364917780784,
+   242.22287023018657
+  ],
+  "back": [
+   110.55120396976722,
+   -196.69708478994738,
+   130.0054300579284
+  ]
+ },
+ "moreItems": [
+  "Donor pose",
+  "Keep own torso",
+  "Keep donor motion"
+ ],
+ "apply": {
+  "before": {
+   "sequences": [
+    "walk",
+    "Stand - 1",
+    "Attack - 1",
+    "Death",
+    "Decay Flesh",
+    "Attack - 2",
+    "Stand - 2",
+    "Stand Victory",
+    "Stand - 3",
+    "Spell",
+    "Stand Ready",
+    "Decay Bone"
+   ],
+   "bones": 38,
+   "geosets": 8
+  },
+  "after": {
+   "sequences": [
+    "Stand - 1",
+    "Walk - 1",
+    "Walk - 2",
+    "Stand - 2",
+    "Attack - 2",
+    "Death",
+    "Morph",
+    "Stand Alternate",
+    "Morph Alternate",
+    "Death Alternate"
+   ],
+   "bones": 57,
+   "geosets": 8
+  },
+  "undone": {
+   "sequences": [
+    "walk",
+    "Stand - 1",
+    "Attack - 1",
+    "Death",
+    "Decay Flesh",
+    "Attack - 2",
+    "Stand - 2",
+    "Stand Victory",
+    "Stand - 3",
+    "Spell",
+    "Stand Ready",
+    "Decay Bone"
+   ],
+   "bones": 38,
+   "geosets": 8
+  }
+ },
+ "take": {
+  "first": "Right arm",
+  "afterOtherSide": [
+   "Right arm"
+  ]
+ },
+ "tune": {
+  "strength": 142,
+  "offsets": [
+   60,
+   50,
+   44
+  ]
+ },
+ "switches": {
+  "weaponShown": 1,
+  "takeFrom": 0,
+  "ownFeatures": 0
+ },
+ "finish": {
+  "label": "Add all\n(6)",
+  "before": [
+   "walk",
+   "Stand - 1",
+   "Attack - 1",
+   "Death",
+   "Decay Flesh",
+   "Attack - 2",
+   "Stand - 2",
+   "Stand Victory",
+   "Stand - 3",
+   "Spell",
+   "Stand Ready",
+   "Decay Bone"
+  ],
+  "afterOne": [
+   "walk",
+   "Stand - 1",
+   "Attack - 1",
+   "Death",
+   "Decay Flesh",
+   "Attack - 2",
+   "Stand - 2",
+   "Stand Victory",
+   "Stand - 3",
+   "Spell",
+   "Stand Ready",
+   "Decay Bone",
+   "Gargoyle Attack"
+  ],
+  "afterAll": [
+   "walk",
+   "Stand - 1",
+   "Attack - 1",
+   "Death",
+   "Decay Flesh",
+   "Attack - 2",
+   "Stand - 2",
+   "Stand Victory",
+   "Stand - 3",
+   "Spell",
+   "Stand Ready",
+   "Decay Bone",
+   "Gargoyle Attack",
+   "Walk - 1",
+   "Walk - 2",
+   "Morph",
+   "Stand Alternate",
+   "Morph Alternate",
+   "Death Alternate"
+  ]
+ }
+}
