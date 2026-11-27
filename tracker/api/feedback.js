@@ -4,6 +4,11 @@ import {authorized} from '../lib/events.js';
 // Room for 2000 characters of four-byte text (emoji, rare CJK) plus the name and other fields.
 const MAX_BODY=10240;
 const clean=value=>value.replace(/[\u0000-\u0008\u000B-\u001F\u007F]/g,'').trim();
+// Reports are plain visible text only. Anything a reader cannot see is refused, not cleaned: invisible
+// format characters (zero-width, joiners, direction overrides, tag letters that can hide words for an AI),
+// other control characters, private-use and unassigned code points, lone surrogates, line/paragraph
+// separators and variation selectors (U+FE0F only right after an emoji, once).
+export const hiddenText=value=>/[\p{Cc}\p{Cf}\p{Co}\p{Cn}\p{Cs}\p{Zl}\p{Zp}\u{FE00}-\u{FE0E}\u{E0100}-\u{E01EF}]|(?<!\p{Extended_Pictographic})\u{FE0F}/u.test(value.replace(/[\n\t]/g,''));
 export function createFeedbackHandler({feedback,env=process.env}={}){return async function handler(req,res){
  res.setHeader('Cache-Control','no-store');
  const query=new URL(req.url,'https://tracker.invalid').searchParams;
@@ -31,10 +36,10 @@ export function createFeedbackHandler({feedback,env=process.env}={}){return asyn
   if(!input||typeof input!=='object'||Array.isArray(input)){res.status(400).end();return;}
   if(Buffer.byteLength(JSON.stringify(input))>MAX_BODY){res.status(413).end();return;}
   const message=typeof input.message==='string'?clean(input.message):'';
-  if(!message||message.length>2000||!/^[a-f0-9]{64}$/.test(input.pc)||!/^\d{1,4}\.\d{1,4}\.\d{1,4}$/.test(input.version)){res.status(400).end();return;}
+  if(!message||message.length>2000||hiddenText(message)||!/^[a-f0-9]{64}$/.test(input.pc)||!/^\d{1,4}\.\d{1,4}\.\d{1,4}$/.test(input.version)){res.status(400).end();return;}
   const os=typeof input.os==='string'&&input.os.length<=60&&/^[A-Za-z0-9 ._()-]*$/.test(input.os)?input.os:'';
   const name=typeof input.name==='string'?clean(input.name).replace(/\s+/g,' '):'';
-  if(name.length>40){res.status(400).end();return;}
+  if(name.length>40||hiddenText(clean(String(input.name??"")))){res.status(400).end();return;}
   const ip=String(req.headers['x-forwarded-for']||'unknown').split(',')[0].trim();
   // A report that matches the private rules gets the same answer as a saved one, and nothing is stored.
   const report={message,name,pc:input.pc,version:input.version,os,ip};

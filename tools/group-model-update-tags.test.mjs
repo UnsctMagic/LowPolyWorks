@@ -49,3 +49,17 @@ test('group dates prefer revisions and retain expiry without mutating records or
  assert.deepEqual(groupModelUpdate(['missing'],records),{});
  assert.equal(badge(groupModelUpdate(['legacy','first'],{...records,legacy:{sha256:'previous'}}),start),'Updated 04/11');
 });
+
+test('revisions and new variants in a shared launch keep the original New! window',()=>{
+ const published=Date.parse('2026-11-22T18:19:34.760Z');
+ const records={
+  lord:{publishedAt:new Date(published).toISOString(),updatedAt:'2026-11-22T18:56:19.592Z'},
+  hero:{publishedAt:new Date(published).toISOString(),updatedAt:'2026-11-22T18:56:19.592Z'},
+  riderless:{publishedAt:'2026-11-22T21:06:10.683Z'},
+ };
+ const record=groupModelUpdate(Object.keys(records),records);
+ assert.equal(record.updatedAt,records.riderless.publishedAt);
+ assert.equal(badge(record,Date.parse(records.riderless.publishedAt)),'New!');
+ assert.equal(badge(record,published+3*day-1),'New!');
+ assert.equal(badge(record,published+3*day),null);
+});

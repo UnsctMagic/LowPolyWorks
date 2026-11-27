@@ -1,4 +1,4 @@
-import {applyMdlxlShellLanguage} from './mdlxl-languages.js?v=20261105-permanent-download';
+import {applyMdlxlShellLanguage} from './mdlxl-languages.js?v=20261119-no-discord';
 import {mdlxlHref} from './mdlxl-routes.js?v=20261117-animate-tutorials';
 import {mountTutorialPlayers} from './mdlxl/tutorials/playback.js?v=20261109-tutorial-mp4';
 import {startToolPings} from './mdlxl/tutorials/highlights.js?v=20261030-tutorial-languages';

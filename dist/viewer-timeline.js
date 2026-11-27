@@ -1,17 +1,19 @@
 export function timelineMarkup(){
- return '<div class="control-row viewer-timeline"><input id="animation-time" class="range" type="range" min="0" max="0" step="1" value="0" aria-label="Animation time" title="Scrub animation" disabled><span id="animation-time-label" aria-hidden="true">0.00 / 0.00 s</span><button id="reset-viewpoint" class="iron-button" type="button" aria-label="Reset viewpoint" title="Reset viewpoint" disabled>&#8634;</button></div>';
+ return '<div class="control-row viewer-timeline"><input id="animation-time" class="range" type="range" min="0" max="0" step="1" value="0" aria-label="Animation time" title="Scrub animation" disabled><span id="animation-time-label" aria-hidden="true" data-full-time="0.00 / 0.00 s"><span>0.00 / 0.00 s</span></span><button id="reset-viewpoint" class="iron-button" type="button" aria-label="Reset viewpoint" title="Reset viewpoint" disabled>&#8634;</button></div>';
 }
 export function mountTimeline(container,seek){
  const input=container.querySelector('#animation-time'),label=container.querySelector('#animation-time-label');
+ const labelText=label.querySelector('span');
  input.oninput=()=>seek(Number(input.value));
  let lastTime,lastDuration;
  return ({time,duration})=>{
   time=Math.round(time);duration=Math.round(duration);
   if(time===lastTime&&duration===lastDuration)return;
+  const elapsed=(time/1000).toFixed(2),total=(duration/1000).toFixed(2);
+  if(duration!==lastDuration)label.dataset.fullTime=total+' / '+total+' s';
   lastTime=time;lastDuration=duration;
   input.max=String(duration);input.value=String(time);input.disabled=duration<=0;
-  const elapsed=(time/1000).toFixed(2),total=(duration/1000).toFixed(2);
-  label.textContent=elapsed+' / '+total+' s';
+  labelText.textContent=elapsed+' / '+total+' s';
   input.setAttribute('aria-valuetext',elapsed+' of '+total+' seconds');
  };
 }

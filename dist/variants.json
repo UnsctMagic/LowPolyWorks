@@ -827,5 +827,52 @@
         "label": "Hero"
       }
     ]
+  },
+  {
+    "id": "daemonette-of-slaanesh",
+    "name": "Daemonette of Slaanesh",
+    "variants": [
+      {
+        "id": "daemonette-of-slaanesh",
+        "label": "Original"
+      },
+      {
+        "id": "daemonette-of-slaanesh-team-color",
+        "label": "Team Color"
+      }
+    ]
+  },
+  {
+    "id": "chaos-dragon-with-chaos-lord",
+    "name": "Chaos Dragon - Chaos Lord",
+    "showCardVariants": false,
+    "variants": [
+      {
+        "id": "chaos-dragon-with-chaos-lord",
+        "label": "Unit"
+      },
+      {
+        "id": "chaos-dragon-with-chaos-lord-hero",
+        "label": "Hero"
+      },
+      {
+        "id": "chaos-dragon-with-chaos-lord-lance",
+        "label": "Lance"
+      }
+    ]
+  },
+  {
+    "id": "chaos-sorcerer-of-tzeentch",
+    "name": "Chaos Sorcerer of Tzeentch",
+    "variants": [
+      {
+        "id": "chaos-sorcerer-of-tzeentch",
+        "label": "Unit"
+      },
+      {
+        "id": "chaos-sorcerer-of-tzeentch-hero",
+        "label": "Hero"
+      }
+    ]
   }
 ]
