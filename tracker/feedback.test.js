@@ -153,3 +153,17 @@ test('the rules see through spacing, digits, look-alike letters, accents, hidden
   '**Bold** text and **A** b**','k i w и','eg g'])assert(!blocks(text),text);
  assert.equal(compileRules([]).blocks('anything'),false);
 });
+
+test('reports carry only visible text: hidden characters are refused and nothing is stored',async()=>{
+ const {call,db}=setup();
+ const hidden=['a\u200Bb','a\u200Db','a\u2060b','a\uFEFFb','a\u00ADb','a\u202Eevil\u202Cb','a\u2066b\u2069','a\u{E0049}\u{E0067}\u{E006E}b','a\u{E0100}b','a\uFE00b','a\uFE0Eb','a\uFE0Fb','a\uE000b','a\u{10FFFD}b','a\u2028b','a\u2029b','a\u0085b','a\u009Bb','a\uD800b','a\u0378b'];
+ for(const [i,text] of hidden.entries()){
+  assert.equal((await call({body:report(i+1,{message:text}),ip:'192.0.2.'+i})).status,400,JSON.stringify(text));
+  assert.equal((await call({body:report(i+1,{message:'Plain.',name:text}),ip:'192.0.2.'+i})).status,400,'name '+JSON.stringify(text));
+ }
+ assert.equal(db.sqlite.prepare('SELECT COUNT(*) n FROM feedback').get().n,0);
+ // Ordinary text in any language, line breaks, tabs, code-looking text and a plain emoji still arrive unchanged.
+ const plain=['Crash when I press Fit.\n\tSteps: open, Fit.','\u0421\u0431\u043e\u0439 \u043f\u0440\u0438 \u0441\u043e\u0445\u0440\u0430\u043d\u0435\u043d\u0438\u0438','\u4fdd\u5b58\u65f6\u5d29\u6e83',"<script>alert(1)</script> '; DROP TABLE feedback;--",'Works great \u2764\uFE0F \u{1F44D}'];
+ for(const [i,text] of plain.entries())assert.equal((await call({body:report(100+i,{message:text}),ip:'198.51.100.'+i})).status,204,text);
+ assert.deepEqual(db.sqlite.prepare('SELECT message FROM feedback ORDER BY id').all().map(row=>row.message),plain);
+});
