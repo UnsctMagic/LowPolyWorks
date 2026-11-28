@@ -93,6 +93,15 @@
             <span class="tutorial-card-footer"><span>2 étapes</span><span class="tutorial-card-open">Ouvrir le tutoriel →</span></span>
           </span>
         </a>
+<a class="tutorial-card" id="tab-xfer" aria-controls="tutorial-xfer" data-tutorial="xfer" href="/mdlxl/tutorials/xfer/?lang=fr">
+          <span class="tutorial-card-media" aria-hidden="true"><img src="/mdlxl/tutorials/fr/xfer-card.png?v=8af05b13675e4bdb" width="960" height="504" alt=""></span>
+          <span class="tutorial-card-copy">
+            <span class="tutorial-card-category">Animation</span>
+            <span class="tutorial-card-title">XFER : transférer des animations</span>
+            <span class="tutorial-card-description">Transférez des animations d’un modèle à un autre, squelette entier ou partie par partie.</span>
+            <span class="tutorial-card-footer"><span>10 étapes</span><span class="tutorial-card-open">Ouvrir le tutoriel →</span></span>
+          </span>
+        </a>
 </nav>
     </div>
     <a class="tutorial-back" id="tutorial-back" hidden><span aria-hidden="true">←</span> Tous les tutoriels</a>
@@ -295,5 +304,60 @@
         <h4 id="cut-corner-title">Couper vers un coin</h4>
         <figure class="gif-player" data-animation="cut-corner"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/fr/cut-corner.mp4?v=115120063dd1e4bb" muted loop playsinline controls width="1264" height="760" preload="metadata" aria-label="Couper vers un coin. Appuyez sur Ctrl + Z pour annuler. Avec Couper actif, cliquez sur un sommet, puis sur le coin de l’autre côté de la ligne : la ligne entre les deux triangles pivote et s’arrête là."></video></figure>
         <p>Appuyez sur <kbd>Ctrl</kbd> + <kbd>Z</kbd> pour annuler. Avec <strong>Couper</strong> actif, cliquez sur un sommet, puis sur le coin de l’autre côté de la ligne : la ligne entre les deux triangles pivote et s’arrête là.</p>
+      </section>
+    </article>
+<article class="tutorial-panel" role="region" id="tutorial-xfer" aria-labelledby="tab-xfer" hidden>
+      <p class="sample-note">Animation</p>
+      <h3 id="xfer-title">XFER : transférer des animations</h3>
+      <p><strong>XFER</strong> donne au modèle ouvert le mouvement d’un autre modèle. <strong>Greffe</strong> place le modèle sur le squelette du donneur. <strong>Reciblage</strong> prend les parties une à une. Ce guide transfère les animations d’un modèle à un autre avec les deux.</p>
+      <section class="demo-step" aria-labelledby="xfer-open-title">
+        <h4 id="xfer-open-title">Ouvrir XFER et choisir le donneur</h4>
+        <figure class="gif-player" data-animation="xfer-open"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/fr/xfer-open.mp4?v=15133e8d96f0f62f" muted loop playsinline controls width="1600" height="900" preload="metadata" aria-label="Ouvrir XFER et choisir le donneur. Cliquez sur XFER. La fenêtre s’ouvre en Greffe ; le commutateur du haut passe de Greffe à Reciblage. Sous Depuis, cliquez sur Ouvrir un fichier... et choisissez le donneur. Cliquez sur une animation sous Animations : les deux vues la jouent."></video></figure>
+        <p>Cliquez sur <strong>XFER</strong>. La fenêtre s’ouvre en <strong>Greffe</strong> ; le commutateur du haut passe de <strong>Greffe</strong> à <strong>Reciblage</strong>. Sous <strong>Depuis</strong>, cliquez sur <strong>Ouvrir un fichier...</strong> et choisissez le donneur. Cliquez sur une animation sous <strong>Animations</strong> : les deux vues la jouent.</p>
+      </section>
+      <section class="demo-step" aria-labelledby="xfer-views-title">
+        <h4 id="xfer-views-title">Vues et lecture</h4>
+        <figure class="gif-player" data-animation="xfer-views"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/fr/xfer-views.mp4?v=107db3c3eaa5c38a" muted loop playsinline controls width="1600" height="900" preload="metadata" aria-label="Vues et lecture. Chaque vue a Pause / Lire, une piste à faire glisser pour parcourir l’animation, une Vitesse qui ne change que la vitesse d’affichage, et une liste d’animations. Faites glisser dans une vue pour tourner les deux. Cliquez sur ↺ pour recadrer le modèle et remettre les deux vues à l’angle de départ."></video></figure>
+        <p>Chaque vue a <strong>Pause</strong> / <strong>Lire</strong>, une piste à faire glisser pour parcourir l’animation, une <strong>Vitesse</strong> qui ne change que la vitesse d’affichage, et une liste d’animations. Faites glisser dans une vue pour tourner les deux. Cliquez sur <strong>↺</strong> pour recadrer le modèle et remettre les deux vues à l’angle de départ.</p>
+      </section>
+      <section class="demo-step" aria-labelledby="xfer-transplant-method-title">
+        <h4 id="xfer-transplant-method-title">Greffe : méthode</h4>
+        <figure class="gif-player" data-animation="xfer-transplant-method"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/fr/xfer-transplant-method.mp4?v=c5eab6eaa65d88c9" muted loop playsinline controls width="1600" height="900" preload="metadata" aria-label="Greffe : méthode. Rotation fait tourner chaque articulation comme celle du donneur. Position envoie mains et pieds là où vont ceux du donneur ; l’étoile marque la suggestion. Mixte affiche un point sur chaque bras et chaque jambe : cliquez sur l’un et choisissez Rotation ou Position pour cette partie. Toutes les animations applique le choix à toutes les animations, Cette animation seulement à celle affichée."></video></figure>
+        <p><strong>Rotation</strong> fait tourner chaque articulation comme celle du donneur. <strong>Position</strong> envoie mains et pieds là où vont ceux du donneur ; l’étoile marque la suggestion. <strong>Mixte</strong> affiche un point sur chaque bras et chaque jambe : cliquez sur l’un et choisissez <strong>Rotation</strong> ou <strong>Position</strong> pour cette partie. <strong>Toutes les animations</strong> applique le choix à toutes les animations, <strong>Cette animation</strong> seulement à celle affichée.</p>
+      </section>
+      <section class="demo-step" aria-labelledby="xfer-transplant-options-title">
+        <h4 id="xfer-transplant-options-title">Greffe : Symétrie, Sons, Effets, Garder</h4>
+        <figure class="gif-player" data-animation="xfer-transplant-options"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/fr/xfer-transplant-options.mp4?v=b648dadda579b4db" muted loop playsinline controls width="1600" height="900" preload="metadata" aria-label="Greffe : Symétrie, Sons, Effets, Garder. Symétrie échange la gauche et la droite du donneur. Sons garde les sons du donneur, Effets ajoute ses effets de particules. Sous Garder, une pièce cochée reste sur son propre os."></video></figure>
+        <p><strong>Symétrie</strong> échange la gauche et la droite du donneur. <strong>Sons</strong> garde les sons du donneur, <strong>Effets</strong> ajoute ses effets de particules. Sous <strong>Garder</strong>, une pièce cochée reste sur son propre os.</p>
+      </section>
+      <section class="demo-step" aria-labelledby="xfer-transplant-apply-title">
+        <h4 id="xfer-transplant-apply-title">Greffe et annulation</h4>
+        <figure class="gif-player" data-animation="xfer-transplant-apply"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/fr/xfer-transplant-apply.mp4?v=3f50ef0980e390b9" muted loop playsinline controls width="1600" height="900" preload="metadata" aria-label="Greffe et annulation. Cliquez sur Greffe. Le modèle reçoit les os du donneur et toutes ses animations ; le bouton s’éteint jusqu’à ce qu’un réglage change. Fermez la fenêtre et regardez l’onglet Animations. Ctrl + Z l’annule en une étape."></video></figure>
+        <p>Cliquez sur <strong>Greffe</strong>. Le modèle reçoit les os du donneur et toutes ses animations ; le bouton s’éteint jusqu’à ce qu’un réglage change. Fermez la fenêtre et regardez l’onglet <strong>Animations</strong>. <kbd>Ctrl</kbd> + <kbd>Z</kbd> l’annule en une étape.</p>
+      </section>
+      <section class="demo-step" aria-labelledby="xfer-retarget-take-title">
+        <h4 id="xfer-retarget-take-title">Reciblage : prendre des parties</h4>
+        <figure class="gif-player" data-animation="xfer-retarget-take"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/fr/xfer-retarget-take.mp4?v=f626b9317808d21c" muted loop playsinline controls width="1600" height="900" preload="metadata" aria-label="Reciblage : prendre des parties. Cliquez sur Reciblage. Cliquez sur une animation, puis sur la poignée d’une main ou d’un pied du donneur : cette partie est prise et son commutateur s’active dans la liste des parties. Prendre tout le corps prend toutes les parties, Tout effacer les retire. Symétrie et Autre côté prennent depuis l’autre côté du donneur."></video></figure>
+        <p>Cliquez sur <strong>Reciblage</strong>. Cliquez sur une animation, puis sur la poignée d’une main ou d’un pied du donneur : cette partie est prise et son commutateur s’active dans la liste des parties. <strong>Prendre tout le corps</strong> prend toutes les parties, <strong>Tout effacer</strong> les retire. <strong>Symétrie</strong> et <strong>Autre côté</strong> prennent depuis l’autre côté du donneur.</p>
+      </section>
+      <section class="demo-step" aria-labelledby="xfer-retarget-tune-title">
+        <h4 id="xfer-retarget-tune-title">Reciblage : régler et viser</h4>
+        <figure class="gif-player" data-animation="xfer-retarget-tune"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/fr/xfer-retarget-tune.mp4?v=2a7b8d331cea3f84" muted loop playsinline controls width="1600" height="900" preload="metadata" aria-label="Reciblage : régler et viser. Sélectionnez une partie prise. Intensité, Pose (de La mienne à La sienne), Lever, Tourner et Enrouler la modifient, et la trajectoire orange suit. Double-cliquez sur un curseur pour remettre sa valeur par défaut. Faites glisser la main sur le résultat : Tout le mouvement tourne tout le mouvement, Ce moment corrige un seul instant (un losange apparaît sur la ligne de temps), Effacer les corrections supprime les corrections."></video></figure>
+        <p>Sélectionnez une partie prise. <strong>Intensité</strong>, <strong>Pose</strong> (de <strong>La mienne</strong> à <strong>La sienne</strong>), <strong>Lever</strong>, <strong>Tourner</strong> et <strong>Enrouler</strong> la modifient, et la trajectoire orange suit. Double-cliquez sur un curseur pour remettre sa valeur par défaut. Faites glisser la main sur le résultat : <strong>Tout le mouvement</strong> tourne tout le mouvement, <strong>Ce moment</strong> corrige un seul instant (un losange apparaît sur la ligne de temps), <strong>Effacer les corrections</strong> supprime les corrections.</p>
+      </section>
+      <section class="demo-step" aria-labelledby="xfer-retarget-timeline-title">
+        <h4 id="xfer-retarget-timeline-title">Reciblage : ligne de temps</h4>
+        <figure class="gif-player" data-animation="xfer-retarget-timeline"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/fr/xfer-retarget-timeline.mp4?v=005c8fbf89a31226" muted loop playsinline controls width="1600" height="900" preload="metadata" aria-label="Reciblage : ligne de temps. Faites glisser un clip sur le côté pour régler Délai. Faites glisser un bord pour le rogner, double-cliquez sur le bord pour le rétablir. Chronologie contient Délai, Vitesse et Souplesse. Ajouter après joue l’animation affichée par le donneur après la première, sur une piste à part ; son × la retire."></video></figure>
+        <p>Faites glisser un clip sur le côté pour régler <strong>Délai</strong>. Faites glisser un bord pour le rogner, double-cliquez sur le bord pour le rétablir. <strong>Chronologie</strong> contient <strong>Délai</strong>, <strong>Vitesse</strong> et <strong>Souplesse</strong>. <strong>Ajouter après</strong> joue l’animation affichée par le donneur après la première, sur une piste à part ; son × la retire.</p>
+      </section>
+      <section class="demo-step" aria-labelledby="xfer-retarget-switches-title">
+        <h4 id="xfer-retarget-switches-title">Reciblage : commutateurs</h4>
+        <figure class="gif-player" data-animation="xfer-retarget-switches"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/fr/xfer-retarget-switches.mp4?v=54cb412ab2500f86" muted loop playsinline controls width="1600" height="900" preload="metadata" aria-label="Reciblage : commutateurs. Toutes les parties prises modifie toutes les parties prises à la fois. Garder le pied au sol, Rester dans sa propre amplitude, Garder le bras hors du corps, Déplacement et, sur un bras qui tient une arme, Garder l'arme au-dessus du sol. Prendre de prend la partie sélectionnée dans l’animation que montre maintenant la vue du donneur."></video></figure>
+        <p><strong>Toutes les parties prises</strong> modifie toutes les parties prises à la fois. <strong>Garder le pied au sol</strong>, <strong>Rester dans sa propre amplitude</strong>, <strong>Garder le bras hors du corps</strong>, <strong>Déplacement</strong> et, sur un bras qui tient une arme, <strong>Garder l'arme au-dessus du sol</strong>. <strong>Prendre de</strong> prend la partie sélectionnée dans l’animation que montre maintenant la vue du donneur.</p>
+      </section>
+      <section class="demo-step" aria-labelledby="xfer-retarget-finish-title">
+        <h4 id="xfer-retarget-finish-title">Reciblage : terminer</h4>
+        <figure class="gif-player" data-animation="xfer-retarget-finish"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/fr/xfer-retarget-finish.mp4?v=3ad4b640ecae235a" muted loop playsinline controls width="1600" height="900" preload="metadata" aria-label="Reciblage : terminer. Saisissez un Nom et cliquez sur Ajouter une animation : elle rejoint les animations du modèle. Tout ajouter ajoute tout l’ensemble du donneur ; Garder ses propres animations n’ajoute que celles que le modèle n’a pas. Enregistrer sous… garde la configuration, Charger depuis… la réutilise."></video></figure>
+        <p>Saisissez un <strong>Nom</strong> et cliquez sur <strong>Ajouter une animation</strong> : elle rejoint les animations du modèle. <strong>Tout ajouter</strong> ajoute tout l’ensemble du donneur ; <strong>Garder ses propres animations</strong> n’ajoute que celles que le modèle n’a pas. <strong>Enregistrer sous…</strong> garde la configuration, <strong>Charger depuis…</strong> la réutilise.</p>
       </section>
     </article>

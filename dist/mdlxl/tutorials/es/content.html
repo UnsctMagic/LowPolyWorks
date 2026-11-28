@@ -93,6 +93,15 @@
             <span class="tutorial-card-footer"><span>2 pasos</span><span class="tutorial-card-open">Abrir tutorial →</span></span>
           </span>
         </a>
+<a class="tutorial-card" id="tab-xfer" aria-controls="tutorial-xfer" data-tutorial="xfer" href="/mdlxl/tutorials/xfer/?lang=es">
+          <span class="tutorial-card-media" aria-hidden="true"><img src="/mdlxl/tutorials/es/xfer-card.png?v=e3e967f3f4115170" width="960" height="504" alt=""></span>
+          <span class="tutorial-card-copy">
+            <span class="tutorial-card-category">Animación</span>
+            <span class="tutorial-card-title">XFER: transferir animaciones</span>
+            <span class="tutorial-card-description">Pasa animaciones de un modelo a otro, con todo el esqueleto o parte por parte.</span>
+            <span class="tutorial-card-footer"><span>10 pasos</span><span class="tutorial-card-open">Abrir tutorial →</span></span>
+          </span>
+        </a>
 </nav>
     </div>
     <a class="tutorial-back" id="tutorial-back" hidden><span aria-hidden="true">←</span> Todos los tutoriales</a>
@@ -293,5 +302,60 @@
         <h4 id="cut-corner-title">Cortar a una esquina</h4>
         <figure class="gif-player" data-animation="cut-corner"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/es/cut-corner.mp4?v=cce573c7cff927e0" muted loop playsinline controls width="1264" height="760" preload="metadata" aria-label="Cortar a una esquina. Pulsa Ctrl + Z para deshacer. Con Cortar activo, pulsa un vértice y luego la esquina al otro lado de la línea: la línea entre los dos triángulos gira y termina allí."></video></figure>
         <p>Pulsa <kbd>Ctrl</kbd> + <kbd>Z</kbd> para deshacer. Con <strong>Cortar</strong> activo, pulsa un vértice y luego la esquina al otro lado de la línea: la línea entre los dos triángulos gira y termina allí.</p>
+      </section>
+    </article>
+<article class="tutorial-panel" role="region" id="tutorial-xfer" aria-labelledby="tab-xfer" hidden>
+      <p class="sample-note">Animación</p>
+      <h3 id="xfer-title">XFER: transferir animaciones</h3>
+      <p><strong>XFER</strong> da al modelo abierto el movimiento de otro modelo. <strong>Trasplante</strong> pone el modelo sobre el esqueleto del donante. <strong>Reasignar</strong> toma las partes una a una. Esta guía pasa las animaciones de un modelo a otro con ambos.</p>
+      <section class="demo-step" aria-labelledby="xfer-open-title">
+        <h4 id="xfer-open-title">Abrir XFER y elegir el donante</h4>
+        <figure class="gif-player" data-animation="xfer-open"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/es/xfer-open.mp4?v=87ab4f6646c717aa" muted loop playsinline controls width="1600" height="900" preload="metadata" aria-label="Abrir XFER y elegir el donante. Haz clic en XFER. La ventana se abre en Trasplante; el interruptor de arriba cambia entre Trasplante y Reasignar. En Desde, haz clic en Abrir archivo... y elige el donante. Haz clic en una animación de Animaciones: las dos vistas la reproducen."></video></figure>
+        <p>Haz clic en <strong>XFER</strong>. La ventana se abre en <strong>Trasplante</strong>; el interruptor de arriba cambia entre <strong>Trasplante</strong> y <strong>Reasignar</strong>. En <strong>Desde</strong>, haz clic en <strong>Abrir archivo...</strong> y elige el donante. Haz clic en una animación de <strong>Animaciones</strong>: las dos vistas la reproducen.</p>
+      </section>
+      <section class="demo-step" aria-labelledby="xfer-views-title">
+        <h4 id="xfer-views-title">Vistas y reproducción</h4>
+        <figure class="gif-player" data-animation="xfer-views"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/es/xfer-views.mp4?v=b5d544ff671ebd79" muted loop playsinline controls width="1600" height="900" preload="metadata" aria-label="Vistas y reproducción. Cada vista tiene Pausa / Reproducir, una barra para recorrer la animación, una Velocidad que solo cambia la rapidez de la vista y una lista de animaciones. Arrastra en cualquier vista para girar las dos. Haz clic en ↺ para encuadrar el modelo de nuevo y devolver las dos vistas a su ángulo inicial."></video></figure>
+        <p>Cada vista tiene <strong>Pausa</strong> / <strong>Reproducir</strong>, una barra para recorrer la animación, una <strong>Velocidad</strong> que solo cambia la rapidez de la vista y una lista de animaciones. Arrastra en cualquier vista para girar las dos. Haz clic en <strong>↺</strong> para encuadrar el modelo de nuevo y devolver las dos vistas a su ángulo inicial.</p>
+      </section>
+      <section class="demo-step" aria-labelledby="xfer-transplant-method-title">
+        <h4 id="xfer-transplant-method-title">Trasplante: método</h4>
+        <figure class="gif-player" data-animation="xfer-transplant-method"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/es/xfer-transplant-method.mp4?v=2bc0d2994c66bb41" muted loop playsinline controls width="1600" height="900" preload="metadata" aria-label="Trasplante: método. Rotación gira cada articulación como la del donante. Posición lleva manos y pies adonde van los del donante; la estrella marca la sugerencia. Mezcla muestra un punto en cada brazo y pierna: haz clic en uno y elige Rotación o Posición para esa parte. Todas las animaciones aplica la elección a todas las animaciones, Esta animación solo a la que se ve."></video></figure>
+        <p><strong>Rotación</strong> gira cada articulación como la del donante. <strong>Posición</strong> lleva manos y pies adonde van los del donante; la estrella marca la sugerencia. <strong>Mezcla</strong> muestra un punto en cada brazo y pierna: haz clic en uno y elige <strong>Rotación</strong> o <strong>Posición</strong> para esa parte. <strong>Todas las animaciones</strong> aplica la elección a todas las animaciones, <strong>Esta animación</strong> solo a la que se ve.</p>
+      </section>
+      <section class="demo-step" aria-labelledby="xfer-transplant-options-title">
+        <h4 id="xfer-transplant-options-title">Trasplante: Reflejar, Sonidos, Efectos, Conservar</h4>
+        <figure class="gif-player" data-animation="xfer-transplant-options"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/es/xfer-transplant-options.mp4?v=82759c1cd987e6cb" muted loop playsinline controls width="1600" height="900" preload="metadata" aria-label="Trasplante: Reflejar, Sonidos, Efectos, Conservar. Reflejar intercambia izquierda y derecha del donante. Sonidos conserva los sonidos del donante y Efectos añade sus efectos de partículas. En Conservar, una pieza marcada se queda en su propio hueso."></video></figure>
+        <p><strong>Reflejar</strong> intercambia izquierda y derecha del donante. <strong>Sonidos</strong> conserva los sonidos del donante y <strong>Efectos</strong> añade sus efectos de partículas. En <strong>Conservar</strong>, una pieza marcada se queda en su propio hueso.</p>
+      </section>
+      <section class="demo-step" aria-labelledby="xfer-transplant-apply-title">
+        <h4 id="xfer-transplant-apply-title">Trasplante y deshacer</h4>
+        <figure class="gif-player" data-animation="xfer-transplant-apply"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/es/xfer-transplant-apply.mp4?v=de343613b9f26629" muted loop playsinline controls width="1600" height="900" preload="metadata" aria-label="Trasplante y deshacer. Haz clic en Trasplante. El modelo recibe los huesos del donante y todas sus animaciones; el botón se apaga hasta que cambie un ajuste. Cierra la ventana y mira la pestaña Animaciones. Ctrl + Z lo deshace en un solo paso."></video></figure>
+        <p>Haz clic en <strong>Trasplante</strong>. El modelo recibe los huesos del donante y todas sus animaciones; el botón se apaga hasta que cambie un ajuste. Cierra la ventana y mira la pestaña <strong>Animaciones</strong>. <kbd>Ctrl</kbd> + <kbd>Z</kbd> lo deshace en un solo paso.</p>
+      </section>
+      <section class="demo-step" aria-labelledby="xfer-retarget-take-title">
+        <h4 id="xfer-retarget-take-title">Reasignar: tomar partes</h4>
+        <figure class="gif-player" data-animation="xfer-retarget-take"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/es/xfer-retarget-take.mp4?v=f729c4af7e088dd0" muted loop playsinline controls width="1600" height="900" preload="metadata" aria-label="Reasignar: tomar partes. Haz clic en Reasignar. Haz clic en una animación y luego en el tirador de una mano o un pie del donante: esa parte se toma y su interruptor se enciende en la lista de partes. Tomar todo el cuerpo toma todas las partes y Limpiar todo las quita. Reflejar y Otro lado toman del otro lado del donante."></video></figure>
+        <p>Haz clic en <strong>Reasignar</strong>. Haz clic en una animación y luego en el tirador de una mano o un pie del donante: esa parte se toma y su interruptor se enciende en la lista de partes. <strong>Tomar todo el cuerpo</strong> toma todas las partes y <strong>Limpiar todo</strong> las quita. <strong>Reflejar</strong> y <strong>Otro lado</strong> toman del otro lado del donante.</p>
+      </section>
+      <section class="demo-step" aria-labelledby="xfer-retarget-tune-title">
+        <h4 id="xfer-retarget-tune-title">Reasignar: ajustar y apuntar</h4>
+        <figure class="gif-player" data-animation="xfer-retarget-tune"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/es/xfer-retarget-tune.mp4?v=3a0fc897f129b050" muted loop playsinline controls width="1600" height="900" preload="metadata" aria-label="Reasignar: ajustar y apuntar. Selecciona una parte tomada. Intensidad, Pose (Mía a Del donante), Elevar, Giro y Enrollar la cambian, y la trayectoria naranja las sigue. Haz doble clic en un control deslizante para volver a su valor por defecto. Arrastra la mano en el resultado: Todo el movimiento gira todo el movimiento, Este momento corrige solo un instante (aparece un rombo en la línea de tiempo) y Quitar ajustes quita las correcciones."></video></figure>
+        <p>Selecciona una parte tomada. <strong>Intensidad</strong>, <strong>Pose</strong> (<strong>Mía</strong> a <strong>Del donante</strong>), <strong>Elevar</strong>, <strong>Giro</strong> y <strong>Enrollar</strong> la cambian, y la trayectoria naranja las sigue. Haz doble clic en un control deslizante para volver a su valor por defecto. Arrastra la mano en el resultado: <strong>Todo el movimiento</strong> gira todo el movimiento, <strong>Este momento</strong> corrige solo un instante (aparece un rombo en la línea de tiempo) y <strong>Quitar ajustes</strong> quita las correcciones.</p>
+      </section>
+      <section class="demo-step" aria-labelledby="xfer-retarget-timeline-title">
+        <h4 id="xfer-retarget-timeline-title">Reasignar: línea de tiempo</h4>
+        <figure class="gif-player" data-animation="xfer-retarget-timeline"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/es/xfer-retarget-timeline.mp4?v=74e1f1bcd3f83ce8" muted loop playsinline controls width="1600" height="900" preload="metadata" aria-label="Reasignar: línea de tiempo. Arrastra un clip hacia los lados para fijar Retraso. Arrastra un borde para recortarlo y haz doble clic en el borde para restaurarlo. Tiempo contiene Retraso, Velocidad y Suavizado. Añadir después reproduce la animación que muestra el donante después de la primera, en un carril propio; su × lo quita."></video></figure>
+        <p>Arrastra un clip hacia los lados para fijar <strong>Retraso</strong>. Arrastra un borde para recortarlo y haz doble clic en el borde para restaurarlo. <strong>Tiempo</strong> contiene <strong>Retraso</strong>, <strong>Velocidad</strong> y <strong>Suavizado</strong>. <strong>Añadir después</strong> reproduce la animación que muestra el donante después de la primera, en un carril propio; su × lo quita.</p>
+      </section>
+      <section class="demo-step" aria-labelledby="xfer-retarget-switches-title">
+        <h4 id="xfer-retarget-switches-title">Reasignar: interruptores</h4>
+        <figure class="gif-player" data-animation="xfer-retarget-switches"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/es/xfer-retarget-switches.mp4?v=be547e077eb8ca1c" muted loop playsinline controls width="1600" height="900" preload="metadata" aria-label="Reasignar: interruptores. Todas las partes tomadas cambia todas las partes tomadas a la vez. Mantener el pie en el suelo, Dentro de su propio rango, Mantener el brazo fuera del cuerpo, Desplazamiento y, en un brazo que sostiene un arma, Mantener el arma sobre el suelo. Tomar de toma la parte seleccionada de la animación que muestra ahora la vista del donante."></video></figure>
+        <p><strong>Todas las partes tomadas</strong> cambia todas las partes tomadas a la vez. <strong>Mantener el pie en el suelo</strong>, <strong>Dentro de su propio rango</strong>, <strong>Mantener el brazo fuera del cuerpo</strong>, <strong>Desplazamiento</strong> y, en un brazo que sostiene un arma, <strong>Mantener el arma sobre el suelo</strong>. <strong>Tomar de</strong> toma la parte seleccionada de la animación que muestra ahora la vista del donante.</p>
+      </section>
+      <section class="demo-step" aria-labelledby="xfer-retarget-finish-title">
+        <h4 id="xfer-retarget-finish-title">Reasignar: terminar</h4>
+        <figure class="gif-player" data-animation="xfer-retarget-finish"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/es/xfer-retarget-finish.mp4?v=48d50724cbff0f70" muted loop playsinline controls width="1600" height="900" preload="metadata" aria-label="Reasignar: terminar. Escribe un Nombre y haz clic en Añadir animación: se une a las animaciones del modelo. Añadir todas añade todo el conjunto del donante; Conservar animaciones propias solo añade las que el modelo no tiene. Guardar como… guarda la configuración y Cargar desde… la vuelve a usar."></video></figure>
+        <p>Escribe un <strong>Nombre</strong> y haz clic en <strong>Añadir animación</strong>: se une a las animaciones del modelo. <strong>Añadir todas</strong> añade todo el conjunto del donante; <strong>Conservar animaciones propias</strong> solo añade las que el modelo no tiene. <strong>Guardar como…</strong> guarda la configuración y <strong>Cargar desde…</strong> la vuelve a usar.</p>
       </section>
     </article>

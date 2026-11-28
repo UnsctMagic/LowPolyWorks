@@ -8,7 +8,7 @@ WORK = Path(os.environ.get('LPW_WORK', 'D:/Claude/xfertut-work'))
 FFMPEG = 'D:/Claude/MDLxL/electron/ffmpeg/ffmpeg.exe'
 CLIPS = {'': ['xfer-open','xfer-views','xfer-transplant-method','xfer-transplant-options','xfer-transplant-apply','xfer-retarget-take','xfer-retarget-tune','xfer-retarget-timeline','xfer-retarget-switches','xfer-retarget-finish']}
 CARDS = ['xfer-card.png']
-PAGES = ['en']
+PAGES = os.environ.get('LPW_PAGES', 'en,es,ru,zh,fr,de,mordor').split(',')
 W, H = 1600, 900
 report = {'clips': []}
 tmp = WORK / 'verify-frames'
@@ -93,6 +93,6 @@ for page in PAGES:
         card = (SITE if page in ('en', 'mordor') else folder) / name
         with Image.open(card) as im: assert im.size == (960, 504), (page, name, 'card size')
 (WORK / 'report').mkdir(exist_ok=True)
-(WORK / 'report' / 'media.json').write_text(json.dumps(report, indent=1), encoding='utf8')
+(WORK / 'report' / ('media-' + '-'.join(PAGES) + '.json')).write_text(json.dumps(report, indent=1), encoding='utf8')
 n = len(report['clips'])
 print(f"PASS: {n} MP4s fully decoded ({sum(c['frames'] for c in report['clips'])} frames, {W}x{H}, 40 ms); hashes, players, cues, phases and {sum(len(c['pings']) for c in report['clips'])} green pings centred within 3 px (5 px for a ring cut by the frame edge).")
