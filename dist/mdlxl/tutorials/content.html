@@ -93,6 +93,15 @@
             <span class="tutorial-card-footer"><span>2 steps</span><span class="tutorial-card-open">Open tutorial →</span></span>
           </span>
         </a>
+<a class="tutorial-card" id="tab-xfer" aria-controls="tutorial-xfer" data-tutorial="xfer" href="/mdlxl/tutorials/xfer/?lang=en">
+          <span class="tutorial-card-media" aria-hidden="true"><img src="/mdlxl/tutorials/xfer-card.png?v=33acfe8a65b1cb3d" width="960" height="504" alt=""></span>
+          <span class="tutorial-card-copy">
+            <span class="tutorial-card-category">Animation</span>
+            <span class="tutorial-card-title">XFER: transfer animations</span>
+            <span class="tutorial-card-description">Move animations from one model to another, whole skeleton or part by part.</span>
+            <span class="tutorial-card-footer"><span>10 steps</span><span class="tutorial-card-open">Open tutorial →</span></span>
+          </span>
+        </a>
 </nav>
     </div>
     <a class="tutorial-back" id="tutorial-back" hidden><span aria-hidden="true">←</span> All tutorials</a>
@@ -293,5 +302,60 @@
         <h4 id="cut-corner-title">Cut to a corner</h4>
         <figure class="gif-player" data-animation="cut-corner"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/cut-corner.mp4?v=498def1d6720cf27" muted loop playsinline controls width="1264" height="760" preload="metadata" aria-label="Cut to a corner. Press Ctrl + Z to undo. With Cut on, click a vertex, then the corner across the line: the line between the two triangles turns to end there."></video></figure>
         <p>Press <kbd>Ctrl</kbd> + <kbd>Z</kbd> to undo. With <strong>Cut</strong> on, click a vertex, then the corner across the line: the line between the two triangles turns to end there.</p>
+      </section>
+    </article>
+<article class="tutorial-panel" role="region" id="tutorial-xfer" aria-labelledby="tab-xfer" hidden>
+      <p class="sample-note">Animation</p>
+      <h3 id="xfer-title">XFER: transfer animations</h3>
+      <p><strong>XFER</strong> gives the open model movement from another model. <strong>Transplant</strong> puts the model on the donor's skeleton. <strong>Retarget</strong> takes parts one at a time. This guide moves the animations of one model to another with both.</p>
+      <section class="demo-step" aria-labelledby="xfer-open-title">
+        <h4 id="xfer-open-title">Open XFER and choose the donor</h4>
+        <figure class="gif-player" data-animation="xfer-open"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/xfer-open.mp4?v=62eb915a12d8a722" muted loop playsinline controls width="1600" height="900" preload="metadata" aria-label="Open XFER and choose the donor. Click XFER. The window opens in Transplant; the switch at the top changes between Transplant and Retarget. Under From, click Open file... and pick the donor. Click an animation under Animations: both views play it."></video></figure>
+        <p>Click <strong>XFER</strong>. The window opens in <strong>Transplant</strong>; the switch at the top changes between <strong>Transplant</strong> and <strong>Retarget</strong>. Under <strong>From</strong>, click <strong>Open file...</strong> and pick the donor. Click an animation under <strong>Animations</strong>: both views play it.</p>
+      </section>
+      <section class="demo-step" aria-labelledby="xfer-views-title">
+        <h4 id="xfer-views-title">Views and playback</h4>
+        <figure class="gif-player" data-animation="xfer-views"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/xfer-views.mp4?v=c1d45c24b6ed8ed1" muted loop playsinline controls width="1600" height="900" preload="metadata" aria-label="Views and playback. Each view has Pause / Play, a track to drag through the animation, a Speed that only changes how fast the view plays, and a dropdown of animations. Drag in either view to turn both. Click ↺ to frame the model again and turn both views back."></video></figure>
+        <p>Each view has <strong>Pause</strong> / <strong>Play</strong>, a track to drag through the animation, a <strong>Speed</strong> that only changes how fast the view plays, and a dropdown of animations. Drag in either view to turn both. Click <strong>↺</strong> to frame the model again and turn both views back.</p>
+      </section>
+      <section class="demo-step" aria-labelledby="xfer-transplant-method-title">
+        <h4 id="xfer-transplant-method-title">Transplant: method</h4>
+        <figure class="gif-player" data-animation="xfer-transplant-method"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/xfer-transplant-method.mp4?v=0f73b8073a491941" muted loop playsinline controls width="1600" height="900" preload="metadata" aria-label="Transplant: method. Rotation turns each joint like the donor's. Position sends hands and feet where the donor's go; the star marks the suggestion. Mix shows a dot on each arm and leg: click one and choose Rotation or Position for that part. All animations applies a choice to every animation, This animation only to the one shown."></video></figure>
+        <p><strong>Rotation</strong> turns each joint like the donor's. <strong>Position</strong> sends hands and feet where the donor's go; the star marks the suggestion. <strong>Mix</strong> shows a dot on each arm and leg: click one and choose <strong>Rotation</strong> or <strong>Position</strong> for that part. <strong>All animations</strong> applies a choice to every animation, <strong>This animation</strong> only to the one shown.</p>
+      </section>
+      <section class="demo-step" aria-labelledby="xfer-transplant-options-title">
+        <h4 id="xfer-transplant-options-title">Transplant: Mirror, Sounds, Effects, Keep</h4>
+        <figure class="gif-player" data-animation="xfer-transplant-options"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/xfer-transplant-options.mp4?v=3f1ec89093bdcdaa" muted loop playsinline controls width="1600" height="900" preload="metadata" aria-label="Transplant: Mirror, Sounds, Effects, Keep. Mirror swaps the donor's left and right. Sounds keeps the donor's sounds, Effects adds its particle effects. Under Keep, a ticked piece stays on its own bone."></video></figure>
+        <p><strong>Mirror</strong> swaps the donor's left and right. <strong>Sounds</strong> keeps the donor's sounds, <strong>Effects</strong> adds its particle effects. Under <strong>Keep</strong>, a ticked piece stays on its own bone.</p>
+      </section>
+      <section class="demo-step" aria-labelledby="xfer-transplant-apply-title">
+        <h4 id="xfer-transplant-apply-title">Transplant and undo</h4>
+        <figure class="gif-player" data-animation="xfer-transplant-apply"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/xfer-transplant-apply.mp4?v=e4395f1e6d97be2d" muted loop playsinline controls width="1600" height="900" preload="metadata" aria-label="Transplant and undo. Click Transplant. The model gets the donor's bones and all its animations; the button turns off until a setting changes. Close the window and look at the Animations tab. Ctrl + Z undoes it in one step."></video></figure>
+        <p>Click <strong>Transplant</strong>. The model gets the donor's bones and all its animations; the button turns off until a setting changes. Close the window and look at the <strong>Animations</strong> tab. <kbd>Ctrl</kbd> + <kbd>Z</kbd> undoes it in one step.</p>
+      </section>
+      <section class="demo-step" aria-labelledby="xfer-retarget-take-title">
+        <h4 id="xfer-retarget-take-title">Retarget: take parts</h4>
+        <figure class="gif-player" data-animation="xfer-retarget-take"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/xfer-retarget-take.mp4?v=8c862a2e186725c0" muted loop playsinline controls width="1600" height="900" preload="metadata" aria-label="Retarget: take parts. Click Retarget. Click an animation, then click a hand or foot handle on the donor: that part is taken and its switch turns on in the parts list. Take whole body takes every part, Clear all removes them. Mirror and Other side take from the donor's other side."></video></figure>
+        <p>Click <strong>Retarget</strong>. Click an animation, then click a hand or foot handle on the donor: that part is taken and its switch turns on in the parts list. <strong>Take whole body</strong> takes every part, <strong>Clear all</strong> removes them. <strong>Mirror</strong> and <strong>Other side</strong> take from the donor's other side.</p>
+      </section>
+      <section class="demo-step" aria-labelledby="xfer-retarget-tune-title">
+        <h4 id="xfer-retarget-tune-title">Retarget: tune and aim</h4>
+        <figure class="gif-player" data-animation="xfer-retarget-tune"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/xfer-retarget-tune.mp4?v=c97d02fb760ab2c6" muted loop playsinline controls width="1600" height="900" preload="metadata" aria-label="Retarget: tune and aim. Select a taken part. Strength, Pose (Mine to Theirs), Raise, Turn and Roll change it, and the orange path follows. Double-click a slider to put its default back. Drag the hand on the result: Whole movement turns the whole movement, This moment fixes one moment (a diamond shows on the timeline), Clear fixes removes the fixes."></video></figure>
+        <p>Select a taken part. <strong>Strength</strong>, <strong>Pose</strong> (<strong>Mine</strong> to <strong>Theirs</strong>), <strong>Raise</strong>, <strong>Turn</strong> and <strong>Roll</strong> change it, and the orange path follows. Double-click a slider to put its default back. Drag the hand on the result: <strong>Whole movement</strong> turns the whole movement, <strong>This moment</strong> fixes one moment (a diamond shows on the timeline), <strong>Clear fixes</strong> removes the fixes.</p>
+      </section>
+      <section class="demo-step" aria-labelledby="xfer-retarget-timeline-title">
+        <h4 id="xfer-retarget-timeline-title">Retarget: timeline</h4>
+        <figure class="gif-player" data-animation="xfer-retarget-timeline"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/xfer-retarget-timeline.mp4?v=04d9c6d3f0e262f5" muted loop playsinline controls width="1600" height="900" preload="metadata" aria-label="Retarget: timeline. Drag a clip sideways to set Delay. Drag an edge to trim it, double-click the edge to put it back. Timing holds Delay, Speed and Ease. Add after plays the donor's shown animation after the first one in a lane of its own; its × removes it."></video></figure>
+        <p>Drag a clip sideways to set <strong>Delay</strong>. Drag an edge to trim it, double-click the edge to put it back. <strong>Timing</strong> holds <strong>Delay</strong>, <strong>Speed</strong> and <strong>Ease</strong>. <strong>Add after</strong> plays the donor's shown animation after the first one in a lane of its own; its × removes it.</p>
+      </section>
+      <section class="demo-step" aria-labelledby="xfer-retarget-switches-title">
+        <h4 id="xfer-retarget-switches-title">Retarget: switches</h4>
+        <figure class="gif-player" data-animation="xfer-retarget-switches"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/xfer-retarget-switches.mp4?v=085aa95baace35e0" muted loop playsinline controls width="1600" height="900" preload="metadata" aria-label="Retarget: switches. All taken parts changes every taken part at once. Keep foot on the ground, Stay in own range, Keep arm out of the body, Travel and, on an arm that holds a weapon, Keep weapon above the ground. Take from takes the selected part from the animation the donor view shows now."></video></figure>
+        <p><strong>All taken parts</strong> changes every taken part at once. <strong>Keep foot on the ground</strong>, <strong>Stay in own range</strong>, <strong>Keep arm out of the body</strong>, <strong>Travel</strong> and, on an arm that holds a weapon, <strong>Keep weapon above the ground</strong>. <strong>Take from</strong> takes the selected part from the animation the donor view shows now.</p>
+      </section>
+      <section class="demo-step" aria-labelledby="xfer-retarget-finish-title">
+        <h4 id="xfer-retarget-finish-title">Retarget: finish</h4>
+        <figure class="gif-player" data-animation="xfer-retarget-finish"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/xfer-retarget-finish.mp4?v=ce3af5028442a5a7" muted loop playsinline controls width="1600" height="900" preload="metadata" aria-label="Retarget: finish. Type a Name and click Add animation: it joins the model's animations. Add all adds the donor's whole set; Keep own animations adds only the ones the model does not have. Save as… keeps the setup, Load from… uses it again."></video></figure>
+        <p>Type a <strong>Name</strong> and click <strong>Add animation</strong>: it joins the model's animations. <strong>Add all</strong> adds the donor's whole set; <strong>Keep own animations</strong> adds only the ones the model does not have. <strong>Save as…</strong> keeps the setup, <strong>Load from…</strong> uses it again.</p>
       </section>
     </article>

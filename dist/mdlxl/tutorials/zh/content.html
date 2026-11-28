@@ -93,6 +93,15 @@
             <span class="tutorial-card-footer"><span>2 个步骤</span><span class="tutorial-card-open">打开教程 →</span></span>
           </span>
         </a>
+<a class="tutorial-card" id="tab-xfer" aria-controls="tutorial-xfer" data-tutorial="xfer" href="/mdlxl/tutorials/xfer/?lang=zh">
+          <span class="tutorial-card-media" aria-hidden="true"><img src="/mdlxl/tutorials/zh/xfer-card.png?v=9412176010953c23" width="960" height="504" alt=""></span>
+          <span class="tutorial-card-copy">
+            <span class="tutorial-card-category">动画</span>
+            <span class="tutorial-card-title">XFER：转移动画</span>
+            <span class="tutorial-card-description">将动画从一个模型转移到另一个模型，可整体骨架或逐个部位。</span>
+            <span class="tutorial-card-footer"><span>10 个步骤</span><span class="tutorial-card-open">打开教程 →</span></span>
+          </span>
+        </a>
 </nav>
     </div>
     <a class="tutorial-back" id="tutorial-back" hidden><span aria-hidden="true">←</span> 全部教程</a>
@@ -293,5 +302,60 @@
         <h4 id="cut-corner-title">切割到角</h4>
         <figure class="gif-player" data-animation="cut-corner"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/zh/cut-corner.mp4?v=555bf6931483b8ba" muted loop playsinline controls width="1264" height="760" preload="metadata" aria-label="切割到角. 按 Ctrl + Z 撤销。保持切割开启，点击一个顶点，再点击线对面的角：两个三角形之间的线转向并终止于该角。"></video></figure>
         <p>按 <kbd>Ctrl</kbd> + <kbd>Z</kbd> 撤销。保持<strong>切割</strong>开启，点击一个顶点，再点击线对面的角：两个三角形之间的线转向并终止于该角。</p>
+      </section>
+    </article>
+<article class="tutorial-panel" role="region" id="tutorial-xfer" aria-labelledby="tab-xfer" hidden>
+      <p class="sample-note">动画</p>
+      <h3 id="xfer-title">XFER：转移动画</h3>
+      <p><strong>XFER</strong>将另一个模型的动作赋予当前打开的模型。<strong>移植</strong>把模型放到供体的骨架上。<strong>重定向</strong>逐个部位获取。本指南用这两种方式把一个模型的动画转移到另一个模型。</p>
+      <section class="demo-step" aria-labelledby="xfer-open-title">
+        <h4 id="xfer-open-title">打开 XFER 并选择供体</h4>
+        <figure class="gif-player" data-animation="xfer-open"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/zh/xfer-open.mp4?v=ce648461e76dc1c6" muted loop playsinline controls width="1600" height="900" preload="metadata" aria-label="打开 XFER 并选择供体. 点击XFER。窗口在移植中打开；顶部的开关在移植和重定向之间切换。在来源下点击打开文件...并选择供体。点击动画下的动画：两个视图都会播放它。"></video></figure>
+        <p>点击<strong>XFER</strong>。窗口在<strong>移植</strong>中打开；顶部的开关在<strong>移植</strong>和<strong>重定向</strong>之间切换。在<strong>来源</strong>下点击<strong>打开文件...</strong>并选择供体。点击<strong>动画</strong>下的动画：两个视图都会播放它。</p>
+      </section>
+      <section class="demo-step" aria-labelledby="xfer-views-title">
+        <h4 id="xfer-views-title">视图与播放</h4>
+        <figure class="gif-player" data-animation="xfer-views"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/zh/xfer-views.mp4?v=1ecaacb75f399e5e" muted loop playsinline controls width="1600" height="900" preload="metadata" aria-label="视图与播放. 每个视图都有暂停 / 播放、可拖动浏览动画的轨道、只改变视图播放快慢的速度，以及动画下拉列表。在任一视图中拖动可同时旋转两个视图。点击↺重新框选模型，并让两个视图回到起始角度。"></video></figure>
+        <p>每个视图都有<strong>暂停</strong> / <strong>播放</strong>、可拖动浏览动画的轨道、只改变视图播放快慢的<strong>速度</strong>，以及动画下拉列表。在任一视图中拖动可同时旋转两个视图。点击<strong>↺</strong>重新框选模型，并让两个视图回到起始角度。</p>
+      </section>
+      <section class="demo-step" aria-labelledby="xfer-transplant-method-title">
+        <h4 id="xfer-transplant-method-title">移植：方法</h4>
+        <figure class="gif-player" data-animation="xfer-transplant-method"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/zh/xfer-transplant-method.mp4?v=c3339b26883d23f2" muted loop playsinline controls width="1600" height="900" preload="metadata" aria-label="移植：方法. 旋转让每个关节像供体的一样转动。位置让手和脚去到供体的手和脚所到的位置；星号标出建议。混合在每条手臂和腿上显示一个点：点击它，为该部位选择旋转或位置。所有动画把选择应用到所有动画，此动画只应用到当前显示的动画。"></video></figure>
+        <p><strong>旋转</strong>让每个关节像供体的一样转动。<strong>位置</strong>让手和脚去到供体的手和脚所到的位置；星号标出建议。<strong>混合</strong>在每条手臂和腿上显示一个点：点击它，为该部位选择<strong>旋转</strong>或<strong>位置</strong>。<strong>所有动画</strong>把选择应用到所有动画，<strong>此动画</strong>只应用到当前显示的动画。</p>
+      </section>
+      <section class="demo-step" aria-labelledby="xfer-transplant-options-title">
+        <h4 id="xfer-transplant-options-title">移植：镜像、声音、特效、保存素材</h4>
+        <figure class="gif-player" data-animation="xfer-transplant-options"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/zh/xfer-transplant-options.mp4?v=33bbbd3838c11ddc" muted loop playsinline controls width="1600" height="900" preload="metadata" aria-label="移植：镜像、声音、特效、保存素材. 镜像交换供体的左右。声音保留供体的声音，特效加入它的粒子效果。在保存素材下，勾选的部件保留在自己的骨骼上。"></video></figure>
+        <p><strong>镜像</strong>交换供体的左右。<strong>声音</strong>保留供体的声音，<strong>特效</strong>加入它的粒子效果。在<strong>保存素材</strong>下，勾选的部件保留在自己的骨骼上。</p>
+      </section>
+      <section class="demo-step" aria-labelledby="xfer-transplant-apply-title">
+        <h4 id="xfer-transplant-apply-title">移植与撤销</h4>
+        <figure class="gif-player" data-animation="xfer-transplant-apply"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/zh/xfer-transplant-apply.mp4?v=fc926ebde77deb68" muted loop playsinline controls width="1600" height="900" preload="metadata" aria-label="移植与撤销. 点击移植。模型获得供体的骨骼和全部动画；按钮会关闭，直到有设置改变。关闭窗口并查看动画选项卡。Ctrl + Z一步撤销。"></video></figure>
+        <p>点击<strong>移植</strong>。模型获得供体的骨骼和全部动画；按钮会关闭，直到有设置改变。关闭窗口并查看<strong>动画</strong>选项卡。<kbd>Ctrl</kbd> + <kbd>Z</kbd>一步撤销。</p>
+      </section>
+      <section class="demo-step" aria-labelledby="xfer-retarget-take-title">
+        <h4 id="xfer-retarget-take-title">重定向：获取部位</h4>
+        <figure class="gif-player" data-animation="xfer-retarget-take"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/zh/xfer-retarget-take.mp4?v=f78c9174e29a03fe" muted loop playsinline controls width="1600" height="900" preload="metadata" aria-label="重定向：获取部位. 点击重定向。点击一个动画，然后点击供体上手或脚的控制点：该部位被获取，其开关在部位列表中打开。获取全身获取所有部位，清除全部清除它们。镜像和另一侧从供体的另一侧获取。"></video></figure>
+        <p>点击<strong>重定向</strong>。点击一个动画，然后点击供体上手或脚的控制点：该部位被获取，其开关在部位列表中打开。<strong>获取全身</strong>获取所有部位，<strong>清除全部</strong>清除它们。<strong>镜像</strong>和<strong>另一侧</strong>从供体的另一侧获取。</p>
+      </section>
+      <section class="demo-step" aria-labelledby="xfer-retarget-tune-title">
+        <h4 id="xfer-retarget-tune-title">重定向：调整与瞄准</h4>
+        <figure class="gif-player" data-animation="xfer-retarget-tune"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/zh/xfer-retarget-tune.mp4?v=d4b3f93adb4fb2a0" muted loop playsinline controls width="1600" height="900" preload="metadata" aria-label="重定向：调整与瞄准. 选择一个已获取的部位。强度、姿势（从我的到来源的）、抬高、旋转和卷曲会改变它，橙色轨迹随之变化。双击滑块可恢复默认值。在结果上拖动手：整个动作转动整个动作，此刻只修正一个时刻（时间线上出现菱形），清除修正清除修正。"></video></figure>
+        <p>选择一个已获取的部位。<strong>强度</strong>、<strong>姿势</strong>（从<strong>我的</strong>到<strong>来源的</strong>）、<strong>抬高</strong>、<strong>旋转</strong>和<strong>卷曲</strong>会改变它，橙色轨迹随之变化。双击滑块可恢复默认值。在结果上拖动手：<strong>整个动作</strong>转动整个动作，<strong>此刻</strong>只修正一个时刻（时间线上出现菱形），<strong>清除修正</strong>清除修正。</p>
+      </section>
+      <section class="demo-step" aria-labelledby="xfer-retarget-timeline-title">
+        <h4 id="xfer-retarget-timeline-title">重定向：时间线</h4>
+        <figure class="gif-player" data-animation="xfer-retarget-timeline"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/zh/xfer-retarget-timeline.mp4?v=0cce0eb2912c283b" muted loop playsinline controls width="1600" height="900" preload="metadata" aria-label="重定向：时间线. 左右拖动片段设置延迟。拖动边缘进行裁剪，双击边缘恢复。时间包含延迟、速度和缓动。添加在后把供体视图当前显示的动画接在第一个之后，放在单独的轨道上；点击它的 × 将其移除。"></video></figure>
+        <p>左右拖动片段设置<strong>延迟</strong>。拖动边缘进行裁剪，双击边缘恢复。<strong>时间</strong>包含<strong>延迟</strong>、<strong>速度</strong>和<strong>缓动</strong>。<strong>添加在后</strong>把供体视图当前显示的动画接在第一个之后，放在单独的轨道上；点击它的 × 将其移除。</p>
+      </section>
+      <section class="demo-step" aria-labelledby="xfer-retarget-switches-title">
+        <h4 id="xfer-retarget-switches-title">重定向：开关</h4>
+        <figure class="gif-player" data-animation="xfer-retarget-switches"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/zh/xfer-retarget-switches.mp4?v=717a85b3ff55896f" muted loop playsinline controls width="1600" height="900" preload="metadata" aria-label="重定向：开关. 所有已获取的部位一次修改所有已获取的部位。脚保持着地、保持在自身范围内、让手臂不穿入身体、位移，以及对持武器的手臂使用的武器保持在地面以上。获取自从供体视图当前显示的动画获取所选部位。"></video></figure>
+        <p><strong>所有已获取的部位</strong>一次修改所有已获取的部位。<strong>脚保持着地</strong>、<strong>保持在自身范围内</strong>、<strong>让手臂不穿入身体</strong>、<strong>位移</strong>，以及对持武器的手臂使用的<strong>武器保持在地面以上</strong>。<strong>获取自</strong>从供体视图当前显示的动画获取所选部位。</p>
+      </section>
+      <section class="demo-step" aria-labelledby="xfer-retarget-finish-title">
+        <h4 id="xfer-retarget-finish-title">重定向：完成</h4>
+        <figure class="gif-player" data-animation="xfer-retarget-finish"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/zh/xfer-retarget-finish.mp4?v=5b475abd0012bdd4" muted loop playsinline controls width="1600" height="900" preload="metadata" aria-label="重定向：完成. 输入名称并点击添加动画：它会加入模型的动画列表。全部添加添加供体的全部动画；保留自身动画只添加模型还没有的动画。另存为…保存设置，加载自…再次使用。"></video></figure>
+        <p>输入<strong>名称</strong>并点击<strong>添加动画</strong>：它会加入模型的动画列表。<strong>全部添加</strong>添加供体的全部动画；<strong>保留自身动画</strong>只添加模型还没有的动画。<strong>另存为…</strong>保存设置，<strong>加载自…</strong>再次使用。</p>
       </section>
     </article>

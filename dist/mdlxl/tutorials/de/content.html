@@ -93,6 +93,15 @@
             <span class="tutorial-card-footer"><span>2 Schritte</span><span class="tutorial-card-open">Tutorial öffnen →</span></span>
           </span>
         </a>
+<a class="tutorial-card" id="tab-xfer" aria-controls="tutorial-xfer" data-tutorial="xfer" href="/mdlxl/tutorials/xfer/?lang=de">
+          <span class="tutorial-card-media" aria-hidden="true"><img src="/mdlxl/tutorials/de/xfer-card.png?v=69c55abd231b4d26" width="960" height="504" alt=""></span>
+          <span class="tutorial-card-copy">
+            <span class="tutorial-card-category">Animation</span>
+            <span class="tutorial-card-title">XFER: Animationen übertragen</span>
+            <span class="tutorial-card-description">Animationen von einem Modell auf ein anderes übertragen, mit dem ganzen Skelett oder Teil für Teil.</span>
+            <span class="tutorial-card-footer"><span>10 Schritte</span><span class="tutorial-card-open">Tutorial öffnen →</span></span>
+          </span>
+        </a>
 </nav>
     </div>
     <a class="tutorial-back" id="tutorial-back" hidden><span aria-hidden="true">←</span> Alle Tutorials</a>
@@ -295,5 +304,60 @@
         <h4 id="cut-corner-title">Zu einer Ecke schneiden</h4>
         <figure class="gif-player" data-animation="cut-corner"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/de/cut-corner.mp4?v=0b72f5690dfbf7c2" muted loop playsinline controls width="1264" height="760" preload="metadata" aria-label="Zu einer Ecke schneiden. Mit Ctrl + Z rückgängig machen. Bei aktivem Schneiden einen Scheitelpunkt anklicken, dann die Ecke hinter der Linie: Die Linie zwischen den beiden Dreiecken dreht sich und endet dort."></video></figure>
         <p>Mit <kbd>Ctrl</kbd> + <kbd>Z</kbd> rückgängig machen. Bei aktivem <strong>Schneiden</strong> einen Scheitelpunkt anklicken, dann die Ecke hinter der Linie: Die Linie zwischen den beiden Dreiecken dreht sich und endet dort.</p>
+      </section>
+    </article>
+<article class="tutorial-panel" role="region" id="tutorial-xfer" aria-labelledby="tab-xfer" hidden>
+      <p class="sample-note">Animation</p>
+      <h3 id="xfer-title">XFER: Animationen übertragen</h3>
+      <p><strong>XFER</strong> gibt dem geöffneten Modell die Bewegung eines anderen Modells. <strong>Verpflanzen</strong> setzt das Modell auf das Skelett des Spenders. <strong>Retargeting</strong> übernimmt Teile einzeln. Dieses Tutorial überträgt die Animationen eines Modells mit beiden Wegen auf ein anderes.</p>
+      <section class="demo-step" aria-labelledby="xfer-open-title">
+        <h4 id="xfer-open-title">XFER öffnen und den Spender wählen</h4>
+        <figure class="gif-player" data-animation="xfer-open"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/de/xfer-open.mp4?v=97aa59e77ed49b36" muted loop playsinline controls width="1600" height="900" preload="metadata" aria-label="XFER öffnen und den Spender wählen. Klicke auf XFER. Das Fenster öffnet sich in Verpflanzen; der Schalter oben wechselt zwischen Verpflanzen und Retargeting. Klicke unter Von auf Datei öffnen... und wähle den Spender. Klicke unter Animationen auf eine Animation: Beide Ansichten spielen sie ab."></video></figure>
+        <p>Klicke auf <strong>XFER</strong>. Das Fenster öffnet sich in <strong>Verpflanzen</strong>; der Schalter oben wechselt zwischen <strong>Verpflanzen</strong> und <strong>Retargeting</strong>. Klicke unter <strong>Von</strong> auf <strong>Datei öffnen...</strong> und wähle den Spender. Klicke unter <strong>Animationen</strong> auf eine Animation: Beide Ansichten spielen sie ab.</p>
+      </section>
+      <section class="demo-step" aria-labelledby="xfer-views-title">
+        <h4 id="xfer-views-title">Ansichten und Wiedergabe</h4>
+        <figure class="gif-player" data-animation="xfer-views"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/de/xfer-views.mp4?v=c3713199edb4e101" muted loop playsinline controls width="1600" height="900" preload="metadata" aria-label="Ansichten und Wiedergabe. Jede Ansicht hat Pause / Abspielen, eine Leiste zum Durchziehen der Animation, ein Tempo, das nur die Abspielgeschwindigkeit der Ansicht ändert, und eine Animationsliste. Ziehe in einer Ansicht, um beide zu drehen. Klicke auf ↺, um das Modell neu einzupassen und beide Ansichten auf den Startwinkel zurückzudrehen."></video></figure>
+        <p>Jede Ansicht hat <strong>Pause</strong> / <strong>Abspielen</strong>, eine Leiste zum Durchziehen der Animation, ein <strong>Tempo</strong>, das nur die Abspielgeschwindigkeit der Ansicht ändert, und eine Animationsliste. Ziehe in einer Ansicht, um beide zu drehen. Klicke auf <strong>↺</strong>, um das Modell neu einzupassen und beide Ansichten auf den Startwinkel zurückzudrehen.</p>
+      </section>
+      <section class="demo-step" aria-labelledby="xfer-transplant-method-title">
+        <h4 id="xfer-transplant-method-title">Verpflanzen: Methode</h4>
+        <figure class="gif-player" data-animation="xfer-transplant-method"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/de/xfer-transplant-method.mp4?v=2d8690dd96cfcc45" muted loop playsinline controls width="1600" height="900" preload="metadata" aria-label="Verpflanzen: Methode. Drehung dreht jedes Gelenk wie das des Spenders. Position schickt Hände und Füße dorthin, wohin die des Spenders gehen; der Stern markiert den Vorschlag. Mix zeigt einen Punkt an jedem Arm und Bein: Klicke einen an und wähle Drehung oder Position für dieses Teil. Alle Animationen gilt für jede Animation, Diese Animation nur für die angezeigte."></video></figure>
+        <p><strong>Drehung</strong> dreht jedes Gelenk wie das des Spenders. <strong>Position</strong> schickt Hände und Füße dorthin, wohin die des Spenders gehen; der Stern markiert den Vorschlag. <strong>Mix</strong> zeigt einen Punkt an jedem Arm und Bein: Klicke einen an und wähle <strong>Drehung</strong> oder <strong>Position</strong> für dieses Teil. <strong>Alle Animationen</strong> gilt für jede Animation, <strong>Diese Animation</strong> nur für die angezeigte.</p>
+      </section>
+      <section class="demo-step" aria-labelledby="xfer-transplant-options-title">
+        <h4 id="xfer-transplant-options-title">Verpflanzen: Spiegeln, Klänge, Effekte, Behalten</h4>
+        <figure class="gif-player" data-animation="xfer-transplant-options"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/de/xfer-transplant-options.mp4?v=f45e1e06492bfda3" muted loop playsinline controls width="1600" height="900" preload="metadata" aria-label="Verpflanzen: Spiegeln, Klänge, Effekte, Behalten. Spiegeln vertauscht links und rechts des Spenders. Klänge behält die Sounds des Spenders, Effekte fügt seine Partikeleffekte hinzu. Unter Behalten bleibt ein angehaktes Teil an seinem eigenen Knochen."></video></figure>
+        <p><strong>Spiegeln</strong> vertauscht links und rechts des Spenders. <strong>Klänge</strong> behält die Sounds des Spenders, <strong>Effekte</strong> fügt seine Partikeleffekte hinzu. Unter <strong>Behalten</strong> bleibt ein angehaktes Teil an seinem eigenen Knochen.</p>
+      </section>
+      <section class="demo-step" aria-labelledby="xfer-transplant-apply-title">
+        <h4 id="xfer-transplant-apply-title">Verpflanzen und Rückgängig</h4>
+        <figure class="gif-player" data-animation="xfer-transplant-apply"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/de/xfer-transplant-apply.mp4?v=1bb5d45a74e22e95" muted loop playsinline controls width="1600" height="900" preload="metadata" aria-label="Verpflanzen und Rückgängig. Klicke auf Verpflanzen. Das Modell erhält die Knochen und alle Animationen des Spenders; die Schaltfläche bleibt aus, bis sich eine Einstellung ändert. Schließe das Fenster und sieh dir den Reiter Animationen an. Strg + Z macht es in einem Schritt rückgängig."></video></figure>
+        <p>Klicke auf <strong>Verpflanzen</strong>. Das Modell erhält die Knochen und alle Animationen des Spenders; die Schaltfläche bleibt aus, bis sich eine Einstellung ändert. Schließe das Fenster und sieh dir den Reiter <strong>Animationen</strong> an. <kbd>Strg</kbd> + <kbd>Z</kbd> macht es in einem Schritt rückgängig.</p>
+      </section>
+      <section class="demo-step" aria-labelledby="xfer-retarget-take-title">
+        <h4 id="xfer-retarget-take-title">Retargeting: Teile übernehmen</h4>
+        <figure class="gif-player" data-animation="xfer-retarget-take"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/de/xfer-retarget-take.mp4?v=23f459f2bb8f565c" muted loop playsinline controls width="1600" height="900" preload="metadata" aria-label="Retargeting: Teile übernehmen. Klicke auf Retargeting. Klicke auf eine Animation, dann auf den Griff einer Hand oder eines Fußes am Spender: Dieses Teil wird übernommen und sein Schalter in der Teileliste geht an. Ganzen Körper übernehmen übernimmt alle Teile, Alles leeren entfernt sie. Spiegeln und Andere Seite übernehmen von der anderen Seite des Spenders."></video></figure>
+        <p>Klicke auf <strong>Retargeting</strong>. Klicke auf eine Animation, dann auf den Griff einer Hand oder eines Fußes am Spender: Dieses Teil wird übernommen und sein Schalter in der Teileliste geht an. <strong>Ganzen Körper übernehmen</strong> übernimmt alle Teile, <strong>Alles leeren</strong> entfernt sie. <strong>Spiegeln</strong> und <strong>Andere Seite</strong> übernehmen von der anderen Seite des Spenders.</p>
+      </section>
+      <section class="demo-step" aria-labelledby="xfer-retarget-tune-title">
+        <h4 id="xfer-retarget-tune-title">Retargeting: anpassen und zielen</h4>
+        <figure class="gif-player" data-animation="xfer-retarget-tune"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/de/xfer-retarget-tune.mp4?v=cddd4d874e01a0b5" muted loop playsinline controls width="1600" height="900" preload="metadata" aria-label="Retargeting: anpassen und zielen. Wähle ein übernommenes Teil. Stärke, Pose (von Meine bis Seine), Heben, Drehen und Rollen ändern es, und der orange Pfad folgt. Doppelklicke einen Regler, um den Standardwert zurückzusetzen. Ziehe die Hand am Ergebnis: Ganze Bewegung dreht die ganze Bewegung, Dieser Moment korrigiert nur einen Moment (auf der Zeitleiste erscheint eine Raute), Korrekturen entfernen entfernt die Korrekturen."></video></figure>
+        <p>Wähle ein übernommenes Teil. <strong>Stärke</strong>, <strong>Pose</strong> (von <strong>Meine</strong> bis <strong>Seine</strong>), <strong>Heben</strong>, <strong>Drehen</strong> und <strong>Rollen</strong> ändern es, und der orange Pfad folgt. Doppelklicke einen Regler, um den Standardwert zurückzusetzen. Ziehe die Hand am Ergebnis: <strong>Ganze Bewegung</strong> dreht die ganze Bewegung, <strong>Dieser Moment</strong> korrigiert nur einen Moment (auf der Zeitleiste erscheint eine Raute), <strong>Korrekturen entfernen</strong> entfernt die Korrekturen.</p>
+      </section>
+      <section class="demo-step" aria-labelledby="xfer-retarget-timeline-title">
+        <h4 id="xfer-retarget-timeline-title">Retargeting: Zeitleiste</h4>
+        <figure class="gif-player" data-animation="xfer-retarget-timeline"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/de/xfer-retarget-timeline.mp4?v=78c75f9459708fb1" muted loop playsinline controls width="1600" height="900" preload="metadata" aria-label="Retargeting: Zeitleiste. Ziehe einen Clip zur Seite, um Verzögerung einzustellen. Ziehe einen Rand, um ihn zu kürzen, und doppelklicke den Rand, um ihn zurückzusetzen. Timing enthält Verzögerung, Tempo und Abfedern. Danach hinzufügen spielt die in der Spenderansicht gezeigte Animation nach der ersten ab, auf einer eigenen Spur; ihr × entfernt sie."></video></figure>
+        <p>Ziehe einen Clip zur Seite, um <strong>Verzögerung</strong> einzustellen. Ziehe einen Rand, um ihn zu kürzen, und doppelklicke den Rand, um ihn zurückzusetzen. <strong>Timing</strong> enthält <strong>Verzögerung</strong>, <strong>Tempo</strong> und <strong>Abfedern</strong>. <strong>Danach hinzufügen</strong> spielt die in der Spenderansicht gezeigte Animation nach der ersten ab, auf einer eigenen Spur; ihr × entfernt sie.</p>
+      </section>
+      <section class="demo-step" aria-labelledby="xfer-retarget-switches-title">
+        <h4 id="xfer-retarget-switches-title">Retargeting: Schalter</h4>
+        <figure class="gif-player" data-animation="xfer-retarget-switches"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/de/xfer-retarget-switches.mp4?v=2b27f770b413357c" muted loop playsinline controls width="1600" height="900" preload="metadata" aria-label="Retargeting: Schalter. Alle übernommenen Teile ändert alle übernommenen Teile auf einmal. Fuß am Boden halten, Im eigenen Bereich bleiben, Arm aus dem Körper halten, Weg und bei einem Arm mit Waffe Waffe über dem Boden halten. Übernehmen von übernimmt das gewählte Teil aus der Animation, die die Spenderansicht gerade zeigt."></video></figure>
+        <p><strong>Alle übernommenen Teile</strong> ändert alle übernommenen Teile auf einmal. <strong>Fuß am Boden halten</strong>, <strong>Im eigenen Bereich bleiben</strong>, <strong>Arm aus dem Körper halten</strong>, <strong>Weg</strong> und bei einem Arm mit Waffe <strong>Waffe über dem Boden halten</strong>. <strong>Übernehmen von</strong> übernimmt das gewählte Teil aus der Animation, die die Spenderansicht gerade zeigt.</p>
+      </section>
+      <section class="demo-step" aria-labelledby="xfer-retarget-finish-title">
+        <h4 id="xfer-retarget-finish-title">Retargeting: abschließen</h4>
+        <figure class="gif-player" data-animation="xfer-retarget-finish"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/de/xfer-retarget-finish.mp4?v=cf7b7c2240c0561f" muted loop playsinline controls width="1600" height="900" preload="metadata" aria-label="Retargeting: abschließen. Gib einen Name ein und klicke auf Animation hinzufügen: Sie kommt zu den Animationen des Modells. Alle hinzufügen fügt den ganzen Satz des Spenders hinzu; Eigene Animationen behalten fügt nur die hinzu, die das Modell noch nicht hat. Speichern unter… sichert die Einrichtung, Laden aus… nutzt sie wieder."></video></figure>
+        <p>Gib einen <strong>Name</strong> ein und klicke auf <strong>Animation hinzufügen</strong>: Sie kommt zu den Animationen des Modells. <strong>Alle hinzufügen</strong> fügt den ganzen Satz des Spenders hinzu; <strong>Eigene Animationen behalten</strong> fügt nur die hinzu, die das Modell noch nicht hat. <strong>Speichern unter…</strong> sichert die Einrichtung, <strong>Laden aus…</strong> nutzt sie wieder.</p>
       </section>
     </article>
