@@ -93,6 +93,15 @@
             <span class="tutorial-card-footer"><span>2 шага</span><span class="tutorial-card-open">Открыть урок →</span></span>
           </span>
         </a>
+<a class="tutorial-card" id="tab-xfer" aria-controls="tutorial-xfer" data-tutorial="xfer" href="/mdlxl/tutorials/xfer/?lang=ru">
+          <span class="tutorial-card-media" aria-hidden="true"><img src="/mdlxl/tutorials/ru/xfer-card.png?v=48dc58144e9e5916" width="960" height="504" alt=""></span>
+          <span class="tutorial-card-copy">
+            <span class="tutorial-card-category">Анимация</span>
+            <span class="tutorial-card-title">XFER: перенос анимаций</span>
+            <span class="tutorial-card-description">Переносите анимации с одной модели на другую: целым скелетом или по частям.</span>
+            <span class="tutorial-card-footer"><span>10 шагов</span><span class="tutorial-card-open">Открыть урок →</span></span>
+          </span>
+        </a>
 </nav>
     </div>
     <a class="tutorial-back" id="tutorial-back" hidden><span aria-hidden="true">←</span> Все уроки</a>
@@ -293,5 +302,60 @@
         <h4 id="cut-corner-title">Разрез к углу</h4>
         <figure class="gif-player" data-animation="cut-corner"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/ru/cut-corner.mp4?v=3aa2b2f7dde9cb09" muted loop playsinline controls width="1264" height="760" preload="metadata" aria-label="Разрез к углу. Нажмите Ctrl + Z, чтобы отменить. При включённом Разрезать нажмите вершину, затем угол за линией: линия между двумя треугольниками повернётся и закончится там."></video></figure>
         <p>Нажмите <kbd>Ctrl</kbd> + <kbd>Z</kbd>, чтобы отменить. При включённом <strong>Разрезать</strong> нажмите вершину, затем угол за линией: линия между двумя треугольниками повернётся и закончится там.</p>
+      </section>
+    </article>
+<article class="tutorial-panel" role="region" id="tutorial-xfer" aria-labelledby="tab-xfer" hidden>
+      <p class="sample-note">Анимация</p>
+      <h3 id="xfer-title">XFER: перенос анимаций</h3>
+      <p><strong>XFER</strong> даёт открытой модели движение другой модели. <strong>Пересадка</strong> ставит модель на скелет донора. <strong>Перенацеливание</strong> берёт части по одной. В этом уроке анимации одной модели переносятся на другую обоими способами.</p>
+      <section class="demo-step" aria-labelledby="xfer-open-title">
+        <h4 id="xfer-open-title">Откройте XFER и выберите донора</h4>
+        <figure class="gif-player" data-animation="xfer-open"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/ru/xfer-open.mp4?v=3cf7da7963f95ff6" muted loop playsinline controls width="1600" height="900" preload="metadata" aria-label="Откройте XFER и выберите донора. Нажмите XFER. Окно откроется в режиме Пересадка; переключатель сверху меняет Пересадка и Перенацеливание. В разделе Откуда нажмите Открыть файл... и выберите донора. Нажмите анимацию в списке Анимации: обе области её воспроизводят."></video></figure>
+        <p>Нажмите <strong>XFER</strong>. Окно откроется в режиме <strong>Пересадка</strong>; переключатель сверху меняет <strong>Пересадка</strong> и <strong>Перенацеливание</strong>. В разделе <strong>Откуда</strong> нажмите <strong>Открыть файл...</strong> и выберите донора. Нажмите анимацию в списке <strong>Анимации</strong>: обе области её воспроизводят.</p>
+      </section>
+      <section class="demo-step" aria-labelledby="xfer-views-title">
+        <h4 id="xfer-views-title">Области и воспроизведение</h4>
+        <figure class="gif-player" data-animation="xfer-views"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/ru/xfer-views.mp4?v=91d62626c1392547" muted loop playsinline controls width="1600" height="900" preload="metadata" aria-label="Области и воспроизведение. У каждой области есть Пауза / Воспроизвести, дорожка для перемотки анимации, Скорость, меняющая только скорость показа, и список анимаций. Перетащите мышью в любой области, чтобы повернуть обе. Нажмите ↺, чтобы снова вписать модель и вернуть обе области к начальному углу."></video></figure>
+        <p>У каждой области есть <strong>Пауза</strong> / <strong>Воспроизвести</strong>, дорожка для перемотки анимации, <strong>Скорость</strong>, меняющая только скорость показа, и список анимаций. Перетащите мышью в любой области, чтобы повернуть обе. Нажмите <strong>↺</strong>, чтобы снова вписать модель и вернуть обе области к начальному углу.</p>
+      </section>
+      <section class="demo-step" aria-labelledby="xfer-transplant-method-title">
+        <h4 id="xfer-transplant-method-title">Пересадка: метод</h4>
+        <figure class="gif-player" data-animation="xfer-transplant-method"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/ru/xfer-transplant-method.mp4?v=a7da24db6efee9af" muted loop playsinline controls width="1600" height="900" preload="metadata" aria-label="Пересадка: метод. Вращение поворачивает каждый сустав, как у донора. Положение отправляет кисти и стопы туда, куда идут кисти и стопы донора; звёздочка отмечает рекомендацию. Смесь показывает точку на каждой руке и ноге: нажмите на неё и выберите Вращение или Положение для этой части. Все анимации применяет выбор ко всем анимациям, Эта анимация — только к показанной."></video></figure>
+        <p><strong>Вращение</strong> поворачивает каждый сустав, как у донора. <strong>Положение</strong> отправляет кисти и стопы туда, куда идут кисти и стопы донора; звёздочка отмечает рекомендацию. <strong>Смесь</strong> показывает точку на каждой руке и ноге: нажмите на неё и выберите <strong>Вращение</strong> или <strong>Положение</strong> для этой части. <strong>Все анимации</strong> применяет выбор ко всем анимациям, <strong>Эта анимация</strong> — только к показанной.</p>
+      </section>
+      <section class="demo-step" aria-labelledby="xfer-transplant-options-title">
+        <h4 id="xfer-transplant-options-title">Пересадка: Отразить, Звуки, Эффекты, Оставить</h4>
+        <figure class="gif-player" data-animation="xfer-transplant-options"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/ru/xfer-transplant-options.mp4?v=e82848511a2bd81a" muted loop playsinline controls width="1600" height="900" preload="metadata" aria-label="Пересадка: Отразить, Звуки, Эффекты, Оставить. Отразить меняет местами левую и правую стороны донора. Звуки сохраняет звуки донора, Эффекты добавляет его эффекты частиц. В разделе Оставить отмеченная деталь остаётся на своей кости."></video></figure>
+        <p><strong>Отразить</strong> меняет местами левую и правую стороны донора. <strong>Звуки</strong> сохраняет звуки донора, <strong>Эффекты</strong> добавляет его эффекты частиц. В разделе <strong>Оставить</strong> отмеченная деталь остаётся на своей кости.</p>
+      </section>
+      <section class="demo-step" aria-labelledby="xfer-transplant-apply-title">
+        <h4 id="xfer-transplant-apply-title">Пересадка и отмена</h4>
+        <figure class="gif-player" data-animation="xfer-transplant-apply"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/ru/xfer-transplant-apply.mp4?v=79bb8d12a9a3c1a7" muted loop playsinline controls width="1600" height="900" preload="metadata" aria-label="Пересадка и отмена. Нажмите Пересадка. Модель получает кости донора и все его анимации; кнопка отключается, пока не изменится настройка. Закройте окно и посмотрите вкладку Анимации. Ctrl + Z отменяет это одним шагом."></video></figure>
+        <p>Нажмите <strong>Пересадка</strong>. Модель получает кости донора и все его анимации; кнопка отключается, пока не изменится настройка. Закройте окно и посмотрите вкладку <strong>Анимации</strong>. <kbd>Ctrl</kbd> + <kbd>Z</kbd> отменяет это одним шагом.</p>
+      </section>
+      <section class="demo-step" aria-labelledby="xfer-retarget-take-title">
+        <h4 id="xfer-retarget-take-title">Перенацеливание: взять части</h4>
+        <figure class="gif-player" data-animation="xfer-retarget-take"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/ru/xfer-retarget-take.mp4?v=b14ebe393ea0d8d4" muted loop playsinline controls width="1600" height="900" preload="metadata" aria-label="Перенацеливание: взять части. Нажмите Перенацеливание. Нажмите анимацию, затем маркер кисти или стопы на доноре: эта часть берётся, а её переключатель включается в списке частей. Взять всё тело берёт все части, Снять всё убирает их. Отразить и Другая сторона берут с другой стороны донора."></video></figure>
+        <p>Нажмите <strong>Перенацеливание</strong>. Нажмите анимацию, затем маркер кисти или стопы на доноре: эта часть берётся, а её переключатель включается в списке частей. <strong>Взять всё тело</strong> берёт все части, <strong>Снять всё</strong> убирает их. <strong>Отразить</strong> и <strong>Другая сторона</strong> берут с другой стороны донора.</p>
+      </section>
+      <section class="demo-step" aria-labelledby="xfer-retarget-tune-title">
+        <h4 id="xfer-retarget-tune-title">Перенацеливание: настройка и наведение</h4>
+        <figure class="gif-player" data-animation="xfer-retarget-tune"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/ru/xfer-retarget-tune.mp4?v=b1b417bf443bff1d" muted loop playsinline controls width="1600" height="900" preload="metadata" aria-label="Перенацеливание: настройка и наведение. Выберите взятую часть. Интенсивность, Поза (от Моя до Донора), Поднять, Поворот и Сворачивание меняют её, а оранжевая траектория следует за ними. Дважды щёлкните ползунок, чтобы вернуть значение по умолчанию. Перетащите кисть на результате: Всё движение поворачивает всё движение, Этот момент правит один момент (на шкале времени появляется ромб), Убрать правки убирает правки."></video></figure>
+        <p>Выберите взятую часть. <strong>Интенсивность</strong>, <strong>Поза</strong> (от <strong>Моя</strong> до <strong>Донора</strong>), <strong>Поднять</strong>, <strong>Поворот</strong> и <strong>Сворачивание</strong> меняют её, а оранжевая траектория следует за ними. Дважды щёлкните ползунок, чтобы вернуть значение по умолчанию. Перетащите кисть на результате: <strong>Всё движение</strong> поворачивает всё движение, <strong>Этот момент</strong> правит один момент (на шкале времени появляется ромб), <strong>Убрать правки</strong> убирает правки.</p>
+      </section>
+      <section class="demo-step" aria-labelledby="xfer-retarget-timeline-title">
+        <h4 id="xfer-retarget-timeline-title">Перенацеливание: шкала времени</h4>
+        <figure class="gif-player" data-animation="xfer-retarget-timeline"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/ru/xfer-retarget-timeline.mp4?v=ce0c2192a513317f" muted loop playsinline controls width="1600" height="900" preload="metadata" aria-label="Перенацеливание: шкала времени. Перетащите клип вбок, чтобы задать Задержка. Перетащите край, чтобы обрезать клип, и дважды щёлкните край, чтобы вернуть его. В Время находятся Задержка, Скорость и Плавность. Добавить после воспроизводит показанную у донора анимацию после первой, на отдельной дорожке; её × удаляет дорожку."></video></figure>
+        <p>Перетащите клип вбок, чтобы задать <strong>Задержка</strong>. Перетащите край, чтобы обрезать клип, и дважды щёлкните край, чтобы вернуть его. В <strong>Время</strong> находятся <strong>Задержка</strong>, <strong>Скорость</strong> и <strong>Плавность</strong>. <strong>Добавить после</strong> воспроизводит показанную у донора анимацию после первой, на отдельной дорожке; её × удаляет дорожку.</p>
+      </section>
+      <section class="demo-step" aria-labelledby="xfer-retarget-switches-title">
+        <h4 id="xfer-retarget-switches-title">Перенацеливание: переключатели</h4>
+        <figure class="gif-player" data-animation="xfer-retarget-switches"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/ru/xfer-retarget-switches.mp4?v=25ce1d609d87636f" muted loop playsinline controls width="1600" height="900" preload="metadata" aria-label="Перенацеливание: переключатели. Все взятые части меняет все взятые части сразу. Держать ногу на земле, В пределах своих движений, Не пускать руку в тело, Перемещение и, для руки с оружием, Оружие над землёй. Взять из берёт выбранную часть из анимации, которую сейчас показывает область донора."></video></figure>
+        <p><strong>Все взятые части</strong> меняет все взятые части сразу. <strong>Держать ногу на земле</strong>, <strong>В пределах своих движений</strong>, <strong>Не пускать руку в тело</strong>, <strong>Перемещение</strong> и, для руки с оружием, <strong>Оружие над землёй</strong>. <strong>Взять из</strong> берёт выбранную часть из анимации, которую сейчас показывает область донора.</p>
+      </section>
+      <section class="demo-step" aria-labelledby="xfer-retarget-finish-title">
+        <h4 id="xfer-retarget-finish-title">Перенацеливание: завершение</h4>
+        <figure class="gif-player" data-animation="xfer-retarget-finish"><video class="player-frame" data-tutorial-video="/mdlxl/tutorials/ru/xfer-retarget-finish.mp4?v=f7061321a6147c63" muted loop playsinline controls width="1600" height="900" preload="metadata" aria-label="Перенацеливание: завершение. Введите Имя и нажмите Добавить анимацию: она появится среди анимаций модели. Добавить все добавляет весь набор донора; Оставить свои анимации добавляет только те, которых у модели нет. Сохранить как… сохраняет настройку, Загрузить из… применяет её снова."></video></figure>
+        <p>Введите <strong>Имя</strong> и нажмите <strong>Добавить анимацию</strong>: она появится среди анимаций модели. <strong>Добавить все</strong> добавляет весь набор донора; <strong>Оставить свои анимации</strong> добавляет только те, которых у модели нет. <strong>Сохранить как…</strong> сохраняет настройку, <strong>Загрузить из…</strong> применяет её снова.</p>
       </section>
     </article>
